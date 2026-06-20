@@ -59,9 +59,22 @@ Explore people, events, kingdoms, and prophets, and see how they connect across 
 
 When historical dates or interpretations differ, the project aims to present the evidence clearly and fairly.
 
+## Constraints & Targets
+
+These shape technical decisions.
+
+1. **Desktop-first, mobile-capable** — the primary experience is large screens; mobile must work well but is the secondary target.
+2. **Performance is a feature** — fast first paint, minimal JavaScript, visualizations that feel instant.
+3. **Simple, well-formed code** — readable over clever, a low barrier for contributors, TypeScript throughout.
+4. **Open and static** — fully static output, hostable on GitHub Pages or any simple container. No server, no runtime database, no per-user state at this point.
+
+**Stack:** [Astro](https://astro.build/) (static) + [Svelte](https://svelte.dev/) islands + TypeScript, with [D3](https://d3js.org/) modules and [MapLibre GL](https://maplibre.org/) for visualizations. Curated data lives as human-readable files in git (the source of truth), may be validated and compiled at build time, and ships as small static JSON bundles. Connections are explored as an in-memory graph — no database is shipped to the browser.
+
+See **[ARCHITECTURE.md](./ARCHITECTURE.md)** for more details.
+
 ## Contributing
 
-Contributions are welcome—from biblical research and historical review to design and software development.
+Contributions are welcome — from biblical research and historical review to design and software development.
 
 ## License
 
