@@ -72,6 +72,17 @@ These shape technical decisions.
 
 See **[ARCHITECTURE.md](./ARCHITECTURE.md)** for more details.
 
+## Data & Sources
+
+The data is curated from openly licensed and public-domain sources, and every record carries a citation so readers can see where a date or claim comes from. Genealogies and scripture references are drawn directly from the biblical text. Good starting points include:
+
+* [Theographic Bible Metadata](https://github.com/robertrouse/theographic-bible-metadata) — people, places, events, and their relationships (CC-BY-SA)
+* [OpenBible.info](https://www.openbible.info/geo/) and [Pleiades](https://pleiades.stoa.org/) — geocoded biblical and ancient-world places
+* [Wikidata](https://www.wikidata.org/) (CC0) for cross-checking, and public-domain Bible dictionaries (ISBE, Easton's) for descriptions
+* Scholarly chronologies (e.g. Thiele) for the contested dates, cited per record
+
+Code is MIT; the curated data is licensed separately (likely CC-BY-SA to stay compatible with its sources). Please don't add data from copyrighted, restrictively licensed material.
+
 ## Contributing
 
 Contributions are welcome — from biblical research and historical review to design and software development.
