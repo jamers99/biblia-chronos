@@ -1,0 +1,21 @@
+{
+  "repo": "robertrouse/theographic-bible-metadata",
+  "commit": "cfb1c485d4da6fb63a69cb3b7f5b0752792f46bc",
+  "vendored": "2026-06-22",
+  "license": "CC-BY-SA-4.0",
+  "sourcePath": "json",
+  "files": {
+    "committed": [
+      "books.json",
+      "chapters.json",
+      "events.json",
+      "people.json",
+      "peopleGroups.json",
+      "places.json"
+    ],
+    "fetched": [
+      "verses.json",
+      "easton.json"
+    ]
+  }
+}

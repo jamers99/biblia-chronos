@@ -1,0 +1,10 @@
+# Dependencies
+node_modules/
+
+# Build output — shipped bundles are generated, not tracked
+dist/
+
+# Heavy vendor files — fetched on demand at the pinned commit.
+# Restore with: node scripts/vendor-fetch.mjs  (see data/vendor/theographic/snapshot.json)
+data/vendor/theographic/verses.json
+data/vendor/theographic/easton.json
