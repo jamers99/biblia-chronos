@@ -1,0 +1,18 @@
+{
+  "name": "biblia-chronos",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Explore the Story of Scripture — interactive biblical timelines, maps, and genealogies.",
+  "license": "MIT",
+  "scripts": {
+    "vendor:fetch": "node scripts/vendor-fetch.mjs",
+    "import:theographic": "tsx scripts/import-theographic.ts"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2"
+  }
+}
