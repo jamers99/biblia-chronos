@@ -1,0 +1,92 @@
+---
+import { personById, targets } from "../lib/data/load.ts"
+import { formatEstimate } from "../lib/format.ts"
+import PatriarchList from "../components/PatriarchList.svelte"
+
+// A deliberate spike: prove the seed → graph → page → island → static build
+// path with one real slice of the data. The "History of Israel" timeline proper
+// comes next; this just renders the patriarchs from the canonical seed.
+const PATRIARCHS = [
+  "abraham_58",
+  "sarah_2473",
+  "isaac_616",
+  "jacob_683",
+  "judah_1751",
+  "joseph_1710",
+]
+
+const rows = PATRIARCHS.map((id) => {
+  const p = personById(id)
+  if (!p) throw new Error(`Seed is missing expected person: ${id}`)
+  return {
+    id: p.id,
+    name: p.name,
+    born: formatEstimate(p.birth),
+    died: formatEstimate(p.death),
+    children: targets(p.id, "parent-of").length, // graph: parent-of edges
+    draft: p.status === "draft",
+  }
+}).sort((a, b) => a.id.localeCompare(b.id))
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Biblia Chronos</title>
+  </head>
+  <body>
+    <main>
+      <h1>Biblia Chronos</h1>
+      <p class="lede">
+        Exploring the Story of Scripture. This is an early spike: the patriarchs,
+        rendered from the canonical seed data.
+      </p>
+
+      <h2>Patriarchs</h2>
+      <PatriarchList rows={rows} client:load />
+
+      <p class="note">
+        Names, dates, and family links come straight from
+        <code>data/seed/</code>; “children” counts <code>parent-of</code> edges
+        in the graph. The toggle above is a hydrated Svelte island.
+      </p>
+    </main>
+
+    <style>
+      :global(body) {
+        margin: 0;
+        font-family: system-ui, sans-serif;
+        color: #1a1a1a;
+        background: #fafafa;
+      }
+      main {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 3rem 1.5rem;
+      }
+      h1 {
+        margin: 0 0 0.25rem;
+      }
+      .lede {
+        color: #555;
+        margin: 0 0 2rem;
+      }
+      h2 {
+        font-size: 1.1rem;
+        margin: 0 0 0.75rem;
+      }
+      .note {
+        margin-top: 1.5rem;
+        font-size: 0.8rem;
+        color: #888;
+      }
+      code {
+        background: #eee;
+        border-radius: 3px;
+        padding: 0.05rem 0.3rem;
+      }
+    </style>
+  </body>
+</html>
