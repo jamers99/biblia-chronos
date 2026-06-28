@@ -1,0 +1,232 @@
+[
+  {
+    "id": "apostles",
+    "name": "Apostles",
+    "status": "published",
+    "source": "theographic",
+    "kind": "peopleGroup"
+  },
+  {
+    "id": "apostles-post-ascension",
+    "name": "Apostles (Post-Ascension)",
+    "status": "published",
+    "source": "theographic",
+    "kind": "peopleGroup"
+  },
+  {
+    "id": "apostles-the-eleven",
+    "name": "Apostles (The Eleven)",
+    "status": "published",
+    "source": "theographic",
+    "kind": "peopleGroup"
+  },
+  {
+    "id": "chief-priests",
+    "name": "Chief Priests",
+    "status": "published",
+    "source": "theographic",
+    "kind": "peopleGroup"
+  },
+  {
+    "id": "disciples-of-john",
+    "name": "Disciples of John",
+    "status": "published",
+    "source": "theographic",
+    "kind": "peopleGroup"
+  },
+  {
+    "id": "genealogy-of-jesus",
+    "name": "Genealogy of Jesus",
+    "status": "published",
+    "source": "theographic",
+    "kind": "peopleGroup"
+  },
+  {
+    "id": "line-of-cain",
+    "name": "Line of Cain",
+    "status": "published",
+    "source": "theographic",
+    "kind": "peopleGroup"
+  },
+  {
+    "id": "nation-of-israel",
+    "name": "Nation of Israel",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "ps",
+        "chapter": 14,
+        "verse": 7
+      },
+      {
+        "book": "ps",
+        "chapter": 53,
+        "verse": 6
+      },
+      {
+        "book": "ps",
+        "chapter": 76,
+        "verse": 1
+      },
+      {
+        "book": "ps",
+        "chapter": 78,
+        "verse": 21
+      },
+      {
+        "book": "ps",
+        "chapter": 78,
+        "verse": 31
+      },
+      {
+        "book": "ps",
+        "chapter": 78,
+        "verse": 41
+      },
+      {
+        "book": "ps",
+        "chapter": 81,
+        "verse": 8
+      },
+      {
+        "book": "ps",
+        "chapter": 81,
+        "verse": 11
+      },
+      {
+        "book": "ps",
+        "chapter": 81,
+        "verse": 13
+      },
+      {
+        "book": "ps",
+        "chapter": 89,
+        "verse": 18
+      },
+      {
+        "book": "ps",
+        "chapter": 105,
+        "verse": 10
+      },
+      {
+        "book": "ps",
+        "chapter": 147,
+        "verse": 19
+      }
+    ],
+    "kind": "peopleGroup"
+  },
+  {
+    "id": "pharisees",
+    "name": "Pharisees",
+    "status": "published",
+    "source": "theographic",
+    "kind": "peopleGroup"
+  },
+  {
+    "id": "sadducees",
+    "name": "Sadducees",
+    "status": "published",
+    "source": "theographic",
+    "kind": "peopleGroup"
+  },
+  {
+    "id": "scribes",
+    "name": "Scribes",
+    "status": "published",
+    "source": "theographic",
+    "kind": "peopleGroup"
+  },
+  {
+    "id": "tribe-of-asher",
+    "name": "Tribe of Asher",
+    "status": "published",
+    "source": "theographic",
+    "kind": "peopleGroup"
+  },
+  {
+    "id": "tribe-of-benjamin",
+    "name": "Tribe of Benjamin",
+    "status": "published",
+    "source": "theographic",
+    "kind": "peopleGroup"
+  },
+  {
+    "id": "tribe-of-dan",
+    "name": "Tribe of Dan",
+    "status": "published",
+    "source": "theographic",
+    "kind": "peopleGroup"
+  },
+  {
+    "id": "tribe-of-gad",
+    "name": "Tribe of Gad",
+    "status": "published",
+    "source": "theographic",
+    "kind": "peopleGroup"
+  },
+  {
+    "id": "tribe-of-issachar",
+    "name": "Tribe of Issachar",
+    "status": "published",
+    "source": "theographic",
+    "kind": "peopleGroup"
+  },
+  {
+    "id": "tribe-of-joseph",
+    "name": "Tribe of Joseph",
+    "status": "published",
+    "source": "theographic",
+    "kind": "peopleGroup"
+  },
+  {
+    "id": "tribe-of-judah",
+    "name": "Tribe of Judah",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "prov",
+        "chapter": 25,
+        "verse": 1
+      }
+    ],
+    "kind": "peopleGroup"
+  },
+  {
+    "id": "tribe-of-levi",
+    "name": "Tribe of Levi",
+    "status": "published",
+    "source": "theographic",
+    "kind": "peopleGroup"
+  },
+  {
+    "id": "tribe-of-naphtali",
+    "name": "Tribe of Naphtali",
+    "status": "published",
+    "source": "theographic",
+    "kind": "peopleGroup"
+  },
+  {
+    "id": "tribe-of-reuben",
+    "name": "Tribe of Reuben",
+    "status": "published",
+    "source": "theographic",
+    "kind": "peopleGroup"
+  },
+  {
+    "id": "tribe-of-simeon",
+    "name": "Tribe of Simeon",
+    "status": "published",
+    "source": "theographic",
+    "kind": "peopleGroup"
+  },
+  {
+    "id": "tribe-of-zebulun",
+    "name": "Tribe of Zebulun",
+    "status": "published",
+    "source": "theographic",
+    "kind": "peopleGroup"
+  }
+]
