@@ -1,4 +1,4 @@
-_Disclaimer: this isn't built yet :'( just an idea had that I'd like to work on "soon"..._
+_Disclaimer: this isn't fully built yet :'( just an idea had that I'd like to work on "soon"..._
 
 # Biblia Chronos
 
