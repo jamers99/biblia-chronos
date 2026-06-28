@@ -6,6 +6,10 @@
   "description": "Explore the Story of Scripture — interactive biblical timelines, maps, and genealogies.",
   "license": "MIT",
   "scripts": {
+    "dev": "astro dev",
+    "check:data": "tsx scripts/check-data.ts",
+    "build": "npm run check:data && astro build",
+    "preview": "astro preview",
     "vendor:fetch": "node scripts/vendor-fetch.mjs",
     "import:theographic": "tsx scripts/import-theographic.ts"
   },
@@ -13,6 +17,9 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@astrojs/svelte": "^7.0.0",
+    "astro": "^5.0.0",
+    "svelte": "^5.0.0",
     "tsx": "^4.19.2"
   }
 }
