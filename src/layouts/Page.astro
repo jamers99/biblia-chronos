@@ -32,13 +32,25 @@ const isCurrent = (href: string) =>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>{title === "Biblia Chronos" ? title : `${title} · Biblia Chronos`}</title>
     {description && <meta name="description" content={description} />}
     <link rel="icon" href={url("/favicon.svg")} type="image/svg+xml" />
+    <!-- Installable as an app (see manifest.webmanifest.ts and public/sw.js) -->
+    <link rel="manifest" href={url("/manifest.webmanifest")} />
+    <link rel="apple-touch-icon" href={url("/icons/icon-180.png")} />
+    <meta name="apple-mobile-web-app-title" content="Chronos" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="theme-color" content="#f7f3ea" />
     <script is:inline>
-      document.documentElement.dataset.theme =
-        localStorage.getItem("theme") ?? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+      // Set the theme before first paint, from the saved choice or the system
+      // setting; the app's title bar follows it.
+      window.applyTheme = (theme) => {
+        document.documentElement.dataset.theme = theme
+        document.querySelector('meta[name="theme-color"]').content = theme === "dark" ? "#1d1b18" : "#f7f3ea"
+      }
+      applyTheme(localStorage.getItem("theme") ?? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"))
     </script>
     <slot name="head" />
   </head>
@@ -100,6 +112,12 @@ const isCurrent = (href: string) =>
         </footer>
       )
     }
+    <script>
+      // Offline support for the installed app. Production only: in dev it
+      // would serve stale pages.
+      import { url } from "../lib/url.ts"
+      if (import.meta.env.PROD && "serviceWorker" in navigator) navigator.serviceWorker.register(url("/sw.js"))
+    </script>
   </body>
 </html>
 
@@ -157,8 +175,10 @@ const isCurrent = (href: string) =>
 
   /* --- Immersive ----------------------------------------------------------- */
 
+  /* A canvas, not a document: no page scroll, no pull-to-refresh bounce. */
   body.immersive {
     overflow: hidden;
+    overscroll-behavior: none;
   }
   main.immersive {
     height: 100dvh;
@@ -170,7 +190,8 @@ const isCurrent = (href: string) =>
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 1.1rem 1.5rem;
+    padding: max(1.1rem, env(safe-area-inset-top)) max(1.5rem, env(safe-area-inset-right)) 1.1rem
+      max(1.5rem, env(safe-area-inset-left));
     pointer-events: none;
   }
   header.overlay > * {
@@ -193,6 +214,15 @@ const isCurrent = (href: string) =>
   }
   .menu summary::-webkit-details-marker {
     display: none;
+  }
+  .menu[open] nav {
+    animation: drop 0.16s ease-out;
+  }
+  @keyframes drop {
+    from {
+      opacity: 0;
+      transform: translateY(-4px) scale(0.98);
+    }
   }
   .menu nav {
     position: absolute;

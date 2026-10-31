@@ -10,6 +10,7 @@
   import type { MapPlace } from "../lib/map.ts"
   import { entityUrl } from "../lib/url.ts"
   import { labelWidth } from "../lib/format.ts"
+  import { addInertia } from "../lib/inertia.ts"
 
   type Era = { id: string; name: string }
   type Box = [number, number, number, number] // x0, y0, x1, y1
@@ -80,6 +81,7 @@
       .then((text) => (basemapSvg = text.replace(/<(style)[\s\S]*?\/\1>/, "")))
     behavior = zoom<SVGSVGElement, unknown>().on("zoom", (e) => (transform = e.transform))
     select(svg).call(behavior)
+    addInertia(behavior, svg, "xy")
     const target = places.find((p) => `#${p.id}` === location.hash)
     if (target) {
       selected = target
