@@ -1,5 +1,5 @@
 ---
-import { personById, targets } from "../lib/data/load.ts"
+import { entity, graph } from "../lib/data/load.ts"
 import { formatEstimate } from "../lib/format.ts"
 import PatriarchList from "../components/PatriarchList.svelte"
 
@@ -16,14 +16,14 @@ const PATRIARCHS = [
 ]
 
 const rows = PATRIARCHS.map((id) => {
-  const p = personById(id)
-  if (!p) throw new Error(`Seed is missing expected person: ${id}`)
+  const p = entity(id)
+  if (p?.kind !== "person") throw new Error(`Seed is missing expected person: ${id}`)
   return {
     id: p.id,
     name: p.name,
     born: formatEstimate(p.birth),
     died: formatEstimate(p.death),
-    children: targets(p.id, "parent-of").length, // graph: parent-of edges
+    children: graph.outgoing(p.id, "parent-of").length, // graph: parent-of edges
     draft: p.status === "draft",
   }
 }).sort((a, b) => a.id.localeCompare(b.id))

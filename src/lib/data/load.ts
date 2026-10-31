@@ -1,19 +1,20 @@
-// Loads the canonical seed data and exposes typed accessors plus a thin graph
-// helper. Runs at build time (SSG) in Node, reading data/seed/ directly — no
-// database ships to the browser. Overrides merging (data/overrides/) and the
-// full graph index land with the build stage; this is the minimal seam.
+// Loads the canonical data (seed + overrides) and exposes typed collections, a
+// lookup by id, and the graph. Runs at build time (SSG) only, reading
+// data/seed/ directly — none of this ships to the browser. Islands get the
+// small slices they need as props.
 
-import type { Person, Place, Event, PeopleGroup, Period, Book, Edge, EdgeType } from "./schema.ts"
+import type { Person, Place, Event, PeopleGroup, Period, Book, Edge, Source } from "./schema.ts"
 import { mergeEntities, mergeEdges } from "./merge.ts"
+import { createGraph } from "./graph.ts"
 
-// JSON imports are resolved by Vite at build time (relative to this file) and
-// inlined into the SSG build — they never ship to the browser.
+// JSON imports are resolved by Vite at build time (relative to this file).
 import peopleData from "../../../data/seed/people.json"
 import placesData from "../../../data/seed/places.json"
 import eventsData from "../../../data/seed/events.json"
 import peopleGroupsData from "../../../data/seed/peopleGroups.json"
 import booksData from "../../../data/seed/books.json"
 import edgesData from "../../../data/seed/edges.json"
+import sourcesData from "../../../data/sources.json"
 
 // Hand-authored corrections layered on top of seed (overrides win, by id).
 // The directory may be empty or absent — the glob simply yields nothing then.
@@ -31,18 +32,32 @@ export const people = mergeEntities(peopleData as Person[], override("people.jso
 export const places = mergeEntities(placesData as Place[], override("places.json"))
 export const events = mergeEntities(eventsData as Event[], override("events.json"))
 export const peopleGroups = mergeEntities(peopleGroupsData as PeopleGroup[], override("peopleGroups.json"))
+export const books = mergeEntities(booksData as Book[], override("books.json"))
+export const edges = mergeEdges(edgesData as Edge[], override("edges.json") as Edge[])
+export const sources = sourcesData as Source[]
+
 // Periods are hand-authored only (no seed), sorted into story order.
 export const periods = (override("periods.json") as Period[]).sort(
   (a, b) => a.date.earliest - b.date.earliest,
 )
-export const books = mergeEntities(booksData as Book[], override("books.json"))
-export const edges = mergeEdges(edgesData as Edge[], override("edges.json") as Edge[])
 
-const peopleById = new Map(people.map((p) => [p.id, p]))
-export const personById = (id: string): Person | undefined => peopleById.get(id)
+export const graph = createGraph(edges)
 
-// Minimal graph access: the targets of a given edge type leaving `from`.
-// (The runtime builds the reverse direction itself, so we store each fact once.)
-export function targets(from: string, type: EdgeType): string[] {
-  return edges.filter((e) => e.from === from && e.type === type).map((e) => e.to)
+export type Entity = Person | Place | Event | PeopleGroup
+
+const byId = new Map<string, Entity>(
+  [...people, ...places, ...events, ...peopleGroups].map((e) => [e.id, e]),
+)
+const sourceById = new Map(sources.map((s) => [s.id, s]))
+
+export const entity = (id: string): Entity | undefined => byId.get(id)
+export const source = (id: string): Source | undefined => sourceById.get(id)
+
+// Resolve ids to records of one kind, dropping any that don't resolve.
+export function resolve<K extends Entity["kind"]>(ids: string[], kind: K) {
+  return ids
+    .map((id) => byId.get(id))
+    .filter((e): e is Extract<Entity, { kind: K }> => e?.kind === kind)
 }
+
+export const byName = (a: { name: string }, b: { name: string }) => a.name.localeCompare(b.name)
