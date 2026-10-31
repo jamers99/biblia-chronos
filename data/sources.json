@@ -6,5 +6,11 @@
     "url": "https://github.com/robertrouse/theographic-bible-metadata",
     "license": "CC-BY-SA-4.0",
     "kind": "dataset"
+  },
+  {
+    "id": "editorial",
+    "title": "Biblia Chronos editors",
+    "kind": "other",
+    "notes": "Records authored by this project. Each one explains its basis in its description, citing the upstream records or scholarship it relies on."
   }
 ]
