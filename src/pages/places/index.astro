@@ -1,0 +1,14 @@
+---
+import Page from "../../layouts/Page.astro"
+import AlphaIndex from "../../components/AlphaIndex.astro"
+import { places } from "../../lib/data/load.ts"
+import { url } from "../../lib/url.ts"
+---
+
+<Page title="Places" description="Every place named in Scripture.">
+  <h1>Places</h1>
+  <p class="muted">
+    {places.length.toLocaleString()} places. See them on the <a href={url("/map/")}>map</a>.
+  </p>
+  <AlphaIndex items={places} />
+</Page>

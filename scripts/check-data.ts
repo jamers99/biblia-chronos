@@ -16,6 +16,7 @@ import {
   Place,
   Event,
   PeopleGroup,
+  Period,
   Book,
   Edge,
   Source,
@@ -49,6 +50,7 @@ const merged = {
   events: mergeEntities(readSeed("events.json"), readOverride("events.json")),
   peopleGroups: mergeEntities(readSeed("peopleGroups.json"), readOverride("peopleGroups.json")),
   books: mergeEntities(readSeed("books.json"), readOverride("books.json")),
+  periods: readOverride("periods.json"), // hand-authored only, no seed
   edges: mergeEdges(readSeed("edges.json"), readOverride("edges.json")),
 }
 
@@ -70,6 +72,7 @@ const people = validate("people", Person, merged.people)
 const places = validate("places", Place, merged.places)
 const events = validate("events", Event, merged.events)
 const peopleGroups = validate("peopleGroups", PeopleGroup, merged.peopleGroups)
+const periods = validate("periods", Period, merged.periods)
 const books = validate("books", Book, merged.books)
 const edges = validate("edges", Edge, merged.edges)
 
@@ -80,8 +83,9 @@ if (errors.length) {
 
 // --- Index entities ---------------------------------------------------------
 
-const entityKind = new Map<string, "person" | "place" | "event" | "peopleGroup">()
-const claim = (id: string, kind: "person" | "place" | "event" | "peopleGroup") => {
+type Kind = "person" | "place" | "event" | "peopleGroup" | "period"
+const entityKind = new Map<string, Kind>()
+const claim = (id: string, kind: Kind) => {
   if (entityKind.has(id)) err(`duplicate entity id "${id}" (${entityKind.get(id)} & ${kind})`)
   else entityKind.set(id, kind)
 }
@@ -89,6 +93,7 @@ for (const p of people) claim(p.id, "person")
 for (const p of places) claim(p.id, "place")
 for (const e of events) claim(e.id, "event")
 for (const g of peopleGroups) claim(g.id, "peopleGroup")
+for (const p of periods) claim(p.id, "period")
 
 const sourceIds = new Set(sourceList.map((s) => s.id))
 const bookIds = new Set(books.map((b) => b.id))
@@ -96,14 +101,15 @@ const bookIds = new Set(books.map((b) => b.id))
 // --- 2. Sources resolve -----------------------------------------------------
 
 const allEntities = [...people, ...places, ...events, ...peopleGroups]
-for (const e of allEntities)
+const allRecords = [...allEntities, ...periods] // periods have no edges by design
+for (const e of allRecords)
   if (!sourceIds.has(e.source)) err(`entity "${e.id}" references unknown source "${e.source}"`)
 for (const e of edges)
   if (!sourceIds.has(e.source)) err(`edge ${e.from}->${e.to} references unknown source "${e.source}"`)
 
 // --- 3. Scripture refs resolve to a known book ------------------------------
 
-for (const e of allEntities)
+for (const e of allRecords)
   for (const ref of e.scriptureRefs ?? [])
     if (!bookIds.has(ref.book))
       err(`entity "${e.id}" has scriptureRef to unknown book "${ref.book}"`)
@@ -150,6 +156,14 @@ for (const p of people) {
   checkDate(p.id, "lived", p.lived)
 }
 for (const e of events) checkDate(e.id, "date", e.date)
+for (const p of periods) checkDate(p.id, "date", p.date)
+
+// Periods are sequential eras: sorted by start, each must end before (or as)
+// the next begins, so the timeline can draw them as one band.
+const byStart = [...periods].sort((a, b) => a.date.earliest - b.date.earliest)
+for (let i = 1; i < byStart.length; i++)
+  if (byStart[i].date.earliest < byStart[i - 1].date.latest)
+    err(`period "${byStart[i].id}" overlaps "${byStart[i - 1].id}"`)
 
 // --- 6. Orphans (warning only) ----------------------------------------------
 
@@ -175,7 +189,8 @@ function finish(): never {
   lines.push("======================================")
   lines.push(
     `Records: ${people.length} people · ${places.length} places · ${events.length} events · ` +
-      `${peopleGroups.length} groups · ${books.length} books · ${edges.length} edges`,
+      `${peopleGroups.length} groups · ${periods.length} periods · ${books.length} books · ` +
+      `${edges.length} edges`,
   )
   if (warnings.length) {
     lines.push(`\nWarnings (${warnings.length}):`)

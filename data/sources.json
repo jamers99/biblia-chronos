@@ -6,5 +6,28 @@
     "url": "https://github.com/robertrouse/theographic-bible-metadata",
     "license": "CC-BY-SA-4.0",
     "kind": "dataset"
+  },
+  {
+    "id": "eastons",
+    "title": "Easton's Bible Dictionary",
+    "author": "Matthew George Easton",
+    "url": "https://en.wikipedia.org/wiki/Easton%27s_Bible_Dictionary",
+    "license": "Public domain",
+    "kind": "dictionary",
+    "notes": "1897. The descriptions of people and places, via Theographic."
+  },
+  {
+    "id": "natural-earth",
+    "title": "Natural Earth",
+    "url": "https://www.naturalearthdata.com/",
+    "license": "Public domain",
+    "kind": "dataset",
+    "notes": "Coastlines, lakes, and rivers for the map (see data/geo/README.md)."
+  },
+  {
+    "id": "editorial",
+    "title": "Biblia Chronos editors",
+    "kind": "other",
+    "notes": "Records authored by this project. Each one explains its basis in its description, citing the upstream records or scholarship it relies on."
   }
 ]

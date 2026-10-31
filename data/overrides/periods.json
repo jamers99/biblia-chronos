@@ -1,0 +1,90 @@
+[
+  {
+    "id": "patriarchs",
+    "kind": "period",
+    "name": "Patriarchs",
+    "source": "editorial",
+    "date": { "earliest": -1996, "latest": -1706 },
+    "description": "Abraham, Isaac, and Jacob: God's covenant with Abraham and the family it grew into, from Abraham's birth to Jacob's household settling in Egypt (Genesis 12–46). Bounded by Theographic's birth-of-abraham and joseph-s-brothers-go-to-egypt events."
+  },
+  {
+    "id": "israel-in-egypt",
+    "kind": "period",
+    "name": "Israel in Egypt",
+    "source": "editorial",
+    "date": { "earliest": -1706, "latest": -1490 },
+    "description": "Jacob's descendants multiply in Egypt and are enslaved (Genesis 47–50, Exodus 1–12). Bounded by Jacob's family arriving in Egypt and Theographic's exodus-from-egypt event."
+  },
+  {
+    "id": "exodus",
+    "kind": "period",
+    "name": "Exodus & Wilderness",
+    "source": "editorial",
+    "date": { "earliest": -1490, "latest": -1450 },
+    "description": "The Exodus, the covenant at Sinai, and forty years in the wilderness (Exodus 12 – Deuteronomy). Bounded by Theographic's exodus-from-egypt and crossing-the-jordan-into-canaan events. Theographic follows the early date for the Exodus; many scholars prefer a 13th-century BC date."
+  },
+  {
+    "id": "judges",
+    "kind": "period",
+    "name": "Conquest & Judges",
+    "source": "editorial",
+    "date": { "earliest": -1450, "latest": -1094 },
+    "description": "Israel enters Canaan under Joshua, then is led by judges through cycles of apostasy and deliverance (Joshua, Judges, Ruth, 1 Samuel 1–9). Bounded by the crossing of the Jordan and the start of Saul's reign in Theographic."
+  },
+  {
+    "id": "united-kingdom-era",
+    "kind": "period",
+    "name": "United Kingdom",
+    "source": "editorial",
+    "date": { "earliest": -1094, "latest": -974 },
+    "description": "Saul, David, and Solomon reign over all twelve tribes; Jerusalem becomes the capital and the temple is built (1 Samuel 10 – 1 Kings 11, 1 Chronicles). Matches Theographic's united-kingdom event."
+  },
+  {
+    "id": "divided-kingdom",
+    "kind": "period",
+    "name": "Divided Kingdom",
+    "source": "editorial",
+    "date": { "earliest": -974, "latest": -720 },
+    "description": "After Solomon the kingdom splits into Israel in the north and Judah in the south (1 Kings 12 – 2 Kings 17, 2 Chronicles 10–28). Ends with the fall of the northern kingdom, matching Theographic's northern-kingdom-israel event."
+  },
+  {
+    "id": "exiles",
+    "kind": "period",
+    "name": "Assyrian & Babylonian Exiles",
+    "source": "editorial",
+    "date": { "earliest": -720, "latest": -536 },
+    "description": "Assyria carries Israel into exile; Judah survives until Babylon destroys Jerusalem and the temple, then lives in exile in Babylon (2 Kings 18–25, Jeremiah, Ezekiel, Daniel). Ends with Cyrus's decree allowing the return (Ezra 1), which Theographic doesn't date: 536 BC follows the Ussher-style chronology the rest of the data uses; most modern scholars date it 538 BC."
+  },
+  {
+    "id": "return",
+    "kind": "period",
+    "name": "Return from Exile",
+    "source": "editorial",
+    "date": { "earliest": -536, "latest": -440 },
+    "description": "Exiles return to Judah, rebuild the temple and Jerusalem's walls (Ezra, Nehemiah, Esther, Haggai, Zechariah, Malachi). Ends with Malachi's prophecies, the last dated Old Testament event in Theographic."
+  },
+  {
+    "id": "between-the-testaments",
+    "kind": "period",
+    "name": "Between the Testaments",
+    "source": "editorial",
+    "date": { "earliest": -440, "latest": -5 },
+    "description": "The centuries between Malachi and the New Testament, under Persian, Greek, Hasmonean, and Roman rule. Scripture records no events here, so this era is mostly empty on the timeline."
+  },
+  {
+    "id": "life-of-christ",
+    "kind": "period",
+    "name": "Life of Christ",
+    "source": "editorial",
+    "date": { "earliest": -5, "latest": 30 },
+    "description": "The births of John the Baptist and Jesus, Jesus' ministry, death, and resurrection (Matthew, Mark, Luke, John). Bounded by Theographic's john-s-birth-predicted event and Jesus' death in AD 30."
+  },
+  {
+    "id": "early-church",
+    "kind": "period",
+    "name": "Early Church",
+    "source": "editorial",
+    "date": { "earliest": 30, "latest": 96 },
+    "description": "Pentecost, the spread of the gospel from Jerusalem to Rome, and the apostolic letters (Acts through Revelation). Ends at AD 96, the latest year in Theographic's data."
+  }
+]

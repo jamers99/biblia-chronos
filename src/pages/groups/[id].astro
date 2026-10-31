@@ -1,0 +1,21 @@
+---
+import Page from "../../layouts/Page.astro"
+import EntityHeader from "../../components/EntityHeader.astro"
+import EntityLinks from "../../components/EntityLinks.astro"
+import SourceNote from "../../components/SourceNote.astro"
+import { peopleGroups, graph, resolve } from "../../lib/data/load.ts"
+import type { PeopleGroup } from "../../lib/data/schema.ts"
+
+export const getStaticPaths = () =>
+  peopleGroups.map((group) => ({ params: { id: group.id }, props: { group } }))
+
+const { group } = Astro.props as { group: PeopleGroup }
+const members = resolve(graph.incoming(group.id, "member-of"), "person")
+---
+
+<Page title={group.name}>
+  <EntityHeader entity={group} kindLabel="Group" facts={[["Members", String(members.length)]]} />
+  <h2>Members</h2>
+  <EntityLinks items={members} />
+  <SourceNote sourceId={group.source} />
+</Page>

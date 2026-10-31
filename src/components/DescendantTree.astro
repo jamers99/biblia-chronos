@@ -1,0 +1,61 @@
+---
+// A person's descendants as a nested list, a few generations deep. A list
+// rather than a drawn tree: it needs no layout code, reads well on a phone,
+// and screen readers already understand it.
+import type { Person } from "../lib/data/schema.ts"
+import { graph, resolve } from "../lib/data/load.ts"
+import { entityUrl } from "../lib/url.ts"
+import { label } from "../lib/format.ts"
+
+interface Props {
+  person: Person
+  depth: number
+}
+const { person, depth } = Astro.props
+const children = resolve(graph.outgoing(person.id, "parent-of"), "person").sort((a, b) =>
+  label(a).localeCompare(label(b)),
+)
+---
+
+{
+  depth > 0 && children.length > 0 && (
+    <ul class="tree">
+      {children.map((child) => (
+        <li>
+          <a href={entityUrl(child)}>{label(child)}</a>
+          <Astro.self person={child} depth={depth - 1} />
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+<style>
+  .tree {
+    list-style: none;
+    margin: 0;
+    padding-left: 1.1rem;
+  }
+  :global(section) > .tree {
+    padding-left: 0;
+  }
+  .tree li {
+    position: relative;
+    padding: 0.1rem 0 0.1rem 0.9rem;
+    border-left: 1px solid var(--rule);
+  }
+  .tree li:last-child {
+    border-left-color: transparent;
+  }
+  .tree li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0.7rem;
+    height: 0.95rem;
+    border-left: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    margin-left: -1px;
+  }
+</style>

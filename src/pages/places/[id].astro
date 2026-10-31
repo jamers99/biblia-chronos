@@ -1,0 +1,89 @@
+---
+import Page from "../../layouts/Page.astro"
+import EntityHeader from "../../components/EntityHeader.astro"
+import Description from "../../components/Description.astro"
+import Relations from "../../components/Relations.astro"
+import EventList from "../../components/EventList.astro"
+import Scripture from "../../components/Scripture.astro"
+import SourceNote from "../../components/SourceNote.astro"
+import { places, graph, resolve } from "../../lib/data/load.ts"
+import type { Place } from "../../lib/data/schema.ts"
+import { summarize } from "../../lib/format.ts"
+import { project, MAP_W, MAP_H } from "../../lib/geo.ts"
+import { url } from "../../lib/url.ts"
+
+export const getStaticPaths = () => places.map((place) => ({ params: { id: place.id }, props: { place } }))
+
+const { place } = Astro.props as { place: Place }
+const otherNames = (place.altNames ?? []).filter((n) => n !== place.name)
+const type = [place.featureType, place.featureSubType].filter(Boolean).join(" · ")
+const coords = place.coordinates
+const events = resolve(graph.incoming(place.id, "occurred-at"), "event")
+const xy = coords && project(coords)
+---
+
+<Page title={place.name} description={summarize(place.description)}>
+  <EntityHeader
+    entity={place}
+    kindLabel="Place"
+    facts={[
+      ["Type", type || undefined],
+      ["Also called", otherNames.join(", ") || undefined],
+      ["Modern name", place.modernName],
+      ["Location", coords && `${coords.lat.toFixed(3)}°, ${coords.lng.toFixed(3)}°`],
+    ]}
+  />
+
+  {
+    xy && (
+      <a class="locator" href={url(`/map/#${place.id}`)} title="See it on the map">
+        <svg viewBox={`${xy[0] - 60} ${xy[1] - 35} 120 70`} role="img" aria-label={`${place.name} on a map`}>
+          <image href={url("/map/basemap.svg")} width={MAP_W} height={MAP_H} />
+          <circle cx={xy[0]} cy={xy[1]} r="1.6" />
+        </svg>
+        <span>See it on the map →</span>
+      </a>
+    )
+  }
+
+  <Relations
+    rows={[
+      ["Visited by", resolve(graph.incoming(place.id, "visited"), "person")],
+      ["Died here", resolve(graph.incoming(place.id, "died-at"), "person")],
+    ]}
+  />
+
+  {
+    events.length > 0 && (
+      <section>
+        <h2>Events here</h2>
+        <EventList events={events} />
+      </section>
+    )
+  }
+
+  <Description text={place.description} />
+  <Scripture refs={place.scriptureRefs} />
+  <SourceNote sourceId={place.source} />
+</Page>
+
+<style>
+  .locator {
+    display: block;
+    width: min(100%, 420px);
+    margin: 1.5rem 0 2rem;
+    font-size: 0.85rem;
+  }
+  .locator svg {
+    display: block;
+    width: 100%;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    margin-bottom: 0.3rem;
+  }
+  .locator circle {
+    fill: var(--accent);
+    stroke: var(--land);
+    stroke-width: 0.6;
+  }
+</style>

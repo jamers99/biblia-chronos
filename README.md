@@ -1,4 +1,4 @@
-_Disclaimer: this isn't fully built yet :'( just an idea had that I'd like to work on "soon"..._
+_Status: the first visualization, the History of Israel timeline, is live along with a map and a page for every person, place, and event. The data still follows a single chronology; showing scholarly alternatives is next._
 
 # Biblia Chronos
 
@@ -68,7 +68,7 @@ These shape technical decisions.
 3. **Simple, well-formed code** — readable over clever, a low barrier for contributors, TypeScript throughout.
 4. **Open and static** — fully static output, hostable on GitHub Pages or any simple container. No server, no runtime database, no per-user state at this point.
 
-**Stack:** [Astro](https://astro.build/) (static) + [Svelte](https://svelte.dev/) islands + TypeScript, with [D3](https://d3js.org/) modules and [MapLibre GL](https://maplibre.org/) for visualizations. Curated data lives as human-readable files in git (the source of truth), may be validated and compiled at build time, and ships as small static JSON bundles. Connections are explored as an in-memory graph — no database is shipped to the browser.
+**Stack:** [Astro](https://astro.build/) (static) + [Svelte](https://svelte.dev/) islands + TypeScript, with [D3](https://d3js.org/) modules for visualizations and a stylized SVG map. Curated data lives as human-readable files in git (the source of truth), may be validated and compiled at build time, and ships as small static JSON bundles. Connections are explored as an in-memory graph — no database is shipped to the browser.
 
 See **[ARCHITECTURE.md](./ARCHITECTURE.md)** for more details.
 
@@ -82,6 +82,19 @@ The data is curated from openly licensed and public-domain sources, and every re
 * Scholarly chronologies (e.g. Thiele) for the contested dates, cited per record
 
 Code is MIT; the curated data is licensed separately (likely CC-BY-SA to stay compatible with its sources). Please don't add data from copyrighted, restrictively licensed material.
+
+## Development
+
+```sh
+npm ci
+npm run dev          # local site at http://localhost:4321/biblia-chronos/
+npm test             # unit tests for the pure logic in src/lib
+npm run check        # type-check (astro check)
+npm run check:data   # validate data/seed + data/overrides
+npm run build        # check:data, then the static site into dist/
+```
+
+Re-importing the source data is a separate, deliberate step (see [docs/data-pipeline-spec.md](./docs/data-pipeline-spec.md)): `npm run vendor:fetch && npm run import:theographic`.
 
 ## Contributing
 

@@ -71,6 +71,14 @@ export const PeopleGroup = Base.extend({
   kind: z.literal("peopleGroup"),
 })
 
+// An era of the story (Patriarchs, Judges, …). Hand-authored, not imported:
+// periods live in data/overrides/periods.json. `date` is the era's span, so
+// both ends are required. Periods are sequential — the checker rejects overlaps.
+export const Period = Base.extend({
+  kind: z.literal("period"),
+  date: DateEstimate.required({ earliest: true, latest: true }),
+})
+
 export const Book = z.object({
   // reference table, not a Base entity
   id: z.string(), // osisName lowercased, e.g. "gen"
@@ -125,6 +133,7 @@ export type Person = z.infer<typeof Person>
 export type Place = z.infer<typeof Place>
 export type Event = z.infer<typeof Event>
 export type PeopleGroup = z.infer<typeof PeopleGroup>
+export type Period = z.infer<typeof Period>
 export type Book = z.infer<typeof Book>
 export type Source = z.infer<typeof Source>
 export type EdgeType = z.infer<typeof EdgeType>

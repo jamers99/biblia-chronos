@@ -1,0 +1,50 @@
+---
+// Where a record appears in Scripture, cited by book. Long lists (Jesus, David,
+// Jerusalem) fold behind a summary so the page stays scannable.
+import type { ScriptureRef } from "../lib/data/schema.ts"
+import { books } from "../lib/data/load.ts"
+import { citeRefs } from "../lib/scripture.ts"
+
+interface Props {
+  refs?: ScriptureRef[]
+}
+const cited = citeRefs(Astro.props.refs ?? [], books)
+const verses = cited.reduce((n, c) => n + c.count, 0)
+const fold = verses > 40
+const summary = `${verses} ${verses === 1 ? "verse" : "verses"} in ${cited.length} ${cited.length === 1 ? "book" : "books"}`
+---
+
+{
+  cited.length > 0 && (
+    <section>
+      <h2>In Scripture</h2>
+      <details open={!fold}>
+        <summary>{summary}</summary>
+        <ul class="refs">
+          {cited.map((c) => (
+            <li>
+              <strong>{c.book.name}</strong> {c.text}
+            </li>
+          ))}
+        </ul>
+      </details>
+    </section>
+  )
+}
+
+<style>
+  summary {
+    cursor: pointer;
+    color: var(--ink-2);
+  }
+  .refs {
+    list-style: none;
+    padding: 0;
+    margin: 0.75rem 0 0;
+    font-size: 0.92rem;
+    line-height: 1.7;
+  }
+  .refs strong {
+    font-weight: 600;
+  }
+</style>
