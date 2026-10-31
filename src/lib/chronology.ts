@@ -12,23 +12,36 @@ export function spanOf(d: DateEstimate | undefined): Span | undefined {
 }
 
 // A person's place in time. With both birth and death we know their lifetime;
-// otherwise we fall back to the years they're attested in — their recorded
+// otherwise we fall back to the years they're attested in: their recorded
 // birth or death plus the dated events they took part in. (Upstream `lived` is
-// not a lifespan, so it's deliberately ignored.)
+// not a lifespan, so it's deliberately ignored.) Two guards keep attested
+// years human-sized:
+// - an event longer than a lifetime (the 430-year sojourn in Egypt) dates a
+//   person only by its start;
+// - a gap of more than a century ends the run, so a later appearance (Elijah
+//   at the Transfiguration) doesn't stretch a life across 900 years.
 export type PersonSpan = Span & { lifetime: boolean }
+
+const LIFETIME = 80
+const GAP = 100
 
 export function personSpan(person: Person, events: Event[]): PersonSpan | undefined {
   const birth = spanOf(person.birth)
   const death = spanOf(person.death)
   if (birth && death) return { start: birth.start, end: death.end, lifetime: true }
 
-  const spans = [birth, death, ...events.map((e) => spanOf(e.date))].filter((s) => s !== undefined)
+  const spans = [birth, death, ...events.map((e) => spanOf(e.date))]
+    .filter((s) => s !== undefined)
+    .map((s) => (s.end - s.start > LIFETIME ? { start: s.start, end: s.start } : s))
+    .sort((a, b) => a.start - b.start)
   if (!spans.length) return undefined
-  return {
-    start: Math.min(...spans.map((s) => s.start)),
-    end: Math.max(...spans.map((s) => s.end)),
-    lifetime: false,
+
+  const run = { start: spans[0].start, end: spans[0].end, lifetime: false }
+  for (const s of spans.slice(1)) {
+    if (s.start - run.end > GAP) break
+    run.end = Math.max(run.end, s.end)
   }
+  return run
 }
 
 // Periods are half-open — [earliest, latest) — so a year on a boundary belongs
