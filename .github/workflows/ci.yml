@@ -1,8 +1,9 @@
 name: CI
 
-# Validates pull requests: data integrity check + a full static build. No
-# deploy here — that happens on merge to main (see deploy.yml). Once branch
-# protection requires this check, a bad re-import or override can't merge.
+# Validates pull requests: unit tests, type-check, data integrity check, and a
+# full static build. No deploy here — that happens on merge to main (see
+# deploy.yml). Once branch protection requires this check, a bad re-import or
+# override can't merge.
 
 on:
   pull_request:
@@ -18,6 +19,10 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: Unit tests
+        run: npm test
+      - name: Type-check
+        run: npm run check
       - name: Check data integrity
         run: npm run check:data
       - name: Build site

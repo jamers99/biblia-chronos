@@ -1,6 +1,6 @@
 # Architecture
 
-This is the technical plan for Biblia Chronos and the reasoning behind it, so contributors start from the same place. Most of it isn't built yet; it's what we're building toward. If you want to change a decision, open an issue that takes the reasoning here into account.
+This is the technical plan for Biblia Chronos and the reasoning behind it, so contributors start from the same place. The first version (the History of Israel timeline, map, and record pages) is built on it; [What's built](#whats-built) maps the plan to the code. If you want to change a decision, open an issue that takes the reasoning here into account.
 
 ## Constraints
 
@@ -21,8 +21,8 @@ Biblia Chronos is a read-only reference site. There are no accounts and nothing 
 - Svelte for those interactive pieces. Small, little boilerplate, easy to read.
 - TypeScript everywhere.
 - D3 modules (`d3-scale`, `d3-time`, `d3-hierarchy`, `d3-geo`) for the math behind charts and layouts, with Svelte rendering the SVG. This avoids D3's more awkward DOM API.
-- MapLibre GL for real maps, or plain SVG/GeoJSON for stylized kingdom borders.
-- Tailwind, or plain CSS with design tokens, for styling.
+- MapLibre GL for real maps, or plain SVG/GeoJSON for stylized kingdom borders. We went with the latter: a stylized SVG basemap from Natural Earth data, so the site needs no tile server.
+- Tailwind, or plain CSS with design tokens, for styling. We went with plain CSS: tokens in `src/styles/global.css` and scoped component styles.
 - Zod for validating data and generating its TypeScript types.
 
 We considered SvelteKit as a single framework for everything but chose Astro because the site is mostly static content with a few rich widgets, which is what Astro is best at.
@@ -31,13 +31,13 @@ We considered SvelteKit as a single framework for everything but chose Astro bec
 
 The data is the heart of the project, and it lives as human-readable files (YAML/JSON) in git. That's deliberate: contributors add a king, fix a date, or attach a source through normal pull requests, and those changes diff and review cleanly. A binary database file wouldn't.
 
-At build time we validate the files with Zod, run integrity checks (every reference points to a real record, no orphans, citations present, dates that make sense), and compile everything into small JSON bundles, one per visualization. The site loads each bundle only when it's needed.
+At build time we validate the files with Zod, run integrity checks (every reference points to a real record, no orphans, citations present, dates that make sense), and compile everything into small JSON bundles, one per visualization. The site loads each bundle only when it's needed. In practice each visualization's page computes its slice at build time and hands it to its island as props, so the bundle is inlined into the one page that needs it and there's no fetch or loading state.
 
 So there's no database in the browser. Shipping SQLite to the client would mean a large WebAssembly download just to query a few thousand records, with no real benefit over plain JSON.
 
 ### Exploring connections
 
-"How do these people, places, and events connect?" is a graph question, and graphs are easy to handle in memory at this size. Each record has a stable id, and relationships are edges like `{ from, to, type }`, where type is something like `parent-of`, `reigned-over`, or `traveled-to`. At runtime we build an index once and walk the graph for things like a person's ancestors, everyone alive in a given period, or the path between two people. The [graphology](https://graphology.github.io/) library gives us traversal and shortest-path for free if we want them.
+"How do these people, places, and events connect?" is a graph question, and graphs are easy to handle in memory at this size. Each record has a stable id, and relationships are edges like `{ from, to, type }`, where type is something like `parent-of`, `reigned-over`, or `traveled-to`. At runtime we build an index once and walk the graph for things like a person's ancestors, everyone alive in a given period, or the path between two people. The [graphology](https://graphology.github.io/) library gives us traversal and shortest-path for free if we want them. So far a plain adjacency index (`src/lib/data/graph.ts`) has been enough.
 
 If the integrity checks ever outgrow simple scripts, SQLite is a fine tool to run them at build time. It just never ships to the browser.
 
@@ -69,3 +69,18 @@ I considered using Rust and WebAssembly as I'd love to dig into that personally 
 ## What "fast" means
 
 Concretely: on a desktop everything should feel smooth and immediate, with no visible lag while panning a map or scrubbing a timeline. On an older phone a little slowdown is acceptable as long as the site stays usable. It's okay if side load is a little slower at first, as long as the site feels light once it's loaded.
+
+## What's built
+
+| Piece | Where |
+|---|---|
+| Schema, loading, overrides merge, graph index | `src/lib/data/` |
+| Integrity checks (run before every build) | `scripts/check-data.ts` |
+| Dates and eras, scripture citations, genealogy | `src/lib/chronology.ts`, `scripture.ts`, `family.ts` |
+| Timeline: data + lane packing / island | `src/lib/timeline.ts` / `src/components/Timeline.svelte` |
+| Map: projection + basemap / data / island | `src/lib/geo.ts` / `src/lib/map.ts` / `src/components/PlaceMap.svelte` |
+| Pages for every person, place, event, and group | `src/pages/` |
+| Hand-authored eras | `data/overrides/periods.json` |
+| Basemap geography | `data/geo/` |
+
+The logic lives in pure modules under `src/lib/` with tests next to them (`npm test`); the Svelte islands only render and handle input. Everything that can run at build time does: places are projected and timeline items are computed during the build, so the browser gets plain numbers and never loads d3-geo or the full dataset.

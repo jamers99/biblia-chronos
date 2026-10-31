@@ -1,0 +1,132 @@
+---
+import Page from "../../layouts/Page.astro"
+import { people, periods, sources } from "../../lib/data/load.ts"
+import { formatSpan } from "../../lib/format.ts"
+import { url } from "../../lib/url.ts"
+
+const drafts = people.filter((p) => p.status === "draft").length
+const repo = "https://github.com/jamers99/biblia-chronos"
+---
+
+<Page title="About" description="What Biblia Chronos is, where its data comes from, and how its dates work.">
+  <h1>About Biblia Chronos</h1>
+  <div class="prose">
+    <p>
+      Biblia Chronos helps people explore the Bible through timelines, maps, and genealogies: how the people, places,
+      and events of Scripture fit together. It's open source, and everything here is a static page built from data
+      files anyone can review and correct.
+    </p>
+  </div>
+
+  <h2 id="chronology">Dates and chronology</h2>
+  <div class="prose">
+    <p>
+      Biblical chronology is contested. For now every date comes from one source, Theographic Bible Metadata, which
+      follows a single traditional chronology close to Archbishop Ussher's: Abraham is born around 1996 BC and the
+      Exodus falls in 1490 BC (the "early date"; many scholars prefer the 13th century BC). Dates for the divided
+      kingdom's reigns also differ from widely used reconstructions such as Thiele's.
+    </p>
+    <p>
+      We present these dates as the source gives them rather than reinterpreting them. Where scholars differ, the plan
+      is to show the alternatives side by side, each with its citation. That's the next round of work on the data.
+    </p>
+    <p>
+      People with a recorded birth and death get a <em>lifetime</em> on the timeline. Most people don't have one, so
+      they appear over the years they're <em>attested</em> in: the dated events they take part in.
+    </p>
+  </div>
+
+  <h2 id="eras">Eras</h2>
+  <p class="prose">
+    The timeline is divided into these eras. Their boundaries come from events in the same source data, so they agree
+    with its chronology.
+  </p>
+  <dl class="eras">
+    {
+      periods.map((p) => (
+        <>
+          <dt>
+            {p.name} <span class="muted">{formatSpan(p.date.earliest, p.date.latest)}</span>
+          </dt>
+          <dd>{p.description}</dd>
+        </>
+      ))
+    }
+  </dl>
+
+  <h2 id="drafts">Draft records</h2>
+  <p class="prose">
+    The source data marks {drafts.toLocaleString()} of its {people.length.toLocaleString()} people as work in progress.
+    They're shown by default, marked "draft" and in grey; the timeline and map can hide them.
+  </p>
+
+  <h2 id="sources">Sources and licenses</h2>
+  <ul class="sources">
+    {
+      sources.map((s) => (
+        <li>
+          <strong>{s.url ? <a href={s.url}>{s.title}</a> : s.title}</strong>
+          {s.author && ` by ${s.author}`}
+          {s.license && ` (${s.license})`}
+          {s.notes && <div class="muted">{s.notes}</div>}
+        </li>
+      ))
+    }
+    <li>
+      <strong>Easton's Bible Dictionary</strong> (1897, public domain), via Theographic, for the descriptions of people
+      and places.
+    </li>
+    <li>
+      <strong><a href="https://www.naturalearthdata.com/">Natural Earth</a></strong> (public domain) for the map's
+      coastlines, lakes, and rivers.
+    </li>
+  </ul>
+  <div class="prose">
+    <p>
+      The data derived from Theographic is shared under the same license,
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. The code is MIT licensed.
+    </p>
+  </div>
+
+  <h2 id="contributing">Contributing</h2>
+  <div class="prose">
+    <p>
+      Found a wrong date, a misplaced city, or a missing link between people? Corrections live as small files in the
+      repository's <code>data/overrides/</code> folder, so a fix is an ordinary pull request. See the
+      <a href={repo}>project on GitHub</a>.
+    </p>
+    <p><a href={url("/")}>Back to the timeline →</a></p>
+  </div>
+</Page>
+
+<style>
+  .eras {
+    margin: 0;
+  }
+  .eras dt {
+    font: 600 1.02rem var(--serif);
+    margin-top: 1rem;
+  }
+  .eras dt .muted {
+    font: 0.85rem var(--sans);
+    margin-left: 0.35rem;
+  }
+  .eras dd {
+    margin: 0.15rem 0 0;
+    max-width: var(--measure);
+    color: var(--ink-2);
+  }
+  .sources {
+    padding-left: 1.1rem;
+    max-width: var(--measure);
+  }
+  .sources li {
+    margin-bottom: 0.6rem;
+  }
+  code {
+    font-size: 0.9em;
+    background: var(--wash);
+    border-radius: 3px;
+    padding: 0.05rem 0.3rem;
+  }
+</style>
