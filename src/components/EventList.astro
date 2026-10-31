@@ -3,12 +3,13 @@
 import type { Event } from "../lib/data/schema.ts"
 import { entityUrl } from "../lib/url.ts"
 import { formatEstimate } from "../lib/format.ts"
+import { spanOf } from "../lib/chronology.ts"
 
 interface Props {
   events: Event[]
 }
 const byDate = (a: Event, b: Event) =>
-  (a.date?.earliest ?? Infinity) - (b.date?.earliest ?? Infinity) || a.name.localeCompare(b.name)
+  (spanOf(a.date)?.start ?? Infinity) - (spanOf(b.date)?.start ?? Infinity) || a.name.localeCompare(b.name)
 const events = [...Astro.props.events].sort(byDate)
 ---
 

@@ -8,7 +8,7 @@
   import { zoom, zoomIdentity, type ZoomBehavior, type ZoomTransform } from "d3-zoom"
   import { select } from "d3-selection"
   import { packLanes, type TimelineItem, type TimelinePeriod } from "../lib/timeline.ts"
-  import { formatYear } from "../lib/format.ts"
+  import { formatSpan, formatYear, labelWidth } from "../lib/format.ts"
   import { entityUrl } from "../lib/url.ts"
 
   let { items, periods }: { items: TimelineItem[]; periods: TimelinePeriod[] } = $props()
@@ -20,7 +20,6 @@
   const LANE = 26
   const EVENT_LANES = 7
   const PEOPLE_LANES = 9
-  const CHAR = 6.6 // rough width of a 12px label character
   const EVENTS_TOP = AXIS + BAND + HEADER
   const PEOPLE_TOP = EVENTS_TOP + EVENT_LANES * LANE + HEADER
   const HEIGHT = PEOPLE_TOP + PEOPLE_LANES * LANE + 6
@@ -30,8 +29,10 @@
   let width = $state(1100)
   let showDrafts = $state(true)
   let transform = $state<ZoomTransform>(zoomIdentity)
-  let selected = $state<TimelineItem | TimelinePeriod>()
-  let hovered = $state<{ item: TimelineItem; x: number; y: number }>()
+  // Raw, not deeply reactive: these hold items from props, and selection is
+  // compared by identity.
+  let selected = $state.raw<TimelineItem | TimelinePeriod>()
+  let hovered = $state.raw<{ item: TimelineItem; x: number; y: number }>()
   let svg: SVGSVGElement
   let behavior: ZoomBehavior<SVGSVGElement, unknown>
 
@@ -45,7 +46,7 @@
   function extent(i: TimelineItem): [number, number] {
     const left = x(i.start) - 4
     const labelLeft = Math.max(left, 2)
-    return [left, Math.max(x(i.end) + 4, labelLeft + i.name.length * CHAR)]
+    return [left, Math.max(x(i.end) + 4, labelLeft + labelWidth(i.name))]
   }
 
   function lanes(kind: TimelineItem["kind"], maxLanes: number) {
@@ -106,13 +107,10 @@
     e.preventDefault()
   }
 
-  function pickEra(e: globalThis.Event) {
-    const value = (e.currentTarget as HTMLSelectElement).value
-    const period = periods.find((p) => p.id === value)
-    if (period) {
-      zoomTo(period.start, period.end)
-      selected = period
-    } else reset()
+  function pickPeriod(period: TimelinePeriod | undefined) {
+    if (!period) return reset()
+    zoomTo(period.start, period.end)
+    selected = period
   }
 
   const isItem = (s: TimelineItem | TimelinePeriod | undefined): s is TimelineItem => !!s && "kind" in s
@@ -122,7 +120,7 @@
   <div class="viz-controls">
     <label>
       <span class="sr-only">Jump to era</span>
-      <select onchange={pickEra}>
+      <select onchange={(e) => pickPeriod(periods.find((p) => p.id === e.currentTarget.value))}>
         <option value="">All eras</option>
         {#each periods as p (p.id)}
           <option value={p.id}>{p.name}</option>
@@ -183,13 +181,10 @@
         <!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions -->
         <g
           class="era"
-          onclick={() => {
-            zoomTo(p.start, p.end)
-            selected = p
-          }}
+          onclick={() => pickPeriod(p)}
         >
           <rect class:alt={n % 2 === 1} x={x(p.start)} y={AXIS} width={Math.max(0, w)} height={BAND - 4} />
-          {#if w > p.name.length * CHAR + 12}
+          {#if w > labelWidth(p.name) + 12}
             <text x={x(p.start) + w / 2} y={AXIS + 17} text-anchor="middle">{p.name}</text>
           {/if}
         </g>
@@ -219,9 +214,9 @@
           >
             <rect class="hit" x={x0} y={y} width={x1 - x0} height={LANE} />
             {#if item.end > item.start}
-              <rect class="mark" class:attested={item.kind === "person" && !item.lifetime} x={xs} y={y + 16} width={Math.max(3, xe - xs)} height="6" rx="3" />
+              <rect class="mark" class:attested={!item.lifetime} x={xs} y={y + 16} width={Math.max(3, xe - xs)} height="6" rx="3" />
             {:else}
-              <circle class="mark" cx={xs} cy={y + 19} r="4" />
+              <circle class="mark" class:attested={!item.lifetime} cx={xs} cy={y + 19} r="4" />
             {/if}
             <text x={Math.max(xs - 4, 2)} y={y + 11}>{item.name}</text>
           </g>
@@ -231,7 +226,7 @@
 
     {#if hovered}
       <div class="viz-tooltip" style="left: {hovered.x + 12}px; top: {hovered.y - 6}px">
-        <strong>{hovered.item.when}</strong>
+        <strong>{formatSpan(hovered.item.start, hovered.item.end)}</strong>
         <span>{hovered.item.name}</span>
       </div>
     {/if}
@@ -244,7 +239,7 @@
         {#if selected.draft}<span class="badge">draft</span>{/if}
       </p>
       <h2>{selected.name}</h2>
-      <p class="sub">{selected.when}{#if selected.era}{` · ${selected.era}`}{/if}</p>
+      <p class="sub">{formatSpan(selected.start, selected.end)}{#if selected.eras}{` · ${selected.eras}`}{/if}</p>
       {#if selected.summary}<p class="summary">{selected.summary}</p>{/if}
       <a href={entityUrl(selected)}>Open {selected.kind === "person" ? "person" : "event"} →</a>
     {:else if selected}

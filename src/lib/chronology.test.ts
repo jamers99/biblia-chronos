@@ -32,8 +32,10 @@ test("personSpan falls back to attested years from events and partial dates", ()
 test("personSpan keeps attested years human-sized", () => {
   // a 430-year event counts only by its start
   assert.deepEqual(personSpan(person({}), [event(-1920, -1490), event(-1895)]), { start: -1920, end: -1895, lifetime: false })
-  // a later appearance after a century's gap is not part of the run
+  // a century's gap splits runs; the busiest run wins, the earliest on a tie
   assert.deepEqual(personSpan(person({}), [event(29), event(-909), event(-905)]), { start: -909, end: -905, lifetime: false })
+  assert.deepEqual(personSpan(person({}), [event(-909), event(29)]), { start: -909, end: -909, lifetime: false })
+  assert.deepEqual(personSpan(person({}), [event(-4003), event(30), event(32)]), { start: 30, end: 32, lifetime: false })
 })
 
 test("periodAt and periodsOverlapping use the period spans", () => {

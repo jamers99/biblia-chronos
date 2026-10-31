@@ -18,8 +18,10 @@ export function spanOf(d: DateEstimate | undefined): Span | undefined {
 // years human-sized:
 // - an event longer than a lifetime (the 430-year sojourn in Egypt) dates a
 //   person only by its start;
-// - a gap of more than a century ends the run, so a later appearance (Elijah
-//   at the Transfiguration) doesn't stretch a life across 900 years.
+// - a gap of more than a century splits the years into runs, and the person
+//   is placed in the run with the most events (the earliest, on a tie), so a
+//   later appearance (Elijah at the Transfiguration) doesn't stretch a life
+//   across 900 years.
 export type PersonSpan = Span & { lifetime: boolean }
 
 const LIFETIME = 80
@@ -36,12 +38,16 @@ export function personSpan(person: Person, events: Event[]): PersonSpan | undefi
     .sort((a, b) => a.start - b.start)
   if (!spans.length) return undefined
 
-  const run = { start: spans[0].start, end: spans[0].end, lifetime: false }
-  for (const s of spans.slice(1)) {
-    if (s.start - run.end > GAP) break
-    run.end = Math.max(run.end, s.end)
+  const runs: { start: number; end: number; count: number }[] = []
+  for (const s of spans) {
+    const run = runs.at(-1)
+    if (run && s.start - run.end <= GAP) {
+      run.end = Math.max(run.end, s.end)
+      run.count++
+    } else runs.push({ ...s, count: 1 })
   }
-  return run
+  const best = runs.reduce((a, b) => (b.count > a.count ? b : a))
+  return { start: best.start, end: best.end, lifetime: false }
 }
 
 // Periods are half-open — [earliest, latest) — so a year on a boundary belongs
@@ -51,7 +57,13 @@ export const periodAt = (year: number, periods: Period[]): Period | undefined =>
   periods.find((p) => year >= p.date.earliest && year < p.date.latest) ??
   periods.find((p) => year === p.date.latest)
 
-// Periods a span overlaps (a person's life, say). A span that merely touches a
+// The era a date begins in, if any.
+export const eraOf = (d: DateEstimate | undefined, periods: Period[]): Period | undefined => {
+  const span = spanOf(d)
+  return span && periodAt(span.start, periods)
+}
+
+// Periods a span overlaps: the eras shown for a person or event everywhere. A span that merely touches a
 // boundary doesn't overlap the era on the other side: Jesus (4 BC – AD 30)
 // belongs to the Life of Christ only.
 export function periodsOverlapping(span: Span, periods: Period[]): Period[] {

@@ -7,12 +7,8 @@ import { label } from "../lib/format.ts"
 interface Props {
   items: Entity[]
 }
-const groups = new Map<string, Entity[]>()
-for (const e of [...Astro.props.items].sort((a, b) => label(a).localeCompare(label(b)))) {
-  const letter = label(e)[0].toUpperCase()
-  if (!groups.has(letter)) groups.set(letter, [])
-  groups.get(letter)!.push(e)
-}
+const sorted = [...Astro.props.items].sort((a, b) => label(a).localeCompare(label(b)))
+const groups = Map.groupBy(sorted, (e) => label(e)[0].toUpperCase())
 ---
 
 <nav class="letters" aria-label="Jump to letter">

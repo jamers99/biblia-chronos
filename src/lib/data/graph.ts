@@ -5,17 +5,9 @@
 
 import type { Edge, EdgeType } from "./schema.ts"
 
-export type Graph = ReturnType<typeof createGraph>
-
 export function createGraph(edges: Edge[]) {
-  const out = new Map<string, Edge[]>()
-  const inc = new Map<string, Edge[]>()
-  for (const e of edges) {
-    if (!out.has(e.from)) out.set(e.from, [])
-    if (!inc.has(e.to)) inc.set(e.to, [])
-    out.get(e.from)!.push(e)
-    inc.get(e.to)!.push(e)
-  }
+  const out = Map.groupBy(edges, (e) => e.from)
+  const inc = Map.groupBy(edges, (e) => e.to)
 
   const outgoing = (id: string, type: EdgeType): string[] =>
     (out.get(id) ?? []).filter((e) => e.type === type).map((e) => e.to)

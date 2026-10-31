@@ -1,5 +1,5 @@
-// Loads the canonical data (seed + overrides) and exposes typed collections, a
-// lookup by id, and the graph. Runs at build time (SSG) only, reading
+// Loads the canonical data (seed + overrides) and exposes typed collections and
+// the graph. Runs at build time (SSG) only, reading
 // data/seed/ directly — none of this ships to the browser. Islands get the
 // small slices they need as props.
 
@@ -50,7 +50,6 @@ const byId = new Map<string, Entity>(
 )
 const sourceById = new Map(sources.map((s) => [s.id, s]))
 
-export const entity = (id: string): Entity | undefined => byId.get(id)
 export const source = (id: string): Source | undefined => sourceById.get(id)
 
 // Resolve ids to records of one kind, dropping any that don't resolve.
@@ -60,4 +59,5 @@ export function resolve<K extends Entity["kind"]>(ids: string[], kind: K) {
     .filter((e): e is Extract<Entity, { kind: K }> => e?.kind === kind)
 }
 
-export const byName = (a: { name: string }, b: { name: string }) => a.name.localeCompare(b.name)
+// The dated (or undated) events a person took part in.
+export const eventsOf = (personId: string) => resolve(graph.outgoing(personId, "participated-in"), "event")

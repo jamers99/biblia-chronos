@@ -8,13 +8,7 @@ export type BookCitation = { book: Book; text: string; count: number }
 
 export function citeRefs(refs: ScriptureRef[], books: Book[]): BookCitation[] {
   const bookById = new Map(books.map((b) => [b.id, b]))
-  const byBook = new Map<string, ScriptureRef[]>()
-  for (const r of refs) {
-    if (!byBook.has(r.book)) byBook.set(r.book, [])
-    byBook.get(r.book)!.push(r)
-  }
-
-  return [...byBook.entries()]
+  return [...Map.groupBy(refs, (r) => r.book)]
     .filter(([id]) => bookById.has(id))
     .map(([id, rs]) => ({ book: bookById.get(id)!, text: citeChapters(rs), count: rs.length }))
     .sort((a, b) => a.book.order - b.book.order)

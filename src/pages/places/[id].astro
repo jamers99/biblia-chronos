@@ -6,7 +6,7 @@ import Relations from "../../components/Relations.astro"
 import EventList from "../../components/EventList.astro"
 import Scripture from "../../components/Scripture.astro"
 import SourceNote from "../../components/SourceNote.astro"
-import { places, graph, resolve, byName } from "../../lib/data/load.ts"
+import { places, graph, resolve } from "../../lib/data/load.ts"
 import type { Place } from "../../lib/data/schema.ts"
 import { summarize } from "../../lib/format.ts"
 import { project, MAP_W, MAP_H } from "../../lib/geo.ts"
@@ -48,8 +48,8 @@ const xy = coords && project(coords)
 
   <Relations
     rows={[
-      ["Visited by", resolve(graph.incoming(place.id, "visited"), "person").sort(byName)],
-      ["Died here", resolve(graph.incoming(place.id, "died-at"), "person").sort(byName)],
+      ["Visited by", resolve(graph.incoming(place.id, "visited"), "person")],
+      ["Died here", resolve(graph.incoming(place.id, "died-at"), "person")],
     ]}
   />
 

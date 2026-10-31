@@ -3,8 +3,8 @@
 // props; lanes are packed on every zoom, in pixels.
 
 import type { Event, Period, Person } from "./data/schema.ts"
-import { personSpan, spanOf, periodAt } from "./chronology.ts"
-import { formatSpan, label, summarize } from "./format.ts"
+import { personSpan, spanOf, periodsOverlapping, type Span } from "./chronology.ts"
+import { formatEstimate, label, summarize } from "./format.ts"
 
 export type TimelineItem = {
   id: string
@@ -17,8 +17,7 @@ export type TimelineItem = {
   weight: number
   draft: boolean
   lifetime: boolean // people: true = birth–death known; false = attested years only
-  when: string
-  era?: string
+  eras: string // the eras it overlaps, e.g. "Israel in Egypt, Exodus & Wilderness"
   summary?: string
 }
 
@@ -30,13 +29,14 @@ export function timelinePeriods(periods: Period[]): TimelinePeriod[] {
     name: p.name,
     start: p.date.earliest,
     end: p.date.latest,
-    when: formatSpan(p.date.earliest, p.date.latest),
+    when: formatEstimate(p.date),
     summary: summarize(p.description),
   }))
 }
 
-// Everything dated within the periods' range. "Lifetime of X" events are left
-// out: they'd duplicate X's own bar in the people lanes.
+// Everything dated within the periods' range, heaviest first (the order lanes
+// are packed in). "Lifetime of X" events are left out: they'd duplicate X's
+// own bar in the people lanes.
 export function timelineItems(
   people: Person[],
   events: Event[],
@@ -45,48 +45,36 @@ export function timelineItems(
 ): TimelineItem[] {
   const first = periods[0].date.earliest
   const last = periods[periods.length - 1].date.latest
-  const inRange = (s: { start: number; end: number }) => s.end >= first && s.start <= last
-  const era = (year: number) => periodAt(year, periods)?.name
 
-  const eventItems = events.flatMap((e): TimelineItem[] => {
-    const span = spanOf(e.date)
-    if (!span || !inRange(span) || e.id.startsWith("lifetime-of-")) return []
-    return [
-      {
-        id: e.id,
-        kind: "event",
-        name: e.name,
-        ...span,
-        weight: e.scriptureRefs?.length ?? 0,
-        draft: e.status === "draft",
-        lifetime: false,
-        when: formatSpan(span.start, span.end),
-        era: era(span.start),
-      },
-    ]
-  })
+  // The fields every item shares, or nothing if it's undated or out of range.
+  const item = (record: Event | Person, span: Span | undefined) =>
+    span && span.end >= first && span.start <= last
+      ? [
+          {
+            id: record.id,
+            ...span,
+            weight: record.scriptureRefs?.length ?? 0,
+            draft: record.status === "draft",
+            eras: periodsOverlapping(span, periods).map((p) => p.name).join(", "),
+          },
+        ]
+      : []
 
-  const personItems = people.flatMap((p): TimelineItem[] => {
-    const span = personSpan(p, eventsOf(p.id))
-    if (!span || !inRange(span)) return []
-    return [
-      {
-        id: p.id,
-        kind: "person",
+  return [
+    ...events
+      .filter((e) => !e.id.startsWith("lifetime-of-"))
+      .flatMap((e) => item(e, spanOf(e.date)).map((i) => ({ ...i, kind: "event" as const, name: e.name, lifetime: false }))),
+    ...people.flatMap((p) => {
+      const span = personSpan(p, eventsOf(p.id))
+      return item(p, span && { start: span.start, end: span.end }).map((i) => ({
+        ...i,
+        kind: "person" as const,
         name: label(p),
-        start: span.start,
-        end: span.end,
-        weight: p.scriptureRefs?.length ?? 0,
-        draft: p.status === "draft",
-        lifetime: span.lifetime,
-        when: formatSpan(span.start, span.end),
-        era: era(span.start),
+        lifetime: span!.lifetime,
         summary: summarize(p.description),
-      },
-    ]
-  })
-
-  return [...eventItems, ...personItems]
+      }))
+    }),
+  ].sort((a, b) => b.weight - a.weight)
 }
 
 // --- Lane packing -----------------------------------------------------------

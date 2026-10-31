@@ -1,7 +1,7 @@
 ---
 import Page from "../../layouts/Page.astro"
 import { people, periods, sources } from "../../lib/data/load.ts"
-import { formatSpan } from "../../lib/format.ts"
+import { formatEstimate } from "../../lib/format.ts"
 import { url } from "../../lib/url.ts"
 
 const drafts = people.filter((p) => p.status === "draft").length
@@ -46,7 +46,7 @@ const repo = "https://github.com/jamers99/biblia-chronos"
       periods.map((p) => (
         <>
           <dt>
-            {p.name} <span class="muted">{formatSpan(p.date.earliest, p.date.latest)}</span>
+            {p.name} <span class="muted">{formatEstimate(p.date)}</span>
           </dt>
           <dd>{p.description}</dd>
         </>
@@ -72,14 +72,6 @@ const repo = "https://github.com/jamers99/biblia-chronos"
         </li>
       ))
     }
-    <li>
-      <strong>Easton's Bible Dictionary</strong> (1897, public domain), via Theographic, for the descriptions of people
-      and places.
-    </li>
-    <li>
-      <strong><a href="https://www.naturalearthdata.com/">Natural Earth</a></strong> (public domain) for the map's
-      coastlines, lakes, and rivers.
-    </li>
   </ul>
   <div class="prose">
     <p>

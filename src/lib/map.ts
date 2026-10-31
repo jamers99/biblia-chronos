@@ -1,5 +1,6 @@
 // The map's data: every locatable place, projected, with the eras it figures
-// in. Pure — the page supplies the projection and how to date a place.
+// in, busiest first (the order labels are placed in). Pure — the page supplies
+// the projection and how to date a place.
 
 import type { Period, Place } from "./data/schema.ts"
 import { periodsOverlapping, type Span } from "./chronology.ts"
@@ -37,5 +38,5 @@ export function mapPlaces(
         eras: periods.filter((e) => eras.has(e.id)).map((e) => e.id),
       },
     ]
-  })
+  }).sort((a, b) => b.weight - a.weight)
 }

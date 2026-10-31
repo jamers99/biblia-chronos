@@ -16,7 +16,7 @@ const lede = summarize(entity.description)
 const shown = facts.filter(([, v]) => v)
 ---
 
-<header class="entity">
+<header>
   <p class="kind">{kindLabel}</p>
   <h1>
     {entity.name}
@@ -55,10 +55,6 @@ const shown = facts.filter(([, v]) => v)
   }
   .kind {
     margin: 0 0 0.25rem;
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--ink-3);
   }
   h1 .badge {
     margin-left: 0.5rem;

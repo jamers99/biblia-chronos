@@ -1,5 +1,5 @@
 ---
-// A comma-separated list of links to records, by label.
+// A comma-separated list of links to records, alphabetical by label.
 import type { Entity } from "../lib/data/load.ts"
 import { entityUrl } from "../lib/url.ts"
 import { label } from "../lib/format.ts"
@@ -7,7 +7,7 @@ import { label } from "../lib/format.ts"
 interface Props {
   items: Entity[]
 }
-const { items } = Astro.props
+const items = [...Astro.props.items].sort((a, b) => label(a).localeCompare(label(b)))
 ---
 
 <ul class="inline-list">

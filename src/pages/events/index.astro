@@ -2,21 +2,15 @@
 import Page from "../../layouts/Page.astro"
 import EventList from "../../components/EventList.astro"
 import { events, periods } from "../../lib/data/load.ts"
-import { periodAt, spanOf } from "../../lib/chronology.ts"
-import { formatSpan } from "../../lib/format.ts"
+import { eraOf, spanOf } from "../../lib/chronology.ts"
+import { formatEstimate } from "../../lib/format.ts"
 import { url } from "../../lib/url.ts"
 
-// Group events under the era they begin in; everything else (before Abraham,
-// or undated) gets its own section so nothing is hidden.
-const eraOf = (e: (typeof events)[number]) => {
-  const span = spanOf(e.date)
-  return span && periodAt(span.start, periods)
-}
-const sections = periods.map((p) => ({ period: p, events: events.filter((e) => eraOf(e) === p) }))
-const before = events.filter((e) => {
-  const s = spanOf(e.date)
-  return s && s.start < periods[0].date.earliest
-})
+// Group events under the era they begin in. Dated events outside every era all
+// come before Abraham (none fall after the early church); undated ones get
+// their own section, so nothing is hidden.
+const sections = periods.map((p) => ({ period: p, events: events.filter((e) => eraOf(e.date, periods) === p) }))
+const before = events.filter((e) => spanOf(e.date) && !eraOf(e.date, periods))
 const undated = events.filter((e) => !spanOf(e.date))
 ---
 
@@ -38,7 +32,7 @@ const undated = events.filter((e) => !spanOf(e.date))
     sections.map(({ period, events }) => (
       <section>
         <h2>
-          {period.name} <span class="muted span">{formatSpan(period.date.earliest, period.date.latest)}</span>
+          {period.name} <span class="muted span">{formatEstimate(period.date)}</span>
         </h2>
         {events.length ? <EventList events={events} /> : <p class="muted">No dated events in this era.</p>}
       </section>

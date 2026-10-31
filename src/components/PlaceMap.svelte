@@ -9,8 +9,9 @@
   import { select } from "d3-selection"
   import type { MapPlace } from "../lib/map.ts"
   import { entityUrl } from "../lib/url.ts"
+  import { labelWidth } from "../lib/format.ts"
 
-  type Era = { id: string; name: string; when: string }
+  type Era = { id: string; name: string }
   type Box = [number, number, number, number] // x0, y0, x1, y1
 
   let {
@@ -24,14 +25,14 @@
 
   const HEIGHT = 620
   const MAX_LABELS = 70
-  const CHAR = 6.6
 
   let width = $state(1100)
   let era = $state("")
   let showDrafts = $state(true)
   let transform = $state<ZoomTransform>(fit(home, 1100))
-  let selected = $state<MapPlace>()
-  let hovered = $state<{ place: MapPlace; sx: number; sy: number }>()
+  // Raw, not deeply reactive: these hold objects from props/points as-is.
+  let selected = $state.raw<MapPlace>()
+  let hovered = $state.raw<(typeof points)[number]>()
   let basemapSvg = $state("")
   let svg: SVGSVGElement
   let behavior: ZoomBehavior<SVGSVGElement, unknown>
@@ -51,9 +52,10 @@
   function placeLabels(pts: typeof points) {
     const boxes: Box[] = []
     const out: typeof points = []
-    for (const pt of [...pts].sort((a, b) => b.place.weight - a.place.weight)) {
+    // Points arrive busiest first, so the most-mentioned places get labels.
+    for (const pt of pts) {
       if (out.length >= MAX_LABELS) break
-      const box: Box = [pt.sx + 7, pt.sy - 9, pt.sx + 9 + pt.place.name.length * CHAR, pt.sy + 6]
+      const box: Box = [pt.sx + 7, pt.sy - 9, pt.sx + 9 + labelWidth(pt.place.name), pt.sy + 6]
       if (box[2] > width) continue
       if (boxes.some((b) => box[0] < b[2] && box[2] > b[0] && box[1] < b[3] && box[3] > b[1])) continue
       boxes.push(box)
@@ -69,6 +71,7 @@
     return zoomIdentity.translate(w / 2 - (k * (x0 + x1)) / 2, HEIGHT / 2 - (k * (y0 + y1)) / 2).scale(k)
   }
   const zoomToBox = (box: Box) => behavior.transform(select(svg), fit(box, width))
+  const zoomBy = (factor: number) => behavior.scaleBy(select(svg), factor)
 
   onMount(() => {
     fetch(basemap)
@@ -99,8 +102,7 @@
   })
 
   // Choosing an era frames all of that era's places.
-  function pickEra(e: globalThis.Event) {
-    era = (e.currentTarget as HTMLSelectElement).value
+  function frameEra() {
     if (!era || !shown.length) return zoomToBox(home)
     const xs = shown.map((p) => p.x)
     const ys = shown.map((p) => p.y)
@@ -128,8 +130,8 @@
       ArrowDown: [0, -step],
     }
     if (moves[e.key]) behavior.translateBy(select(svg), ...moves[e.key])
-    else if (e.key === "+" || e.key === "=") behavior.scaleBy(select(svg), 1.5)
-    else if (e.key === "-") behavior.scaleBy(select(svg), 1 / 1.5)
+    else if (e.key === "+" || e.key === "=") zoomBy(1.5)
+    else if (e.key === "-") zoomBy(1 / 1.5)
     else return
     e.preventDefault()
   }
@@ -139,7 +141,7 @@
   <div class="viz-controls">
     <label>
       <span class="sr-only">Era</span>
-      <select onchange={pickEra}>
+      <select bind:value={era} onchange={frameEra}>
         <option value="">All eras</option>
         {#each periods as p (p.id)}
           <option value={p.id}>{p.name}</option>
@@ -147,8 +149,8 @@
       </select>
     </label>
     <div class="viz-zoom" role="group" aria-label="Zoom">
-      <button type="button" onclick={() => behavior.scaleBy(select(svg), 1 / 1.5)} aria-label="Zoom out">−</button>
-      <button type="button" onclick={() => behavior.scaleBy(select(svg), 1.5)} aria-label="Zoom in">+</button>
+      <button type="button" onclick={() => zoomBy(1 / 1.5)} aria-label="Zoom out">−</button>
+      <button type="button" onclick={() => zoomBy(1.5)} aria-label="Zoom in">+</button>
       <button type="button" onclick={() => zoomToBox(home)}>Reset</button>
     </div>
     <label class="toggle">
@@ -168,10 +170,7 @@
       aria-label="Map of biblical places. Arrow keys pan, plus and minus zoom."
       tabindex="0"
       onkeydown={onKey}
-      onpointermove={(e) => {
-        const pt = nearest(e)
-        hovered = pt && { place: pt.place, sx: pt.sx, sy: pt.sy }
-      }}
+      onpointermove={(e) => (hovered = nearest(e))}
       onpointerleave={() => (hovered = undefined)}
       onclick={(e) => {
         const pt = nearest(e)

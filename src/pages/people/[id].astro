@@ -7,7 +7,7 @@ import DescendantTree from "../../components/DescendantTree.astro"
 import EventList from "../../components/EventList.astro"
 import Scripture from "../../components/Scripture.astro"
 import SourceNote from "../../components/SourceNote.astro"
-import { people, periods, graph, resolve, byName } from "../../lib/data/load.ts"
+import { people, periods, graph, resolve, eventsOf } from "../../lib/data/load.ts"
 import type { Person } from "../../lib/data/schema.ts"
 import { personSpan, periodsOverlapping } from "../../lib/chronology.ts"
 import { lineage } from "../../lib/family.ts"
@@ -18,10 +18,9 @@ export const getStaticPaths = () => people.map((person) => ({ params: { id: pers
 
 const { person } = Astro.props as { person: Person }
 const id = person.id
-const related = (ids: string[]) => resolve(ids, "person").sort(byName)
 const parentsOf = (pid: string) => resolve(graph.incoming(pid, "parent-of"), "person")
-const children = related(graph.outgoing(id, "parent-of"))
-const events = resolve(graph.outgoing(id, "participated-in"), "event")
+const children = resolve(graph.outgoing(id, "parent-of"), "person")
+const events = eventsOf(id)
 const span = personSpan(person, events)
 const eras = span ? periodsOverlapping(span, periods) : []
 const line = lineage(person, parentsOf)
@@ -41,13 +40,13 @@ const facts: [string, string | undefined][] = [
   <h2>Family & connections</h2>
   <Relations
     rows={[
-      ["Parents", parentsOf(id).sort(byName)],
-      ["Partners", related(graph.either(id, "partner-of"))],
-      ["Siblings", related(graph.either(id, "sibling-of"))],
-      ["Half-siblings", related(graph.either(id, "half-sibling-of"))],
+      ["Parents", parentsOf(id)],
+      ["Partners", resolve(graph.either(id, "partner-of"), "person")],
+      ["Siblings", resolve(graph.either(id, "sibling-of"), "person")],
+      ["Half-siblings", resolve(graph.either(id, "half-sibling-of"), "person")],
       ["Children", children],
-      ["Member of", resolve(graph.outgoing(id, "member-of"), "peopleGroup").sort(byName)],
-      ["Visited", resolve(graph.outgoing(id, "visited"), "place").sort(byName)],
+      ["Member of", resolve(graph.outgoing(id, "member-of"), "peopleGroup")],
+      ["Visited", resolve(graph.outgoing(id, "visited"), "place")],
       ["Died at", resolve(graph.outgoing(id, "died-at"), "place")],
     ]}
   />
@@ -61,7 +60,7 @@ const facts: [string, string | undefined][] = [
         </p>
         <ol class="line">
           {line.map((p) => (
-            <li>{p.id === id ? <strong>{p.name}</strong> : <a href={entityUrl(p)}>{p.name}</a>}</li>
+            <li>{p.id === id ? <strong>{label(p)}</strong> : <a href={entityUrl(p)}>{label(p)}</a>}</li>
           ))}
         </ol>
       </section>

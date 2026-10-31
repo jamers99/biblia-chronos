@@ -1,13 +1,13 @@
 ---
 import Page from "../layouts/Page.astro"
 import Timeline from "../components/Timeline.svelte"
-import { people, events, periods, graph, resolve } from "../lib/data/load.ts"
+import { people, events, periods, eventsOf } from "../lib/data/load.ts"
 import { timelineItems, timelinePeriods } from "../lib/timeline.ts"
 import { url } from "../lib/url.ts"
 
 // The timeline's slice of the data, computed at build time and passed to the
 // island as props — the island never sees the full dataset.
-const items = timelineItems(people, events, periods, (id) => resolve(graph.outgoing(id, "participated-in"), "event"))
+const items = timelineItems(people, events, periods, eventsOf)
 const eras = timelinePeriods(periods)
 ---
 
@@ -22,17 +22,3 @@ const eras = timelinePeriods(periods)
   </div>
   <Timeline client:load items={items} periods={eras} />
 </Page>
-
-<style>
-  .intro {
-    max-width: 68ch;
-    margin-bottom: 1.25rem;
-  }
-  .intro h1 {
-    margin-bottom: 0.25rem;
-  }
-  .intro p {
-    margin: 0;
-    color: var(--ink-2);
-  }
-</style>

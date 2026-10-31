@@ -1,4 +1,5 @@
 import type { DateEstimate } from "./data/schema.ts"
+import { spanOf } from "./chronology.ts"
 
 // Upstream years use negative = BCE (e.g. -1574). We present, not reinterpret.
 export function formatYear(year: number): string {
@@ -15,12 +16,9 @@ export function formatSpan(start: number, end: number): string {
 
 // A short label for a date estimate, e.g. "1996 BC" or "1897–1750 BC".
 export function formatEstimate(d: DateEstimate | undefined): string {
-  if (!d) return "—"
-  if (d.display) return d.display
-  const { earliest, latest } = d
-  if (earliest !== undefined && latest !== undefined) return formatSpan(earliest, latest)
-  const single = earliest ?? latest
-  return single === undefined ? "—" : formatYear(single)
+  if (d?.display) return d.display
+  const span = spanOf(d)
+  return span ? formatSpan(span.start, span.end) : "—"
 }
 
 // The first sentence of a long description, for previews. A sentence ends at
@@ -43,6 +41,10 @@ export function summarize(text: string | undefined, max = 220): string | undefin
   const sentence = first.slice(0, end)
   return sentence.length <= max ? sentence : sentence.slice(0, max).replace(/\s+\S*$/, "") + "…"
 }
+
+// Rough rendered width of a 12px sans label, for laying out SVG text without
+// measuring it.
+export const labelWidth = (text: string) => text.length * 6.6
 
 // How to name a record in a link. People share names (there are many
 // Zechariahs), so use the disambiguated display title when there is one.

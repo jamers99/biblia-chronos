@@ -32,6 +32,7 @@ const isCurrent = (href: string) =>
     <title>{title === "Biblia Chronos" ? title : `${title} · Biblia Chronos`}</title>
     {description && <meta name="description" content={description} />}
     <link rel="icon" href={url("/favicon.svg")} type="image/svg+xml" />
+    <slot name="head" />
   </head>
   <body>
     <header class="site">

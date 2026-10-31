@@ -16,7 +16,6 @@
   --events: #c0562f;
   --land: #f1ebdf;
   --water: #dde6e7;
-  --river: #9db8c4;
 
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -39,7 +38,6 @@
     --events: #d0693f;
     --land: #2b2823;
     --water: #1a2326;
-    --river: #3d5560;
   }
 }
 
@@ -58,8 +56,7 @@ body {
 }
 
 h1,
-h2,
-h3 {
+h2 {
   font-family: var(--serif);
   font-weight: 600;
   line-height: 1.2;
@@ -71,9 +68,6 @@ h1 {
 h2 {
   font-size: 1.3rem;
   margin-top: 2.25rem;
-}
-h3 {
-  font-size: 1.05rem;
 }
 
 a {
@@ -98,6 +92,14 @@ a:hover {
 }
 
 .muted {
+  color: var(--ink-3);
+}
+
+/* Small uppercase label naming what kind of thing a heading is. */
+.kind {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--ink-3);
 }
 
@@ -147,6 +149,19 @@ a:hover {
 }
 
 /* --- Visualization chrome, shared by the timeline and the map ------------ */
+
+/* The title and lede above a visualization. */
+.intro {
+  max-width: var(--measure);
+  margin-bottom: 1.25rem;
+}
+.intro h1 {
+  margin-bottom: 0.25rem;
+}
+.intro p {
+  margin: 0;
+  color: var(--ink-2);
+}
 
 .viz-controls {
   display: flex;
@@ -224,10 +239,6 @@ a:hover {
 }
 .viz-details .kind {
   margin: 0 0 0.2rem;
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink-3);
 }
 .viz-details .sub {
   margin: 0;

@@ -35,7 +35,7 @@ const person: Person = { id: "ezra", name: "Ezra", kind: "person", status: "draf
 test("timelineItems keeps dated items in range and skips lifetime-of events", () => {
   const events = [event("in", -50), event("before", -500), event("lifetime-of-ezra", -60, -10)]
   const items = timelineItems([person], events, [period], () => [events[0], events[2]])
-  assert.deepEqual(items.map((i) => [i.kind, i.id, i.start, i.end, i.era]), [
+  assert.deepEqual(items.map((i) => [i.kind, i.id, i.start, i.end, i.eras]), [
     ["event", "in", -50, -50, "Era"],
     ["person", "ezra", -60, -10, "Era"],
   ])

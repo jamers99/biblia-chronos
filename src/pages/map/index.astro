@@ -1,16 +1,14 @@
 ---
 import Page from "../../layouts/Page.astro"
 import PlaceMap from "../../components/PlaceMap.svelte"
-import { places, periods, graph, resolve } from "../../lib/data/load.ts"
+import { places, periods, graph, resolve, eventsOf } from "../../lib/data/load.ts"
 import { personSpan, spanOf } from "../../lib/chronology.ts"
 import { mapPlaces } from "../../lib/map.ts"
 import { project, MAP_W, MAP_H } from "../../lib/geo.ts"
-import { formatSpan } from "../../lib/format.ts"
 import { url } from "../../lib/url.ts"
 
 // When a place matters: the dated events that happened there, and the
 // lifetimes of the people who visited or died there.
-const eventsOf = (personId: string) => resolve(graph.outgoing(personId, "participated-in"), "event")
 const spansAt = (placeId: string) => [
   ...resolve(graph.incoming(placeId, "occurred-at"), "event").map((e) => spanOf(e.date)),
   ...resolve([...graph.incoming(placeId, "visited"), ...graph.incoming(placeId, "died-at")], "person").map((p) =>
@@ -19,7 +17,7 @@ const spansAt = (placeId: string) => [
 ].filter((s) => s !== undefined)
 
 const located = mapPlaces(places, periods, (p) => p.coordinates && project(p.coordinates), spansAt)
-const eras = periods.map((p) => ({ id: p.id, name: p.name, when: formatSpan(p.date.earliest, p.date.latest) }))
+const eras = periods.map(({ id, name }) => ({ id, name }))
 
 // Opening view: Egypt to Mesopotamia.
 const [x0, y1] = project({ lng: 28, lat: 27 })!
@@ -27,6 +25,9 @@ const [x1, y0] = project({ lng: 48, lat: 38 })!
 ---
 
 <Page title="Map" description="The places of Scripture on a map, era by era." wide>
+  <!-- Start the basemap download now rather than after the island hydrates.
+       crossorigin matches fetch()'s request mode, so it isn't downloaded twice. -->
+  <link slot="head" rel="preload" as="fetch" crossorigin="anonymous" href={url("/map/basemap.svg")} />
   <div class="intro">
     <h1>Places of Scripture</h1>
     <p>
@@ -44,17 +45,3 @@ const [x1, y0] = project({ lng: 48, lat: 38 })!
     home={[x0, y0, x1, y1]}
   />
 </Page>
-
-<style>
-  .intro {
-    max-width: 68ch;
-    margin-bottom: 1.25rem;
-  }
-  .intro h1 {
-    margin-bottom: 0.25rem;
-  }
-  .intro p {
-    margin: 0;
-    color: var(--ink-2);
-  }
-</style>
