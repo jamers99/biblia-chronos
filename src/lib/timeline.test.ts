@@ -34,11 +34,14 @@ const person: Person = { id: "ezra", name: "Ezra", kind: "person", status: "draf
 
 test("timelineItems keeps dated items in range and skips lifetime-of events", () => {
   const events = [event("in", -50), event("before", -500), event("lifetime-of-ezra", -60, -10)]
-  const items = timelineItems([person], events, [period], () => [events[0], events[2]])
+  const links: Record<string, string[]> = { ezra: ["in", "before", "nobody"] }
+  const items = timelineItems([person], events, [period], () => [events[0], events[2]], (id) => links[id] ?? [])
   assert.deepEqual(items.map((i) => [i.kind, i.id, i.start, i.end, i.eras]), [
     ["event", "in", -50, -50, "Era"],
     ["person", "ezra", -60, -10, "Era"],
   ])
   assert.equal(items[1].draft, true)
   assert.equal(items[1].lifetime, false)
+  // connections keep only items that made it onto the timeline
+  assert.deepEqual(items[1].related, ["in"])
 })

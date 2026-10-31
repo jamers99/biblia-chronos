@@ -19,6 +19,7 @@ export type TimelineItem = {
   lifetime: boolean // people: true = birth–death known; false = attested years only
   eras: string // the eras it overlaps, e.g. "Israel in Egypt, Exodus & Wilderness"
   summary?: string
+  related: string[] // ids of connected items on the timeline: family, events, participants
 }
 
 export type TimelinePeriod = { id: string; name: string; start: number; end: number; when: string; summary?: string }
@@ -36,12 +37,14 @@ export function timelinePeriods(periods: Period[]): TimelinePeriod[] {
 
 // Everything dated within the periods' range, heaviest first (the order lanes
 // are packed in). "Lifetime of X" events are left out: they'd duplicate X's
-// own bar in the people lanes.
+// own bar in the people lanes. `connections` lists any record's linked ids;
+// only those that are themselves on the timeline are kept.
 export function timelineItems(
   people: Person[],
   events: Event[],
   periods: Period[],
   eventsOf: (personId: string) => Event[],
+  connections: (id: string) => string[] = () => [],
 ): TimelineItem[] {
   const first = periods[0].date.earliest
   const last = periods[periods.length - 1].date.latest
@@ -60,7 +63,7 @@ export function timelineItems(
         ]
       : []
 
-  return [
+  const items = [
     ...events
       .filter((e) => !e.id.startsWith("lifetime-of-"))
       .flatMap((e) => item(e, spanOf(e.date)).map((i) => ({ ...i, kind: "event" as const, name: e.name, lifetime: false }))),
@@ -75,6 +78,9 @@ export function timelineItems(
       }))
     }),
   ].sort((a, b) => b.weight - a.weight)
+
+  const onTimeline = new Set(items.map((i) => i.id))
+  return items.map((i) => ({ ...i, related: [...new Set(connections(i.id))].filter((id) => onTimeline.has(id)) }))
 }
 
 // --- Lane packing -----------------------------------------------------------

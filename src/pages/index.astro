@@ -1,24 +1,28 @@
 ---
 import Page from "../layouts/Page.astro"
 import Timeline from "../components/Timeline.svelte"
-import { people, events, periods, eventsOf } from "../lib/data/load.ts"
+import { people, events, periods, graph, eventsOf } from "../lib/data/load.ts"
 import { timelineItems, timelinePeriods } from "../lib/timeline.ts"
-import { url } from "../lib/url.ts"
+
+// What a selection lights up: a person's family and events, an event's people.
+const connections = (id: string) => [
+  ...graph.incoming(id, "parent-of"),
+  ...graph.outgoing(id, "parent-of"),
+  ...graph.either(id, "partner-of"),
+  ...graph.outgoing(id, "participated-in"),
+  ...graph.incoming(id, "participated-in"),
+]
 
 // The timeline's slice of the data, computed at build time and passed to the
 // island as props — the island never sees the full dataset.
-const items = timelineItems(people, events, periods, eventsOf)
-const eras = timelinePeriods(periods)
+const items = timelineItems(people, events, periods, eventsOf, connections)
 ---
 
-<Page title="Biblia Chronos" description="Explore the history of Israel, from Abraham to the early church, on an interactive timeline." wide>
-  <div class="intro">
-    <h1>The History of Israel</h1>
-    <p>
-      From Abraham to the early church: {items.filter((i) => i.kind === "event").length} events and
-      {items.filter((i) => i.kind === "person").length} people on one timeline. Dates follow the
-      <a href={url("/about/#chronology")}>chronology of our source data</a>, and many are contested.
-    </p>
-  </div>
-  <Timeline client:load items={items} periods={eras} />
+<Page
+  title="Biblia Chronos"
+  description="Explore the history of Israel, from Abraham to the early church, on an interactive timeline."
+  immersive
+>
+  <h1 class="sr-only">The History of Israel, from Abraham to the early church</h1>
+  <Timeline client:load items={items} periods={timelinePeriods(periods)} />
 </Page>

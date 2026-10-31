@@ -76,7 +76,8 @@
   onMount(() => {
     fetch(basemap)
       .then((r) => r.text())
-      .then((text) => (basemapSvg = text))
+      // drop the file's own colors so the page theme applies (see global.css)
+      .then((text) => (basemapSvg = text.replace(/<(style)[\s\S]*?\/\1>/, "")))
     behavior = zoom<SVGSVGElement, unknown>().on("zoom", (e) => (transform = e.transform))
     select(svg).call(behavior)
     const target = places.find((p) => `#${p.id}` === location.hash)

@@ -1,15 +1,19 @@
 ---
-// The site shell: header nav, a main column, and the attribution footer.
-// `wide` lets visualizations use the full window instead of the reading column.
+// The site shell. Normal pages get the header nav, a main column (or the full
+// width with `wide`), and the attribution footer. `immersive` pages (the
+// timeline) fill the window instead, with the brand and a few tools floating
+// over them and the nav tucked into a menu.
 import "../styles/global.css"
+import ThemeToggle from "../components/ThemeToggle.astro"
 import { url } from "../lib/url.ts"
 
 interface Props {
   title: string
   description?: string
   wide?: boolean
+  immersive?: boolean
 }
-const { title, description, wide = false } = Astro.props
+const { title, description, wide = false, immersive = false } = Astro.props
 const path = Astro.url.pathname
 
 const nav = [
@@ -32,28 +36,70 @@ const isCurrent = (href: string) =>
     <title>{title === "Biblia Chronos" ? title : `${title} · Biblia Chronos`}</title>
     {description && <meta name="description" content={description} />}
     <link rel="icon" href={url("/favicon.svg")} type="image/svg+xml" />
+    <script is:inline>
+      document.documentElement.dataset.theme =
+        localStorage.getItem("theme") ?? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+    </script>
     <slot name="head" />
   </head>
-  <body>
-    <header class="site">
-      <a class="brand" href={url("/")}>Biblia Chronos</a>
-      <nav aria-label="Main">
-        {
-          nav.map(([label, href]) => (
-            <a href={url(href)} aria-current={isCurrent(href) ? "page" : undefined}>
-              {label}
-            </a>
-          ))
-        }
-      </nav>
-    </header>
-    <main class:list={[wide ? "wide" : "column"]}>
+  <body class:list={{ immersive }}>
+    {
+      immersive ? (
+        <header class="overlay">
+          <a class="brand" href={url("/")}>
+            Biblia Chronos
+            <small>The History of Israel</small>
+          </a>
+          <div class="tools">
+            <ThemeToggle />
+            <details class="menu">
+              <summary class="icon-button" aria-label="Menu">
+                <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </summary>
+              <nav aria-label="Main">
+                {nav.map(([label, href]) => (
+                  <a href={url(href)} aria-current={isCurrent(href) ? "page" : undefined}>
+                    {label}
+                  </a>
+                ))}
+                <p>
+                  Data: <a href="https://github.com/robertrouse/theographic-bible-metadata">Theographic</a> (CC
+                  BY-SA 4.0)
+                </p>
+              </nav>
+            </details>
+          </div>
+        </header>
+      ) : (
+        <header class="site">
+          <a class="brand" href={url("/")}>
+            Biblia Chronos
+          </a>
+          <nav aria-label="Main">
+            {nav.map(([label, href]) => (
+              <a href={url(href)} aria-current={isCurrent(href) ? "page" : undefined}>
+                {label}
+              </a>
+            ))}
+          </nav>
+          <ThemeToggle />
+        </header>
+      )
+    }
+    <main class:list={[immersive ? "immersive" : wide ? "wide" : "column"]}>
       <slot />
     </main>
-    <footer class="site">
-      Data from <a href="https://github.com/robertrouse/theographic-bible-metadata">Theographic Bible Metadata</a>
-      (CC BY-SA 4.0), with descriptions from Easton's Bible Dictionary. <a href={url("/about/")}>Sources & credits</a>.
-    </footer>
+    {
+      !immersive && (
+        <footer class="site">
+          Data from <a href="https://github.com/robertrouse/theographic-bible-metadata">Theographic Bible Metadata</a>
+          (CC BY-SA 4.0), with descriptions from Easton's Bible Dictionary.{" "}
+          <a href={url("/about/")}>Sources & credits</a>.
+        </footer>
+      )
+    }
   </body>
 </html>
 
@@ -61,9 +107,9 @@ const isCurrent = (href: string) =>
   header.site {
     display: flex;
     flex-wrap: wrap;
-    align-items: baseline;
+    align-items: center;
     gap: 0.5rem 1.75rem;
-    padding: 0.9rem 1.5rem;
+    padding: 0.7rem 1.5rem;
     border-bottom: 1px solid var(--rule);
   }
   .brand {
@@ -71,11 +117,12 @@ const isCurrent = (href: string) =>
     color: var(--ink);
     text-decoration: none;
   }
-  nav {
+  header.site nav {
     display: flex;
     flex-wrap: wrap;
     gap: 0.25rem 1.1rem;
     font-size: 0.92rem;
+    flex: 1;
   }
   nav a {
     color: var(--ink-2);
@@ -106,5 +153,70 @@ const isCurrent = (href: string) =>
   }
   footer.site a {
     color: inherit;
+  }
+
+  /* --- Immersive ----------------------------------------------------------- */
+
+  body.immersive {
+    overflow: hidden;
+  }
+  main.immersive {
+    height: 100dvh;
+  }
+  header.overlay {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1.1rem 1.5rem;
+    pointer-events: none;
+  }
+  header.overlay > * {
+    pointer-events: auto;
+  }
+  header.overlay .brand small {
+    display: block;
+    margin-top: 0.1rem;
+    font: 500 0.62rem var(--sans);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .tools {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .menu {
+    position: relative;
+  }
+  .menu summary::-webkit-details-marker {
+    display: none;
+  }
+  .menu nav {
+    position: absolute;
+    right: 0;
+    top: 2.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 12rem;
+    padding: 0.9rem 1.1rem;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgb(40 30 15 / 0.15);
+  }
+  .menu nav p {
+    margin: 0.4rem 0 0;
+    padding-top: 0.6rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.75rem;
+    color: var(--ink-3);
+  }
+  .menu nav p a {
+    color: inherit;
+    border: 0;
   }
 </style>

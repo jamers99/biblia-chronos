@@ -1,21 +1,31 @@
 /* Design tokens and base styles. Warm paper, ink, one accent; serif for names
    and prose, the system UI face for controls and data. No web fonts — they'd
-   cost first paint for little gain. */
+   cost first paint for little gain.
+
+   Theme: light by default; dark when <html data-theme="dark">. A tiny inline
+   script in the layout sets that before first paint, from the saved choice
+   or the system setting. */
 
 :root {
   color-scheme: light;
-  --paper: #fbf8f2;
-  --surface: #fffdf9;
+  --paper: #f7f3ea;
+  --surface: #fffdf8;
   --ink: #2a251f;
   --ink-2: #5f564b; /* secondary text */
   --ink-3: #8a8073; /* muted: axes, captions */
-  --rule: #e6dfd3;
-  --wash: #f2ece1; /* hover, alternating bands */
+  --rule: #e2d9c8;
+  --wash: #efe7d8; /* hover, alternating bands, chips */
   --accent: #8f3a22;
+  --gold: #b48a4a; /* the time axis, frames, highlights */
   --people: #2f6f9f; /* series colors — validated as a pair (CVD-safe) */
   --events: #c0562f;
   --land: #f1ebdf;
   --water: #dde6e7;
+  --river: #9db8c4;
+  --coast: #c9bda8;
+  --band: rgba(120, 90, 50, 0.045); /* alternate era shading */
+  --title: rgba(110, 80, 40, 0.11); /* the large era names behind the timeline */
+  --edge: rgba(138, 106, 58, 0.16); /* vignette at the canvas edges */
 
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -23,22 +33,26 @@
   --measure: 68ch;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: dark;
-    --paper: #1d1b18;
-    --surface: #24221e;
-    --ink: #ede6da;
-    --ink-2: #bfb5a6;
-    --ink-3: #8f8678;
-    --rule: #3a362f;
-    --wash: #2c2924;
-    --accent: #e08a68;
-    --people: #4f8fc4;
-    --events: #d0693f;
-    --land: #2b2823;
-    --water: #1a2326;
-  }
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #1d1b18;
+  --surface: #26231f;
+  --ink: #ede6da;
+  --ink-2: #bfb5a6;
+  --ink-3: #8f8678;
+  --rule: #3a362f;
+  --wash: #34302a;
+  --accent: #e08a68;
+  --gold: #c9a46a;
+  --people: #4f8fc4;
+  --events: #d0693f;
+  --land: #2b2823;
+  --water: #1a2326;
+  --river: #3d5560;
+  --coast: #4a443a;
+  --band: rgba(255, 240, 210, 0.035);
+  --title: rgba(240, 222, 190, 0.08);
+  --edge: rgba(0, 0, 0, 0.45);
 }
 
 *,
@@ -252,4 +266,49 @@ a:hover {
 .viz-details .hint {
   color: var(--ink-3);
   margin: 0;
+}
+
+/* The basemap, when inlined into the map (its own <style> is stripped then,
+   so it follows the page theme). */
+.bm-water,
+.bm-lake {
+  fill: var(--water);
+}
+.bm-land {
+  fill: var(--land);
+  stroke: var(--coast);
+  stroke-width: 0.75;
+}
+.bm-river {
+  fill: none;
+  stroke: var(--river);
+  stroke-width: 1;
+}
+.bm-lake {
+  stroke: var(--river);
+  stroke-width: 0.75;
+}
+.bm-land,
+.bm-river,
+.bm-lake {
+  vector-effect: non-scaling-stroke;
+}
+
+/* Round icon buttons floating over full-screen views. */
+.icon-button {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  border: 1px solid var(--rule);
+  background: var(--surface);
+  color: var(--ink-2);
+  font: inherit;
+  cursor: pointer;
+  list-style: none;
+}
+.icon-button:hover {
+  color: var(--ink);
+  border-color: var(--gold);
 }
