@@ -3,7 +3,7 @@
 // database ships to the browser. Overrides merging (data/overrides/) and the
 // full graph index land with the build stage; this is the minimal seam.
 
-import type { Person, Place, Event, PeopleGroup, Book, Edge, EdgeType } from "./schema.ts"
+import type { Person, Place, Event, PeopleGroup, Period, Book, Edge, EdgeType } from "./schema.ts"
 import { mergeEntities, mergeEdges } from "./merge.ts"
 
 // JSON imports are resolved by Vite at build time (relative to this file) and
@@ -31,6 +31,10 @@ export const people = mergeEntities(peopleData as Person[], override("people.jso
 export const places = mergeEntities(placesData as Place[], override("places.json"))
 export const events = mergeEntities(eventsData as Event[], override("events.json"))
 export const peopleGroups = mergeEntities(peopleGroupsData as PeopleGroup[], override("peopleGroups.json"))
+// Periods are hand-authored only (no seed), sorted into story order.
+export const periods = (override("periods.json") as Period[]).sort(
+  (a, b) => a.date.earliest - b.date.earliest,
+)
 export const books = mergeEntities(booksData as Book[], override("books.json"))
 export const edges = mergeEdges(edgesData as Edge[], override("edges.json") as Edge[])
 

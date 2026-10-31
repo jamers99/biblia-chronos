@@ -10,6 +10,10 @@ One file per entity type, mirroring the seed: `people.json`, `places.json`,
 `events.json`, `peopleGroups.json`, `books.json`, `edges.json`. All are optional —
 create only the ones you need.
 
+`periods.json` is the exception: periods (the eras the timeline is divided into)
+have no upstream equivalent, so they're authored here in full rather than
+overlaid on seed. They must be sequential — the checker rejects overlaps.
+
 - **Entities** are matched by `id`. A matching override's fields are overlaid
   onto the seed record (shallow, per top-level field), so you can correct just
   one field. An override with a new `id` adds a whole new record.
