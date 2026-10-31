@@ -9,6 +9,8 @@ import SourceNote from "../../components/SourceNote.astro"
 import { places, graph, resolve, byName } from "../../lib/data/load.ts"
 import type { Place } from "../../lib/data/schema.ts"
 import { summarize } from "../../lib/format.ts"
+import { project, MAP_W, MAP_H } from "../../lib/geo.ts"
+import { url } from "../../lib/url.ts"
 
 export const getStaticPaths = () => places.map((place) => ({ params: { id: place.id }, props: { place } }))
 
@@ -17,6 +19,7 @@ const otherNames = (place.altNames ?? []).filter((n) => n !== place.name)
 const type = [place.featureType, place.featureSubType].filter(Boolean).join(" · ")
 const coords = place.coordinates
 const events = resolve(graph.incoming(place.id, "occurred-at"), "event")
+const xy = coords && project(coords)
 ---
 
 <Page title={place.name} description={summarize(place.description)}>
@@ -30,6 +33,18 @@ const events = resolve(graph.incoming(place.id, "occurred-at"), "event")
       ["Location", coords && `${coords.lat.toFixed(3)}°, ${coords.lng.toFixed(3)}°`],
     ]}
   />
+
+  {
+    xy && (
+      <a class="locator" href={url(`/map/#${place.id}`)} title="See it on the map">
+        <svg viewBox={`${xy[0] - 60} ${xy[1] - 35} 120 70`} role="img" aria-label={`${place.name} on a map`}>
+          <image href={url("/map/basemap.svg")} width={MAP_W} height={MAP_H} />
+          <circle cx={xy[0]} cy={xy[1]} r="1.6" />
+        </svg>
+        <span>See it on the map →</span>
+      </a>
+    )
+  }
 
   <Relations
     rows={[
@@ -51,3 +66,24 @@ const events = resolve(graph.incoming(place.id, "occurred-at"), "event")
   <Scripture refs={place.scriptureRefs} />
   <SourceNote sourceId={place.source} />
 </Page>
+
+<style>
+  .locator {
+    display: block;
+    width: min(100%, 420px);
+    margin: 1.5rem 0 2rem;
+    font-size: 0.85rem;
+  }
+  .locator svg {
+    display: block;
+    width: 100%;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    margin-bottom: 0.3rem;
+  }
+  .locator circle {
+    fill: var(--accent);
+    stroke: var(--land);
+    stroke-width: 0.6;
+  }
+</style>

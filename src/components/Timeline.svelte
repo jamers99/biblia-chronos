@@ -119,7 +119,7 @@
 </script>
 
 <div class="timeline">
-  <div class="controls">
+  <div class="viz-controls">
     <label>
       <span class="sr-only">Jump to era</span>
       <select onchange={pickEra}>
@@ -129,7 +129,7 @@
         {/each}
       </select>
     </label>
-    <div class="buttons" role="group" aria-label="Zoom">
+    <div class="viz-zoom" role="group" aria-label="Zoom">
       <button type="button" onclick={() => zoomBy(1 / 1.6)} aria-label="Zoom out">−</button>
       <button type="button" onclick={() => zoomBy(1.6)} aria-label="Zoom in">+</button>
       <button type="button" onclick={reset}>Reset</button>
@@ -148,7 +148,7 @@
     </ul>
   </div>
 
-  <div class="frame" bind:clientWidth={width}>
+  <div class="viz-frame" bind:clientWidth={width}>
     <svg
       bind:this={svg}
       viewBox="0 0 {width} {HEIGHT}"
@@ -230,27 +230,27 @@
     </svg>
 
     {#if hovered}
-      <div class="tooltip" style="left: {hovered.x + 12}px; top: {hovered.y - 6}px">
+      <div class="viz-tooltip" style="left: {hovered.x + 12}px; top: {hovered.y - 6}px">
         <strong>{hovered.item.when}</strong>
         <span>{hovered.item.name}</span>
       </div>
     {/if}
   </div>
 
-  <div class="details" aria-live="polite">
+  <div class="viz-details" aria-live="polite">
     {#if isItem(selected)}
       <p class="kind">
         {selected.kind === "person" ? (selected.lifetime ? "Person" : "Person · attested years") : "Event"}
         {#if selected.draft}<span class="badge">draft</span>{/if}
       </p>
       <h2>{selected.name}</h2>
-      <p class="when">{selected.when}{#if selected.era}{` · ${selected.era}`}{/if}</p>
+      <p class="sub">{selected.when}{#if selected.era}{` · ${selected.era}`}{/if}</p>
       {#if selected.summary}<p class="summary">{selected.summary}</p>{/if}
       <a href={entityUrl(selected)}>Open {selected.kind === "person" ? "person" : "event"} →</a>
     {:else if selected}
       <p class="kind">Era</p>
       <h2>{selected.name}</h2>
-      <p class="when">{selected.when}</p>
+      <p class="sub">{selected.when}</p>
       {#if selected.summary}<p class="summary">{selected.summary}</p>{/if}
     {:else}
       <p class="hint">
@@ -262,34 +262,8 @@
 </div>
 
 <style>
-  .controls {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.6rem 1.25rem;
-    margin-bottom: 0.75rem;
-    font-size: 0.85rem;
-  }
-  select,
-  button {
-    font: inherit;
-    color: var(--ink);
+  .viz-frame {
     background: var(--surface);
-    border: 1px solid var(--rule);
-    border-radius: var(--radius);
-    padding: 0.3rem 0.6rem;
-    cursor: pointer;
-  }
-  button:hover,
-  select:hover {
-    background: var(--wash);
-  }
-  .buttons {
-    display: flex;
-    gap: 0.3rem;
-  }
-  .buttons button[aria-label] {
-    width: 2rem;
   }
   .legend {
     display: flex;
@@ -304,31 +278,6 @@
     display: flex;
     align-items: center;
     gap: 0.4rem;
-  }
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-  }
-
-  .frame {
-    position: relative;
-    border: 1px solid var(--rule);
-    border-radius: var(--radius);
-    background: var(--surface);
-    overflow: hidden;
-  }
-  svg {
-    display: block;
-    width: 100%;
-    cursor: grab;
-    user-select: none;
-    font-family: var(--sans);
-  }
-  svg:active {
-    cursor: grabbing;
   }
 
   .era-wash {
@@ -418,50 +367,4 @@
     fill-opacity: 0.4;
   }
 
-  .tooltip {
-    position: absolute;
-    pointer-events: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.1rem;
-    padding: 0.35rem 0.55rem;
-    font-size: 0.8rem;
-    background: var(--surface);
-    border: 1px solid var(--rule);
-    border-radius: var(--radius);
-    box-shadow: 0 2px 8px rgb(0 0 0 / 0.08);
-    white-space: nowrap;
-  }
-  .tooltip span {
-    color: var(--ink-2);
-  }
-
-  .details {
-    min-height: 9rem;
-    padding: 1rem 0.25rem;
-    max-width: 68ch;
-  }
-  .details h2 {
-    margin: 0 0 0.2rem;
-  }
-  .details .kind {
-    margin: 0 0 0.2rem;
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--ink-3);
-  }
-  .details .when {
-    margin: 0;
-    color: var(--ink-2);
-    font-variant-numeric: tabular-nums;
-  }
-  .details .summary {
-    font-family: var(--serif);
-    font-size: 1.05rem;
-  }
-  .hint {
-    color: var(--ink-3);
-    margin: 0;
-  }
 </style>

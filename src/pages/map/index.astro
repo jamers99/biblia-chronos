@@ -1,0 +1,60 @@
+---
+import Page from "../../layouts/Page.astro"
+import PlaceMap from "../../components/PlaceMap.svelte"
+import { places, periods, graph, resolve } from "../../lib/data/load.ts"
+import { personSpan, spanOf } from "../../lib/chronology.ts"
+import { mapPlaces } from "../../lib/map.ts"
+import { project, MAP_W, MAP_H } from "../../lib/geo.ts"
+import { formatSpan } from "../../lib/format.ts"
+import { url } from "../../lib/url.ts"
+
+// When a place matters: the dated events that happened there, and the
+// lifetimes of the people who visited or died there.
+const eventsOf = (personId: string) => resolve(graph.outgoing(personId, "participated-in"), "event")
+const spansAt = (placeId: string) => [
+  ...resolve(graph.incoming(placeId, "occurred-at"), "event").map((e) => spanOf(e.date)),
+  ...resolve([...graph.incoming(placeId, "visited"), ...graph.incoming(placeId, "died-at")], "person").map((p) =>
+    personSpan(p, eventsOf(p.id)),
+  ),
+].filter((s) => s !== undefined)
+
+const located = mapPlaces(places, periods, (p) => p.coordinates && project(p.coordinates), spansAt)
+const eras = periods.map((p) => ({ id: p.id, name: p.name, when: formatSpan(p.date.earliest, p.date.latest) }))
+
+// Opening view: Egypt to Mesopotamia.
+const [x0, y1] = project({ lng: 28, lat: 27 })!
+const [x1, y0] = project({ lng: 48, lat: 38 })!
+---
+
+<Page title="Map" description="The places of Scripture on a map, era by era." wide>
+  <div class="intro">
+    <h1>Places of Scripture</h1>
+    <p>
+      {located.length.toLocaleString()} places with known locations. Locations come from the source data and many are
+      uncertain; see <a href={url("/about/")}>sources</a>.
+    </p>
+  </div>
+  <PlaceMap
+    client:load
+    places={located}
+    periods={eras}
+    basemap={url("/map/basemap.svg")}
+    mapWidth={MAP_W}
+    mapHeight={MAP_H}
+    home={[x0, y0, x1, y1]}
+  />
+</Page>
+
+<style>
+  .intro {
+    max-width: 68ch;
+    margin-bottom: 1.25rem;
+  }
+  .intro h1 {
+    margin-bottom: 0.25rem;
+  }
+  .intro p {
+    margin: 0;
+    color: var(--ink-2);
+  }
+</style>
