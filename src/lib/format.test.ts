@@ -20,4 +20,8 @@ test("summarize keeps the first sentence and trims long ones at a word", () => {
   assert.equal(summarize("Beloved, the son of Jesse. He was a shepherd."), "Beloved, the son of Jesse.")
   assert.equal(summarize("a ".repeat(200), 20), "a a a a a a a a a a…")
   assert.equal(summarize(undefined), undefined)
+  assert.equal(
+    summarize("Father of a multitude, named (Gen. 11:27) before Nahor. He was born in Ur."),
+    "Father of a multitude, named (Gen. 11:27) before Nahor.",
+  )
 })

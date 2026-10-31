@@ -31,11 +31,19 @@ export function personSpan(person: Person, events: Event[]): PersonSpan | undefi
   }
 }
 
-// The period a span begins in, if any.
+// Periods are half-open — [earliest, latest) — so a year on a boundary belongs
+// to the era that starts there (AD 30 is the Early Church, not the Life of
+// Christ). The last period also claims its own end year.
 export const periodAt = (year: number, periods: Period[]): Period | undefined =>
   periods.find((p) => year >= p.date.earliest && year < p.date.latest) ??
   periods.find((p) => year === p.date.latest)
 
-// Periods a span overlaps (for a place's events, a person's life, …).
-export const periodsOverlapping = (span: Span, periods: Period[]): Period[] =>
-  periods.filter((p) => span.start <= p.date.latest && span.end >= p.date.earliest)
+// Periods a span overlaps (a person's life, say). A span that merely touches a
+// boundary doesn't overlap the era on the other side: Jesus (4 BC – AD 30)
+// belongs to the Life of Christ only.
+export function periodsOverlapping(span: Span, periods: Period[]): Period[] {
+  const overlapping = periods.filter((p) => span.start < p.date.latest && span.end > p.date.earliest)
+  if (overlapping.length) return overlapping
+  const at = periodAt(span.start, periods)
+  return at ? [at] : []
+}

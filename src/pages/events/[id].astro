@@ -1,0 +1,38 @@
+---
+import Page from "../../layouts/Page.astro"
+import EntityHeader from "../../components/EntityHeader.astro"
+import Relations from "../../components/Relations.astro"
+import Scripture from "../../components/Scripture.astro"
+import SourceNote from "../../components/SourceNote.astro"
+import { events, periods, graph, resolve, byName } from "../../lib/data/load.ts"
+import type { Event } from "../../lib/data/schema.ts"
+import { periodAt, spanOf } from "../../lib/chronology.ts"
+import { formatEstimate } from "../../lib/format.ts"
+
+export const getStaticPaths = () => events.map((event) => ({ params: { id: event.id }, props: { event } }))
+
+const { event } = Astro.props as { event: Event }
+const span = spanOf(event.date)
+const era = span && periodAt(span.start, periods)
+---
+
+<Page title={event.name}>
+  <EntityHeader
+    entity={event}
+    kindLabel="Event"
+    facts={[
+      ["Date", event.date ? formatEstimate(event.date) : "Undated"],
+      ["Era", era?.name],
+    ]}
+  />
+
+  <Relations
+    rows={[
+      ["People", resolve(graph.incoming(event.id, "participated-in"), "person").sort(byName)],
+      ["Places", resolve(graph.outgoing(event.id, "occurred-at"), "place").sort(byName)],
+    ]}
+  />
+
+  <Scripture refs={event.scriptureRefs} />
+  <SourceNote sourceId={event.source} />
+</Page>

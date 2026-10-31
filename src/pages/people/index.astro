@@ -1,0 +1,25 @@
+---
+import Page from "../../layouts/Page.astro"
+import AlphaIndex from "../../components/AlphaIndex.astro"
+import EntityLinks from "../../components/EntityLinks.astro"
+import { people, peopleGroups, byName } from "../../lib/data/load.ts"
+
+const drafts = people.filter((p) => p.status === "draft").length
+---
+
+<Page title="People" description="Everyone named in Scripture, from Aaron to Zurishaddai.">
+  <h1>People</h1>
+  <p class="muted">
+    {people.length.toLocaleString()} people. {drafts.toLocaleString()} are still marked as work in progress upstream and
+    appear in grey.
+  </p>
+  <div class="groups"><strong>Groups:</strong> <EntityLinks items={[...peopleGroups].sort(byName)} /></div>
+
+  <AlphaIndex items={people} />
+</Page>
+
+<style>
+  .groups {
+    margin: 1rem 0;
+  }
+</style>

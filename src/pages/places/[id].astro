@@ -1,0 +1,53 @@
+---
+import Page from "../../layouts/Page.astro"
+import EntityHeader from "../../components/EntityHeader.astro"
+import Description from "../../components/Description.astro"
+import Relations from "../../components/Relations.astro"
+import EventList from "../../components/EventList.astro"
+import Scripture from "../../components/Scripture.astro"
+import SourceNote from "../../components/SourceNote.astro"
+import { places, graph, resolve, byName } from "../../lib/data/load.ts"
+import type { Place } from "../../lib/data/schema.ts"
+import { summarize } from "../../lib/format.ts"
+
+export const getStaticPaths = () => places.map((place) => ({ params: { id: place.id }, props: { place } }))
+
+const { place } = Astro.props as { place: Place }
+const otherNames = (place.altNames ?? []).filter((n) => n !== place.name)
+const type = [place.featureType, place.featureSubType].filter(Boolean).join(" · ")
+const coords = place.coordinates
+const events = resolve(graph.incoming(place.id, "occurred-at"), "event")
+---
+
+<Page title={place.name} description={summarize(place.description)}>
+  <EntityHeader
+    entity={place}
+    kindLabel="Place"
+    facts={[
+      ["Type", type || undefined],
+      ["Also called", otherNames.join(", ") || undefined],
+      ["Modern name", place.modernName],
+      ["Location", coords && `${coords.lat.toFixed(3)}°, ${coords.lng.toFixed(3)}°`],
+    ]}
+  />
+
+  <Relations
+    rows={[
+      ["Visited by", resolve(graph.incoming(place.id, "visited"), "person").sort(byName)],
+      ["Died here", resolve(graph.incoming(place.id, "died-at"), "person").sort(byName)],
+    ]}
+  />
+
+  {
+    events.length > 0 && (
+      <section>
+        <h2>Events here</h2>
+        <EventList events={events} />
+      </section>
+    )
+  }
+
+  <Description text={place.description} />
+  <Scripture refs={place.scriptureRefs} />
+  <SourceNote sourceId={place.source} />
+</Page>

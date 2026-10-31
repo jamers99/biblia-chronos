@@ -1,0 +1,59 @@
+---
+// A long alphabetical list of records, grouped by first letter with a jump bar.
+import type { Entity } from "../lib/data/load.ts"
+import { entityUrl } from "../lib/url.ts"
+import { label } from "../lib/format.ts"
+
+interface Props {
+  items: Entity[]
+}
+const groups = new Map<string, Entity[]>()
+for (const e of [...Astro.props.items].sort((a, b) => label(a).localeCompare(label(b)))) {
+  const letter = label(e)[0].toUpperCase()
+  if (!groups.has(letter)) groups.set(letter, [])
+  groups.get(letter)!.push(e)
+}
+---
+
+<nav class="letters" aria-label="Jump to letter">
+  {[...groups.keys()].map((l) => <a href={`#${l}`}>{l}</a>)}
+</nav>
+
+{
+  [...groups.entries()].map(([letter, items]) => (
+    <section>
+      <h2 id={letter}>{letter}</h2>
+      <ul class="alpha">
+        {items.map((e) => (
+          <li class:list={{ draft: e.status === "draft" }}>
+            <a href={entityUrl(e)}>{label(e)}</a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))
+}
+
+<style>
+  .letters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem 0.6rem;
+    margin: 1rem 0;
+    font-family: var(--serif);
+  }
+  .alpha {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    columns: 14rem;
+    column-gap: 2rem;
+  }
+  li {
+    break-inside: avoid;
+    padding: 0.08rem 0;
+  }
+  li.draft a {
+    color: var(--ink-2);
+  }
+</style>

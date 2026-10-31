@@ -1,0 +1,62 @@
+---
+import Page from "../../layouts/Page.astro"
+import EventList from "../../components/EventList.astro"
+import { events, periods } from "../../lib/data/load.ts"
+import { periodAt, spanOf } from "../../lib/chronology.ts"
+import { formatSpan } from "../../lib/format.ts"
+import { url } from "../../lib/url.ts"
+
+// Group events under the era they begin in; everything else (before Abraham,
+// or undated) gets its own section so nothing is hidden.
+const eraOf = (e: (typeof events)[number]) => {
+  const span = spanOf(e.date)
+  return span && periodAt(span.start, periods)
+}
+const sections = periods.map((p) => ({ period: p, events: events.filter((e) => eraOf(e) === p) }))
+const before = events.filter((e) => {
+  const s = spanOf(e.date)
+  return s && s.start < periods[0].date.earliest
+})
+const undated = events.filter((e) => !spanOf(e.date))
+---
+
+<Page title="Events" description="The events of Scripture in order, era by era.">
+  <h1>Events</h1>
+  <p class="muted">
+    {events.length} events, in story order. See them on the <a href={url("/")}>timeline</a>.
+  </p>
+
+  {
+    before.length > 0 && (
+      <section>
+        <h2>Before Abraham</h2>
+        <EventList events={before} />
+      </section>
+    )
+  }
+  {
+    sections.map(({ period, events }) => (
+      <section>
+        <h2>
+          {period.name} <span class="muted span">{formatSpan(period.date.earliest, period.date.latest)}</span>
+        </h2>
+        {events.length ? <EventList events={events} /> : <p class="muted">No dated events in this era.</p>}
+      </section>
+    ))
+  }
+  {
+    undated.length > 0 && (
+      <section>
+        <h2>Undated</h2>
+        <EventList events={undated} />
+      </section>
+    )
+  }
+</Page>
+
+<style>
+  .span {
+    font: 0.85rem var(--sans);
+    margin-left: 0.4rem;
+  }
+</style>

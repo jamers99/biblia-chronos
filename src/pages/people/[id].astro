@@ -1,0 +1,114 @@
+---
+import Page from "../../layouts/Page.astro"
+import EntityHeader from "../../components/EntityHeader.astro"
+import Description from "../../components/Description.astro"
+import Relations from "../../components/Relations.astro"
+import DescendantTree from "../../components/DescendantTree.astro"
+import EventList from "../../components/EventList.astro"
+import Scripture from "../../components/Scripture.astro"
+import SourceNote from "../../components/SourceNote.astro"
+import { people, periods, graph, resolve, byName } from "../../lib/data/load.ts"
+import type { Person } from "../../lib/data/schema.ts"
+import { personSpan, periodsOverlapping } from "../../lib/chronology.ts"
+import { lineage } from "../../lib/family.ts"
+import { formatEstimate, formatSpan, label, summarize } from "../../lib/format.ts"
+import { entityUrl } from "../../lib/url.ts"
+
+export const getStaticPaths = () => people.map((person) => ({ params: { id: person.id }, props: { person } }))
+
+const { person } = Astro.props as { person: Person }
+const id = person.id
+const related = (ids: string[]) => resolve(ids, "person").sort(byName)
+const parentsOf = (pid: string) => resolve(graph.incoming(pid, "parent-of"), "person")
+const children = related(graph.outgoing(id, "parent-of"))
+const events = resolve(graph.outgoing(id, "participated-in"), "event")
+const span = personSpan(person, events)
+const eras = span ? periodsOverlapping(span, periods) : []
+const line = lineage(person, parentsOf)
+const hasGrandchildren = children.some((c) => graph.outgoing(c.id, "parent-of").length > 0)
+
+const facts: [string, string | undefined][] = [
+  ["Born", person.birth && formatEstimate(person.birth)],
+  ["Died", person.death && formatEstimate(person.death)],
+  ["Attested", span && !span.lifetime ? formatSpan(span.start, span.end) : undefined],
+  ["Era", eras.map((p) => p.name).join(", ") || undefined],
+]
+---
+
+<Page title={label(person)} description={summarize(person.description)}>
+  <EntityHeader entity={person} kindLabel="Person" subtitle={person.displayTitle} facts={facts} />
+
+  <h2>Family & connections</h2>
+  <Relations
+    rows={[
+      ["Parents", parentsOf(id).sort(byName)],
+      ["Partners", related(graph.either(id, "partner-of"))],
+      ["Siblings", related(graph.either(id, "sibling-of"))],
+      ["Half-siblings", related(graph.either(id, "half-sibling-of"))],
+      ["Children", children],
+      ["Member of", resolve(graph.outgoing(id, "member-of"), "peopleGroup").sort(byName)],
+      ["Visited", resolve(graph.outgoing(id, "visited"), "place").sort(byName)],
+      ["Died at", resolve(graph.outgoing(id, "died-at"), "place")],
+    ]}
+  />
+
+  {
+    line.length > 2 && (
+      <section>
+        <h2>Line of descent</h2>
+        <p class="muted small">
+          {line.length - 1} generations back to {line[0].name}, following the father where one is recorded.
+        </p>
+        <ol class="line">
+          {line.map((p) => (
+            <li>{p.id === id ? <strong>{p.name}</strong> : <a href={entityUrl(p)}>{p.name}</a>}</li>
+          ))}
+        </ol>
+      </section>
+    )
+  }
+
+  {
+    hasGrandchildren && (
+      <section>
+        <h2>Descendants</h2>
+        <p class="muted small">Three generations.</p>
+        <DescendantTree person={person} depth={3} />
+      </section>
+    )
+  }
+
+  {
+    events.length > 0 && (
+      <section>
+        <h2>Events</h2>
+        <EventList events={events} />
+      </section>
+    )
+  }
+
+  <Description text={person.description} />
+  <Scripture refs={person.scriptureRefs} />
+  <SourceNote sourceId={person.source} />
+</Page>
+
+<style>
+  .small {
+    font-size: 0.85rem;
+    margin-top: -0.25rem;
+  }
+  .line {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem 0;
+    font-family: var(--serif);
+  }
+  .line li:not(:last-child)::after {
+    content: "→";
+    color: var(--ink-3);
+    margin: 0 0.45rem;
+  }
+</style>

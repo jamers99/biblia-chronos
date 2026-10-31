@@ -36,4 +36,7 @@ test("periodAt and periodsOverlapping use the period spans", () => {
   assert.equal(periodAt(11, periods), undefined)
   assert.deepEqual(periodsOverlapping({ start: -60, end: -55 }, periods).map((p) => p.id), ["a"])
   assert.deepEqual(periodsOverlapping({ start: -60, end: 0 }, periods).map((p) => p.id), ["a", "b"])
+  // touching a boundary isn't overlapping; a single year on it belongs to the later era
+  assert.deepEqual(periodsOverlapping({ start: -60, end: -50 }, periods).map((p) => p.id), ["a"])
+  assert.deepEqual(periodsOverlapping({ start: -50, end: -50 }, periods).map((p) => p.id), ["b"])
 })

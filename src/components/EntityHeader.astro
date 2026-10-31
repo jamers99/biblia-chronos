@@ -1,0 +1,80 @@
+---
+// Title block shared by every record page: kind, name, draft marker, the facts
+// (a short definition list passed as [term, value] pairs), and a one-sentence
+// lede from the description.
+import type { Entity } from "../lib/data/load.ts"
+import { summarize } from "../lib/format.ts"
+
+interface Props {
+  entity: Entity
+  kindLabel: string
+  subtitle?: string
+  facts?: [string, string | undefined][]
+}
+const { entity, kindLabel, subtitle, facts = [] } = Astro.props
+const lede = summarize(entity.description)
+const shown = facts.filter(([, v]) => v)
+---
+
+<header class="entity">
+  <p class="kind">{kindLabel}</p>
+  <h1>
+    {entity.name}
+    {
+      entity.status === "draft" && (
+        <span class="badge" title="Theographic marks this record as a work in progress">draft</span>
+      )
+    }
+  </h1>
+  {subtitle && subtitle !== entity.name && <p class="subtitle">{subtitle}</p>}
+  {
+    shown.length > 0 && (
+      <dl>
+        {shown.map(([term, value]) => (
+          <div>
+            <dt>{term}</dt>
+            <dd>{value}</dd>
+          </div>
+        ))}
+      </dl>
+    )
+  }
+  {lede && <p class="lede">{lede}</p>}
+</header>
+
+<style>
+  .lede {
+    font: 1.15rem/1.55 var(--serif);
+    color: var(--ink-2);
+    max-width: var(--measure);
+    margin: 1.25rem 0 0;
+  }
+  .subtitle {
+    margin: -0.25rem 0 0;
+    color: var(--ink-2);
+  }
+  .kind {
+    margin: 0 0 0.25rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  h1 .badge {
+    margin-left: 0.5rem;
+  }
+  dl {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 2rem;
+    margin: 1rem 0 0;
+  }
+  dt {
+    font-size: 0.75rem;
+    color: var(--ink-3);
+  }
+  dd {
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+  }
+</style>

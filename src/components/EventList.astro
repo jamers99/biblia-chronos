@@ -1,0 +1,50 @@
+---
+// Events in story order, each with its date.
+import type { Event } from "../lib/data/schema.ts"
+import { entityUrl } from "../lib/url.ts"
+import { formatEstimate } from "../lib/format.ts"
+
+interface Props {
+  events: Event[]
+}
+const byDate = (a: Event, b: Event) =>
+  (a.date?.earliest ?? Infinity) - (b.date?.earliest ?? Infinity) || a.name.localeCompare(b.name)
+const events = [...Astro.props.events].sort(byDate)
+---
+
+<ul class="events">
+  {
+    events.map((e) => (
+      <li>
+        <span class="when">{e.date ? formatEstimate(e.date) : ""}</span>
+        <a href={entityUrl(e)}>{e.name}</a>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .events {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    gap: 1rem;
+    padding: 0.2rem 0;
+  }
+  .when {
+    color: var(--ink-3);
+    font-size: 0.88rem;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+  }
+  @media (max-width: 520px) {
+    li {
+      grid-template-columns: 6.5rem 1fr;
+      gap: 0.6rem;
+    }
+  }
+</style>
