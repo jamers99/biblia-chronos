@@ -8,7 +8,8 @@
   // animates jumps), Svelte renders the SVG. Lanes are re-packed on every
   // zoom, heaviest first, so zooming in reveals more.
   import { onMount } from "svelte"
-  import { fade } from "svelte/transition"
+  import { fade, fly, scale } from "svelte/transition"
+  import { cubicOut } from "svelte/easing"
   import { scaleLinear } from "d3-scale"
   import { zoom, zoomIdentity, type ZoomBehavior, type ZoomTransform } from "d3-zoom"
   import { select } from "d3-selection"
@@ -16,6 +17,7 @@
   import { packLanes, type TimelineItem, type TimelinePeriod } from "../lib/timeline.ts"
   import { formatSpan, formatYear, labelWidth } from "../lib/format.ts"
   import { entityUrl } from "../lib/url.ts"
+  import { addInertia } from "../lib/inertia.ts"
 
   let { items, periods }: { items: TimelineItem[]; periods: TimelinePeriod[] } = $props()
 
@@ -42,6 +44,8 @@
   let svg: SVGSVGElement
   let searchInput: HTMLInputElement
   let behavior: ZoomBehavior<SVGSVGElement, unknown>
+  let reducedMotion = false
+  const ms = (duration: number) => (reducedMotion ? 0 : duration)
 
   const axisY = $derived(Math.max(FIRST_LANE_TOP + 2 * EVENT_GAP + 40, Math.round(height * 0.47)))
   const eventLanes = $derived(Math.floor((axisY - 40 - FIRST_LANE_TOP) / EVENT_GAP) + 1)
@@ -135,6 +139,8 @@
       )
       .on("zoom", (e) => (transform = e.transform))
     select(svg).call(behavior)
+    addInertia(behavior, svg, "x")
+    reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches
 
     const onWheel = (e: WheelEvent) => {
       if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return
@@ -172,9 +178,9 @@
     const pad = Math.max(8, (end - start) * 0.08)
     const k = width / (base(end + pad) - base(start - pad))
     const t = zoomIdentity.scale(k).translate(-base(start - pad), 0)
-    select(svg).transition().duration(750).call(behavior.transform, t)
+    select(svg).transition().duration(ms(750)).call(behavior.transform, t)
   }
-  const zoomBy = (factor: number) => select(svg).transition().duration(250).call(behavior.scaleBy, factor)
+  const zoomBy = (factor: number) => select(svg).transition().duration(ms(250)).call(behavior.scaleBy, factor)
 
   function pickPeriod(p: TimelinePeriod) {
     flyTo(p.start, p.end)
@@ -312,6 +318,7 @@
           {@const [tx0, tx1, ty] = anchors.get(id)!}
           {@const tx = (Math.max(tx0, 0) + Math.min(tx1, tx0 + 60, width)) / 2}
           <path
+            pathLength="1"
             class="link"
             class:to-event={byId.get(id)?.kind === "event"}
             d="M{fx},{fy} C{fx},{(fy + ty) / 2} {tx},{(fy + ty) / 2} {tx},{ty}"
@@ -408,7 +415,7 @@
       }}
     />
     {#if results.length}
-      <ul class="results">
+      <ul class="results" transition:fly={{ y: -6, duration: 150 }}>
         {#each results as r (r.id)}
           <li>
             <button type="button" onclick={() => choose(r)}>
@@ -422,14 +429,14 @@
   </div>
 
   {#if hovered && hovered.item !== focus}
-    <div class="tooltip" style="left: {hovered.x + 14}px; top: {hovered.y + 10}px">
+    <div class="tooltip" style="left: {hovered.x + 14}px; top: {hovered.y + 10}px" in:fade={{ duration: 120 }}>
       <strong>{formatSpan(hovered.item.start, hovered.item.end)}</strong>
       <span>{hovered.item.name}</span>
     </div>
   {/if}
 
   {#if selected && card}
-    <div class="card" style="left: {card.left}px; top: {card.top}px" aria-live="polite" transition:fade={{ duration: 150 }}>
+    <div class="card" style="left: {card.left}px; top: {card.top}px" aria-live="polite" in:scale={{ start: 0.96, duration: 200, easing: cubicOut }} out:fade={{ duration: 120 }}>
       <button type="button" class="close" aria-label="Close" onclick={() => (selected = undefined)}>×</button>
       {#if isItem(selected)}
         <p class="kind">
@@ -592,6 +599,25 @@
     stroke-width: 1.2;
     opacity: 0.6;
   }
+  /* Links draw themselves out from the selection (pathLength="1"). */
+  .link:not(.to-event) {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: draw 0.6s ease-out forwards;
+  }
+  @keyframes draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  .link.to-event {
+    animation: appear 0.6s ease-out;
+  }
+  @keyframes appear {
+    from {
+      opacity: 0;
+    }
+  }
   .link.to-event {
     stroke-dasharray: 3 3;
     opacity: 0.45;
@@ -630,8 +656,8 @@
 
   .search {
     position: absolute;
-    top: 1.1rem;
-    right: calc(1.5rem + 2 * 2.25rem + 1rem);
+    top: max(1.1rem, env(safe-area-inset-top));
+    right: calc(max(1.5rem, env(safe-area-inset-right)) + 2 * 2.25rem + 1rem);
     width: min(18rem, calc(100vw - 15rem));
     z-index: 11;
   }
@@ -780,8 +806,8 @@
 
   .corner {
     position: absolute;
-    left: 1.5rem;
-    bottom: 1.4rem;
+    left: max(1.5rem, env(safe-area-inset-left));
+    bottom: max(1.4rem, env(safe-area-inset-bottom));
     font-size: 0.75rem;
     color: var(--ink-3);
   }
@@ -794,8 +820,8 @@
   }
   .zoom {
     position: absolute;
-    right: 1.5rem;
-    bottom: 1.6rem;
+    right: max(1.5rem, env(safe-area-inset-right));
+    bottom: max(1.6rem, env(safe-area-inset-bottom));
     display: flex;
     gap: 0.5rem;
   }

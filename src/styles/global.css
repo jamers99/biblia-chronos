@@ -312,3 +312,44 @@ a:hover {
   color: var(--ink);
   border-color: var(--gold);
 }
+
+/* --- App feel --------------------------------------------------------------- */
+
+/* Pages cross-fade into each other (browsers that support cross-document
+   view transitions; others just navigate). */
+@view-transition {
+  navigation: auto;
+}
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.22s;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Buttons give under a press, like native controls. */
+button,
+.icon-button,
+summary {
+  transition:
+    transform 0.12s ease,
+    background-color 0.2s,
+    border-color 0.2s,
+    color 0.2s;
+}
+button:active,
+.icon-button:active {
+  transform: scale(0.93);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after,
+  ::view-transition-group(*) {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
