@@ -1837,7 +1837,11 @@
         "verse": 12
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 45,
+      "latest": 45
+    }
   },
   {
     "id": "bearing-cross-to-golgotha",
@@ -1916,7 +1920,11 @@
         "verse": 17
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 30,
+      "latest": 30
+    }
   },
   {
     "id": "believers-pray-for-boldness",
@@ -2286,8 +2294,8 @@
     ],
     "kind": "event",
     "date": {
-      "earliest": -1996,
-      "latest": -1996
+      "earliest": -1995,
+      "latest": -1995
     }
   },
   {
@@ -4294,7 +4302,11 @@
         "verse": 12
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 47,
+      "latest": 47
+    }
   },
   {
     "id": "capernaum-miracles",
@@ -6738,7 +6750,11 @@
         "verse": 42
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 30,
+      "latest": 30
+    }
   },
   {
     "id": "david-kills-goliath",
@@ -7057,8 +7073,8 @@
     ],
     "kind": "event",
     "date": {
-      "earliest": -954,
-      "latest": -954
+      "earliest": -955,
+      "latest": -955
     }
   },
   {
@@ -7093,8 +7109,8 @@
     ],
     "kind": "event",
     "date": {
-      "earliest": -3074,
-      "latest": -3074
+      "earliest": -3073,
+      "latest": -3073
     }
   },
   {
@@ -7147,8 +7163,8 @@
     ],
     "kind": "event",
     "date": {
-      "earliest": -640,
-      "latest": -640
+      "earliest": -639,
+      "latest": -639
     }
   },
   {
@@ -7408,8 +7424,8 @@
     ],
     "kind": "event",
     "date": {
-      "earliest": -2582,
-      "latest": -2582
+      "earliest": -2581,
+      "latest": -2581
     }
   },
   {
@@ -7426,8 +7442,8 @@
     ],
     "kind": "event",
     "date": {
-      "earliest": -823,
-      "latest": -823
+      "earliest": -824,
+      "latest": -824
     }
   },
   {
@@ -7462,8 +7478,8 @@
     ],
     "kind": "event",
     "date": {
-      "earliest": -884,
-      "latest": -884
+      "earliest": -885,
+      "latest": -885
     }
   },
   {
@@ -7480,8 +7496,8 @@
     ],
     "kind": "event",
     "date": {
-      "earliest": -909,
-      "latest": -909
+      "earliest": -888,
+      "latest": -888
     }
   },
   {
@@ -7498,8 +7514,8 @@
     ],
     "kind": "event",
     "date": {
-      "earliest": -857,
-      "latest": -857
+      "earliest": -856,
+      "latest": -856
     }
   },
   {
@@ -7863,8 +7879,8 @@
     ],
     "kind": "event",
     "date": {
-      "earliest": -916,
-      "latest": -916
+      "earliest": -917,
+      "latest": -917
     }
   },
   {
@@ -7881,8 +7897,8 @@
     ],
     "kind": "event",
     "date": {
-      "earliest": -729,
-      "latest": -729
+      "earliest": -738,
+      "latest": -738
     }
   },
   {
@@ -8021,8 +8037,8 @@
     ],
     "kind": "event",
     "date": {
-      "earliest": -1054,
-      "latest": -1054
+      "earliest": -1055,
+      "latest": -1055
     }
   },
   {
@@ -9249,7 +9265,11 @@
         "verse": 4
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 30,
+      "latest": 30
+    }
   },
   {
     "id": "deliverance-by-barak-and-deborah",
@@ -9613,8 +9633,8 @@
     ],
     "kind": "event",
     "date": {
-      "earliest": -1360,
-      "latest": -1298
+      "earliest": -1359,
+      "latest": -1297
     }
   },
   {
@@ -11134,7 +11154,11 @@
         "verse": 12
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 54,
+      "latest": 54
+    }
   },
   {
     "id": "exodus-from-egypt",
@@ -12414,7 +12438,11 @@
         "verse": 39
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 29,
+      "latest": 29
+    }
   },
   {
     "id": "feast-of-tabernacles",
@@ -12683,7 +12711,11 @@
         "verse": 52
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 29,
+      "latest": 29
+    }
   },
   {
     "id": "feeding-of-five-thousand",
@@ -13063,7 +13095,11 @@
         "verse": 14
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 30,
+      "latest": 30
+    }
   },
   {
     "id": "first-disciples-gathered",
@@ -13618,7 +13654,11 @@
         "verse": 3
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 45,
+      "latest": 45
+    }
   },
   {
     "id": "first-passover-and-temple-cleansing",
@@ -21795,7 +21835,11 @@
         "verse": 31
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 30,
+      "latest": 30
+    }
   },
   {
     "id": "isaac-marries-rebekah",
@@ -22312,7 +22356,11 @@
         "verse": 11
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 30,
+      "latest": 30
+    }
   },
   {
     "id": "jesus-calls-matthew",
@@ -24142,7 +24190,11 @@
         "verse": 27
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 30,
+      "latest": 30
+    }
   },
   {
     "id": "job-s-trial",
@@ -31672,7 +31724,11 @@
         "verse": 6
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 30,
+      "latest": 30
+    }
   },
   {
     "id": "judas-suicide",
@@ -31721,7 +31777,11 @@
         "verse": 10
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 30,
+      "latest": 30
+    }
   },
   {
     "id": "judgeship-of-abdon",
@@ -31859,8 +31919,8 @@
     ],
     "kind": "event",
     "date": {
-      "earliest": -1991,
-      "latest": -1969
+      "earliest": -1191,
+      "latest": -1169
     }
   },
   {
@@ -33443,7 +33503,11 @@
         "verse": 11
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 30,
+      "latest": 30
+    }
   },
   {
     "id": "mary-visits-elizabeth",
@@ -33630,7 +33694,11 @@
         "verse": 26
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 30,
+      "latest": 30
+    }
   },
   {
     "id": "mission-to-antioch-in-pisidia",
@@ -33839,7 +33907,11 @@
         "verse": 52
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 45,
+      "latest": 45
+    }
   },
   {
     "id": "mission-to-berea",
@@ -33878,7 +33950,11 @@
         "verse": 15
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 48,
+      "latest": 48
+    }
   },
   {
     "id": "mission-to-corinth-1-2-thess-written",
@@ -33972,7 +34048,11 @@
         "verse": 17
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 49,
+      "latest": 49
+    }
   },
   {
     "id": "mission-to-ephesus-1-cor-written",
@@ -34091,7 +34171,11 @@
         "verse": 22
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 53,
+      "latest": 56
+    }
   },
   {
     "id": "mission-to-iconium",
@@ -34125,7 +34209,11 @@
         "verse": 5
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 46,
+      "latest": 46
+    }
   },
   {
     "id": "mission-to-lystra-and-derbe",
@@ -34209,7 +34297,11 @@
         "verse": 20
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 46,
+      "latest": 46
+    }
   },
   {
     "id": "mission-to-macedonia-and-greece",
@@ -34248,7 +34340,11 @@
         "verse": 6
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 54,
+      "latest": 55
+    }
   },
   {
     "id": "mission-to-phrygia-galatia-and-asia",
@@ -34272,7 +34368,11 @@
         "verse": 8
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 47,
+      "latest": 47
+    }
   },
   {
     "id": "moses-flees-pharaoh",
@@ -35291,7 +35391,11 @@
         "verse": 36
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 30,
+      "latest": 30
+    }
   },
   {
     "id": "oppression-by-ammon-and-philistia",
@@ -36534,7 +36638,11 @@
         "verse": 34
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 48,
+      "latest": 48
+    }
   },
   {
     "id": "paul-s-first-roman-imprisonment",
@@ -37342,7 +37450,11 @@
         "verse": 38
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 54,
+      "latest": 54
+    }
   },
   {
     "id": "paul-stays-at-malta",
@@ -37477,7 +37589,11 @@
         "verse": 1
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 49,
+      "latest": 49
+    }
   },
   {
     "id": "peter-and-john-s-trial",
@@ -38103,7 +38219,11 @@
         "verse": 41
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 30,
+      "latest": 30
+    }
   },
   {
     "id": "peter-preaches-in-solomon-s-portico",
@@ -39033,7 +39153,11 @@
         "verse": 12
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 30,
+      "latest": 30
+    }
   },
   {
     "id": "prophecies-of-amos",
@@ -67767,8 +67891,8 @@
     ],
     "kind": "event",
     "date": {
-      "earliest": -742,
-      "latest": -726
+      "earliest": -741,
+      "latest": -725
     }
   },
   {
@@ -67795,8 +67919,8 @@
     ],
     "kind": "event",
     "date": {
-      "earliest": -897,
-      "latest": -895
+      "earliest": -896,
+      "latest": -894
     }
   },
   {
@@ -68102,8 +68226,8 @@
     ],
     "kind": "event",
     "date": {
-      "earliest": -954,
-      "latest": -913
+      "earliest": -955,
+      "latest": -914
     }
   },
   {
@@ -73634,8 +73758,8 @@
     ],
     "kind": "event",
     "date": {
-      "earliest": -640,
-      "latest": -609
+      "earliest": -639,
+      "latest": -608
     }
   },
   {
@@ -73828,8 +73952,8 @@
     ],
     "kind": "event",
     "date": {
-      "earliest": -770,
-      "latest": -760
+      "earliest": -771,
+      "latest": -761
     }
   },
   {
@@ -79688,7 +79812,11 @@
         "verse": 31
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 30,
+      "latest": 30
+    }
   },
   {
     "id": "return-from-second-missionary-journey",
@@ -79727,7 +79855,11 @@
         "verse": 23
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 50,
+      "latest": 50
+    }
   },
   {
     "id": "return-to-antioch-in-syria",
@@ -79776,7 +79908,11 @@
         "verse": 28
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 46,
+      "latest": 46
+    }
   },
   {
     "id": "riot-in-ephesus",
@@ -79880,7 +80016,11 @@
         "verse": 41
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 53,
+      "latest": 53
+    }
   },
   {
     "id": "roman-trials",
@@ -80364,7 +80504,11 @@
         "verse": 16
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 30,
+      "latest": 30
+    }
   },
   {
     "id": "samaritans-reject-jesus",
@@ -80463,8 +80607,8 @@
     ],
     "kind": "event",
     "date": {
-      "earliest": -1101,
-      "latest": -1101
+      "earliest": -1100,
+      "latest": -1100
     }
   },
   {
@@ -80519,7 +80663,11 @@
         "verse": 2
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 30,
+      "latest": 30
+    }
   },
   {
     "id": "saul-is-converted",
@@ -82161,7 +82309,11 @@
         "verse": 41
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 47,
+      "latest": 47
+    }
   },
   {
     "id": "sermon-on-the-mount",
@@ -85965,7 +86117,11 @@
         "verse": 26
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 30,
+      "latest": 30
+    }
   },
   {
     "id": "teachings-on-humility-temptation-reconciliation",
@@ -86352,7 +86508,11 @@
         "verse": 48
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 30,
+      "latest": 30
+    }
   },
   {
     "id": "temple-presentation-of-jesus",
@@ -87772,7 +87932,11 @@
         "verse": 13
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 30,
+      "latest": 30
+    }
   },
   {
     "id": "the-holy-spirit-is-promised",
@@ -87791,7 +87955,11 @@
         "verse": 5
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 30,
+      "latest": 30
+    }
   },
   {
     "id": "the-last-supper",
@@ -88305,7 +88473,11 @@
         "verse": 30
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 30,
+      "latest": 30
+    }
   },
   {
     "id": "the-samaritan-woman",
@@ -89048,7 +89220,11 @@
         "verse": 28
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 50,
+      "latest": 50
+    }
   },
   {
     "id": "timothy-joins-paul-and-silas",
@@ -89082,7 +89258,11 @@
         "verse": 5
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 47,
+      "latest": 47
+    }
   },
   {
     "id": "tower-of-babel",
@@ -89374,7 +89554,11 @@
         "verse": 19
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 30,
+      "latest": 30
+    }
   },
   {
     "id": "united-kingdom",
@@ -90026,7 +90210,11 @@
         "verse": 26
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 30,
+      "latest": 30
+    }
   },
   {
     "id": "uproar-in-thessalonica",
@@ -90080,7 +90268,11 @@
         "verse": 9
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 48,
+      "latest": 48
+    }
   },
   {
     "id": "usurpation-by-abimelech",
@@ -90525,7 +90717,11 @@
         "verse": 17
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 54,
+      "latest": 54
+    }
   },
   {
     "id": "voyage-to-miletus",
@@ -90554,7 +90750,11 @@
         "verse": 16
       }
     ],
-    "kind": "event"
+    "kind": "event",
+    "date": {
+      "earliest": 54,
+      "latest": 54
+    }
   },
   {
     "id": "war-with-canaanites",

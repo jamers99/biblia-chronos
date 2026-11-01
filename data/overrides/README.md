@@ -41,7 +41,7 @@ object. To change one sub-field, include the others you want to keep.
 
 ```json
 [
-  { "id": "solomon_2755", "birth": { "earliest": -1010, "latest": -1010, "display": "c. 1010 BC", "chronology": "thiele" } }
+  { "id": "solomon_2762", "birth": { "earliest": -1009, "latest": -1009, "display": "c. 1010 BC", "chronology": "thiele" } }
 ]
 ```
 

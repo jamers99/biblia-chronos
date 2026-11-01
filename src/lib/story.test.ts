@@ -25,7 +25,7 @@ const byId = new Map<string, Event | Person>([...events, ...people].map((r) => [
 const records = {
   events: (ids: string[]) => ids.map((id) => byId.get(id) as Event),
   people: (ids: string[]) => ids.map((id) => byId.get(id) as Person),
-  onMap: (id: string) => id !== "lost",
+  dotOf: (id: string) => (id === "lost" ? undefined : id === "alias" ? "here" : id),
 }
 
 test("storyChapters falls back to an era's best-attested moments and people", () => {
@@ -37,19 +37,20 @@ test("storyChapters falls back to an era's best-attested moments and people", ()
   assert.deepEqual([a.people, b.people].map((p) => p.map((x) => x.id)), [["spans-both"], ["spans-both"]])
 })
 
-test("storyChapters prefers chosen moments and people, and drops places not on the map", () => {
+test("storyChapters prefers chosen moments and people, and shows places as their map dots", () => {
   const chosen = era("a", -100, -50, {
     moments: ["busy", "undated"],
     people: ["spans-both"],
-    places: ["here", "lost"],
-    journey: { name: "Trip", places: ["here", "lost"] },
+    places: ["here", "lost", "alias"],
+    journey: { name: "Trip", places: ["here", "lost", "alias"] },
   })
   byId.set("undated", event("undated"))
   const [a] = storyChapters([chosen], items, records)
   assert.deepEqual(a.moments, [
-    { id: "busy", name: "busy", when: "60 BC" },
+    { id: "busy", name: "busy", when: "61 BC" },
     { id: "undated", name: "undated", when: "" },
   ])
+  // "lost" has no dot; "alias" is drawn as "here", so it's the same dot
   assert.deepEqual(a.places, ["here"])
   assert.equal(a.journey, undefined) // one stop left isn't a journey
 })

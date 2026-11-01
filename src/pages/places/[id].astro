@@ -8,8 +8,9 @@ import Scripture from "../../components/Scripture.astro"
 import SourceNote from "../../components/SourceNote.astro"
 import { places, graph, resolve } from "../../lib/data/load.ts"
 import type { Place } from "../../lib/data/schema.ts"
-import { summarize } from "../../lib/format.ts"
+import { formatEstimate, summarize } from "../../lib/format.ts"
 import { project, MAP_W, MAP_H } from "../../lib/geo.ts"
+import { mapStandIn } from "../../lib/map.ts"
 import { url } from "../../lib/url.ts"
 
 export const getStaticPaths = () => places.map((place) => ({ params: { id: place.id }, props: { place } }))
@@ -20,6 +21,9 @@ const type = [place.featureType, place.featureSubType].filter(Boolean).join(" ·
 const coords = place.coordinates
 const events = resolve(graph.incoming(place.id, "occurred-at"), "event")
 const xy = coords && project(coords)
+// The dot this place is drawn as on the map (an alias as its main place).
+const mapId = mapStandIn(place, graph.outgoing, (id) => resolve([id], "place")[0])
+const linked = (ids: string[]) => resolve(ids, "place")
 ---
 
 <Page title={place.name} description={summarize(place.description)}>
@@ -28,6 +32,7 @@ const xy = coords && project(coords)
     kindLabel="Place"
     facts={[
       ["Type", type || undefined],
+      ["When", place.date && formatEstimate(place.date)],
       ["Also called", otherNames.join(", ") || undefined],
       ["Modern name", place.modernName],
       ["Location", coords && `${coords.lat.toFixed(3)}°, ${coords.lng.toFixed(3)}°`],
@@ -36,7 +41,7 @@ const xy = coords && project(coords)
 
   {
     xy && (
-      <a class="locator" href={url(`/map/#${place.id}`)} title="See it on the map">
+      <a class="locator" href={url(`/map/#${mapId}`)} title="See it on the map">
         <svg viewBox={`${xy[0] - 60} ${xy[1] - 35} 120 70`} role="img" aria-label={`${place.name} on a map`}>
           <image href={url("/map/basemap.svg")} width={MAP_W} height={MAP_H} />
           <circle cx={xy[0]} cy={xy[1]} r="1.6" />
@@ -48,6 +53,11 @@ const xy = coords && project(coords)
 
   <Relations
     rows={[
+      ["Same place as", linked(graph.outgoing(place.id, "alias-of"))],
+      ["Other names", linked(graph.incoming(place.id, "alias-of"))],
+      ["Part of", linked(graph.outgoing(place.id, "part-of"))],
+      ["Includes", linked(graph.incoming(place.id, "part-of"))],
+      ["Near", linked(graph.either(place.id, "near"))],
       ["Visited by", resolve(graph.incoming(place.id, "visited"), "person")],
       ["Died here", resolve(graph.incoming(place.id, "died-at"), "person")],
     ]}

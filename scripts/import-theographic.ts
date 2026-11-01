@@ -74,9 +74,12 @@ function stripMarkup(value: unknown): string | undefined {
   return text.length ? text : undefined
 }
 
+// Years arrive as plain numbers ("-1573") or, for some New Testament events,
+// ISO dates ("0030-04-04"); a date contributes just its year.
 function toYear(value: unknown): number | undefined {
   if (value === null || value === undefined || value === "") return undefined
-  const n = Number(value)
+  const iso = /^(-?\d+)-\d{1,2}-\d{1,2}$/.exec(String(value))
+  const n = Number(iso ? iso[1] : value)
   return Number.isFinite(n) ? Math.trunc(n) : undefined
 }
 
@@ -305,7 +308,6 @@ const people = rawPeople.map((r) => {
     gender,
     birth: yearEstimate(f.birthYear),
     death: yearEstimate(f.deathYear),
-    lived: spanEstimate(f.minYear, f.maxYear),
     scriptureRefs: resolveScriptureRefs(f.verses),
   }
 })
@@ -339,6 +341,14 @@ const places = rawPlaces.map((r) => {
     add("occurred-at", eventRec, r.id, eventId, placeId)
   for (const personRec of asArray(f.peopleDied))
     add("died-at", personRec, r.id, personId, placeId)
+  // Upstream stores these both ways (parts, nearby, otherNames are the
+  // inverses); we read one side and let the graph walk it backwards.
+  for (const parentRec of asArray(f.partOf))
+    add("part-of", r.id, parentRec, placeId, placeId)
+  for (const nearRec of asArray(f.near))
+    add("near", r.id, nearRec, placeId, placeId)
+  for (const canonicalRec of asArray(f.canonicalPlace))
+    add("alias-of", r.id, canonicalRec, placeId, placeId)
   // hasBeenHere is a comma-joined string of canonical personLookups, not rec-ids.
   if (typeof f.hasBeenHere === "string") {
     for (const lookup of f.hasBeenHere.split(",").map((s: string) => s.trim())) {
@@ -360,6 +370,7 @@ const places = rawPlaces.map((r) => {
     featureType: f.featureType ? String(f.featureType) : undefined,
     featureSubType: f.featureSubType ? String(f.featureSubType) : undefined,
     altNames: altNames.length ? altNames : undefined,
+    date: spanEstimate(f.startYear, f.endYear),
     scriptureRefs: resolveScriptureRefs(f.verses),
   }
 })
@@ -508,6 +519,9 @@ for (const type of [
   "occurred-at",
   "died-at",
   "visited",
+  "part-of",
+  "near",
+  "alias-of",
 ])
   log(`  ${type.padEnd(16)}${edgeCounts.get(type) ?? 0}`)
 log(`  ${"TOTAL".padEnd(16)}${validated.edges.length}`)

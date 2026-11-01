@@ -24,7 +24,7 @@ export type Chapter = {
 export type Records = {
   events: (ids: string[]) => Event[]
   people: (ids: string[]) => Person[]
-  onMap: (placeId: string) => boolean
+  dotOf: (placeId: string) => string | undefined // the map dot a place is drawn as, if any
 }
 
 const MOMENTS = 6
@@ -47,7 +47,13 @@ export function storyChapters(periods: Period[], items: TimelineItem[], records:
           .filter((i) => i.kind === "person" && periodsOverlapping(i, periods).includes(era))
           .slice(0, PEOPLE)
           .map((i) => ({ id: i.id, name: i.name }))
-    const journey = era.journey && { ...era.journey, places: era.journey.places.filter(records.onMap) }
+    // Places as the dots they're drawn as, each once (an alias and its main
+    // place are one dot); a journey only drops a stop that repeats the last.
+    const dots = (ids: string[]) => ids.map(records.dotOf).filter((id) => id !== undefined)
+    const journey = era.journey && {
+      ...era.journey,
+      places: dots(era.journey.places).filter((id, i, all) => id !== all[i - 1]),
+    }
     return {
       id: era.id,
       name: era.name,
@@ -55,7 +61,7 @@ export function storyChapters(periods: Period[], items: TimelineItem[], records:
       end: era.date.latest,
       when: formatSpan(era.date.earliest, era.date.latest),
       lede: era.lede,
-      places: (era.places ?? []).filter(records.onMap),
+      places: [...new Set(dots(era.places ?? []))],
       journey: journey && journey.places.length > 1 ? journey : undefined,
       moments,
       people,

@@ -40,7 +40,6 @@
   let width = $state(1200)
   let height = $state(800)
   let at = $state(-1) // the chapter shown; -1 is the overview
-  let showDrafts = $state(true)
   let transform = $state<ZoomTransform>(zoomIdentity)
   // Raw, not deeply reactive: these hold places from props, compared by identity.
   let selected = $state.raw<MapPlace>()
@@ -70,7 +69,7 @@
     const key = new Set(chapter?.places)
     const keyPlaces = [...key].map((id): Tiered => ({ place: byId.get(id)!, tier: 0 }))
     const rest = places
-      .filter((p) => !key.has(p.id) && (showDrafts || !p.draft))
+      .filter((p) => !key.has(p.id))
       .map((place): Tiered => ({ place, tier: !chapter || place.eras.includes(chapter.id) ? 1 : 2 }))
     return [...keyPlaces, ...rest]
   })
@@ -241,7 +240,6 @@
       {#each drawn as { place, sx, sy, tier } (place.id)}
         <circle
           class="dot t{tier}"
-          class:draft={place.draft}
           cx={sx}
           cy={sy}
           r={RADIUS[tier]}
@@ -323,7 +321,6 @@
             {places.length.toLocaleString()} places with known locations, from Ur to Rome. Follow the story era by era, or
             explore: scroll to zoom, drag to move, and click any place.
           </p>
-          <label class="toggle"><input type="checkbox" bind:checked={showDrafts} /> Show draft records</label>
           <p class="note">Locations come from the source data, and many are uncertain.</p>
         {/if}
       </div>
@@ -382,9 +379,6 @@
   .dot.t0 {
     fill: var(--accent);
     animation: pop 0.5s cubic-bezier(0.3, 1.6, 0.5, 1) backwards;
-  }
-  .dot.draft:not(.t0) {
-    opacity: 0.5;
   }
   @keyframes pop {
     from {
