@@ -6,7 +6,7 @@
   //
   // d3-scale does the math, d3-zoom handles wheel/drag/pinch (d3-transition
   // animates jumps), Svelte renders the SVG. Lanes are re-packed on every
-  // zoom, heaviest first, so zooming in reveals more.
+  // zoom (not on pan), heaviest first, so zooming in reveals more.
   import { onMount } from "svelte"
   import { fade, fly, scale } from "svelte/transition"
   import { cubicOut } from "svelte/easing"
@@ -63,30 +63,42 @@
   const related = $derived(new Set(focus?.related ?? []))
   const dimmed = (i: TimelineItem) => !!focus && i !== focus && !related.has(i.id)
 
-  // An item's footprint: its mark plus its label, which starts at the mark (or
-  // at the left edge, if the mark starts off-screen).
+  // Lanes are packed in "world" pixels: the whole timeline at the current zoom
+  // with no pan applied, not just what's in view. Dragging only pans, so
+  // nothing changes lane mid-drag; lanes change only when the zoom does.
+  const k = $derived(transform.k)
+  const world = $derived(scaleLinear().domain(domain).range([0, width * k]))
+  // An item's footprint: its mark plus its label, which starts at the mark.
   function extent(i: TimelineItem): [number, number] {
-    const left = x(i.start) - 6
-    return [left, Math.max(x(i.end) + 6, Math.max(left, 4) + labelWidth(i.name))]
+    const left = world(i.start) - 6
+    return [left, Math.max(world(i.end) + 6, left + labelWidth(i.name))]
   }
   // The selection and its connections jump the queue, so they're always shown.
   const priority = (i: TimelineItem) => (i === focus ? 2e9 : related.has(i.id) ? 1e9 + i.weight : i.weight)
 
-  function lanes(kind: TimelineItem["kind"], maxLanes: number) {
-    const [lo, hi] = x.domain()
-    const inView = shown.filter((i) => i.kind === kind && i.end >= lo && i.start <= hi)
-    return packLanes(inView, priority, extent, maxLanes, 12)
-  }
+  const lanes = (kind: TimelineItem["kind"], maxLanes: number) =>
+    packLanes(shown.filter((i) => i.kind === kind), priority, extent, maxLanes, 12).placed
   const eventLayout = $derived(lanes("event", eventLanes))
   const peopleLayout = $derived(lanes("person", peopleLanes))
+  // World to screen is a shift by the pan, so culling is cheap.
+  const inView = (placed: typeof eventLayout) =>
+    placed.filter(({ x0, x1 }) => x1 + transform.x > 0 && x0 + transform.x < width)
+  const visible = $derived([inView(eventLayout), inView(peopleLayout)])
 
   // Where each placed item is drawn: [left, right, y], for links and the card.
   const anchors = $derived(
-    new Map([
-      ...eventLayout.placed.map(({ item, lane }) => [item.id, [x(item.start), x(item.end), eventY(lane)]] as const),
-      ...peopleLayout.placed.map(({ item, lane }) => [item.id, [x(item.start), x(item.end), personY(lane)]] as const),
-    ]),
+    new Map(
+      visible.flatMap((placed) =>
+        placed.map(({ item, lane }) => {
+          const y = item.kind === "event" ? eventY(lane) : personY(lane)
+          return [item.id, [x(item.start), x(item.end), y]] as const
+        }),
+      ),
+    ),
   )
+  // A label sticks to the left edge while its item runs off-screen, but never
+  // slides out of the item's footprint (where it could hit a neighbour).
+  const labelX = (i: TimelineItem, xs: number, xe: number) => Math.max(xs, Math.min(6, xe + 6 - labelWidth(i.name)))
 
   const dotRadius = (i: TimelineItem) => 3 + 2.5 * Math.sqrt(i.weight / maxWeight)
   const ribbon = (i: TimelineItem) => 4 + 4 * Math.sqrt(i.weight / maxWeight)
@@ -281,6 +293,7 @@
       {#each eraTitles as { p, a, b } (p.id)}
         <clipPath id="tl-clip-{p.id}"><rect x={a} y="0" width={b - a} height={height} /></clipPath>
       {/each}
+      <clipPath id="tl-above-axis"><rect x="0" y="0" {width} height={axisY} /></clipPath>
     </defs>
 
     <!-- Eras: alternating bands, a dotted edge, and the era's name writ large -->
@@ -327,54 +340,58 @@
       {/each}
     {/if}
 
-    <!-- Events above the axis, people below -->
-    {#each [eventLayout, peopleLayout] as layout, section (section)}
-      {#each layout.placed as { item } (item.id)}
-        {@const [xs, xe, y] = anchors.get(item.id)!}
-        {@const span = item.end > item.start}
-        <!-- Pointer layer; every item also has its own page and index entry. -->
-        <!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions -->
-        <g
-          class="item {item.kind}"
-          class:dim={dimmed(item)}
-          class:focus={item === focus}
-          class:draft={item.draft}
-          in:fade={{ duration: 180 }}
-          onclick={(e) => {
-            e.stopPropagation()
-            selected = item
-          }}
-          onpointerenter={(e) => (hovered = { item, x: e.offsetX, y })}
-          onpointerleave={() => (hovered = undefined)}
-        >
-          {#if item.kind === "event"}
-            <line class="stem" x1={xs} x2={xs} y1={y} y2={axisY} />
-            <rect class="hit" x={xs - 8} y={y - 22} width={Math.max(xe - xs, labelWidth(item.name)) + 16} height="30" />
-            {#if span}
-              <rect class="bar" x={xs} y={y - 2.5} width={xe - xs} height="5" rx="2.5" />
+    <!-- Events above the axis, people below. Each item sits at its lane via a
+         CSS transform, so a lane change on zoom glides rather than jumps. Events
+         are clipped at the axis, so their stems can simply run long. -->
+    {#each visible as placed, section (section)}
+      <g clip-path={section === 0 ? "url(#tl-above-axis)" : undefined}>
+        {#each placed as { item } (item.id)}
+          {@const [xs, xe, y] = anchors.get(item.id)!}
+          {@const span = item.end > item.start}
+          <!-- Pointer layer; every item also has its own page and index entry. -->
+          <!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions -->
+          <g
+            class="item {item.kind}"
+            class:dim={dimmed(item)}
+            class:focus={item === focus}
+            class:draft={item.draft}
+            style="transform: translateY({y}px)"
+            onclick={(e) => {
+              e.stopPropagation()
+              selected = item
+            }}
+            onpointerenter={(e) => (hovered = { item, x: e.offsetX, y })}
+            onpointerleave={() => (hovered = undefined)}
+          >
+            {#if item.kind === "event"}
+              <line class="stem" x1={xs} x2={xs} y1="0" y2={axisY} />
+              <rect class="hit" x={xs - 8} y="-22" width={Math.max(xe - xs, labelWidth(item.name)) + 16} height="30" />
+              {#if span}
+                <rect class="bar" x={xs} y="-2.5" width={xe - xs} height="5" rx="2.5" />
+              {/if}
+              <circle class="dot" cx={xs} cy="0" r={dotRadius(item)} />
+              <text class:strong={strong(item)} x={span ? labelX(item, xs, xe) : xs + dotRadius(item) + 5} y={span ? -9 : 4}
+                >{item.name}</text
+              >
+            {:else}
+              {@const h = ribbon(item)}
+              <rect class="hit" x={xs - 6} y="-20" width={Math.max(xe - xs, labelWidth(item.name)) + 12} height="30" />
+              <rect
+                class="ribbon"
+                class:attested={!item.lifetime}
+                x={xs}
+                y={-h / 2}
+                width={Math.max(6, xe - xs)}
+                height={h}
+                rx={h / 2}
+                style={item.lifetime && xe - xs > 40 ? `fill: url(#${item === focus ? "tl-focus" : "tl-person"})` : ""}
+                filter={item === focus ? "url(#tl-glow)" : undefined}
+              />
+              <text class:strong={strong(item)} x={labelX(item, xs, xe)} y={-h / 2 - 5}>{item.name}</text>
             {/if}
-            <circle class="dot" cx={xs} cy={y} r={dotRadius(item)} />
-            <text class:strong={strong(item)} x={span ? Math.max(xs, 4) : xs + dotRadius(item) + 5} y={span ? y - 9 : y + 4}
-              >{item.name}</text
-            >
-          {:else}
-            {@const h = ribbon(item)}
-            <rect class="hit" x={xs - 6} y={y - 20} width={Math.max(xe - xs, labelWidth(item.name)) + 12} height="30" />
-            <rect
-              class="ribbon"
-              class:attested={!item.lifetime}
-              x={xs}
-              y={y - h / 2}
-              width={Math.max(6, xe - xs)}
-              height={h}
-              rx={h / 2}
-              style={item.lifetime && xe - xs > 40 ? `fill: url(#${item === focus ? "tl-focus" : "tl-person"})` : ""}
-              filter={item === focus ? "url(#tl-glow)" : undefined}
-            />
-            <text class:strong={strong(item)} x={Math.max(xs, 6)} y={y - h / 2 - 5}>{item.name}</text>
-          {/if}
-        </g>
-      {/each}
+          </g>
+        {/each}
+      </g>
     {/each}
 
     <!-- Overview strip: the whole story, with a window on what's in view -->
@@ -539,7 +556,16 @@
 
   .item {
     cursor: pointer;
-    transition: opacity 0.2s;
+    transition:
+      opacity 0.2s,
+      transform 0.28s cubic-bezier(0.2, 0.7, 0.3, 1);
+    /* Fade in when added: CSS, as a zoom can add dozens of items a frame */
+    animation: appear 0.18s;
+  }
+  @keyframes appear {
+    from {
+      opacity: 0;
+    }
   }
   .item.dim {
     opacity: 0.18;
