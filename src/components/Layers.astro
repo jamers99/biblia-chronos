@@ -127,6 +127,8 @@
     history.back()
   })
 
+  // Islands open panels for things that aren't links (a dot on the map).
+  addEventListener("open-layer", (e) => push((e as CustomEvent<string>).detail))
   addEventListener("popstate", (e) => sync(stackOf(e.state)))
   sync(stackOf(history.state))
 </script>
