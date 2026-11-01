@@ -74,9 +74,17 @@ export const PeopleGroup = Base.extend({
 // An era of the story (Patriarchs, Judges, …). Hand-authored, not imported:
 // periods live in data/overrides/periods.json. `date` is the era's span, so
 // both ends are required. Periods are sequential — the checker rejects overlaps.
+// The rest is the era's chapter on the map: a short lede, its key places (most
+// important first), optionally a journey through some of them (in order), and
+// its key moments (event ids, in order) and people.
 export const Period = Base.extend({
   kind: z.literal("period"),
   date: DateEstimate.required({ earliest: true, latest: true }),
+  lede: z.string().optional(),
+  places: z.array(z.string()).optional(),
+  journey: z.object({ name: z.string(), places: z.array(z.string()).min(2) }).optional(),
+  moments: z.array(z.string()).optional(),
+  people: z.array(z.string()).optional(),
 })
 
 export const Book = z.object({
