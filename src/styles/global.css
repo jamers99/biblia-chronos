@@ -207,6 +207,36 @@ a:hover {
   border-color: var(--gold);
 }
 
+/* Floating chrome over the full-screen views (the timeline and the map) */
+.tooltip {
+  position: absolute;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.8rem;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgb(40 30 15 / 0.12);
+  white-space: nowrap;
+}
+.tooltip span {
+  color: var(--ink-2);
+}
+.zoom-buttons {
+  position: absolute;
+  right: max(1.5rem, env(safe-area-inset-right));
+  bottom: max(1.6rem, env(safe-area-inset-bottom));
+  display: flex;
+  gap: 0.5rem;
+}
+@media (max-width: 700px) {
+  .zoom-buttons {
+    display: none; /* pinch instead */
+  }
+}
+
 /* --- App feel --------------------------------------------------------------- */
 
 /* Pages cross-fade into each other (browsers that support cross-document

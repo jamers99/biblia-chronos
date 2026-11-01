@@ -11,10 +11,10 @@
 ---
 
 <script>
-  import { url } from "../lib/url.ts"
+  import { entityPath } from "../lib/url.ts"
 
-  const ENTITY = new RegExp(`^${url("")}/(people|places|events|groups)/[^/]+/$`)
-  const pages = new Map<string, Promise<Document>>()
+  // Pages as HTML text (cheaper to keep than parsed documents)
+  const pages = new Map<string, Promise<string>>()
   const root = Object.assign(document.createElement("div"), { className: "layers" })
   document.body.append(root)
 
@@ -25,7 +25,6 @@
     if (!pages.has(href)) {
       const page = fetch(href, { headers: { accept: "text/html" } })
         .then((r) => (r.ok ? r.text() : Promise.reject(new Error(r.statusText))))
-        .then((html) => new DOMParser().parseFromString(html, "text/html"))
       page.catch(() => pages.delete(href)) // retry next time
       pages.set(href, page)
     }
@@ -46,7 +45,8 @@
     )
   }
 
-  function layer(href: string) {
+  // A panel. The first one's button closes it; the others' go back.
+  function layer(href: string, first: boolean) {
     const el = document.createElement("section")
     el.className = "layer"
     el.dataset.href = href
@@ -54,9 +54,9 @@
     el.setAttribute("role", "dialog")
     el.innerHTML = `
       <header class="layer-bar">
-        <button type="button" class="icon-button" data-back aria-label="Back">
+        <button type="button" class="icon-button" data-back aria-label="${first ? "Close" : "Back"}">
           <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path class="back" d="M15 5l-7 7 7 7"/><path class="close" d="M6 6l12 12M18 6L6 18"/>
+            <path d="${first ? "M6 6l12 12M18 6L6 18" : "M15 5l-7 7 7 7"}"/>
           </svg>
         </button>
         <a class="layer-open" href="${href}" data-no-layer>Open full page</a>
@@ -64,7 +64,8 @@
       <div class="layer-body" aria-busy="true"><p class="layer-status">Loading…</p></div>`
     const body = el.querySelector(".layer-body")!
     load(href)
-      .then(async (doc) => {
+      .then(async (html) => {
+        const doc = new DOMParser().parseFromString(html, "text/html")
         await adoptStyles(doc)
         el.setAttribute("aria-label", doc.title.replace(/ · Biblia Chronos$/, ""))
         body.replaceChildren(...[...doc.querySelector("main")!.childNodes].map((n) => document.importNode(n, true)))
@@ -86,7 +87,7 @@
       el.classList.add("closing")
       el.addEventListener("animationend", () => el.remove(), { once: true })
     }
-    for (const href of stack.slice(keep)) root.append(layer(href))
+    stack.slice(keep).forEach((href, i) => root.append(layer(href, keep + i === 0)))
     const open = shown()
     open.forEach((el, i) => el.style.setProperty("--depth", String(open.length - 1 - i)))
     if (stack.length > keep) open.at(-1)!.focus({ preventScroll: true })
@@ -103,29 +104,42 @@
     if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
     const target = e.target as Element
     if (target.closest("[data-back]")) return history.back()
-    const a = target.closest<HTMLAnchorElement>("a[href]")
-    if (!a || a.target || a.hasAttribute("data-no-layer")) return
-    const { origin, pathname } = new URL(a.href)
-    if (origin !== location.origin || !ENTITY.test(pathname)) return
+    const path = panelPath(target)
+    if (!path) return
     e.preventDefault()
-    push(pathname)
+    push(path)
   })
 
-  // Warm the cache when a pointer heads for a link, so panels open filled.
+  // The panel a link opens, if it's a link to an entity's page (and not one
+  // marked to open normally, or in another tab).
+  function panelPath(target: Element) {
+    const a = target.closest("a[href]")
+    if (!a || a.hasAttribute("data-no-layer") || a.hasAttribute("target")) return
+    return entityPath(a.getAttribute("href")!)
+  }
+
+  // Warm the cache when a pointer rests on a link, so panels open filled
+  // (after a moment, so sweeping across a list doesn't fetch it all).
+  let hover = 0
   document.addEventListener("pointerover", (e) => {
-    const a = (e.target as Element).closest<HTMLAnchorElement>("a[href]")
-    if (!a || a.hasAttribute("data-no-layer")) return
-    const { origin, pathname } = new URL(a.href)
-    if (origin === location.origin && ENTITY.test(pathname)) load(pathname)
+    clearTimeout(hover)
+    const path = panelPath(e.target as Element)
+    if (path) hover = window.setTimeout(() => load(path), 80)
   })
 
-  // Esc closes the top panel first, before the page sees it (pages listen on
-  // window, which comes after document).
-  document.addEventListener("keydown", (e) => {
-    if (e.key !== "Escape" || !shown().length || e.target instanceof HTMLInputElement) return
-    e.stopPropagation()
-    history.back()
-  })
+  // Keys typed in a panel stay there: the page underneath never sees them.
+  root.addEventListener("keydown", (e) => e.stopPropagation())
+  // Esc closes the top panel, wherever focus is (but not mid-typing). This
+  // listens while capturing, so it comes before the panel's and the page's.
+  document.addEventListener(
+    "keydown",
+    (e) => {
+      if (e.key !== "Escape" || !shown().length || e.target instanceof HTMLInputElement) return
+      e.stopPropagation()
+      history.back()
+    },
+    { capture: true },
+  )
 
   // Islands open panels for things that aren't links (a dot on the map).
   addEventListener("open-layer", (e) => push((e as CustomEvent<string>).detail))
@@ -183,14 +197,6 @@
     justify-content: space-between;
     padding: 0.6rem 0.75rem;
     border-bottom: 1px solid var(--rule);
-  }
-  /* The first panel's back button closes it, so it shows a cross */
-  .layer .close,
-  .layer:first-child .back {
-    display: none;
-  }
-  .layer:first-child .close {
-    display: inline;
   }
   .layer-open {
     font-size: 0.85rem;

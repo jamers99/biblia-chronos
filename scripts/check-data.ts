@@ -167,16 +167,17 @@ for (let i = 1; i < byStart.length; i++)
 
 // A period's map chapter names places (which must be locatable), events, and
 // people that exist.
+const locatable = new Set(places.filter((p) => p.coordinates).map((p) => p.id))
 for (const p of periods) {
-  const named: [string, Kind][] = [
-    ...[...(p.places ?? []), ...(p.journey?.places ?? [])].map((id): [string, Kind] => [id, "place"]),
-    ...(p.moments ?? []).map((id): [string, Kind] => [id, "event"]),
-    ...(p.people ?? []).map((id): [string, Kind] => [id, "person"]),
-  ]
-  for (const [id, kind] of named)
-    if (entityKind.get(id) !== kind) err(`period "${p.id}" names "${id}", which isn't a known ${kind}`)
-    else if (kind === "place" && !places.find((q) => q.id === id)!.coordinates)
-      err(`period "${p.id}" names place "${id}", which has no coordinates`)
+  const check = (ids: string[] = [], kind: Kind) => {
+    for (const id of ids)
+      if (entityKind.get(id) !== kind) err(`period "${p.id}" names "${id}", which isn't a known ${kind}`)
+      else if (kind === "place" && !locatable.has(id)) err(`period "${p.id}" names place "${id}", which has no coordinates`)
+  }
+  check(p.places, "place")
+  check(p.journey?.places, "place")
+  check(p.moments, "event")
+  check(p.people, "person")
 }
 
 // --- 6. Orphans (warning only) ----------------------------------------------

@@ -14,12 +14,14 @@
   import "d3-transition"
   import type { MapPlace } from "../lib/map.ts"
   import type { Chapter } from "../lib/story.ts"
-  import { entityUrl } from "../lib/url.ts"
+  import { entityUrl, setHash } from "../lib/url.ts"
   import { labelWidth } from "../lib/format.ts"
   import { addInertia } from "../lib/inertia.ts"
+  import { ms } from "../lib/motion.ts"
 
   type Box = [number, number, number, number] // x0, y0, x1, y1 in map units
-  type Point = { place: MapPlace; sx: number; sy: number; tier: 0 | 1 | 2 } // key, era, other
+  type Tiered = { place: MapPlace; tier: 0 | 1 | 2 } // key, era, other
+  type Point = Tiered & { sx: number; sy: number }
 
   let {
     places,
@@ -33,6 +35,7 @@
 
   const NUMERALS = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"]
   const MAX_LABELS = 60
+  const RADIUS = [5.5, 3, 1.8] // by tier
 
   let width = $state(1200)
   let height = $state(800)
@@ -45,29 +48,41 @@
   let basemapSvg = $state("")
   let svg: SVGSVGElement
   let behavior: ZoomBehavior<SVGSVGElement, unknown>
-  let reducedMotion = false
-  const ms = (duration: number) => (reducedMotion ? 0 : duration)
+  let ready = $state(false) // marks wait for the first real view, not the server's
 
   const byId = $derived(new Map(places.map((p) => [p.id, p])))
   const chapter = $derived<Chapter | undefined>(chapters[at])
-  const key = $derived(new Set(chapter?.places))
-  const narrow = $derived(width < 760)
 
-  // Every place to draw, with its tier: in a chapter, its key places (in the
-  // era's order, so they're named first), then its other places, then the rest
-  // faintly. In the overview, every place is an "era" place.
-  const points = $derived.by(() => {
-    const keyPlaces = (chapter?.places ?? []).map((id) => byId.get(id)!)
-    const rest = places.filter((p) => !key.has(p.id) && (showDrafts || !p.draft))
-    return [...keyPlaces, ...rest].flatMap((place): Point[] => {
-      const [sx, sy] = transform.apply([place.x, place.y])
-      if (sx < -10 || sx > width + 10 || sy < -10 || sy > height + 10) return []
-      const tier = !chapter || place.eras.includes(chapter.id) ? 1 : 2
-      return [{ place, sx, sy, tier: key.has(place.id) ? 0 : tier }]
-    })
+  // The panel's size is set here, not in CSS, so framing and labels know what
+  // it covers: a column on the left whose last 100px fade into the map, or on
+  // phones a sheet over the bottom half.
+  const narrow = $derived(width < 760)
+  const panelWidth = $derived(Math.min(720, width * 0.52))
+  const sheetTop = $derived(height * 0.5)
+  // Where the map shows a chapter: beside the panel, or above it.
+  const stage = (): Box => (narrow ? [0, 70, width, sheetTop] : [panelWidth - 100, 70, width, height - 30])
+
+  // Every place with its tier: in a chapter, its key places (in the era's
+  // order, so they're named first), then its other places, then the rest
+  // faintly; in the overview, every place is an era place. Changes with the
+  // chapter, not the view.
+  const tiered = $derived.by(() => {
+    const key = new Set(chapter?.places)
+    const keyPlaces = [...key].map((id): Tiered => ({ place: byId.get(id)!, tier: 0 }))
+    const rest = places
+      .filter((p) => !key.has(p.id) && (showDrafts || !p.draft))
+      .map((place): Tiered => ({ place, tier: !chapter || place.eras.includes(chapter.id) ? 1 : 2 }))
+    return [...keyPlaces, ...rest]
   })
+  // Those in view, in screen space.
+  const points = $derived(
+    tiered.flatMap((t): Point[] => {
+      const [sx, sy] = transform.apply([t.place.x, t.place.y])
+      return sx < -10 || sx > width + 10 || sy < -10 || sy > height + 10 ? [] : [{ ...t, sx, sy }]
+    }),
+  )
   // Drawn faintest first, so key places sit on top.
-  const byTier = $derived(([2, 1, 0] as const).map((tier) => points.filter((p) => p.tier === tier)))
+  const drawn = $derived(points.toSorted((a, b) => b.tier - a.tier))
   const labels = $derived(placeLabels(points.filter((p) => p.tier < 2)))
 
   // Labels go busiest-first (key places first in a chapter), skipping any that
@@ -101,9 +116,6 @@
     },
   )
 
-  // Where the map shows a chapter: right of the panel, or above it on phones.
-  const stage = (): Box => (narrow ? [0, 70, width, height * 0.5] : [Math.min(620, width * 0.45), 70, width, height - 30])
-
   function fit([x0, y0, x1, y1]: Box): ZoomTransform {
     const [l, t, r, b] = stage()
     const pad = 40
@@ -126,11 +138,10 @@
     at = Math.max(-1, Math.min(chapters.length - 1, i))
     selected = undefined
     select(svg).transition().duration(ms(1200)).call(behavior.transform, fit(frameOf(chapter)))
-    history.replaceState(history.state, "", chapter ? `#${chapter.id}` : location.pathname)
+    setHash(chapter?.id ?? "")
   }
 
   onMount(() => {
-    reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches
     fetch(basemap)
       .then((r) => r.text())
       // drop the file's own colors so the page theme applies (see global.css)
@@ -145,6 +156,7 @@
     at = chapters.findIndex((c) => c.id === hash)
     if (place) selected = place
     behavior.transform(select(svg), fit(place ? [place.x - 30, place.y - 25, place.x + 30, place.y + 25] : frameOf(chapter)))
+    ready = true
   })
 
   // Keep zoom bounds in step with the window: no further out than the whole
@@ -177,7 +189,7 @@
 
   function onKey(e: KeyboardEvent) {
     const target = e.target as Element
-    if (target instanceof HTMLInputElement || target.closest?.(".layers")) return
+    if (target instanceof HTMLInputElement) return
     if (e.key === "ArrowRight" || e.key === "PageDown") go(at + 1)
     else if (e.key === "ArrowLeft" || e.key === "PageUp") go(at - 1)
     else if (e.key === "+" || e.key === "=") zoomBy(1.5)
@@ -189,7 +201,7 @@
 
 <svelte:window onkeydown={onKey} />
 
-<div class="story-map" bind:clientWidth={width} bind:clientHeight={height}>
+<div class="story-map" class:narrow bind:clientWidth={width} bind:clientHeight={height}>
   <!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_noninteractive_element_interactions -->
   <svg
     bind:this={svg}
@@ -225,21 +237,21 @@
     {#if journey}
       <path class="journey" d={journey.d} mask="url(#sm-journey)" />
     {/if}
-    {#each byTier as tier, n (n)}
-      {#each tier as { place, sx, sy, tier: t } (place.id)}
+    {#if ready}
+      {#each drawn as { place, sx, sy, tier } (place.id)}
         <circle
-          class="dot t{t}"
+          class="dot t{tier}"
           class:draft={place.draft}
           cx={sx}
           cy={sy}
-          r={t === 0 ? 5.5 : t === 1 ? (chapter ? 3.2 : 3) : 1.8}
-          filter={t === 0 ? "url(#sm-glow)" : undefined}
+          r={RADIUS[tier]}
+          filter={tier === 0 ? "url(#sm-glow)" : undefined}
         />
       {/each}
-    {/each}
-    {#each labels as { place, sx, sy, tier } (place.id)}
-      <text class="label t{tier}" x={sx + (tier === 0 ? 10 : 7)} y={sy + (tier === 0 ? 5 : 4)}>{place.name}</text>
-    {/each}
+      {#each labels as { place, sx, sy, tier } (place.id)}
+        <text class="label t{tier}" x={sx + (tier === 0 ? 10 : 7)} y={sy + (tier === 0 ? 5 : 4)}>{place.name}</text>
+      {/each}
+    {/if}
     {#if selected}
       {@const [sx, sy] = transform.apply([selected.x, selected.y])}
       <circle class="ring" cx={sx} cy={sy} r="10" />
@@ -265,7 +277,11 @@
     {/each}
   </nav>
 
-  <section class="panel" aria-live="polite">
+  <section
+    class="panel"
+    style={narrow ? `max-height: ${height - sheetTop}px` : `width: ${panelWidth}px`}
+    aria-live="polite"
+  >
     {#key at}
       <div class="chapter" in:fly={{ y: 10, duration: ms(350), delay: ms(150) }}>
         {#if chapter}
@@ -316,7 +332,7 @@
     <div class="turn">
       {#if at >= 0}
         <button type="button" class="prev" onclick={() => go(at - 1)}>
-          ← <span>{at === 0 ? "All places" : chapters[at - 1].name}</span>
+          ← <span class:sr-only={narrow}>{at === 0 ? "All places" : chapters[at - 1].name}</span>
         </button>
       {/if}
       {#if at < chapters.length - 1}
@@ -327,7 +343,7 @@
     </div>
   </section>
 
-  <div class="zoom" role="group" aria-label="Zoom">
+  <div class="zoom-buttons" role="group" aria-label="Zoom">
     <button type="button" class="icon-button" onclick={() => zoomBy(1 / 1.5)} aria-label="Zoom out">−</button>
     <button type="button" class="icon-button" onclick={() => zoomBy(1.5)} aria-label="Zoom in">+</button>
   </div>
@@ -412,28 +428,11 @@
     stroke: var(--ink);
     stroke-width: 2;
   }
-  .tooltip {
-    position: absolute;
-    pointer-events: none;
-    display: flex;
-    flex-direction: column;
-    padding: 0.35rem 0.55rem;
-    font-size: 0.8rem;
-    background: var(--surface);
-    border: 1px solid var(--rule);
-    border-radius: var(--radius);
-    box-shadow: 0 2px 8px rgb(0 0 0 / 0.08);
-    white-space: nowrap;
-  }
-  .tooltip span {
-    color: var(--ink-2);
-  }
 
   /* --- The chapter panel, over a wash that fades into the map --- */
   .panel {
     position: absolute;
     inset: 0 auto 0 0;
-    width: min(720px, 52vw);
     display: flex;
     flex-direction: column;
     padding: 6.5rem 7rem 1.75rem 9rem;
@@ -563,13 +562,6 @@
     margin-left: 0.6rem;
     border-top: 2px dashed var(--gold);
   }
-  .toggle {
-    display: flex;
-    gap: 0.4rem;
-    align-items: center;
-    font-size: 0.85rem;
-    color: var(--ink-2);
-  }
   .note {
     font-size: 0.78rem;
     color: var(--ink-3);
@@ -666,57 +658,35 @@
     font-weight: 600;
   }
 
-  .zoom {
-    position: absolute;
-    right: max(1.25rem, env(safe-area-inset-right));
-    bottom: max(1.25rem, env(safe-area-inset-bottom));
-    display: flex;
-    gap: 0.5rem;
-  }
-
   /* --- Phones: the map on top, the chapter in a sheet below --- */
-  @media (max-width: 759px) {
-    .rail {
-      display: none;
-    }
-    .panel {
-      inset: auto 0 0;
-      width: auto;
-      max-height: 50%;
-      padding: 1.1rem 1.25rem 0;
-      background: var(--paper);
-      border-radius: 16px 16px 0 0;
-      box-shadow: 0 -8px 30px rgb(40 30 15 / 0.12);
-    }
-    h2 {
-      font-size: 2rem;
-    }
-    .lede {
-      font-size: 1rem;
-      margin: 0.75rem 0 1rem;
-    }
-    .turn {
-      position: sticky;
-      bottom: 0;
-      margin: 0 -1.25rem;
-      padding: 1rem 1.25rem max(1rem, env(safe-area-inset-bottom));
-      background: var(--paper);
-      box-shadow: 0 -14px 14px var(--paper);
-    }
-    .zoom {
-      display: none;
-    }
-    /* Back is just an arrow here (its name stays for screen readers) */
-    .prev span {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-      clip-path: inset(50%);
-    }
-    .turn .next {
-      flex: 1;
-      white-space: nowrap;
-    }
+  .narrow .rail,
+  .narrow .zoom-buttons {
+    display: none;
+  }
+  .narrow .panel {
+    inset: auto 0 0;
+    padding: 1.1rem 1.25rem 0;
+    background: var(--paper);
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 -8px 30px rgb(40 30 15 / 0.12);
+  }
+  .narrow h2 {
+    font-size: 2rem;
+  }
+  .narrow .lede {
+    font-size: 1rem;
+    margin: 0.75rem 0 1rem;
+  }
+  .narrow .turn {
+    position: sticky;
+    bottom: 0;
+    margin: 0 -1.25rem;
+    padding: 1rem 1.25rem max(1rem, env(safe-area-inset-bottom));
+    background: var(--paper);
+    box-shadow: 0 -14px 14px var(--paper);
+  }
+  .narrow .next {
+    flex: 1;
+    white-space: nowrap;
   }
 </style>
