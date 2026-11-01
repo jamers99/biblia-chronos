@@ -3,20 +3,33 @@ import Page from "../../layouts/Page.astro"
 import PlaceMap from "../../components/PlaceMap.svelte"
 import { places, periods, graph, resolve, eventsOf } from "../../lib/data/load.ts"
 import { personSpan, spanOf } from "../../lib/chronology.ts"
-import { mapPlaces } from "../../lib/map.ts"
+import { mapPlaces, mapStandIn } from "../../lib/map.ts"
 import { project, MAP_W, MAP_H } from "../../lib/geo.ts"
 import { url } from "../../lib/url.ts"
 
+// Aliases and spots inside a city are drawn as the place they stand for, so
+// each dot gathers the places it stands for.
+const standIn = (p: (typeof places)[number]) => mapStandIn(p, graph.outgoing, (id) => resolve([id], "place")[0])
+const drawnAs = Map.groupBy(places, standIn)
+
 // When a place matters: the dated events that happened there, and the
 // lifetimes of the people who visited or died there.
-const spansAt = (placeId: string) => [
-  ...resolve(graph.incoming(placeId, "occurred-at"), "event").map((e) => spanOf(e.date)),
-  ...resolve([...graph.incoming(placeId, "visited"), ...graph.incoming(placeId, "died-at")], "person").map((p) =>
-    personSpan(p, eventsOf(p.id)),
-  ),
-].filter((s) => s !== undefined)
+const spansAt = (dotId: string) =>
+  (drawnAs.get(dotId) ?? []).flatMap(({ id }) =>
+    [
+      ...resolve(graph.incoming(id, "occurred-at"), "event").map((e) => spanOf(e.date)),
+      ...resolve([...graph.incoming(id, "visited"), ...graph.incoming(id, "died-at")], "person").map((p) =>
+        personSpan(p, eventsOf(p.id)),
+      ),
+    ].filter((s) => s !== undefined),
+  )
 
-const located = mapPlaces(places, periods, (p) => p.coordinates && project(p.coordinates), spansAt)
+const located = mapPlaces(
+  places.filter((p) => standIn(p) === p.id),
+  periods,
+  (p) => p.coordinates && project(p.coordinates),
+  spansAt,
+)
 const eras = periods.map(({ id, name }) => ({ id, name }))
 
 // Opening view: Egypt to Mesopotamia.

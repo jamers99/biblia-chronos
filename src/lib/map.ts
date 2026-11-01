@@ -2,7 +2,7 @@
 // in, busiest first (the order labels are placed in). Pure — the page supplies
 // the projection and how to date a place.
 
-import type { Period, Place } from "./data/schema.ts"
+import type { EdgeType, Period, Place } from "./data/schema.ts"
 import { periodsOverlapping, type Span } from "./chronology.ts"
 
 export type MapPlace = {
@@ -11,9 +11,25 @@ export type MapPlace = {
   x: number
   y: number
   weight: number // verse count: busier places get labels first
-  draft: boolean
   type?: string
   eras: string[] // period ids
+}
+
+// Some places would only stack on another's dot: another name for the same
+// place (Antipatris is Aphek), or a spot inside a city (Jerusalem's gates).
+// The map draws them as that place; this is the id a place is drawn as.
+export function mapStandIn(
+  place: Place,
+  outgoing: (id: string, type: EdgeType) => string[],
+  placeById: (id: string) => Place | undefined,
+  seen = new Set<string>(),
+): string {
+  seen.add(place.id)
+  const target =
+    outgoing(place.id, "alias-of")[0] ??
+    outgoing(place.id, "part-of").find((id) => placeById(id)?.featureType === "City")
+  const next = target && !seen.has(target) ? placeById(target) : undefined
+  return next ? mapStandIn(next, outgoing, placeById, seen) : place.id
 }
 
 export function mapPlaces(
@@ -33,7 +49,6 @@ export function mapPlaces(
         x: xy[0],
         y: xy[1],
         weight: p.scriptureRefs?.length ?? 0,
-        draft: p.status === "draft",
         type: p.featureType,
         eras: periods.filter((e) => eras.has(e.id)).map((e) => e.id),
       },

@@ -29,7 +29,6 @@
 
   let width = $state(1100)
   let era = $state("")
-  let showDrafts = $state(true)
   let transform = $state<ZoomTransform>(fit(home, 1100))
   // Raw, not deeply reactive: these hold objects from props/points as-is.
   let selected = $state.raw<MapPlace>()
@@ -38,7 +37,7 @@
   let svg: SVGSVGElement
   let behavior: ZoomBehavior<SVGSVGElement, unknown>
 
-  const shown = $derived(places.filter((p) => (showDrafts || !p.draft) && (!era || p.eras.includes(era))))
+  const shown = $derived(places.filter((p) => !era || p.eras.includes(era)))
   const points = $derived(
     shown
       .map((place) => {
@@ -156,10 +155,6 @@
       <button type="button" onclick={() => zoomBy(1.5)} aria-label="Zoom in">+</button>
       <button type="button" onclick={() => zoomToBox(home)}>Reset</button>
     </div>
-    <label class="toggle">
-      <input type="checkbox" bind:checked={showDrafts} />
-      Show draft records
-    </label>
     <span class="count">{shown.length} places{era ? ` in ${eraName(era)}` : ""}</span>
   </div>
 
@@ -182,7 +177,7 @@
     >
       <g transform={transform.toString()}>{@html basemapSvg}</g>
       {#each points as { place, sx, sy } (place.id)}
-        <circle class="dot" class:draft={place.draft} cx={sx} cy={sy} r="3.5" />
+        <circle class="dot" cx={sx} cy={sy} r="3.5" />
       {/each}
       {#each labels as { place, sx, sy } (place.id)}
         <text x={sx + 7} y={sy + 4}>{place.name}</text>
@@ -205,7 +200,6 @@
     {#if selected}
       <p class="kind">
         Place{selected.type ? ` · ${selected.type}` : ""}
-        {#if selected.draft}<span class="badge">draft</span>{/if}
       </p>
       <h2>{selected.name}</h2>
       {#if selected.eras.length}
@@ -235,9 +229,6 @@
     stroke: var(--land);
     stroke-width: 1.5;
     paint-order: stroke;
-  }
-  .dot.draft {
-    fill-opacity: 0.55;
   }
   .ring {
     fill: none;

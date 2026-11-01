@@ -9,8 +9,9 @@ import { z } from "zod"
 
 // --- Shared conventions -----------------------------------------------------
 
-// Years are plain numbers; negative means BCE, using the upstream convention
-// as-is (e.g. -1574). We document this convention rather than reinterpreting it.
+// Years are plain numbers in astronomical (ISO 8601) numbering, as upstream:
+// 0 is 1 BC and -1573 is 1574 BC. We keep the upstream numbers as-is and only
+// convert to BC/AD for display (src/lib/format.ts).
 export const Year = z.number().int()
 
 // A date is a range with provenance, not a single number — biblical chronology
@@ -50,7 +51,6 @@ export const Person = Base.extend({
   gender: z.enum(["male", "female", "unknown"]).optional(),
   birth: DateEstimate.optional(),
   death: DateEstimate.optional(),
-  lived: DateEstimate.optional(), // overall min/max span
 })
 
 export const Place = Base.extend({
@@ -60,6 +60,7 @@ export const Place = Base.extend({
   featureSubType: z.string().optional(), // "River"
   modernName: z.string().optional(),
   altNames: z.array(z.string()).optional(),
+  date: DateEstimate.optional(), // when it existed, for kingdoms: Judah 974–587 BC
 })
 
 export const Event = Base.extend({
@@ -113,6 +114,9 @@ export const EdgeType = z.enum([
   "occurred-at", // event  -> place
   "died-at", // person -> place
   "visited", // person -> place
+  "part-of", // place -> the place containing it (Hebron -> Judah)
+  "near", // place -> the place it's near (Gethsemane -> Jerusalem)
+  "alias-of", // place -> the same place under its main name (Antipatris -> Aphek)
 ])
 
 export const Edge = z.object({

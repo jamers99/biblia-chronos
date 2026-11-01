@@ -1,16 +1,18 @@
 import type { DateEstimate } from "./data/schema.ts"
 import { spanOf } from "./chronology.ts"
 
-// Upstream years use negative = BCE (e.g. -1574). We present, not reinterpret.
+// Years are astronomical (ISO 8601), as upstream: 0 is 1 BC, -1573 is 1574 BC.
+const bc = (year: number) => 1 - year
+
 export function formatYear(year: number): string {
-  return year < 0 ? `${-year} BC` : `AD ${year}`
+  return year <= 0 ? `${bc(year)} BC` : `AD ${year}`
 }
 
 // A span of years: "1996–1706 BC", "AD 30–96", "4 BC – AD 30", or one year.
 export function formatSpan(start: number, end: number): string {
   if (start === end) return formatYear(start)
-  if (end < 0) return `${-start}–${-end} BC`
-  if (start >= 0) return `AD ${start}–${end}`
+  if (end <= 0) return `${bc(start)}–${bc(end)} BC`
+  if (start > 0) return `AD ${start}–${end}`
   return `${formatYear(start)} – ${formatYear(end)}`
 }
 

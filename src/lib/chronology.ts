@@ -13,8 +13,9 @@ export function spanOf(d: DateEstimate | undefined): Span | undefined {
 
 // A person's place in time. With both birth and death we know their lifetime;
 // otherwise we fall back to the years they're attested in: their recorded
-// birth or death plus the dated events they took part in. (Upstream `lived` is
-// not a lifespan, so it's deliberately ignored.) Two guards keep attested
+// birth or death plus the dated events they took part in. (Upstream's minYear/
+// maxYear span the verses that mention someone, not a life, so we don't import
+// them.) Two guards keep attested
 // years human-sized:
 // - an event longer than a lifetime (the 430-year sojourn in Egypt) dates a
 //   person only by its start;
