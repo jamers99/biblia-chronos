@@ -5,7 +5,15 @@
     "name": "Patriarchs",
     "source": "editorial",
     "date": { "earliest": -1995, "latest": -1706 },
-    "description": "Abraham, Isaac, and Jacob: God's covenant with Abraham and the family it grew into, from Abraham's birth to Jacob's household settling in Egypt (Genesis 12–46). Bounded by Theographic's birth-of-abraham and joseph-s-brothers-go-to-egypt events."
+    "description": "Abraham, Isaac, and Jacob: God's covenant with Abraham and the family it grew into, from Abraham's birth to Jacob's household settling in Egypt (Genesis 12–46). Bounded by Theographic's birth-of-abraham and joseph-s-brothers-go-to-egypt events.",
+    "lede": "God calls Abraham out of Ur with a promise: a land, a people, and a blessing for every nation. Abraham, Isaac, and Jacob live in Canaan as wanderers, holding on to the promise.",
+    "places": ["ur_1189", "haran_527", "shechem_1069", "bethel_202", "ai_36", "hebron_551", "beersheba_170", "gerar_459", "moriah_821", "peniel_930"],
+    "journey": {
+      "name": "Abraham's journey from Ur",
+      "places": ["ur_1189", "haran_527", "shechem_1069", "bethel_202", "hebron_551"]
+    },
+    "moments": ["abraham-enters-canaan", "abrahamic-covenant", "sodom-destroyed", "birth-of-isaac", "birth-of-jacob-and-esau", "joseph-sold-to-egypt"],
+    "people": ["abraham_58", "sarah_2473", "isaac_616", "rebekah_2401", "israel_682", "esau_1216", "joseph_1710"]
   },
   {
     "id": "israel-in-egypt",
@@ -13,7 +21,15 @@
     "name": "Israel in Egypt",
     "source": "editorial",
     "date": { "earliest": -1706, "latest": -1490 },
-    "description": "Jacob's descendants multiply in Egypt and are enslaved (Genesis 47–50, Exodus 1–12). Bounded by Jacob's family arriving in Egypt and Theographic's exodus-from-egypt event."
+    "description": "Jacob's descendants multiply in Egypt and are enslaved (Genesis 47–50, Exodus 1–12). Bounded by Jacob's family arriving in Egypt and Theographic's exodus-from-egypt event.",
+    "lede": "Joseph rises to rule in Egypt and brings his family to Goshen. They grow into a nation there, until a new Pharaoh makes them slaves.",
+    "places": ["goshen_490", "rameses_980", "pithom_953", "on_908", "hebron_551", "machpelah_748", "beersheba_170"],
+    "journey": {
+      "name": "Jacob's family goes down to Egypt",
+      "places": ["hebron_551", "beersheba_170", "goshen_490"]
+    },
+    "moments": ["joseph-s-brothers-go-to-egypt", "death-of-jacob", "death-of-joseph", "birth-of-moses", "moses-flees-pharaoh"],
+    "people": ["joseph_1710", "israel_682", "judah_1751", "pharaoh_2329", "moses_2108", "job_1639"]
   },
   {
     "id": "exodus",
@@ -21,7 +37,15 @@
     "name": "Exodus & Wilderness",
     "source": "editorial",
     "date": { "earliest": -1490, "latest": -1450 },
-    "description": "The Exodus, the covenant at Sinai, and forty years in the wilderness (Exodus 12 – Deuteronomy). Bounded by Theographic's exodus-from-egypt and crossing-the-jordan-into-canaan events. Theographic follows the early date for the Exodus; many scholars prefer a 13th-century BC date."
+    "description": "The Exodus, the covenant at Sinai, and forty years in the wilderness (Exodus 12 – Deuteronomy). Bounded by Theographic's exodus-from-egypt and crossing-the-jordan-into-canaan events. Theographic follows the early date for the Exodus; many scholars prefer a 13th-century BC date.",
+    "lede": "God brings Israel out of Egypt through the sea, gives the law at Sinai, and leads them for forty years through the wilderness to the edge of the promised land.",
+    "places": ["rameses_980", "succoth_1114", "marah_765", "elim_369", "rephidim_996", "mount_sinai_855", "kadesh-barnea_663", "mount_nebo_849"],
+    "journey": {
+      "name": "The Exodus, by the traditional southern route",
+      "places": ["rameses_980", "succoth_1114", "marah_765", "elim_369", "rephidim_996", "mount_sinai_855", "kadesh-barnea_663", "mount_nebo_849"]
+    },
+    "moments": ["exodus-from-egypt", "ten-commandments-given", "tabernacle-built", "wilderness-wanderings", "death-of-moses"],
+    "people": ["moses_2108", "aaron_1", "miriam_2087", "joshua_1727", "caleb_537", "pharaoh_2331"]
   },
   {
     "id": "judges",
@@ -29,7 +53,15 @@
     "name": "Conquest & Judges",
     "source": "editorial",
     "date": { "earliest": -1450, "latest": -1094 },
-    "description": "Israel enters Canaan under Joshua, then is led by judges through cycles of apostasy and deliverance (Joshua, Judges, Ruth, 1 Samuel 1–9). Bounded by the crossing of the Jordan and the start of Saul's reign in Theographic."
+    "description": "Israel enters Canaan under Joshua, then is led by judges through cycles of apostasy and deliverance (Joshua, Judges, Ruth, 1 Samuel 1–9). Bounded by the crossing of the Jordan and the start of Saul's reign in Theographic.",
+    "lede": "Joshua leads Israel across the Jordan and into Canaan. Then, for generations, the tribes drift from God and are rescued by judges like Deborah, Gideon, and Samson.",
+    "places": ["jericho_634", "ai_36", "gibeon_470", "shechem_1069", "shiloh_1081", "hazor_545", "megiddo_777", "mount_tabor_857", "dan_323", "gaza_446"],
+    "journey": {
+      "name": "Joshua's first campaign",
+      "places": ["mount_nebo_849", "jericho_634", "ai_36", "gibeon_470"]
+    },
+    "moments": ["crossing-the-jordan-into-canaan", "war-with-canaanites", "deliverance-by-barak-and-deborah", "deliverance-by-gideon", "judgeship-of-samson", "death-of-eli-ark-captured"],
+    "people": ["joshua_1727", "rahab_2388", "deborah_997", "gideon_1314", "samson_2468", "ruth_2450", "hannah_1400"]
   },
   {
     "id": "united-kingdom-era",
@@ -37,7 +69,15 @@
     "name": "United Kingdom",
     "source": "editorial",
     "date": { "earliest": -1094, "latest": -974 },
-    "description": "Saul, David, and Solomon reign over all twelve tribes; Jerusalem becomes the capital and the temple is built (1 Samuel 10 – 1 Kings 11, 1 Chronicles). Matches Theographic's united-kingdom event."
+    "description": "Saul, David, and Solomon reign over all twelve tribes; Jerusalem becomes the capital and the temple is built (1 Samuel 10 – 1 Kings 11, 1 Chronicles). Matches Theographic's united-kingdom event.",
+    "lede": "Saul, David, and Solomon reign over all twelve tribes. Jerusalem becomes the capital, and the temple rises on Mount Moriah.",
+    "places": ["jerusalem_636", "hebron_551", "bethlehem_218", "gibeah_466", "ramah_972", "gath_442", "adullam_31", "ziklag_1259", "mahanaim_756", "gibeon_470", "mount_gilboa_837", "shiloh_1081", "tyre_1184"],
+    "journey": {
+      "name": "David's path to the throne",
+      "places": ["bethlehem_218", "gibeah_466", "adullam_31", "gath_442", "ziklag_1259", "hebron_551", "jerusalem_636"]
+    },
+    "moments": ["reign-of-saul", "david-kills-goliath", "death-of-saul", "reign-of-david", "reign-of-solomon", "construction-of-solomon-s-temple"],
+    "people": ["david_994", "solomon_2762", "saul_2478", "samuel_2469", "jonathan_1692", "bathsheba_416", "nathan_2153"]
   },
   {
     "id": "divided-kingdom",
@@ -45,7 +85,15 @@
     "name": "Divided Kingdom",
     "source": "editorial",
     "date": { "earliest": -974, "latest": -720 },
-    "description": "After Solomon the kingdom splits into Israel in the north and Judah in the south (1 Kings 12 – 2 Kings 17, 2 Chronicles 10–28). Ends with the fall of the northern kingdom, matching Theographic's northern-kingdom-israel event."
+    "description": "After Solomon the kingdom splits into Israel in the north and Judah in the south (1 Kings 12 – 2 Kings 17, 2 Chronicles 10–28). Ends with the fall of the northern kingdom, matching Theographic's northern-kingdom-israel event.",
+    "lede": "After Solomon the kingdom splits: Israel in the north, ruled from Samaria, and Judah in the south, around Jerusalem. Prophets call both back to God until Assyria carries Israel away.",
+    "places": ["samaria_1022", "jerusalem_636", "shechem_1069", "tirzah_1170", "bethel_202", "dan_323", "jezreel_643", "mount_carmel_831", "damascus_322", "nineveh_899", "lachish_711"],
+    "journey": {
+      "name": "Elijah's flight to Horeb",
+      "places": ["mount_carmel_831", "jezreel_643", "beersheba_170", "horeb_576"]
+    },
+    "moments": ["death-of-solomon", "reign-of-ahab", "prophecies-of-elijah", "elijah-translated", "prophecies-of-jonah", "reign-of-hezekiah"],
+    "people": ["elijah_1131", "elisha_1153", "ahab_113", "jezebel_1605", "jeroboam_872", "isaiah_617", "hezekiah_1512"]
   },
   {
     "id": "exiles",
@@ -53,7 +101,15 @@
     "name": "Assyrian & Babylonian Exiles",
     "source": "editorial",
     "date": { "earliest": -720, "latest": -535 },
-    "description": "Assyria carries Israel into exile; Judah survives until Babylon destroys Jerusalem and the temple, then lives in exile in Babylon (2 Kings 18–25, Jeremiah, Ezekiel, Daniel). Ends with Cyrus's decree allowing the return (Ezra 1), which Theographic doesn't date: 536 BC follows the Ussher-style chronology the rest of the data uses; most modern scholars date it 538 BC."
+    "description": "Assyria carries Israel into exile; Judah survives until Babylon destroys Jerusalem and the temple, then lives in exile in Babylon (2 Kings 18–25, Jeremiah, Ezekiel, Daniel). Ends with Cyrus's decree allowing the return (Ezra 1), which Theographic doesn't date: 536 BC follows the Ussher-style chronology the rest of the data uses; most modern scholars date it 538 BC.",
+    "lede": "Babylon destroys Jerusalem and its temple and carries Judah into exile. Far from home, Daniel and Ezekiel keep faith and look for the day God will bring them back.",
+    "places": ["jerusalem_636", "babylon_151", "riblah_1001", "chebar_283", "lachish_711", "nineveh_899", "assyria_111"],
+    "journey": {
+      "name": "Into exile",
+      "places": ["jerusalem_636", "riblah_1001", "babylon_151"]
+    },
+    "moments": ["reign-of-manasseh", "reign-of-josiah", "prophecies-of-jeremiah", "prophecies-of-daniel", "reign-of-zedekiah", "prophecies-of-ezekiel"],
+    "people": ["josiah_1730", "jeremiah_853", "nebuchadnezzar_2167", "daniel_975", "ezekiel_1237", "zedekiah_1950"]
   },
   {
     "id": "return",
@@ -61,7 +117,11 @@
     "name": "Return from Exile",
     "source": "editorial",
     "date": { "earliest": -535, "latest": -440 },
-    "description": "Exiles return to Judah, rebuild the temple and Jerusalem's walls (Ezra, Nehemiah, Esther, Haggai, Zechariah, Malachi). Ends with Malachi's prophecies, the last dated Old Testament event in Theographic."
+    "description": "Exiles return to Judah, rebuild the temple and Jerusalem's walls (Ezra, Nehemiah, Esther, Haggai, Zechariah, Malachi). Ends with Malachi's prophecies, the last dated Old Testament event in Theographic.",
+    "lede": "Cyrus of Persia lets the exiles go home. They rebuild the temple, and under Ezra and Nehemiah the walls of Jerusalem rise again.",
+    "places": ["jerusalem_636", "babylon_151", "susa_1118", "ecbatana_353", "persia_938", "samaria_1022"],
+    "moments": ["prophecies-of-haggai", "prophecies-of-zechariah", "prophecies-of-malachi"],
+    "people": ["cyrus_968", "zerubbabel_3054", "ezra_1245", "nehemiah_2172", "esther_1343", "haggai_1349"]
   },
   {
     "id": "between-the-testaments",
@@ -69,7 +129,9 @@
     "name": "Between the Testaments",
     "source": "editorial",
     "date": { "earliest": -440, "latest": -5 },
-    "description": "The centuries between Malachi and the New Testament, under Persian, Greek, Hasmonean, and Roman rule. Scripture records no events here, so this era is mostly empty on the timeline."
+    "description": "The centuries between Malachi and the New Testament, under Persian, Greek, Hasmonean, and Roman rule. Scripture records no events here, so this era is mostly empty on the timeline.",
+    "lede": "Four centuries pass without a prophet. Persians, Greeks, and the Maccabees rule Judea in turn, until Rome takes hold.",
+    "places": ["jerusalem_636", "alexandria_46", "antioch_68", "samaria_1022", "rome_1013"]
   },
   {
     "id": "life-of-christ",
@@ -77,7 +139,15 @@
     "name": "Life of Christ",
     "source": "editorial",
     "date": { "earliest": -5, "latest": 30 },
-    "description": "The births of John the Baptist and Jesus, Jesus' ministry, death, and resurrection (Matthew, Mark, Luke, John). Bounded by Theographic's john-s-birth-predicted event and Jesus' death in AD 30."
+    "description": "The births of John the Baptist and Jesus, Jesus' ministry, death, and resurrection (Matthew, Mark, Luke, John). Bounded by Theographic's john-s-birth-predicted event and Jesus' death in AD 30.",
+    "lede": "Jesus is born in Bethlehem and grows up in Nazareth. He teaches and heals across Galilee, then goes up to Jerusalem to die and rise again.",
+    "places": ["jerusalem_636", "bethlehem_218", "nazareth_878", "capernaum_274", "cana_271", "bethsaida_231", "sea_of_galilee_1032", "caesarea_philippi_267", "jericho_634", "bethany_186", "sychar_1119"],
+    "journey": {
+      "name": "From Bethlehem to Jerusalem",
+      "places": ["bethlehem_218", "nazareth_878", "capernaum_274", "jericho_634", "bethany_186", "jerusalem_636"]
+    },
+    "moments": ["birth-of-jesus", "john-baptizes-jesus", "sermon-on-the-mount", "the-transfiguation", "triumphal-entry", "crucifixion-and-burial", "resurrection-and-ascension"],
+    "people": ["jesus_905", "mary_1938", "john_1676", "peter_2745", "john_1677", "mary_1943", "judas_1760"]
   },
   {
     "id": "early-church",
@@ -85,6 +155,14 @@
     "name": "Early Church",
     "source": "editorial",
     "date": { "earliest": 30, "latest": 96 },
-    "description": "Pentecost, the spread of the gospel from Jerusalem to Rome, and the apostolic letters (Acts through Revelation). Ends at AD 96, the latest year in Theographic's data."
+    "description": "Pentecost, the spread of the gospel from Jerusalem to Rome, and the apostolic letters (Acts through Revelation). Ends at AD 96, the latest year in Theographic's data.",
+    "lede": "The Spirit comes at Pentecost, and the good news spreads from Jerusalem through Judea and Samaria and across the Roman world, to Rome itself.",
+    "places": ["jerusalem_636", "antioch_68", "damascus_322", "tarsus_1140", "caesarea_266", "ephesus_400", "corinth_306", "philippi_942", "athens_118", "thessalonica_1158", "rome_1013", "cyprus_316"],
+    "journey": {
+      "name": "Paul's first journey",
+      "places": ["antioch_68", "seleucia_1045", "salamis_1016", "paphos_919", "perga_936", "antioch_69", "iconium_590", "lystra_742", "derbe_330"]
+    },
+    "moments": ["the-holy-spirit-comes", "stephen-is-stoned", "saul-is-converted", "first-missionary-journey", "jerusalem-council", "paul-arrives-at-rome"],
+    "people": ["peter_2745", "paul_2479", "stephen_2802", "barnabas_1722", "james_719", "timotheus_2863", "lydia_1837"]
   }
 ]

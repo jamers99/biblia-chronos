@@ -12,7 +12,11 @@ create only the ones you need.
 
 `periods.json` is the exception: periods (the eras the timeline is divided into)
 have no upstream equivalent, so they're authored here in full rather than
-overlaid on seed. They must be sequential — the checker rejects overlaps.
+overlaid on seed. They must be sequential — the checker rejects overlaps. Each
+period also holds its chapter on the map: a `lede`, its key `places`, an
+optional `journey` (`{ name, places }`, in order), and its key `moments` (event
+ids) and `people`. The checker requires every id to exist, and places to have
+coordinates.
 
 - **Entities** are matched by `id`. A matching override's fields are overlaid
   onto the seed record (shallow, per top-level field), so you can correct just

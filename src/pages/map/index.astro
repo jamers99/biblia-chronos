@@ -1,9 +1,11 @@
 ---
 import Page from "../../layouts/Page.astro"
-import PlaceMap from "../../components/PlaceMap.svelte"
-import { places, periods, graph, resolve, eventsOf } from "../../lib/data/load.ts"
+import StoryMap from "../../components/StoryMap.svelte"
+import { places, people, events, periods, graph, resolve, eventsOf } from "../../lib/data/load.ts"
 import { personSpan, spanOf } from "../../lib/chronology.ts"
 import { mapPlaces, mapStandIn } from "../../lib/map.ts"
+import { storyChapters } from "../../lib/story.ts"
+import { timelineItems } from "../../lib/timeline.ts"
 import { project, MAP_W, MAP_H } from "../../lib/geo.ts"
 import { url } from "../../lib/url.ts"
 
@@ -30,28 +32,32 @@ const located = mapPlaces(
   (p) => p.coordinates && project(p.coordinates),
   spansAt,
 )
-const eras = periods.map(({ id, name }) => ({ id, name }))
+const dots = new Set(located.map((p) => p.id))
+const chapters = storyChapters(periods, timelineItems(people, events, periods, eventsOf), {
+  events: (ids) => resolve(ids, "event"),
+  people: (ids) => resolve(ids, "person"),
+  // a chapter's place is shown by the dot it's drawn as, if it has one
+  dotOf: (id) => {
+    const place = resolve([id], "place")[0]
+    const dot = place && standIn(place)
+    return dot && dots.has(dot) ? dot : undefined
+  },
+})
 
-// Opening view: Egypt to Mesopotamia.
+// The overview: Egypt to Mesopotamia.
 const [x0, y1] = project({ lng: 28, lat: 27 })!
 const [x1, y0] = project({ lng: 48, lat: 38 })!
 ---
 
-<Page title="Map" description="The places of Scripture on a map, era by era." wide>
+<Page title="Map" description="The History of Israel on a map, era by era: its places, journeys, moments, and people." immersive>
   <!-- Start the basemap download now rather than after the island hydrates.
        crossorigin matches fetch()'s request mode, so it isn't downloaded twice. -->
   <link slot="head" rel="preload" as="fetch" crossorigin="anonymous" href={url("/map/basemap.svg")} />
-  <div class="intro">
-    <h1>Places of Scripture</h1>
-    <p>
-      {located.length.toLocaleString()} places with known locations. Locations come from the source data and many are
-      uncertain; see <a href={url("/about/")}>sources</a>.
-    </p>
-  </div>
-  <PlaceMap
+  <h1 class="sr-only">The History of Israel on a map</h1>
+  <StoryMap
     client:load
     places={located}
-    periods={eras}
+    {chapters}
     basemap={url("/map/basemap.svg")}
     mapWidth={MAP_W}
     mapHeight={MAP_H}

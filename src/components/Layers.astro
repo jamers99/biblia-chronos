@@ -1,0 +1,243 @@
+---
+// Layers: links to people, places, events, and groups open as panels over the
+// page you're on, so you keep your place. A link inside a panel stacks another
+// on top; Back, Esc, or the back button closes the top one, and each panel
+// links to its full page. A panel is the entity's own page, fetched and trimmed
+// to its <main>: one source of truth, and it works offline wherever the page
+// does.
+//
+// The stack lives in history.state, so Back pops a layer (as in a native app)
+// and returning to the page restores it.
+---
+
+<script>
+  import { entityPath } from "../lib/url.ts"
+
+  // Pages as HTML text (cheaper to keep than parsed documents)
+  const pages = new Map<string, Promise<string>>()
+  const root = Object.assign(document.createElement("div"), { className: "layers" })
+  document.body.append(root)
+
+  const stackOf = (state: unknown): string[] => (state as { layers?: string[] } | null)?.layers ?? []
+  const shown = () => [...root.querySelectorAll<HTMLElement>(".layer:not(.closing)")]
+
+  function load(href: string) {
+    if (!pages.has(href)) {
+      const page = fetch(href, { headers: { accept: "text/html" } })
+        .then((r) => (r.ok ? r.text() : Promise.reject(new Error(r.statusText))))
+      page.catch(() => pages.delete(href)) // retry next time
+      pages.set(href, page)
+    }
+    return pages.get(href)!
+  }
+
+  // The page's stylesheets, added here if missing, so its components look the
+  // same in a panel. Resolves once they've loaded, to avoid a flash.
+  function adoptStyles(doc: Document) {
+    const missing = [...doc.querySelectorAll<HTMLLinkElement>('link[rel="stylesheet"]')].filter(
+      (link) => !document.querySelector(`link[rel="stylesheet"][href="${link.getAttribute("href")}"]`),
+    )
+    return Promise.all(
+      missing.map((link) => {
+        const copy = document.head.appendChild(document.importNode(link))
+        return new Promise((done) => (copy.onload = copy.onerror = done))
+      }),
+    )
+  }
+
+  // A panel. The first one's button closes it; the others' go back.
+  function layer(href: string, first: boolean) {
+    const el = document.createElement("section")
+    el.className = "layer"
+    el.dataset.href = href
+    el.tabIndex = -1
+    el.setAttribute("role", "dialog")
+    el.innerHTML = `
+      <header class="layer-bar">
+        <button type="button" class="icon-button" data-back aria-label="${first ? "Close" : "Back"}">
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="${first ? "M6 6l12 12M18 6L6 18" : "M15 5l-7 7 7 7"}"/>
+          </svg>
+        </button>
+        <a class="layer-open" href="${href}" data-no-layer>Open full page</a>
+      </header>
+      <div class="layer-body" aria-busy="true"><p class="layer-status">Loading…</p></div>`
+    const body = el.querySelector(".layer-body")!
+    load(href)
+      .then(async (html) => {
+        const doc = new DOMParser().parseFromString(html, "text/html")
+        await adoptStyles(doc)
+        el.setAttribute("aria-label", doc.title.replace(/ · Biblia Chronos$/, ""))
+        body.replaceChildren(...[...doc.querySelector("main")!.childNodes].map((n) => document.importNode(n, true)))
+      })
+      .catch(() => {
+        body.innerHTML = `<p class="layer-status">Couldn't load this. <a href="${href}" data-no-layer>Open the page</a> instead.</p>`
+      })
+      .finally(() => body.removeAttribute("aria-busy"))
+    return el
+  }
+
+  // Make the panels match a stack of hrefs: keep the common start, close the
+  // rest (animated), open what's new.
+  function sync(stack: string[]) {
+    const current = shown()
+    let keep = 0
+    while (keep < current.length && current[keep].dataset.href === stack[keep]) keep++
+    for (const el of current.slice(keep)) {
+      el.classList.add("closing")
+      el.addEventListener("animationend", () => el.remove(), { once: true })
+    }
+    stack.slice(keep).forEach((href, i) => root.append(layer(href, keep + i === 0)))
+    const open = shown()
+    open.forEach((el, i) => el.style.setProperty("--depth", String(open.length - 1 - i)))
+    if (stack.length > keep) open.at(-1)!.focus({ preventScroll: true })
+  }
+
+  function push(href: string) {
+    const stack = stackOf(history.state)
+    if (stack.at(-1) === href) return
+    history.pushState({ ...history.state, layers: [...stack, href] }, "")
+    sync([...stack, href])
+  }
+
+  document.addEventListener("click", (e) => {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
+    const target = e.target as Element
+    if (target.closest("[data-back]")) return history.back()
+    const path = panelPath(target)
+    if (!path) return
+    e.preventDefault()
+    push(path)
+  })
+
+  // The panel a link opens, if it's a link to an entity's page (and not one
+  // marked to open normally, or in another tab).
+  function panelPath(target: Element) {
+    const a = target.closest("a[href]")
+    if (!a || a.hasAttribute("data-no-layer") || a.hasAttribute("target")) return
+    return entityPath(a.getAttribute("href")!)
+  }
+
+  // Warm the cache when a pointer rests on a link, so panels open filled
+  // (after a moment, so sweeping across a list doesn't fetch it all).
+  let hover = 0
+  document.addEventListener("pointerover", (e) => {
+    clearTimeout(hover)
+    const path = panelPath(e.target as Element)
+    if (path) hover = window.setTimeout(() => load(path), 80)
+  })
+
+  // Keys typed in a panel stay there: the page underneath never sees them.
+  root.addEventListener("keydown", (e) => e.stopPropagation())
+  // Esc closes the top panel, wherever focus is (but not mid-typing). This
+  // listens while capturing, so it comes before the panel's and the page's.
+  document.addEventListener(
+    "keydown",
+    (e) => {
+      if (e.key !== "Escape" || !shown().length || e.target instanceof HTMLInputElement) return
+      e.stopPropagation()
+      history.back()
+    },
+    { capture: true },
+  )
+
+  // Islands open panels for things that aren't links (a dot on the map).
+  addEventListener("open-layer", (e) => push((e as CustomEvent<string>).detail))
+  addEventListener("popstate", (e) => sync(stackOf(e.state)))
+  sync(stackOf(history.state))
+</script>
+
+<style is:global>
+  .layers {
+    position: fixed;
+    inset: 0 0 0 auto;
+    z-index: 30;
+    width: min(460px, 100vw);
+    pointer-events: none;
+  }
+  .layer {
+    --depth: 0;
+    position: absolute;
+    inset: max(0.75rem, env(safe-area-inset-top)) max(0.75rem, env(safe-area-inset-right)) 0.75rem 0;
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    box-shadow: 0 18px 50px rgb(40 30 15 / 0.22);
+    pointer-events: auto;
+    outline: none;
+    /* Panels underneath step back: shifted, smaller, fainter */
+    transform: translateX(calc(var(--depth) * -16px)) scale(calc(1 - var(--depth) * 0.04));
+    transform-origin: left center;
+    filter: brightness(calc(1 - var(--depth) * 0.04));
+    transition:
+      transform 0.3s cubic-bezier(0.2, 0.7, 0.3, 1),
+      filter 0.3s;
+    animation: layer-in 0.3s cubic-bezier(0.2, 0.7, 0.3, 1);
+  }
+  .layer.closing {
+    animation: layer-out 0.2s ease-in forwards;
+  }
+  @keyframes layer-in {
+    from {
+      transform: translateX(48px);
+      opacity: 0;
+    }
+  }
+  @keyframes layer-out {
+    to {
+      transform: translateX(48px);
+      opacity: 0;
+    }
+  }
+  .layer-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .layer-open {
+    font-size: 0.85rem;
+    color: var(--ink-2);
+  }
+  .layer-body {
+    flex: 1;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 1.25rem 1.5rem 2rem;
+  }
+  .layer-body h1 {
+    font-size: 1.9rem;
+  }
+  .layer-status {
+    color: var(--ink-3);
+  }
+
+  /* Phones: sheets that rise from the bottom */
+  @media (max-width: 700px) {
+    .layers {
+      inset: auto 0 0;
+      width: 100%;
+      height: 86dvh;
+    }
+    .layer {
+      inset: 0;
+      border-radius: 16px 16px 0 0;
+      transform: translateY(calc(var(--depth) * -10px)) scale(calc(1 - var(--depth) * 0.04));
+      transform-origin: top center;
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    @keyframes layer-in {
+      from {
+        transform: translateY(100%);
+      }
+    }
+    @keyframes layer-out {
+      to {
+        transform: translateY(100%);
+      }
+    }
+  }
+</style>

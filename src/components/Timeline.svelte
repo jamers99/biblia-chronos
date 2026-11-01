@@ -16,8 +16,9 @@
   import "d3-transition"
   import { packLanes, type TimelineItem, type TimelinePeriod } from "../lib/timeline.ts"
   import { formatSpan, formatYear, labelWidth } from "../lib/format.ts"
-  import { entityUrl } from "../lib/url.ts"
+  import { entityUrl, setHash } from "../lib/url.ts"
   import { addInertia } from "../lib/inertia.ts"
+  import { ms } from "../lib/motion.ts"
 
   let { items, periods }: { items: TimelineItem[]; periods: TimelinePeriod[] } = $props()
 
@@ -44,8 +45,6 @@
   let svg: SVGSVGElement
   let searchInput: HTMLInputElement
   let behavior: ZoomBehavior<SVGSVGElement, unknown>
-  let reducedMotion = false
-  const ms = (duration: number) => (reducedMotion ? 0 : duration)
 
   const axisY = $derived(Math.max(FIRST_LANE_TOP + 2 * EVENT_GAP + 40, Math.round(height * 0.47)))
   const eventLanes = $derived(Math.floor((axisY - 40 - FIRST_LANE_TOP) / EVENT_GAP) + 1)
@@ -152,7 +151,6 @@
       .on("zoom", (e) => (transform = e.transform))
     select(svg).call(behavior)
     addInertia(behavior, svg, "x")
-    reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches
 
     const onWheel = (e: WheelEvent) => {
       if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return
@@ -182,7 +180,7 @@
   // A selection is shareable: it lives in the URL hash.
   $effect(() => {
     const hash = focus ? `#${focus.id}` : ""
-    if (location.hash !== hash) history.replaceState(null, "", hash || location.pathname + location.search)
+    if (location.hash !== hash) setHash(hash.slice(1))
   })
 
   // Glide to show [start, end] with some room around it.
@@ -489,7 +487,7 @@
     <p>Scroll to zoom · drag to move · click anyone</p>
     <label class="toggle"><input type="checkbox" bind:checked={showDrafts} /> Show draft records</label>
   </div>
-  <div class="zoom">
+  <div class="zoom-buttons" role="group" aria-label="Zoom">
     <button type="button" class="icon-button" aria-label="Zoom out" onclick={() => zoomBy(1 / 1.6)}>−</button>
     <button type="button" class="icon-button" aria-label="Zoom in" onclick={() => zoomBy(1.6)}>+</button>
   </div>
@@ -734,23 +732,6 @@
     white-space: nowrap;
   }
 
-  .tooltip {
-    position: absolute;
-    pointer-events: none;
-    display: flex;
-    flex-direction: column;
-    padding: 0.35rem 0.6rem;
-    font-size: 0.8rem;
-    background: var(--surface);
-    border: 1px solid var(--rule);
-    border-radius: 8px;
-    box-shadow: 0 4px 14px rgb(40 30 15 / 0.12);
-    white-space: nowrap;
-  }
-  .tooltip span {
-    color: var(--ink-2);
-  }
-
   .card {
     position: absolute;
     width: 340px;
@@ -844,13 +825,6 @@
     font-size: 0.75rem;
     color: var(--ink-3);
   }
-  .zoom {
-    position: absolute;
-    right: max(1.5rem, env(safe-area-inset-right));
-    bottom: max(1.6rem, env(safe-area-inset-bottom));
-    display: flex;
-    gap: 0.5rem;
-  }
 
   /* Phones: the card becomes a bottom sheet; the corner hint gives way to the strip. */
   @media (max-width: 700px) {
@@ -867,9 +841,6 @@
     .corner {
       bottom: auto;
       top: 4.4rem;
-    }
-    .zoom {
-      display: none;
     }
     .search {
       top: 4.2rem;

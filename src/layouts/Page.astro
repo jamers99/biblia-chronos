@@ -1,19 +1,19 @@
 ---
-// The site shell. Normal pages get the header nav, a main column (or the full
-// width with `wide`), and the attribution footer. `immersive` pages (the
-// timeline) fill the window instead, with the brand and a few tools floating
-// over them and the nav tucked into a menu.
+// The site shell. Normal pages get the header nav, a main column, and the
+// attribution footer. `immersive` pages (the timeline and the map) fill the
+// window instead, with the brand and a few tools floating over them and the
+// nav tucked into a menu.
 import "../styles/global.css"
 import ThemeToggle from "../components/ThemeToggle.astro"
+import Layers from "../components/Layers.astro"
 import { url } from "../lib/url.ts"
 
 interface Props {
   title: string
   description?: string
-  wide?: boolean
   immersive?: boolean
 }
-const { title, description, wide = false, immersive = false } = Astro.props
+const { title, description, immersive = false } = Astro.props
 const path = Astro.url.pathname
 
 const nav = [
@@ -100,7 +100,7 @@ const isCurrent = (href: string) =>
         </header>
       )
     }
-    <main class:list={[immersive ? "immersive" : wide ? "wide" : "column"]}>
+    <main class={immersive ? "immersive" : "column"}>
       <slot />
     </main>
     {
@@ -112,6 +112,7 @@ const isCurrent = (href: string) =>
         </footer>
       )
     }
+    <Layers />
     <script>
       // Offline support for the installed app. Production only: in dev it
       // would serve stale pages.
@@ -159,9 +160,6 @@ const isCurrent = (href: string) =>
     max-width: 860px;
     margin: 0 auto;
     padding: 2.5rem 1.5rem 4rem;
-  }
-  main.wide {
-    padding: 1.25rem 1.5rem 2rem;
   }
   footer.site {
     padding: 1.25rem 1.5rem 2rem;

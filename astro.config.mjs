@@ -9,4 +9,7 @@ export default defineConfig({
   site: "https://jamers99.github.io",
   base: "/biblia-chronos",
   integrations: [svelte()],
+  // Styles as files, never inlined, so a page shown in a panel over another
+  // (see Layers.astro) can bring its stylesheets along.
+  build: { inlineStylesheets: "never" },
 })

@@ -23,7 +23,9 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   const request = event.request
   if (request.method !== "GET" || new URL(request.url).origin !== location.origin) return
-  if (request.mode === "navigate") event.respondWith(networkFirst(request))
+  // Pages, whether navigated to or fetched for a panel (see Layers.astro)
+  if (request.mode === "navigate" || request.headers.get("accept")?.includes("text/html"))
+    event.respondWith(networkFirst(request))
   else if (request.url.includes("/_astro/")) event.respondWith(cacheFirst(request))
   else event.respondWith(staleWhileRevalidate(request))
 })

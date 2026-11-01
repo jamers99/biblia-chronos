@@ -1,4 +1,4 @@
-_Status: the first visualization, the History of Israel timeline, is live along with a map and a page for every person, place, and event. The data still follows a single chronology; showing scholarly alternatives is next._
+_Status: the first visualization, the History of Israel timeline, is live along with a story map (the same history, era by era) and a page for every person, place, and event, which opens as a panel over whatever you're looking at. The data still follows a single chronology; showing scholarly alternatives is next._
 
 # Biblia Chronos
 

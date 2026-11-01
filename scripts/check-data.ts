@@ -168,6 +168,21 @@ for (let i = 1; i < byStart.length; i++)
   if (byStart[i].date.earliest < byStart[i - 1].date.latest)
     err(`period "${byStart[i].id}" overlaps "${byStart[i - 1].id}"`)
 
+// A period's map chapter names places (which must be locatable), events, and
+// people that exist.
+const locatable = new Set(places.filter((p) => p.coordinates).map((p) => p.id))
+for (const p of periods) {
+  const check = (ids: string[] = [], kind: Kind) => {
+    for (const id of ids)
+      if (entityKind.get(id) !== kind) err(`period "${p.id}" names "${id}", which isn't a known ${kind}`)
+      else if (kind === "place" && !locatable.has(id)) err(`period "${p.id}" names place "${id}", which has no coordinates`)
+  }
+  check(p.places, "place")
+  check(p.journey?.places, "place")
+  check(p.moments, "event")
+  check(p.people, "person")
+}
+
 // --- 6. Orphans (warning only) ----------------------------------------------
 
 const connected = new Set<string>()
