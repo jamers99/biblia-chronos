@@ -126,6 +126,9 @@ const EDGE_ENDPOINTS: Record<EdgeType, [string, string]> = {
   "occurred-at": ["event", "place"],
   "died-at": ["person", "place"],
   "visited": ["person", "place"],
+  "part-of": ["place", "place"],
+  "near": ["place", "place"],
+  "alias-of": ["place", "place"],
 }
 
 let dangling = 0
@@ -153,8 +156,8 @@ const checkDate = (id: string, field: string, d: DateEstimate | undefined) => {
 for (const p of people) {
   checkDate(p.id, "birth", p.birth)
   checkDate(p.id, "death", p.death)
-  checkDate(p.id, "lived", p.lived)
 }
+for (const p of places) checkDate(p.id, "date", p.date)
 for (const e of events) checkDate(e.id, "date", e.date)
 for (const p of periods) checkDate(p.id, "date", p.date)
 

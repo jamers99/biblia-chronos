@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Fetches the heavy, gitignored Theographic vendor files at the pinned commit.
 // Everything else in data/vendor/theographic/ is committed; this restores the
-// large files (verses.json, easton.json) needed to re-run the importer.
+// large file (verses.json) needed to re-run the importer.
 //
 //   node scripts/vendor-fetch.mjs        (or: npm run vendor:fetch)
 //

@@ -7,15 +7,13 @@
   "files": {
     "committed": [
       "books.json",
-      "chapters.json",
       "events.json",
       "people.json",
       "peopleGroups.json",
       "places.json"
     ],
     "fetched": [
-      "verses.json",
-      "easton.json"
+      "verses.json"
     ]
   }
 }

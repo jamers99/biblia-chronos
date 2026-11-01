@@ -240,6 +240,30 @@
     "source": "theographic"
   },
   {
+    "from": "abdon_3",
+    "to": "asher_1287",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "abel-maim_7",
+    "to": "abel-beth-maacah_5",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "abel-mizraim_9",
+    "to": "atad_112",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "abel-shittim_10",
+    "to": "shittim_1086",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "abel_13",
     "to": "cain-kills-abel",
     "type": "participated-in",
@@ -267,6 +291,12 @@
     "from": "abel_13",
     "to": "seth_2504",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "abel_4",
+    "to": "abel-beth-maacah_5",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -831,6 +861,12 @@
     "from": "abijah_38",
     "to": "ziza_3098",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "abilene_12",
+    "to": "aram_82",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -1836,6 +1872,30 @@
     "source": "theographic"
   },
   {
+    "from": "achshaph_17",
+    "to": "asher_1287",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "achzib_18",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "achzib_19",
+    "to": "asher_1287",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "adadah_20",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "adah_414",
     "to": "eliphaz_1144",
     "type": "parent-of",
@@ -2088,6 +2148,18 @@
     "source": "theographic"
   },
   {
+    "from": "adamah_22",
+    "to": "naphtali_1284",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "adami-nekeb_23",
+    "to": "naphtali_1284",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "adbeel_79",
     "to": "bashemath_1887",
     "type": "sibling-of",
@@ -2292,6 +2364,12 @@
     "source": "theographic"
   },
   {
+    "from": "adithaim_26",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "adlai_90",
     "to": "shaphat_2556",
     "type": "parent-of",
@@ -2439,6 +2517,12 @@
     "from": "adriel_105",
     "to": "merab_2001",
     "type": "partner-of",
+    "source": "theographic"
+  },
+  {
+    "from": "adullam_31",
+    "to": "judah_1280",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -3348,6 +3432,12 @@
     "source": "theographic"
   },
   {
+    "from": "ahlab_35",
+    "to": "asher_1287",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "ahlai_166",
     "to": "attai_363",
     "type": "parent-of",
@@ -3528,6 +3618,30 @@
     "source": "theographic"
   },
   {
+    "from": "aiath_38",
+    "to": "ai_36",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "aija_39",
+    "to": "ai_36",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "aijalon_40",
+    "to": "dan_1283",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ain_42",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "ajah_178",
     "to": "anah_249",
     "type": "sibling-of",
@@ -3543,6 +3657,12 @@
     "from": "akan_179",
     "to": "zavan_2944",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "akeldama_43",
+    "to": "jerusalem_636",
+    "type": "near",
     "source": "theographic"
   },
   {
@@ -3648,6 +3768,12 @@
     "source": "theographic"
   },
   {
+    "from": "alemeth_45",
+    "to": "almon_49",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "alexander_186",
     "to": "rufus_2448",
     "type": "sibling-of",
@@ -3681,6 +3807,18 @@
     "from": "alexander_188",
     "to": "riot-in-ephesus",
     "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "allammelech_47",
+    "to": "asher_1287",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "allon-bacuth_48",
+    "to": "bethel_202",
+    "type": "near",
     "source": "theographic"
   },
   {
@@ -3810,6 +3948,12 @@
     "source": "theographic"
   },
   {
+    "from": "amad_52",
+    "to": "asher_1287",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "amal_196",
     "to": "imna_601",
     "type": "sibling-of",
@@ -3867,6 +4011,12 @@
     "from": "amalek_197",
     "to": "zepho_3042",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "amam_54",
+    "to": "judah_1280",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -4140,6 +4290,12 @@
     "source": "theographic"
   },
   {
+    "from": "ammon_58",
+    "to": "rabbah_966",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "amnon_232",
     "to": "daniel_939",
     "type": "half-sibling-of",
@@ -4404,6 +4560,12 @@
     "source": "theographic"
   },
   {
+    "from": "amphipolis_59",
+    "to": "macedonia_747",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "amram_242",
     "to": "aaron_1",
     "type": "parent-of",
@@ -4494,6 +4656,12 @@
     "source": "theographic"
   },
   {
+    "from": "anab_60",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "anah_247",
     "to": "aholibamah_1761",
     "type": "parent-of",
@@ -4557,6 +4725,12 @@
     "from": "anah_248",
     "to": "zibeon_3062",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "anaharath_61",
+    "to": "issachar_1288",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -4842,6 +5016,12 @@
     "source": "theographic"
   },
   {
+    "from": "anem_64",
+    "to": "en-gannim_388",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "aner_266",
     "to": "eshcol_1218",
     "type": "sibling-of",
@@ -4851,6 +5031,18 @@
     "from": "aner_266",
     "to": "mamre_1923",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "aner_65",
+    "to": "taanach_1124",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "angle_66",
+    "to": "jerusalem_636",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -4872,6 +5064,12 @@
     "source": "theographic"
   },
   {
+    "from": "anim_67",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "annas_269",
     "to": "jerusalem_636",
     "type": "visited",
@@ -4887,6 +5085,12 @@
     "from": "anointed-by-a-sinner-woman",
     "to": "galilee_433",
     "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "antipatris_70",
+    "to": "aphek_72",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -4962,9 +5166,39 @@
     "source": "theographic"
   },
   {
+    "from": "aphek_71",
+    "to": "asher_1287",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "aphek_72",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "aphekah_74",
+    "to": "aphek_72",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "aphiah_274",
     "to": "bechorath_425",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "aphik_75",
+    "to": "aphek_71",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "apollonia_76",
+    "to": "macedonia_747",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -5019,6 +5253,12 @@
     "from": "appaim_277",
     "to": "tribe-of-judah",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "appii_forum_427",
+    "to": "italy_601",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -5130,6 +5370,18 @@
     "source": "theographic"
   },
   {
+    "from": "arab_78",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "arabah_260",
+    "to": "arabah_79",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "arad_281",
     "to": "ispah_644",
     "type": "sibling-of",
@@ -5187,6 +5439,24 @@
     "from": "arah_284",
     "to": "shechaniah_2587",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "aram-maacah_83",
+    "to": "maacah_743",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "aram-naharaim_84",
+    "to": "mesopotamia_790",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "aram-zobah_85",
+    "to": "zobah_1272",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -5520,6 +5790,12 @@
     "source": "theographic"
   },
   {
+    "from": "areopagus_87",
+    "to": "athens_118",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "aridai_299",
     "to": "aridatha_300",
     "type": "sibling-of",
@@ -5607,6 +5883,18 @@
     "from": "aridatha_300",
     "to": "vajezatha_2935",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ariel_89",
+    "to": "jerusalem_636",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "arimathea_90",
+    "to": "mizpah_811",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -5934,6 +6222,12 @@
     "source": "theographic"
   },
   {
+    "from": "armageddon_91",
+    "to": "megiddo_777",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "armoni_309",
     "to": "ish-bosheth_622",
     "type": "sibling-of",
@@ -6039,6 +6333,18 @@
     "from": "arod_311",
     "to": "zephon_3093",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "aroer_93",
+    "to": "reuben_1282",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "aroer_94",
+    "to": "gad_1286",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -6306,6 +6612,12 @@
     "source": "theographic"
   },
   {
+    "from": "ashan_100",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "ashbel_336",
     "to": "becher_423",
     "type": "sibling-of",
@@ -6363,6 +6675,30 @@
     "from": "ashbel_336",
     "to": "tribe-of-benjamin",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ashdod_101",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ashdods_102",
+    "to": "ashdod_101",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "asher_1287",
+    "to": "northern-kingdom-of-israel_1302",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "asher_1287",
+    "to": "united-kingdom-of-israel_1301",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -6510,6 +6846,12 @@
     "source": "theographic"
   },
   {
+    "from": "ashnah_105",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "ashriel_340",
     "to": "machir_1877",
     "type": "sibling-of",
@@ -6519,6 +6861,12 @@
     "from": "ashriel_340",
     "to": "tribe-of-joseph",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ashtaroth_106",
+    "to": "east-manasseh-half-tribe_1290",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -6696,6 +7044,12 @@
     "source": "theographic"
   },
   {
+    "from": "asshur_109",
+    "to": "assyria_111",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "asshur_349",
     "to": "calah_268",
     "type": "visited",
@@ -6792,6 +7146,18 @@
     "source": "theographic"
   },
   {
+    "from": "ataroth-addar_115",
+    "to": "ephraim-territory_1292",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ataroth_114",
+    "to": "ephraim-territory_1292",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "ater_355",
     "to": "hezekiah_1514",
     "type": "parent-of",
@@ -6882,6 +7248,12 @@
     "source": "theographic"
   },
   {
+    "from": "athens_118",
+    "to": "achaia_16",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "attai_363",
     "to": "nathan_2155",
     "type": "parent-of",
@@ -6924,6 +7296,12 @@
     "source": "theographic"
   },
   {
+    "from": "attalia_120",
+    "to": "pamphylia_918",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "augustus_366",
     "to": "agrippa-and-bernice-meet-festus",
     "type": "participated-in",
@@ -6939,6 +7317,18 @@
     "from": "augustus_366",
     "to": "paul-goes-before-agrippa",
     "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "aven_121",
+    "to": "bethel_202",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "avvim_124",
+    "to": "benjamin-territory_1293",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -7188,6 +7578,12 @@
     "source": "theographic"
   },
   {
+    "from": "azekah_128",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "azel_551",
     "to": "azrikam_564",
     "type": "parent-of",
@@ -7254,6 +7650,12 @@
     "source": "theographic"
   },
   {
+    "from": "aznoth-tabor_131",
+    "to": "naphtali_1284",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "azor_559",
     "to": "genealogy-of-jesus",
     "type": "member-of",
@@ -7269,6 +7671,12 @@
     "from": "azor_559",
     "to": "tribe-of-judah",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "azotus_132",
+    "to": "ashdod_101",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -7374,6 +7782,24 @@
     "source": "theographic"
   },
   {
+    "from": "baal-meon_144",
+    "to": "reuben_1282",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "baal-peor_145",
+    "to": "peor_933",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "baal_133",
+    "to": "baalath-beer_138",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "baal_574",
     "to": "beerah_431",
     "type": "parent-of",
@@ -7419,6 +7845,30 @@
     "from": "baal_575",
     "to": "zur_3111",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "baalah_134",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "baalah_135",
+    "to": "kiriath-jearim_701",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "baalath-beer_138",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "baale-judah_139",
+    "to": "kiriath-jearim_701",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -7476,9 +7926,27 @@
     "source": "theographic"
   },
   {
+    "from": "babel_150",
+    "to": "babylon_151",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "baharum_153",
+    "to": "bahurim_154",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "baladan_594",
     "to": "merodach-baladan_483",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "bamoth-baal_158",
+    "to": "reuben_1282",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -7980,9 +8448,27 @@
     "source": "theographic"
   },
   {
+    "from": "bealoth_161",
+    "to": "baalath-beer_138",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "bealoth_162",
+    "to": "baalath-beer_138",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "bearing-cross-to-golgotha",
     "to": "golgotha_487",
     "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "beautiful_gate_163",
+    "to": "jerusalem_636",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -8154,6 +8640,18 @@
     "source": "theographic"
   },
   {
+    "from": "beer-lahai-roi_167",
+    "to": "kadesh-barnea_663",
+    "type": "near",
+    "source": "theographic"
+  },
+  {
+    "from": "beer_165",
+    "to": "beer_164",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "beera_430",
     "to": "beri_477",
     "type": "sibling-of",
@@ -8229,6 +8727,36 @@
     "from": "beeri_433",
     "to": "hosea_1555",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beeroth_168",
+    "to": "benjamin-territory_1293",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beeroth_bene-jaakan_169",
+    "to": "bene-jaakan_174",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beersheba_170",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beeshterah_171",
+    "to": "ashtaroth_106",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "bela_172",
+    "to": "zoar_1271",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -8421,6 +8949,24 @@
     "from": "benaiah_450",
     "to": "pelatiah_2307",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "bene-berak_173",
+    "to": "dan_1283",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "benjamin-territory_1293",
+    "to": "judah-southern_1281",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "benjamin-territory_1293",
+    "to": "united-kingdom-of-israel_1301",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -8622,6 +9168,12 @@
     "source": "theographic"
   },
   {
+    "from": "benjamins_gate_437",
+    "to": "gate_of_benjamin_175",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "beno_462",
     "to": "ibri_1587",
     "type": "sibling-of",
@@ -8643,6 +9195,12 @@
     "from": "beno_462",
     "to": "zaccur_2964",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beon_176",
+    "to": "baal-meon_144",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -8697,6 +9255,12 @@
     "from": "beraiah_470",
     "to": "zilthai_3082",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "berea_177",
+    "to": "macedonia_747",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -9102,9 +9666,183 @@
     "source": "theographic"
   },
   {
+    "from": "berothai_180",
+    "to": "berothah_179",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "besodeiah_485",
     "to": "meshullam_2032",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "betah_182",
+    "to": "tibhath_1162",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beten_183",
+    "to": "asher_1287",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-anath_184",
+    "to": "naphtali_1284",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-anoth_185",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-arabah_188",
+    "to": "benjamin-territory_1293",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-arabah_188",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-aven_191",
+    "to": "bethel_202",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-azmaveth_192",
+    "to": "azmaveth_129",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-baal-meon_193",
+    "to": "baal-meon_144",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-barah_194",
+    "to": "bethany_187",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-dagon_197",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-dagon_198",
+    "to": "asher_1287",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-emek_204",
+    "to": "asher_1287",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-gilgal_208",
+    "to": "gilgal_476",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-haram_211",
+    "to": "gad_1286",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-haran_212",
+    "to": "beth-haram_211",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-hoglah_213",
+    "to": "benjamin-territory_1293",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-horon_733",
+    "to": "beth-horon_214",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-horon_734",
+    "to": "upper_beth-horon_1188",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-jeshimoth_215",
+    "to": "reuben_1282",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-maacah_221",
+    "to": "abel-beth-maacah_5",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-marcaboth_222",
+    "to": "madmannah_749",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-meon_223",
+    "to": "baal-meon_144",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-millo_224",
+    "to": "shechem_1069",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-nimrah_225",
+    "to": "gad_1286",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-pazzez_226",
+    "to": "issachar_1288",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-pelet_227",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-peor_228",
+    "to": "reuben_1282",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -9120,9 +9858,75 @@
     "source": "theographic"
   },
   {
+    "from": "beth-shan_232",
+    "to": "west-manasseh_1291",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-shean_233",
+    "to": "beth-shan_232",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-shemesh_234",
+    "to": "dan_1283",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-shemesh_235",
+    "to": "issachar_1288",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-shemesh_236",
+    "to": "naphtali_1284",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-tappuah_238",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "beth-zur_242",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "bethel_202",
+    "to": "benjamin-territory_1293",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "bethesda-pool-healing",
     "to": "bethesda_205",
     "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "bethesda_205",
+    "to": "jerusalem_636",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "bethlehem_219",
+    "to": "zebulun_1289",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "bethlehem_ephrathah_220",
+    "to": "bethlehem_218",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -9204,6 +10008,12 @@
     "source": "theographic"
   },
   {
+    "from": "betonim_243",
+    "to": "gad_1286",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "bezaleel_490",
     "to": "tribe-of-judah",
     "type": "member-of",
@@ -9267,6 +10077,12 @@
     "from": "bichri_493",
     "to": "sheba_2570",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "bileam_248",
+    "to": "ibleam_589",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -9450,6 +10266,12 @@
     "source": "theographic"
   },
   {
+    "from": "biziothiah_251",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "blind-and-dumb-demoniac-and-following-discourse",
     "to": "capernaum_274",
     "type": "occurred-at",
@@ -9510,9 +10332,39 @@
     "source": "theographic"
   },
   {
+    "from": "bochim_252",
+    "to": "bethel_202",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "bozkath_255",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "bozrah_257",
+    "to": "bozrah_256",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "bread-of-life-sermon",
     "to": "capernaum_274",
     "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "broad_wall_258",
+    "to": "jerusalem_636",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "brook_kidron_688",
+    "to": "kidron_687",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -9717,6 +10569,18 @@
     "from": "buzi_531",
     "to": "ezekiel_1237",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "cabbon_263",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "cabul_264",
+    "to": "asher_1287",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -10062,6 +10926,18 @@
     "source": "theographic"
   },
   {
+    "from": "calno_270",
+    "to": "calneh_269",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "cana_271",
+    "to": "asher_1287",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "canaan_914",
     "to": "amorite_237",
     "type": "parent-of",
@@ -10230,6 +11106,18 @@
     "source": "theographic"
   },
   {
+    "from": "caphtor_275",
+    "to": "crete_310",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "carmel_278",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "carmi_920",
     "to": "hanoch_1403",
     "type": "sibling-of",
@@ -10362,6 +11250,18 @@
     "source": "theographic"
   },
   {
+    "from": "chephar-hammoni_284",
+    "to": "benjamin-territory_1293",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "chephirah_285",
+    "to": "benjamin-territory_1293",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "cheran_937",
     "to": "eshban_1217",
     "type": "sibling-of",
@@ -10434,6 +11334,30 @@
     "source": "theographic"
   },
   {
+    "from": "chesil_289",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "chesulloth_290",
+    "to": "issachar_1288",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "chesulloth_290",
+    "to": "zebulun_1289",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "chezib_291",
+    "to": "achzib_18",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "chief-priests-conspire-against-jesus",
     "to": "jerusalem_636",
     "type": "occurred-at",
@@ -10458,9 +11382,39 @@
     "source": "theographic"
   },
   {
+    "from": "chinnereth_294",
+    "to": "chinnereth_293",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "chinneroth_295",
+    "to": "chinnereth_293",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "chislon_942",
     "to": "elidad_1103",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "chisloth-tabor_297",
+    "to": "chesulloth_290",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "chitlish_298",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "chorazin_299",
+    "to": "galilee_433",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -10509,6 +11463,12 @@
     "from": "col-hozeh_952",
     "to": "baruch_409",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "colossae_305",
+    "to": "phrygia_946",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -10563,6 +11523,12 @@
     "from": "cornelius_956",
     "to": "peter-meets-cornelius",
     "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "corner_gate_307",
+    "to": "jerusalem_636",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -10644,6 +11610,12 @@
     "source": "theographic"
   },
   {
+    "from": "cozeba_309",
+    "to": "achzib_18",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "creation-of-adam-and-eve",
     "to": "eden_354",
     "type": "occurred-at",
@@ -10677,6 +11649,12 @@
     "from": "crucifixion-and-burial",
     "to": "golgotha_487",
     "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "cun_311",
+    "to": "berothah_179",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -10746,6 +11724,24 @@
     "source": "theographic"
   },
   {
+    "from": "cuthah_315",
+    "to": "cuth_314",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "dabbesheth_318",
+    "to": "zebulun_1289",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "daberath_319",
+    "to": "zebulun_1289",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "dalaiah_970",
     "to": "eliashib_1093",
     "type": "sibling-of",
@@ -10773,6 +11769,12 @@
     "from": "dalaiah_970",
     "to": "tribe-of-judah",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "dalmanutha_320",
+    "to": "magadan_753",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -10815,6 +11817,24 @@
     "from": "damaris_972",
     "to": "paul-preaches-in-athens",
     "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "dan_1283",
+    "to": "united-kingdom-of-israel_1301",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "dan_323",
+    "to": "dan_1283",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "dan_323",
+    "to": "northern-kingdom-of-israel_1302",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -11025,6 +12045,12 @@
     "from": "daniel_975",
     "to": "prophecies-of-daniel",
     "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "dannah_324",
+    "to": "judah_1280",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -11574,6 +12600,18 @@
     "source": "theographic"
   },
   {
+    "from": "debir_325",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "debir_327",
+    "to": "lo-debar_732",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "deborah_997",
     "to": "deliverance-by-barak-and-deborah",
     "type": "participated-in",
@@ -11694,6 +12732,18 @@
     "source": "theographic"
   },
   {
+    "from": "dibon-gad_333",
+    "to": "dibon_331",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "dibon_331",
+    "to": "reuben_1282",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "dibri_1010",
     "to": "shelomith_2605",
     "type": "parent-of",
@@ -11757,6 +12807,24 @@
     "from": "diklah_1011",
     "to": "uzal_2911",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "dilean_334",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "dimnah_335",
+    "to": "rimmon_1005",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "dimonah_336",
+    "to": "judah_1280",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -11958,6 +13026,12 @@
     "source": "theographic"
   },
   {
+    "from": "diviners_oak_338",
+    "to": "shechem_1069",
+    "type": "near",
+    "source": "theographic"
+  },
+  {
     "from": "dodanim_1018",
     "to": "elishah_1154",
     "type": "sibling-of",
@@ -11997,6 +13071,12 @@
     "from": "dodo_1022",
     "to": "elhanan_1071",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "dor_341",
+    "to": "west-manasseh_1291",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -12105,6 +13185,42 @@
     "from": "dumah_1025",
     "to": "tema_2837",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "dumah_344",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "dung_gate_346",
+    "to": "jerusalem_636",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "east-manasseh-half-tribe_1290",
+    "to": "northern-kingdom-of-israel_1302",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "east-manasseh-half-tribe_1290",
+    "to": "united-kingdom-of-israel_1301",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "east_gate_349",
+    "to": "jerusalem_636",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "east_gate_958",
+    "to": "east_gate_349",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -12288,6 +13404,12 @@
     "source": "theographic"
   },
   {
+    "from": "ebez_351",
+    "to": "issachar_1288",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "ebiasaph_19",
     "to": "assir_352",
     "type": "parent-of",
@@ -12312,6 +13434,12 @@
     "source": "theographic"
   },
   {
+    "from": "ebron_352",
+    "to": "abdon_3",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "eder_1035",
     "to": "jeremoth_857",
     "type": "sibling-of",
@@ -12330,6 +13458,24 @@
     "source": "theographic"
   },
   {
+    "from": "eder_356",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "edrei_1285",
+    "to": "naphtali_1284",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "edrei_358",
+    "to": "east-manasseh-half-tribe_1290",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "eglah_1036",
     "to": "ithream_655",
     "type": "parent-of",
@@ -12339,6 +13485,18 @@
     "from": "eglon_1037",
     "to": "subjugation-by-eglon",
     "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "eglon_361",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "egypts_363",
+    "to": "egypt_362",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -12465,6 +13623,24 @@
     "from": "eker_1041",
     "to": "tribe-of-judah",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ekron_364",
+    "to": "dan_1283",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ekron_364",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "el-bethel_367",
+    "to": "bethel_202",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -12609,6 +13785,12 @@
     "from": "elasah_1056",
     "to": "gemariah_1296",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "elath_366",
+    "to": "eloth_375",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -13776,6 +14958,12 @@
     "source": "theographic"
   },
   {
+    "from": "elishah_370",
+    "to": "cyprus_316",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "elishama_1155",
     "to": "nun_2214",
     "type": "parent-of",
@@ -14184,6 +15372,12 @@
     "source": "theographic"
   },
   {
+    "from": "elon_373",
+    "to": "dan_1283",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "elpaal_1185",
     "to": "beriah_480",
     "type": "parent-of",
@@ -14376,6 +15570,30 @@
     "source": "theographic"
   },
   {
+    "from": "elteke_377",
+    "to": "eltekeh_378",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "eltekeh_378",
+    "to": "dan_1283",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "eltekon_379",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "eltolad_380",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "elymas_403",
     "to": "barnabas-and-saul-go-to-cyprus",
     "type": "participated-in",
@@ -14433,6 +15651,60 @@
     "from": "elzabad_1188",
     "to": "tribe-of-levi",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "emek-keziz_381",
+    "to": "benjamin-territory_1293",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "en-dor_385",
+    "to": "west-manasseh_1291",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "en-gannim_387",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "en-gannim_388",
+    "to": "issachar_1288",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "en-haddah_390",
+    "to": "issachar_1288",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "en-hazor_392",
+    "to": "naphtali_1284",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "en-mishpat_393",
+    "to": "kadesh-barnea_663",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "en-rimmon_394",
+    "to": "rimmon_1004",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "enam_384",
+    "to": "judah_1280",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -14634,6 +15906,18 @@
     "source": "theographic"
   },
   {
+    "from": "ephraim-territory_1292",
+    "to": "northern-kingdom-of-israel_1302",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ephraim-territory_1292",
+    "to": "united-kingdom-of-israel_1301",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "ephraim_1206",
     "to": "becher_424",
     "type": "parent-of",
@@ -14685,6 +15969,24 @@
     "from": "ephratah_1207",
     "to": "hur_1571",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ephrath_403",
+    "to": "bethlehem_218",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ephron_405",
+    "to": "mount_ephron_834",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ephron_406",
+    "to": "mount_ephron_834",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -14874,6 +16176,24 @@
     "source": "theographic"
   },
   {
+    "from": "esau_408",
+    "to": "edom_357",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "esek_409",
+    "to": "gerar_459",
+    "type": "near",
+    "source": "theographic"
+  },
+  {
+    "from": "eshan_410",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "eshban_1217",
     "to": "hemdan_1492",
     "type": "sibling-of",
@@ -14889,6 +16209,18 @@
     "from": "eshcol_1218",
     "to": "mamre_1923",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "eshtaol_411",
+    "to": "dan_1283",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "eshtaol_411",
+    "to": "judah_1280",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -14913,6 +16245,18 @@
     "from": "eshtemoa_1219",
     "to": "shammai_2544",
     "type": "half-sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "eshtemoa_412",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "eshtemoh_413",
+    "to": "eshtemoa_412",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -14955,6 +16299,12 @@
     "from": "espousal-of-mary",
     "to": "nazareth_878",
     "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "eth-kazin_420",
+    "to": "zebulun_1289",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -15009,6 +16359,18 @@
     "from": "ethbaal_1225",
     "to": "jezebel_1605",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ether_418",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ethiopia_419",
+    "to": "cush_312",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -15195,6 +16557,12 @@
     "from": "ezekiel_1237",
     "to": "prophecies-of-ezekiel",
     "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "ezem_422",
+    "to": "judah_1280",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -15504,15 +16872,39 @@
     "source": "theographic"
   },
   {
+    "from": "fish_gate_426",
+    "to": "jerusalem_636",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "fishers-of-men",
     "to": "sea_of_galilee_1032",
     "type": "occurred-at",
     "source": "theographic"
   },
   {
+    "from": "forest_584",
+    "to": "lebanon_585",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "foretelling-the-death-and-resurrection",
     "to": "caesarea_philippi_267",
     "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "gaash_429",
+    "to": "timnath-heres_1166",
+    "type": "near",
+    "source": "theographic"
+  },
+  {
+    "from": "gabbatha_430",
+    "to": "pavement_1155",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -15636,6 +17028,18 @@
     "source": "theographic"
   },
   {
+    "from": "gad_1286",
+    "to": "northern-kingdom-of-israel_1302",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "gad_1286",
+    "to": "united-kingdom-of-israel_1301",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "gadi_1266",
     "to": "menahem_1996",
     "type": "parent-of",
@@ -15744,6 +17148,12 @@
     "source": "theographic"
   },
   {
+    "from": "galeed_432",
+    "to": "mizpah_809",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "gallio_1275",
     "to": "achaia_16",
     "type": "visited",
@@ -15777,6 +17187,12 @@
     "from": "gamaliel_1277",
     "to": "jerusalem_636",
     "type": "visited",
+    "source": "theographic"
+  },
+  {
+    "from": "gareb_436",
+    "to": "jerusalem_636",
+    "type": "near",
     "source": "theographic"
   },
   {
@@ -15825,6 +17241,78 @@
     "from": "gatam_1281",
     "to": "zepho_3042",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "gate_miphkad_863",
+    "to": "jerusalem_636",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "gate_of_benjamin_175",
+    "to": "jerusalem_636",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "gate_of_ephraim_402",
+    "to": "jerusalem_636",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "gate_of_ephraim_438",
+    "to": "gate_of_ephraim_402",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "gate_of_the_children_of_the_people_932",
+    "to": "jerusalem_636",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "gate_of_the_foundation_440",
+    "to": "jerusalem_636",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "gate_of_the_fountain_428",
+    "to": "jerusalem_636",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "gate_of_the_valley_1195",
+    "to": "jerusalem_636",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "gath-hepher_443",
+    "to": "zebulun_1289",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "gath-rimmon_444",
+    "to": "dan_1283",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "gath-rimmon_445",
+    "to": "ibleam_589",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "gaza_446",
+    "to": "judah_1280",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -15906,6 +17394,18 @@
     "source": "theographic"
   },
   {
+    "from": "geba_447",
+    "to": "benjamin-territory_1293",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "geba_448",
+    "to": "geba_447",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "geber_1285",
     "to": "son_of_geber_2765",
     "type": "parent-of",
@@ -15954,6 +17454,30 @@
     "source": "theographic"
   },
   {
+    "from": "geder_451",
+    "to": "gedor_455",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "gederah_452",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "gederoth_453",
+    "to": "gederah_452",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "gederothaim_454",
+    "to": "gederah_452",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "gedor_1292",
     "to": "kish_1784",
     "type": "sibling-of",
@@ -15987,6 +17511,24 @@
     "from": "gedor_1292",
     "to": "zur_3111",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "gedor_455",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "gedor_456",
+    "to": "gedor_455",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "geliloth_457",
+    "to": "gilgal_476",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -16164,6 +17706,12 @@
     "source": "theographic"
   },
   {
+    "from": "geruth_chimham_460",
+    "to": "bethlehem_218",
+    "type": "near",
+    "source": "theographic"
+  },
+  {
     "from": "gesham_1306",
     "to": "jotham_1736",
     "type": "sibling-of",
@@ -16209,6 +17757,42 @@
     "from": "gether_1308",
     "to": "uz_2908",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "gethsemane_462",
+    "to": "jerusalem_636",
+    "type": "near",
+    "source": "theographic"
+  },
+  {
+    "from": "gezer_463",
+    "to": "ephraim-territory_1292",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "gibbethon_465",
+    "to": "dan_1283",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "gibeah_466",
+    "to": "benjamin-territory_1293",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "gibeah_467",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "gibeon_470",
+    "to": "benjamin-territory_1293",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -16428,6 +18012,18 @@
     "source": "theographic"
   },
   {
+    "from": "gilo_478",
+    "to": "giloh_479",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "giloh_479",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "ginath_1320",
     "to": "tibni_2853",
     "type": "parent-of",
@@ -16473,6 +18069,18 @@
     "from": "girgasite_1322",
     "to": "zidon_2738",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "goah_482",
+    "to": "jerusalem_636",
+    "type": "near",
+    "source": "theographic"
+  },
+  {
+    "from": "gob_483",
+    "to": "gezer_463",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -16602,6 +18210,12 @@
     "source": "theographic"
   },
   {
+    "from": "golgotha_487",
+    "to": "jerusalem_636",
+    "type": "near",
+    "source": "theographic"
+  },
+  {
     "from": "goliath_1327",
     "to": "david-kills-goliath",
     "type": "participated-in",
@@ -16713,6 +18327,18 @@
     "from": "good-samaritan-parable-taught",
     "to": "judea_657",
     "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "greece_495",
+    "to": "javan_627",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "gudgodah_496",
+    "to": "hor-haggidgad_579",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -16872,6 +18498,12 @@
     "source": "theographic"
   },
   {
+    "from": "hadashah_502",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "hadlai_1344",
     "to": "amasa_208",
     "type": "parent-of",
@@ -16923,6 +18555,12 @@
     "from": "hadoram_1345",
     "to": "uzal_2911",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "haeleph_505",
+    "to": "benjamin-territory_1293",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -16992,9 +18630,27 @@
     "source": "theographic"
   },
   {
+    "from": "hahiroth_506",
+    "to": "pi-hahiroth_948",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "hakkatan_1354",
     "to": "johanan_1673",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "halhul_509",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "hali_510",
+    "to": "asher_1287",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -17076,6 +18732,12 @@
     "source": "theographic"
   },
   {
+    "from": "ham_514",
+    "to": "rabbah_966",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "haman_1360",
     "to": "adalia_77",
     "type": "parent-of",
@@ -17142,6 +18804,12 @@
     "source": "theographic"
   },
   {
+    "from": "hamath-zobah_517",
+    "to": "hamath_516",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "hamathite_1361",
     "to": "hamath_516",
     "type": "visited",
@@ -17181,6 +18849,12 @@
     "from": "hamathite_1361",
     "to": "zidon_2738",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "hammath_518",
+    "to": "naphtali_1284",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -17235,6 +18909,18 @@
     "from": "hammoleketh_1364",
     "to": "tribe-of-joseph",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "hammon_519",
+    "to": "hammath_518",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "hammoth-dor_520",
+    "to": "hammath_518",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -17652,6 +19338,12 @@
     "source": "theographic"
   },
   {
+    "from": "hannathon_523",
+    "to": "zebulun_1289",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "hanoch_1403",
     "to": "hezron_1519",
     "type": "sibling-of",
@@ -17667,6 +19359,12 @@
     "from": "hanoch_1403",
     "to": "tribe-of-reuben",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "hapharaim_524",
+    "to": "ophrah_914",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -18222,6 +19920,24 @@
     "source": "theographic"
   },
   {
+    "from": "hazar-gaddah_538",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "hazar-shual_539",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "hazar-susim_541",
+    "to": "hazar-susah_540",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "hazarmaveth_1465",
     "to": "jerah_842",
     "type": "sibling-of",
@@ -18255,6 +19971,12 @@
     "from": "hazarmaveth_1465",
     "to": "uzal_2911",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "hazazon-tamar_542",
+    "to": "engedi_389",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -18351,6 +20073,30 @@
     "from": "hazo_1468",
     "to": "thahash_2845",
     "type": "half-sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "hazor-hadattah_550",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "hazor_545",
+    "to": "naphtali_1284",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "hazor_546",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "hazor_547",
+    "to": "kerioth-hezron_684",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -18672,6 +20418,12 @@
     "source": "theographic"
   },
   {
+    "from": "hebron_551",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "helah_1478",
     "to": "coz_958",
     "type": "parent-of",
@@ -18720,6 +20472,12 @@
     "source": "theographic"
   },
   {
+    "from": "heleph_556",
+    "to": "naphtali_1284",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "helez_1483",
     "to": "eleasah_1060",
     "type": "parent-of",
@@ -18741,6 +20499,18 @@
     "from": "heli_1484",
     "to": "tribe-of-judah",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "heliopolis_557",
+    "to": "on_908",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "helkath_558",
+    "to": "asher_1287",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -18936,6 +20706,12 @@
     "source": "theographic"
   },
   {
+    "from": "hermon_564",
+    "to": "mount_hermon_841",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "herod-dies",
     "to": "caesarea_266",
     "type": "occurred-at",
@@ -19083,6 +20859,24 @@
     "from": "hesed_1509",
     "to": "son_of_hesed_2766",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "heshbon_565",
+    "to": "gad_1286",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "heshbon_565",
+    "to": "reuben_1282",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "heshmon_566",
+    "to": "judah_1280",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -19281,6 +21075,18 @@
     "from": "hiel_1522",
     "to": "segub_2483",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "hierapolis_569",
+    "to": "phrygia_946",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "hilen_570",
+    "to": "holon_572",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -19560,6 +21366,12 @@
     "source": "theographic"
   },
   {
+    "from": "holon_572",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "holy-week",
     "to": "jerusalem_636",
     "type": "occurred-at",
@@ -19668,9 +21480,33 @@
     "source": "theographic"
   },
   {
+    "from": "horeb_576",
+    "to": "mount_sinai_855",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "horem_577",
+    "to": "naphtali_1284",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "hori_1553",
     "to": "shaphat_2552",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "hormah_580",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "horse_gate_582",
+    "to": "jerusalem_636",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -19695,6 +21531,12 @@
     "from": "hosah_1554",
     "to": "zechariah_3006",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "hosah_583",
+    "to": "asher_1287",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -19902,6 +21744,18 @@
     "source": "theographic"
   },
   {
+    "from": "hukkok_586",
+    "to": "naphtali_1284",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "hukok_587",
+    "to": "hukkok_586",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "hul_1566",
     "to": "mash_1944",
     "type": "sibling-of",
@@ -19917,6 +21771,12 @@
     "from": "huldah_1567",
     "to": "shallum_2515",
     "type": "partner-of",
+    "source": "theographic"
+  },
+  {
+    "from": "humtah_588",
+    "to": "judah_1280",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -20244,6 +22104,12 @@
     "source": "theographic"
   },
   {
+    "from": "ibleam_589",
+    "to": "west-manasseh_1291",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "ibnijah_1586",
     "to": "reuel_2432",
     "type": "parent-of",
@@ -20271,6 +22137,12 @@
     "from": "ibzan_1588",
     "to": "judgeship-of-ibzan",
     "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "idalah_591",
+    "to": "zebulun_1289",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -20349,6 +22221,12 @@
     "from": "igeal_595",
     "to": "tribe-of-judah",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "iim_593",
+    "to": "judah_1280",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -20490,6 +22368,18 @@
     "source": "theographic"
   },
   {
+    "from": "iphtah_598",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ir-shemesh_600",
+    "to": "beth-shemesh_234",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "ir_607",
     "to": "huppim_1570",
     "type": "parent-of",
@@ -20547,6 +22437,12 @@
     "from": "iri_613",
     "to": "uzziel_2931",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "irpeel_599",
+    "to": "benjamin-territory_1293",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -21378,6 +23274,18 @@
     "source": "theographic"
   },
   {
+    "from": "issachar_1288",
+    "to": "northern-kingdom-of-israel_1302",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "issachar_1288",
+    "to": "united-kingdom-of-israel_1301",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "issachar_645",
     "to": "7-years-of-famine",
     "type": "participated-in",
@@ -21594,6 +23502,18 @@
     "source": "theographic"
   },
   {
+    "from": "ithlah_602",
+    "to": "dan_1283",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ithnan_603",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "ithream_655",
     "to": "japhia_728",
     "type": "sibling-of",
@@ -21657,6 +23577,18 @@
     "from": "ithream_655",
     "to": "tribe-of-judah",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ivvah_605",
+    "to": "avva_123",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "iyim_607",
+    "to": "iye-abarim_606",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -21768,6 +23700,12 @@
     "source": "theographic"
   },
   {
+    "from": "jaar_608",
+    "to": "kiriath-jearim_701",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "jaaziah_671",
     "to": "beno_462",
     "type": "parent-of",
@@ -21834,6 +23772,12 @@
     "source": "theographic"
   },
   {
+    "from": "jabesh_610",
+    "to": "jabesh-gilead_611",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "jabesh_674",
     "to": "shallum_2514",
     "type": "parent-of",
@@ -21843,6 +23787,18 @@
     "from": "jabin_677",
     "to": "subjugation-by-jabin",
     "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "jabneel_614",
+    "to": "naphtali_1284",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "jabneh_615",
+    "to": "jabneel_613",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -21957,6 +23913,12 @@
     "from": "jaddua_687",
     "to": "tribe-of-levi",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "jagur_616",
+    "to": "judah_1280",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -22164,6 +24126,12 @@
     "source": "theographic"
   },
   {
+    "from": "jahzah_618",
+    "to": "jahaz_617",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "jahzeel_706",
     "to": "jezer_1606",
     "type": "sibling-of",
@@ -22185,6 +24153,12 @@
     "from": "jahzerah_707",
     "to": "azareel_84",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "jair_619",
+    "to": "havvoth-jair_535",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -22470,6 +24444,12 @@
     "source": "theographic"
   },
   {
+    "from": "janim_620",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "janna_724",
     "to": "genealogy-of-jesus",
     "type": "member-of",
@@ -22485,6 +24465,12 @@
     "from": "janna_724",
     "to": "tribe-of-judah",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "janoah_621",
+    "to": "ephraim-territory_1292",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -22569,6 +24555,12 @@
     "from": "japheth_726",
     "to": "water-covers-the-earth",
     "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "japhia_623",
+    "to": "zebulun_1289",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -22746,6 +24738,12 @@
     "source": "theographic"
   },
   {
+    "from": "jarmuth_624",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "jaroah_735",
     "to": "huri_1576",
     "type": "parent-of",
@@ -22818,6 +24816,12 @@
     "source": "theographic"
   },
   {
+    "from": "jattir_626",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "javan_744",
     "to": "dodanim_1018",
     "type": "parent-of",
@@ -22872,6 +24876,12 @@
     "source": "theographic"
   },
   {
+    "from": "jazer_628",
+    "to": "gad_1286",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "jeaterai_746",
     "to": "malchiah_1901",
     "type": "parent-of",
@@ -22887,6 +24897,18 @@
     "from": "jeberechiah_747",
     "to": "zechariah_3028",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "jebus_629",
+    "to": "jerusalem_636",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "jebusite_630",
+    "to": "jerusalem_636",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -23079,6 +25101,12 @@
     "from": "jeduthun_762",
     "to": "galal_1274",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "jegar-sahadutha_631",
+    "to": "mizpah_809",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -23622,6 +25650,12 @@
     "source": "theographic"
   },
   {
+    "from": "jehud_632",
+    "to": "dan_1283",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "jehudijah_824",
     "to": "heber_1471",
     "type": "parent-of",
@@ -23649,6 +25683,12 @@
     "from": "jeiel_828",
     "to": "benaiah_444",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "jekabzeel_633",
+    "to": "kabzeel_660",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -23901,6 +25941,12 @@
     "from": "jeribai_861",
     "to": "joshaviah_1725",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "jericho_634",
+    "to": "benjamin-territory_1293",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -24219,6 +26265,30 @@
     "from": "jerusalem-council",
     "to": "jerusalem_636",
     "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "jerusalem_636",
+    "to": "benjamin-territory_1293",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "jerusalem_636",
+    "to": "judah-southern_1281",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "jerusalem_636",
+    "to": "united-kingdom-of-israel_1301",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "jerusalems_637",
+    "to": "jerusalem_636",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -25320,6 +27390,12 @@
     "source": "theographic"
   },
   {
+    "from": "jetur_641",
+    "to": "ituraea_604",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "jetur_911",
     "to": "kedar_1769",
     "type": "sibling-of",
@@ -25617,6 +27693,18 @@
     "from": "jezreel_1613",
     "to": "lo-ruhamah_1829",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "jezreel_642",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "jezreel_643",
+    "to": "issachar_1288",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -26376,6 +28464,12 @@
     "source": "theographic"
   },
   {
+    "from": "jokdeam_646",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "jokim_1684",
     "to": "laadah_1801",
     "type": "sibling-of",
@@ -26391,6 +28485,18 @@
     "from": "jokim_1684",
     "to": "tribe-of-judah",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "jokmeam_648",
+    "to": "kibzaim_686",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "jokneam_649",
+    "to": "zebulun_1289",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -26511,6 +28617,18 @@
     "from": "joktan_1686",
     "to": "uzal_2911",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "joktheel_650",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "joktheel_651",
+    "to": "joktheel_650",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -26661,6 +28779,12 @@
     "from": "jonathan_1700",
     "to": "zechariah_3026",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "joppa_652",
+    "to": "dan_1283",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -27474,6 +29598,18 @@
     "source": "theographic"
   },
   {
+    "from": "judah_1280",
+    "to": "judah-southern_1281",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "judah_1280",
+    "to": "united-kingdom-of-israel_1301",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "judah_1751",
     "to": "7-years-of-famine",
     "type": "participated-in",
@@ -27669,6 +29805,12 @@
     "from": "jude_1756",
     "to": "tribe-of-judah",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "judean_658",
+    "to": "judea_657",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -27942,9 +30084,45 @@
     "source": "theographic"
   },
   {
+    "from": "juttah_659",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "kabzeel_660",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "kadesh-barnea_663",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "kadesh_661",
+    "to": "kadesh-barnea_663",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "kadmiel_1767",
     "to": "jeshua_898",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "kain_664",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "kanah_667",
+    "to": "cana_271",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -27957,6 +30135,24 @@
     "from": "kareah_919",
     "to": "jonathan_1702",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "karnaim_670",
+    "to": "ashteroth-karnaim_107",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "kartah_671",
+    "to": "kitron_706",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "kattath_673",
+    "to": "kitron_706",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -28038,6 +30234,42 @@
     "source": "theographic"
   },
   {
+    "from": "kedemoth_675",
+    "to": "reuben_1282",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "kedesh-naphtali_679",
+    "to": "kedesh_676",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "kedesh_676",
+    "to": "naphtali_1284",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "kedesh_677",
+    "to": "kadesh-barnea_663",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "kedesh_678",
+    "to": "kishion_704",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "keilah_681",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "kemuel_1773",
     "to": "aram_286",
     "type": "parent-of",
@@ -28116,6 +30348,12 @@
     "source": "theographic"
   },
   {
+    "from": "kerioth-hezron_684",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "keturah_1782",
     "to": "ishbak_620",
     "type": "parent-of",
@@ -28149,6 +30387,66 @@
     "from": "keturah_1782",
     "to": "zimran_3086",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "kinah_689",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "kiriath-arba_697",
+    "to": "hebron_551",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "kiriath-arim_698",
+    "to": "kiriath-jearim_701",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "kiriath-baal_699",
+    "to": "kiriath-jearim_701",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "kiriath-jearim_701",
+    "to": "benjamin-territory_1293",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "kiriath-jearim_701",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "kiriath-sannah_702",
+    "to": "debir_325",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "kiriath-sepher_703",
+    "to": "debir_325",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "kiriathaim_695",
+    "to": "reuben_1282",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "kiriathaim_696",
+    "to": "kartan_672",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -28224,9 +30522,27 @@
     "source": "theographic"
   },
   {
+    "from": "kishion_704",
+    "to": "issachar_1288",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "kitron_706",
+    "to": "zebulun_1289",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "kittim_1789",
     "to": "tarshish_2828",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "kittim_707",
+    "to": "cyprus_316",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -28452,6 +30768,12 @@
     "source": "theographic"
   },
   {
+    "from": "lachish_711",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "lael_1804",
     "to": "eliasaph_1092",
     "type": "parent-of",
@@ -28461,6 +30783,12 @@
     "from": "lahad_1805",
     "to": "tribe-of-judah",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "lahmam_712",
+    "to": "judah_1280",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -28479,6 +30807,18 @@
     "from": "laish_1807",
     "to": "phaltiel_2326",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "laish_713",
+    "to": "dan_323",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "lakkum_715",
+    "to": "naphtali_1284",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -28686,6 +31026,18 @@
     "source": "theographic"
   },
   {
+    "from": "lebanon_585",
+    "to": "jerusalem_636",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "lebaoth_721",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "lebbaeus_1815",
     "to": "apostles",
     "type": "member-of",
@@ -28722,6 +31074,12 @@
     "source": "theographic"
   },
   {
+    "from": "lebo-hamath_723",
+    "to": "hamath_516",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "lehabim_1816",
     "to": "ludim_1835",
     "type": "sibling-of",
@@ -28743,6 +31101,12 @@
     "from": "lepers-healed",
     "to": "galilee_433",
     "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "leshem_727",
+    "to": "dan_323",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -28866,6 +31230,12 @@
     "source": "theographic"
   },
   {
+    "from": "libnah_728",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "libni_1824",
     "to": "shimei_2689",
     "type": "parent-of",
@@ -28920,9 +31290,21 @@
     "source": "theographic"
   },
   {
+    "from": "lo-debar_732",
+    "to": "gad_1286",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "lois_1828",
     "to": "eunice_1228",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "lord_303",
+    "to": "jerusalem_636",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -29040,6 +31422,12 @@
     "source": "theographic"
   },
   {
+    "from": "lud_735",
+    "to": "put_962",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "ludim_1835",
     "to": "naphtuhim_2150",
     "type": "sibling-of",
@@ -29154,6 +31542,18 @@
     "source": "theographic"
   },
   {
+    "from": "luz_737",
+    "to": "bethel_202",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "lydda_741",
+    "to": "lod_731",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "lydia-s-conversion",
     "to": "philippi_942",
     "type": "occurred-at",
@@ -29193,6 +31593,12 @@
     "from": "maacah_1839",
     "to": "genealogy-of-jesus",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "maacath_744",
+    "to": "maacah_743",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -29400,6 +31806,12 @@
     "source": "theographic"
   },
   {
+    "from": "maarath_745",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "maaseiah_1852",
     "to": "tribe-of-judah",
     "type": "member-of",
@@ -29526,6 +31938,12 @@
     "source": "theographic"
   },
   {
+    "from": "madmannah_749",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "magog_1882",
     "to": "meshech_2012",
     "type": "sibling-of",
@@ -29541,6 +31959,12 @@
     "from": "magog_1882",
     "to": "tubal_2883",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "mahalab_755",
+    "to": "ahlab_35",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -29595,6 +32019,18 @@
     "from": "mahalath_1888",
     "to": "tribe-of-judah",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "mahanaim_756",
+    "to": "east-manasseh-half-tribe_1290",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "mahanaim_756",
+    "to": "gad_1286",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -29745,6 +32181,12 @@
     "from": "mahol_1898",
     "to": "heman_1488",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "makkedah_760",
+    "to": "judah_1280",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -30009,6 +32451,24 @@
     "from": "maon_1935",
     "to": "tribe-of-judah",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "maon_764",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "mareal_766",
+    "to": "zebulun_1289",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "mareshah_767",
+    "to": "judah_1280",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -30297,6 +32757,12 @@
     "from": "mash_1944",
     "to": "uz_2908",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "mashal_769",
+    "to": "mishal_805",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -30594,6 +33060,18 @@
     "source": "theographic"
   },
   {
+    "from": "medeba_775",
+    "to": "reuben_1282",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "megiddo_777",
+    "to": "west-manasseh_1291",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "mehetabeel_1979",
     "to": "delaiah_1003",
     "type": "parent-of",
@@ -30738,6 +33216,12 @@
     "source": "theographic"
   },
   {
+    "from": "mephaath_780",
+    "to": "reuben_1282",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "mephibosheth_1999",
     "to": "micah_2055",
     "type": "parent-of",
@@ -30798,6 +33282,12 @@
     "source": "theographic"
   },
   {
+    "from": "merathaim_781",
+    "to": "babylon_151",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "mered_2005",
     "to": "eshtemoa_1219",
     "type": "parent-of",
@@ -30825,6 +33315,12 @@
     "from": "mered_2005",
     "to": "shammai_2544",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "meribah-kadesh_784",
+    "to": "meribah_782",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -30891,6 +33387,12 @@
     "from": "mesha_2011",
     "to": "zibia_3063",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "meshech-tubal_789",
+    "to": "meshech_788",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -31077,6 +33579,12 @@
     "from": "meshullemeth_2040",
     "to": "genealogy-of-jesus",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "metheg-ammah_791",
+    "to": "gath_442",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -31350,9 +33858,21 @@
     "source": "theographic"
   },
   {
+    "from": "michmas_792",
+    "to": "michmash_793",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "michri_2074",
     "to": "uzzi_2920",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "middin_795",
+    "to": "judah_1280",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -31401,6 +33921,18 @@
     "from": "midian_2075",
     "to": "zimran_3086",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "migdal-el_797",
+    "to": "naphtali_1284",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "migdal-gad_798",
+    "to": "judah_1280",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -31524,6 +34056,12 @@
     "source": "theographic"
   },
   {
+    "from": "millo_802",
+    "to": "jerusalem_636",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "miriam_2087",
     "to": "moses_2108",
     "type": "sibling-of",
@@ -31563,6 +34101,12 @@
     "from": "mishael_2090",
     "to": "zithri_3096",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "mishal_805",
+    "to": "asher_1287",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -31752,6 +34296,48 @@
     "source": "theographic"
   },
   {
+    "from": "mitylene_808",
+    "to": "asia_108",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "mizpah_809",
+    "to": "gad_1286",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "mizpah_810",
+    "to": "valley_of_mizpeh_1213",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "mizpah_811",
+    "to": "benjamin-territory_1293",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "mizpeh_812",
+    "to": "mizpah_811",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "mizpeh_813",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "mizpeh_814",
+    "to": "kir_693",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "mizraim_2100",
     "to": "anamim_253",
     "type": "parent-of",
@@ -31896,9 +34482,39 @@
     "source": "theographic"
   },
   {
+    "from": "moladah_816",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "molid_2105",
     "to": "tribe-of-judah",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "moreh_817",
+    "to": "shechem_1069",
+    "type": "near",
+    "source": "theographic"
+  },
+  {
+    "from": "moresheth-gath_820",
+    "to": "moresheth_819",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "moriah_821",
+    "to": "mount_moriah_848",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "moserah_823",
+    "to": "moseroth_824",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -32214,6 +34830,60 @@
     "source": "theographic"
   },
   {
+    "from": "mount_baalhermon_829",
+    "to": "mount_hermon_841",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "mount_heres_840",
+    "to": "heres_562",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "mount_horeb_844",
+    "to": "mount_sinai_855",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "mount_lebanon_846",
+    "to": "lebanon_720",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "mount_of_olives_828",
+    "to": "mount_of_olives_861",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "mount_sion_856",
+    "to": "mount_hermon_841",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "mount_tabor_857",
+    "to": "tabor_1128",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "mount_zemaraim_859",
+    "to": "zemaraim_1249",
+    "type": "near",
+    "source": "theographic"
+  },
+  {
+    "from": "mount_zion_860",
+    "to": "jerusalem_636",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "moza_2113",
     "to": "shaaph_2507",
     "type": "half-sibling-of",
@@ -32253,6 +34923,12 @@
     "from": "moza_2114",
     "to": "binea_507",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "mozah_862",
+    "to": "benjamin-territory_1293",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -32310,6 +34986,12 @@
     "source": "theographic"
   },
   {
+    "from": "naamah_866",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "naaman_2121",
     "to": "tribe-of-benjamin",
     "type": "member-of",
@@ -32361,6 +35043,18 @@
     "from": "naarah_2124",
     "to": "temeni_2840",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "naarah_867",
+    "to": "naaran_868",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "naaran_868",
+    "to": "ephraim-territory_1292",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -32427,6 +35121,18 @@
     "from": "nagge_2132",
     "to": "tribe-of-judah",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "nahalal_869",
+    "to": "zebulun_1289",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "nahalol_871",
+    "to": "nahalal_869",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -32622,6 +35328,12 @@
     "source": "theographic"
   },
   {
+    "from": "nain_872",
+    "to": "galilee_433",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "naomi_2147",
     "to": "chilion_940",
     "type": "parent-of",
@@ -32634,6 +35346,12 @@
     "source": "theographic"
   },
   {
+    "from": "naphath-dor_875",
+    "to": "dor_341",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "naphish_2148",
     "to": "nebajoth_2164",
     "type": "sibling-of",
@@ -32643,6 +35361,24 @@
     "from": "naphish_2148",
     "to": "tema_2837",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "naphoth-dor_877",
+    "to": "dor_341",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "naphtali_1284",
+    "to": "northern-kingdom-of-israel_1302",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "naphtali_1284",
+    "to": "united-kingdom-of-israel_1301",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -32832,6 +35568,18 @@
     "source": "theographic"
   },
   {
+    "from": "neah_879",
+    "to": "zebulun_1289",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "neapolis_880",
+    "to": "macedonia_747",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "neariah_2161",
     "to": "azrikam_563",
     "type": "parent-of",
@@ -32943,6 +35691,12 @@
     "from": "nehushta_2174",
     "to": "jehoiachin_791",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "neiel_887",
+    "to": "asher_1287",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -33150,6 +35904,24 @@
     "source": "theographic"
   },
   {
+    "from": "new_gate_891",
+    "to": "jerusalem_636",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "nezib_892",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "nibshan_893",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "nicanor_2203",
     "to": "jerusalem_636",
     "type": "visited",
@@ -33183,6 +35955,12 @@
     "from": "nicolas_2205",
     "to": "seven-chosen-to-serve",
     "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "nimrah_896",
+    "to": "beth-nimrah_225",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -33306,6 +36084,12 @@
     "source": "theographic"
   },
   {
+    "from": "nimrod_898",
+    "to": "assyria_111",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "nimshi_2207",
     "to": "jehoshaphat_809",
     "type": "parent-of",
@@ -33420,6 +36204,12 @@
     "source": "theographic"
   },
   {
+    "from": "nobah_901",
+    "to": "kenath_682",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "nogah_2213",
     "to": "shammua_2547",
     "type": "sibling-of",
@@ -33471,6 +36261,12 @@
     "from": "nohah_2120",
     "to": "tribe-of-benjamin",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "nophah_905",
+    "to": "kenath_682",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -33630,9 +36426,21 @@
     "source": "theographic"
   },
   {
+    "from": "old_gate_439",
+    "to": "jerusalem_636",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "olivet-discourse",
     "to": "mount_of_olives_828",
     "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "olivet_907",
+    "to": "mount_of_olives_861",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -33756,6 +36564,12 @@
     "source": "theographic"
   },
   {
+    "from": "ophel_910",
+    "to": "jerusalem_636",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "ophir_2253",
     "to": "sheba_2568",
     "type": "sibling-of",
@@ -33771,6 +36585,24 @@
     "from": "ophir_2253",
     "to": "uzal_2911",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ophni_912",
+    "to": "benjamin-territory_1293",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ophrah_913",
+    "to": "benjamin-territory_1293",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ophrah_914",
+    "to": "issachar_1288",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -33888,6 +36720,12 @@
     "source": "theographic"
   },
   {
+    "from": "paddan_915",
+    "to": "paddan-aram_916",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "pahath-moab_2265",
     "to": "jeshua_894",
     "type": "parent-of",
@@ -33906,6 +36744,12 @@
     "source": "theographic"
   },
   {
+    "from": "pai_917",
+    "to": "pau_927",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "pallu_2325",
     "to": "eliab_1074",
     "type": "parent-of",
@@ -33918,9 +36762,21 @@
     "source": "theographic"
   },
   {
+    "from": "paphos_919",
+    "to": "cyprus_316",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "parable-of-the-winseskins",
     "to": "capernaum_274",
     "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "parah_920",
+    "to": "benjamin-territory_1293",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -33981,6 +36837,12 @@
     "from": "paruah_2278",
     "to": "jehoshaphat_807",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "pas-dammim_923",
+    "to": "ephes-dammim_399",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -35094,6 +37956,12 @@
     "source": "theographic"
   },
   {
+    "from": "pavement_1155",
+    "to": "jerusalem_636",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "pedahzur_2291",
     "to": "gamaliel_1276",
     "type": "parent-of",
@@ -35193,6 +38061,12 @@
     "from": "pekahiah_2300",
     "to": "reign-of-pekahiah",
     "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "pekod_928",
+    "to": "babylon_151",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -35310,6 +38184,12 @@
     "source": "theographic"
   },
   {
+    "from": "peniel_930",
+    "to": "penuel_931",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "penuel_2314",
     "to": "salma_2462",
     "type": "sibling-of",
@@ -35349,6 +38229,24 @@
     "from": "peresh_2316",
     "to": "tribe-of-joseph",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "perez-uzza_934",
+    "to": "perez-uzzah_935",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "perga_936",
+    "to": "pamphylia_918",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "pergamum_937",
+    "to": "mysia_865",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -35826,6 +38724,12 @@
     "source": "theographic"
   },
   {
+    "from": "philadelphia_941",
+    "to": "asia_108",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "philip-preaches-in-samaria",
     "to": "samaria_1022",
     "type": "occurred-at",
@@ -35994,6 +38898,12 @@
     "source": "theographic"
   },
   {
+    "from": "philippi_942",
+    "to": "macedonia_747",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "philippian-jailer-converted",
     "to": "philippi_942",
     "type": "occurred-at",
@@ -36060,6 +38970,12 @@
     "source": "theographic"
   },
   {
+    "from": "pillars_512",
+    "to": "jerusalem_636",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "pispah_2362",
     "to": "tribe-of-asher",
     "type": "member-of",
@@ -36069,6 +38985,30 @@
     "from": "pithon_2363",
     "to": "tahrea_2827",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "place_1153",
+    "to": "golgotha_487",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "place_954",
+    "to": "golgotha_487",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "pool_691",
+    "to": "siloam_1096",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "pool_957",
+    "to": "siloam_1096",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -36210,6 +39150,12 @@
     "source": "theographic"
   },
   {
+    "from": "prison_gate_441",
+    "to": "jerusalem_636",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "prochorus_2371",
     "to": "jerusalem_636",
     "type": "visited",
@@ -36219,6 +39165,12 @@
     "from": "prochorus_2371",
     "to": "seven-chosen-to-serve",
     "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "ptolemais_959",
+    "to": "acco_15",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -36258,6 +39210,18 @@
     "source": "theographic"
   },
   {
+    "from": "pul_960",
+    "to": "put_962",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "puteoli_963",
+    "to": "italy_601",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "putiel_2377",
     "to": "daughter_of_putiel_990",
     "type": "parent-of",
@@ -36291,6 +39255,18 @@
     "from": "raamah_2380",
     "to": "sheba_2567",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "raamses_965",
+    "to": "rameses_980",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "rabbith_967",
+    "to": "issachar_1288",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -36354,6 +39330,12 @@
     "source": "theographic"
   },
   {
+    "from": "rahab_969",
+    "to": "egypt_362",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "raham_2389",
     "to": "tribe-of-judah",
     "type": "member-of",
@@ -36369,6 +39351,12 @@
     "from": "rakem_2390",
     "to": "ulam_2889",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "rakkath_970",
+    "to": "tiberias_1161",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -36417,6 +39405,66 @@
     "from": "ram_2392",
     "to": "tribe-of-judah",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ramah_972",
+    "to": "benjamin-territory_1293",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ramah_973",
+    "to": "asher_1287",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ramah_974",
+    "to": "naphtali_1284",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ramah_975",
+    "to": "mizpah_811",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ramah_976",
+    "to": "ramoth-gilead_984",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ramath-mizpeh_979",
+    "to": "mizpah_809",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ramathaim-zophim_977",
+    "to": "mizpah_811",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ramoth_981",
+    "to": "issachar_1288",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ramoth_982",
+    "to": "baalath-beer_138",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ramoth_983",
+    "to": "ramoth-gilead_984",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -36531,6 +39579,24 @@
     "from": "rehob_2410",
     "to": "hadarezer_1340",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "rehob_987",
+    "to": "beth-rehob_230",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "rehob_988",
+    "to": "asher_1287",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "rehob_989",
+    "to": "asher_1287",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -36888,9 +39954,21 @@
     "source": "theographic"
   },
   {
+    "from": "rekem_993",
+    "to": "benjamin-territory_1293",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "remaliah_2420",
     "to": "pekah_2299",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "remeth_994",
+    "to": "ramoth_981",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -36957,6 +40035,12 @@
     "from": "rephaiah_2425",
     "to": "uzzi_2918",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "rephaim_995",
+    "to": "valley_of_rephaim_1214",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -37122,6 +40206,18 @@
     "source": "theographic"
   },
   {
+    "from": "reuben_1282",
+    "to": "northern-kingdom-of-israel_1302",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "reuben_1282",
+    "to": "united-kingdom-of-israel_1301",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "reuben_2429",
     "to": "7-years-of-famine",
     "type": "participated-in",
@@ -37254,6 +40350,12 @@
     "source": "theographic"
   },
   {
+    "from": "rhegium_999",
+    "to": "italy_601",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "rhesa_2438",
     "to": "genealogy-of-jesus",
     "type": "member-of",
@@ -37290,6 +40392,12 @@
     "source": "theographic"
   },
   {
+    "from": "rimmon_1004",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "rimmon_2441",
     "to": "baanah_582",
     "type": "parent-of",
@@ -37299,6 +40407,12 @@
     "from": "rimmon_2441",
     "to": "rechab_2402",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "rimmono_1006",
+    "to": "rimmon_1005",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -37326,6 +40440,18 @@
     "source": "theographic"
   },
   {
+    "from": "river_1010",
+    "to": "euphrates_421",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "river_of_arnon_1225",
+    "to": "arnon_92",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "rizpah_2444",
     "to": "armoni_309",
     "type": "parent-of",
@@ -37341,6 +40467,18 @@
     "from": "rizpah_2444",
     "to": "saul_2478",
     "type": "partner-of",
+    "source": "theographic"
+  },
+  {
+    "from": "rock_1011",
+    "to": "maon_764",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "rocks_1232",
+    "to": "engedi_389",
+    "type": "near",
     "source": "theographic"
   },
   {
@@ -37371,6 +40509,12 @@
     "from": "roman-trials",
     "to": "jerusalem_636",
     "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "rumah_1014",
+    "to": "arumah_98",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -37470,6 +40614,12 @@
     "source": "theographic"
   },
   {
+    "from": "salamis_1016",
+    "to": "cyprus_316",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "salathiel_2457",
     "to": "genealogy-of-jesus",
     "type": "member-of",
@@ -37485,6 +40635,12 @@
     "from": "salathiel_2457",
     "to": "zorobabel_3106",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "salem_1018",
+    "to": "jerusalem_636",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -37536,9 +40692,27 @@
     "source": "theographic"
   },
   {
+    "from": "salt_302",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "salu_2465",
     "to": "zimri_3087",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "samaria_1022",
+    "to": "northern-kingdom-of-israel_1302",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "samarias_1023",
+    "to": "samaria_1022",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -37587,6 +40761,12 @@
     "from": "sanhedrin-conspiracy",
     "to": "jerusalem_636",
     "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "sansannah_1026",
+    "to": "judah_1280",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -37653,6 +40833,18 @@
     "from": "saraph_2474",
     "to": "tribe-of-judah",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "sardis_1027",
+    "to": "asia_108",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "sarid_1028",
+    "to": "zebulun_1289",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -37806,9 +40998,51 @@
     "source": "theographic"
   },
   {
+    "from": "sea_of_chinnereth_1029",
+    "to": "sea_of_galilee_1032",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "sea_of_chinneroth_1030",
+    "to": "sea_of_galilee_1032",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "sea_of_the_philistines_1036",
+    "to": "philistia_943",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "sea_of_the_plain_1035",
+    "to": "salt_sea_1021",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "sea_of_tiberias_1034",
+    "to": "sea_of_galilee_1032",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "seaside-parables-and-miracle",
     "to": "sea_of_galilee_1032",
     "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "sebam_1038",
+    "to": "sibmah_1091",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "secacah_1039",
+    "to": "judah_1280",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -37878,6 +41112,12 @@
     "source": "theographic"
   },
   {
+    "from": "seir_1042",
+    "to": "mount_seir_852",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "seir_2485",
     "to": "anah_248",
     "type": "parent-of",
@@ -37932,6 +41172,12 @@
     "source": "theographic"
   },
   {
+    "from": "seleucia_1045",
+    "to": "aram_82",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "semachiah_2487",
     "to": "tribe-of-levi",
     "type": "member-of",
@@ -37953,6 +41199,12 @@
     "from": "semei_2488",
     "to": "tribe-of-judah",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "senir_1047",
+    "to": "mount_hermon_841",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -38142,6 +41394,18 @@
     "source": "theographic"
   },
   {
+    "from": "shaalabbin_1052",
+    "to": "shaalbim_1053",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "shaalbim_1053",
+    "to": "dan_1283",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "shaaph_2506",
     "to": "tribe-of-judah",
     "type": "member-of",
@@ -38175,6 +41439,18 @@
     "from": "shaaph_2507",
     "to": "tribe-of-judah",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "shaaraim_1055",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "shaaraim_1056",
+    "to": "shaaraim_1055",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -38241,6 +41517,18 @@
     "from": "shaharaim_2513",
     "to": "zibia_3063",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "shahazumah_1057",
+    "to": "issachar_1288",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "shallecheth_1059",
+    "to": "jerusalem_636",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -38406,6 +41694,12 @@
     "source": "theographic"
   },
   {
+    "from": "shamir_1060",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "shamir_2536",
     "to": "tribe-of-levi",
     "type": "member-of",
@@ -38565,6 +41859,12 @@
     "from": "sharar_2558",
     "to": "ahiam_129",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "sharuhen_1065",
+    "to": "judah_1280",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -38766,6 +42066,18 @@
     "source": "theographic"
   },
   {
+    "from": "shechem_1069",
+    "to": "west-manasseh_1291",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "shechem_1178",
+    "to": "shechem_1069",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "shechem_2589",
     "to": "shemida_2650",
     "type": "sibling-of",
@@ -38787,6 +42099,12 @@
     "from": "shedeur_2591",
     "to": "elizur_1166",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "sheep_gate_1070",
+    "to": "jerusalem_636",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -39027,6 +42345,12 @@
     "from": "shem_2613",
     "to": "water-covers-the-earth",
     "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "shema_1071",
+    "to": "judah_1280",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -39360,6 +42684,12 @@
     "source": "theographic"
   },
   {
+    "from": "shibah_1075",
+    "to": "beersheba_170",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "shilhi_2676",
     "to": "azubah_567",
     "type": "parent-of",
@@ -39372,9 +42702,21 @@
     "source": "theographic"
   },
   {
+    "from": "shilhim_1079",
+    "to": "sharuhen_1065",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "shillem_2677",
     "to": "tribe-of-naphtali",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "shiloah_1080",
+    "to": "siloam_1096",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -39690,6 +43032,18 @@
     "source": "theographic"
   },
   {
+    "from": "shimron-meron_1083",
+    "to": "shimron_1082",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "shimron_1082",
+    "to": "zebulun_1289",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "shimron_2706",
     "to": "tola_2878",
     "type": "sibling-of",
@@ -39699,6 +43053,12 @@
     "from": "shimron_2706",
     "to": "tribe-of-issachar",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "shion_1085",
+    "to": "issachar_1288",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -39864,6 +43224,12 @@
     "source": "theographic"
   },
   {
+    "from": "shunem_1089",
+    "to": "issachar_1288",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "shuni_2731",
     "to": "tribe-of-gad",
     "type": "member-of",
@@ -39909,6 +43275,30 @@
     "from": "shuthelah_2735",
     "to": "tribe-of-joseph",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "sibmah_1091",
+    "to": "reuben_1282",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "sidon_1093",
+    "to": "asher_1287",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "sidon_1094",
+    "to": "sidon_1093",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "sidon_494",
+    "to": "sidon_1093",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -40107,6 +43497,18 @@
     "from": "silas_2740",
     "to": "uproar-in-thessalonica",
     "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "silla_1095",
+    "to": "jerusalem_636",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "siloam_1096",
+    "to": "jerusalem_636",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -40338,6 +43740,12 @@
     "source": "theographic"
   },
   {
+    "from": "sinai_1098",
+    "to": "mount_sinai_855",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "sinite_2755",
     "to": "zemarite_3036",
     "type": "sibling-of",
@@ -40347,6 +43755,12 @@
     "from": "sinite_2755",
     "to": "zidon_2738",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "sirion_1101",
+    "to": "mount_hermon_841",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -40365,6 +43779,36 @@
     "from": "sister_of_tahpenes_2759",
     "to": "tahpenes_2817",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "sitnah_1102",
+    "to": "gerar_459",
+    "type": "near",
+    "source": "theographic"
+  },
+  {
+    "from": "skull_1154",
+    "to": "golgotha_487",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "soco_1104",
+    "to": "socoh_1105",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "socoh_1105",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "socoh_1106",
+    "to": "judah_1280",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -40446,6 +43890,12 @@
     "source": "theographic"
   },
   {
+    "from": "solomons_portico_1109",
+    "to": "jerusalem_636",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "son_of_joiada_2768",
     "to": "tribe-of-levi",
     "type": "member-of",
@@ -40497,6 +43947,12 @@
     "from": "sosthenes_2772",
     "to": "mission-to-corinth-1-2-thess-written",
     "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "south_1110",
+    "to": "negeb_885",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -40620,6 +44076,18 @@
     "source": "theographic"
   },
   {
+    "from": "succoth_1113",
+    "to": "gad_1286",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "sur_1117",
+    "to": "jerusalem_636",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "susanna_2804",
     "to": "jesus-2nd-tour-of-galilee",
     "type": "participated-in",
@@ -40629,6 +44097,18 @@
     "from": "susi_2805",
     "to": "gaddi_1264",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "taanach_1124",
+    "to": "west-manasseh_1291",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "taanath-shiloh_1125",
+    "to": "ephraim-territory_1292",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -40704,6 +44184,12 @@
     "source": "theographic"
   },
   {
+    "from": "tamar_1134",
+    "to": "tadmor_1131",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "tamar_2821",
     "to": "birth-of-perez",
     "type": "participated-in",
@@ -40764,9 +44250,33 @@
     "source": "theographic"
   },
   {
+    "from": "tappuah_1136",
+    "to": "ephraim-territory_1292",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "tappuah_1137",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "tappuah_2826",
     "to": "tribe-of-judah",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "taralah_1138",
+    "to": "benjamin-territory_1293",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "tarsus_1140",
+    "to": "cilicia_300",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -40806,6 +44316,12 @@
     "source": "theographic"
   },
   {
+    "from": "tehaphnehes_1141",
+    "to": "tahpanhes_1133",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "telah_2835",
     "to": "tahan_2813",
     "type": "parent-of",
@@ -40815,6 +44331,18 @@
     "from": "telah_2835",
     "to": "tribe-of-joseph",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "telaim_1144",
+    "to": "telem_1146",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "telem_1146",
+    "to": "judah_1280",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -41124,6 +44652,24 @@
     "source": "theographic"
   },
   {
+    "from": "three_taverns_1159",
+    "to": "italy_601",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "throne_513",
+    "to": "jerusalem_636",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "tiberias_1161",
+    "to": "naphtali_1284",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "tibni_2853",
     "to": "death-of-tibni",
     "type": "participated-in",
@@ -41163,6 +44709,18 @@
     "from": "timna_2860",
     "to": "zibeon_3062",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "timnah_1165",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "timnath-serah_1167",
+    "to": "timnath-heres_1166",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -41442,9 +45000,39 @@
     "source": "theographic"
   },
   {
+    "from": "tolad_1174",
+    "to": "eltolad_380",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "topheth_1176",
+    "to": "valley_of_hinnom_1207",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "tower-of-babel",
     "to": "babel_150",
     "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "tower_1177",
+    "to": "jerusalem_636",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "tower_1179",
+    "to": "jerusalem_636",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "tower_1180",
+    "to": "jerusalem_636",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -41556,6 +45144,12 @@
     "source": "theographic"
   },
   {
+    "from": "tyre_1184",
+    "to": "asher_1287",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "ulam_2889",
     "to": "bedan_428",
     "type": "parent-of",
@@ -41592,9 +45186,21 @@
     "source": "theographic"
   },
   {
+    "from": "ummah_1186",
+    "to": "asher_1287",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "upper-room-discourse",
     "to": "jerusalem_636",
     "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "upper_beth-horon_1188",
+    "to": "ephraim-territory_1292",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -41667,6 +45273,12 @@
     "from": "uzai_2910",
     "to": "palal_2268",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "uzza_1192",
+    "to": "jerusalem_636",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -41826,6 +45438,72 @@
     "source": "theographic"
   },
   {
+    "from": "valley_of_baca_1199",
+    "to": "valley_of_hinnom_1207",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "valley_of_gerar_1203",
+    "to": "gerar_459",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "valley_of_gibeon_1204",
+    "to": "gibeon_470",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "valley_of_jericho_1210",
+    "to": "jericho_634",
+    "type": "near",
+    "source": "theographic"
+  },
+  {
+    "from": "valley_of_jezreel_1211",
+    "to": "jezreel_643",
+    "type": "near",
+    "source": "theographic"
+  },
+  {
+    "from": "valley_of_shaveh_1216",
+    "to": "jerusalem_636",
+    "type": "near",
+    "source": "theographic"
+  },
+  {
+    "from": "valley_of_shaveh_692",
+    "to": "jerusalem_636",
+    "type": "near",
+    "source": "theographic"
+  },
+  {
+    "from": "valley_of_slaughter_1219",
+    "to": "valley_of_hinnom_1207",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "valley_of_the_passengers_1227",
+    "to": "valley_of_hamongog_1205",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "valley_of_the_son_of_hinnom_1226",
+    "to": "valley_of_hinnom_1207",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "valley_of_zered_1224",
+    "to": "zered_1253",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "visiting-capernaum",
     "to": "capernaum_274",
     "type": "occurred-at",
@@ -41952,6 +45630,24 @@
     "source": "theographic"
   },
   {
+    "from": "water_gate_1230",
+    "to": "jerusalem_636",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "west-manasseh_1291",
+    "to": "northern-kingdom-of-israel_1302",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "west-manasseh_1291",
+    "to": "united-kingdom-of-israel_1301",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "widow-s-son-resurrected",
     "to": "nain_872",
     "type": "occurred-at",
@@ -42075,6 +45771,18 @@
     "from": "woman-caught-in-adultery",
     "to": "jerusalem_636",
     "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "yiron_1233",
+    "to": "naphtali_1284",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "zaanannim_1235",
+    "to": "naphtali_1284",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -42258,9 +45966,39 @@
     "source": "theographic"
   },
   {
+    "from": "zair_1236",
+    "to": "zoar_1271",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "zalaph_2981",
     "to": "hanun_1406",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "zalmon_1237",
+    "to": "mount_zalmon_858",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "zanoah_1239",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "zanoah_1240",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "zaphon_1241",
+    "to": "gad_1286",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -42309,6 +46047,18 @@
     "from": "zebudah_3000",
     "to": "johanan_1667",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "zebulun_1289",
+    "to": "northern-kingdom-of-israel_1302",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "zebulun_1289",
+    "to": "united-kingdom-of-israel_1301",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -42450,6 +46200,12 @@
     "source": "theographic"
   },
   {
+    "from": "zela_1247",
+    "to": "benjamin-territory_1293",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "zelophehad_3035",
     "to": "hoglah_1548",
     "type": "parent-of",
@@ -42486,6 +46242,12 @@
     "source": "theographic"
   },
   {
+    "from": "zemaraim_1249",
+    "to": "benjamin-territory_1293",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "zemarite_3036",
     "to": "zidon_2738",
     "type": "sibling-of",
@@ -42495,6 +46257,12 @@
     "from": "zemira_3037",
     "to": "tribe-of-benjamin",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "zenan_1250",
+    "to": "judah_1280",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -42510,9 +46278,21 @@
     "source": "theographic"
   },
   {
+    "from": "zephath_1251",
+    "to": "hormah_580",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
     "from": "zephon_3093",
     "to": "tribe-of-gad",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "zer_1252",
+    "to": "naphtali_1284",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -42591,6 +46371,24 @@
     "from": "zerahiah_3048",
     "to": "elihoenai_1124",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "zeredah_1255",
+    "to": "zeredah_1254",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "zererah_1256",
+    "to": "zarethan_1243",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "zereth-shahar_1257",
+    "to": "reuben_1282",
+    "type": "part-of",
     "source": "theographic"
   },
   {
@@ -42786,6 +46584,18 @@
     "source": "theographic"
   },
   {
+    "from": "ziddim_1258",
+    "to": "naphtali_1284",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ziklag_1259",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "zillah_3080",
     "to": "naamah_2118",
     "type": "parent-of",
@@ -42852,6 +46662,42 @@
     "source": "theographic"
   },
   {
+    "from": "zin_1262",
+    "to": "zin_1261",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "zion_1263",
+    "to": "mount_zion_860",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "zions_1264",
+    "to": "mount_zion_860",
+    "type": "alias-of",
+    "source": "theographic"
+  },
+  {
+    "from": "zior_1265",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ziph_1266",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ziph_1267",
+    "to": "judah_1280",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
     "from": "ziph_3091",
     "to": "ziphah_3092",
     "type": "sibling-of",
@@ -42891,6 +46737,12 @@
     "from": "zizah_3090",
     "to": "tribe-of-levi",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "zobah-hamath_1273",
+    "to": "zobah_1272",
+    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -42975,6 +46827,18 @@
     "from": "zophah_3104",
     "to": "ulla_2730",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "zorah_1275",
+    "to": "dan_1283",
+    "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "zorah_1275",
+    "to": "judah_1280",
+    "type": "part-of",
     "source": "theographic"
   },
   {

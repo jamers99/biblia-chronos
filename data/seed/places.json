@@ -34934,7 +34934,11 @@
     "featureType": "Region",
     "altNames": [
       "Judah (Southern)"
-    ]
+    ],
+    "date": {
+      "earliest": -974,
+      "latest": -587
+    }
   },
   {
     "id": "judah_1280",
@@ -45378,7 +45382,11 @@
     "featureType": "Region",
     "altNames": [
       "Israel"
-    ]
+    ],
+    "date": {
+      "earliest": -974,
+      "latest": -720
+    }
   },
   {
     "id": "oboth_906",
@@ -56841,7 +56849,11 @@
     "featureType": "Region",
     "altNames": [
       "Israel"
-    ]
+    ],
+    "date": {
+      "earliest": -1094,
+      "latest": -974
+    }
   },
   {
     "id": "uphaz_1187",
