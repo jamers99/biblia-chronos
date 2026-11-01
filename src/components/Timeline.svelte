@@ -182,7 +182,7 @@
   // A selection is shareable: it lives in the URL hash.
   $effect(() => {
     const hash = focus ? `#${focus.id}` : ""
-    if (location.hash !== hash) history.replaceState(null, "", hash || location.pathname + location.search)
+    if (location.hash !== hash) history.replaceState(history.state, "", hash || location.pathname + location.search)
   })
 
   // Glide to show [start, end] with some room around it.
@@ -210,7 +210,8 @@
   }
 
   function onKey(e: KeyboardEvent) {
-    if (e.target instanceof HTMLInputElement) return
+    // Keys typed in search or in an open panel (see Layers.astro) aren't ours
+    if (e.target instanceof HTMLInputElement || (e.target as Element).closest?.(".layers")) return
     const step = width / 8 / transform.k
     if (e.key === "/") searchInput.focus()
     else if (e.key === "Escape") selected = undefined

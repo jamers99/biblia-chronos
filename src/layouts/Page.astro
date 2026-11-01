@@ -5,6 +5,7 @@
 // over them and the nav tucked into a menu.
 import "../styles/global.css"
 import ThemeToggle from "../components/ThemeToggle.astro"
+import Layers from "../components/Layers.astro"
 import { url } from "../lib/url.ts"
 
 interface Props {
@@ -112,6 +113,7 @@ const isCurrent = (href: string) =>
         </footer>
       )
     }
+    <Layers />
     <script>
       // Offline support for the installed app. Production only: in dev it
       // would serve stale pages.
