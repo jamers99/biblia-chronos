@@ -69,8 +69,10 @@ All schemas live in `src/lib/data/schema.ts` as Zod, with types derived via
   entity and edge. Keeps provenance to one short string per record.
 - `status` — `"published" | "draft"`. Drafts stay in seed (so edges remain
   valid); the build decides whether to ship them.
-- Years are numbers; negative means BCE, using the upstream convention as-is
-  (e.g. `-1574`). Document, don't reinterpret.
+- Years are numbers in astronomical (ISO 8601) numbering, the upstream
+  convention: `0` is 1 BC, `-1573` is 1574 BC. Keep the numbers as-is and
+  convert only for display. A few upstream event dates are full ISO dates
+  (`"0030-04-04"`); the importer keeps just the year.
 
 ### Value types
 

@@ -27265,6 +27265,12 @@
   },
   {
     "from": "jotham_1735",
+    "to": "death-of-jotham",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "jotham_1735",
     "to": "genealogy-of-jesus",
     "type": "member-of",
     "source": "theographic"
@@ -40389,6 +40395,12 @@
     "from": "solomon_2762",
     "to": "basmath_415",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "solomon_2762",
+    "to": "death-of-solomon",
+    "type": "participated-in",
     "source": "theographic"
   },
   {

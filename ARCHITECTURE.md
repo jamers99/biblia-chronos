@@ -55,7 +55,7 @@ The import does roughly this:
 
 - Re-keys records to human-readable ids. Theographic provides lookup slugs like `aaron_1`; we make those canonical and keep the Airtable `rec…` ids only as a temporary mapping during import. This gives clean URLs and data that survives a future re-export.
 - Flattens their typed relationship fields (`father`, `mother`, `children`, `partners`, `memberOf`) into the generic `{ from, to, type }` edges our graph uses.
-- Normalizes the rest: dates from strings like `"-1574"` into numbers and date ranges, dropping Airtable bookkeeping, and deciding what to do with records still marked work-in-progress.
+- Normalizes the rest: dates from strings like `"-1573"` into numbers and date ranges, dropping Airtable bookkeeping, and deciding what to do with records still marked work-in-progress.
 - Validates the output with Zod so a bad re-sync fails the build instead of reaching the browser.
 
 Two things to plan around. Their dates follow a single chronology with no per-record citations, so the import points everything at one `theographic` source key by default, and we override individual records later when we want to cite a specific scholar or show an alternative date. And a couple of our entities aren't first-class in their data: periods may need to be derived (or pulled from their CSV folder), and kingdoms/empires we model ourselves as a layer over places, periods, and events.

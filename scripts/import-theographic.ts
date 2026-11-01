@@ -74,9 +74,12 @@ function stripMarkup(value: unknown): string | undefined {
   return text.length ? text : undefined
 }
 
+// Years arrive as plain numbers ("-1573") or, for some New Testament events,
+// ISO dates ("0030-04-04"); a date contributes just its year.
 function toYear(value: unknown): number | undefined {
   if (value === null || value === undefined || value === "") return undefined
-  const n = Number(value)
+  const iso = /^(-?\d+)-\d{1,2}-\d{1,2}$/.exec(String(value))
+  const n = Number(iso ? iso[1] : value)
   return Number.isFinite(n) ? Math.trunc(n) : undefined
 }
 

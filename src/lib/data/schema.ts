@@ -9,8 +9,9 @@ import { z } from "zod"
 
 // --- Shared conventions -----------------------------------------------------
 
-// Years are plain numbers; negative means BCE, using the upstream convention
-// as-is (e.g. -1574). We document this convention rather than reinterpreting it.
+// Years are plain numbers in astronomical (ISO 8601) numbering, as upstream:
+// 0 is 1 BC and -1573 is 1574 BC. We keep the upstream numbers as-is and only
+// convert to BC/AD for display (src/lib/format.ts).
 export const Year = z.number().int()
 
 // A date is a range with provenance, not a single number — biblical chronology
