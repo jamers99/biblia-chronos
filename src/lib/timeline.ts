@@ -91,6 +91,9 @@ export type Placed<T> = { item: T; lane: number; x0: number; x1: number }
 // the first lane where its extent (mark plus label) doesn't collide; items
 // that fit nowhere within `maxLanes` are dropped and counted, so zooming in
 // reveals them. `extent` returns an item's [left, right] in pixels.
+//
+// Each lane keeps its spans sorted by position (they never overlap), so a fit
+// is a binary search: fast enough to pack thousands of items per frame.
 export function packLanes<T>(
   items: T[],
   weight: (item: T) => number,
@@ -104,15 +107,30 @@ export function packLanes<T>(
 
   for (const item of [...items].sort((a, b) => weight(b) - weight(a))) {
     const [x0, x1] = extent(item)
-    const fits = (lane: [number, number][]) => lane.every(([a, b]) => x1 + gap <= a || x0 >= b + gap)
-    let lane = lanes.findIndex(fits)
-    if (lane === -1 && lanes.length < maxLanes) lane = lanes.push([]) - 1
+    let lane = -1
+    let at = 0
+    for (let l = 0; l < lanes.length && lane === -1; l++) {
+      at = firstEndingAfter(lanes[l], x0 - gap)
+      if (at === lanes[l].length || lanes[l][at][0] >= x1 + gap) lane = l
+    }
+    if (lane === -1 && lanes.length < maxLanes) [lane, at] = [lanes.push([]) - 1, 0]
     if (lane === -1) {
       hidden++
       continue
     }
-    lanes[lane].push([x0, x1])
+    lanes[lane].splice(at, 0, [x0, x1])
     placed.push({ item, lane, x0, x1 })
   }
   return { placed, hidden }
+}
+
+// The index of the first span in a sorted lane that ends after `x`.
+function firstEndingAfter(lane: [number, number][], x: number) {
+  let [lo, hi] = [0, lane.length]
+  while (lo < hi) {
+    const mid = (lo + hi) >> 1
+    if (lane[mid][1] > x) hi = mid
+    else lo = mid + 1
+  }
+  return lo
 }

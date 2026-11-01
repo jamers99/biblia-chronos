@@ -20,6 +20,12 @@ test("packLanes stacks overlaps and gives the heaviest item the first lane", () 
   assert.deepEqual(lane, { heavy: 0, light: 1 })
 })
 
+test("packLanes fits an item into a gap between earlier ones, and only if it fits", () => {
+  const items = [box("left", 0, 10, 4), box("right", 30, 40, 3), box("between", 12, 28, 2), box("wide", 9, 31, 1)]
+  const lane = Object.fromEntries(pack(items, 3).placed.map((p) => [p.item.id, p.lane]))
+  assert.deepEqual(lane, { left: 0, right: 0, between: 0, wide: 1 })
+})
+
 test("packLanes drops the lightest items when lanes run out", () => {
   const { placed, hidden } = pack([box("a", 0, 10, 3), box("b", 0, 10, 2), box("c", 0, 10, 1)], 2)
   assert.deepEqual(placed.map((p) => p.item.id), ["a", "b"])
