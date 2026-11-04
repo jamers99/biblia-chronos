@@ -126,7 +126,6 @@
     else dispatchEvent(new CustomEvent("open-layer", { detail: entityUrl({ kind, id }) }))
   }
 
-  input.addEventListener("focus", () => void load())
   root.addEventListener("pointerover", () => void load(), { once: true })
   input.addEventListener("input", update)
   input.addEventListener("keydown", (e) => {
@@ -136,7 +135,6 @@
     else if (e.key === "Escape") close()
     else return
     e.preventDefault()
-    e.stopPropagation() // the page underneath (the timeline's keys) never sees these
   })
   // Leaving the box puts the results away (the query stays, for coming back).
   input.addEventListener("blur", () => {
@@ -145,6 +143,7 @@
     if (!input.value) bar.classList.remove("searching")
   })
   input.addEventListener("focus", () => {
+    void load()
     if (list.children.length) {
       list.hidden = false
       input.ariaExpanded = "true"
@@ -167,7 +166,7 @@
     if (e.key !== "/" || e.metaKey || e.ctrlKey || t.isContentEditable || t instanceof HTMLInputElement || t instanceof HTMLTextAreaElement)
       return
     e.preventDefault()
-    if (getComputedStyle(root.querySelector(".search-open")!).display !== "none") bar.classList.add("searching")
+    bar.classList.add("searching") // only styled on phones
     input.focus()
   })
 </script>
@@ -292,16 +291,18 @@
     .field {
       display: none;
     }
+    /* searching takes over the bar: the rest of it steps aside */
+    :global(header.searching > :not(.site-search)) {
+      visibility: hidden;
+    }
     :global(header.searching) .field {
       display: flex;
       position: absolute;
-      inset: auto max(1rem, env(safe-area-inset-right)) auto max(1rem, env(safe-area-inset-left));
-      top: calc(env(safe-area-inset-top) + 0.5rem); /* centred in the 3.5rem bar */
+      /* the box is 2.5rem tall, centred in the bar */
+      inset: calc(env(safe-area-inset-top) + (var(--bar-h) - 2.5rem) / 2) max(1rem, env(safe-area-inset-right)) auto
+        max(1rem, env(safe-area-inset-left));
       gap: 0.6rem;
       z-index: 1;
-    }
-    :global(header.searching) .glass {
-      left: 0.8rem;
     }
     kbd {
       display: none;

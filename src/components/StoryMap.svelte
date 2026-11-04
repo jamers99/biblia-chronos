@@ -164,8 +164,9 @@
       const i = chapters.findIndex((c) => c.id === id)
       if (place) {
         selected = place
-        // clear of the panel it opens in, on the right (on phones the panel
-        // is a sheet over most of the map, so there's no clear spot to aim for)
+        // clear of the panel it opens in, on the right (460px wide, see
+        // Layers.astro); on phones the panel is a sheet over most of the map,
+        // so there's no clear spot to aim for
         const [l, t, r, b] = stage()
         const room: Box = narrow ? [l, t, r, b] : [l, t, Math.max(l + 200, r - 470), b]
         select(svg).transition().duration(ms(1000)).call(behavior.transform, fit(around(place), room))

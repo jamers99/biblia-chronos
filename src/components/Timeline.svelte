@@ -163,17 +163,15 @@
     }
     svg.addEventListener("wheel", onWheel, { passive: false })
 
-    const hash = decodeURIComponent(location.hash.slice(1))
-    const fromHash = byId.get(hash) ?? periods.find((p) => p.id === hash)
+    const lookup = (id: string) => byId.get(id) ?? periods.find((p) => p.id === id)
+    const fromHash = lookup(decodeURIComponent(location.hash.slice(1)))
     if (fromHash) choose(fromHash)
 
     // The site search shows what's on the timeline here, in place.
     const onPick = (e: Event) => {
-      const { id } = (e as CustomEvent<{ id: string }>).detail
-      const target = byId.get(id) ?? periods.find((p) => p.id === id)
+      const target = lookup((e as CustomEvent<{ id: string }>).detail.id)
       if (!target) return
       e.preventDefault()
-      if (isItem(target) && target.draft) showDrafts = true
       choose(target)
     }
     addEventListener("search-pick", onPick)
