@@ -52,6 +52,11 @@
   // Raw, not deeply reactive: these hold items from props, compared by identity.
   let selected = $state.raw<TimelineItem | TimelinePeriod>()
   let hovered = $state.raw<{ item: TimelineItem; x: number; y: number; note?: string }>()
+  // The server draws the timeline at a guessed size with nothing restored;
+  // it stays hidden until the first real view (this window's size, where you
+  // left off) is in place, then fades in, so launching doesn't flash.
+  let ready = $state(false)
+  let root: HTMLDivElement
   let svg: SVGSVGElement
   let behavior: ZoomBehavior<SVGSVGElement, unknown>
 
@@ -234,6 +239,10 @@
   // --- Zoom and navigation ----------------------------------------------------
 
   onMount(() => {
+    // Measure now rather than waiting for the resize observer behind
+    // bind:clientWidth, so the first view is laid out at the real size.
+    width = root.clientWidth
+    height = root.clientHeight
     showDrafts = document.documentElement.dataset.drafts !== "hidden"
     const onDrafts = (e: Event) => (showDrafts = (e as CustomEvent<boolean>).detail)
     addEventListener("drafts", onDrafts)
@@ -264,12 +273,15 @@
     const view = remember<{ span: number[]; selected?: string }>("timeline")
     const fromHash = lookup(decodeURIComponent(location.hash.slice(1)))
     const saved = view.load()
-    if (fromHash) choose(fromHash)
+    if (fromHash) choose(fromHash, false)
     else if (saved) {
       behavior.transform(select(svg), span(saved.span[0], saved.span[1]))
       selected = saved.selected ? lookup(saved.selected) : undefined
     }
     const forget = view.onLeave(() => ({ span: x.domain(), selected: selected?.id }))
+    // Show it once that view is drawn (two frames: past this update and its
+    // layout), so nothing slides or fades into place on the way in.
+    let frame = requestAnimationFrame(() => (frame = requestAnimationFrame(() => (ready = true))))
 
     // The site search shows what's on the timeline here, in place.
     const onPick = (e: Event) => {
@@ -280,6 +292,7 @@
     }
     addEventListener("search-pick", onPick)
     return () => {
+      cancelAnimationFrame(frame)
       svg.removeEventListener("wheel", onWheel)
       removeEventListener("drafts", onDrafts)
       removeEventListener("search-pick", onPick)
@@ -311,25 +324,27 @@
     const k = width / (base(end) - base(start))
     return zoomIdentity.scale(k).translate(-base(start), 0)
   }
-  // Glide to show [start, end] with some room around it.
-  function flyTo(start: number, end: number) {
+  // Glide to show [start, end] with some room around it (or jump there).
+  function flyTo(start: number, end: number, glide = true) {
     const pad = Math.max(8, (end - start) * 0.08)
-    select(svg).transition().duration(ms(750)).call(behavior.transform, span(start - pad, end + pad))
+    const view = span(start - pad, end + pad)
+    if (glide) select(svg).transition().duration(ms(750)).call(behavior.transform, view)
+    else behavior.transform(select(svg), view)
   }
   const zoomBy = (factor: number) => select(svg).transition().duration(ms(250)).call(behavior.scaleBy, factor)
 
-  function pickPeriod(p: TimelinePeriod) {
-    flyTo(p.start, p.end)
+  function pickPeriod(p: TimelinePeriod, glide = true) {
+    flyTo(p.start, p.end, glide)
     selected = p
   }
 
   // Select an item and bring it into view, with enough context around it.
-  function choose(target: TimelineItem | TimelinePeriod) {
-    if (!isItem(target)) return pickPeriod(target)
+  function choose(target: TimelineItem | TimelinePeriod, glide = true) {
+    if (!isItem(target)) return pickPeriod(target, glide)
     selected = target
     const mid = (target.start + target.end) / 2
     const half = Math.max(45, (target.end - target.start) * 0.75)
-    flyTo(mid - half, mid + half)
+    flyTo(mid - half, mid + half, glide)
   }
 
   function onKey(e: KeyboardEvent) {
@@ -369,7 +384,7 @@
 
 <svelte:window onkeydown={onKey} />
 
-<div class="timeline" bind:clientWidth={width} bind:clientHeight={height}>
+<div class="timeline" class:ready bind:this={root} bind:clientWidth={width} bind:clientHeight={height}>
   <!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_noninteractive_element_interactions -->
   <svg
     bind:this={svg}
@@ -651,6 +666,23 @@
   }
   svg:active {
     cursor: grabbing;
+  }
+  /* Hidden until the first real view is drawn (see ready, above): only where
+     scripts run, so without them the server's drawing still shows. */
+  :global(html.js) .timeline:not(.ready) svg {
+    opacity: 0;
+  }
+  :global(html.js) .timeline:not(.ready) :global(*) {
+    transition: none !important;
+    animation: none !important;
+  }
+  .timeline.ready svg {
+    animation: reveal 0.25s ease-out;
+  }
+  @keyframes reveal {
+    from {
+      opacity: 0;
+    }
   }
 
   .band {

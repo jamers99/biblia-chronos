@@ -48,6 +48,9 @@ const current = (href: string) => (isCurrent(href) ? "page" : undefined)
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="theme-color" content="#f7f3ea" />
     <script is:inline>
+      // Scripts run: islands can hide their server drawing until they've
+      // laid themselves out (see Timeline.svelte).
+      document.documentElement.classList.add("js")
       // Set the theme before first paint, from the saved choice or the system
       // setting; the app's title bar follows it.
       window.applyTheme = (theme) => {
