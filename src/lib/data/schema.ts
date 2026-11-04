@@ -100,7 +100,8 @@ export const Kingdom = z.object({
   source: z.string(),
   event: z.string(),
   fate: z.string().optional(), // "Falls to Babylon"
-  reigns: z.array(z.object({ event: z.string(), house: z.string() })).min(1),
+  // `note` explains an unusual reign: a co-regency, a rival claimant.
+  reigns: z.array(z.object({ event: z.string(), house: z.string(), note: z.string().optional() })).min(1),
 })
 
 export const Book = z.object({

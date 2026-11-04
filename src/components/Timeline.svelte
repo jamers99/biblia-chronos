@@ -33,7 +33,7 @@
   const PERSON_GAP = 30
   const STRIP = 64 // overview strip area at the bottom
   const CARD_W = 340
-  const TRACK_GAP = 34 // axis to the kingdoms track, below the tick labels
+  const TRACK_GAP = 40 // axis to the kingdoms track, below the tick labels
   const TRACK_LABEL = 14 // a row's label line: the kingdom, then its houses
   const TRACK_BLOCK = 18
   const TRACK_ROW = TRACK_LABEL + TRACK_BLOCK + 6
@@ -125,17 +125,24 @@
         const reigns = k.reigns.filter((r) => x(r.end) > -4 && x(r.start) < width + 4)
         const labels = placeLabels([
           { text: kingdomLabel(k), start: x(k.start), end: x(k.end), width: capsWidth(kingdomLabel(k)), tone: -1 },
-          ...k.houses.map((h) => ({ text: h.name, start: x(h.start), end: x(h.end), width: houseWidth(h.name), tone: h.tone })),
+          ...k.houses
+            .filter((h) => h.named)
+            .map((h) => ({ text: h.name, start: x(h.start), end: x(h.end), width: houseWidth(h.name), tone: h.tone })),
         ])
         return { k, box, reigns, labels }
       }),
   )
-  // Where a reign's block is drawn: the main line fills the row; a co-regent or
-  // rival is a thin stripe along its bottom.
+  // Where a reign's block is drawn. The main line is a segmented bar: a hairline
+  // between kings, a wider gap where the house changes. A co-regent or rival
+  // is a thin stripe just under the row.
   function reignBox(r: Reign, box: ReturnType<typeof rowBox>) {
-    const x0 = x(r.start)
-    const w = Math.max(3, x(r.end) - x0 - 1)
-    return r.sub ? { x0, w, y: box.y1 - 6 * r.sub, h: 5 } : { x0, w, y: box.y0, h: box.y1 - box.y0 }
+    if (r.sub) {
+      const x0 = x(r.start)
+      return { x0, w: Math.max(3, x(r.end) - x0), y: box.y1 + 2 + (r.sub - 1) * 4, h: 3 }
+    }
+    const x0 = x(r.start) + (r.opens ? 1.5 : 0.5)
+    const x1 = x(r.end) - (r.closes ? 1.5 : 0.5)
+    return { x0, w: Math.max(3, x1 - x0), y: box.y0, h: box.y1 - box.y0 }
   }
   const tall = (k: KingdomRow) => k.row === "all" && kingdoms.rows > 1
   const kingWidth = (r: Reign, k: KingdomRow) => r.king.length * (tall(k) ? 7.6 : 6.4)
@@ -145,13 +152,17 @@
     const item = byId.get(id)
     if (item) selected = item
   }
+  const trackKind = (id: string) => {
+    const at = onTrack.get(id)
+    return at ? (at.reign ? "Reign" : "Kingdom") : "Event"
+  }
   // What the card and tooltip say about a reign or kingdom.
   function trackNote(id: string) {
     const at = onTrack.get(id)
     if (!at) return undefined
     const { kingdom: k, reign } = at
     const name = k.region ? `${k.name} (${k.region.toLowerCase()})` : k.name
-    if (reign) return `${name} · ${reign.house}${reign.sub ? " · alongside the main line" : ""}`
+    if (reign) return `${name} · ${reign.house}${reign.note ? ` · ${reign.note}` : ""}`
     const houses = new Set(k.houses.map((h) => h.name)).size
     return `${k.reigns.length} kings · ${houses} ${houses === 1 ? "house" : "houses"}${k.fate ? ` · ${k.fate}` : ""}`
   }
@@ -417,11 +428,12 @@
             }}
             onpointerenter={(e) => {
               const item = byId.get(r.id)
-              if (item) hovered = { item, x: e.offsetX, y: b.y + b.h, note: `${r.king} · ${r.house}` }
+              if (item) hovered = { item, x: e.offsetX, y: b.y + b.h, note: `${r.king} · ${r.note ?? r.house}` }
             }}
             onpointerleave={() => (hovered = undefined)}
           >
-            <rect x={b.x0} y={b.y} width={b.w} height={b.h} rx={r.sub ? 2 : 3} />
+            {#if r.sub}<rect class="hit" x={b.x0} y={b.y - 3} width={b.w} height={b.h + 6} />{/if}
+            <rect class="block" x={b.x0} y={b.y} width={b.w} height={b.h} rx={r.sub ? 1.5 : 2.5} />
             {#if !r.sub && b.w > w + 10}
               <text x={Math.max(b.x0 + 5, Math.min(6, b.x0 + b.w - 5 - w))} y={b.y + b.h / 2 + (tall(k) ? 5 : 4)}>{r.king}</text>
             {/if}
@@ -585,7 +597,7 @@
       <button type="button" class="close" aria-label="Close" onclick={() => (selected = undefined)}>×</button>
       {#if isItem(selected)}
         <p class="kind">
-          {selected.kind === "person" ? (selected.lifetime ? "Person" : "Person · attested years") : "Event"}
+          {selected.kind === "person" ? (selected.lifetime ? "Person" : "Person · attested years") : trackKind(selected.id)}
           {#if selected.draft}<span class="badge">draft</span>{/if}
         </p>
         <h2>{selected.name}</h2>
@@ -594,7 +606,7 @@
         {#if selected.summary}<p class="summary">{selected.summary}</p>{/if}
         {#if relatedPeople.length}
           <div class="chips">
-            <span class="label">{selected.kind === "person" ? "Family" : "People"}</span>
+            <span class="label">{selected.kind === "person" ? "Family" : onTrack.get(selected.id)?.reign ? "King" : "People"}</span>
             {#each relatedPeople.slice(0, 5) as p (p.id)}
               <button type="button" class="chip" onclick={() => choose(p)}>{p.name}</button>
             {/each}
@@ -604,7 +616,7 @@
         {#if relatedEvents}
           <p class="events">{relatedEvents} {relatedEvents === 1 ? "event" : "events"} on the timeline</p>
         {/if}
-        <a href={entityUrl(selected)}>Open {selected.kind === "person" ? "person" : "event"} →</a>
+        <a href={entityUrl(selected)}>Open {selected.kind === "person" ? "person" : trackKind(selected.id).toLowerCase()} →</a>
       {:else}
         <p class="kind">Era</p>
         <h2>{selected.name}</h2>
@@ -778,84 +790,88 @@
     opacity: 0.45;
   }
 
-  /* Kingdoms track. Houses take turns through a few muted tones; the house
-     of David has gold, so its line through Judah reads at a glance. */
+  /* Kingdoms track. Each house has a tone (global.css): David's line is gold,
+     so it reads at a glance through Judah; the others take turns. */
+  .reign,
+  .house {
+    --tone: var(--house-0);
+  }
+  .tone-1 {
+    --tone: var(--house-1);
+  }
+  .tone-2 {
+    --tone: var(--house-2);
+  }
+  .tone-3 {
+    --tone: var(--house-3);
+  }
+  .tone-4 {
+    --tone: var(--house-4);
+  }
+  .tone-5 {
+    --tone: var(--house-5);
+  }
+  .tone-6 {
+    --tone: var(--house-6);
+  }
   .reign {
     cursor: pointer;
     transition: opacity 0.2s;
-    --tone: var(--gold);
   }
-  .tone-1 {
-    --tone: #7f9162;
-  }
-  .tone-2 {
-    --tone: #b0694c;
-  }
-  .tone-3 {
-    --tone: #5f86ad;
-  }
-  .tone-4 {
-    --tone: #9a74a3;
-  }
-  .tone-5 {
-    --tone: #4f9a8c;
-  }
-  .reign rect {
+  .reign .block {
     fill: var(--tone);
-    fill-opacity: 0.32;
-    stroke: var(--tone);
-    stroke-opacity: 0.75;
-    stroke-width: 1;
+    fill-opacity: 0.26;
+    transition: fill-opacity 0.15s;
   }
-  .reign.tone-0 rect {
-    fill-opacity: 0.42;
+  .reign.tone-0 .block {
+    fill-opacity: 0.36;
   }
-  .reign.sub rect {
-    fill-opacity: 0.9;
-    stroke: var(--paper);
+  .reign.sub .block {
+    fill-opacity: 0.85;
   }
-  .reign:hover rect {
+  .reign:hover .block {
+    fill-opacity: 0.5;
+  }
+  .reign.focus .block {
     fill-opacity: 0.55;
-  }
-  .reign.focus rect {
     stroke: var(--accent);
-    stroke-width: 2;
-    stroke-opacity: 1;
+    stroke-width: 1.5;
   }
   .reign text {
     font-size: 11.5px;
-    fill: var(--ink);
+    fill: var(--ink-2);
     pointer-events: none;
+  }
+  .reign:hover text,
+  .reign.focus text {
+    fill: var(--ink);
   }
   .reign.tall text {
     font: 600 13px var(--serif);
+    fill: var(--ink);
   }
   .reign.dim,
   .house.dim,
   .kingdom-name.dim {
-    opacity: 0.25;
+    opacity: 0.3;
   }
   .kingdom-name {
-    font-size: 10.5px;
+    font-size: 10px;
     font-weight: 600;
-    letter-spacing: 0.14em;
-    fill: var(--ink-2);
+    letter-spacing: 0.16em;
+    fill: var(--ink-3);
     cursor: pointer;
   }
   .kingdom-name:hover {
     fill: var(--accent);
   }
   .house {
-    font: italic 11px var(--serif);
-    fill: color-mix(in srgb, var(--tone, var(--gold)) 70%, var(--ink));
+    font: italic 11.5px var(--serif);
+    fill: color-mix(in srgb, var(--tone) 65%, var(--ink));
     pointer-events: none;
   }
-  .house:not([class*="tone-"]),
-  .house.tone-0 {
-    --tone: var(--gold);
-  }
   .fate {
-    font: italic 11px var(--serif);
+    font: italic 11.5px var(--serif);
     fill: var(--ink-3);
     pointer-events: none;
   }

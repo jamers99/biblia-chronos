@@ -6,6 +6,7 @@
 import type { Person, Place, Event, PeopleGroup, Period, Kingdom, Book, Edge, Source } from "./schema.ts"
 import { mergeEntities, mergeEdges } from "./merge.ts"
 import { createGraph } from "./graph.ts"
+import { kingdomTrack } from "../kingdoms.ts"
 
 // JSON imports are resolved by Vite at build time (relative to this file).
 import peopleData from "../../../data/seed/people.json"
@@ -61,6 +62,10 @@ export function resolve<K extends Entity["kind"]>(ids: string[], kind: K) {
     .map((id) => byId.get(id))
     .filter((e): e is Extract<Entity, { kind: K }> => e?.kind === kind)
 }
+
+// The kingdoms track (see src/lib/kingdoms.ts), for the timeline and the
+// kingdom and reign pages.
+export const track = kingdomTrack(kingdoms, events, (id) => graph.incoming(id, "participated-in")[0])
 
 // The dated (or undated) events a person took part in.
 export const eventsOf = (personId: string) => resolve(graph.outgoing(personId, "participated-in"), "event")

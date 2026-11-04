@@ -1,0 +1,232 @@
+---
+// A kingdom's line of kings: a bar of the whole kingdom, each king a segment
+// in his house's tone, then (optionally) the kings in order, grouped by house.
+// Used on a kingdom's page, and on a reign's page with that reign marked.
+import type { KingdomRow, Reign } from "../lib/kingdoms.ts"
+import { formatSpan, formatYear } from "../lib/format.ts"
+import { url } from "../lib/url.ts"
+
+interface Props {
+  kingdom: KingdomRow
+  current?: string // a reign id to mark
+  list?: boolean
+}
+const { kingdom: k, current, list = true } = Astro.props
+const span = Math.max(1, k.end - k.start)
+const pct = (year: number) => ((year - k.start) / span) * 100
+const length = (r: Reign) => {
+  const years = r.end - r.start
+  return years === 0 ? "under a year" : years === 1 ? "1 year" : `${years} years`
+}
+const person = (r: Reign) => (r.kingId ? url(`/people/${r.kingId}/`) : url(`/events/${r.id}/`))
+const main = k.reigns.filter((r) => !r.sub)
+const sub = k.reigns.filter((r) => r.sub)
+---
+
+<figure class="succession">
+  <div class="bar" role="img" aria-label={`The kings of ${k.name}, ${formatSpan(k.start, k.end)}, coloured by ruling house`}>
+    {
+      main.map((r) => (
+        <a
+          href={url(`/events/${r.id}/`)}
+          class:list={["seg", `tone-${r.tone}`, { opens: r.opens, current: r.id === current }]}
+          style={`left: ${pct(r.start)}%; width: max(3px, ${pct(r.end) - pct(r.start)}%)`}
+          title={`${r.king} · ${formatSpan(r.start, r.end)} · ${r.house}`}
+        />
+      ))
+    }
+    {
+      sub.map((r) => (
+        <a
+          href={url(`/events/${r.id}/`)}
+          class:list={["seg", "sub", `tone-${r.tone}`, { current: r.id === current }]}
+          style={`left: ${pct(r.start)}%; width: max(3px, ${pct(r.end) - pct(r.start)}%)`}
+          title={`${r.king} · ${formatSpan(r.start, r.end)} · ${r.note ?? r.house}`}
+        />
+      ))
+    }
+  </div>
+  <figcaption>
+    <span>{formatYear(k.start)}</span>
+    <span class="houses">
+      {
+        k.houses
+          .filter((h, i, all) => h.named && all.findIndex((o) => o.name === h.name) === i)
+          .map((h) => (
+            <span class:list={["key", `tone-${h.tone}`]}>{h.name}</span>
+          ))
+      }
+    </span>
+    <span>{formatYear(k.end)}</span>
+  </figcaption>
+</figure>
+
+{
+  list && (
+    <ol class="kings">
+      {k.houses.map((h) => (
+        <li class:list={["house", `tone-${h.tone}`]}>
+          {h.named && <p class="house-name">{h.name}</p>}
+          <ol>
+            {h.reigns.map((r) => (
+              <li class:list={{ current: r.id === current }}>
+                <span class="when">{formatSpan(r.start, r.end)}</span>
+                <span class="who">
+                  <a href={person(r)}>{r.king}</a>
+                  {r.note && <span class="note">{r.note}</span>}
+                </span>
+                <a class="length" href={url(`/events/${r.id}/`)}>{length(r)}</a>
+              </li>
+            ))}
+          </ol>
+        </li>
+      ))}
+    </ol>
+  )
+}
+
+<style>
+  .tone-0 {
+    --tone: var(--house-0);
+  }
+  .tone-1 {
+    --tone: var(--house-1);
+  }
+  .tone-2 {
+    --tone: var(--house-2);
+  }
+  .tone-3 {
+    --tone: var(--house-3);
+  }
+  .tone-4 {
+    --tone: var(--house-4);
+  }
+  .tone-5 {
+    --tone: var(--house-5);
+  }
+  .tone-6 {
+    --tone: var(--house-6);
+  }
+
+  .succession {
+    margin: 1.5rem 0;
+    max-width: 48rem;
+  }
+  .bar {
+    position: relative;
+    height: 22px;
+  }
+  .seg {
+    position: absolute;
+    top: 0;
+    height: 16px;
+    box-sizing: border-box;
+    border-left: 1px solid var(--paper);
+    border-radius: 2px;
+    background: color-mix(in srgb, var(--tone) 40%, transparent);
+  }
+  .seg.opens {
+    border-left-width: 3px;
+  }
+  .seg:hover {
+    background: color-mix(in srgb, var(--tone) 70%, transparent);
+  }
+  .seg.sub {
+    top: 18px;
+    height: 3px;
+    border: 0;
+    background: var(--tone);
+  }
+  .seg.current {
+    background: var(--tone);
+    outline: 1.5px solid var(--accent);
+    outline-offset: 1px;
+    z-index: 1;
+  }
+  figcaption {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.78rem;
+    color: var(--ink-3);
+    font-variant-numeric: tabular-nums;
+  }
+  .houses {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.2rem 0.9rem;
+  }
+  .key {
+    font: italic 0.85rem var(--serif);
+    color: var(--ink-2);
+    white-space: nowrap;
+  }
+  .key::before {
+    content: "";
+    display: inline-block;
+    width: 0.6rem;
+    height: 0.6rem;
+    margin-right: 0.35rem;
+    border-radius: 2px;
+    background: var(--tone);
+  }
+
+  .kings,
+  .kings ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .kings {
+    margin-top: 1.5rem;
+    max-width: 40rem;
+  }
+  .house {
+    padding: 0.1rem 0 0.1rem 0.9rem;
+    border-left: 3px solid var(--tone);
+    margin-bottom: 0.9rem;
+  }
+  .house-name {
+    margin: 0 0 0.2rem;
+    font: italic 0.95rem var(--serif);
+    color: color-mix(in srgb, var(--tone) 60%, var(--ink));
+  }
+  .kings ol li {
+    display: grid;
+    grid-template-columns: 8.5rem 1fr auto;
+    gap: 1rem;
+    padding: 0.15rem 0;
+    align-items: baseline;
+  }
+  .kings li.current .who a {
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .when,
+  .length {
+    color: var(--ink-3);
+    font-size: 0.85rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .length {
+    text-decoration: none;
+  }
+  .length:hover {
+    text-decoration: underline;
+  }
+  .note {
+    margin-left: 0.5rem;
+    font-size: 0.82rem;
+    color: var(--ink-3);
+  }
+  @media (max-width: 520px) {
+    .kings ol li {
+      grid-template-columns: 6.5rem 1fr;
+      gap: 0.6rem;
+    }
+    .length {
+      display: none;
+    }
+  }
+</style>

@@ -1,6 +1,6 @@
 import { test } from "node:test"
 import assert from "node:assert/strict"
-import { kingdomTrack, placeLabels } from "./kingdoms.ts"
+import { kingdomTrack, placeLabels, reignContext, LONE } from "./kingdoms.ts"
 import type { Event, Kingdom } from "./data/schema.ts"
 
 const event = (id: string, name: string, earliest: number, latest: number): Event => ({
@@ -25,7 +25,7 @@ const track = kingdomTrack(
   [
     k("united", "united", [["reign-of-saul", "House of Saul"], ["reign-of-david", "House of David"]]),
     k("israel", "north", [["reign-of-a", "House of A"], ["reign-of-b", "House of A"], ["reign-of-c", "House of Saul"]]),
-    k("judah", "south", [["reign-of-d", "House of David"], ["reign-of-e", "House of E"]]),
+    k("judah", "south", [["reign-of-d", "House of David"], ["reign-of-e", "E"]]),
   ],
   events,
 )
@@ -57,4 +57,19 @@ test("placeLabels sticks labels to the edge, keeps them apart, and drops what do
     { text: "House 3", start: 300, end: 900, width: 50 },
   ])
   assert.deepEqual(placed.map((l) => [l.text, l.x]), [["Kingdom", 6], ["House 1", 78], ["House 3", 304]])
+})
+
+test("kingdomTrack marks where houses change on the main line, and labels only real houses", () => {
+  const israel = track.kingdoms[1]
+  assert.deepEqual(israel.reigns.filter((r) => !r.sub).map((r) => [r.king, r.opens, r.closes]), [["A", true, false], ["B", false, true]])
+  const judah = track.kingdoms[2]
+  assert.deepEqual(judah.houses.map((h) => h.named), [true, false]) // E founded no dynasty
+  assert.equal(judah.reigns[1].tone, LONE)
+})
+
+test("reignContext finds a reign's kingdom and the kings either side", () => {
+  const at = reignContext(track, "reign-of-b")!
+  assert.equal(at.kingdom.id, "israel")
+  assert.deepEqual([at.before?.king, at.after?.king], ["A", "C"])
+  assert.equal(reignContext(track, "nowhere"), undefined)
 })

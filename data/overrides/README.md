@@ -21,8 +21,11 @@ coordinates.
 `kingdoms.json` is hand-authored in full too: the kingdoms on the timeline's
 kingdoms track (the united monarchy, Israel, Judah), each naming its span
 `event`, an optional `region` and `fate`, and its `reigns` in order of
-succession — each a "Reign of X" event id and the ruling `house`, so dynasty
-changes show. Kingdoms that overlap in time get a row each; one that overlaps
+succession — each a "Reign of X" event id, the ruling `house`, so dynasty
+changes show, and an optional `note` for an unusual reign (a co-regency, a
+rival claimant). A king who founded no dynasty gets a house named after
+himself ("Zimri"); the track draws those in a neutral tone. Each kingdom's
+event page lists its kings, and each reign's page shows its place in the line. Kingdoms that overlap in time get a row each; one that overlaps
 none spans them all. The checker requires every event to exist and be dated,
 each reign to fall within its kingdom's span, and no reign to be listed twice.
 
