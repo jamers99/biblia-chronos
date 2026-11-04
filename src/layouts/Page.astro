@@ -374,10 +374,9 @@ const current = (href: string) => (isCurrent(href) ? "page" : undefined)
     overflow: hidden;
     overscroll-behavior: none;
   }
-  /* Pinned to the window itself rather than sized in viewport units: an
-     installed app can report 100dvh taller than what it shows (Android counts
-     the navigation bar), which hid the bottom of the map's chapter sheet and
-     its buttons to turn eras. */
+  /* Pinned to the window, not 100dvh: an installed app reopening straight
+     into the map can measure 100dvh taller than it shows, hiding the bottom
+     of the chapter sheet. */
   main.immersive {
     position: fixed;
     inset: 0;
