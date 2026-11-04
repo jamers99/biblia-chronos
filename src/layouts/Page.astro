@@ -48,6 +48,9 @@ const current = (href: string) => (isCurrent(href) ? "page" : undefined)
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="theme-color" content="#f7f3ea" />
     <script is:inline>
+      // Scripts run: islands can hide their server drawing until they've
+      // laid themselves out (see Timeline.svelte).
+      document.documentElement.classList.add("js")
       // Set the theme before first paint, from the saved choice or the system
       // setting; the app's title bar follows it.
       window.applyTheme = (theme) => {
@@ -62,10 +65,16 @@ const current = (href: string) => (isCurrent(href) ? "page" : undefined)
       immersive && (
         <script is:inline>
           // The installed app opens on the view you were last in, the timeline
-          // or the map (it launches at ?app, see manifest.webmanifest.ts).
+          // or the map. It launches at ?app (see manifest.webmanifest.ts), but
+          // an app keeps the start URL it was installed with, so a launch is
+          // also any fresh load running as an app that no page of ours led to
+          // (not a link, a reload, or back/forward).
           try {
+            const app = matchMedia("(display-mode: standalone)").matches || navigator.standalone
+            const fresh = performance.getEntriesByType("navigation")[0]?.type === "navigate" && !document.referrer
+            const launch = location.search === "?app" || (app && fresh)
             const last = localStorage.getItem("view")
-            if (location.search === "?app" && last && last !== location.pathname) location.replace(last)
+            if (launch && last && last !== location.pathname) location.replace(last)
             else localStorage.setItem("view", location.pathname)
           } catch {}
         </script>
