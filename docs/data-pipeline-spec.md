@@ -349,8 +349,10 @@ fail if that id is missing from `sources.json`.
 2. **Verses/chapters as entities:** not yet. We ship a Book table plus refs
    resolved to `{ book, chapter, verse }`. Full verse/chapter entities are
    deferred until a visualization needs them.
-3. **Periods & Kingdoms:** not imported. They're hand-authored under
-   `data/overrides/` when the first timeline needs them.
+3. **Periods & Kingdoms:** not imported. They're hand-authored in
+   `data/overrides/periods.json` and `kingdoms.json` (see its README); kingdoms
+   are a layer over the imported "Reign of X" events, naming each reign's
+   kingdom and ruling house.
 4. **Place names:** display `name` comes from `esvName` (fallback `kjvName`, then
    slug), with both kept in `altNames`. `modernName` is left empty by the import
    and filled in via overrides.

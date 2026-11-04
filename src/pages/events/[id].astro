@@ -4,7 +4,9 @@ import EntityHeader from "../../components/EntityHeader.astro"
 import Relations from "../../components/Relations.astro"
 import Scripture from "../../components/Scripture.astro"
 import SourceNote from "../../components/SourceNote.astro"
-import { events, periods, graph, resolve } from "../../lib/data/load.ts"
+import Succession from "../../components/Succession.astro"
+import { events, periods, graph, resolve, track } from "../../lib/data/load.ts"
+import { dynasties, reignContext } from "../../lib/kingdoms.ts"
 import type { Event } from "../../lib/data/schema.ts"
 import { periodsOverlapping, spanOf } from "../../lib/chronology.ts"
 import { formatEstimate } from "../../lib/format.ts"
@@ -14,24 +16,50 @@ export const getStaticPaths = () => events.map((event) => ({ params: { id: event
 const { event } = Astro.props as { event: Event }
 const span = spanOf(event.date)
 const eras = span ? periodsOverlapping(span, periods) : []
+
+// A kingdom's own page lists its kings; a reign's page places it in the line.
+const kingdom = track.kingdoms.find((k) => k.event === event.id)
+const reign = reignContext(track, event.id)
+const asEvents = (ids: (string | undefined)[]) => resolve(ids.filter((id) => id !== undefined), "event")
+const houses = kingdom && dynasties(kingdom).length
 ---
 
 <Page title={event.name}>
   <EntityHeader
     entity={event}
-    kindLabel="Event"
+    kindLabel={kingdom ? "Kingdom" : reign ? "Reign" : "Event"}
     facts={[
       ["Date", event.date ? formatEstimate(event.date) : "Undated"],
       ["Era", eras.map((p) => p.name).join(", ") || undefined],
+      ["Kings", kingdom && `${kingdom.reigns.length}`],
+      ["Royal houses", houses ? `${houses}` : undefined],
+      ["End", kingdom?.fate],
+      ["House", reign?.reign.house],
+      ["Note", reign?.reign.note],
     ]}
   />
 
+  {reign && <Succession kingdom={reign.kingdom} current={event.id} list={false} />}
+
   <Relations
     rows={[
-      ["People", resolve(graph.incoming(event.id, "participated-in"), "person")],
+      [reign ? "King" : "People", resolve(graph.incoming(event.id, "participated-in"), "person")],
+      ["Kingdom", reign ? asEvents([reign.kingdom.event]) : []],
+      ["Land", kingdom?.place ? resolve([kingdom.place], "place") : []],
+      ["Preceded by", reign ? asEvents([reign.before?.id]) : []],
+      ["Followed by", reign ? asEvents([reign.after?.id]) : []],
       ["Places", resolve(graph.outgoing(event.id, "occurred-at"), "place")],
     ]}
   />
+
+  {
+    kingdom && (
+      <section>
+        <h2>Kings of {kingdom.name}</h2>
+        <Succession kingdom={kingdom} />
+      </section>
+    )
+  }
 
   <Scripture refs={event.scriptureRefs} />
   <SourceNote sourceId={event.source} />

@@ -81,6 +81,7 @@ Concretely: on a desktop everything should feel smooth and immediate, with no vi
 | Map: projection + basemap / data / island | `src/lib/geo.ts` / `src/lib/map.ts` / `src/components/PlaceMap.svelte` |
 | Pages for every person, place, event, and group | `src/pages/` |
 | Hand-authored eras | `data/overrides/periods.json` |
+| Kingdoms track: kings by kingdom and house | `data/overrides/kingdoms.json` / `src/lib/kingdoms.ts` |
 | Basemap geography | `data/geo/` |
 
 The logic lives in pure modules under `src/lib/` with tests next to them (`npm test`); the Svelte islands only render and handle input. Everything that can run at build time does: places are projected and timeline items are computed during the build, so the browser gets plain numbers and never loads d3-geo or the full dataset.

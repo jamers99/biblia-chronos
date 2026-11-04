@@ -1,0 +1,76 @@
+[
+  {
+    "id": "united-kingdom-of-israel",
+    "name": "United Kingdom",
+    "source": "editorial",
+    "event": "united-kingdom",
+    "place": "united-kingdom-of-israel_1301",
+    "reigns": [
+      { "event": "reign-of-saul", "house": "House of Saul" },
+      { "event": "reign-of-david", "house": "House of David" },
+      { "event": "reign-of-solomon", "house": "House of David" }
+    ]
+  },
+  {
+    "id": "kingdom-of-israel",
+    "name": "Israel",
+    "region": "North",
+    "source": "editorial",
+    "event": "northern-kingdom-israel",
+    "place": "northern-kingdom-of-israel_1302",
+    "fate": "Falls to Assyria",
+    "reigns": [
+      { "event": "reign-of-jeroboam-i", "house": "House of Jeroboam" },
+      { "event": "reign-of-nadab", "house": "House of Jeroboam" },
+      { "event": "reign-of-baasha", "house": "House of Baasha" },
+      { "event": "reign-of-elah", "house": "House of Baasha" },
+      { "event": "reign-of-zimri", "house": "Zimri", "note": "Reigned seven days" },
+      { "event": "reign-of-tibni", "house": "Tibni", "note": "Rival to Omri for the throne" },
+      { "event": "reign-of-omri", "house": "House of Omri" },
+      { "event": "reign-of-ahab", "house": "House of Omri" },
+      { "event": "reign-of-ahaziah", "house": "House of Omri" },
+      { "event": "reign-of-joram", "house": "House of Omri" },
+      { "event": "reign-of-jehu", "house": "House of Jehu" },
+      { "event": "reign-of-jehoahaz", "house": "House of Jehu" },
+      { "event": "reign-of-jehoash", "house": "House of Jehu" },
+      { "event": "reign-of-jeroboam-ii", "house": "House of Jehu" },
+      { "event": "reign-of-zachariah", "house": "House of Jehu" },
+      { "event": "reign-of-shallum", "house": "Shallum" },
+      { "event": "reign-of-menahem", "house": "House of Menahem" },
+      { "event": "reign-of-pekahiah", "house": "House of Menahem" },
+      { "event": "reign-of-pekah", "house": "Pekah" },
+      { "event": "reign-of-hoshea", "house": "Hoshea" }
+    ]
+  },
+  {
+    "id": "kingdom-of-judah",
+    "name": "Judah",
+    "region": "South",
+    "source": "editorial",
+    "event": "southern-kingdom-judah",
+    "place": "judah-southern_1281",
+    "fate": "Falls to Babylon",
+    "reigns": [
+      { "event": "reign-of-rehoboam", "house": "House of David" },
+      { "event": "reign-of-abijam", "house": "House of David" },
+      { "event": "reign-of-asa", "house": "House of David" },
+      { "event": "reign-of-jehoshaphat", "house": "House of David" },
+      { "event": "reign-of-jehoram", "house": "House of David", "note": "Co-regent with his father Jehoshaphat at first" },
+      { "event": "reign-of-ahaziah-jehoahaz", "house": "House of David" },
+      { "event": "reign-of-athaliah", "house": "House of Omri", "note": "Ahab's daughter, who seized Judah's throne" },
+      { "event": "reign-of-joash", "house": "House of David" },
+      { "event": "reign-of-amaziah", "house": "House of David" },
+      { "event": "reign-of-uzziah", "house": "House of David" },
+      { "event": "reign-of-jotham", "house": "House of David" },
+      { "event": "reign-of-ahaz", "house": "House of David" },
+      { "event": "reign-of-hezekiah", "house": "House of David" },
+      { "event": "reign-of-manasseh", "house": "House of David" },
+      { "event": "reign-of-amon", "house": "House of David" },
+      { "event": "reign-of-josiah", "house": "House of David" },
+      { "event": "reign-of-johoahaz-shallum", "house": "House of David" },
+      { "event": "reign-of-jehoiakim", "house": "House of David" },
+      { "event": "reign-of-jeconiah", "house": "House of David" },
+      { "event": "reign-of-zedekiah", "house": "House of David" }
+    ]
+  }
+]

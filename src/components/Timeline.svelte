@@ -2,7 +2,9 @@
   // The History of Israel timeline, full screen. Era names sit large in the
   // background; events rise above a gold time axis and people's lives run
   // below it. Click anyone to light up their connections. An overview strip at
-  // the bottom shows where you are in the whole story.
+  // the bottom shows where you are in the whole story. Just under the axis,
+  // the kingdoms track shows who sat on each throne: the united monarchy
+  // forking into Israel and Judah, each king coloured by his ruling house.
   //
   // d3-scale does the math, d3-zoom handles wheel/drag/pinch (d3-transition
   // animates jumps), Svelte renders the SVG. Lanes are re-packed on every
@@ -15,12 +17,14 @@
   import { select } from "d3-selection"
   import "d3-transition"
   import { packLanes, type TimelineItem, type TimelinePeriod } from "../lib/timeline.ts"
+  import { dynasties, placeLabels, type KingdomRow, type KingdomTrack, type Reign } from "../lib/kingdoms.ts"
   import { formatSpan, formatYear, labelWidth } from "../lib/format.ts"
   import { entityUrl, setHash } from "../lib/url.ts"
   import { addInertia } from "../lib/inertia.ts"
   import { ms } from "../lib/motion.ts"
 
-  let { items, periods }: { items: TimelineItem[]; periods: TimelinePeriod[] } = $props()
+  let { items, periods, kingdoms }: { items: TimelineItem[]; periods: TimelinePeriod[]; kingdoms: KingdomTrack } =
+    $props()
 
   // Layout, in px. Vertical positions follow the window height.
   const ERA_TOP = 96 // baseline area for the large era names
@@ -29,6 +33,10 @@
   const PERSON_GAP = 30
   const STRIP = 64 // overview strip area at the bottom
   const CARD_W = 340
+  const TRACK_GAP = 40 // axis to the kingdoms track, below the tick labels
+  const TRACK_LABEL = 14 // a row's label line: the kingdom, then its houses
+  const TRACK_BLOCK = 18
+  const TRACK_ROW = TRACK_LABEL + TRACK_BLOCK + 6
 
   const domain = $derived([periods[0].start, periods[periods.length - 1].end])
   const byId = $derived(new Map(items.map((i) => [i.id, i])))
@@ -40,7 +48,7 @@
   let transform = $state<ZoomTransform>(zoomIdentity)
   // Raw, not deeply reactive: these hold items from props, compared by identity.
   let selected = $state.raw<TimelineItem | TimelinePeriod>()
-  let hovered = $state.raw<{ item: TimelineItem; x: number; y: number }>()
+  let hovered = $state.raw<{ item: TimelineItem; x: number; y: number; note?: string }>()
   let query = $state("")
   let svg: SVGSVGElement
   let searchInput: HTMLInputElement
@@ -48,9 +56,11 @@
 
   const axisY = $derived(Math.max(FIRST_LANE_TOP + 2 * EVENT_GAP + 40, Math.round(height * 0.47)))
   const eventLanes = $derived(Math.floor((axisY - 40 - FIRST_LANE_TOP) / EVENT_GAP) + 1)
-  const peopleLanes = $derived(Math.max(1, Math.floor((height - STRIP - 30 - (axisY + 50)) / PERSON_GAP) + 1))
+  const trackTop = $derived(axisY + TRACK_GAP)
+  const peopleTop = $derived(kingdoms.kingdoms.length ? trackTop + kingdoms.rows * TRACK_ROW + 24 : axisY + 50)
+  const peopleLanes = $derived(Math.max(1, Math.floor((height - STRIP - 30 - peopleTop) / PERSON_GAP) + 1))
   const eventY = (lane: number) => axisY - 40 - lane * EVENT_GAP
-  const personY = (lane: number) => axisY + 50 + lane * PERSON_GAP
+  const personY = (lane: number) => peopleTop + lane * PERSON_GAP
 
   const base = $derived(scaleLinear().domain(domain).range([0, width]))
   const x = $derived(transform.rescaleX(base))
@@ -59,8 +69,10 @@
 
   const isItem = (s: TimelineItem | TimelinePeriod | undefined): s is TimelineItem => !!s && "kind" in s
   const focus = $derived(isItem(selected) ? selected : undefined)
-  const related = $derived(new Set(focus?.related ?? []))
-  const dimmed = (i: TimelineItem) => !!focus && i !== focus && !related.has(i.id)
+  // A selected kingdom also lights up its own line of kings.
+  const related = $derived(new Set([...(focus?.related ?? []), ...(focus ? ownReigns(focus.id) : [])]))
+  // Anything on the timeline (an item, a reign, a kingdom) by its id.
+  const dimmed = (id: string) => !!focus && id !== focus.id && !related.has(id)
 
   // Lanes are packed in "world" pixels: the whole timeline at the current zoom
   // with no pan applied, not just what's in view. Dragging only pans, so
@@ -75,8 +87,17 @@
   // The selection and its connections jump the queue, so they're always shown.
   const priority = (i: TimelineItem) => (i === focus ? 2e9 : related.has(i.id) ? 1e9 + i.weight : i.weight)
 
+  // Reigns and kingdoms are drawn in their own track, not in the event lanes.
+  const onTrack = $derived(
+    new Map(
+      kingdoms.kingdoms.flatMap((k) => [
+        [k.event, { kingdom: k }] as const,
+        ...k.reigns.map((r) => [r.id, { kingdom: k, reign: r }] as const),
+      ]),
+    ),
+  )
   const lanes = (kind: TimelineItem["kind"], maxLanes: number) =>
-    packLanes(shown.filter((i) => i.kind === kind), priority, extent, maxLanes, 12).placed
+    packLanes(shown.filter((i) => i.kind === kind && !onTrack.has(i.id)), priority, extent, maxLanes, 12).placed
   const eventLayout = $derived(lanes("event", eventLanes))
   const peopleLayout = $derived(lanes("person", peopleLanes))
   // World to screen is a shift by the pan, so culling is cheap.
@@ -84,16 +105,89 @@
     placed.filter(({ x0, x1 }) => x1 + transform.x > 0 && x0 + transform.x < width)
   const visible = $derived([inView(eventLayout), inView(peopleLayout)])
 
+  // --- Kingdoms track ----------------------------------------------------------
+
+  // A kingdom's box: its label line, and the top and bottom of its blocks. The
+  // united monarchy spans every row, so the track forks where the kingdom split.
+  function rowBox(k: KingdomRow) {
+    const [first, last] = k.row === "all" ? [0, kingdoms.rows - 1] : [k.row, k.row]
+    const top = trackTop + first * TRACK_ROW
+    return { label: top + 10, y0: top + TRACK_LABEL, y1: trackTop + last * TRACK_ROW + TRACK_LABEL + TRACK_BLOCK }
+  }
+  const kingdomLabel = (k: KingdomRow) => (k.region ? `${k.name} · ${k.region}` : k.name).toUpperCase()
+  // Rough widths of the track's text, like labelWidth: spaced caps, italic serif.
+  const capsWidth = (text: string) => text.length * 8
+  const houseWidth = (text: string) => text.length * 6
+
+  const trackView = $derived(
+    kingdoms.kingdoms
+      .filter((k) => x(k.end) > 0 && x(k.start) < width)
+      .map((k) => {
+        const box = rowBox(k)
+        const reigns = k.reigns.filter((r) => x(r.end) > -4 && x(r.start) < width + 4)
+        const labels = placeLabels([
+          { text: kingdomLabel(k), start: x(k.start), end: x(k.end), width: capsWidth(kingdomLabel(k)), tone: -1 },
+          ...k.houses
+            .filter((h) => h.named)
+            .map((h) => ({ text: h.name, start: x(h.start), end: x(h.end), width: houseWidth(h.name), tone: h.tone })),
+        ])
+        return { k, box, reigns, labels }
+      }),
+  )
+  // Where a reign's block is drawn. The main line is a segmented bar: a hairline
+  // between kings, a wider gap where the house changes. A co-regent or rival
+  // is a thin stripe just under the row.
+  function reignBox(r: Reign, box: ReturnType<typeof rowBox>) {
+    if (r.sub) {
+      const x0 = x(r.start)
+      return { x0, w: Math.max(3, x(r.end) - x0), y: box.y1 + 2 + (r.sub - 1) * 4, h: 3 }
+    }
+    const x0 = x(r.start) + (r.opens ? 1.5 : 0.5)
+    const x1 = x(r.end) - (r.closes ? 1.5 : 0.5)
+    return { x0, w: Math.max(3, x1 - x0), y: box.y0, h: box.y1 - box.y0 }
+  }
+  const tall = (k: KingdomRow) => k.row === "all" && kingdoms.rows > 1
+  const kingWidth = (r: Reign, k: KingdomRow) => r.king.length * (tall(k) ? 7.6 : 6.4)
+
+  function pickTrack(id: string) {
+    const item = byId.get(id)
+    if (item) selected = item
+  }
+  function ownReigns(id: string) {
+    const at = onTrack.get(id)
+    return at && !at.reign ? at.kingdom.reigns.map((r) => r.id) : []
+  }
+  const trackKind = (id: string) => {
+    const at = onTrack.get(id)
+    return at ? (at.reign ? "Reign" : "Kingdom") : "Event"
+  }
+  // What the card and tooltip say about a reign or kingdom.
+  function trackNote(id: string) {
+    const at = onTrack.get(id)
+    if (!at) return undefined
+    const { kingdom: k, reign } = at
+    const name = k.region ? `${k.name} (${k.region.toLowerCase()})` : k.name
+    if (reign) return `${name} · ${reign.house}${reign.note ? ` · ${reign.note}` : ""}`
+    const houses = dynasties(k).length
+    return `${k.reigns.length} kings · ${houses} royal ${houses === 1 ? "house" : "houses"}${k.fate ? ` · ${k.fate}` : ""}`
+  }
+
   // Where each placed item is drawn: [left, right, y], for links and the card.
   const anchors = $derived(
-    new Map(
-      visible.flatMap((placed) =>
+    new Map([
+      ...visible.flatMap((placed) =>
         placed.map(({ item, lane }) => {
           const y = item.kind === "event" ? eventY(lane) : personY(lane)
           return [item.id, [x(item.start), x(item.end), y]] as const
         }),
       ),
-    ),
+      ...trackView.flatMap(({ box, reigns }) =>
+        reigns.map((r) => {
+          const b = reignBox(r, box)
+          return [r.id, [b.x0, b.x0 + b.w, b.y + b.h / 2]] as const
+        }),
+      ),
+    ]),
   )
   // A label sticks to the left edge while its item runs off-screen, but never
   // slides out of the item's footprint (where it could hit a neighbour).
@@ -320,6 +414,59 @@
       <text class="tick" x={x(t)} y={axisY + 22} text-anchor="middle">{tickLabel(t)}</text>
     {/each}
 
+    <!-- Kingdoms: who sat on each throne, each king coloured by his house -->
+    {#each trackView as { k, box, reigns, labels } (k.id)}
+      <g class="kingdom">
+        {#each reigns as r (r.id)}
+          {@const b = reignBox(r, box)}
+          {@const w = kingWidth(r, k)}
+          <!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions -->
+          <g
+            class="reign tone-{r.tone}"
+            class:sub={r.sub > 0}
+            class:tall={tall(k)}
+            class:dim={dimmed(r.id)}
+            class:focus={focus?.id === r.id}
+            onclick={(e) => {
+              e.stopPropagation()
+              pickTrack(r.id)
+            }}
+            onpointerenter={(e) => {
+              const item = byId.get(r.id)
+              if (item) hovered = { item, x: e.offsetX, y: b.y + b.h, note: `${r.king} · ${r.note ?? r.house}` }
+            }}
+            onpointerleave={() => (hovered = undefined)}
+          >
+            {#if r.sub}<rect class="hit" x={b.x0} y={b.y - 3} width={b.w} height={b.h + 6} />{/if}
+            <rect class="block" x={b.x0} y={b.y} width={b.w} height={b.h} rx={r.sub ? 1.5 : 2.5} />
+            {#if !r.sub && b.w > w + 10}
+              <text x={Math.max(b.x0 + 5, Math.min(6, b.x0 + b.w - 5 - w))} y={b.y + b.h / 2 + (tall(k) ? 5 : 4)}>{r.king}</text>
+            {/if}
+          </g>
+        {/each}
+        {#each labels as l (l.text + l.start)}
+          {#if l.tone === -1}
+            <!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions -->
+            <text
+              class="kingdom-name"
+              class:dim={dimmed(k.event)}
+              x={l.x}
+              y={box.label}
+              onclick={(e) => {
+                e.stopPropagation()
+                pickTrack(k.event)
+              }}>{l.text}</text
+            >
+          {:else}
+            <text class="house tone-{l.tone}" class:dim={!!focus} x={l.x} y={box.label}>{l.text}</text>
+          {/if}
+        {/each}
+        {#if k.fate && x(k.end) + 8 < width}
+          <text class="fate" x={x(k.end) + 8} y={(box.y0 + box.y1) / 2 + 4}>{k.fate}</text>
+        {/if}
+      </g>
+    {/each}
+
     <!-- Links from the selection to its connections -->
     {#if focus && anchors.has(focus.id)}
       {@const [fx0, fx1, fy] = anchors.get(focus.id)!}
@@ -350,7 +497,7 @@
           <!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions -->
           <g
             class="item {item.kind}"
-            class:dim={dimmed(item)}
+            class:dim={dimmed(item.id)}
             class:focus={item === focus}
             class:draft={item.draft}
             style="transform: translateY({y}px)"
@@ -446,7 +593,7 @@
   {#if hovered && hovered.item !== focus}
     <div class="tooltip" style="left: {hovered.x + 14}px; top: {hovered.y + 10}px" in:fade={{ duration: 120 }}>
       <strong>{formatSpan(hovered.item.start, hovered.item.end)}</strong>
-      <span>{hovered.item.name}</span>
+      <span>{hovered.note ?? hovered.item.name}</span>
     </div>
   {/if}
 
@@ -455,15 +602,16 @@
       <button type="button" class="close" aria-label="Close" onclick={() => (selected = undefined)}>×</button>
       {#if isItem(selected)}
         <p class="kind">
-          {selected.kind === "person" ? (selected.lifetime ? "Person" : "Person · attested years") : "Event"}
+          {selected.kind === "person" ? (selected.lifetime ? "Person" : "Person · attested years") : trackKind(selected.id)}
           {#if selected.draft}<span class="badge">draft</span>{/if}
         </p>
         <h2>{selected.name}</h2>
         <p class="when">{formatSpan(selected.start, selected.end)}{selected.eras ? ` · ${selected.eras}` : ""}</p>
+        {#if trackNote(selected.id)}<p class="when throne">{trackNote(selected.id)}</p>{/if}
         {#if selected.summary}<p class="summary">{selected.summary}</p>{/if}
         {#if relatedPeople.length}
           <div class="chips">
-            <span class="label">{selected.kind === "person" ? "Family" : "People"}</span>
+            <span class="label">{selected.kind === "person" ? "Family" : onTrack.get(selected.id)?.reign ? "King" : "People"}</span>
             {#each relatedPeople.slice(0, 5) as p (p.id)}
               <button type="button" class="chip" onclick={() => choose(p)}>{p.name}</button>
             {/each}
@@ -473,7 +621,7 @@
         {#if relatedEvents}
           <p class="events">{relatedEvents} {relatedEvents === 1 ? "event" : "events"} on the timeline</p>
         {/if}
-        <a href={entityUrl(selected)}>Open {selected.kind === "person" ? "person" : "event"} →</a>
+        <a href={entityUrl(selected)}>Open {selected.kind === "person" ? "person" : trackKind(selected.id).toLowerCase()} →</a>
       {:else}
         <p class="kind">Era</p>
         <h2>{selected.name}</h2>
@@ -645,6 +793,73 @@
   .link.to-event {
     stroke-dasharray: 3 3;
     opacity: 0.45;
+  }
+
+  /* Kingdoms track. Each house has a tone (.tone-N in global.css): David's
+     line is gold, so it reads at a glance through Judah. */
+  .reign {
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .reign .block {
+    fill: var(--tone);
+    fill-opacity: 0.26;
+    transition: fill-opacity 0.15s;
+  }
+  .reign.tone-0 .block {
+    fill-opacity: 0.36;
+  }
+  .reign.sub .block {
+    fill-opacity: 0.85;
+  }
+  .reign:hover .block {
+    fill-opacity: 0.5;
+  }
+  .reign.focus .block {
+    fill-opacity: 0.55;
+    stroke: var(--accent);
+    stroke-width: 1.5;
+  }
+  .reign text {
+    font-size: 11.5px;
+    fill: var(--ink-2);
+    pointer-events: none;
+  }
+  .reign:hover text,
+  .reign.focus text {
+    fill: var(--ink);
+  }
+  .reign.tall text {
+    font: 600 13px var(--serif);
+    fill: var(--ink);
+  }
+  .reign.dim,
+  .house.dim,
+  .kingdom-name.dim {
+    opacity: 0.3;
+  }
+  .kingdom-name {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    fill: var(--ink-3);
+    cursor: pointer;
+  }
+  .kingdom-name:hover {
+    fill: var(--accent);
+  }
+  .house {
+    font: italic 11.5px var(--serif);
+    fill: color-mix(in srgb, var(--tone) 65%, var(--ink));
+    pointer-events: none;
+  }
+  .fate {
+    font: italic 11.5px var(--serif);
+    fill: var(--ink-3);
+    pointer-events: none;
+  }
+  .card .throne {
+    color: var(--gold);
   }
 
   .strip {
