@@ -144,16 +144,6 @@ a:hover {
   content: ", ";
 }
 
-.toggle {
-  display: inline-flex;
-  gap: 0.4rem;
-  align-items: center;
-  font-size: 0.85rem;
-  color: var(--ink-2);
-  cursor: pointer;
-  user-select: none;
-}
-
 .sr-only {
   position: absolute;
   width: 1px;
@@ -251,6 +241,8 @@ a:hover {
 
 html {
   -webkit-tap-highlight-color: transparent;
+  /* in-page jumps (#A) land below the sticky site bar */
+  scroll-padding-top: 4.5rem;
 }
 
 /* Buttons give under a press, like native controls. */

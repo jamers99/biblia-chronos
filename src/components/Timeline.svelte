@@ -29,6 +29,7 @@
   const PERSON_GAP = 30
   const STRIP = 64 // overview strip area at the bottom
   const CARD_W = 340
+  const CARD_TOP = 124 // below the site bar and the search
 
   const domain = $derived([periods[0].start, periods[periods.length - 1].end])
   const byId = $derived(new Map(items.map((i) => [i.id, i])))
@@ -36,6 +37,7 @@
 
   let width = $state(1200)
   let height = $state(800)
+  // Draft records follow the site setting in the menu (see Page.astro).
   let showDrafts = $state(true)
   let transform = $state<ZoomTransform>(zoomIdentity)
   // Raw, not deeply reactive: these hold items from props, compared by identity.
@@ -139,6 +141,10 @@
   // --- Zoom and navigation ----------------------------------------------------
 
   onMount(() => {
+    showDrafts = document.documentElement.dataset.drafts !== "hidden"
+    const onDrafts = (e: Event) => (showDrafts = (e as CustomEvent<boolean>).detail)
+    addEventListener("drafts", onDrafts)
+
     behavior = zoom<SVGSVGElement, unknown>()
       .scaleExtent([1, 400])
       // Sideways wheel (trackpads) pans instead (below); the strip handles its own drags.
@@ -161,7 +167,10 @@
 
     const fromHash = byId.get(decodeURIComponent(location.hash.slice(1)))
     if (fromHash) choose(fromHash)
-    return () => svg.removeEventListener("wheel", onWheel)
+    return () => {
+      svg.removeEventListener("wheel", onWheel)
+      removeEventListener("drafts", onDrafts)
+    }
   })
 
   // Keep zoom bounds in step with the window.
@@ -234,14 +243,14 @@
   const card = $derived.by(() => {
     if (!focus) return undefined
     const a = anchors.get(focus.id)
-    if (!a) return { left: width - CARD_W - 24, top: 90 }
+    if (!a) return { left: width - CARD_W - 24, top: CARD_TOP }
     // Beside the mark if there's room on either side; otherwise (a bar wider
     // than the window) tucked into the top right.
     const [x0, x1, y] = a
-    const top = Math.max(84, Math.min(y - 120, height - STRIP - 290))
+    const top = Math.max(CARD_TOP, Math.min(y - 120, height - STRIP - 290))
     if (x1 + 28 + CARD_W < width - 16) return { left: x1 + 28, top }
     if (x0 - 28 - CARD_W > 16) return { left: x0 - 28 - CARD_W, top }
-    return { left: width - CARD_W - 24, top: 84 }
+    return { left: width - CARD_W - 24, top: CARD_TOP }
   })
   const relatedPeople = $derived(
     (focus?.related ?? [])
@@ -485,7 +494,6 @@
 
   <div class="corner">
     <p>Scroll to zoom · drag to move · click anyone</p>
-    <label class="toggle"><input type="checkbox" bind:checked={showDrafts} /> Show draft records</label>
   </div>
   <div class="zoom-buttons" role="group" aria-label="Zoom">
     <button type="button" class="icon-button" aria-label="Zoom out" onclick={() => zoomBy(1 / 1.6)}>−</button>
@@ -680,9 +688,10 @@
 
   .search {
     position: absolute;
-    top: max(1.1rem, env(safe-area-inset-top));
-    right: calc(max(1.5rem, env(safe-area-inset-right)) + 2 * 2.25rem + 1rem);
-    width: min(18rem, calc(100vw - 15rem));
+    /* just under the site bar (see Page.astro) */
+    top: calc(3.5rem + env(safe-area-inset-top) + 0.75rem);
+    right: max(1.5rem, env(safe-area-inset-right));
+    width: 18rem;
     z-index: 11;
   }
   .search input {
@@ -819,11 +828,7 @@
     color: var(--ink-3);
   }
   .corner p {
-    margin: 0 0 0.3rem;
-  }
-  .corner .toggle {
-    font-size: 0.75rem;
-    color: var(--ink-3);
+    margin: 0;
   }
 
   /* Phones: the card becomes a bottom sheet; the corner hint gives way to the strip. */
@@ -835,18 +840,13 @@
       bottom: 5.5rem;
       width: auto;
     }
-    .corner p {
+    .corner {
       display: none;
     }
-    .corner {
-      bottom: auto;
-      top: 4.4rem;
-    }
     .search {
-      top: 4.2rem;
+      left: 1rem;
       right: 1rem;
-      left: auto;
-      width: 11rem;
+      width: auto;
     }
   }
 </style>

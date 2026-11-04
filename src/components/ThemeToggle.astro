@@ -1,9 +1,10 @@
 ---
-// Switches between light and dark and remembers the choice. The initial theme
-// is set before first paint by the inline script in Page.astro.
+// Switches between light and dark and remembers the choice. A row in the
+// site menu (see Page.astro). The initial theme is set before first paint by
+// the inline script in Page.astro.
 ---
 
-<button type="button" class="icon-button theme-toggle" aria-label="Switch between light and dark">
+<button type="button" class="row theme-toggle">
   <svg class="moon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"
     ><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" fill="currentColor"></path></svg
   >
@@ -14,6 +15,8 @@
       stroke-width="2"
       stroke-linecap="round"></path></svg
   >
+  <span class="moon">Dark theme</span>
+  <span class="sun">Light theme</span>
 </button>
 
 <script>
@@ -26,11 +29,20 @@
 </script>
 
 <style>
+  .theme-toggle {
+    width: 100%;
+    background: none;
+    font: inherit;
+    text-align: left;
+  }
+  svg {
+    color: var(--ink-2);
+  }
   .sun,
   :global([data-theme="dark"]) .moon {
     display: none;
   }
   :global([data-theme="dark"]) .sun {
-    display: block;
+    display: inline;
   }
 </style>
