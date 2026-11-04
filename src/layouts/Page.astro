@@ -374,7 +374,11 @@ const current = (href: string) => (isCurrent(href) ? "page" : undefined)
     overflow: hidden;
     overscroll-behavior: none;
   }
+  /* Pinned to the window, not 100dvh: an installed app reopening straight
+     into the map can measure 100dvh taller than it shows, hiding the bottom
+     of the chapter sheet. */
   main.immersive {
-    height: 100dvh;
+    position: fixed;
+    inset: 0;
   }
 </style>

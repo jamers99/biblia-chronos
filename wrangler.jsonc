@@ -1,0 +1,12 @@
+// Cloudflare preview deploys for pull requests (`npx wrangler preview`).
+// Production is still GitHub Pages (see .github/workflows/deploy.yml); this
+// only serves the built static site (dist/) as a Worker's assets.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "biblia-chronos",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./dist"
+  },
+  "previews": {}
+}
