@@ -10,7 +10,7 @@ export const GET = () =>
     short_name: "Chronos",
     description: "Explore the history of Israel, from Abraham to the early church, on an interactive timeline.",
     id: start,
-    start_url: start,
+    start_url: `${start}?app`, // so the app can reopen on the last view (see Page.astro)
     scope: start,
     display: "standalone",
     background_color: "#f7f3ea",

@@ -150,7 +150,8 @@
 <style is:global>
   .layers {
     position: fixed;
-    inset: 0 0 0 auto;
+    /* under the site bar (see Page.astro), so it stays in reach */
+    inset: calc(var(--bar-h) + env(safe-area-inset-top)) 0 0 auto;
     z-index: 30;
     width: min(460px, 100vw);
     pointer-events: none;
@@ -158,7 +159,7 @@
   .layer {
     --depth: 0;
     position: absolute;
-    inset: max(0.75rem, env(safe-area-inset-top)) max(0.75rem, env(safe-area-inset-right)) 0.75rem 0;
+    inset: 0.75rem max(0.75rem, env(safe-area-inset-right)) 0.75rem 0;
     display: flex;
     flex-direction: column;
     background: var(--surface);

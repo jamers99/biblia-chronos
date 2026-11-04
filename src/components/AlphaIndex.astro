@@ -52,4 +52,8 @@ const groups = Map.groupBy(sorted, (e) => label(e)[0].toUpperCase())
   li.draft a {
     color: var(--ink-2);
   }
+  /* "Show draft records" off, in the site menu */
+  :global([data-drafts="hidden"]) li.draft {
+    display: none;
+  }
 </style>

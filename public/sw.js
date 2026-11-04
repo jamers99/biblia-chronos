@@ -6,7 +6,7 @@
 //   the background.
 // Paths are relative to this file, so they follow the site's base path.
 const CACHE = "chronos-v1"
-const SHELL = ["./", "map/", "map/basemap.svg", "about/", "manifest.webmanifest", "icons/icon-192.png"]
+const SHELL = ["./", "map/", "map/basemap.svg", "search.json", "about/", "manifest.webmanifest", "icons/icon-192.png"]
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(SHELL)))

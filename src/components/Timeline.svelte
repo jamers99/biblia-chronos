@@ -10,7 +10,7 @@
   // animates jumps), Svelte renders the SVG. Lanes are re-packed on every
   // zoom (not on pan), heaviest first, so zooming in reveals more.
   import { onMount } from "svelte"
-  import { fade, fly, scale } from "svelte/transition"
+  import { fade, scale } from "svelte/transition"
   import { cubicOut } from "svelte/easing"
   import { scaleLinear } from "d3-scale"
   import { zoom, zoomIdentity, type ZoomBehavior, type ZoomTransform } from "d3-zoom"
@@ -21,6 +21,7 @@
   import { formatSpan, formatYear, labelWidth } from "../lib/format.ts"
   import { entityUrl, setHash } from "../lib/url.ts"
   import { addInertia } from "../lib/inertia.ts"
+  import { remember } from "../lib/remember.ts"
   import { ms } from "../lib/motion.ts"
 
   let { items, periods, kingdoms }: { items: TimelineItem[]; periods: TimelinePeriod[]; kingdoms: KingdomTrack } =
@@ -33,6 +34,7 @@
   const PERSON_GAP = 30
   const STRIP = 64 // overview strip area at the bottom
   const CARD_W = 340
+  const CARD_TOP = 84 // below the site bar
   const TRACK_GAP = 40 // axis to the kingdoms track, below the tick labels
   const TRACK_LABEL = 14 // a row's label line: the kingdom, then its houses
   const TRACK_BLOCK = 18
@@ -44,14 +46,13 @@
 
   let width = $state(1200)
   let height = $state(800)
+  // Draft records follow the site setting in the menu (see Page.astro).
   let showDrafts = $state(true)
   let transform = $state<ZoomTransform>(zoomIdentity)
   // Raw, not deeply reactive: these hold items from props, compared by identity.
   let selected = $state.raw<TimelineItem | TimelinePeriod>()
   let hovered = $state.raw<{ item: TimelineItem; x: number; y: number; note?: string }>()
-  let query = $state("")
   let svg: SVGSVGElement
-  let searchInput: HTMLInputElement
   let behavior: ZoomBehavior<SVGSVGElement, unknown>
 
   const axisY = $derived(Math.max(FIRST_LANE_TOP + 2 * EVENT_GAP + 40, Math.round(height * 0.47)))
@@ -233,6 +234,10 @@
   // --- Zoom and navigation ----------------------------------------------------
 
   onMount(() => {
+    showDrafts = document.documentElement.dataset.drafts !== "hidden"
+    const onDrafts = (e: Event) => (showDrafts = (e as CustomEvent<boolean>).detail)
+    addEventListener("drafts", onDrafts)
+
     behavior = zoom<SVGSVGElement, unknown>()
       .scaleExtent([1, 400])
       // Sideways wheel (trackpads) pans instead (below); the strip handles its own drags.
@@ -253,9 +258,33 @@
     }
     svg.addEventListener("wheel", onWheel, { passive: false })
 
-    const fromHash = byId.get(decodeURIComponent(location.hash.slice(1)))
+    const lookup = (id: string) => byId.get(id) ?? periods.find((p) => p.id === id)
+    // A link to something on the timeline shows it; otherwise come back to
+    // where you were.
+    const view = remember<{ span: number[]; selected?: string }>("timeline")
+    const fromHash = lookup(decodeURIComponent(location.hash.slice(1)))
+    const saved = view.load()
     if (fromHash) choose(fromHash)
-    return () => svg.removeEventListener("wheel", onWheel)
+    else if (saved) {
+      behavior.transform(select(svg), span(saved.span[0], saved.span[1]))
+      selected = saved.selected ? lookup(saved.selected) : undefined
+    }
+    const forget = view.onLeave(() => ({ span: x.domain(), selected: selected?.id }))
+
+    // The site search shows what's on the timeline here, in place.
+    const onPick = (e: Event) => {
+      const target = lookup((e as CustomEvent<{ id: string }>).detail.id)
+      if (!target) return
+      e.preventDefault()
+      choose(target)
+    }
+    addEventListener("search-pick", onPick)
+    return () => {
+      svg.removeEventListener("wheel", onWheel)
+      removeEventListener("drafts", onDrafts)
+      removeEventListener("search-pick", onPick)
+      forget()
+    }
   })
 
   // Keep zoom bounds in step with the window.
@@ -277,12 +306,15 @@
     if (location.hash !== hash) setHash(hash.slice(1))
   })
 
+  // The view that shows exactly [start, end].
+  function span(start: number, end: number) {
+    const k = width / (base(end) - base(start))
+    return zoomIdentity.scale(k).translate(-base(start), 0)
+  }
   // Glide to show [start, end] with some room around it.
   function flyTo(start: number, end: number) {
     const pad = Math.max(8, (end - start) * 0.08)
-    const k = width / (base(end + pad) - base(start - pad))
-    const t = zoomIdentity.scale(k).translate(-base(start - pad), 0)
-    select(svg).transition().duration(ms(750)).call(behavior.transform, t)
+    select(svg).transition().duration(ms(750)).call(behavior.transform, span(start - pad, end + pad))
   }
   const zoomBy = (factor: number) => select(svg).transition().duration(ms(250)).call(behavior.scaleBy, factor)
 
@@ -293,7 +325,6 @@
 
   // Select an item and bring it into view, with enough context around it.
   function choose(target: TimelineItem | TimelinePeriod) {
-    query = ""
     if (!isItem(target)) return pickPeriod(target)
     selected = target
     const mid = (target.start + target.end) / 2
@@ -304,8 +335,7 @@
   function onKey(e: KeyboardEvent) {
     if (e.target instanceof HTMLInputElement) return
     const step = width / 8 / transform.k
-    if (e.key === "/") searchInput.focus()
-    else if (e.key === "Escape") selected = undefined
+    if (e.key === "Escape") selected = undefined
     else if (e.key === "ArrowLeft") behavior.translateBy(select(svg), step, 0)
     else if (e.key === "ArrowRight") behavior.translateBy(select(svg), -step, 0)
     else if (e.key === "+" || e.key === "=") zoomBy(1.6)
@@ -314,28 +344,19 @@
     e.preventDefault()
   }
 
-  // --- Search -----------------------------------------------------------------
-
-  const results = $derived.by(() => {
-    const q = query.trim().toLowerCase()
-    if (q.length < 2) return []
-    const hits = (name: string) => name.toLowerCase().includes(q)
-    return [...periods.filter((p) => hits(p.name)), ...shown.filter((i) => hits(i.name))].slice(0, 8)
-  })
-
   // --- Selection card -----------------------------------------------------------
 
   const card = $derived.by(() => {
     if (!focus) return undefined
     const a = anchors.get(focus.id)
-    if (!a) return { left: width - CARD_W - 24, top: 90 }
+    if (!a) return { left: width - CARD_W - 24, top: CARD_TOP }
     // Beside the mark if there's room on either side; otherwise (a bar wider
     // than the window) tucked into the top right.
     const [x0, x1, y] = a
-    const top = Math.max(84, Math.min(y - 120, height - STRIP - 290))
+    const top = Math.max(CARD_TOP, Math.min(y - 120, height - STRIP - 290))
     if (x1 + 28 + CARD_W < width - 16) return { left: x1 + 28, top }
     if (x0 - 28 - CARD_W > 16) return { left: x0 - 28 - CARD_W, top }
-    return { left: width - CARD_W - 24, top: 84 }
+    return { left: width - CARD_W - 24, top: CARD_TOP }
   })
   const relatedPeople = $derived(
     (focus?.related ?? [])
@@ -563,33 +584,6 @@
     <rect class="vignette" {width} {height} fill="url(#tl-vignette)" />
   </svg>
 
-  <!-- Search -->
-  <div class="search">
-    <input
-      bind:this={searchInput}
-      bind:value={query}
-      type="search"
-      placeholder="Search people, events, eras…"
-      aria-label="Search the timeline"
-      onkeydown={(e) => {
-        if (e.key === "Enter" && results[0]) choose(results[0])
-        if (e.key === "Escape") query = ""
-      }}
-    />
-    {#if results.length}
-      <ul class="results" transition:fly={{ y: -6, duration: 150 }}>
-        {#each results as r (r.id)}
-          <li>
-            <button type="button" onclick={() => choose(r)}>
-              <span>{r.name}</span>
-              <small>{isItem(r) ? (r.kind === "person" ? "Person" : "Event") : "Era"} · {formatSpan(r.start, r.end)}</small>
-            </button>
-          </li>
-        {/each}
-      </ul>
-    {/if}
-  </div>
-
   {#if hovered && hovered.item !== focus}
     <div class="tooltip" style="left: {hovered.x + 14}px; top: {hovered.y + 10}px" in:fade={{ duration: 120 }}>
       <strong>{formatSpan(hovered.item.start, hovered.item.end)}</strong>
@@ -633,7 +627,6 @@
 
   <div class="corner">
     <p>Scroll to zoom · drag to move · click anyone</p>
-    <label class="toggle"><input type="checkbox" bind:checked={showDrafts} /> Show draft records</label>
   </div>
   <div class="zoom-buttons" role="group" aria-label="Zoom">
     <button type="button" class="icon-button" aria-label="Zoom out" onclick={() => zoomBy(1 / 1.6)}>−</button>
@@ -893,60 +886,6 @@
     pointer-events: none;
   }
 
-  .search {
-    position: absolute;
-    top: max(1.1rem, env(safe-area-inset-top));
-    right: calc(max(1.5rem, env(safe-area-inset-right)) + 2 * 2.25rem + 1rem);
-    width: min(18rem, calc(100vw - 15rem));
-    z-index: 11;
-  }
-  .search input {
-    width: 100%;
-    font: inherit;
-    font-size: 0.85rem;
-    padding: 0.5rem 0.9rem;
-    border-radius: 999px;
-    border: 1px solid var(--rule);
-    background: var(--surface);
-    color: var(--ink);
-  }
-  .search input:focus {
-    outline: none;
-    border-color: var(--gold);
-  }
-  .results {
-    list-style: none;
-    margin: 0.4rem 0 0;
-    padding: 0.3rem;
-    background: var(--surface);
-    border: 1px solid var(--rule);
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgb(40 30 15 / 0.15);
-  }
-  .results button {
-    display: flex;
-    justify-content: space-between;
-    gap: 0.75rem;
-    width: 100%;
-    padding: 0.4rem 0.6rem;
-    border: 0;
-    border-radius: 6px;
-    background: none;
-    font: inherit;
-    font-size: 0.85rem;
-    color: var(--ink);
-    text-align: left;
-    cursor: pointer;
-  }
-  .results button:hover,
-  .results button:focus-visible {
-    background: var(--wash);
-  }
-  .results small {
-    color: var(--ink-3);
-    white-space: nowrap;
-  }
-
   .card {
     position: absolute;
     width: 340px;
@@ -1034,11 +973,7 @@
     color: var(--ink-3);
   }
   .corner p {
-    margin: 0 0 0.3rem;
-  }
-  .corner .toggle {
-    font-size: 0.75rem;
-    color: var(--ink-3);
+    margin: 0;
   }
 
   /* Phones: the card becomes a bottom sheet; the corner hint gives way to the strip. */
@@ -1050,18 +985,8 @@
       bottom: 5.5rem;
       width: auto;
     }
-    .corner p {
-      display: none;
-    }
     .corner {
-      bottom: auto;
-      top: 4.4rem;
-    }
-    .search {
-      top: 4.2rem;
-      right: 1rem;
-      left: auto;
-      width: 11rem;
+      display: none;
     }
   }
 </style>

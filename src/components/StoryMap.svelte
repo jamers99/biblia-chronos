@@ -17,6 +17,7 @@
   import { entityUrl, setHash } from "../lib/url.ts"
   import { labelWidth } from "../lib/format.ts"
   import { addInertia } from "../lib/inertia.ts"
+  import { remember } from "../lib/remember.ts"
   import { ms } from "../lib/motion.ts"
 
   type Box = [number, number, number, number] // x0, y0, x1, y1 in map units
@@ -115,8 +116,7 @@
     },
   )
 
-  function fit([x0, y0, x1, y1]: Box): ZoomTransform {
-    const [l, t, r, b] = stage()
+  function fit([x0, y0, x1, y1]: Box, [l, t, r, b] = stage()): ZoomTransform {
     const pad = 40
     const k = Math.min((r - l - pad * 2) / Math.max(x1 - x0, 10), (b - t - pad * 2) / Math.max(y1 - y0, 10), 40)
     return zoomIdentity.translate((l + r) / 2 - (k * (x0 + x1)) / 2, (t + b) / 2 - (k * (y0 + y1)) / 2).scale(k)
@@ -149,14 +149,54 @@
     select(svg).call(behavior)
     addInertia(behavior, svg, "xy")
 
-    // #chapter-id opens a chapter; #place-id (from a place's page) shows that place.
+    // #chapter-id opens a chapter; #place-id (from a place's page) shows that
+    // place. Otherwise come back to where you were: the chapter, and what
+    // was in view.
+    const view = remember<{ at: number; box: Box; selected?: string }>("map")
     const hash = decodeURIComponent(location.hash.slice(1))
     const place = byId.get(hash)
-    at = chapters.findIndex((c) => c.id === hash)
-    if (place) selected = place
-    behavior.transform(select(svg), fit(place ? [place.x - 30, place.y - 25, place.x + 30, place.y + 25] : frameOf(chapter)))
+    const saved = hash ? undefined : view.load()
+    at = saved?.at ?? chapters.findIndex((c) => c.id === hash)
+    selected = place ?? (saved?.selected ? byId.get(saved.selected) : undefined)
+    behavior.transform(select(svg), saved ? showing(saved.box) : fit(place ? around(place) : frameOf(chapter)))
+    if (saved) setHash(chapter?.id ?? "")
     ready = true
+    const forget = view.onLeave(() => {
+      const [[x0, y0], [x1, y1]] = [transform.invert([0, 0]), transform.invert([width, height])]
+      return { at, box: [x0, y0, x1, y1], selected: selected?.id }
+    })
+
+    // The site search shows places and eras here, in place: a place flies
+    // into view (and opens, as a click on it does), an era turns to its chapter.
+    const onPick = (e: Event) => {
+      const { id } = (e as CustomEvent<{ id: string }>).detail
+      const place = byId.get(id)
+      const i = chapters.findIndex((c) => c.id === id)
+      if (place) {
+        selected = place
+        // clear of the panel it opens in, on the right (460px wide, see
+        // Layers.astro); on phones the panel is a sheet over most of the map,
+        // so there's no clear spot to aim for
+        const [l, t, r, b] = stage()
+        const room: Box = narrow ? [l, t, r, b] : [l, t, Math.max(l + 200, r - 470), b]
+        select(svg).transition().duration(ms(1000)).call(behavior.transform, fit(around(place), room))
+      } else if (i >= 0) {
+        e.preventDefault()
+        go(i)
+      }
+    }
+    addEventListener("search-pick", onPick)
+    return () => {
+      removeEventListener("search-pick", onPick)
+      forget()
+    }
   })
+  // The view that shows exactly this box (map units), centred.
+  function showing([x0, y0, x1, y1]: Box): ZoomTransform {
+    const k = Math.min(width / (x1 - x0), height / (y1 - y0))
+    return zoomIdentity.translate(width / 2 - (k * (x0 + x1)) / 2, height / 2 - (k * (y0 + y1)) / 2).scale(k)
+  }
+  const around = (p: MapPlace): Box => [p.x - 30, p.y - 25, p.x + 30, p.y + 25]
 
   // Keep zoom bounds in step with the window: no further out than the whole
   // basemap, no panning off its edges.
