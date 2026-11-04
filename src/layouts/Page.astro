@@ -65,10 +65,16 @@ const current = (href: string) => (isCurrent(href) ? "page" : undefined)
       immersive && (
         <script is:inline>
           // The installed app opens on the view you were last in, the timeline
-          // or the map (it launches at ?app, see manifest.webmanifest.ts).
+          // or the map. It launches at ?app (see manifest.webmanifest.ts), but
+          // an app keeps the start URL it was installed with, so a launch is
+          // also any fresh load running as an app that no page of ours led to
+          // (not a link, a reload, or back/forward).
           try {
+            const app = matchMedia("(display-mode: standalone)").matches || navigator.standalone
+            const fresh = performance.getEntriesByType("navigation")[0]?.type === "navigate" && !document.referrer
+            const launch = location.search === "?app" || (app && fresh)
             const last = localStorage.getItem("view")
-            if (location.search === "?app" && last && last !== location.pathname) location.replace(last)
+            if (launch && last && last !== location.pathname) location.replace(last)
             else localStorage.setItem("view", location.pathname)
           } catch {}
         </script>
