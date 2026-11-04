@@ -99,6 +99,7 @@ export const Kingdom = z.object({
   region: z.string().optional(), // "South"
   source: z.string(),
   event: z.string(),
+  place: z.string().optional(), // the place record for its land, linked both ways
   fate: z.string().optional(), // "Falls to Babylon"
   // `note` explains an unusual reign: a co-regency, a rival claimant.
   reigns: z.array(z.object({ event: z.string(), house: z.string(), note: z.string().optional() })).min(1),

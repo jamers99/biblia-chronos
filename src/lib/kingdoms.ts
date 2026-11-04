@@ -34,6 +34,7 @@ export type House = { name: string; tone: number; start: number; end: number; re
 export type KingdomRow = {
   id: string
   event: string // the kingdom's own span event, selectable from its label
+  place?: string // the place record for its land
   name: string
   region?: string
   fate?: string
@@ -128,6 +129,7 @@ export function kingdomTrack(
     return {
       id: k.id,
       event: k.event,
+      place: k.place,
       name: k.name,
       region: k.region,
       fate: k.fate,

@@ -192,6 +192,7 @@ const eventById = new Map(events.map((e) => [e.id, e]))
 const reignedIn = new Map<string, string>()
 for (const k of kingdoms) {
   if (!sourceIds.has(k.source)) err(`kingdom "${k.id}" references unknown source "${k.source}"`)
+  if (k.place && entityKind.get(k.place) !== "place") err(`kingdom "${k.id}" place "${k.place}" isn't a known place`)
   const span = eventById.get(k.event)?.date
   if (span?.earliest === undefined || span.latest === undefined) {
     err(`kingdom "${k.id}" event "${k.event}" isn't a known, dated event`)

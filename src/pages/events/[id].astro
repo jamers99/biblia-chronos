@@ -45,6 +45,7 @@ const houses = kingdom && new Set(kingdom.houses.filter((h) => h.named).map((h) 
     rows={[
       [reign ? "King" : "People", resolve(graph.incoming(event.id, "participated-in"), "person")],
       ["Kingdom", reign ? asEvents([reign.kingdom.event]) : []],
+      ["Land", kingdom?.place ? resolve([kingdom.place], "place") : []],
       ["Preceded by", reign ? asEvents([reign.before?.id]) : []],
       ["Followed by", reign ? asEvents([reign.after?.id]) : []],
       ["Places", resolve(graph.outgoing(event.id, "occurred-at"), "place")],

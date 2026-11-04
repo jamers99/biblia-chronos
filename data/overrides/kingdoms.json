@@ -4,6 +4,7 @@
     "name": "United Kingdom",
     "source": "editorial",
     "event": "united-kingdom",
+    "place": "united-kingdom-of-israel_1301",
     "reigns": [
       { "event": "reign-of-saul", "house": "House of Saul" },
       { "event": "reign-of-david", "house": "House of David" },
@@ -16,6 +17,7 @@
     "region": "North",
     "source": "editorial",
     "event": "northern-kingdom-israel",
+    "place": "northern-kingdom-of-israel_1302",
     "fate": "Falls to Assyria",
     "reigns": [
       { "event": "reign-of-jeroboam-i", "house": "House of Jeroboam" },
@@ -46,6 +48,7 @@
     "region": "South",
     "source": "editorial",
     "event": "southern-kingdom-judah",
+    "place": "judah-southern_1281",
     "fate": "Falls to Babylon",
     "reigns": [
       { "event": "reign-of-rehoboam", "house": "House of David" },

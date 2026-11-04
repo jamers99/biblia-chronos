@@ -20,7 +20,8 @@ coordinates.
 
 `kingdoms.json` is hand-authored in full too: the kingdoms on the timeline's
 kingdoms track (the united monarchy, Israel, Judah), each naming its span
-`event`, an optional `region` and `fate`, and its `reigns` in order of
+`event`, an optional `region`, `fate`, and `place` (the place record for its
+land: the place page links to the kingdom and back), and its `reigns` in order of
 succession — each a "Reign of X" event id, the ruling `house`, so dynasty
 changes show, and an optional `note` for an unusual reign (a co-regency, a
 rival claimant). A king who founded no dynasty gets a house named after
