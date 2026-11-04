@@ -18,6 +18,21 @@ optional `journey` (`{ name, places }`, in order), and its key `moments` (event
 ids) and `people`. The checker requires every id to exist, and places to have
 coordinates.
 
+`kingdoms.json` is hand-authored in full too: the kingdoms (the united
+monarchy, Israel, Judah) and their lines of kings. Each names its span `event`;
+optionally a `region`, a `fate`, and a `place` (the place record for its land,
+which then links to the kingdom and back); and its `reigns` in order of
+succession, each a "Reign of X" event id, the ruling `house` (so dynasty
+changes show), and an optional `note` for an unusual reign (a co-regency, a
+rival claimant). A king who founded no dynasty gets a house named after himself
+("Zimri"), drawn in a neutral tone.
+
+On the timeline, kingdoms that overlap in time get a row each, and one that
+overlaps none spans them all. Each kingdom's event page lists its kings; each
+reign's page shows where it sits in the line. The checker requires every event
+to exist and be dated, each reign to fall within its kingdom's span, no reign
+to be listed twice, and a `place` to be a known place.
+
 - **Entities** are matched by `id`. A matching override's fields are overlaid
   onto the seed record (shallow, per top-level field), so you can correct just
   one field. An override with a new `id` adds a whole new record.

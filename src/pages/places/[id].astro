@@ -6,7 +6,8 @@ import Relations from "../../components/Relations.astro"
 import EventList from "../../components/EventList.astro"
 import Scripture from "../../components/Scripture.astro"
 import SourceNote from "../../components/SourceNote.astro"
-import { places, graph, resolve } from "../../lib/data/load.ts"
+import Succession from "../../components/Succession.astro"
+import { places, graph, resolve, track } from "../../lib/data/load.ts"
 import type { Place } from "../../lib/data/schema.ts"
 import { formatEstimate, summarize } from "../../lib/format.ts"
 import { project, MAP_W, MAP_H } from "../../lib/geo.ts"
@@ -24,6 +25,10 @@ const xy = coords && project(coords)
 // The dot this place is drawn as on the map (an alias as its main place).
 const mapId = mapStandIn(place, graph.outgoing, (id) => resolve([id], "place")[0])
 const linked = (ids: string[]) => resolve(ids, "place")
+// A kingdom whose land this is. A dated place (Israel, 975–721 BC) is the
+// kingdom itself, so it shows the line of kings in brief; an undated one
+// would outlive the kingdom, so it only links to it.
+const kingdoms = track.kingdoms.filter((k) => k.place === place.id)
 ---
 
 <Page title={place.name} description={summarize(place.description)}>
@@ -51,8 +56,11 @@ const linked = (ids: string[]) => resolve(ids, "place")
     )
   }
 
+  {place.date && kingdoms.map((k) => <Succession kingdom={k} list={false} />)}
+
   <Relations
     rows={[
+      ["Kingdom", resolve(kingdoms.map((k) => k.event), "event")],
       ["Same place as", linked(graph.outgoing(place.id, "alias-of"))],
       ["Other names", linked(graph.incoming(place.id, "alias-of"))],
       ["Part of", linked(graph.outgoing(place.id, "part-of"))],

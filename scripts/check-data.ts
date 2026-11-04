@@ -17,6 +17,7 @@ import {
   Event,
   PeopleGroup,
   Period,
+  Kingdom,
   Book,
   Edge,
   Source,
@@ -51,6 +52,7 @@ const merged = {
   peopleGroups: mergeEntities(readSeed("peopleGroups.json"), readOverride("peopleGroups.json")),
   books: mergeEntities(readSeed("books.json"), readOverride("books.json")),
   periods: readOverride("periods.json"), // hand-authored only, no seed
+  kingdoms: readOverride("kingdoms.json"), // hand-authored only, no seed
   edges: mergeEdges(readSeed("edges.json"), readOverride("edges.json")),
 }
 
@@ -73,6 +75,7 @@ const places = validate("places", Place, merged.places)
 const events = validate("events", Event, merged.events)
 const peopleGroups = validate("peopleGroups", PeopleGroup, merged.peopleGroups)
 const periods = validate("periods", Period, merged.periods)
+const kingdoms = validate("kingdoms", Kingdom, merged.kingdoms)
 const books = validate("books", Book, merged.books)
 const edges = validate("edges", Edge, merged.edges)
 
@@ -183,6 +186,27 @@ for (const p of periods) {
   check(p.people, "person")
 }
 
+// A kingdom's span and reigns are dated events; each reign falls within the
+// kingdom's span and is listed once.
+const eventById = new Map(events.map((e) => [e.id, e]))
+const reignedIn = new Map<string, string>()
+for (const k of kingdoms) {
+  if (!sourceIds.has(k.source)) err(`kingdom "${k.id}" references unknown source "${k.source}"`)
+  if (k.place && entityKind.get(k.place) !== "place") err(`kingdom "${k.id}" place "${k.place}" isn't a known place`)
+  const span = eventById.get(k.event)?.date
+  if (span?.earliest === undefined || span.latest === undefined) {
+    err(`kingdom "${k.id}" event "${k.event}" isn't a known, dated event`)
+    continue
+  }
+  for (const r of k.reigns) {
+    const d = eventById.get(r.event)?.date
+    if (d?.earliest === undefined || d.latest === undefined) err(`kingdom "${k.id}" reign "${r.event}" isn't a known, dated event`)
+    else if (d.earliest < span.earliest || d.latest > span.latest) err(`kingdom "${k.id}" reign "${r.event}" falls outside the kingdom's span`)
+    if (reignedIn.has(r.event)) err(`reign "${r.event}" is listed in both "${reignedIn.get(r.event)}" and "${k.id}"`)
+    reignedIn.set(r.event, k.id)
+  }
+}
+
 // --- 6. Orphans (warning only) ----------------------------------------------
 
 const connected = new Set<string>()
@@ -207,7 +231,7 @@ function finish(): never {
   lines.push("======================================")
   lines.push(
     `Records: ${people.length} people · ${places.length} places · ${events.length} events · ` +
-      `${peopleGroups.length} groups · ${periods.length} periods · ${books.length} books · ` +
+      `${peopleGroups.length} groups · ${periods.length} periods · ${kingdoms.length} kingdoms · ${books.length} books · ` +
       `${edges.length} edges`,
   )
   if (warnings.length) {

@@ -83,6 +83,7 @@ Concretely: on a desktop everything should feel smooth and immediate, with no vi
 | Site bar, menu, and settings (theme, draft records) | `src/layouts/Page.astro` |
 | Site search: index + ranking / `/search.json` / box | `src/lib/search.ts` / `src/pages/search.json.ts` / `src/components/SiteSearch.astro` |
 | Hand-authored eras | `data/overrides/periods.json` |
+| Kingdoms track: kings by kingdom and house | `data/overrides/kingdoms.json` / `src/lib/kingdoms.ts` |
 | Basemap geography | `data/geo/` |
 
 The logic lives in pure modules under `src/lib/` with tests next to them (`npm test`); the Svelte islands only render and handle input. Everything that can run at build time does: places are projected and timeline items are computed during the build, so the browser gets plain numbers and never loads d3-geo or the full dataset. The one exception is the search index, a trimmed list of names (about 60 KB gzipped) fetched the first time someone searches.

@@ -3,9 +3,10 @@
 // data/seed/ directly — none of this ships to the browser. Islands get the
 // small slices they need as props.
 
-import type { Person, Place, Event, PeopleGroup, Period, Book, Edge, Source } from "./schema.ts"
+import type { Person, Place, Event, PeopleGroup, Period, Kingdom, Book, Edge, Source } from "./schema.ts"
 import { mergeEntities, mergeEdges } from "./merge.ts"
 import { createGraph } from "./graph.ts"
+import { kingdomTrack } from "../kingdoms.ts"
 
 // JSON imports are resolved by Vite at build time (relative to this file).
 import peopleData from "../../../data/seed/people.json"
@@ -41,6 +42,9 @@ export const periods = (override("periods.json") as Period[]).sort(
   (a, b) => a.date.earliest - b.date.earliest,
 )
 
+// Kingdoms and their lines of kings, hand-authored only, in file order.
+export const kingdoms = override("kingdoms.json") as Kingdom[]
+
 export const graph = createGraph(edges)
 
 export type Entity = Person | Place | Event | PeopleGroup
@@ -58,6 +62,10 @@ export function resolve<K extends Entity["kind"]>(ids: string[], kind: K) {
     .map((id) => byId.get(id))
     .filter((e): e is Extract<Entity, { kind: K }> => e?.kind === kind)
 }
+
+// The kingdoms track (see src/lib/kingdoms.ts), for the timeline and the
+// kingdom and reign pages.
+export const track = kingdomTrack(kingdoms, events, (id) => graph.incoming(id, "participated-in")[0])
 
 // The dated (or undated) events a person took part in.
 export const eventsOf = (personId: string) => resolve(graph.outgoing(personId, "participated-in"), "event")
