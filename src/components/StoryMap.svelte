@@ -37,6 +37,11 @@
   const NUMERALS = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"]
   const MAX_LABELS = 60
   const RADIUS = [5.5, 3, 1.8] // by tier
+  // The basemap's edges fade into the water, and the view can pan this far
+  // past them (fractions of the map's size), so even zoomed all the way out
+  // there's room to move about rather than a map pinned in place.
+  const FADE = 0.06
+  const SLACK = 0.3
 
   let width = $state(1200)
   let height = $state(800)
@@ -199,7 +204,7 @@
   const around = (p: MapPlace): Box => [p.x - 30, p.y - 25, p.x + 30, p.y + 25]
 
   // Keep zoom bounds in step with the window: no further out than the whole
-  // basemap, no panning off its edges.
+  // basemap, and panning only a little way past its (faded) edges.
   $effect(() => {
     behavior
       ?.extent([
@@ -208,8 +213,8 @@
       ])
       .scaleExtent([Math.min(width / mapWidth, height / mapHeight), 60])
       .translateExtent([
-        [0, 0],
-        [mapWidth, mapHeight],
+        [-mapWidth * SLACK, -mapHeight * SLACK],
+        [mapWidth * (1 + SLACK), mapHeight * (1 + SLACK)],
       ])
   })
 
@@ -261,6 +266,12 @@
         <feGaussianBlur stdDeviation="4" result="blur" />
         <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
       </filter>
+      {#each [["l", 0, 0, 1, 0], ["r", 1, 0, 0, 0], ["t", 0, 0, 0, 1], ["b", 0, 1, 0, 0]] as [side, x1, y1, x2, y2] (side)}
+        <linearGradient id="sm-fade-{side}" {x1} {y1} {x2} {y2}>
+          <stop offset="0" class="fade-solid" />
+          <stop offset="1" class="fade-clear" />
+        </linearGradient>
+      {/each}
       {#if journey}
         <!-- Reveals the journey, drawing it from its start, once per chapter -->
         <mask id="sm-journey" maskUnits="userSpaceOnUse" x="0" y="0" {width} {height}>
@@ -271,7 +282,23 @@
       {/if}
     </defs>
     <rect class="water" {width} {height} />
-    <g transform={transform.toString()}>{@html basemapSvg}</g>
+    <g transform={transform.toString()}>
+      {@html basemapSvg}
+      <!-- Each edge fades into the water: a band of water colour, solid at the
+           edge and clear inward, in map units so it moves with the map. -->
+      {#each ["l", "r", "t", "b"] as side (side)}
+        {@const across = side === "l" || side === "r"}
+        {@const band = across ? mapWidth * FADE : mapHeight * FADE}
+        <rect
+          class="edge"
+          fill="url(#sm-fade-{side})"
+          x={side === "r" ? mapWidth - band : 0}
+          y={side === "b" ? mapHeight - band : 0}
+          width={across ? band : mapWidth}
+          height={across ? mapHeight : band}
+        />
+      {/each}
+    </g>
 
     {#if journey}
       <path class="journey" d={journey.d} mask="url(#sm-journey)" />
@@ -405,6 +432,16 @@
   }
   .water {
     fill: var(--water);
+  }
+  .edge {
+    pointer-events: none;
+  }
+  .fade-solid {
+    stop-color: var(--water);
+  }
+  .fade-clear {
+    stop-color: var(--water);
+    stop-opacity: 0;
   }
 
   /* --- Marks --- */
