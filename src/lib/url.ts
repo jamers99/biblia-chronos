@@ -1,4 +1,4 @@
-// Links respect the site's base path (/biblia-chronos on GitHub Pages).
+// Links respect the site's base path (see astro.config.mjs; currently the root).
 const base = import.meta.env.BASE_URL.replace(/\/$/, "")
 
 export const url = (path: string) => `${base}${path}`

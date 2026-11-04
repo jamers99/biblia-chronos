@@ -3,11 +3,11 @@ import { defineConfig } from "astro/config"
 import svelte from "@astrojs/svelte"
 
 // Static output, hostable on GitHub Pages or any container (no server).
-// Deployed to the project Pages site at https://jamers99.github.io/biblia-chronos,
-// so assets and links are served under the `/biblia-chronos` base path.
+// Deployed to GitHub Pages under the custom domain https://chronos.jamers99.com,
+// served from the root, so there is no base path.
 export default defineConfig({
-  site: "https://jamers99.github.io",
-  base: "/biblia-chronos",
+  site: "https://chronos.jamers99.com",
+  base: "/",
   integrations: [svelte()],
   // Styles as files, never inlined, so a page shown in a panel over another
   // (see Layers.astro) can bring its stylesheets along.

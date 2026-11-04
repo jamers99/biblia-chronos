@@ -87,7 +87,7 @@ Code is MIT; the curated data is licensed separately (likely CC-BY-SA to stay co
 
 ```sh
 npm ci
-npm run dev          # local site at http://localhost:4321/biblia-chronos/
+npm run dev          # local site at http://localhost:4321/
 npm test             # unit tests for the pure logic in src/lib
 npm run check        # type-check (astro check)
 npm run check:data   # validate data/seed + data/overrides
