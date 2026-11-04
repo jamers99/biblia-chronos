@@ -21,6 +21,7 @@
   import { formatSpan, formatYear, labelWidth } from "../lib/format.ts"
   import { entityUrl, setHash } from "../lib/url.ts"
   import { addInertia } from "../lib/inertia.ts"
+  import { remember } from "../lib/remember.ts"
   import { ms } from "../lib/motion.ts"
 
   let { items, periods, kingdoms }: { items: TimelineItem[]; periods: TimelinePeriod[]; kingdoms: KingdomTrack } =
@@ -258,8 +259,17 @@
     svg.addEventListener("wheel", onWheel, { passive: false })
 
     const lookup = (id: string) => byId.get(id) ?? periods.find((p) => p.id === id)
+    // A link to something on the timeline shows it; otherwise come back to
+    // where you were.
+    const view = remember<{ span: number[]; selected?: string }>("timeline")
     const fromHash = lookup(decodeURIComponent(location.hash.slice(1)))
+    const saved = view.load()
     if (fromHash) choose(fromHash)
+    else if (saved) {
+      behavior.transform(select(svg), span(saved.span[0], saved.span[1]))
+      selected = saved.selected ? lookup(saved.selected) : undefined
+    }
+    const forget = view.onLeave(() => ({ span: x.domain(), selected: selected?.id }))
 
     // The site search shows what's on the timeline here, in place.
     const onPick = (e: Event) => {
@@ -273,6 +283,7 @@
       svg.removeEventListener("wheel", onWheel)
       removeEventListener("drafts", onDrafts)
       removeEventListener("search-pick", onPick)
+      forget()
     }
   })
 
@@ -295,12 +306,15 @@
     if (location.hash !== hash) setHash(hash.slice(1))
   })
 
+  // The view that shows exactly [start, end].
+  function span(start: number, end: number) {
+    const k = width / (base(end) - base(start))
+    return zoomIdentity.scale(k).translate(-base(start), 0)
+  }
   // Glide to show [start, end] with some room around it.
   function flyTo(start: number, end: number) {
     const pad = Math.max(8, (end - start) * 0.08)
-    const k = width / (base(end + pad) - base(start - pad))
-    const t = zoomIdentity.scale(k).translate(-base(start - pad), 0)
-    select(svg).transition().duration(ms(750)).call(behavior.transform, t)
+    select(svg).transition().duration(ms(750)).call(behavior.transform, span(start - pad, end + pad))
   }
   const zoomBy = (factor: number) => select(svg).transition().duration(ms(250)).call(behavior.scaleBy, factor)
 

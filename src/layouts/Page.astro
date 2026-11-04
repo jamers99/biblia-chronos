@@ -58,6 +58,19 @@ const current = (href: string) => (isCurrent(href) ? "page" : undefined)
       // Draft records are shown unless hidden from the menu.
       document.documentElement.dataset.drafts = localStorage.getItem("drafts") ?? "shown"
     </script>
+    {
+      immersive && (
+        <script is:inline>
+          // The installed app opens on the view you were last in, the timeline
+          // or the map (it launches at ?app, see manifest.webmanifest.ts).
+          try {
+            const last = localStorage.getItem("view")
+            if (location.search === "?app" && last && last !== location.pathname) location.replace(last)
+            else localStorage.setItem("view", location.pathname)
+          } catch {}
+        </script>
+      )
+    }
     <slot name="head" />
   </head>
   <body class:list={{ immersive }}>

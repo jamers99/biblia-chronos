@@ -82,6 +82,7 @@ Concretely: on a desktop everything should feel smooth and immediate, with no vi
 | Pages for every person, place, event, and group | `src/pages/` |
 | Site bar, menu, and settings (theme, draft records) | `src/layouts/Page.astro` |
 | Site search: index + ranking / `/search.json` / box | `src/lib/search.ts` / `src/pages/search.json.ts` / `src/components/SiteSearch.astro` |
+| Views remember where you were (on this device), and the app reopens on the last one | `src/lib/remember.ts`, `src/layouts/Page.astro` |
 | Hand-authored eras | `data/overrides/periods.json` |
 | Kingdoms track: kings by kingdom and house | `data/overrides/kingdoms.json` / `src/lib/kingdoms.ts` |
 | Basemap geography | `data/geo/` |
