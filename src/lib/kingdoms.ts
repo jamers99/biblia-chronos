@@ -1,7 +1,8 @@
-// The timeline's kingdoms track: the united monarchy, then Israel and Judah side
-// by side, each king a block coloured by his ruling house. Built at build time
-// from data/overrides/kingdoms.json and the imported "Reign of X" events, so the
-// island gets plain years and only has to scale them.
+// The kingdoms and their lines of kings: the united monarchy, then Israel and
+// Judah side by side, each king coloured by his ruling house. Built at build
+// time from data/overrides/kingdoms.json and the imported "Reign of X" events,
+// for the timeline's kingdoms track and the kingdom, reign, and place pages.
+// The timeline island gets plain years and only has to scale them.
 
 import type { Event, Kingdom } from "./data/schema.ts"
 import { spanOf } from "./chronology.ts"
@@ -65,18 +66,18 @@ export function kingdomTrack(
   events: Event[],
   kingOf: (reignId: string) => string | undefined = () => undefined,
 ): KingdomTrack {
-  const spans = new Map(events.flatMap((e) => {
-    const span = spanOf(e.date)
-    return span ? [[e.id, { ...span, name: e.name }] as const] : []
-  }))
+  // Each dated event's span, and the king it names ("Reign of Asa" -> "Asa").
+  const spans = new Map(
+    events.flatMap((e) => {
+      const span = spanOf(e.date)
+      return span ? [[e.id, { ...span, king: e.name.replace(/^Reign of /, "") }] as const] : []
+    }),
+  )
 
   // A "house" named after its only king is a lone reign, not a dynasty.
   const kingsOf = new Map<string, Set<string>>()
   for (const k of kingdoms)
-    for (const r of k.reigns) {
-      const king = spans.get(r.event)?.name.replace(/^Reign of /, "") ?? ""
-      kingsOf.set(r.house, (kingsOf.get(r.house) ?? new Set()).add(king))
-    }
+    for (const r of k.reigns) kingsOf.set(r.house, (kingsOf.get(r.house) ?? new Set()).add(spans.get(r.event)?.king ?? ""))
   const lone = (house: string) => {
     const kings = kingsOf.get(house)
     return !!kings && kings.size === 1 && kings.has(house)
@@ -96,10 +97,9 @@ export function kingdomTrack(
     const span = spans.get(k.event)!
     const reigns: Reign[] = k.reigns.flatMap((r) => {
       const s = spans.get(r.event)
-      const king = s?.name.replace(/^Reign of /, "")
-      return s && king
-        ? [{ id: r.event, king, kingId: kingOf(r.event), house: r.house, note: r.note, tone: tone(r.house), start: s.start, end: s.end, sub: 0, opens: false, closes: false }]
-        : []
+      if (!s) return []
+      const { king, start, end } = s
+      return [{ id: r.event, king, kingId: kingOf(r.event), house: r.house, note: r.note, tone: tone(r.house), start, end, sub: 0, opens: false, closes: false }]
     })
 
     // Longest reigns claim the main line; shorter overlapping ones step down.
@@ -117,9 +117,8 @@ export function kingdomTrack(
       if (last?.name === r.house) {
         last.end = Math.max(last.end, r.end)
         last.reigns.push(r)
-      } else houses.push({ name: r.house, tone: r.tone, start: r.start, end: r.end, reigns: [r], named: true })
+      } else houses.push({ name: r.house, tone: r.tone, start: r.start, end: r.end, reigns: [r], named: r.tone !== LONE })
     }
-    for (const h of houses) h.named = h.tone !== LONE
     const main = reigns.filter((r) => !r.sub)
     main.forEach((r, i) => {
       r.opens = main[i - 1]?.house !== r.house
@@ -151,6 +150,11 @@ export function kingdomTrack(
   }
   return { rows: Math.max(1, count), kingdoms: rows }
 }
+
+// A kingdom's dynasties, each once, in the order they first reigned: the key on
+// its page and the count of royal houses. Lone kings aren't dynasties.
+export const dynasties = (k: KingdomRow): House[] =>
+  k.houses.filter((h, i) => h.named && k.houses.findIndex((o) => o.name === h.name) === i)
 
 // Where a reign sits in its kingdom's line: the kingdom, and the kings either
 // side of it in order of succession.

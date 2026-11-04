@@ -100,6 +100,29 @@ h2 {
   margin-top: 2.25rem;
 }
 
+/* A royal house's tone (see --house-*), as --tone for the element to use. */
+.tone-0 {
+  --tone: var(--house-0);
+}
+.tone-1 {
+  --tone: var(--house-1);
+}
+.tone-2 {
+  --tone: var(--house-2);
+}
+.tone-3 {
+  --tone: var(--house-3);
+}
+.tone-4 {
+  --tone: var(--house-4);
+}
+.tone-5 {
+  --tone: var(--house-5);
+}
+.tone-6 {
+  --tone: var(--house-6);
+}
+
 a {
   color: var(--accent);
   text-decoration-thickness: 1px;

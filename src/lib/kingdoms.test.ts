@@ -1,6 +1,6 @@
 import { test } from "node:test"
 import assert from "node:assert/strict"
-import { kingdomTrack, placeLabels, reignContext, LONE } from "./kingdoms.ts"
+import { dynasties, kingdomTrack, placeLabels, reignContext, LONE } from "./kingdoms.ts"
 import type { Event, Kingdom } from "./data/schema.ts"
 
 const event = (id: string, name: string, earliest: number, latest: number): Event => ({
@@ -72,4 +72,12 @@ test("reignContext finds a reign's kingdom and the kings either side", () => {
   assert.equal(at.kingdom.id, "israel")
   assert.deepEqual([at.before?.king, at.after?.king], ["A", "C"])
   assert.equal(reignContext(track, "nowhere"), undefined)
+})
+
+test("dynasties lists each house once and leaves out lone kings", () => {
+  const judah = kingdomTrack(
+    [k("judah", "south", [["reign-of-d", "House of David"], ["reign-of-e", "E"], ["reign-of-a", "House of David"]])],
+    events,
+  ).kingdoms[0]
+  assert.deepEqual(dynasties(judah).map((h) => h.name), ["House of David"])
 })

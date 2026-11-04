@@ -17,7 +17,7 @@
   import { select } from "d3-selection"
   import "d3-transition"
   import { packLanes, type TimelineItem, type TimelinePeriod } from "../lib/timeline.ts"
-  import { placeLabels, type KingdomRow, type KingdomTrack, type Reign } from "../lib/kingdoms.ts"
+  import { dynasties, placeLabels, type KingdomRow, type KingdomTrack, type Reign } from "../lib/kingdoms.ts"
   import { formatSpan, formatYear, labelWidth } from "../lib/format.ts"
   import { entityUrl, setHash } from "../lib/url.ts"
   import { addInertia } from "../lib/inertia.ts"
@@ -69,8 +69,10 @@
 
   const isItem = (s: TimelineItem | TimelinePeriod | undefined): s is TimelineItem => !!s && "kind" in s
   const focus = $derived(isItem(selected) ? selected : undefined)
-  const related = $derived(new Set(focus?.related ?? []))
-  const dimmed = (i: TimelineItem) => !!focus && i !== focus && !related.has(i.id)
+  // A selected kingdom also lights up its own line of kings.
+  const related = $derived(new Set([...(focus?.related ?? []), ...(focus ? ownReigns(focus.id) : [])]))
+  // Anything on the timeline (an item, a reign, a kingdom) by its id.
+  const dimmed = (id: string) => !!focus && id !== focus.id && !related.has(id)
 
   // Lanes are packed in "world" pixels: the whole timeline at the current zoom
   // with no pan applied, not just what's in view. Dragging only pans, so
@@ -147,10 +149,13 @@
   const tall = (k: KingdomRow) => k.row === "all" && kingdoms.rows > 1
   const kingWidth = (r: Reign, k: KingdomRow) => r.king.length * (tall(k) ? 7.6 : 6.4)
 
-  const reignDimmed = (id: string) => !!focus && focus.id !== id && !related.has(id)
   function pickTrack(id: string) {
     const item = byId.get(id)
     if (item) selected = item
+  }
+  function ownReigns(id: string) {
+    const at = onTrack.get(id)
+    return at && !at.reign ? at.kingdom.reigns.map((r) => r.id) : []
   }
   const trackKind = (id: string) => {
     const at = onTrack.get(id)
@@ -163,8 +168,8 @@
     const { kingdom: k, reign } = at
     const name = k.region ? `${k.name} (${k.region.toLowerCase()})` : k.name
     if (reign) return `${name} · ${reign.house}${reign.note ? ` · ${reign.note}` : ""}`
-    const houses = new Set(k.houses.map((h) => h.name)).size
-    return `${k.reigns.length} kings · ${houses} ${houses === 1 ? "house" : "houses"}${k.fate ? ` · ${k.fate}` : ""}`
+    const houses = dynasties(k).length
+    return `${k.reigns.length} kings · ${houses} royal ${houses === 1 ? "house" : "houses"}${k.fate ? ` · ${k.fate}` : ""}`
   }
 
   // Where each placed item is drawn: [left, right, y], for links and the card.
@@ -420,7 +425,7 @@
             class="reign tone-{r.tone}"
             class:sub={r.sub > 0}
             class:tall={tall(k)}
-            class:dim={reignDimmed(r.id)}
+            class:dim={dimmed(r.id)}
             class:focus={focus?.id === r.id}
             onclick={(e) => {
               e.stopPropagation()
@@ -444,7 +449,7 @@
             <!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions -->
             <text
               class="kingdom-name"
-              class:dim={reignDimmed(k.event)}
+              class:dim={dimmed(k.event)}
               x={l.x}
               y={box.label}
               onclick={(e) => {
@@ -492,7 +497,7 @@
           <!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions -->
           <g
             class="item {item.kind}"
-            class:dim={dimmed(item)}
+            class:dim={dimmed(item.id)}
             class:focus={item === focus}
             class:draft={item.draft}
             style="transform: translateY({y}px)"
@@ -790,30 +795,8 @@
     opacity: 0.45;
   }
 
-  /* Kingdoms track. Each house has a tone (global.css): David's line is gold,
-     so it reads at a glance through Judah; the others take turns. */
-  .reign,
-  .house {
-    --tone: var(--house-0);
-  }
-  .tone-1 {
-    --tone: var(--house-1);
-  }
-  .tone-2 {
-    --tone: var(--house-2);
-  }
-  .tone-3 {
-    --tone: var(--house-3);
-  }
-  .tone-4 {
-    --tone: var(--house-4);
-  }
-  .tone-5 {
-    --tone: var(--house-5);
-  }
-  .tone-6 {
-    --tone: var(--house-6);
-  }
+  /* Kingdoms track. Each house has a tone (.tone-N in global.css): David's
+     line is gold, so it reads at a glance through Judah. */
   .reign {
     cursor: pointer;
     transition: opacity 0.2s;
