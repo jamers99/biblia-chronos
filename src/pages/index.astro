@@ -1,8 +1,9 @@
 ---
 import Page from "../layouts/Page.astro"
 import Timeline from "../components/Timeline.svelte"
-import { people, events, periods, graph, eventsOf } from "../lib/data/load.ts"
+import { people, events, periods, kingdoms, graph, eventsOf } from "../lib/data/load.ts"
 import { timelineItems, timelinePeriods } from "../lib/timeline.ts"
+import { kingdomTrack } from "../lib/kingdoms.ts"
 
 // What a selection lights up: a person's family and events, an event's people.
 const connections = (id: string) => [
@@ -24,5 +25,5 @@ const items = timelineItems(people, events, periods, eventsOf, connections)
   immersive
 >
   <h1 class="sr-only">The History of Israel, from Abraham to the early church</h1>
-  <Timeline client:load items={items} periods={timelinePeriods(periods)} />
+  <Timeline client:load items={items} periods={timelinePeriods(periods)} kingdoms={kingdomTrack(kingdoms, events)} />
 </Page>

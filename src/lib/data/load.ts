@@ -3,7 +3,7 @@
 // data/seed/ directly — none of this ships to the browser. Islands get the
 // small slices they need as props.
 
-import type { Person, Place, Event, PeopleGroup, Period, Book, Edge, Source } from "./schema.ts"
+import type { Person, Place, Event, PeopleGroup, Period, Kingdom, Book, Edge, Source } from "./schema.ts"
 import { mergeEntities, mergeEdges } from "./merge.ts"
 import { createGraph } from "./graph.ts"
 
@@ -40,6 +40,9 @@ export const sources = sourcesData as Source[]
 export const periods = (override("periods.json") as Period[]).sort(
   (a, b) => a.date.earliest - b.date.earliest,
 )
+
+// Kingdoms and their lines of kings, hand-authored only, in file order.
+export const kingdoms = override("kingdoms.json") as Kingdom[]
 
 export const graph = createGraph(edges)
 

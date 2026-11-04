@@ -88,6 +88,21 @@ export const Period = Base.extend({
   people: z.array(z.string()).optional(),
 })
 
+// A kingdom and its line of kings, for the timeline's kingdoms track.
+// Hand-authored in data/overrides/kingdoms.json, on top of the imported
+// "Reign of X" events: `event` is the kingdom's own span (e.g. "Southern
+// Kingdom (Judah)"), and each reign names its event and the ruling house, so a
+// change of dynasty is visible. Reigns are in order of succession.
+export const Kingdom = z.object({
+  id: z.string(),
+  name: z.string(), // "Judah"
+  region: z.string().optional(), // "South"
+  source: z.string(),
+  event: z.string(),
+  fate: z.string().optional(), // "Falls to Babylon"
+  reigns: z.array(z.object({ event: z.string(), house: z.string() })).min(1),
+})
+
 export const Book = z.object({
   // reference table, not a Base entity
   id: z.string(), // osisName lowercased, e.g. "gen"
@@ -146,6 +161,7 @@ export type Place = z.infer<typeof Place>
 export type Event = z.infer<typeof Event>
 export type PeopleGroup = z.infer<typeof PeopleGroup>
 export type Period = z.infer<typeof Period>
+export type Kingdom = z.infer<typeof Kingdom>
 export type Book = z.infer<typeof Book>
 export type Source = z.infer<typeof Source>
 export type EdgeType = z.infer<typeof EdgeType>
