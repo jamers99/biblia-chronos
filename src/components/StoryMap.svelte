@@ -115,8 +115,7 @@
     },
   )
 
-  function fit([x0, y0, x1, y1]: Box): ZoomTransform {
-    const [l, t, r, b] = stage()
+  function fit([x0, y0, x1, y1]: Box, [l, t, r, b] = stage()): ZoomTransform {
     const pad = 40
     const k = Math.min((r - l - pad * 2) / Math.max(x1 - x0, 10), (b - t - pad * 2) / Math.max(y1 - y0, 10), 40)
     return zoomIdentity.translate((l + r) / 2 - (k * (x0 + x1)) / 2, (t + b) / 2 - (k * (y0 + y1)) / 2).scale(k)
@@ -154,9 +153,31 @@
     const place = byId.get(hash)
     at = chapters.findIndex((c) => c.id === hash)
     if (place) selected = place
-    behavior.transform(select(svg), fit(place ? [place.x - 30, place.y - 25, place.x + 30, place.y + 25] : frameOf(chapter)))
+    behavior.transform(select(svg), fit(place ? around(place) : frameOf(chapter)))
     ready = true
+
+    // The site search shows places and eras here, in place: a place flies
+    // into view (and opens, as a click on it does), an era turns to its chapter.
+    const onPick = (e: Event) => {
+      const { id } = (e as CustomEvent<{ id: string }>).detail
+      const place = byId.get(id)
+      const i = chapters.findIndex((c) => c.id === id)
+      if (place) {
+        selected = place
+        // clear of the panel it opens in, on the right (on phones the panel
+        // is a sheet over most of the map, so there's no clear spot to aim for)
+        const [l, t, r, b] = stage()
+        const room: Box = narrow ? [l, t, r, b] : [l, t, Math.max(l + 200, r - 470), b]
+        select(svg).transition().duration(ms(1000)).call(behavior.transform, fit(around(place), room))
+      } else if (i >= 0) {
+        e.preventDefault()
+        go(i)
+      }
+    }
+    addEventListener("search-pick", onPick)
+    return () => removeEventListener("search-pick", onPick)
   })
+  const around = (p: MapPlace): Box => [p.x - 30, p.y - 25, p.x + 30, p.y + 25]
 
   // Keep zoom bounds in step with the window: no further out than the whole
   // basemap, no panning off its edges.

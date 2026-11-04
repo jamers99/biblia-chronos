@@ -1,12 +1,13 @@
 ---
 // The site shell. Every page gets the same bar: the brand, the two views
-// (Timeline and Map) as a switch, the record indexes, and a menu with About
-// and the site's settings. Normal pages then get a main column and the
+// (Timeline and Map) as a switch, the record indexes, search, and a menu
+// with About and the site's settings. Normal pages then get a main column and the
 // attribution footer; `immersive` pages (the timeline and the map) fill the
 // window instead, with the bar floating over them.
 import "../styles/global.css"
 import ThemeToggle from "../components/ThemeToggle.astro"
 import Layers from "../components/Layers.astro"
+import SiteSearch from "../components/SiteSearch.astro"
 import { url } from "../lib/url.ts"
 
 interface Props {
@@ -68,6 +69,7 @@ const current = (href: string) => (isCurrent(href) ? "page" : undefined)
       <nav class="indexes" aria-label="Records">
         {indexes.map(([label, href]) => <a href={url(href)} aria-current={current(href)}>{label}</a>)}
       </nav>
+      <SiteSearch />
       <details class="menu">
         <summary class="icon-button" aria-label="Menu">
           <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
@@ -144,7 +146,7 @@ const current = (href: string) => (isCurrent(href) ? "page" : undefined)
     --bar-h: 3.5rem;
     position: sticky;
     top: 0;
-    z-index: 20;
+    z-index: 40; /* above panels (Layers.astro), so search results show over them */
     display: flex;
     align-items: center;
     gap: 1.5rem;
@@ -218,7 +220,10 @@ const current = (href: string) => (isCurrent(href) ? "page" : undefined)
   /* --- The menu: About, appearance, and settings (and, on phones, the indexes) --- */
   .menu {
     position: relative;
-    margin-left: auto;
+  }
+  /* Phones: searching takes over the bar (see SiteSearch.astro). */
+  :global(header.bar.searching > :not(.site-search)) {
+    visibility: hidden;
   }
   .menu summary::-webkit-details-marker {
     display: none;

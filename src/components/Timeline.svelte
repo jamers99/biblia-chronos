@@ -8,7 +8,7 @@
   // animates jumps), Svelte renders the SVG. Lanes are re-packed on every
   // zoom (not on pan), heaviest first, so zooming in reveals more.
   import { onMount } from "svelte"
-  import { fade, fly, scale } from "svelte/transition"
+  import { fade, scale } from "svelte/transition"
   import { cubicOut } from "svelte/easing"
   import { scaleLinear } from "d3-scale"
   import { zoom, zoomIdentity, type ZoomBehavior, type ZoomTransform } from "d3-zoom"
@@ -29,7 +29,7 @@
   const PERSON_GAP = 30
   const STRIP = 64 // overview strip area at the bottom
   const CARD_W = 340
-  const CARD_TOP = 124 // below the site bar and the search
+  const CARD_TOP = 84 // below the site bar
 
   const domain = $derived([periods[0].start, periods[periods.length - 1].end])
   const byId = $derived(new Map(items.map((i) => [i.id, i])))
@@ -43,9 +43,7 @@
   // Raw, not deeply reactive: these hold items from props, compared by identity.
   let selected = $state.raw<TimelineItem | TimelinePeriod>()
   let hovered = $state.raw<{ item: TimelineItem; x: number; y: number }>()
-  let query = $state("")
   let svg: SVGSVGElement
-  let searchInput: HTMLInputElement
   let behavior: ZoomBehavior<SVGSVGElement, unknown>
 
   const axisY = $derived(Math.max(FIRST_LANE_TOP + 2 * EVENT_GAP + 40, Math.round(height * 0.47)))
@@ -165,11 +163,24 @@
     }
     svg.addEventListener("wheel", onWheel, { passive: false })
 
-    const fromHash = byId.get(decodeURIComponent(location.hash.slice(1)))
+    const hash = decodeURIComponent(location.hash.slice(1))
+    const fromHash = byId.get(hash) ?? periods.find((p) => p.id === hash)
     if (fromHash) choose(fromHash)
+
+    // The site search shows what's on the timeline here, in place.
+    const onPick = (e: Event) => {
+      const { id } = (e as CustomEvent<{ id: string }>).detail
+      const target = byId.get(id) ?? periods.find((p) => p.id === id)
+      if (!target) return
+      e.preventDefault()
+      if (isItem(target) && target.draft) showDrafts = true
+      choose(target)
+    }
+    addEventListener("search-pick", onPick)
     return () => {
       svg.removeEventListener("wheel", onWheel)
       removeEventListener("drafts", onDrafts)
+      removeEventListener("search-pick", onPick)
     }
   })
 
@@ -208,7 +219,6 @@
 
   // Select an item and bring it into view, with enough context around it.
   function choose(target: TimelineItem | TimelinePeriod) {
-    query = ""
     if (!isItem(target)) return pickPeriod(target)
     selected = target
     const mid = (target.start + target.end) / 2
@@ -219,8 +229,7 @@
   function onKey(e: KeyboardEvent) {
     if (e.target instanceof HTMLInputElement) return
     const step = width / 8 / transform.k
-    if (e.key === "/") searchInput.focus()
-    else if (e.key === "Escape") selected = undefined
+    if (e.key === "Escape") selected = undefined
     else if (e.key === "ArrowLeft") behavior.translateBy(select(svg), step, 0)
     else if (e.key === "ArrowRight") behavior.translateBy(select(svg), -step, 0)
     else if (e.key === "+" || e.key === "=") zoomBy(1.6)
@@ -228,15 +237,6 @@
     else return
     e.preventDefault()
   }
-
-  // --- Search -----------------------------------------------------------------
-
-  const results = $derived.by(() => {
-    const q = query.trim().toLowerCase()
-    if (q.length < 2) return []
-    const hits = (name: string) => name.toLowerCase().includes(q)
-    return [...periods.filter((p) => hits(p.name)), ...shown.filter((i) => hits(i.name))].slice(0, 8)
-  })
 
   // --- Selection card -----------------------------------------------------------
 
@@ -424,33 +424,6 @@
 
     <rect class="vignette" {width} {height} fill="url(#tl-vignette)" />
   </svg>
-
-  <!-- Search -->
-  <div class="search">
-    <input
-      bind:this={searchInput}
-      bind:value={query}
-      type="search"
-      placeholder="Search people, events, eras…"
-      aria-label="Search the timeline"
-      onkeydown={(e) => {
-        if (e.key === "Enter" && results[0]) choose(results[0])
-        if (e.key === "Escape") query = ""
-      }}
-    />
-    {#if results.length}
-      <ul class="results" transition:fly={{ y: -6, duration: 150 }}>
-        {#each results as r (r.id)}
-          <li>
-            <button type="button" onclick={() => choose(r)}>
-              <span>{r.name}</span>
-              <small>{isItem(r) ? (r.kind === "person" ? "Person" : "Event") : "Era"} · {formatSpan(r.start, r.end)}</small>
-            </button>
-          </li>
-        {/each}
-      </ul>
-    {/if}
-  </div>
 
   {#if hovered && hovered.item !== focus}
     <div class="tooltip" style="left: {hovered.x + 14}px; top: {hovered.y + 10}px" in:fade={{ duration: 120 }}>
@@ -686,61 +659,6 @@
     pointer-events: none;
   }
 
-  .search {
-    position: absolute;
-    /* just under the site bar (see Page.astro) */
-    top: calc(3.5rem + env(safe-area-inset-top) + 0.75rem);
-    right: max(1.5rem, env(safe-area-inset-right));
-    width: 18rem;
-    z-index: 11;
-  }
-  .search input {
-    width: 100%;
-    font: inherit;
-    font-size: 0.85rem;
-    padding: 0.5rem 0.9rem;
-    border-radius: 999px;
-    border: 1px solid var(--rule);
-    background: var(--surface);
-    color: var(--ink);
-  }
-  .search input:focus {
-    outline: none;
-    border-color: var(--gold);
-  }
-  .results {
-    list-style: none;
-    margin: 0.4rem 0 0;
-    padding: 0.3rem;
-    background: var(--surface);
-    border: 1px solid var(--rule);
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgb(40 30 15 / 0.15);
-  }
-  .results button {
-    display: flex;
-    justify-content: space-between;
-    gap: 0.75rem;
-    width: 100%;
-    padding: 0.4rem 0.6rem;
-    border: 0;
-    border-radius: 6px;
-    background: none;
-    font: inherit;
-    font-size: 0.85rem;
-    color: var(--ink);
-    text-align: left;
-    cursor: pointer;
-  }
-  .results button:hover,
-  .results button:focus-visible {
-    background: var(--wash);
-  }
-  .results small {
-    color: var(--ink-3);
-    white-space: nowrap;
-  }
-
   .card {
     position: absolute;
     width: 340px;
@@ -842,11 +760,6 @@
     }
     .corner {
       display: none;
-    }
-    .search {
-      left: 1rem;
-      right: 1rem;
-      width: auto;
     }
   }
 </style>
