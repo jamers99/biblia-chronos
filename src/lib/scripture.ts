@@ -4,29 +4,40 @@
 
 import type { Book, ScriptureRef } from "./data/schema.ts"
 
-export type BookCitation = { book: Book; text: string; count: number }
+// A run of consecutive verses in one chapter: "12:1–3" or just "5" after the first.
+export type VerseRun = { chapter: number; start: number; end: number; label: string }
+export type BookCitation = { book: Book; chapters: VerseRun[][]; text: string; count: number }
 
 export function citeRefs(refs: ScriptureRef[], books: Book[]): BookCitation[] {
   const bookById = new Map(books.map((b) => [b.id, b]))
   return [...Map.groupBy(refs, (r) => r.book)]
     .filter(([id]) => bookById.has(id))
-    .map(([id, rs]) => ({ book: bookById.get(id)!, text: citeChapters(rs), count: rs.length }))
+    .map(([id, rs]) => {
+      const chapters = citeChapters(rs)
+      return { book: bookById.get(id)!, chapters, text: joinChapters(chapters), count: rs.length }
+    })
     .sort((a, b) => a.book.order - b.book.order)
 }
 
 // "12:1–3, 5; 13:2" — chapters separated by "; ", verse runs by ", ".
-function citeChapters(refs: ScriptureRef[]): string {
+export const joinChapters = (chapters: VerseRun[][]) =>
+  chapters.map((runs) => runs.map((r) => r.label).join(", ")).join("; ")
+
+function citeChapters(refs: ScriptureRef[]): VerseRun[][] {
   const sorted = [...refs].sort((a, b) => a.chapter - b.chapter || a.verse - b.verse)
-  const chapters: string[] = []
+  const chapters: VerseRun[][] = []
   let chapter = -1
-  let runs: string[] = []
+  let runs: VerseRun[] = []
   let start = 0
   let end = 0
 
-  const closeRun = () => runs.push(start === end ? `${start}` : `${start}–${end}`)
+  const closeRun = () => {
+    const verses = start === end ? `${start}` : `${start}–${end}`
+    runs.push({ chapter, start, end, label: runs.length ? verses : `${chapter}:${verses}` })
+  }
   const closeChapter = () => {
     closeRun()
-    chapters.push(`${chapter}:${runs.join(", ")}`)
+    chapters.push(runs)
   }
 
   for (const r of sorted) {
@@ -44,5 +55,27 @@ function citeChapters(refs: ScriptureRef[]): string {
     }
   }
   if (chapter !== -1) closeChapter()
-  return chapters.join("; ")
+  return chapters
+}
+
+// Where a passage opens to read. Bible.com (YouVersion) is ad-free and lets the
+// reader switch translations; we start them in the ESV, which our quotes follow.
+const BIBLE_COM_VERSION = { id: 59, code: "ESV" }
+
+// Bible.com addresses books by USFM code, which differs from OSIS for these.
+const USFM: Record<string, string> = {
+  Exod: "EXO", Deut: "DEU", Josh: "JOS", Judg: "JDG", Ruth: "RUT", "1Sam": "1SA", "2Sam": "2SA",
+  "1Kgs": "1KI", "2Kgs": "2KI", "1Chr": "1CH", "2Chr": "2CH", Esth: "EST", Ps: "PSA", Prov: "PRO",
+  Eccl: "ECC", Song: "SNG", Ezek: "EZK", Joel: "JOL", Amos: "AMO", Obad: "OBA", Nah: "NAM",
+  Zeph: "ZEP", Zech: "ZEC", Matt: "MAT", Mark: "MRK", Luke: "LUK", John: "JHN", Acts: "ACT",
+  "1Cor": "1CO", "2Cor": "2CO", Phil: "PHP", "1Thess": "1TH", "2Thess": "2TH", "1Tim": "1TI",
+  "2Tim": "2TI", Phlm: "PHM", Jas: "JAS", "1Pet": "1PE", "2Pet": "2PE", "1John": "1JN",
+  "2John": "2JN", "3John": "3JN", Jude: "JUD",
+}
+export const usfm = (book: Book) => USFM[book.osis] ?? book.osis.slice(0, 3).toUpperCase()
+
+export function passageUrl(book: Book, run: VerseRun) {
+  const verses = run.start === run.end ? `${run.start}` : `${run.start}-${run.end}`
+  const { id, code } = BIBLE_COM_VERSION
+  return `https://www.bible.com/bible/${id}/${usfm(book)}.${run.chapter}.${verses}.${code}`
 }

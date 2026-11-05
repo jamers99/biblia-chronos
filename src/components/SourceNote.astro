@@ -11,7 +11,7 @@ const s = source(Astro.props.sourceId)
 {
   s && (
     <p class="source">
-      Source: {s.url ? <a href={s.url}>{s.title}</a> : s.title}
+      Source: {s.url ? <a href={s.url} target="_blank" rel="noopener">{s.title}</a> : s.title}
       {s.license && ` (${s.license})`}
     </p>
   )

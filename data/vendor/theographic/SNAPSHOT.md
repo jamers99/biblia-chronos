@@ -13,7 +13,8 @@ importer doesn't read (`chapters.json`, `easton.json`) aren't vendored.
 Each file is a JSON array of records shaped `{ id, createdTime, fields: {…} }`,
 where `id` is the Airtable record id and the real data lives under `fields`.
 
-To update: re-pull at a newer commit, bump `snapshot.json`, then re-run
+To update: re-pull at a newer commit, bump `snapshot.json` (and the
+theographic `url` in `data/sources.json`, which links to it), then re-run
 `npm run vendor:fetch && npm run import:theographic` so the seed diff is
 reviewable.
 

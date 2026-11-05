@@ -110,6 +110,13 @@ for (const e of allRecords)
 for (const e of edges)
   if (!sourceIds.has(e.source)) err(`edge ${e.from}->${e.to} references unknown source "${e.source}"`)
 
+// The Theographic source links to the exact snapshot we import from, so a
+// re-vendor has to move the link along with it.
+const snapshot = JSON.parse(readFileSync(join(root, "data", "vendor", "theographic", "snapshot.json"), "utf8"))
+const theographic = sourceList.find((s) => s.id === "theographic")
+if (theographic && !theographic.url?.includes(snapshot.commit))
+  err(`source "theographic" url should point at the vendored commit ${snapshot.commit} (see snapshot.json)`)
+
 // --- 3. Scripture refs resolve to a known book ------------------------------
 
 for (const e of allRecords)

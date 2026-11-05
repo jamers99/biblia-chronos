@@ -1,9 +1,10 @@
 ---
 // Where a record appears in Scripture, cited by book. Long lists (Jesus, David,
-// Jerusalem) fold behind a summary so the page stays scannable.
+// Jerusalem) fold behind a summary so the page stays scannable. Each verse run
+// links out to read it (see passageUrl), in a new tab.
 import type { ScriptureRef } from "../lib/data/schema.ts"
 import { books } from "../lib/data/load.ts"
-import { citeRefs } from "../lib/scripture.ts"
+import { citeRefs, passageUrl } from "../lib/scripture.ts"
 
 interface Props {
   refs?: ScriptureRef[]
@@ -23,7 +24,18 @@ const summary = `${verses} ${verses === 1 ? "verse" : "verses"} in ${cited.lengt
         <ul class="refs">
           {cited.map((c) => (
             <li>
-              <strong>{c.book.name}</strong> {c.text}
+              <strong>{c.book.name}</strong>{" "}
+              {c.chapters.map((runs, i) => (
+                <>
+                  {i > 0 && "; "}
+                  {runs.map((run, j) => (
+                    <>
+                      {j > 0 && ", "}
+                      <a href={passageUrl(c.book, run)} target="_blank" rel="noopener">{run.label}</a>
+                    </>
+                  ))}
+                </>
+              ))}
             </li>
           ))}
         </ul>
@@ -46,5 +58,14 @@ const summary = `${verses} ${verses === 1 ? "verse" : "verses"} in ${cited.lengt
   }
   .refs strong {
     font-weight: 600;
+  }
+  .refs a {
+    color: inherit;
+    text-decoration-color: var(--rule);
+    text-underline-offset: 0.2em;
+  }
+  .refs a:hover {
+    color: var(--accent);
+    text-decoration-color: currentColor;
   }
 </style>
