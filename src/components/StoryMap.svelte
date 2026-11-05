@@ -54,11 +54,11 @@
   let basemapSvg = $state("")
   let svg: SVGSVGElement
   let behavior: ZoomBehavior<SVGSVGElement, unknown>
-  let ready = $state(false) // marks wait for the first real view, not the server's
   // The server draws at a guessed size with nothing restored or loaded; the
   // map and the chapter stay hidden until the first real view is in place
-  // and the basemap is in, then fade in together, so arriving doesn't flash.
-  let shown = $state(false)
+  // and the basemap is in, then fade in together, so arriving doesn't flash
+  // (see .reveal in global.css). Marks wait for it too.
+  let ready = $state(false)
   let root: HTMLDivElement
 
   const byId = $derived(new Map(places.map((p) => [p.id, p])))
@@ -177,12 +177,11 @@
     selected = place ?? (saved?.selected ? byId.get(saved.selected) : undefined)
     behavior.transform(select(svg), saved ? showing(saved.box) : fit(place ? around(place) : frameOf(chapter)))
     if (saved) setHash(chapter?.id ?? "")
-    ready = true
     // Show it once that view and the basemap are drawn (two frames: past this
     // update and its layout), or after a moment if the basemap is slow.
     let frame = 0
     const reveal = () => {
-      if (!shown) frame = requestAnimationFrame(() => (frame = requestAnimationFrame(() => (shown = true))))
+      if (!ready) frame = requestAnimationFrame(() => (frame = requestAnimationFrame(() => (ready = true))))
     }
     const timer = setTimeout(reveal, 1500)
     loaded.then(reveal)
@@ -267,9 +266,10 @@
 
 <svelte:window onkeydown={onKey} />
 
-<div class="story-map" class:shown bind:this={root} bind:clientWidth={width} bind:clientHeight={height}>
+<div class="story-map reveal" class:ready bind:this={root} bind:clientWidth={width} bind:clientHeight={height}>
   <!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_noninteractive_element_interactions -->
   <svg
+    class="veiled"
     bind:this={svg}
     viewBox="0 0 {width} {height}"
     role="application"
@@ -366,7 +366,7 @@
 
   <section class="panel" aria-live="polite">
     {#key at}
-      <div class="chapter" in:fly={{ y: 10, duration: ms(350), delay: ms(150) }}>
+      <div class="chapter veiled" in:fly={{ y: 10, duration: ms(350), delay: ms(150) }}>
         {#if chapter}
           <p class="kicker">Chapter {NUMERALS[at]} · {chapter.when}</p>
           <h2>{chapter.name}</h2>
@@ -411,7 +411,7 @@
       </div>
     {/key}
 
-    <div class="turn">
+    <div class="turn veiled">
       {#if at >= 0}
         <button type="button" class="prev" onclick={() => go(at - 1)}>
           ← <span class:sr-only={narrow}>{at === 0 ? "All places" : chapters[at - 1].name}</span>
@@ -447,24 +447,6 @@
   }
   svg:active {
     cursor: grabbing;
-  }
-  /* Hidden until the first real view is drawn (see shown, above): only where
-     scripts run, so without them the server's drawing still shows. The
-     panel's sheet stays, so the layout holds still; what's in it fades in. */
-  :global(html.js) .story-map:not(.shown) :is(svg, .panel > *) {
-    opacity: 0;
-  }
-  :global(html.js) .story-map:not(.shown) :global(*) {
-    transition: none !important;
-    animation: none !important;
-  }
-  .story-map.shown :is(svg, .panel > *) {
-    animation: appear 0.25s ease-out;
-  }
-  @keyframes appear {
-    from {
-      opacity: 0;
-    }
   }
   .water {
     fill: var(--water);

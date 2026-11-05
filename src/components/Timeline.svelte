@@ -54,7 +54,8 @@
   let hovered = $state.raw<{ item: TimelineItem; x: number; y: number; note?: string }>()
   // The server draws the timeline at a guessed size with nothing restored;
   // it stays hidden until the first real view (this window's size, where you
-  // left off) is in place, then fades in, so launching doesn't flash.
+  // left off) is in place, then fades in, so launching doesn't flash (see
+  // .reveal in global.css).
   let ready = $state(false)
   let root: HTMLDivElement
   let svg: SVGSVGElement
@@ -384,9 +385,10 @@
 
 <svelte:window onkeydown={onKey} />
 
-<div class="timeline" class:ready bind:this={root} bind:clientWidth={width} bind:clientHeight={height}>
+<div class="timeline reveal" class:ready bind:this={root} bind:clientWidth={width} bind:clientHeight={height}>
   <!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_noninteractive_element_interactions -->
   <svg
+    class="veiled"
     bind:this={svg}
     viewBox="0 0 {width} {height}"
     role="application"
@@ -666,23 +668,6 @@
   }
   svg:active {
     cursor: grabbing;
-  }
-  /* Hidden until the first real view is drawn (see ready, above): only where
-     scripts run, so without them the server's drawing still shows. */
-  :global(html.js) .timeline:not(.ready) svg {
-    opacity: 0;
-  }
-  :global(html.js) .timeline:not(.ready) :global(*) {
-    transition: none !important;
-    animation: none !important;
-  }
-  .timeline.ready svg {
-    animation: reveal 0.25s ease-out;
-  }
-  @keyframes reveal {
-    from {
-      opacity: 0;
-    }
   }
 
   .band {

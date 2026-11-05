@@ -269,6 +269,27 @@ a:hover {
 
 /* --- App feel --------------------------------------------------------------- */
 
+/* Islands drawn on the server at a guessed size (the timeline, the map) keep
+   their .veiled parts hidden until the first real view is laid out, then
+   fade them in, so arriving doesn't flash. The island's root is .reveal and
+   gets .ready once laid out. Only where scripts run, so without them the
+   server's drawing still shows. */
+html.js .reveal:not(.ready) .veiled {
+  opacity: 0;
+}
+html.js .reveal:not(.ready) * {
+  transition: none !important;
+  animation: none !important;
+}
+.reveal.ready .veiled {
+  animation: appear 0.25s ease-out;
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+}
+
 /* Pages cross-fade into each other (browsers that support cross-document
    view transitions; others just navigate). */
 @view-transition {
