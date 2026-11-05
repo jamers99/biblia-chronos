@@ -65,7 +65,7 @@ const repo = "https://github.com/jamers99/biblia-chronos"
     {
       sources.map((s) => (
         <li>
-          <strong>{s.url ? <a href={s.url}>{s.title}</a> : s.title}</strong>
+          <strong>{s.url ? <a href={s.url} target="_blank" rel="noopener">{s.title}</a> : s.title}</strong>
           {s.author && ` by ${s.author}`}
           {s.license && ` (${s.license})`}
           {s.notes && <div class="muted">{s.notes}</div>}
@@ -76,7 +76,7 @@ const repo = "https://github.com/jamers99/biblia-chronos"
   <div class="prose">
     <p>
       The data derived from Theographic is shared under the same license,
-      <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. The code is MIT licensed.
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>. The code is MIT licensed.
     </p>
   </div>
 
