@@ -42,6 +42,7 @@
   // there's room to move about rather than a map pinned in place.
   const FADE = 0.06
   const SLACK = 0.3
+  const NARROW = 760 // px; keep in step with the media query below
 
   let width = $state(1200)
   let height = $state(800)
@@ -53,15 +54,21 @@
   let basemapSvg = $state("")
   let svg: SVGSVGElement
   let behavior: ZoomBehavior<SVGSVGElement, unknown>
-  let ready = $state(false) // marks wait for the first real view, not the server's
+  // The server draws at a guessed size with nothing restored or loaded; the
+  // map and the chapter stay hidden until the first real view is in place
+  // and the basemap is in, then fade in together, so arriving doesn't flash
+  // (see .reveal in global.css). Marks wait for it too.
+  let ready = $state(false)
+  let root: HTMLDivElement
 
   const byId = $derived(new Map(places.map((p) => [p.id, p])))
   const chapter = $derived<Chapter | undefined>(chapters[at])
 
-  // The panel's size is set here, not in CSS, so framing and labels know what
-  // it covers: a column on the left whose last 100px fade into the map, or on
-  // phones a sheet over the bottom half.
-  const narrow = $derived(width < 760)
+  // The panel covers a column on the left whose last 100px fade into the map,
+  // or on phones a sheet over the bottom half. Its CSS (below) matches these
+  // sizes, so the server's drawing has the right layout before any script
+  // runs; they're here so framing and labels know what it covers.
+  const narrow = $derived(width < NARROW)
   const panelWidth = $derived(Math.min(720, width * 0.52))
   const sheetTop = $derived(height * 0.5)
   // Where the map shows a chapter: beside the panel, or above it.
@@ -146,10 +153,15 @@
   }
 
   onMount(() => {
-    fetch(basemap)
+    // Measure now rather than waiting for the resize observer behind
+    // bind:clientWidth, so the first view is framed for this window.
+    width = root.clientWidth
+    height = root.clientHeight
+    const loaded = fetch(basemap)
       .then((r) => r.text())
       // drop the file's own colors so the page theme applies (see global.css)
       .then((text) => (basemapSvg = text.replace(/<(style)[\s\S]*?\/\1>/, "")))
+      .catch(() => {})
     behavior = zoom<SVGSVGElement, unknown>().on("zoom", (e) => (transform = e.transform))
     select(svg).call(behavior)
     addInertia(behavior, svg, "xy")
@@ -165,7 +177,14 @@
     selected = place ?? (saved?.selected ? byId.get(saved.selected) : undefined)
     behavior.transform(select(svg), saved ? showing(saved.box) : fit(place ? around(place) : frameOf(chapter)))
     if (saved) setHash(chapter?.id ?? "")
-    ready = true
+    // Show it once that view and the basemap are drawn (two frames: past this
+    // update and its layout), or after a moment if the basemap is slow.
+    let frame = 0
+    const reveal = () => {
+      if (!ready) frame = requestAnimationFrame(() => (frame = requestAnimationFrame(() => (ready = true))))
+    }
+    const timer = setTimeout(reveal, 1500)
+    loaded.then(reveal)
     const forget = view.onLeave(() => {
       const [[x0, y0], [x1, y1]] = [transform.invert([0, 0]), transform.invert([width, height])]
       return { at, box: [x0, y0, x1, y1], selected: selected?.id }
@@ -192,6 +211,8 @@
     }
     addEventListener("search-pick", onPick)
     return () => {
+      clearTimeout(timer)
+      cancelAnimationFrame(frame)
       removeEventListener("search-pick", onPick)
       forget()
     }
@@ -245,9 +266,10 @@
 
 <svelte:window onkeydown={onKey} />
 
-<div class="story-map" class:narrow bind:clientWidth={width} bind:clientHeight={height}>
+<div class="story-map reveal" class:ready bind:this={root} bind:clientWidth={width} bind:clientHeight={height}>
   <!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_noninteractive_element_interactions -->
   <svg
+    class="veiled"
     bind:this={svg}
     viewBox="0 0 {width} {height}"
     role="application"
@@ -342,13 +364,9 @@
     {/each}
   </nav>
 
-  <section
-    class="panel"
-    style={narrow ? `max-height: ${height - sheetTop}px` : `width: ${panelWidth}px`}
-    aria-live="polite"
-  >
+  <section class="panel" aria-live="polite">
     {#key at}
-      <div class="chapter" in:fly={{ y: 10, duration: ms(350), delay: ms(150) }}>
+      <div class="chapter veiled" in:fly={{ y: 10, duration: ms(350), delay: ms(150) }}>
         {#if chapter}
           <p class="kicker">Chapter {NUMERALS[at]} · {chapter.when}</p>
           <h2>{chapter.name}</h2>
@@ -393,7 +411,7 @@
       </div>
     {/key}
 
-    <div class="turn">
+    <div class="turn veiled">
       {#if at >= 0}
         <button type="button" class="prev" onclick={() => go(at - 1)}>
           ← <span class:sr-only={narrow}>{at === 0 ? "All places" : chapters[at - 1].name}</span>
@@ -504,6 +522,7 @@
   .panel {
     position: absolute;
     inset: 0 auto 0 0;
+    width: min(720px, 52%); /* panelWidth */
     display: flex;
     flex-direction: column;
     padding: 6.5rem 7rem 1.75rem 9rem;
@@ -729,35 +748,41 @@
     font-weight: 600;
   }
 
-  /* --- Phones: the map on top, the chapter in a sheet below --- */
-  .narrow .rail,
-  .narrow .zoom-buttons {
-    display: none;
-  }
-  .narrow .panel {
-    inset: auto 0 0;
-    padding: 1.1rem 1.25rem 0;
-    background: var(--paper);
-    border-radius: 16px 16px 0 0;
-    box-shadow: 0 -8px 30px rgb(40 30 15 / 0.12);
-  }
-  .narrow h2 {
-    font-size: 2rem;
-  }
-  .narrow .lede {
-    font-size: 1rem;
-    margin: 0.75rem 0 1rem;
-  }
-  .narrow .turn {
-    position: sticky;
-    bottom: 0;
-    margin: 0 -1.25rem;
-    padding: 1rem 1.25rem max(1rem, env(safe-area-inset-bottom));
-    background: var(--paper);
-    box-shadow: 0 -14px 14px var(--paper);
-  }
-  .narrow .next {
-    flex: 1;
-    white-space: nowrap;
+  /* --- Phones: the map on top, the chapter in a sheet below ---
+     (below NARROW: a media query rather than a class, so it applies from the
+     server's drawing on) */
+  @media (max-width: 759.98px) {
+    .rail,
+    .zoom-buttons {
+      display: none;
+    }
+    .panel {
+      inset: auto 0 0;
+      width: auto;
+      max-height: 50%; /* below sheetTop */
+      padding: 1.1rem 1.25rem 0;
+      background: var(--paper);
+      border-radius: 16px 16px 0 0;
+      box-shadow: 0 -8px 30px rgb(40 30 15 / 0.12);
+    }
+    h2 {
+      font-size: 2rem;
+    }
+    .lede {
+      font-size: 1rem;
+      margin: 0.75rem 0 1rem;
+    }
+    .turn {
+      position: sticky;
+      bottom: 0;
+      margin: 0 -1.25rem;
+      padding: 1rem 1.25rem max(1rem, env(safe-area-inset-bottom));
+      background: var(--paper);
+      box-shadow: 0 -14px 14px var(--paper);
+    }
+    .next {
+      flex: 1;
+      white-space: nowrap;
+    }
   }
 </style>

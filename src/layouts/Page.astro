@@ -177,6 +177,8 @@ const current = (href: string) => (isCurrent(href) ? "page" : undefined)
     backdrop-filter: blur(10px) saturate(1.2);
     -webkit-backdrop-filter: blur(10px) saturate(1.2);
     border-bottom: 1px solid var(--rule);
+    /* Held still while the page under it cross-fades (see global.css) */
+    view-transition-name: site-bar;
   }
   /* Over the timeline and the map it floats, so the canvas runs underneath. */
   header.bar.overlay {
