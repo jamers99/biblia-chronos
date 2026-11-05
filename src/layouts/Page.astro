@@ -6,6 +6,7 @@
 // window instead, with the bar floating over them.
 import "../styles/global.css"
 import ThemeToggle from "../components/ThemeToggle.astro"
+import FullscreenToggle from "../components/FullscreenToggle.astro"
 import Layers from "../components/Layers.astro"
 import SiteSearch from "../components/SiteSearch.astro"
 import { url } from "../lib/url.ts"
@@ -105,6 +106,7 @@ const current = (href: string) => (isCurrent(href) ? "page" : undefined)
           <a href={url("/about/")} aria-current={current("/about/")}>About & sources</a>
           <hr />
           <ThemeToggle />
+          <FullscreenToggle />
           <label class="row">
             <input type="checkbox" class="drafts-toggle" checked />
             Show draft records

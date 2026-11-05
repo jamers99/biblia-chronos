@@ -1,0 +1,69 @@
+---
+// Enters and leaves full screen. A row in the site menu (see Page.astro),
+// hidden where the browser doesn't allow it (iPhone Safari). The browser's
+// own full screen (F11) needs nothing from us: it isn't the Fullscreen API,
+// so this row keeps saying "Full screen" then, and Esc or F11 leaves it.
+//
+// Full screen made here ends when the page changes (switching between
+// Timeline and Map is a page load); F11 lasts until you leave it.
+---
+
+<button type="button" class="row fullscreen-toggle" hidden>
+  <svg class="enter" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"
+    ><path
+      d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path></svg
+  >
+  <svg class="leave" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"
+    ><path
+      d="M9 4v5H4M20 9h-5V4M15 20v-5h5M4 15h5v5"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path></svg
+  >
+  <span class="enter">Full screen</span>
+  <span class="leave">Exit full screen</span>
+</button>
+
+<script>
+  const root = document.documentElement
+  const sync = () => root.toggleAttribute("data-fullscreen", !!document.fullscreenElement)
+  document.addEventListener("fullscreenchange", sync)
+
+  for (const button of document.querySelectorAll<HTMLButtonElement>(".fullscreen-toggle")) {
+    button.hidden = !document.fullscreenEnabled
+    button.addEventListener("click", () => {
+      button.closest("details")?.removeAttribute("open")
+      if (document.fullscreenElement) document.exitFullscreen()
+      else root.requestFullscreen().catch(() => {})
+    })
+  }
+</script>
+
+<style>
+  .fullscreen-toggle {
+    width: 100%;
+    background: none;
+    font: inherit;
+    text-align: left;
+  }
+  .fullscreen-toggle[hidden] {
+    display: none;
+  }
+  svg {
+    color: var(--ink-2);
+  }
+  .leave,
+  :global([data-fullscreen]) .enter {
+    display: none;
+  }
+  :global([data-fullscreen]) .leave {
+    display: inline;
+  }
+</style>
