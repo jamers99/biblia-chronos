@@ -4,6 +4,7 @@
 // docs/data-audit-plan.md. Pure: shared by the scan, the checker, and the build.
 
 import type { DateEstimate, Edge, EvidenceBatch, Kingdom, Period, Person } from "./data/schema.ts"
+import { RULES } from "./scan.ts"
 
 // --- Fact ids ---------------------------------------------------------------
 
@@ -49,9 +50,15 @@ const fact = (kind: FactKind, id: string, shown: string, records: string[]): Fac
   records,
 })
 
-export function edgeFactId(e: Pick<Edge, "type" | "from" | "to">): string {
-  const [a, b] = SYMMETRIC.includes(e.type) && e.to < e.from ? [e.to, e.from] : [e.from, e.to]
-  return `${e.type}:${a}>${b}`
+// The id of a fact about one record: "date:esther-becomes-queen", and for a
+// reign in a kingdom, "house:kingdom-of-judah/reign-of-asa".
+export const recordFact = (kind: Exclude<FactKind, Edge["type"]>, id: string) => `${kind}:${id}`
+
+// The id of the fact a link shows: "parent-of:abraham_58>isaac_616". A
+// symmetric link (a marriage) has one id whichever way round it's named.
+export function edgeFact(type: Edge["type"], from: string, to: string): string {
+  const [a, b] = SYMMETRIC.includes(type) && to < from ? [to, from] : [from, to]
+  return `${type}:${a}>${b}`
 }
 
 // Only what the facts are made of, so callers can pass validated or raw rows.
@@ -70,52 +77,26 @@ export function enumerateFacts(d: Data): Fact[] {
   const facts: Fact[] = []
   for (const e of d.edges) {
     if (DERIVED.includes(e.type)) continue
-    const id = edgeFactId(e)
+    const id = edgeFact(e.type, e.from, e.to)
     facts.push(fact(e.type as FactKind, id, id, [e.from, e.to]))
   }
   for (const r of [...d.events, ...d.places, ...d.periods])
-    if (r.date) facts.push(fact("date", `date:${r.id}`, dateText(r.date), [r.id]))
+    if (r.date) facts.push(fact("date", recordFact("date", r.id), dateText(r.date), [r.id]))
   for (const p of d.people) {
-    if (p.birth) facts.push(fact("birth", `birth:${p.id}`, dateText(p.birth), [p.id]))
-    if (p.death) facts.push(fact("death", `death:${p.id}`, dateText(p.death), [p.id]))
+    if (p.birth) facts.push(fact("birth", recordFact("birth", p.id), dateText(p.birth), [p.id]))
+    if (p.death) facts.push(fact("death", recordFact("death", p.id), dateText(p.death), [p.id]))
   }
   for (const k of d.kingdoms)
     for (const r of k.reigns) {
-      facts.push(fact("house", `house:${k.id}/${r.event}`, r.house, [r.event, k.event]))
-      if (r.note) facts.push(fact("note", `note:${k.id}/${r.event}`, r.note, [r.event]))
+      facts.push(fact("house", recordFact("house", `${k.id}/${r.event}`), r.house, [r.event, k.event]))
+      if (r.note) facts.push(fact("note", recordFact("note", `${k.id}/${r.event}`), r.note, [r.event]))
     }
-  for (const p of d.periods) if (p.lede) facts.push(fact("lede", `lede:${p.id}`, p.lede, [p.id]))
+  for (const p of d.periods) if (p.lede) facts.push(fact("lede", recordFact("lede", p.id), p.lede, [p.id]))
   const seen = new Set<string>()
   return facts.filter((f) => (seen.has(f.id) ? false : (seen.add(f.id), true))).sort((a, b) => (a.id < b.id ? -1 : 1))
 }
 
 export const factId = (key: string) => key.slice(0, key.lastIndexOf("@"))
-
-// The records whose passages tell a fact, most telling first: a child's
-// birth tells of the parent, an event of who was there, a town's own verse of
-// the region it's in. Used to file a fact under a stretch of Scripture.
-export function subjects(f: Fact): string[] {
-  const [a, b] = f.records
-  switch (f.kind) {
-    case "parent-of":
-    case "participated-in":
-      return [b, a]
-    default:
-      return f.records
-  }
-}
-
-// --- Verse refs ---------------------------------------------------------------
-
-// Evidence cites single verses as "gen.25.19": book id, chapter, verse.
-export type VerseRef = { book: string; chapter: number; verse: number }
-
-export const verseKey = (r: VerseRef) => `${r.book}.${r.chapter}.${r.verse}`
-
-export function parseVerse(key: string): VerseRef | undefined {
-  const m = /^([1-3]?[a-z]+)\.(\d+)\.(\d+)$/.exec(key)
-  return m ? { book: m[1], chapter: Number(m[2]), verse: Number(m[3]) } : undefined
-}
 
 // --- Evidence ----------------------------------------------------------------
 
@@ -127,30 +108,26 @@ export type MatchEvidence = {
   facts: Record<string, [string | null, string] | []>
 }
 
-// One AI/editor batch file (schema in data/schema.ts).
-export type BatchEvidence = EvidenceBatch
-
 // Everything known about one fact, for the page that shows it.
 export type FactEvidence = {
   key: string
+  records: string[] // the records whose pages show the fact
   match?: { ref: string | null; rule: string }
   ai?: { model: string; on: string; agreed: boolean }
   editor?: { by: string; on: string; read: boolean; sampled?: number }
-  entry?: NonNullable<BatchEvidence["facts"]>[string]
-  batch?: string
+  entry?: NonNullable<EvidenceBatch["facts"]>[string]
 }
 
-export function collectEvidence(facts: Fact[], matches: MatchEvidence | undefined, batches: [string, BatchEvidence][]) {
+export function collectEvidence(facts: Fact[], matches: MatchEvidence | undefined, batches: EvidenceBatch[]) {
   const byId = new Map<string, FactEvidence>()
   for (const f of facts) {
     const s = matches?.facts[f.key]
-    byId.set(f.id, { key: f.key, ...(s && s.length ? { match: { ref: s[0], rule: s[1] } } : {}) })
+    byId.set(f.id, { key: f.key, records: f.records, ...(s && s.length ? { match: { ref: s[0], rule: s[1] } } : {}) })
   }
-  for (const [name, b] of batches) {
+  for (const b of batches) {
     const touch = (key: string, agreed: boolean, entry?: FactEvidence["entry"]) => {
       const ev = byId.get(factId(key))
       if (!ev || ev.key !== key) return // stale or unknown: the checker reports it
-      ev.batch = name
       if (b.ai) ev.ai = { ...b.ai, agreed }
       if (entry) ev.entry = entry
       if (b.editor) {
@@ -162,34 +139,6 @@ export function collectEvidence(facts: Fact[], matches: MatchEvidence | undefine
     for (const [key, entry] of Object.entries(b.facts ?? {})) touch(key, entry.kind !== "wrong", entry)
   }
   return byId
-}
-
-// How a rule reads to a person, for the "how we know" note.
-export const RULES: Record<string, string> = {
-  "son-of": "the verse calls one the son or daughter of the other",
-  possessive: "the verse calls one the other's son or daughter",
-  begat: "the verse says one begat the other",
-  bare: "the verse says she bare him",
-  "named-child": "the verse names the child at birth",
-  "mother-named": "the verse names his mother",
-  "sons-of-list": "the verse lists the child among the sons of the parent",
-  wife: "the verse calls her his wife",
-  "took-to-wife": "the verse says he took her to wife",
-  "tribe-of": "the verse names the tribe",
-  descent: "worked out from recorded parents back to the tribe's founder",
-  listed: "named in the passage that lists them",
-  "in-passage": "named in the event's passage (not necessarily as taking part)",
-  went: "the verse has them going to or staying at the place",
-  died: "the verse has them dying or buried there",
-  "same-place": "the verse says one place is the other",
-  "place-in": "the verse places one within the other",
-  "place-near": "the verse puts one place near the other",
-  "territory-list": "listed under the tribe's heading in the list of its towns",
-  "born-to": "the verse says the child was born to the parent",
-  "son-chain": "the verse's chain of names makes the child the son of the one before",
-  "reign-length": "the verse gives the length of the reign, matching the dates",
-  "age-at-fatherhood": "the verse gives the father's age at the birth, matching the dates",
-  "age-at-death": "the verse gives the age at death, matching the dates",
 }
 
 // --- For display ------------------------------------------------------------------
@@ -218,4 +167,36 @@ export function tally(evs: (FactEvidence | undefined)[]) {
     if (!ev?.match && !ev?.ai && !ev?.editor) t.unchecked++
   }
   return t
+}
+
+// What a fact's "how we know" says (HowWeKnow.astro): the marker's label, the
+// reviewer's note, and one line per layer (undefined where a layer hasn't
+// looked yet). `short` labels a verse ("Gen 21:3").
+export function explain(ev: FactEvidence, short: (ref: string) => string) {
+  const { state, refs } = factStatus(ev)
+  const corrected = state === "wrong" && ev.editor?.read
+  const month = (day: string) =>
+    new Date(`${day}T00:00:00Z`).toLocaleDateString("en-US", { month: "short", year: "numeric", timeZone: "UTC" })
+  const rule = ev.match && (RULES[ev.match.rule] ?? ev.match.rule)
+  const prefix = { reading: "A reading: ", wrong: corrected ? "Corrected: " : "Flagged as wrong, for an editor to check: " }
+  const { editor } = ev
+  return {
+    state,
+    refs,
+    label: {
+      verse: refs.length ? short(refs[0]) : "verse",
+      derived: "worked out",
+      reading: "a reading",
+      wrong: corrected ? "corrected" : "flagged",
+      unchecked: "unchecked",
+    }[state],
+    note: ev.entry?.note && `${prefix[state as keyof typeof prefix] ?? ""}${ev.entry.note}`,
+    match: rule && rule[0].toUpperCase() + rule.slice(1),
+    ai: ev.ai && `${ev.ai.agreed ? "Agreed" : "Flagged"} (${ev.ai.model}, ${month(ev.ai.on)})`,
+    editor:
+      editor &&
+      (editor.read
+        ? `Read by ${editor.by}, ${month(editor.on)}`
+        : `Batch spot-checked by ${editor.by}${editor.sampled ? ` (${Math.round(editor.sampled * 100)}%)` : ""}, ${month(editor.on)}`),
+  }
 }

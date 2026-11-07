@@ -8,7 +8,7 @@
 // Errors block the build (structural problems we own). Warnings are reported
 // but don't block (data-quality smells, often inherited from upstream).
 
-import { readFileSync, existsSync, readdirSync } from "node:fs"
+import { existsSync, readdirSync } from "node:fs"
 import { join } from "node:path"
 import { z, ZodError } from "zod"
 import {
@@ -25,19 +25,10 @@ import {
   type EdgeType,
   type DateEstimate,
 } from "../src/lib/data/schema.ts"
-import { mergeEntities, mergeEdges, staleRemovals } from "../src/lib/data/merge.ts"
-import { enumerateFacts, factId, parseVerse, type MatchEvidence } from "../src/lib/evidence.ts"
-
-const root = join(import.meta.dirname, "..")
-const seedDir = join(root, "data", "seed")
-const overrideDir = join(root, "data", "overrides")
-
-const readJson = (path: string): any[] => JSON.parse(readFileSync(path, "utf8"))
-const readSeed = (name: string) => readJson(join(seedDir, name))
-const readOverride = (name: string): any[] => {
-  const path = join(overrideDir, name)
-  return existsSync(path) ? readJson(path) : []
-}
+import { staleRemovals } from "../src/lib/data/merge.ts"
+import { enumerateFacts, factId, type MatchEvidence } from "../src/lib/evidence.ts"
+import { parseVerse } from "../src/lib/scripture.ts"
+import { loadData, readJson, readOverride, readSeed, root } from "./data.ts"
 
 const errors: string[] = []
 const warnings: string[] = []
@@ -46,17 +37,8 @@ const warn = (msg: string) => warnings.push(msg)
 
 // --- Merge seed + overrides -------------------------------------------------
 
-const sources = readJson(join(root, "data", "sources.json"))
-const merged = {
-  people: mergeEntities(readSeed("people.json"), readOverride("people.json")),
-  places: mergeEntities(readSeed("places.json"), readOverride("places.json")),
-  events: mergeEntities(readSeed("events.json"), readOverride("events.json")),
-  peopleGroups: mergeEntities(readSeed("peopleGroups.json"), readOverride("peopleGroups.json")),
-  books: mergeEntities(readSeed("books.json"), readOverride("books.json")),
-  periods: readOverride("periods.json"), // hand-authored only, no seed
-  kingdoms: readOverride("kingdoms.json"), // hand-authored only, no seed
-  edges: mergeEdges(readSeed("edges.json"), readOverride("edges.json")),
-}
+const sources = readJson("data/sources.json")
+const merged = loadData()
 
 // --- 1. Schema validation ---------------------------------------------------
 
@@ -114,7 +96,7 @@ for (const e of edges)
 
 // The Theographic source links to the exact snapshot we import from, so a
 // re-vendor has to move the link along with it.
-const snapshot = JSON.parse(readFileSync(join(root, "data", "vendor", "theographic", "snapshot.json"), "utf8"))
+const snapshot = readJson("data/vendor/theographic/snapshot.json")
 const theographic = sourceList.find((s) => s.id === "theographic")
 if (theographic && !theographic.url?.includes(snapshot.commit))
   err(`source "theographic" url should point at the vendored commit ${snapshot.commit} (see snapshot.json)`)
@@ -230,6 +212,7 @@ for (const e of staleRemovals(readSeed("edges.json"), readOverride("edges.json")
 // cover exactly the current facts; if not, it's behind.
 
 const evidenceDir = join(root, "data", "evidence")
+const evidence = (file: string) => readJson(`data/evidence/${file}`)
 const facts = enumerateFacts({ people, places, events, edges, periods, kingdoms })
 const factKeys = new Set(facts.map((f) => f.key))
 const keyOfId = new Map(facts.map((f) => [f.id, f.key]))
@@ -245,9 +228,8 @@ const staleOrGone = (key: string) => {
   return current ? `the data changed since it was reviewed (now ${current})` : "no such fact any more"
 }
 
-const matchesPath = join(evidenceDir, "matches.json")
-if (existsSync(matchesPath)) {
-  const matches = JSON.parse(readFileSync(matchesPath, "utf8")) as MatchEvidence
+if (existsSync(join(evidenceDir, "matches.json"))) {
+  const matches = evidence("matches.json") as MatchEvidence
   const scanned = Object.keys(matches.facts)
   const unseen = facts.filter((f) => !(f.key in matches.facts))
   const gone = scanned.filter((k) => !factKeys.has(k))
@@ -265,7 +247,7 @@ const batchFiles = existsSync(evidenceDir) ? readdirSync(evidenceDir).filter((f)
 const reviewedIn = new Map<string, string>()
 for (const file of batchFiles.sort()) {
   const where = `evidence/${file}`
-  const parsed = EvidenceBatch.safeParse(JSON.parse(readFileSync(join(evidenceDir, file), "utf8")))
+  const parsed = EvidenceBatch.safeParse(evidence(file))
   if (!parsed.success) {
     for (const issue of parsed.error.issues.slice(0, 5)) err(`${where} ${issue.path.join(".")}: ${issue.message}`)
     continue

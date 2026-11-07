@@ -3,9 +3,8 @@
 // (a short definition list passed as [term, value] pairs), and a one-sentence
 // lede from the description.
 import type { Entity } from "../lib/data/load.ts"
-import { factsOf } from "../lib/data/load.ts"
+import { tallyOf } from "../lib/data/load.ts"
 import { summarize } from "../lib/format.ts"
-import { tally } from "../lib/evidence.ts"
 import HowWeKnow from "./HowWeKnow.astro"
 
 interface Props {
@@ -19,7 +18,7 @@ const { entity, kindLabel, subtitle, facts = [] } = Astro.props
 const lede = summarize(entity.description)
 const shown = facts.filter(([, v]) => v)
 // How far this record's facts have been checked, by anyone: details in Sources.
-const t = tally(factsOf(entity.id).map((f) => f.evidence))
+const t = tallyOf(entity.id)
 const checked = t.facts - t.unchecked
 ---
 

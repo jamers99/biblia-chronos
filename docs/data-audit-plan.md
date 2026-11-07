@@ -121,8 +121,9 @@ It writes **`data/evidence/matches.json`** (committed, never hand-edited):
 - **One line per matched fact:** `"parent-of:…@hash": ["gen.25.19", "son-of"]`.
   That's the verse and the rule that matched. It comes to roughly 300 KB.
 
-It prints the unmatched facts, grouped by passage. That list is the queue
-for the AI pass. It isn't committed.
+It prints a summary: matches by kind and rule, any dates the text disagrees
+with, and the self-test. The facts it couldn't match are the AI pass's queue:
+`npm run audit:batch` gathers the ones filed under a passage.
 
 **In CI:** a separate workflow, `.github/workflows/audit.yml`, runs only on
 pull requests that touch `data/` or the audit scripts. It fetches

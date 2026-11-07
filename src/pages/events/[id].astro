@@ -7,6 +7,7 @@ import Sources from "../../components/Sources.astro"
 import Succession from "../../components/Succession.astro"
 import { events, periods, graph, resolve, track } from "../../lib/data/load.ts"
 import { dynasties, reignContext, reignNote } from "../../lib/kingdoms.ts"
+import { edgeFact, recordFact } from "../../lib/evidence.ts"
 import type { Event } from "../../lib/data/schema.ts"
 import { periodsOverlapping, spanOf } from "../../lib/chronology.ts"
 import { formatEstimate } from "../../lib/format.ts"
@@ -29,13 +30,13 @@ const houses = kingdom && dynasties(kingdom).length
     entity={event}
     kindLabel={kingdom ? "Kingdom" : reign ? "Reign" : "Event"}
     facts={[
-      ["Date", event.date ? formatEstimate(event.date) : "Undated", event.date && `date:${event.id}`],
+      ["Date", event.date ? formatEstimate(event.date) : "Undated", event.date && recordFact("date", event.id)],
       ["Era", eras.map((p) => p.name).join(", ") || undefined],
       ["Kings", kingdom && `${kingdom.reigns.length}`],
       ["Royal houses", houses ? `${houses}` : undefined],
       ["End", kingdom?.fate],
-      ["House", reign?.reign.house, reign && `house:${reign.kingdom.id}/${event.id}`],
-      ["Note", reign && reignNote(reign.reign), reign?.reign.note ? `note:${reign.kingdom.id}/${event.id}` : undefined],
+      ["House", reign?.reign.house, reign && recordFact("house", `${reign.kingdom.id}/${event.id}`)],
+      ["Note", reign && reignNote(reign.reign), reign?.reign.note ? recordFact("note", `${reign.kingdom.id}/${event.id}`) : undefined],
     ]}
   />
 
@@ -44,12 +45,12 @@ const houses = kingdom && dynasties(kingdom).length
   <Relations
     context={event.id}
     rows={[
-      [reign ? "King" : "People", resolve(graph.incoming(event.id, "participated-in"), "person"), (e) => `participated-in:${e.id}>${event.id}`],
+      [reign ? "King" : "People", resolve(graph.incoming(event.id, "participated-in"), "person"), (e) => edgeFact("participated-in", e.id, event.id)],
       ["Kingdom", reign ? asEvents([reign.kingdom.event]) : []],
       ["Land", kingdom?.place ? resolve([kingdom.place], "place") : []],
       ["Preceded by", reign ? asEvents([reign.before?.id]) : []],
       ["Followed by", reign ? asEvents([reign.after?.id]) : []],
-      ["Places", resolve(graph.outgoing(event.id, "occurred-at"), "place"), (e) => `occurred-at:${event.id}>${e.id}`],
+      ["Places", resolve(graph.outgoing(event.id, "occurred-at"), "place"), (e) => edgeFact("occurred-at", event.id, e.id)],
     ]}
   />
 

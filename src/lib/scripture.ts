@@ -80,18 +80,27 @@ export function passageUrl(book: Book, run: VerseRun) {
   return `https://www.bible.com/bible/${id}/${usfm(book)}.${run.chapter}.${verses}.${code}`
 }
 
+// Evidence cites single verses as "gen.25.19": book id, chapter, verse.
+export type VerseRef = { book: string; chapter: number; verse: number }
+
+export const verseKey = (r: VerseRef) => `${r.book}.${r.chapter}.${r.verse}`
+
+export function parseVerse(key: string): VerseRef | undefined {
+  const m = /^([1-3]?[a-z]+)\.(\d+)\.(\d+)$/.exec(key)
+  return m ? { book: m[1], chapter: Number(m[2]), verse: Number(m[3]) } : undefined
+}
+
 // One cited verse ("gen.25.19", as evidence cites them): a short label
 // ("Gen 25:19", "1 Kgs 16:15"), a long one ("Genesis 25:19"), and a link to
 // read it.
 export function verse(key: string, books: Book[]) {
-  const m = /^([1-3]?[a-z]+)\.(\d+)\.(\d+)$/.exec(key)
-  const book = m && books.find((b) => b.id === m[1])
-  if (!m || !book) return undefined
-  const [chapter, v] = [Number(m[2]), Number(m[3])]
-  const at = `${chapter}:${v}`
+  const ref = parseVerse(key)
+  const book = ref && books.find((b) => b.id === ref.book)
+  if (!ref || !book) return undefined
+  const at = `${ref.chapter}:${ref.verse}`
   return {
     short: `${book.osis.replace(/^(\d)/, "$1 ")} ${at}`,
     long: `${book.name} ${at}`,
-    url: passageUrl(book, { chapter, start: v, end: v, label: at }),
+    url: passageUrl(book, { chapter: ref.chapter, start: ref.verse, end: ref.verse, label: at }),
   }
 }

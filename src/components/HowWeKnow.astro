@@ -4,7 +4,7 @@
 // check, and a person's review never look alike (docs/data-audit-plan.md). A
 // native popover: no JavaScript, and it works in panels too.
 import { books, evidenceFor, source } from "../lib/data/load.ts"
-import { RULES, factStatus, hash } from "../lib/evidence.ts"
+import { explain, hash } from "../lib/evidence.ts"
 import { verse } from "../lib/scripture.ts"
 
 interface Props {
@@ -13,27 +13,24 @@ interface Props {
 }
 const { fact, context } = Astro.props
 const ev = evidenceFor(fact)
-const status = factStatus(ev)
-const cited = status.refs.map((r) => verse(r, books)).filter((v) => v !== undefined)
+const how = ev && explain(ev, (ref) => verse(ref, books)?.short ?? ref)
+const cited = (how?.refs ?? []).map((r) => verse(r, books)).filter((v) => v !== undefined)
+const sources = (ev?.entry?.sources ?? []).map(source).filter((s) => s !== undefined)
 const id = `how-${context}-${hash(fact)}`
-const month = (day: string) =>
-  new Date(`${day}T00:00:00Z`).toLocaleDateString("en-US", { month: "short", year: "numeric", timeZone: "UTC" })
-const label = {
-  verse: cited[0]?.short ?? "verse",
-  derived: "worked out",
-  reading: "a reading",
-  wrong: ev?.editor?.read ? "corrected" : "flagged",
-  unchecked: "unchecked",
-}[status.state]
-const sentence = (s: string) => s[0].toUpperCase() + s.slice(1)
-const sources = (ev?.entry?.sources ?? []).map((s) => source(s)).filter((s) => s !== undefined)
+const layers: [string, string | undefined, string][] = how
+  ? [
+      ["Text match", how.match, "None found"],
+      ["AI", how.ai, "Not yet checked"],
+      ["Editor", how.editor, "Not yet reviewed"],
+    ]
+  : []
 ---
 
 {
-  ev && (
+  how && (
     <>
-      <button type="button" class:list={["how", status.state]} popovertarget={id} aria-label={`How we know: ${label}`}>
-        {label}
+      <button type="button" class:list={["how", how.state]} popovertarget={id} aria-label={`How we know: ${how.label}`}>
+        {how.label}
       </button>
       <div id={id} popover class="how-pop">
         <p class="how-title">How we know</p>
@@ -49,36 +46,15 @@ const sources = (ev?.entry?.sources ?? []).map((s) => source(s)).filter((s) => s
             ))}
           </p>
         )}
-        {ev.entry?.note && (
-          <p class="how-note">
-            {status.state === "reading" ? "A reading: " : status.state === "wrong" ? (ev.editor?.read ? "Corrected: " : "Flagged as wrong, for an editor to check: ") : ""}
-            {ev.entry.note}
-          </p>
-        )}
+        {how.note && <p class="how-note">{how.note}</p>}
         {sources.length > 0 && <p class="how-note">Outside Scripture: {sources.map((s) => s.title).join(", ")}</p>}
         <dl>
-          <dt>Text match</dt>
-          <dd>{ev.match ? sentence(RULES[ev.match.rule] ?? ev.match.rule) : <span class="muted">None found</span>}</dd>
-          <dt>AI</dt>
-          <dd>
-            {ev.ai ? (
-              `${ev.ai.agreed ? "Agreed" : "Flagged"} (${ev.ai.model}, ${month(ev.ai.on)})`
-            ) : (
-              <span class="muted">Not yet checked</span>
-            )}
-          </dd>
-          <dt>Editor</dt>
-          <dd>
-            {ev.editor ? (
-              ev.editor.read ? (
-                `Read by ${ev.editor.by}, ${month(ev.editor.on)}`
-              ) : (
-                `Batch spot-checked by ${ev.editor.by}${ev.editor.sampled ? ` (${Math.round(ev.editor.sampled * 100)}%)` : ""}, ${month(ev.editor.on)}`
-              )
-            ) : (
-              <span class="muted">Not yet reviewed</span>
-            )}
-          </dd>
+          {layers.map(([layer, line, none]) => (
+            <>
+              <dt>{layer}</dt>
+              <dd>{line ?? <span class="muted">{none}</span>}</dd>
+            </>
+          ))}
         </dl>
       </div>
     </>
