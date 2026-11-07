@@ -116,11 +116,11 @@
     "kind": "period",
     "name": "Return from Exile",
     "source": "editorial",
-    "date": { "earliest": -535, "latest": -440 },
-    "description": "Exiles return to Judah, rebuild the temple and Jerusalem's walls (Ezra, Nehemiah, Esther, Haggai, Zechariah, Malachi). Ends with Malachi's prophecies, the last dated Old Testament event in Theographic.",
+    "date": { "earliest": -535, "latest": -430 },
+    "description": "Exiles return to Judah, rebuild the temple and Jerusalem's walls (Ezra, Nehemiah, Esther, Haggai, Zechariah, Malachi). Ends with Nehemiah's second term as governor (Nehemiah 13), c. 432 BC, the last dated Old Testament event; Malachi prophesied around the same time.",
     "lede": "Cyrus of Persia lets the exiles go home. They rebuild the temple, and under Ezra and Nehemiah the walls of Jerusalem rise again.",
     "places": ["jerusalem_636", "babylon_151", "susa_1118", "ecbatana_353", "persia_938", "samaria_1022"],
-    "moments": ["prophecies-of-haggai", "prophecies-of-zechariah", "prophecies-of-malachi"],
+    "moments": ["cyrus-decree-and-first-return", "second-temple-completed", "esther-saves-her-people", "ezra-returns-to-jerusalem", "nehemiah-rebuilds-the-walls", "prophecies-of-malachi"],
     "people": ["cyrus_968", "zerubbabel_3054", "ezra_1245", "nehemiah_2172", "esther_1343", "haggai_1349"]
   },
   {
@@ -128,7 +128,7 @@
     "kind": "period",
     "name": "Between the Testaments",
     "source": "editorial",
-    "date": { "earliest": -440, "latest": -5 },
+    "date": { "earliest": -430, "latest": -5 },
     "description": "The centuries between Malachi and the New Testament, under Persian, Greek, Hasmonean, and Roman rule. Scripture records no events here, so this era is mostly empty on the timeline.",
     "lede": "Four centuries pass without a prophet. Persians, Greeks, and the Maccabees rule Judea in turn, until Rome takes hold.",
     "places": ["jerusalem_636", "alexandria_46", "antioch_68", "samaria_1022", "rome_1013"]
