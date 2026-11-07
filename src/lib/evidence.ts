@@ -3,7 +3,7 @@
 // AI and editor reviews (data/evidence/<batch>.json). See
 // docs/data-audit-plan.md. Pure: shared by the scan, the checker, and the build.
 
-import type { DateEstimate, Edge, Event, Kingdom, Period, Person, Place } from "./data/schema.ts"
+import type { DateEstimate, Edge, Event, EvidenceBatch, Kingdom, Period, Person, Place } from "./data/schema.ts"
 
 // --- Fact ids ---------------------------------------------------------------
 
@@ -110,14 +110,8 @@ export type ScriptEvidence = {
   facts: Record<string, [string | null, string] | []>
 }
 
-// One AI/editor batch file.
-export type BatchEvidence = {
-  passage: string
-  ai?: { model: string; on: string }
-  editor?: { by: string; on: string; sampled?: number; read?: string[] }
-  agreed?: string[]
-  facts?: Record<string, { refs?: string[]; sources?: string[]; note?: string; kind?: "verse" | "reading" | "wrong" }>
-}
+// One AI/editor batch file (schema in data/schema.ts).
+export type BatchEvidence = EvidenceBatch
 
 // Everything known about one fact, for the page that shows it.
 export type FactEvidence = {

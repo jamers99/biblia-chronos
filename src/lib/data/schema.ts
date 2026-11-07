@@ -151,6 +151,39 @@ export const Edge = z.object({
   source: z.string(),
 })
 
+// --- Evidence ---------------------------------------------------------------
+
+// One AI/editor review batch, data/evidence/<batch>.json (see
+// docs/data-audit-plan.md). Facts are keyed `id@hash` (src/lib/evidence.ts);
+// verses are cited as "gen.25.19".
+const VerseKey = z.string().regex(/^[1-3]?[a-z]+\.\d+\.\d+$/, 'a verse like "gen.25.19"')
+const Day = z.string().regex(/^\d{4}-\d{2}-\d{2}$/)
+export const EvidenceBatch = z
+  .object({
+    passage: z.string(), // what the batch covers, e.g. "esth.1-10"
+    ai: z.object({ model: z.string(), on: Day }).strict().optional(),
+    // The editor reads every written entry, and samples `agreed` at `sampled`.
+    // `read` narrows a partial review to the keys actually read.
+    editor: z
+      .object({ by: z.string(), on: Day, sampled: z.number().min(0).max(1).optional(), read: z.array(z.string()).optional() })
+      .strict()
+      .optional(),
+    agreed: z.array(z.string()).optional(), // the AI agrees with the script's verse
+    facts: z
+      .record(
+        z
+          .object({
+            refs: z.array(VerseKey).optional(),
+            sources: z.array(z.string()).optional(), // keys into sources.json, for what's outside Scripture
+            note: z.string().optional(),
+            kind: z.enum(["verse", "reading", "wrong"]).optional(), // default "verse"
+          })
+          .strict(),
+      )
+      .optional(),
+  })
+  .strict()
+
 // --- Derived TypeScript types ----------------------------------------------
 
 export type Year = z.infer<typeof Year>
@@ -168,3 +201,4 @@ export type Book = z.infer<typeof Book>
 export type Source = z.infer<typeof Source>
 export type EdgeType = z.infer<typeof EdgeType>
 export type Edge = z.infer<typeof Edge>
+export type EvidenceBatch = z.infer<typeof EvidenceBatch>

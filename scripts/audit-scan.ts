@@ -416,13 +416,8 @@ if (fakePassed / Math.max(1, fakeTotal) > FAKE_LIMIT) {
 if (check) {
   const current = existsSync(outPath) ? readFileSync(outPath, "utf8") : ""
   if (current !== body) {
-    const old = new Map<string, string>(
-      current
-        .split("\n")
-        .map((l) => /^\s+("[^"]+"): (.*?),?$/.exec(l))
-        .filter((m): m is RegExpExecArray => !!m && m[1] !== '"theographic"')
-        .map((m) => [JSON.parse(m[1]), m[2]]),
-    )
+    const previous: ScriptEvidence["facts"] = current ? JSON.parse(current).facts : {}
+    const old = new Map(Object.entries(previous).map(([k, v]) => [k, JSON.stringify(v)]))
     const now = new Map(facts.map((f) => [f.key, JSON.stringify(out.facts[f.key])]))
     const added = [...now.keys()].filter((k) => !old.has(k))
     const removed = [...old.keys()].filter((k) => !now.has(k))

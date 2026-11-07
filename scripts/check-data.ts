@@ -8,7 +8,7 @@
 // Errors block the build (structural problems we own). Warnings are reported
 // but don't block (data-quality smells, often inherited from upstream).
 
-import { readFileSync, existsSync } from "node:fs"
+import { readFileSync, existsSync, readdirSync } from "node:fs"
 import { join } from "node:path"
 import { z, ZodError } from "zod"
 import {
@@ -21,10 +21,12 @@ import {
   Book,
   Edge,
   Source,
+  EvidenceBatch,
   type EdgeType,
   type DateEstimate,
 } from "../src/lib/data/schema.ts"
 import { mergeEntities, mergeEdges, staleRemovals } from "../src/lib/data/merge.ts"
+import { enumerateFacts, factId, parseVerse, type ScriptEvidence } from "../src/lib/evidence.ts"
 
 const root = join(import.meta.dirname, "..")
 const seedDir = join(root, "data", "seed")
@@ -219,7 +221,74 @@ for (const k of kingdoms) {
 for (const e of staleRemovals(readSeed("edges.json"), readOverride("edges.json")))
   warn(`override removes ${e.from} -${e.type}-> ${e.to}, but seed has no such edge: the tombstone can go`)
 
-// --- 7. Orphans (warning only) ----------------------------------------------
+// --- 7. Evidence (data/evidence/) --------------------------------------------
+//
+// Every review is keyed `id@hash`. A key whose id is gone, or whose hash no
+// longer matches the data (an override changed a date, a re-import changed a
+// link), is a review of something the site no longer shows: warn, so it gets
+// moved or re-checked rather than silently dropped. The scan's own file must
+// cover exactly the current facts; if not, it's behind.
+
+const evidenceDir = join(root, "data", "evidence")
+const facts = enumerateFacts({ people, places, events, edges, periods, kingdoms })
+const factKeys = new Set(facts.map((f) => f.key))
+const keyOfId = new Map(facts.map((f) => [f.id, f.key]))
+const bookChapters = new Map(books.map((b) => [b.id, b.chapterCount]))
+const checkVerse = (where: string, ref: string) => {
+  const v = parseVerse(ref)
+  const chapters = v && bookChapters.get(v.book)
+  if (!v || !chapters) err(`${where}: "${ref}" isn't a verse of a known book`)
+  else if (v.chapter > chapters) err(`${where}: "${ref}" — ${v.book} has ${chapters} chapters`)
+}
+const staleOrGone = (key: string) => {
+  const current = keyOfId.get(factId(key))
+  return current ? `the data changed since it was reviewed (now ${current})` : "no such fact any more"
+}
+
+const scriptPath = join(evidenceDir, "script.json")
+if (existsSync(scriptPath)) {
+  const script = JSON.parse(readFileSync(scriptPath, "utf8")) as ScriptEvidence
+  const scanned = Object.keys(script.facts)
+  const unseen = facts.filter((f) => !(f.key in script.facts))
+  const gone = scanned.filter((k) => !factKeys.has(k))
+  if (unseen.length || gone.length)
+    warn(
+      `data/evidence/script.json is behind the data (${unseen.length} new or changed facts, ${gone.length} gone, ` +
+        `e.g. ${[...unseen.map((f) => f.key), ...gone].slice(0, 2).join(", ")}): run \`npm run audit:scan\``,
+    )
+  if (script.theographic !== snapshot.commit)
+    warn(`data/evidence/script.json read Theographic ${script.theographic.slice(0, 7)}, but the snapshot is ${snapshot.commit.slice(0, 7)}: run \`npm run audit:scan\``)
+  for (const [key, found] of Object.entries(script.facts)) if (found[0]) checkVerse(`script.json ${key}`, found[0])
+} else warn("data/evidence/script.json is missing: run `npm run audit:scan`")
+
+const batchFiles = existsSync(evidenceDir) ? readdirSync(evidenceDir).filter((f) => f.endsWith(".json") && f !== "script.json") : []
+const reviewedIn = new Map<string, string>()
+for (const file of batchFiles.sort()) {
+  const where = `evidence/${file}`
+  const parsed = EvidenceBatch.safeParse(JSON.parse(readFileSync(join(evidenceDir, file), "utf8")))
+  if (!parsed.success) {
+    for (const issue of parsed.error.issues.slice(0, 5)) err(`${where} ${issue.path.join(".")}: ${issue.message}`)
+    continue
+  }
+  const batch = parsed.data
+  if (!batch.ai && !batch.editor) err(`${where}: says neither who (ai) nor which editor reviewed it`)
+  const keys = [...(batch.agreed ?? []), ...Object.keys(batch.facts ?? {})]
+  for (const key of keys) {
+    if (reviewedIn.has(factId(key))) err(`${where}: ${factId(key)} is also reviewed in ${reviewedIn.get(factId(key))}; each fact lives in one batch`)
+    reviewedIn.set(factId(key), file)
+    if (!factKeys.has(key)) warn(`${where}: ${key} — ${staleOrGone(key)}`)
+  }
+  for (const key of batch.editor?.read ?? []) if (!keys.includes(key)) err(`${where}: editor.read lists ${key}, which isn't in this batch`)
+  for (const [key, entry] of Object.entries(batch.facts ?? {})) {
+    if ((entry.kind ?? "verse") !== "wrong" && !entry.refs?.length && !entry.sources?.length)
+      err(`${where}: ${key} has no verse or source; a "${entry.kind ?? "verse"}" entry needs one`)
+    if (entry.kind === "reading" && !entry.note) err(`${where}: ${key} is a reading, so it needs a note saying which and why`)
+    for (const ref of entry.refs ?? []) checkVerse(`${where} ${key}`, ref)
+    for (const src of entry.sources ?? []) if (!sourceIds.has(src)) err(`${where}: ${key} cites unknown source "${src}"`)
+  }
+}
+
+// --- 8. Orphans (warning only) ----------------------------------------------
 
 const connected = new Set<string>()
 for (const e of edges) {
