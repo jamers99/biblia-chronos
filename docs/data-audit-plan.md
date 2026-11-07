@@ -10,13 +10,13 @@ trust.
 
 | Layer | What it means | Stored? |
 |---|---|---|
-| **Script** | A rule matched the fact to a verse. It says which rule, e.g. "Gen 21:3 names Abraham and Isaac with 'son'" | No. It's recomputed every build, so it can't go stale |
+| **Script** | A rule matched the fact to a verse. It says which rule, e.g. "Gen 21:3 names Abraham and Isaac with 'son'" | Yes, one generated file, rewritten by each import or by hand |
 | **AI** | An AI model read the passage and agreed (or flagged it, with a note) | Yes, per passage |
 | **Editor** | A person reviewed it | Yes, per passage |
 
-To keep the data from turning into a sea of rows: the script layer stores
-nothing, and a plain "agree" from a reviewer costs one id in a list. Only
-facts that need explaining get a written entry.
+To keep the data from turning into a sea of rows: the script layer is one
+generated file, and a plain "agree" from a reviewer costs one id in a list.
+Only facts that need explaining get a written entry.
 
 ---
 
@@ -158,11 +158,24 @@ drops a fact, then fix or label it. Already spotted:
 
 ### 2. Script layer and display (one PR)
 
-- `npm run audit:scan`: the matching rules, plus number checks for dates
-  (ages in Gen 5 and 11, reign lengths in Kings and Chronicles). It writes
-  `audit/unmatched.md`, the facts it couldn't match, grouped by passage.
-- The "how we know" marker and the merged Sources section on record pages,
-  showing script results right away.
+- **`npm run audit:scan`**: the matching rules, plus number checks for dates
+  (ages in Gen 5 and 11, reign lengths in Kings and Chronicles). It runs at
+  the end of `import:theographic`, and by hand after editing overrides
+  (adding the Esther events, say). It writes two files, both committed, so a
+  re-scan shows up as a reviewable diff:
+  - `data/evidence/script.json`, generated and never hand-edited. At the top
+    are the date it ran and the Theographic commit it read. Below that, one
+    short line per matched fact: the fact's id, the verse, and the rule that
+    matched (`"parent-of:abraham_58>isaac_616": ["gen.21.3", "family"]`).
+    That's roughly 300 KB for the whole dataset.
+  - `audit/unmatched.md`, the facts it couldn't match, grouped by passage.
+    This is the review queue for step 3.
+- **The build only reads `script.json`.** `check:data` warns when the scan is
+  behind: a fact it has never seen (an override added since the last scan),
+  or an entry for a fact that no longer exists. The fix is to re-run the
+  scan.
+- **On record pages:** the "how we know" marker and the merged Sources section,
+  showing script results with the scan date ("matched by script, Nov 2026").
 
 ### 3. AI and editor passes (one PR per passage)
 
