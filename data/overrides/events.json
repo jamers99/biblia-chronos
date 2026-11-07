@@ -283,6 +283,38 @@
     ]
   },
   {
+    "id": "dedication-of-the-walls",
+    "name": "Dedication of the Walls of Jerusalem",
+    "kind": "event",
+    "source": "editorial",
+    "status": "published",
+    "description": "With the wall finished, the Levites and singers are gathered to Jerusalem and the wall is dedicated with thanksgiving. Two great choirs process along the top of the wall in opposite directions, one led by Ezra the scribe and the other followed by Nehemiah, and meet at the temple (Nehemiah 12:27–47). The text gives no date; it is traditionally placed soon after the wall was completed, in 445 BC.",
+    "date": { "earliest": -444, "latest": -444, "display": "c. 445 BC" },
+    "scriptureRefs": [
+      { "book": "neh", "chapter": 12, "verse": 27 },
+      { "book": "neh", "chapter": 12, "verse": 28 },
+      { "book": "neh", "chapter": 12, "verse": 29 },
+      { "book": "neh", "chapter": 12, "verse": 30 },
+      { "book": "neh", "chapter": 12, "verse": 31 },
+      { "book": "neh", "chapter": 12, "verse": 32 },
+      { "book": "neh", "chapter": 12, "verse": 33 },
+      { "book": "neh", "chapter": 12, "verse": 34 },
+      { "book": "neh", "chapter": 12, "verse": 35 },
+      { "book": "neh", "chapter": 12, "verse": 36 },
+      { "book": "neh", "chapter": 12, "verse": 37 },
+      { "book": "neh", "chapter": 12, "verse": 38 },
+      { "book": "neh", "chapter": 12, "verse": 39 },
+      { "book": "neh", "chapter": 12, "verse": 40 },
+      { "book": "neh", "chapter": 12, "verse": 41 },
+      { "book": "neh", "chapter": 12, "verse": 42 },
+      { "book": "neh", "chapter": 12, "verse": 43 },
+      { "book": "neh", "chapter": 12, "verse": 44 },
+      { "book": "neh", "chapter": 12, "verse": 45 },
+      { "book": "neh", "chapter": 12, "verse": 46 },
+      { "book": "neh", "chapter": 12, "verse": 47 }
+    ]
+  },
+  {
     "id": "nehemiah-s-second-term",
     "name": "Nehemiah's Second Term as Governor",
     "kind": "event",
