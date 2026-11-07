@@ -483,6 +483,21 @@ validated.edges.sort(
 
 // --- Write ------------------------------------------------------------------
 
+// Ids that the last import had and this one doesn't: an upstream rename or
+// removal, or a new same-named event pushing an old one onto a suffixed slug.
+// Overrides and evidence keyed by these ids stop applying, so say so loudly.
+const previousIds = (name: string): string[] => {
+  try {
+    return JSON.parse(readFileSync(join(seedDir, name), "utf8")).map((r: { id: string }) => r.id)
+  } catch {
+    return [] // first import
+  }
+}
+const vanished = (["people", "places", "events", "peopleGroups"] as const).flatMap((kind) => {
+  const now = new Set(validated[kind].map((r) => r.id))
+  return previousIds(`${kind}.json`).filter((id) => !now.has(id)).map((id) => `${kind}: ${id}`)
+})
+
 mkdirSync(seedDir, { recursive: true })
 const writeJson = (name: string, data: unknown) =>
   writeFileSync(join(seedDir, name), JSON.stringify(data, null, 2) + "\n")
@@ -534,5 +549,11 @@ log("Other:")
 log(`  unresolved verse refs   ${unresolvedVerseRefs}`)
 log(`  verses skipped (no/bad osisRef)  ${verseSkipped}`)
 log(`  generated-slug collisions: events ${eventCollisions}, peopleGroups ${groupCollisions}`)
+log("Ids gone since the last import (renamed or removed upstream):")
+if (!vanished.length) log("  (none)")
+else {
+  for (const id of vanished) log(`  ${id}`)
+  log("  Anything in data/overrides/ or data/evidence/ that names these needs moving to the new id.")
+}
 
 console.log(report.join("\n"))

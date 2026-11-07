@@ -31,3 +31,16 @@ test("summarize keeps the first sentence and trims long ones at a word", () => {
     "Father of a multitude, named (Gen. 11:27) before Nahor.",
   )
 })
+
+test("summarize doesn't stop at a citation or a date abbreviation", () => {
+  assert.equal(
+    summarize("A Merarite, ancestor of Ethan the singer, 1 Chr. 6:44. Another line."),
+    "A Merarite, ancestor of Ethan the singer, 1 Chr. 6:44.",
+  )
+  assert.equal(
+    summarize("The scribe who returned to Jerusalem B.C. 459, and author of the book. He was a priest."),
+    "The scribe who returned to Jerusalem B.C. 459, and author of the book.",
+  )
+  assert.equal(summarize("Born at Rome, A.D. 27. He was the brother of Bernice."), "Born at Rome, A.D. 27.")
+  assert.equal(summarize("Lived in A.D. Herod's time. Then left."), "Lived in A.D. Herod's time.")
+})

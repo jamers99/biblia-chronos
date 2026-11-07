@@ -1,0 +1,200 @@
+{
+  "passage": "1kgs-2kgs, 2chr: reigns of the kings",
+  "ai": { "model": "haiku", "on": "2026-11-07" },
+  "agreed": [],
+  "facts": {
+    "house:kingdom-of-israel/reign-of-ahab@8d8029": {
+      "refs": ["1kgs.16.28", "1kgs.16.29"],
+      "note": "Ahab is 'the son of Omri' (16.29) and succeeded his father Omri (16.28)."
+    },
+    "house:kingdom-of-israel/reign-of-ahaziah@8d8029": {
+      "refs": ["1kgs.22.51", "1kgs.16.29"],
+      "note": "Ahaziah is 'the son of Ahab' (22.51); Ahab is Omri's son (16.29)."
+    },
+    "house:kingdom-of-israel/reign-of-baasha@41cffa": {
+      "refs": ["1kgs.15.33", "1kgs.16.7"],
+      "note": "Baasha founded the house named for him. The excerpt does not name the king he killed (16.7 says only 'because he killed him').",
+      "kind": "reading"
+    },
+    "house:kingdom-of-israel/reign-of-elah@41cffa": {
+      "refs": ["1kgs.16.6", "1kgs.16.8"],
+      "note": "Elah is 'the son of Baasha' (16.8) and succeeded his father (16.6)."
+    },
+    "house:kingdom-of-israel/reign-of-hoshea@765f5d": {
+      "refs": ["2kgs.15.30", "2kgs.17.1"],
+      "note": "Hoshea conspired against Pekah and slew him (15.30), so by the rule he founded a new house. The text does not name the house.",
+      "kind": "reading"
+    },
+    "house:kingdom-of-israel/reign-of-jehoahaz@7c97ca": {
+      "refs": ["2kgs.13.1"],
+      "note": "Jehoahaz is 'the son of Jehu' (13.1)."
+    },
+    "house:kingdom-of-israel/reign-of-jehoash@7c97ca": {
+      "refs": ["2kgs.13.10", "2kgs.13.1"],
+      "note": "Jehoash is 'the son of Jehoahaz' (13.10), who was the son of Jehu (13.1)."
+    },
+    "house:kingdom-of-israel/reign-of-jehu@7c97ca": {
+      "refs": ["2kgs.9.6", "2kgs.9.7"],
+      "note": "Jehu is anointed king to destroy Ahab's house (9.6-7). The excerpt does not show him killing his predecessor, so founding the house is inferred.",
+      "kind": "reading"
+    },
+    "house:kingdom-of-israel/reign-of-jeroboam-i@52f1c6": {
+      "refs": ["1kgs.12.20"],
+      "note": "Jeroboam is made king over all Israel (12.20). The house named for him is inferred from the rule, not stated in the text.",
+      "kind": "reading"
+    },
+    "house:kingdom-of-israel/reign-of-jeroboam-ii@7c97ca": {
+      "refs": ["2kgs.14.23", "2kgs.14.1", "2kgs.13.1"],
+      "note": "Jeroboam is 'the son of Joash king of Israel' (14.23); Joash is 'son of Jehoahaz' (14.1), who was the son of Jehu (13.1)."
+    },
+    "house:kingdom-of-israel/reign-of-joram@8d8029": {
+      "refs": ["2kgs.3.1", "1kgs.16.29"],
+      "note": "Jehoram is 'the son of Ahab' (3.1); Ahab is Omri's son (16.29)."
+    },
+    "house:kingdom-of-israel/reign-of-menahem@085816": {
+      "refs": ["2kgs.15.17", "2kgs.15.22"],
+      "note": "His son Pekahiah reigned after him (15.22), so the house is named for him. The excerpt does not show him killing Shallum.",
+      "kind": "reading"
+    },
+    "house:kingdom-of-israel/reign-of-nadab@52f1c6": {
+      "refs": ["1kgs.15.25"],
+      "note": "Nadab is 'the son of Jeroboam' (15.25)."
+    },
+    "house:kingdom-of-israel/reign-of-omri@8d8029": {
+      "refs": ["1kgs.16.23", "1kgs.16.28"],
+      "note": "His son Ahab reigned in his stead (16.28), so the house is named for Omri."
+    },
+    "house:kingdom-of-israel/reign-of-pekah@308b38": {
+      "refs": ["2kgs.15.25", "2kgs.15.30"],
+      "note": "Pekah killed Pekahiah and took the throne (15.25), so by the rule he founded a new house. Hoshea later slew him (15.30). The house is inferred, not stated.",
+      "kind": "reading"
+    },
+    "house:kingdom-of-israel/reign-of-pekahiah@085816": {
+      "refs": ["2kgs.15.23", "2kgs.15.22"],
+      "note": "Pekahiah is 'the son of Menahem' (15.23)."
+    },
+    "house:kingdom-of-israel/reign-of-shallum@7357ff": {
+      "refs": ["2kgs.15.10"],
+      "note": "Shallum conspired against Zachariah, slew him and reigned (15.10), so by the rule he founded a new house. The house is inferred, not stated.",
+      "kind": "reading"
+    },
+    "house:kingdom-of-israel/reign-of-tibni@b9d83c": {
+      "refs": ["1kgs.16.21", "1kgs.16.22"],
+      "note": "Half the people made Tibni king, but those following Omri prevailed; Tibni died and Omri reigned (16.22). No reign of Tibni is stated.",
+      "kind": "wrong"
+    },
+    "house:kingdom-of-israel/reign-of-zachariah@7c97ca": {
+      "refs": ["2kgs.15.8", "2kgs.14.29"],
+      "note": "Zachariah is 'the son of Jeroboam' (15.8), i.e. Jeroboam II, son of Joash (14.23), in the house of Jehu."
+    },
+    "house:kingdom-of-israel/reign-of-zimri@21964f": {
+      "refs": ["1kgs.16.15", "1kgs.16.16"],
+      "note": "Zimri reigned seven days (16.15) and slew the king (16.16). By the rule he founded no dynasty. The house is inferred, not stated.",
+      "kind": "reading"
+    },
+    "house:kingdom-of-judah/reign-of-abijam@91fcb2": {
+      "refs": ["1kgs.15.1", "1kgs.15.3"],
+      "note": "KJV: his heart was not perfect 'as the heart of David his father' (15.3), a Davidic descendant."
+    },
+    "house:kingdom-of-judah/reign-of-ahaz@91fcb2": {
+      "refs": ["2kgs.16.1", "2kgs.15.38"],
+      "note": "Ahaz is 'the son of Jotham' (16.1), and succeeded him as 'his son' (15.38)."
+    },
+    "house:kingdom-of-judah/reign-of-ahaziah-jehoahaz@91fcb2": {
+      "refs": ["2kgs.8.25", "2kgs.8.16"],
+      "note": "Ahaziah is 'the son of Jehoram king of Judah' (8.25); Jehoram is 'the son of Jehoshaphat' (8.16)."
+    },
+    "house:kingdom-of-judah/reign-of-amaziah@91fcb2": {
+      "refs": ["2kgs.14.1"],
+      "note": "Amaziah is 'the son of Joash king of Judah' (14.1)."
+    },
+    "house:kingdom-of-judah/reign-of-amon@91fcb2": {
+      "refs": ["2kgs.21.19", "2kgs.21.20"],
+      "note": "Amon 'did ... as his father Manasseh did' (21.20), so he is Manasseh's son."
+    },
+    "house:kingdom-of-judah/reign-of-asa@91fcb2": {
+      "refs": ["1kgs.15.8", "1kgs.15.11"],
+      "note": "Asa is 'Asa his son' (15.8), son of Abijam; he did 'as did David his father' (15.11)."
+    },
+    "house:kingdom-of-judah/reign-of-athaliah@8d8029": {
+      "refs": ["2kgs.8.26", "2kgs.11.1", "2kgs.11.3"],
+      "note": "She is 'the daughter of Omri' (8.26), not a son. She destroyed the royal seed and reigned (11.1-3). By the rule she founded no Omri house.",
+      "kind": "wrong"
+    },
+    "house:kingdom-of-judah/reign-of-hezekiah@91fcb2": {
+      "refs": ["2kgs.18.1"],
+      "note": "Hezekiah is 'the son of Ahaz king of Judah' (18.1)."
+    },
+    "house:kingdom-of-judah/reign-of-jeconiah@91fcb2": {
+      "refs": ["2kgs.24.6", "2kgs.23.34"],
+      "note": "Jehoiachin is Jehoiakim's son and reigned 'in his stead' (24.6); Jehoiakim is Josiah's son (23.34)."
+    },
+    "house:kingdom-of-judah/reign-of-jehoiakim@91fcb2": {
+      "refs": ["2kgs.23.34", "2kgs.23.36"],
+      "note": "Eliakim, 'the son of Josiah', was renamed Jehoiakim by Pharaoh (23.34)."
+    },
+    "house:kingdom-of-judah/reign-of-jehoram@91fcb2": {
+      "refs": ["2kgs.8.16"],
+      "note": "Jehoram is 'the son of Jehoshaphat king of Judah' (8.16)."
+    },
+    "house:kingdom-of-judah/reign-of-jehoshaphat@91fcb2": {
+      "refs": ["1kgs.22.41", "1kgs.15.8"],
+      "note": "Jehoshaphat is 'the son of Asa' (22.41); Asa is Abijam's son (15.8)."
+    },
+    "house:kingdom-of-judah/reign-of-joash@91fcb2": {
+      "refs": ["2kgs.11.2", "2kgs.8.25"],
+      "note": "Joash is 'the son of Ahaziah' (11.2); Ahaziah is the son of Jehoram king of Judah (8.25)."
+    },
+    "house:kingdom-of-judah/reign-of-josiah@91fcb2": {
+      "refs": ["2kgs.21.26", "2kgs.22.2"],
+      "note": "Josiah is 'Josiah his son' after Amon (21.26), and walked 'in all the way of David his father' (22.2)."
+    },
+    "house:kingdom-of-judah/reign-of-jotham@91fcb2": {
+      "refs": ["2kgs.15.7", "2kgs.15.32"],
+      "note": "Jotham is 'Jotham his son' after Azariah (15.7), and 'the son of Uzziah' (15.32)."
+    },
+    "house:kingdom-of-judah/reign-of-manasseh@91fcb2": {
+      "refs": ["2kgs.21.3", "2kgs.21.1"],
+      "note": "He is Hezekiah's son: Hezekiah is 'his father' whose high places Manasseh rebuilt (21.3)."
+    },
+    "house:kingdom-of-judah/reign-of-rehoboam@91fcb2": {
+      "refs": ["1kgs.11.43"],
+      "note": "Rehoboam is 'his son' (11.43), succeeding Solomon, who was buried 'in the city of David his father'."
+    },
+    "house:kingdom-of-judah/reign-of-uzziah@91fcb2": {
+      "refs": ["2kgs.15.1", "2kgs.15.7", "2kgs.15.32"],
+      "note": "Azariah (Uzziah) is 'the son of Amaziah' (15.1); Jotham succeeds Azariah as 'his son' (15.7), 'the son of Uzziah' (15.32)."
+    },
+    "house:united-kingdom-of-israel/reign-of-david@91fcb2": {
+      "refs": ["2sam.2.4", "1kgs.2.12"],
+      "note": "David was anointed king over Judah (2sam.2.4); Solomon sat on 'the throne of David his father' (1kgs.2.12)."
+    },
+    "house:united-kingdom-of-israel/reign-of-saul@5215fc": {
+      "refs": ["2sam.2.7", "2sam.2.8"],
+      "note": "The excerpt calls Saul 'your master' and names his son Ishbosheth (2sam.2.8), but does not state Saul's reign. Kingship is not shown in the excerpt.",
+      "kind": "reading"
+    },
+    "house:united-kingdom-of-israel/reign-of-solomon@91fcb2": {
+      "refs": ["1kgs.2.12", "1kgs.11.43"],
+      "note": "Solomon sat 'upon the throne of David his father' (2.12); he was buried 'in the city of David his father' (11.43)."
+    },
+    "note:kingdom-of-israel/reign-of-tibni@8e885a": {
+      "refs": ["1kgs.16.21", "1kgs.16.22"],
+      "note": "Half the people followed Tibni 'to make him king' (16.21); those following Omri prevailed (16.22)."
+    },
+    "note:kingdom-of-israel/reign-of-zimri@c44dbe": {
+      "refs": ["1kgs.16.15"],
+      "note": "'did Zimri reign seven days in Tirzah' (16.15)."
+    },
+    "note:kingdom-of-judah/reign-of-athaliah@3be8cb": {
+      "refs": ["2kgs.8.26", "2kgs.8.18", "2kgs.11.3"],
+      "note": "8.26 calls her 'the daughter of Omri', not Ahab. 'The daughter of Ahab' (8.18) is Jehoram's unnamed wife. She did reign over the land (11.3).",
+      "kind": "reading"
+    },
+    "note:kingdom-of-judah/reign-of-jehoram@6a1725": {
+      "refs": ["2kgs.8.16"],
+      "note": "He began to reign 'Jehoshaphat being then king' (8.16). That fits co-regency, but the excerpt does not say so.",
+      "kind": "reading"
+    }
+  }
+}

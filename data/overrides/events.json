@@ -111,7 +111,7 @@
     "kind": "event",
     "source": "editorial",
     "status": "published",
-    "description": "Haman casts lots in Ahasuerus's twelfth year (Esther 3:7, 474 BC) to fix a day to destroy the Jews. Esther risks her life to plead with the king; Haman is hanged, and on the thirteenth of Adar the next year (473 BC) the Jews defend themselves. The feast of Purim remembers the deliverance (Esther 3–9).",
+    "description": "Haman casts lots in Ahasuerus's twelfth year (Esther 3:7, 474 BC) to fix a day to destroy the Jews. Esther risks her life to plead with the king; Haman is hanged, and on the day set, the thirteenth of Adar, the twelfth month of that same regnal year (early 473 BC; Esther 3:13, 9:1), the Jews defend themselves. The feast of Purim remembers the deliverance (Esther 3–9).",
     "date": { "earliest": -473, "latest": -472, "display": "474–473 BC" },
     "scriptureRefs": [
       { "book": "esth", "chapter": 3, "verse": 1 },
@@ -317,6 +317,34 @@
       { "book": "neh", "chapter": 13, "verse": 29 },
       { "book": "neh", "chapter": 13, "verse": 30 },
       { "book": "neh", "chapter": 13, "verse": 31 }
+    ]
+  },
+  {
+    "id": "dedication-of-the-wall",
+    "name": "Dedication of the Wall of Jerusalem",
+    "kind": "event",
+    "source": "editorial",
+    "status": "published",
+    "description": "With the wall finished, the Levites and singers are gathered to Jerusalem, and two great choirs go round on the wall in procession, one with Ezra the scribe at its head and the other with Nehemiah behind it, meeting at the house of God (Nehemiah 12:27–43). The text doesn't date it; it follows the wall's completion in Artaxerxes' twentieth year (Nehemiah 2:1; 6:15), so it's placed in 445 BC.",
+    "date": { "earliest": -444, "latest": -444, "display": "c. 445 BC" },
+    "scriptureRefs": [
+      { "book": "neh", "chapter": 12, "verse": 27 },
+      { "book": "neh", "chapter": 12, "verse": 28 },
+      { "book": "neh", "chapter": 12, "verse": 29 },
+      { "book": "neh", "chapter": 12, "verse": 30 },
+      { "book": "neh", "chapter": 12, "verse": 31 },
+      { "book": "neh", "chapter": 12, "verse": 32 },
+      { "book": "neh", "chapter": 12, "verse": 33 },
+      { "book": "neh", "chapter": 12, "verse": 34 },
+      { "book": "neh", "chapter": 12, "verse": 35 },
+      { "book": "neh", "chapter": 12, "verse": 36 },
+      { "book": "neh", "chapter": 12, "verse": 37 },
+      { "book": "neh", "chapter": 12, "verse": 38 },
+      { "book": "neh", "chapter": 12, "verse": 39 },
+      { "book": "neh", "chapter": 12, "verse": 40 },
+      { "book": "neh", "chapter": 12, "verse": 41 },
+      { "book": "neh", "chapter": 12, "verse": 42 },
+      { "book": "neh", "chapter": 12, "verse": 43 }
     ]
   }
 ]

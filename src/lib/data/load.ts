@@ -3,10 +3,11 @@
 // data/seed/ directly — none of this ships to the browser. Islands get the
 // small slices they need as props.
 
-import type { Person, Place, Event, PeopleGroup, Period, Kingdom, Book, Edge, Source } from "./schema.ts"
+import type { Person, Place, Event, PeopleGroup, Period, Kingdom, Book, Edge, EvidenceBatch, Source } from "./schema.ts"
 import { mergeEntities, mergeEdges } from "./merge.ts"
 import { createGraph } from "./graph.ts"
 import { kingdomTrack } from "../kingdoms.ts"
+import { collectEvidence, edgeFact, enumerateFacts, tally, type FactEvidence, type MatchEvidence } from "../evidence.ts"
 
 // JSON imports are resolved by Vite at build time (relative to this file).
 import peopleData from "../../../data/seed/people.json"
@@ -69,3 +70,29 @@ export const track = kingdomTrack(kingdoms, events, (id) => graph.incoming(id, "
 
 // The dated (or undated) events a person took part in.
 export const eventsOf = (personId: string) => resolve(graph.outgoing(personId, "participated-in"), "event")
+
+// --- Evidence ---------------------------------------------------------------
+
+// The audit's evidence layers (docs/data-audit-plan.md): the text match
+// (data/evidence/matches.json) and AI/editor review batches (the other files
+// there), keyed to the facts the pages show.
+const evidenceFiles = import.meta.glob("../../../data/evidence/*.json", { eager: true, import: "default" })
+const isMatches = (path: string) => path.endsWith("/matches.json")
+const evidence = collectEvidence(
+  enumerateFacts({ people, places, events, edges, periods, kingdoms }),
+  Object.entries(evidenceFiles).find(([path]) => isMatches(path))?.[1] as MatchEvidence | undefined,
+  Object.entries(evidenceFiles).filter(([path]) => !isMatches(path)).map(([, batch]) => batch as EvidenceBatch),
+)
+const evidenceByRecord = new Map<string, FactEvidence[]>()
+for (const ev of evidence.values())
+  for (const r of ev.records) evidenceByRecord.set(r, [...(evidenceByRecord.get(r) ?? []), ev])
+
+// What's known about one fact, by id ("parent-of:abraham_58>isaac_616").
+export const evidenceFor = (factId: string): FactEvidence | undefined => evidence.get(factId)
+
+// A link stored either way round ("near"), as whichever fact the data has.
+export const factBetween = (type: Edge["type"], a: string, b: string) =>
+  [edgeFact(type, a, b), edgeFact(type, b, a)].find((id) => evidence.has(id))
+
+// How far a record's facts have been checked, by layer.
+export const tallyOf = (recordId: string) => tally(evidenceByRecord.get(recordId) ?? [])

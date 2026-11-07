@@ -13,7 +13,10 @@
     "build": "npm run check:data && astro build",
     "preview": "astro preview",
     "vendor:fetch": "node scripts/vendor-fetch.mjs",
-    "import:theographic": "tsx scripts/import-theographic.ts"
+    "import:theographic": "tsx scripts/import-theographic.ts && tsx scripts/audit-scan.ts",
+    "audit:scan": "tsx scripts/audit-scan.ts",
+    "audit:batch": "tsx scripts/audit-batch.ts",
+    "verse": "tsx scripts/verse.ts"
   },
   "dependencies": {
     "d3-geo": "^3.1.1",

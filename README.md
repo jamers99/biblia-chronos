@@ -81,7 +81,7 @@ The data is curated from openly licensed and public-domain sources, and every re
 * [Wikidata](https://www.wikidata.org/) (CC0) for cross-checking, and public-domain Bible dictionaries (ISBE, Easton's) for descriptions
 * Scholarly chronologies (e.g. Thiele) for the contested dates, cited per record
 
-Code is MIT; the curated data is licensed separately (likely CC-BY-SA to stay compatible with its sources). Please don't add data from copyrighted, restrictively licensed material.
+Code is MIT; the data in `data/` is CC BY-SA 4.0, as it derives from Theographic (see [data/LICENSE.md](./data/LICENSE.md)). Please don't add data from copyrighted, restrictively licensed material.
 
 ## Development
 

@@ -1,0 +1,129 @@
+---
+// "How we know": a small marker after a fact (its verse, or "unchecked") that
+// opens the evidence behind it, one line per layer, so a text match, an AI's
+// check, and a person's review never look alike (docs/data-audit-plan.md). A
+// native popover: no JavaScript, and it works in panels too.
+import { books, evidenceFor, source } from "../lib/data/load.ts"
+import { explain, hash } from "../lib/evidence.ts"
+import { verse } from "../lib/scripture.ts"
+
+interface Props {
+  fact: string // fact id, e.g. "parent-of:abraham_58>isaac_616"
+  context: string // the page's record id, to keep popover ids unique
+}
+const { fact, context } = Astro.props
+const ev = evidenceFor(fact)
+const how = ev && explain(ev, (ref) => verse(ref, books)?.short ?? ref)
+const cited = (how?.refs ?? []).map((r) => verse(r, books)).filter((v) => v !== undefined)
+const sources = (ev?.entry?.sources ?? []).map(source).filter((s) => s !== undefined)
+const id = `how-${context}-${hash(fact)}`
+const layers: [string, string | undefined, string][] = how
+  ? [
+      ["Text match", how.match, "None found"],
+      ["AI", how.ai, "Not yet checked"],
+      ["Editor", how.editor, "Not yet reviewed"],
+    ]
+  : []
+---
+
+{
+  how && (
+    <>
+      <button type="button" class:list={["how", how.state]} popovertarget={id} aria-label={`How we know: ${how.label}`}>
+        {how.label}
+      </button>
+      <div id={id} popover class="how-pop">
+        <p class="how-title">How we know</p>
+        {cited.length > 0 && (
+          <p class="how-refs">
+            {cited.map((v, i) => (
+              <>
+                {i > 0 && " · "}
+                <a href={v.url} target="_blank" rel="noopener">
+                  {v.long}
+                </a>
+              </>
+            ))}
+          </p>
+        )}
+        {how.note && <p class="how-note">{how.note}</p>}
+        {sources.length > 0 && <p class="how-note">Outside Scripture: {sources.map((s) => s.title).join(", ")}</p>}
+        <dl>
+          {layers.map(([layer, line, none]) => (
+            <>
+              <dt>{layer}</dt>
+              <dd>{line ?? <span class="muted">{none}</span>}</dd>
+            </>
+          ))}
+        </dl>
+      </div>
+    </>
+  )
+}
+
+<style>
+  .how {
+    font: 0.72rem/1 var(--sans);
+    color: var(--ink-3);
+    background: none;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    padding: 0.15rem 0.45rem;
+    margin-left: 0.3rem;
+    cursor: pointer;
+    vertical-align: 0.1em;
+    white-space: nowrap;
+  }
+  .how:hover,
+  .how:focus-visible {
+    color: var(--ink);
+    border-color: var(--ink-3);
+  }
+  .how.unchecked {
+    border-style: dashed;
+  }
+  .how.reading {
+    font-style: italic;
+  }
+  .how.wrong {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+  .how-pop {
+    max-width: min(26rem, calc(100vw - 2rem));
+    padding: 1rem 1.15rem;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    background: var(--paper);
+    color: var(--ink);
+    box-shadow: 0 12px 40px rgb(0 0 0 / 0.18);
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+  .how-pop::backdrop {
+    background: rgb(0 0 0 / 0.12);
+  }
+  .how-title {
+    margin: 0 0 0.5rem;
+    font-weight: 600;
+  }
+  .how-refs,
+  .how-note {
+    margin: 0 0 0.6rem;
+  }
+  dl {
+    display: grid;
+    grid-template-columns: 5.5rem 1fr;
+    gap: 0.3rem 0.75rem;
+    margin: 0.5rem 0 0;
+  }
+  dt {
+    color: var(--ink-3);
+  }
+  dd {
+    margin: 0;
+  }
+  .muted {
+    color: var(--ink-3);
+  }
+</style>

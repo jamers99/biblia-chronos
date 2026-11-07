@@ -38,5 +38,11 @@
   { "from": "nehemiah_2172", "to": "nehemiah-s-second-term", "type": "participated-in", "source": "editorial" },
   { "from": "tobiah_2872", "to": "nehemiah-s-second-term", "type": "participated-in", "source": "editorial" },
   { "from": "artaxerxes_314", "to": "nehemiah-s-second-term", "type": "participated-in", "source": "editorial" },
-  { "from": "nehemiah-s-second-term", "to": "jerusalem_636", "type": "occurred-at", "source": "editorial" }
+  { "from": "nehemiah-s-second-term", "to": "jerusalem_636", "type": "occurred-at", "source": "editorial" },
+  { "from": "ezra_1245", "to": "dedication-of-the-wall", "type": "participated-in", "source": "editorial" },
+  { "from": "nehemiah_2172", "to": "dedication-of-the-wall", "type": "participated-in", "source": "editorial" },
+  { "from": "dedication-of-the-wall", "to": "jerusalem_636", "type": "occurred-at", "source": "editorial" },
+  { "from": "ahasuerus_117", "to": "esther_1343", "type": "partner-of", "source": "editorial" },
+  { "from": "darius_978", "to": "second-temple-completed", "type": "participated-in", "source": "editorial" },
+  { "from": "eliashib_1100", "to": "nehemiah-rebuilds-the-walls", "type": "participated-in", "source": "editorial" }
 ]

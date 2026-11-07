@@ -1,0 +1,65 @@
+---
+// Where a record comes from and how far it's been checked: the dataset (or
+// the project's editors), Easton's for the description, and a tally of its
+// facts by layer, kept apart so an AI check never counts as a person's
+// (docs/data-audit-plan.md).
+import { source, tallyOf } from "../lib/data/load.ts"
+
+interface Props {
+  record: { id: string; source: string; description?: string }
+}
+const { record } = Astro.props
+const s = source(record.source)
+const eastons = record.description && record.source === "theographic" ? source("eastons") : undefined
+const t = tallyOf(record.id)
+const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? "" : "s"}`
+---
+
+<section class="sources" id="sources">
+  <h2>Sources</h2>
+  <ul>
+    {
+      s && (
+        <li>
+          {record.source === "editorial" ? "Written by " : "Data: "}
+          {s.url ? <a href={s.url}>{s.title}</a> : s.title}
+          {s.license && ` (${s.license})`}
+        </li>
+      )
+    }
+    {eastons && <li>Description: {eastons.title} (1897), via Theographic</li>}
+  </ul>
+  {
+    t.facts > 0 && (
+      <p class="tally">
+        {plural(t.facts, "fact")}: {t.matched} matched in the text · {t.ai} checked by AI · {t.editor} read by an editor
+        {t.unchecked > 0 && ` · ${t.unchecked} unchecked`}
+      </p>
+    )
+  }
+</section>
+
+<style>
+  .sources {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.8rem;
+    color: var(--ink-3);
+  }
+  h2 {
+    font-size: 0.8rem;
+    margin: 0 0 0.4rem;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  a {
+    color: inherit;
+  }
+  .tally {
+    margin: 0.5rem 0 0;
+  }
+</style>

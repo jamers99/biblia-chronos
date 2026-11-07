@@ -118,7 +118,7 @@
     "source": "editorial",
     "date": { "earliest": -535, "latest": -430 },
     "description": "Exiles return to Judah, rebuild the temple and Jerusalem's walls (Ezra, Nehemiah, Esther, Haggai, Zechariah, Malachi). Ends with Nehemiah's second term as governor (Nehemiah 13), c. 432 BC, the last dated Old Testament event; Malachi prophesied around the same time.",
-    "lede": "Cyrus of Persia lets the exiles go home. They rebuild the temple, and under Ezra and Nehemiah the walls of Jerusalem rise again.",
+    "lede": "Cyrus of Persia lets the exiles go home. They rebuild the temple, Ezra teaches them the law again, and under Nehemiah the walls of Jerusalem rise.",
     "places": ["jerusalem_636", "babylon_151", "susa_1118", "ecbatana_353", "persia_938", "samaria_1022"],
     "moments": ["cyrus-decree-and-first-return", "second-temple-completed", "esther-saves-her-people", "ezra-returns-to-jerusalem", "nehemiah-rebuilds-the-walls", "prophecies-of-malachi"],
     "people": ["cyrus_968", "zerubbabel_3054", "ezra_1245", "nehemiah_2172", "esther_1343", "haggai_1349"]

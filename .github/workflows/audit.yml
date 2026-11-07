@@ -1,0 +1,43 @@
+name: Evidence scan
+
+# Runs the data audit's text match (docs/data-audit-plan.md) on pull requests
+# that touch the data: it fetches the KJV verse text, re-runs the scan, and
+# fails if data/evidence/matches.json would change. It never commits; the fix
+# is to run `npm run audit:scan` and commit the result with the data change.
+#
+# Code-only PRs skip it. If this is ever made a required check, replace the
+# path filter with a job that always runs and skips the work when no data
+# changed: a required check whose workflow never started stays "pending".
+
+on:
+  pull_request:
+    paths:
+      - "data/seed/**"
+      - "data/overrides/**"
+      - "data/evidence/**"
+      - "data/sources.json"
+      - "data/vendor/theographic/snapshot.json"
+      - "scripts/audit-scan.ts"
+      - "src/lib/scan.ts"
+      - "src/lib/evidence.ts"
+  workflow_dispatch:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      # verses.json is 37 MB and only changes with the pinned upstream commit.
+      - uses: actions/cache@v4
+        with:
+          path: data/vendor/theographic/verses.json
+          key: theographic-verses-${{ hashFiles('data/vendor/theographic/snapshot.json') }}
+      - name: Fetch verse text (if not cached)
+        run: test -f data/vendor/theographic/verses.json || npm run vendor:fetch
+      - name: Scan, and check matches.json is up to date
+        run: npm run audit:scan -- --check
