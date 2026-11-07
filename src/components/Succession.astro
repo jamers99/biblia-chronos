@@ -2,7 +2,7 @@
 // A kingdom's line of kings: a bar of the whole kingdom, each king a segment
 // in his house's tone, then (optionally) the kings in order, grouped by house.
 // Used on a kingdom's page, and on a reign's page with that reign marked.
-import { dynasties, type KingdomRow, type Reign } from "../lib/kingdoms.ts"
+import { dynasties, reignNote, type KingdomRow, type Reign } from "../lib/kingdoms.ts"
 import { formatSpan, formatYear } from "../lib/format.ts"
 import { entityUrl } from "../lib/url.ts"
 
@@ -42,7 +42,7 @@ const sub = k.reigns.filter((r) => r.sub)
           href={reignUrl(r)}
           class:list={["seg", "sub", `tone-${r.tone}`, { current: r.id === current }]}
           style={`left: ${pct(r.start)}%; width: max(3px, ${pct(r.end) - pct(r.start)}%)`}
-          title={`${r.king} · ${formatSpan(r.start, r.end)} · ${r.note ?? r.house}`}
+          title={`${r.king} · ${formatSpan(r.start, r.end)} · ${reignNote(r) ?? r.house}`}
         />
       ))
     }
@@ -68,7 +68,7 @@ const sub = k.reigns.filter((r) => r.sub)
                 <span class="when">{formatSpan(r.start, r.end)}</span>
                 <span class="who">
                   <a href={kingUrl(r)}>{r.king}</a>
-                  {r.note && <span class="note">{r.note}</span>}
+                  {reignNote(r) && <span class="note">{reignNote(r)}</span>}
                 </span>
                 <a class="length" href={reignUrl(r)}>{length(r)}</a>
               </li>

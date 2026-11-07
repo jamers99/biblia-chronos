@@ -37,7 +37,9 @@ to be listed twice, and a `place` to be a known place.
   onto the seed record (shallow, per top-level field), so you can correct just
   one field. An override with a new `id` adds a whole new record.
 - **Edges** are matched by `from|to|type`. An override adds a new edge or corrects
-  an existing one. (Deleting a seed edge isn't supported yet.)
+  an existing one. To delete a wrong seed edge, add it with `"remove": true` (a
+  tombstone). The checker warns when a tombstone no longer matches a seed edge,
+  e.g. after upstream fixes it, so it can be cleaned up.
 
 Because the merge is shallow, overriding a nested object replaces the whole
 object. To change one sub-field, include the others you want to keep.

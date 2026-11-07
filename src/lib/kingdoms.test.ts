@@ -1,6 +1,6 @@
 import { test } from "node:test"
 import assert from "node:assert/strict"
-import { dynasties, kingdomTrack, placeLabels, reignContext, LONE } from "./kingdoms.ts"
+import { dynasties, kingdomTrack, placeLabels, reignContext, reignNote, LONE } from "./kingdoms.ts"
 import type { Event, Kingdom } from "./data/schema.ts"
 
 const event = (id: string, name: string, earliest: number, latest: number): Event => ({
@@ -80,4 +80,27 @@ test("dynasties lists each house once and leaves out lone kings", () => {
     events,
   ).kingdoms[0]
   assert.deepEqual(dynasties(judah).map((h) => h.name), ["House of David"])
+})
+
+test("reignNote prefers the editors' note, else says an overlap is only in the dates", () => {
+  const kingdoms: Kingdom[] = [
+    {
+      id: "k", name: "K", source: "t", event: "k",
+      reigns: [
+        { event: "reign-of-a", house: "House of A" },
+        { event: "reign-of-b", house: "House of A" },
+        { event: "reign-of-c", house: "House of A", note: "Rival" },
+      ],
+    },
+  ]
+  const events = [
+    event("k", "K", -950, -900),
+    event("reign-of-a", "Reign of A", -950, -930),
+    event("reign-of-b", "Reign of B", -935, -932),
+    event("reign-of-c", "Reign of C", -945, -942),
+  ]
+  const [b, c] = kingdomTrack(kingdoms, events).kingdoms[0].reigns.slice(1)
+  assert.equal(b.alongside, "A")
+  assert.equal(reignNote(b), "Overlaps A's reign in these dates")
+  assert.equal(reignNote(c), "Rival")
 })

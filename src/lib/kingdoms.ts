@@ -21,6 +21,9 @@ export type Reign = {
   // 0 for the main line; 1+ for a reign that overlaps it (a co-regency or a
   // rival claimant), drawn as a thin stripe under the main block.
   sub: number
+  // A sub-line reign: the main-line king it overlaps. Without a `note` saying
+  // why (a co-regency, a rival), the overlap comes from the dates alone.
+  alongside?: string
   // Main-line reigns only: whether this reign begins or ends a run of its
   // house, where the track leaves a wider gap than between two kings.
   opens: boolean
@@ -111,6 +114,12 @@ export function kingdomTrack(
       r.sub = lane
     }
 
+    for (const r of reigns.filter((r) => r.sub)) {
+      const overlap = (o: Reign) => Math.min(o.end, r.end) - Math.max(o.start, r.start)
+      const main = reigns.filter((o) => !o.sub && overlaps(o, r)).sort((a, b) => overlap(b) - overlap(a))[0]
+      if (main) r.alongside = main.king
+    }
+
     const houses: House[] = []
     for (const r of reigns) {
       const last = houses[houses.length - 1]
@@ -150,6 +159,12 @@ export function kingdomTrack(
   }
   return { rows: Math.max(1, count), kingdoms: rows }
 }
+
+// What to say about an unusual reign: the editors' note, or else, for a reign
+// drawn under another, that the overlap is only in the dates. Scripture may
+// not say they reigned together (Ahaziah and Joram of Israel).
+export const reignNote = (r: Reign): string | undefined =>
+  r.note ?? (r.alongside ? `Overlaps ${r.alongside}'s reign in these dates` : undefined)
 
 // A kingdom's dynasties, each once, in the order they first reigned: the key on
 // its page and the count of royal houses. Lone kings aren't dynasties.

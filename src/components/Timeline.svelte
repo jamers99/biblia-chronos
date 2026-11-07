@@ -17,7 +17,7 @@
   import { select } from "d3-selection"
   import "d3-transition"
   import { packLanes, type TimelineItem, type TimelinePeriod } from "../lib/timeline.ts"
-  import { dynasties, placeLabels, type KingdomRow, type KingdomTrack, type Reign } from "../lib/kingdoms.ts"
+  import { dynasties, placeLabels, reignNote, type KingdomRow, type KingdomTrack, type Reign } from "../lib/kingdoms.ts"
   import { formatSpan, formatYear, labelWidth } from "../lib/format.ts"
   import { entityUrl, setHash } from "../lib/url.ts"
   import { addInertia } from "../lib/inertia.ts"
@@ -177,7 +177,8 @@
     if (!at) return undefined
     const { kingdom: k, reign } = at
     const name = k.region ? `${k.name} (${k.region.toLowerCase()})` : k.name
-    if (reign) return `${name} · ${reign.house}${reign.note ? ` · ${reign.note}` : ""}`
+    const note = reign && reignNote(reign)
+    if (reign) return `${name} · ${reign.house}${note ? ` · ${note}` : ""}`
     const houses = dynasties(k).length
     return `${k.reigns.length} kings · ${houses} royal ${houses === 1 ? "house" : "houses"}${k.fate ? ` · ${k.fate}` : ""}`
   }

@@ -24,7 +24,7 @@ import {
   type EdgeType,
   type DateEstimate,
 } from "../src/lib/data/schema.ts"
-import { mergeEntities, mergeEdges } from "../src/lib/data/merge.ts"
+import { mergeEntities, mergeEdges, staleRemovals } from "../src/lib/data/merge.ts"
 
 const root = join(import.meta.dirname, "..")
 const seedDir = join(root, "data", "seed")
@@ -214,7 +214,12 @@ for (const k of kingdoms) {
   }
 }
 
-// --- 6. Orphans (warning only) ----------------------------------------------
+// --- 6. Edge tombstones still remove something (warning only) --------------
+
+for (const e of staleRemovals(readSeed("edges.json"), readOverride("edges.json")))
+  warn(`override removes ${e.from} -${e.type}-> ${e.to}, but seed has no such edge: the tombstone can go`)
+
+// --- 7. Orphans (warning only) ----------------------------------------------
 
 const connected = new Set<string>()
 for (const e of edges) {

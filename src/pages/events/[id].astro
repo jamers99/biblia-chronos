@@ -6,7 +6,7 @@ import Scripture from "../../components/Scripture.astro"
 import SourceNote from "../../components/SourceNote.astro"
 import Succession from "../../components/Succession.astro"
 import { events, periods, graph, resolve, track } from "../../lib/data/load.ts"
-import { dynasties, reignContext } from "../../lib/kingdoms.ts"
+import { dynasties, reignContext, reignNote } from "../../lib/kingdoms.ts"
 import type { Event } from "../../lib/data/schema.ts"
 import { periodsOverlapping, spanOf } from "../../lib/chronology.ts"
 import { formatEstimate } from "../../lib/format.ts"
@@ -35,7 +35,7 @@ const houses = kingdom && dynasties(kingdom).length
       ["Royal houses", houses ? `${houses}` : undefined],
       ["End", kingdom?.fate],
       ["House", reign?.reign.house],
-      ["Note", reign?.reign.note],
+      ["Note", reign && reignNote(reign.reign)],
     ]}
   />
 

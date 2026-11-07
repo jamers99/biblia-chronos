@@ -6,8 +6,8 @@
 // time). A matching override's fields are overlaid onto the seed record (a
 // shallow per-field merge, so e.g. an override can fill in just `modernName`);
 // an override with a new id is added as a whole record. Edges have no single id,
-// so they're keyed by from|to|type — overrides add or correct an edge but cannot
-// delete a seed edge (a tombstone mechanism is out of scope for now).
+// so they're keyed by from|to|type — overrides add or correct an edge, and an
+// override with `"remove": true` deletes a wrong seed edge (a tombstone).
 
 import type { Edge } from "./schema.ts"
 
@@ -26,9 +26,21 @@ export function mergeEntities<T extends { id: string }>(
 
 const edgeKey = (e: Pick<Edge, "from" | "to" | "type">) => `${e.from}|${e.to}|${e.type}`
 
-export function mergeEdges(seed: Edge[], overrides: Edge[]): Edge[] {
+export type EdgeOverride = Edge & { remove?: boolean }
+
+export function mergeEdges(seed: Edge[], overrides: EdgeOverride[]): Edge[] {
   const byKey = new Map<string, Edge>()
   for (const e of seed) byKey.set(edgeKey(e), e)
-  for (const o of overrides) byKey.set(edgeKey(o), { ...byKey.get(edgeKey(o)), ...o })
+  for (const { remove, ...o } of overrides) {
+    if (remove) byKey.delete(edgeKey(o))
+    else byKey.set(edgeKey(o), { ...byKey.get(edgeKey(o)), ...o })
+  }
   return [...byKey.values()]
+}
+
+// Tombstones that no longer match a seed edge (fixed upstream, or a typo), so
+// the checker can say the override can go.
+export const staleRemovals = (seed: Edge[], overrides: EdgeOverride[]): EdgeOverride[] => {
+  const keys = new Set(seed.map(edgeKey))
+  return overrides.filter((o) => o.remove && !keys.has(edgeKey(o)))
 }
