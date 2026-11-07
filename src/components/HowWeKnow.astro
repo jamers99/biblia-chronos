@@ -1,8 +1,8 @@
 ---
 // "How we know": a small marker after a fact (its verse, or "unchecked") that
-// opens the evidence behind it, one line per layer, so a script's match, an
-// AI's check, and a person's review never look alike (docs/data-audit-plan.md).
-// A native popover: no script, and it works in panels too.
+// opens the evidence behind it, one line per layer, so a text match, an AI's
+// check, and a person's review never look alike (docs/data-audit-plan.md). A
+// native popover: no JavaScript, and it works in panels too.
 import { books, evidenceFor, source } from "../lib/data/load.ts"
 import { RULES, factStatus, hash } from "../lib/evidence.ts"
 import { verse } from "../lib/scripture.ts"
@@ -25,6 +25,7 @@ const label = {
   wrong: ev?.editor?.read ? "corrected" : "flagged",
   unchecked: "unchecked",
 }[status.state]
+const sentence = (s: string) => s[0].toUpperCase() + s.slice(1)
 const sources = (ev?.entry?.sources ?? []).map((s) => source(s)).filter((s) => s !== undefined)
 ---
 
@@ -56,8 +57,8 @@ const sources = (ev?.entry?.sources ?? []).map((s) => source(s)).filter((s) => s
         )}
         {sources.length > 0 && <p class="how-note">Outside Scripture: {sources.map((s) => s.title).join(", ")}</p>}
         <dl>
-          <dt>Script</dt>
-          <dd>{ev.script ? `Matched: ${RULES[ev.script.rule] ?? ev.script.rule}` : <span class="muted">No verse matched</span>}</dd>
+          <dt>Text match</dt>
+          <dd>{ev.match ? sentence(RULES[ev.match.rule] ?? ev.match.rule) : <span class="muted">None found</span>}</dd>
           <dt>AI</dt>
           <dd>
             {ev.ai ? (
@@ -79,7 +80,6 @@ const sources = (ev?.entry?.sources ?? []).map((s) => source(s)).filter((s) => s
             )}
           </dd>
         </dl>
-        <p class="how-foot">Checked against the King James text. Links open the ESV.</p>
       </div>
     </>
   )
@@ -137,7 +137,7 @@ const sources = (ev?.entry?.sources ?? []).map((s) => source(s)).filter((s) => s
   }
   dl {
     display: grid;
-    grid-template-columns: 4.5rem 1fr;
+    grid-template-columns: 5.5rem 1fr;
     gap: 0.3rem 0.75rem;
     margin: 0.5rem 0 0;
   }
@@ -148,11 +148,6 @@ const sources = (ev?.entry?.sources ?? []).map((s) => source(s)).filter((s) => s
     margin: 0;
   }
   .muted {
-    color: var(--ink-3);
-  }
-  .how-foot {
-    margin: 0.75rem 0 0;
-    font-size: 0.75rem;
     color: var(--ink-3);
   }
 </style>

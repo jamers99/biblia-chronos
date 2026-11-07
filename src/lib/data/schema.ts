@@ -168,7 +168,7 @@ export const EvidenceBatch = z
       .object({ by: z.string(), on: Day, sampled: z.number().min(0).max(1).optional(), read: z.array(z.string()).optional() })
       .strict()
       .optional(),
-    agreed: z.array(z.string()).optional(), // the AI agrees with the script's verse
+    agreed: z.array(z.string()).optional(), // the AI agrees with the text match's verse
     facts: z
       .record(
         z

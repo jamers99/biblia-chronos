@@ -1,4 +1,4 @@
-// The script layer's matching rules: does a verse's text state a fact? Pure
+// The text match's rules: does a verse's text state a fact? Pure
 // functions over plain strings, used by scripts/audit-scan.ts.
 //
 // The rules look for the *shape* of a statement ("Isaac, Abraham's son",

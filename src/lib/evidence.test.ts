@@ -30,7 +30,7 @@ test("a fact's hash follows the data it shows", () => {
   assert.equal(hash("x").length, 6)
 })
 
-test("collectEvidence layers the script, the AI, and the editor, and ignores stale keys", () => {
+test("collectEvidence layers the text match, the AI, and the editor, and ignores stale keys", () => {
   const facts = enumerateFacts(data)
   const key = (id: string) => facts.find((f) => f.id === id)!.key
   const evs = collectEvidence(facts, { theographic: "c", facts: { [key("parent-of:abraham>isaac")]: ["gen.25.19", "possessive"] } }, [
@@ -49,12 +49,12 @@ test("collectEvidence layers the script, the AI, and the editor, and ignores sta
     ],
   ])
   const parent = evs.get("parent-of:abraham>isaac")!
-  assert.deepEqual(parent.script, { ref: "gen.25.19", rule: "possessive" })
+  assert.deepEqual(parent.match, { ref: "gen.25.19", rule: "possessive" })
   assert.equal(parent.ai?.agreed, true)
   assert.equal(parent.editor?.read, false) // agreed facts are only sampled
   assert.equal(evs.get("date:e")!.editor?.read, true) // written entries are read
   assert.equal(evs.get("note:k/e")!.entry, undefined)
   assert.deepEqual(factStatus(parent), { state: "verse", refs: ["gen.25.19"] })
   assert.deepEqual(factStatus(evs.get("note:k/e")), { state: "unchecked", refs: [] })
-  assert.deepEqual(tally([...evs.values()]), { facts: 5, script: 1, ai: 2, editor: 1, unchecked: 3 })
+  assert.deepEqual(tally([...evs.values()]), { facts: 5, matched: 1, ai: 2, editor: 1, unchecked: 3 })
 })

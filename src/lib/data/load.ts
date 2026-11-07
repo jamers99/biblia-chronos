@@ -7,7 +7,7 @@ import type { Person, Place, Event, PeopleGroup, Period, Kingdom, Book, Edge, So
 import { mergeEntities, mergeEdges } from "./merge.ts"
 import { createGraph } from "./graph.ts"
 import { kingdomTrack } from "../kingdoms.ts"
-import { collectEvidence, enumerateFacts, type BatchEvidence, type Fact, type FactEvidence, type ScriptEvidence } from "../evidence.ts"
+import { collectEvidence, enumerateFacts, type BatchEvidence, type Fact, type FactEvidence, type MatchEvidence } from "../evidence.ts"
 
 // JSON imports are resolved by Vite at build time (relative to this file).
 import peopleData from "../../../data/seed/people.json"
@@ -73,19 +73,19 @@ export const eventsOf = (personId: string) => resolve(graph.outgoing(personId, "
 
 // --- Evidence ---------------------------------------------------------------
 
-// The audit's evidence layers (docs/data-audit-plan.md): the script's verse
-// matches (data/evidence/script.json) and AI/editor review batches (the other
-// files there), keyed to the facts the pages show.
+// The audit's evidence layers (docs/data-audit-plan.md): the text match
+// (data/evidence/matches.json) and AI/editor review batches (the other files
+// there), keyed to the facts the pages show.
 const evidenceModules = import.meta.glob("../../../data/evidence/*.json", { eager: true }) as Record<string, { default: unknown }>
 const evidenceFile = (path: string) => path.slice(path.lastIndexOf("/") + 1)
-const scriptEvidence = Object.entries(evidenceModules).find(([path]) => evidenceFile(path) === "script.json")?.[1]
-  .default as ScriptEvidence | undefined
+const matchEvidence = Object.entries(evidenceModules).find(([path]) => evidenceFile(path) === "matches.json")?.[1]
+  .default as MatchEvidence | undefined
 const batches = Object.entries(evidenceModules)
-  .filter(([path]) => evidenceFile(path) !== "script.json")
+  .filter(([path]) => evidenceFile(path) !== "matches.json")
   .map(([path, mod]) => [evidenceFile(path).replace(/\.json$/, ""), mod.default as BatchEvidence] as [string, BatchEvidence])
 
 export const facts = enumerateFacts({ people, places, events, edges, periods, kingdoms })
-const evidence = collectEvidence(facts, scriptEvidence, batches)
+const evidence = collectEvidence(facts, matchEvidence, batches)
 const factsByRecord = new Map<string, Fact[]>()
 for (const f of facts) for (const r of f.records) factsByRecord.set(r, [...(factsByRecord.get(r) ?? []), f])
 

@@ -10,11 +10,11 @@ There are three layers, and the site shows each one separately:
 
 | Layer | Where | Written by |
 |---|---|---|
-| **Script** | `script.json` | `npm run audit:scan`. Never hand-edit it |
+| **Text match** | `matches.json` | `npm run audit:scan`. Never hand-edit it |
 | **AI** | `<batch>.json`, with `ai` set | an AI reviewer, from `npm run audit:batch` |
 | **Editor** | the same file, with `editor` set | a person, in the PR |
 
-## script.json
+## matches.json
 
 The scan searches the King James text of every verse (Theographic's
 `verses.json`, fetched by `npm run vendor:fetch`) for a verse that states each
@@ -51,7 +51,7 @@ sitting. A fact lives in exactly one batch.
 }
 ```
 
-- **`agreed`**: the AI agrees with the script's verse. That's one line, nothing else.
+- **`agreed`**: the AI agrees with the text match's verse. That's one line, nothing else.
 - **`facts`**: written entries.
   - `refs`: the verses.
   - `sources`: keys into `sources.json`, for anything from outside Scripture.
@@ -70,11 +70,31 @@ sitting. A fact lives in exactly one batch.
 changed since it was reviewed, and fails on a malformed file, an unknown book or
 chapter, or a fact reviewed in two batches.
 
+## When the data changes
+
+A review is tied to the data it saw. Each key's hash covers what the fact
+shows: a date's numbers, a note's text, a link's two ends. When a re-import or
+an override changes that data, the hash changes and the old review no longer
+matches. Then:
+
+- **The site** stops showing that AI or editor mark. The fact goes back to
+  whatever still applies (usually the text match, re-run with the change).
+- **`npm run check:data`** warns about each one: "the data changed since it
+  was reviewed (now …)", or "no such fact any more" if the link or record is
+  gone (removed or renamed upstream; the importer lists renamed ids).
+- **`npm run audit:batch -- <name> --stale`** lists that batch's stale reviews
+  with their old verdicts and verses. Re-check each one, then swap the old key
+  for the new one in the file.
+
+Only the fact's own data counts. Editing an event's description doesn't make
+its date review stale, and neither does a new verse elsewhere about the
+person.
+
 ## Reviewing a batch
 
 1. Run `npm run audit:batch -- <name> <passage>` (e.g. `esther esth.1-10`). It
    writes `audit/batches/<name>.md`: every fact that lives in the passage, with
-   what the script found, and the passage's KJV text.
+   what the text match found, and the passage's KJV text.
 2. An AI reviewer works from that file and writes `data/evidence/<name>.json`.
    It may only cite verses whose text it has actually read: those in the file,
    or any it looks up with `npm run verse -- <keys>` (e.g. `2kgs.25.8-10`).

@@ -1,6 +1,6 @@
 # Data Audit Plan: checking the data against Scripture
 
-> **Status (Nov 2026):** steps 1 and 2 are built. The script matches 3,438 of
+> **Status (Nov 2026):** steps 1 and 2 are built. The text match finds a verse for 3,438 of
 > 5,950 facts to a verse. Step 3 has begun: six AI batches (Esther, Ezra,
 > Nehemiah, the kings' houses and notes, the era summaries) cover 260 facts. Of
 > those, 5 are flagged wrong and 66 are readings. None has had an editor's
@@ -8,7 +8,7 @@
 > to run a batch.
 
 **Goal:** every fact the site shows points to the verse that supports it,
-and says plainly how that was checked: by a script, by an AI, or by a
+and says plainly how that was checked: by an automatic text match, by an AI, or by a
 person. The app must not add to or drop from what the data says.
 
 **Principle: layered checks, each one transparent.** Each layer adds its own
@@ -17,15 +17,15 @@ and decide what to trust.
 
 | Layer | What it shows | Stored |
 |---|---|---|
-| **Script** | The text supports the fact: a verse states the relationship in a recognised pattern, e.g. Gen 25:19, "Isaac, Abraham's son" | One generated file |
+| **Text match** | The text supports the fact: a verse states the relationship in a recognised pattern, e.g. Gen 25:19, "Isaac, Abraham's son" | One generated file |
 | **AI** | Haiku read the passage and agreed, or flagged it with a note | Per batch |
 | **Editor** | A person read it | Per batch |
 
-To keep this from turning into a sea of rows: the script layer is one
+To keep this from turning into a sea of rows: the text match is one
 generated file, an AI "agree" is one line in a list, and only facts that
 need explaining get a written entry.
 
-**What the script doesn't check: identity.** The script can show that *a*
+**What the text match doesn't check: identity.** It can show that *a*
 Zechariah is called the son of *a* Jehoiada in some verse. It can't show
 that the verse is about *this* Zechariah. 459 names are shared by more than
 one person, and 1,361 of the 1,785 parent links involve one of those names.
@@ -60,7 +60,7 @@ AI and editor layers, and the site says so.
   not whether they're full or half.
 - **Dates have two parts:**
   - **What the text gives:** Esther 2:16 says "the tenth month … in the
-    seventh year of his reign". The script checks this part.
+    seventh year of his reign". The text match checks this part.
   - **What it's anchored to:** Xerxes coming to the throne in 486 BC, which
     comes from outside the Bible and is cited from `sources.json`.
 
@@ -95,7 +95,7 @@ below).
 
 ---
 
-## The script layer
+## The text match
 
 `npm run audit:scan` runs at the end of `import:theographic`, and by hand
 after editing overrides.
@@ -106,7 +106,7 @@ after editing overrides.
   Rules look for patterns like "X the son of Y", "Y begat X", "X, Y's son",
   and "Y took X to wife".
 - **A weaker rule, labeled as such.** For event participants and locations,
-  "named in the event's passage" is all a script can show, so the site says
+  "named in the event's passage" is all an automatic match can show, so the site says
   exactly that and doesn't treat it as a stated fact.
 - **Number checks:** ages in Gen 5 and 11, and reign lengths in Kings and
   Chronicles, checked against the dates in the data.
@@ -114,7 +114,7 @@ after editing overrides.
   recorded as a parent, uncles, cousins) and fails if more than a handful
   pass. Then if a rule gets too loose, it shows up as a failure.
 
-It writes **`data/evidence/script.json`** (committed, never hand-edited):
+It writes **`data/evidence/matches.json`** (committed, never hand-edited):
 
 - **The header:** the Theographic commit and a hash of the seed and overrides
   it read. No run date, so the same data always produces the same file.
@@ -127,7 +127,7 @@ for the AI pass. It isn't committed.
 **In CI:** a separate workflow, `.github/workflows/audit.yml`, runs only on
 pull requests that touch `data/` or the audit scripts. It fetches
 `verses.json` (cached by Theographic commit, so the download is rare), runs
-the scan, and fails if `script.json` would change. It never commits
+the scan, and fails if `matches.json` would change. It never commits
 anything itself. The failure says to run `npm run audit:scan` and commit.
 If the check is ever made required for merging, give it a job that always
 runs and skips the work when no data changed. A required check whose
@@ -149,7 +149,7 @@ containing its first supporting verse.
   "ai":     { "model": "haiku", "on": "2026-11-10" },
   "editor": { "by": "jamers99", "on": "2026-11-12", "sampled": 0.1 },
 
-  // The AI agrees with the script's verse: id@hash, nothing else
+  // The AI agrees with the text match's verse: id@hash, nothing else
   "agreed": [
     "participated-in:esther_1343>esther-becomes-queen@3f9a",
     "participated-in:mordecai_2107>esther-becomes-queen@b21c"
@@ -199,7 +199,7 @@ check never looks like a person's:
 
 > **Father:** Abraham · [Gen 25:19](#)
 > - **Verse:** Gen 25:19 (opens on bible.com)
-> - **Script:** "Isaac, Abraham's son", the son-of pattern
+> - **Text match:** "Isaac, Abraham's son", the son-of pattern
 > - **AI:** agreed (Haiku, Nov 2026)
 > - **Editor:** batch spot-checked (jamers99, Nov 2026)
 
@@ -250,9 +250,9 @@ drops a fact, then fix or label each one:
   (evidence included) as CC-BY-SA explicitly. Quoting the KJV in notes is
   fine. Keep quotes short.
 
-### 2. Script layer and display (one PR)
+### 2. Text match and display (one PR)
 
-The scan, `script.json`, the fact ids and hashes in `check:data`, the
+The scan, `matches.json`, the fact ids and hashes in `check:data`, the
 `audit.yml` workflow, and the "how we know" marker with the Sources section.
 
 ### 3. AI and editor passes (one PR per batch)
@@ -262,7 +262,7 @@ Bible-era people, including Esther, Mordecai, Ezra, and Nehemiah, are still
 drafts, so drafts are where most of this work is.
 
 1. **AI pass.** Haiku reads the batch's passage text and every fact in it,
-   including the ones the script matched. It can only cite verses from that
+   including the ones the text match found. It can only cite verses from that
    text. For each fact, it agrees or writes an entry. For each namesake, it
    decides which person is meant. It also reports what's missing: events,
    links, and lifetime facts the text states, never a guessed lifespan.
@@ -278,5 +278,5 @@ drafts, so drafts are where most of this work is.
 ## Size
 
 Countable facts come to about 5,300 edges plus about 500 dates. Most will be
-one line in `script.json` and one line in an `agreed` list. The first scan
+one line in `matches.json` and one line in an `agreed` list. The first scan
 will give real numbers to plan from.

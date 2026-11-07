@@ -1,10 +1,10 @@
-// The script layer of the data audit (docs/data-audit-plan.md): for every
+// The text match, the first layer of the data audit (docs/data-audit-plan.md): for every
 // checkable fact, look for a verse whose text states it, and write what was
-// found to data/evidence/script.json. Facts it can't match are listed in
+// found to data/evidence/matches.json. Facts it can't match are listed in
 // audit/unmatched.md (gitignored), the queue for the AI and editor passes.
 //
-//   npm run audit:scan            scan and write script.json
-//   npm run audit:scan -- --check fail if script.json would change (CI)
+//   npm run audit:scan            scan and write matches.json
+//   npm run audit:scan -- --check fail if matches.json would change (CI)
 //
 // Needs the KJV verse text: run `npm run vendor:fetch` first. Runs at the end
 // of `import:theographic`, and by hand after editing data/overrides/.
@@ -17,7 +17,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs"
 import { join } from "node:path"
 import { mergeEntities, mergeEdges } from "../src/lib/data/merge.ts"
 import type { Book, Edge, Event, Kingdom, Period, Person, Place, PeopleGroup } from "../src/lib/data/schema.ts"
-import { enumerateFacts, subjects, verseKey, type Fact, type ScriptEvidence } from "../src/lib/evidence.ts"
+import { enumerateFacts, subjects, verseKey, type Fact, type MatchEvidence } from "../src/lib/evidence.ts"
 import {
   diedRule,
   inRule,
@@ -336,7 +336,7 @@ const FAKE_LIMIT = 0.05
 
 // --- Output -----------------------------------------------------------------------
 
-const out: ScriptEvidence = {
+const out: MatchEvidence = {
   theographic: snapshot.commit,
   facts: Object.fromEntries(facts.map((f) => [f.key, results.get(f.key) ?? []])),
 }
@@ -346,7 +346,7 @@ const body =
   facts.map((f) => `    ${JSON.stringify(f.key)}: ${JSON.stringify(out.facts[f.key])}`).join(",\n") +
   `\n  }\n}\n`
 
-const outPath = join(root, "data", "evidence", "script.json")
+const outPath = join(root, "data", "evidence", "matches.json")
 
 // Unmatched, grouped by where in Scripture they sit (the fact's first record's
 // first verse), for the AI passes.
@@ -417,24 +417,24 @@ if (fakePassed / Math.max(1, fakeTotal) > FAKE_LIMIT) {
 if (check) {
   const current = existsSync(outPath) ? readFileSync(outPath, "utf8") : ""
   if (current !== body) {
-    const previous: ScriptEvidence["facts"] = current ? JSON.parse(current).facts : {}
+    const previous: MatchEvidence["facts"] = current ? JSON.parse(current).facts : {}
     const old = new Map(Object.entries(previous).map(([k, v]) => [k, JSON.stringify(v)]))
     const now = new Map(facts.map((f) => [f.key, JSON.stringify(out.facts[f.key])]))
     const added = [...now.keys()].filter((k) => !old.has(k))
     const removed = [...old.keys()].filter((k) => !now.has(k))
     const changed = [...now.keys()].filter((k) => old.has(k) && old.get(k) !== now.get(k))
-    lines.push(`\n✗ data/evidence/script.json is out of date: ${added.length} new, ${removed.length} gone, ${changed.length} changed.`)
+    lines.push(`\n✗ data/evidence/matches.json is out of date: ${added.length} new, ${removed.length} gone, ${changed.length} changed.`)
     for (const k of [...added.slice(0, 10).map((k) => `+ ${k}`), ...removed.slice(0, 10).map((k) => `- ${k}`), ...changed.slice(0, 10).map((k) => `~ ${k}`)])
       lines.push(`  ${k}`)
     lines.push("Run `npm run audit:scan` and commit the result.")
     failed = true
-  } else lines.push("\n✓ data/evidence/script.json is up to date.")
+  } else lines.push("\n✓ data/evidence/matches.json is up to date.")
 } else {
   mkdirSync(join(root, "data", "evidence"), { recursive: true })
   writeFileSync(outPath, body)
   mkdirSync(join(root, "audit"), { recursive: true })
   writeFileSync(join(root, "audit", "unmatched.md"), md)
-  lines.push(`\nWrote data/evidence/script.json, and audit/unmatched.md (${unmatched.length} unmatched).`)
+  lines.push(`\nWrote data/evidence/matches.json, and audit/unmatched.md (${unmatched.length} unmatched).`)
 }
 
 console.log(lines.join("\n"))

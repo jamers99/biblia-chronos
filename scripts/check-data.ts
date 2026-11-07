@@ -26,7 +26,7 @@ import {
   type DateEstimate,
 } from "../src/lib/data/schema.ts"
 import { mergeEntities, mergeEdges, staleRemovals } from "../src/lib/data/merge.ts"
-import { enumerateFacts, factId, parseVerse, type ScriptEvidence } from "../src/lib/evidence.ts"
+import { enumerateFacts, factId, parseVerse, type MatchEvidence } from "../src/lib/evidence.ts"
 
 const root = join(import.meta.dirname, "..")
 const seedDir = join(root, "data", "seed")
@@ -226,7 +226,7 @@ for (const e of staleRemovals(readSeed("edges.json"), readOverride("edges.json")
 // Every review is keyed `id@hash`. A key whose id is gone, or whose hash no
 // longer matches the data (an override changed a date, a re-import changed a
 // link), is a review of something the site no longer shows: warn, so it gets
-// moved or re-checked rather than silently dropped. The scan's own file must
+// moved or re-checked rather than silently dropped. The text match's file must
 // cover exactly the current facts; if not, it's behind.
 
 const evidenceDir = join(root, "data", "evidence")
@@ -245,23 +245,23 @@ const staleOrGone = (key: string) => {
   return current ? `the data changed since it was reviewed (now ${current})` : "no such fact any more"
 }
 
-const scriptPath = join(evidenceDir, "script.json")
-if (existsSync(scriptPath)) {
-  const script = JSON.parse(readFileSync(scriptPath, "utf8")) as ScriptEvidence
-  const scanned = Object.keys(script.facts)
-  const unseen = facts.filter((f) => !(f.key in script.facts))
+const matchesPath = join(evidenceDir, "matches.json")
+if (existsSync(matchesPath)) {
+  const matches = JSON.parse(readFileSync(matchesPath, "utf8")) as MatchEvidence
+  const scanned = Object.keys(matches.facts)
+  const unseen = facts.filter((f) => !(f.key in matches.facts))
   const gone = scanned.filter((k) => !factKeys.has(k))
   if (unseen.length || gone.length)
     warn(
-      `data/evidence/script.json is behind the data (${unseen.length} new or changed facts, ${gone.length} gone, ` +
+      `data/evidence/matches.json is behind the data (${unseen.length} new or changed facts, ${gone.length} gone, ` +
         `e.g. ${[...unseen.map((f) => f.key), ...gone].slice(0, 2).join(", ")}): run \`npm run audit:scan\``,
     )
-  if (script.theographic !== snapshot.commit)
-    warn(`data/evidence/script.json read Theographic ${script.theographic.slice(0, 7)}, but the snapshot is ${snapshot.commit.slice(0, 7)}: run \`npm run audit:scan\``)
-  for (const [key, found] of Object.entries(script.facts)) if (found[0]) checkVerse(`script.json ${key}`, found[0])
-} else warn("data/evidence/script.json is missing: run `npm run audit:scan`")
+  if (matches.theographic !== snapshot.commit)
+    warn(`data/evidence/matches.json read Theographic ${matches.theographic.slice(0, 7)}, but the snapshot is ${snapshot.commit.slice(0, 7)}: run \`npm run audit:scan\``)
+  for (const [key, found] of Object.entries(matches.facts)) if (found[0]) checkVerse(`matches.json ${key}`, found[0])
+} else warn("data/evidence/matches.json is missing: run `npm run audit:scan`")
 
-const batchFiles = existsSync(evidenceDir) ? readdirSync(evidenceDir).filter((f) => f.endsWith(".json") && f !== "script.json") : []
+const batchFiles = existsSync(evidenceDir) ? readdirSync(evidenceDir).filter((f) => f.endsWith(".json") && f !== "matches.json") : []
 const reviewedIn = new Map<string, string>()
 for (const file of batchFiles.sort()) {
   const where = `evidence/${file}`

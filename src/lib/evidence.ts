@@ -1,6 +1,6 @@
 // The facts the site shows, as stable ids we can attach evidence to, and the
-// evidence layers on top: the script's verse match (data/evidence/script.json),
-// AI and editor reviews (data/evidence/<batch>.json). See
+// evidence layers on top: the text match (data/evidence/matches.json), and AI
+// and editor reviews (data/evidence/<batch>.json). See
 // docs/data-audit-plan.md. Pure: shared by the scan, the checker, and the build.
 
 import type { DateEstimate, Edge, EvidenceBatch, Kingdom, Period, Person } from "./data/schema.ts"
@@ -119,9 +119,10 @@ export function parseVerse(key: string): VerseRef | undefined {
 
 // --- Evidence ----------------------------------------------------------------
 
-// What the script found for each fact it scanned: the verse and the rule that
-// matched, [null, rule] for a fact worked out from other data, or [] for none.
-export type ScriptEvidence = {
+// The text match: what the scan found for each fact, the verse and the rule
+// that matched, [null, rule] for a fact worked out from other data, or [] for
+// none (see scripts/audit-scan.ts).
+export type MatchEvidence = {
   theographic: string // the upstream commit whose verse text was read
   facts: Record<string, [string | null, string] | []>
 }
@@ -132,18 +133,18 @@ export type BatchEvidence = EvidenceBatch
 // Everything known about one fact, for the page that shows it.
 export type FactEvidence = {
   key: string
-  script?: { ref: string | null; rule: string }
+  match?: { ref: string | null; rule: string }
   ai?: { model: string; on: string; agreed: boolean }
   editor?: { by: string; on: string; read: boolean; sampled?: number }
   entry?: NonNullable<BatchEvidence["facts"]>[string]
   batch?: string
 }
 
-export function collectEvidence(facts: Fact[], script: ScriptEvidence | undefined, batches: [string, BatchEvidence][]) {
+export function collectEvidence(facts: Fact[], matches: MatchEvidence | undefined, batches: [string, BatchEvidence][]) {
   const byId = new Map<string, FactEvidence>()
   for (const f of facts) {
-    const s = script?.facts[f.key]
-    byId.set(f.id, { key: f.key, ...(s && s.length ? { script: { ref: s[0], rule: s[1] } } : {}) })
+    const s = matches?.facts[f.key]
+    byId.set(f.id, { key: f.key, ...(s && s.length ? { match: { ref: s[0], rule: s[1] } } : {}) })
   }
   for (const [name, b] of batches) {
     const touch = (key: string, agreed: boolean, entry?: FactEvidence["entry"]) => {
@@ -196,25 +197,25 @@ export const RULES: Record<string, string> = {
 export type FactState = "verse" | "derived" | "reading" | "wrong" | "unchecked"
 
 // Where a fact stands, and the verses that support it: a reviewer's own refs
-// first, else the script's match.
+// first, else the text match.
 export function factStatus(ev: FactEvidence | undefined): { state: FactState; refs: string[] } {
   const entry = ev?.entry
-  const refs = entry?.refs?.length ? entry.refs : ev?.script?.ref ? [ev.script.ref] : []
+  const refs = entry?.refs?.length ? entry.refs : ev?.match?.ref ? [ev.match.ref] : []
   if (entry?.kind === "wrong") return { state: "wrong", refs }
   if (entry?.kind === "reading") return { state: "reading", refs }
   if (refs.length) return { state: "verse", refs }
-  if (ev?.script || entry?.sources?.length) return { state: "derived", refs }
+  if (ev?.match || entry?.sources?.length) return { state: "derived", refs }
   return { state: "unchecked", refs }
 }
 
 // A record's facts by layer, kept apart: an AI check never counts as a person's.
 export function tally(evs: (FactEvidence | undefined)[]) {
-  const t = { facts: evs.length, script: 0, ai: 0, editor: 0, unchecked: 0 }
+  const t = { facts: evs.length, matched: 0, ai: 0, editor: 0, unchecked: 0 }
   for (const ev of evs) {
-    if (ev?.script) t.script++
+    if (ev?.match) t.matched++
     if (ev?.ai) t.ai++
     if (ev?.editor?.read) t.editor++
-    if (!ev?.script && !ev?.ai && !ev?.editor) t.unchecked++
+    if (!ev?.match && !ev?.ai && !ev?.editor) t.unchecked++
   }
   return t
 }
