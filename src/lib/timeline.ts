@@ -38,9 +38,13 @@ export function timelinePeriods(periods: Period[]): TimelinePeriod[] {
   }))
 }
 
+// God and the Holy Spirit have pages and events, but no place on a line of
+// lifespans: placed by their dated events, they'd show as a dot at AD 30.
+const TIMELESS = new Set(["god_1324", "holy_spirit_7400"])
+
 // Everything dated within the periods' range, heaviest first (the order lanes
 // are packed in). "Lifetime of X" events are left out: they'd duplicate X's
-// own bar in the people lanes. `connections` lists any record's linked ids;
+// own bar in the people lanes; so are God and the Holy Spirit (TIMELESS). `connections` lists any record's linked ids;
 // only those that are themselves on the timeline are kept.
 export function timelineItems(
   people: Person[],
@@ -70,7 +74,7 @@ export function timelineItems(
     ...events
       .filter((e) => !e.id.startsWith("lifetime-of-"))
       .flatMap((e) => item(e, spanOf(e.date)).map((i) => ({ ...i, kind: "event" as const, name: e.name, lifetime: false }))),
-    ...people.flatMap((p) => {
+    ...people.filter((p) => !TIMELESS.has(p.id)).flatMap((p) => {
       const span = personSpan(p, eventsOf(p.id))
       return item(p, span && { start: span.start, end: span.end }).map((i) => ({
         ...i,

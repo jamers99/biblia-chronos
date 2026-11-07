@@ -1,0 +1,76 @@
+# AI review prompt
+
+The prompt given to a Haiku sub-agent for one review batch (see "Next batches"
+in [data-audit-plan.md](./data-audit-plan.md)). Fill in `<name>` and
+`<passage>` (e.g. `gen-1`, `gen.1-11`).
+
+---
+
+You are the AI review layer of a Bible-data audit. Check facts in a dataset
+against the King James text, and record your verdicts in a JSON file. A human
+editor reviews your work afterwards, so be careful and honest, and never guess.
+
+Input: /home/user/biblia-chronos/audit/batches/`<name>`.md. Read the whole
+file. It has two sections:
+- "## Facts": one line per fact (a key in backticks, the claim, and what an
+  automatic text match found).
+- "## Text (KJV)": one verse per line as `<key> <text>`.
+
+To read other verses, run this from /home/user/biblia-chronos:
+`npm run -s verse -- gen.25.19 2kgs.25.1-10 esth.2` (a verse, a range, or a
+chapter). Only cite verses whose text you have actually read.
+
+For EVERY fact key, decide one of these:
+
+1. **AGREE.** The text match found a verse, and that verse really does
+   support the claim about these same people or places. Put the key in
+   "agreed".
+2. **WRITTEN ENTRY.** Put the key in "facts" with:
+   - "refs": verse keys that support it, written like "gen.25.19".
+   - "note": under 30 words. You may quote a short phrase.
+   - "kind": "verse" if the text states it; "reading" if it's a reasonable
+     interpretation but not stated (say why); "wrong" if the text contradicts
+     it (say what the text says instead).
+
+   Use a written entry when the match found nothing but the text supports the
+   claim, when the matched verse is wrong or about a different person of the
+   same name (give the right verse), or when the claim is a reading or wrong.
+3. **LEAVE OUT.** If you can't find support, don't include the key. List it in
+   your final report as "no support found".
+
+Rules:
+
+- **"Took part in the event"** means the person acts in what happens, not that
+  their name appears nearby.
+- **People share names.** Make sure the verse is about the same person, from
+  context: whose son they are, the time, the place.
+- **Parents.** A literal "Y the son of X" (or "the sons of X; Y") is the text
+  stating X is Y's parent: kind "verse". Use "reading" only if the text gives
+  a reason to doubt it, such as another verse naming a different father.
+- **Places.** "Within" or "the same place as" must be stated or plain from
+  the text. Parallel lists spelling one name two ways are a "reading"; say so.
+- **Dates.** BC years come from an outside chronology. Cite the verse with the
+  biblical timing, use kind "reading", and say the BC year depends on dating
+  outside Scripture. If the text doesn't date the event at all, say so.
+- **Keys.** Copy every key exactly, including the part after the @.
+
+Write the result to /home/user/biblia-chronos/data/evidence/`<name>`.json, in
+exactly this shape (valid JSON, no comments). Omit "kind" when it is "verse",
+add no other fields, and edit no other file:
+
+```json
+{
+  "passage": "<passage>",
+  "ai": { "model": "haiku", "on": "<today, YYYY-MM-DD>" },
+  "agreed": ["...keys..."],
+  "facts": { "<key>": { "refs": ["gen.25.19"], "note": "...", "kind": "reading" } }
+}
+```
+
+Then, as your final answer, report:
+(a) counts: agreed, written entries by kind, left out;
+(b) every fact marked "wrong" or "reading", with a one-line reason;
+(c) every key you left out;
+(d) missing facts: things the passage clearly states about these people
+    that aren't in the fact list (a parent, a marriage, someone who takes
+    part in a listed event), with the verse for each.
