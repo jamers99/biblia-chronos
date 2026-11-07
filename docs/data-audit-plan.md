@@ -1,14 +1,22 @@
 # Data Audit Plan: checking the data against Scripture
 
-**Goal:** every fact the site shows points to the verse that says it, or is
-clearly marked as unchecked or as an interpretation. The app also must not
-add to or drop from what the data says.
+**Goal:** every fact the site shows points to the verse that says it. It also
+says plainly how that was checked: by a script, by an AI, or by a person. The
+app must not add to or drop from what the data says.
 
-**Principle: compute the evidence, store only the exceptions.** A script finds
-the verse behind most facts. Anyone can re-run it, and anyone can check its
-answer by reading the verse, so its results aren't stored. People only look
-at what the script can't match, and only those decisions go into a file.
-AI helps with that review but never counts as the check.
+**Principle: layered checks, each one transparent.** Each layer adds its own
+mark to a fact and says why. A reader can see each one and decide what to
+trust.
+
+| Layer | What it means | Stored? |
+|---|---|---|
+| **Script** | A rule matched the fact to a verse. It says which rule, e.g. "Gen 21:3 names Abraham and Isaac with 'son'" | No. It's recomputed every build, so it can't go stale |
+| **AI** | An AI model read the passage and agreed (or flagged it, with a note) | Yes, per passage |
+| **Editor** | A person reviewed it | Yes, per passage |
+
+To keep the data from turning into a sea of rows: the script layer stores
+nothing, and a plain "agree" from a reviewer costs one id in a list. Only
+facts that need explaining get a written entry.
 
 ---
 
@@ -17,29 +25,103 @@ AI helps with that review but never counts as the check.
 - **The text:** the KJV in Theographic's `verses.json` (fetched by
   `npm run vendor:fetch`). Readers still get the ESV through the existing
   bible.com links. Names stay as they are.
-- **The facts that matter:** relationships (parents, spouses, tribes), who
-  took part in an event and where it happened, places that are part of or
-  the same as another, and the editorial layers (`periods.json`,
-  `kingdoms.json`).
+- **The facts that matter:**
+  - relationships: parents, spouses, tribes
+  - events: who took part, where it happened
+  - places: what each is part of or the same as
+  - the editorial records (`periods.json`, `kingdoms.json`, and the events
+    added in `overrides/events.json`)
 - **Not verified one by one:**
-  - **Siblings.** 2,557 of the 2,574 sibling edges follow from a shared
-    recorded parent, so they're checked when the parents are. The 17 that
-    don't get a look.
-  - **"In Scripture" lists.** They're Theographic's index of where a name
-    comes up, including verses that only say "he" or "the king", and are
-    labeled that way. They aren't claims.
-  - **Easton's descriptions.** They're labeled as an 1897 dictionary, not
-    checked.
+  - **Siblings.** 2,557 of the 2,574 sibling links follow from a shared
+    recorded parent, so checking the parent checks them. The other 17 get a
+    look.
+  - **"In Scripture" lists.** These are Theographic's index of where a name
+    comes up, including verses that only say "he" or "the king". They're
+    labeled as an index, not as claims.
+  - **Easton's descriptions.** Labeled as a dictionary from 1897.
   - **Coordinates.** Labeled with their source.
-- **Dates.** No BC/AD year is in the Bible. For now each date is labeled
-  "one reconstructed chronology", and the script checks the biblical numbers
-  under it where it can (ages in Gen 5 and 11, reign lengths in Kings and
-  Chronicles). Scholarly alternatives come later, as their own project.
+- **Dates.** No BC/AD year is in the Bible, so a date has two parts:
+  - **What the text gives.** Esther 2:16: "the tenth month … in the seventh
+    year of his reign". The script checks this part.
+  - **What it's anchored to.** For example, Xerxes coming to the throne in
+    486 BC, from outside the Bible. The evidence names that source too.
 
-A first probe shows how far a simple script gets. It looked for one verse
-naming both people with a family word ("son", "begat", "wife"…). That
-matched **1,372 of 1,785 parent links** and **65 of 104 marriages** before
-any tuning.
+  For now, every date is labeled as coming from one reconstructed
+  chronology. Scholarly alternatives come later, as their own project.
+
+A quick first test shows the script layer is worth having. It looked for
+one verse naming both people with a family word ("son", "begat", "wife").
+Even this crude version matched **1,372 of the 1,785 parent links** and **65
+of the 104 marriages**.
+
+---
+
+## The evidence files
+
+One file per passage reviewed, in `data/evidence/`. Each file records who
+reviewed it and when, once at the top, not on every row:
+
+```jsonc
+// data/evidence/esther-2.json
+{
+  "passage": "esth.2",
+  "ai":     { "model": "haiku", "on": "2026-11-10" },
+  "editor": { "by": "jamers99", "on": "2026-11-12" },   // reviewed everything below
+
+  // The AI agrees with the script's verse: just the id
+  "agreed": [
+    "participated-in:esther_1180>esther-becomes-queen",
+    "participated-in:mordecai_2093>esther-becomes-queen"
+  ],
+
+  // Facts that need a word of explanation
+  "facts": {
+    "date:esther-becomes-queen": {
+      "refs": ["esth.2.16"],
+      "sources": ["xerxes-accession"],
+      "note": "Tenth month, seventh year of Ahasuerus (Esth 2:16). 479 BC follows from Xerxes taking the throne in 486 BC."
+    },
+    "partner-of:ahasuerus_95>esther_1180": {
+      "refs": ["esth.2.17"],
+      "note": "The script missed it: the verse says he 'made her queen', not 'wife'."
+    },
+    "member-of:...": { "kind": "wrong", "note": "Fixed in overrides/edges.json." }
+  }
+}
+```
+
+- **A fact entry** has `refs` (verses), `sources` (keys into `sources.json`)
+  for anything outside the Bible, and a short `note`. Its `kind` is one of:
+  - *verse* (the default): the text says it.
+  - *reading*: an interpretation, explained in the note.
+  - *wrong*: an error, fixed in overrides.
+- **`editor` covers the whole file.** If a review covers only part of it,
+  list the fact ids it covers.
+- **`check:data` warns** when an entry points at a fact that no longer
+  exists, or when a fact changed after it was reviewed. That way the files
+  can't silently go stale.
+- **Size:** the whole dataset has perhaps 6–8 thousand checkable facts
+  (excluding siblings and mentions). Most will be one id in an `agreed`
+  list. That comes to a few hundred KB across a few dozen files.
+
+---
+
+## On the site: sources and evidence together
+
+Each fact gets a small "how we know" marker that opens up into the full
+story:
+
+> **Father:** Abraham · [Gen 21:3](#) ✓✓✓
+> - **Verse:** Gen 21:3 (opens on bible.com)
+> - **Script:** the verse names Abraham and Isaac with "son"
+> - **AI:** agreed (Haiku, Nov 2026)
+> - **Editor:** reviewed (jamers99, Nov 2026)
+
+A fact with no checks shows *unchecked*. A *reading* shows its note. Each
+record's Sources section merges with this. It says where the data came from
+(Theographic or the project's editors), the text it was checked against (the
+KJV), and a tally: "14 facts: 12 matched by script, 14 checked by AI, 14
+reviewed by an editor". The "draft" badge goes, and the tally replaces it.
 
 ---
 
@@ -47,81 +129,51 @@ any tuning.
 
 ### 1. Code audit (one PR)
 
-Go through the import and the app code for each place that adds, infers,
-or drops a fact, then fix or label each one. Already spotted:
+Go through the import and the app for each place that adds, infers, or
+drops a fact, then fix or label it. Already spotted:
 
 - **Made-up lifespans.** People with no dates get a timeline bar built from
-  their events (`personSpan`). It should look clearly different from a
-  known lifespan.
-- **Co-regencies.** The kings track infers them from overlapping dates, but
-  they're a scholarly reconstruction. Label them.
-- **Unreferenced editorial prose.** Era and kingdom text (ledes, notes) has
-  no verse references. Add them.
-- **Easton's isn't credited.** The page credits Theographic for the
-  descriptions.
-- **Truncated summaries.** The first-sentence cut (`summarize`) can drop a
+  their events (`personSpan`). It should look different from a known
+  lifespan.
+- **Co-regencies.** The kings track infers them from overlapping dates.
+  Label them as a reconstruction.
+- **Editorial prose without verses.** Era and kingdom text (ledes, notes)
+  needs verse references.
+- **Easton's isn't credited.** The descriptions come from Easton's, but the
+  page credits only Theographic.
+- **Lost qualifiers.** The first-sentence summary (`summarize`) can cut off a
   "probably".
-- **Edges the importer drops.** Review its list.
-- **No way to delete a wrong seed edge.** Overrides can't do it. Add a small
-  tombstone.
+- **Dropped edges.** Review the list of edges the importer drops.
+- **No way to delete a seed edge.** Overrides can't remove one yet, so add a
+  small tombstone.
 
-### 2. Evidence script and display (one PR)
+### 2. Script layer and display (one PR)
 
-- **`npm run audit:scan`.** For each fact it finds a verse that supports it,
-  and for dates it compares the numbers in the data against the numbers the
-  text gives. It writes `audit/unmatched.md`, the list of facts it couldn't
-  match, grouped by passage.
-- **On record pages**, each fact shows its verse ("Father: Abraham ·
-  Gen 21:3", linked to bible.com) or an *unchecked* marker. The "draft" badge
-  becomes a count ("12 of 14 facts checked").
+- `npm run audit:scan`: the matching rules, plus number checks for dates
+  (ages in Gen 5 and 11, reign lengths in Kings and Chronicles). It writes
+  `audit/unmatched.md`, the facts it couldn't match, grouped by passage.
+- The "how we know" marker and the merged Sources section on record pages,
+  showing script results right away.
 
-### 3. Review what's left (one PR per batch)
+### 3. AI and editor passes (one PR per passage)
 
-Go through `unmatched.md` passage by passage, published records first, then
-drafts. For each batch:
+Published and editorial records first, then the drafts, passage by passage:
 
-1. **Haiku drafts a suggestion for each fact:** a verse, or "wrong", or
-   "it's a reading", with a one-line reason. It's given the passage text and
-   can only cite verses in it.
-2. **You accept, change, or reject each suggestion in the PR.** Only what
-   you accept goes in.
-3. **Fixes go in `data/overrides/`.** Upstream errors are marked
-   `"upstream": true`, so a one-line script can list them for you to send to
-   Theographic if you want. We don't file anything.
-
-Accepted decisions go in one file, `data/evidence.json`, one line per fact:
-
-```jsonc
-[
-  { "fact": "parent-of:abraham_58>isaac_616", "refs": ["gen.25.19"] },
-  { "fact": "identity:zechariah_2994@matt.23.35", "refs": ["2chr.24.20"], "kind": "reading",
-    "note": "Matthew calls him son of Barachias; most read this as Jehoiada's son." },
-  { "fact": "member-of:korah_1>levites", "kind": "wrong", "note": "Fixed in overrides/edges.json." }
-]
-```
-
-- **Kinds:**
-  - **Verse** (the default) means the text says it.
-  - **Reading** means it's an interpretation, explained in the note.
-  - **Wrong** means it's fixed in overrides.
-- **No reviewer or date fields.** `git blame` and the PR record who accepted
-  it and when.
-- **`check:data` warns** when an entry points at a fact that no longer
-  exists, so the file can't silently go stale.
-
-On the site, then, a fact is in one of three states:
-
-- **A verse:** the script found it, or you accepted one.
-- **A reading,** with a note.
-- **Unchecked.**
-
-Nothing is shown as checked on an AI's word alone.
+1. **AI pass.** Haiku reads the passage text and every fact touching it,
+   including the ones the script matched, so it double-checks those too. It
+   either agrees, or writes a fact entry with a verse and a note. It can only
+   cite verses in the text it was given.
+2. **Editor pass.** You review the PR. Read every written entry and spot-check
+   the `agreed` list. Merging it with `editor` set records the review. A PR
+   can also merge with only the AI layer, so the site shows "checked by AI"
+   until a person gets to it.
+3. **Fixes.** Corrections go in `data/overrides/`. Upstream errors are
+   marked `"upstream": true`, so a one-line script can list them if you want
+   to send them to Theographic. We don't file anything.
 
 ---
 
 ## Size
 
-The scan does the bulk. What's left for review is the unmatched list:
-probably a few hundred relationships, plus tribe and event links, which need
-their own matching rules before we'll know. Each batch is one passage, so
-one sitting. The first scan report will give real numbers to plan from.
+The script does the bulk. The first scan report will give real numbers. Each
+batch is one passage, so one AI run and one sitting to review.
