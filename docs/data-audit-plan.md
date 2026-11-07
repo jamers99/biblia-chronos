@@ -132,9 +132,18 @@ reviewed by an editor". The "draft" badge goes, and the tally replaces it.
 Go through the import and the app for each place that adds, infers, or
 drops a fact, then fix or label it. Already spotted:
 
-- **Made-up lifespans.** People with no dates get a timeline bar built from
-  their events (`personSpan`). It should look different from a known
-  lifespan.
+- **Bars that look like lifespans but aren't.** Only 31 of the 286 published
+  people have a known birth and death. Everyone else's bar runs from their
+  first dated event to their last (`personSpan`), which reads as a life.
+  Ezra's bar stops at 445 BC, just as Nehemiah's starts, so it looks like
+  one died and the other took over. In fact they worked together: Ezra is
+  at the wall's dedication in Nehemiah 12:36. Fixes:
+  - **Draw attested people differently.** Draw a dot for each dated event,
+    joined by a thin line that fades out at both ends, with no solid bar.
+    That reads as "seen at these times", with no start or end. Only a known
+    lifetime gets the solid bar.
+  - **Say it in words too.** The detail panel says "Mentioned 458–445 BC (2
+    dated events) · lifespan unknown", not just "attested years".
 - **Co-regencies.** The kings track infers them from overlapping dates.
   Label them as a reconstruction.
 - **Editorial prose without verses.** Era and kingdom text (ledes, notes)
@@ -162,7 +171,13 @@ Published and editorial records first, then the drafts, passage by passage:
 1. **AI pass.** Haiku reads the passage text and every fact touching it,
    including the ones the script matched, so it double-checks those too. It
    either agrees, or writes a fact entry with a verse and a note. It can only
-   cite verses in the text it was given.
+   cite verses in the text it was given. It also reports **what's missing**
+   in the passage: an event with no record, or a person present at an event
+   but not linked to it. Ezra at the dedication of the wall (Neh 12:27–43)
+   is one: there is no such event yet. Adding these is what makes the
+   "mentioned" spans honest. It also notes any lifetime facts the passage
+   gives (an age at death, "in his old age"), but only what the text
+   states, never a guessed lifespan.
 2. **Editor pass.** You review the PR. Read every written entry and spot-check
    the `agreed` list. Merging it with `editor` set records the review. A PR
    can also merge with only the AI layer, so the site shows "checked by AI"
