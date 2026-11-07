@@ -1,9 +1,11 @@
 # Data Audit Plan: checking the data against Scripture
 
-> **Status (Nov 2026):** steps 1 and 2 are built. Step 3 has begun: the first
-> AI batches cover Esther, Ezra, Nehemiah, the kings' houses, and the era
-> summaries, and none has had an editor's review yet. See
-> [data/evidence/README.md](../data/evidence/README.md) for how to run a batch.
+> **Status (Nov 2026):** steps 1 and 2 are built. The script matches 3,438 of
+> 5,950 facts to a verse. Step 3 has begun: six AI batches (Esther, Ezra,
+> Nehemiah, the kings' houses and notes, the era summaries) cover 260 facts. Of
+> those, 5 are flagged wrong and 66 are readings. None has had an editor's
+> review yet. See [data/evidence/README.md](../data/evidence/README.md) for how
+> to run a batch.
 
 **Goal:** every fact the site shows points to the verse that supports it,
 and says plainly how that was checked: by a script, by an AI, or by a
