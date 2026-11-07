@@ -1,5 +1,10 @@
 # Data Audit Plan: checking the data against Scripture
 
+> **Status (Nov 2026):** steps 1 and 2 are built. Step 3 has begun: the first
+> AI batches cover Esther, Ezra, Nehemiah, the kings' houses, and the era
+> summaries, and none has had an editor's review yet. See
+> [data/evidence/README.md](../data/evidence/README.md) for how to run a batch.
+
 **Goal:** every fact the site shows points to the verse that supports it,
 and says plainly how that was checked: by a script, by an AI, or by a
 person. The app must not add to or drop from what the data says.

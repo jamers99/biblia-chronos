@@ -22,7 +22,7 @@ const label = {
   verse: cited[0]?.short ?? "verse",
   derived: "worked out",
   reading: "a reading",
-  wrong: "under correction",
+  wrong: ev?.editor?.read ? "corrected" : "flagged",
   unchecked: "unchecked",
 }[status.state]
 const sources = (ev?.entry?.sources ?? []).map((s) => source(s)).filter((s) => s !== undefined)
@@ -48,7 +48,12 @@ const sources = (ev?.entry?.sources ?? []).map((s) => source(s)).filter((s) => s
             ))}
           </p>
         )}
-        {ev.entry?.note && <p class="how-note">{status.state === "reading" ? `A reading: ${ev.entry.note}` : ev.entry.note}</p>}
+        {ev.entry?.note && (
+          <p class="how-note">
+            {status.state === "reading" ? "A reading: " : status.state === "wrong" ? (ev.editor?.read ? "Corrected: " : "Flagged as wrong, for an editor to check: ") : ""}
+            {ev.entry.note}
+          </p>
+        )}
         {sources.length > 0 && <p class="how-note">Outside Scripture: {sources.map((s) => s.title).join(", ")}</p>}
         <dl>
           <dt>Script</dt>
@@ -103,6 +108,10 @@ const sources = (ev?.entry?.sources ?? []).map((s) => source(s)).filter((s) => s
   }
   .how.reading {
     font-style: italic;
+  }
+  .how.wrong {
+    color: var(--accent);
+    border-color: var(--accent);
   }
   .how-pop {
     max-width: min(26rem, calc(100vw - 2rem));

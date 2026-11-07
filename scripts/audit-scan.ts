@@ -17,7 +17,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs"
 import { join } from "node:path"
 import { mergeEntities, mergeEdges } from "../src/lib/data/merge.ts"
 import type { Book, Edge, Event, Kingdom, Period, Person, Place, PeopleGroup } from "../src/lib/data/schema.ts"
-import { enumerateFacts, verseKey, type Fact, type ScriptEvidence } from "../src/lib/evidence.ts"
+import { enumerateFacts, subjects, verseKey, type Fact, type ScriptEvidence } from "../src/lib/evidence.ts"
 import {
   diedRule,
   inRule,
@@ -353,7 +353,7 @@ const outPath = join(root, "data", "evidence", "script.json")
 const bookName = new Map(books.map((b) => [b.id, b.name]))
 const bookOrder = new Map(books.map((b) => [b.id, b.order]))
 const where = (f: Fact) => {
-  for (const id of [...f.records].reverse()) {
+  for (const id of subjects(f)) {
     const ref = byId.get(id)?.scriptureRefs?.[0]
     if (ref) return ref
   }

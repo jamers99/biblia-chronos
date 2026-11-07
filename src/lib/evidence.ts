@@ -91,6 +91,20 @@ export function enumerateFacts(d: Data): Fact[] {
 
 export const factId = (key: string) => key.slice(0, key.lastIndexOf("@"))
 
+// The records whose passages tell a fact, most telling first: a child's
+// birth tells of the parent, an event of who was there, a town's own verse of
+// the region it's in. Used to file a fact under a stretch of Scripture.
+export function subjects(f: Fact): string[] {
+  const [a, b] = f.records
+  switch (f.kind) {
+    case "parent-of":
+    case "participated-in":
+      return [b, a]
+    default:
+      return f.records
+  }
+}
+
 // --- Verse refs ---------------------------------------------------------------
 
 // Evidence cites single verses as "gen.25.19": book id, chapter, verse.
