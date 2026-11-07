@@ -170,10 +170,21 @@ drops a fact, then fix or label it. Already spotted:
     That's roughly 300 KB for the whole dataset.
   - `audit/unmatched.md`, the facts it couldn't match, grouped by passage.
     This is the review queue for step 3.
-- **The build only reads `script.json`.** `check:data` warns when the scan is
-  behind: a fact it has never seen (an override added since the last scan),
-  or an entry for a fact that no longer exists. The fix is to re-run the
-  scan.
+- **The build only reads `script.json`.** The scan covers seed *and*
+  overrides, and overrides change far more often than imports. Two checks
+  keep the two in step without scanning on every build:
+  - **Locally,** `check:data` (which needs no verse text) warns about
+    facts the scan has never seen (an override added since the last scan)
+    and about entries for facts that no longer exist.
+  - **In CI,** on pull requests, a step fetches `verses.json` and runs
+    `audit:scan --check`. The fetch is cached by Theographic commit, so it
+    happens rarely. The check fails if `script.json` would change, for
+    example when an override edited a date. The message says to run
+    `npm run audit:scan` and commit, the usual way to keep a generated file
+    up to date.
+
+  Either way, the fix is the same: run the scan (a few seconds) and commit
+  the result alongside the override change.
 - **On record pages:** the "how we know" marker and the merged Sources section,
   showing script results with the scan date ("matched by script, Nov 2026").
 
