@@ -36,3 +36,14 @@ test("passageUrl opens the run on bible.com in the ESV, by USFM code", () => {
     "https://www.bible.com/bible/59/PSA.23.4.ESV",
   ])
 })
+
+test("verse labels and links a single cited verse", async () => {
+  const { verse } = await import("./scripture.ts")
+  const kings = { id: "1kgs", name: "1 Kings", osis: "1Kgs", order: 11, chapterCount: 22, testament: "Old Testament" as const }
+  assert.deepEqual(verse("1kgs.16.15", [kings]), {
+    short: "1 Kgs 16:15",
+    long: "1 Kings 16:15",
+    url: "https://www.bible.com/bible/59/1KI.16.15.ESV",
+  })
+  assert.equal(verse("nope.1.1", [kings]), undefined)
+})

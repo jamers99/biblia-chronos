@@ -3,7 +3,7 @@
 // AI and editor reviews (data/evidence/<batch>.json). See
 // docs/data-audit-plan.md. Pure: shared by the scan, the checker, and the build.
 
-import type { DateEstimate, Edge, Event, EvidenceBatch, Kingdom, Period, Person, Place } from "./data/schema.ts"
+import type { DateEstimate, Edge, EvidenceBatch, Kingdom, Period, Person } from "./data/schema.ts"
 
 // --- Fact ids ---------------------------------------------------------------
 
@@ -54,13 +54,15 @@ export function edgeFactId(e: Pick<Edge, "type" | "from" | "to">): string {
   return `${e.type}:${a}>${b}`
 }
 
+// Only what the facts are made of, so callers can pass validated or raw rows.
+type Dated = { id: string; date?: DateEstimate }
 type Data = {
-  people: Person[]
-  places: Place[]
-  events: Event[]
+  people: Pick<Person, "id" | "birth" | "death">[]
+  places: Dated[]
+  events: Dated[]
   edges: Edge[]
-  periods: Period[]
-  kingdoms: Kingdom[]
+  periods: (Dated & Pick<Period, "lede">)[]
+  kingdoms: Pick<Kingdom, "id" | "event" | "reigns">[]
 }
 
 // Every checkable fact, in a stable order.
@@ -173,4 +175,32 @@ export const RULES: Record<string, string> = {
   "reign-length": "the verse gives the length of the reign, matching the dates",
   "age-at-fatherhood": "the verse gives the father's age at the birth, matching the dates",
   "age-at-death": "the verse gives the age at death, matching the dates",
+}
+
+// --- For display ------------------------------------------------------------------
+
+export type FactState = "verse" | "derived" | "reading" | "wrong" | "unchecked"
+
+// Where a fact stands, and the verses that support it: a reviewer's own refs
+// first, else the script's match.
+export function factStatus(ev: FactEvidence | undefined): { state: FactState; refs: string[] } {
+  const entry = ev?.entry
+  const refs = entry?.refs?.length ? entry.refs : ev?.script?.ref ? [ev.script.ref] : []
+  if (entry?.kind === "wrong") return { state: "wrong", refs }
+  if (entry?.kind === "reading") return { state: "reading", refs }
+  if (refs.length) return { state: "verse", refs }
+  if (ev?.script || entry?.sources?.length) return { state: "derived", refs }
+  return { state: "unchecked", refs }
+}
+
+// A record's facts by layer, kept apart: an AI check never counts as a person's.
+export function tally(evs: (FactEvidence | undefined)[]) {
+  const t = { facts: evs.length, script: 0, ai: 0, editor: 0, unchecked: 0 }
+  for (const ev of evs) {
+    if (ev?.script) t.script++
+    if (ev?.ai) t.ai++
+    if (ev?.editor?.read) t.editor++
+    if (!ev?.script && !ev?.ai && !ev?.editor) t.unchecked++
+  }
+  return t
 }

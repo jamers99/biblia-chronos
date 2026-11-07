@@ -1,0 +1,149 @@
+---
+// "How we know": a small marker after a fact (its verse, or "unchecked") that
+// opens the evidence behind it, one line per layer, so a script's match, an
+// AI's check, and a person's review never look alike (docs/data-audit-plan.md).
+// A native popover: no script, and it works in panels too.
+import { books, evidenceFor, source } from "../lib/data/load.ts"
+import { RULES, factStatus, hash } from "../lib/evidence.ts"
+import { verse } from "../lib/scripture.ts"
+
+interface Props {
+  fact: string // fact id, e.g. "parent-of:abraham_58>isaac_616"
+  context: string // the page's record id, to keep popover ids unique
+}
+const { fact, context } = Astro.props
+const ev = evidenceFor(fact)
+const status = factStatus(ev)
+const cited = status.refs.map((r) => verse(r, books)).filter((v) => v !== undefined)
+const id = `how-${context}-${hash(fact)}`
+const month = (day: string) =>
+  new Date(`${day}T00:00:00Z`).toLocaleDateString("en-US", { month: "short", year: "numeric", timeZone: "UTC" })
+const label = {
+  verse: cited[0]?.short ?? "verse",
+  derived: "worked out",
+  reading: "a reading",
+  wrong: "under correction",
+  unchecked: "unchecked",
+}[status.state]
+const sources = (ev?.entry?.sources ?? []).map((s) => source(s)).filter((s) => s !== undefined)
+---
+
+{
+  ev && (
+    <>
+      <button type="button" class:list={["how", status.state]} popovertarget={id} aria-label={`How we know: ${label}`}>
+        {label}
+      </button>
+      <div id={id} popover class="how-pop">
+        <p class="how-title">How we know</p>
+        {cited.length > 0 && (
+          <p class="how-refs">
+            {cited.map((v, i) => (
+              <>
+                {i > 0 && " · "}
+                <a href={v.url} target="_blank" rel="noopener">
+                  {v.long}
+                </a>
+              </>
+            ))}
+          </p>
+        )}
+        {ev.entry?.note && <p class="how-note">{status.state === "reading" ? `A reading: ${ev.entry.note}` : ev.entry.note}</p>}
+        {sources.length > 0 && <p class="how-note">Outside Scripture: {sources.map((s) => s.title).join(", ")}</p>}
+        <dl>
+          <dt>Script</dt>
+          <dd>{ev.script ? `Matched: ${RULES[ev.script.rule] ?? ev.script.rule}` : <span class="muted">No verse matched</span>}</dd>
+          <dt>AI</dt>
+          <dd>
+            {ev.ai ? (
+              `${ev.ai.agreed ? "Agreed" : "Flagged"} (${ev.ai.model}, ${month(ev.ai.on)})`
+            ) : (
+              <span class="muted">Not yet checked</span>
+            )}
+          </dd>
+          <dt>Editor</dt>
+          <dd>
+            {ev.editor ? (
+              ev.editor.read ? (
+                `Read by ${ev.editor.by}, ${month(ev.editor.on)}`
+              ) : (
+                `Batch spot-checked by ${ev.editor.by}${ev.editor.sampled ? ` (${Math.round(ev.editor.sampled * 100)}%)` : ""}, ${month(ev.editor.on)}`
+              )
+            ) : (
+              <span class="muted">Not yet reviewed</span>
+            )}
+          </dd>
+        </dl>
+        <p class="how-foot">Checked against the King James text. Links open the ESV.</p>
+      </div>
+    </>
+  )
+}
+
+<style>
+  .how {
+    font: 0.72rem/1 var(--sans);
+    color: var(--ink-3);
+    background: none;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    padding: 0.15rem 0.45rem;
+    margin-left: 0.3rem;
+    cursor: pointer;
+    vertical-align: 0.1em;
+    white-space: nowrap;
+  }
+  .how:hover,
+  .how:focus-visible {
+    color: var(--ink);
+    border-color: var(--ink-3);
+  }
+  .how.unchecked {
+    border-style: dashed;
+  }
+  .how.reading {
+    font-style: italic;
+  }
+  .how-pop {
+    max-width: min(26rem, calc(100vw - 2rem));
+    padding: 1rem 1.15rem;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    background: var(--paper);
+    color: var(--ink);
+    box-shadow: 0 12px 40px rgb(0 0 0 / 0.18);
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+  .how-pop::backdrop {
+    background: rgb(0 0 0 / 0.12);
+  }
+  .how-title {
+    margin: 0 0 0.5rem;
+    font-weight: 600;
+  }
+  .how-refs,
+  .how-note {
+    margin: 0 0 0.6rem;
+  }
+  dl {
+    display: grid;
+    grid-template-columns: 4.5rem 1fr;
+    gap: 0.3rem 0.75rem;
+    margin: 0.5rem 0 0;
+  }
+  dt {
+    color: var(--ink-3);
+  }
+  dd {
+    margin: 0;
+  }
+  .muted {
+    color: var(--ink-3);
+  }
+  .how-foot {
+    margin: 0.75rem 0 0;
+    font-size: 0.75rem;
+    color: var(--ink-3);
+  }
+</style>

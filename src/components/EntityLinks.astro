@@ -1,15 +1,40 @@
 ---
-// A comma-separated list of links to records, alphabetical by label.
+// A comma-separated list of links to records, alphabetical by label. With
+// `factOf`, each link carries its "how we know" marker (see HowWeKnow.astro).
 import type { Entity } from "../lib/data/load.ts"
 import { entityUrl } from "../lib/url.ts"
 import { label } from "../lib/format.ts"
+import HowWeKnow from "./HowWeKnow.astro"
 
 interface Props {
   items: Entity[]
+  factOf?: (e: Entity) => string | undefined
+  context?: string
 }
+const { factOf, context = "" } = Astro.props
 const items = [...Astro.props.items].sort((a, b) => label(a).localeCompare(label(b)))
 ---
 
-<ul class="inline-list">
-  {items.map((e) => <li><a href={entityUrl(e)}>{label(e)}</a></li>)}
+<ul class:list={["inline-list", { "with-facts": factOf }]}>
+  {
+    items.map((e) => {
+      const fact = factOf?.(e)
+      return (
+        <li>
+          <a href={entityUrl(e)}>{label(e)}</a>
+          {fact && <HowWeKnow fact={fact} context={context} />}
+        </li>
+      )
+    })
+  }
 </ul>
+
+<style>
+  /* With markers, a comma after each pill reads oddly: space them instead. */
+  .with-facts li {
+    margin-right: 0.85rem;
+  }
+  .with-facts li:not(:last-child)::after {
+    content: none;
+  }
+</style>

@@ -91,14 +91,14 @@ export function parentRule(text: string, parent: string, child: string): string 
   ]
   for (const clause of clauses(text)) {
     for (const [rule, re] of tests) if (re.test(clause)) return rule
-    // "Abraham begat Isaac", "Seth lived … and begat Enos"
-    if (new RegExp(`${P}(?:(?!\\bbegat\\b)[^])*\\bbegat\\s+${LIST}${C}`).test(clause)) return "begat"
-    // "Jochebed … bare unto Amram Aaron and Moses"
-    if (new RegExp(`${P}(?:(?!\\bbare\\b)[^])*\\bbare\\s+(?:unto\\s+[A-Z][\\w’'-]*\\s+)?${LIST}${C}`).test(clause)) return "bare"
-    if (new RegExp(`\\bbare\\s+(?:unto|to)\\s+${P}\\s+${LIST}${C}`).test(clause)) return "bare"
     // "Abraham called the name of his son … Isaac"
     if (new RegExp(`${P}\\s+called\\s+(?:the\\s+)?(?:his\\s+)?name\\s+of\\s+(?:his|her)\\s+(?:son|daughter)[^]*?${C}`).test(clause))
       return "named-child"
+    // "Abraham begat Isaac", "Seth lived … and begat Enos"
+    if (new RegExp(`${P}(?:(?!\\bbegat\\b)[^])*\\bbegat\\s+${LIST}${C}`).test(clause)) return "begat"
+    // "Jochebed … bare unto Amram Aaron and Moses"
+    if (new RegExp(`${P}(?:(?!\\bbare\\b)[^])*\\bbare\\s+(?:(?:un)?to\\s+(?:him|[A-Z][\\w’'-]*),?\\s+)?${LIST}${C}`).test(clause)) return "bare"
+    if (new RegExp(`\\bbare\\s+(?:unto|to)\\s+${P}\\s+${LIST}${C}`).test(clause)) return "bare"
   }
   // "Rehoboam … reigned seventeen years …; And his mother's name was Naamah"
   if (new RegExp(`${C}[^]*\\bhis\\s+mother[’']s\\s+name\\s+(?:also\\s+)?was\\s+${P}`).test(text)) return "mother-named"

@@ -6,8 +6,8 @@ import Relations from "../../components/Relations.astro"
 import DescendantTree from "../../components/DescendantTree.astro"
 import EventList from "../../components/EventList.astro"
 import Scripture from "../../components/Scripture.astro"
-import SourceNote from "../../components/SourceNote.astro"
-import { people, periods, graph, resolve, eventsOf } from "../../lib/data/load.ts"
+import Sources from "../../components/Sources.astro"
+import { people, periods, graph, resolve, eventsOf, factBetween } from "../../lib/data/load.ts"
 import type { Person } from "../../lib/data/schema.ts"
 import { personSpan, periodsOverlapping } from "../../lib/chronology.ts"
 import { lineage } from "../../lib/family.ts"
@@ -26,9 +26,9 @@ const eras = span ? periodsOverlapping(span, periods) : []
 const line = lineage(person, parentsOf)
 const hasGrandchildren = children.some((c) => graph.outgoing(c.id, "parent-of").length > 0)
 
-const facts: [string, string | undefined][] = [
-  ["Born", person.birth && formatEstimate(person.birth)],
-  ["Died", person.death && formatEstimate(person.death)],
+const facts: [string, string | undefined, string?][] = [
+  ["Born", person.birth && formatEstimate(person.birth), `birth:${id}`],
+  ["Died", person.death && formatEstimate(person.death), `death:${id}`],
   ["Mentioned", span && !span.lifetime ? `${formatSpan(span.start, span.end)} · lifespan unknown` : undefined],
   ["Era", eras.map((p) => p.name).join(", ") || undefined],
 ]
@@ -39,15 +39,16 @@ const facts: [string, string | undefined][] = [
 
   <h2>Family & connections</h2>
   <Relations
+    context={id}
     rows={[
-      ["Parents", parentsOf(id)],
-      ["Partners", resolve(graph.either(id, "partner-of"), "person")],
+      ["Parents", parentsOf(id), (e) => `parent-of:${e.id}>${id}`],
+      ["Partners", resolve(graph.either(id, "partner-of"), "person"), (e) => factBetween("partner-of", id, e.id)],
       ["Siblings", resolve(graph.either(id, "sibling-of"), "person")],
       ["Half-siblings", resolve(graph.either(id, "half-sibling-of"), "person")],
-      ["Children", children],
-      ["Member of", resolve(graph.outgoing(id, "member-of"), "peopleGroup")],
-      ["Visited", resolve(graph.outgoing(id, "visited"), "place")],
-      ["Died at", resolve(graph.outgoing(id, "died-at"), "place")],
+      ["Children", children, (e) => `parent-of:${id}>${e.id}`],
+      ["Member of", resolve(graph.outgoing(id, "member-of"), "peopleGroup"), (e) => `member-of:${id}>${e.id}`],
+      ["Visited", resolve(graph.outgoing(id, "visited"), "place"), (e) => `visited:${id}>${e.id}`],
+      ["Died at", resolve(graph.outgoing(id, "died-at"), "place"), (e) => `died-at:${id}>${e.id}`],
     ]}
   />
 
@@ -81,14 +82,14 @@ const facts: [string, string | undefined][] = [
     events.length > 0 && (
       <section>
         <h2>Events</h2>
-        <EventList events={events} />
+        <EventList events={events} context={id} factOf={(e) => `participated-in:${id}>${e.id}`} />
       </section>
     )
   }
 
   <Description text={person.description} />
   <Scripture refs={person.scriptureRefs} />
-  <SourceNote sourceId={person.source} />
+  <Sources record={person} />
 </Page>
 
 <style>

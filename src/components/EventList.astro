@@ -1,13 +1,18 @@
 ---
-// Events in story order, each with its date.
+// Events in story order, each with its date. With `factOf`, each event carries
+// the "how we know" marker for the link to it (see HowWeKnow.astro).
 import type { Event } from "../lib/data/schema.ts"
+import HowWeKnow from "./HowWeKnow.astro"
 import { entityUrl } from "../lib/url.ts"
 import { formatEstimate } from "../lib/format.ts"
 import { spanOf } from "../lib/chronology.ts"
 
 interface Props {
   events: Event[]
+  factOf?: (e: Event) => string | undefined
+  context?: string
 }
+const { factOf, context = "" } = Astro.props
 const byDate = (a: Event, b: Event) =>
   (spanOf(a.date)?.start ?? Infinity) - (spanOf(b.date)?.start ?? Infinity) || a.name.localeCompare(b.name)
 const events = [...Astro.props.events].sort(byDate)
@@ -18,7 +23,10 @@ const events = [...Astro.props.events].sort(byDate)
     events.map((e) => (
       <li>
         <span class="when">{e.date ? formatEstimate(e.date) : ""}</span>
-        <a href={entityUrl(e)}>{e.name}</a>
+        <span>
+          <a href={entityUrl(e)}>{e.name}</a>
+          {factOf?.(e) && <HowWeKnow fact={factOf(e)!} context={context} />}
+        </span>
       </li>
     ))
   }

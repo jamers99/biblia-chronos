@@ -3,17 +3,24 @@
 // (a short definition list passed as [term, value] pairs), and a one-sentence
 // lede from the description.
 import type { Entity } from "../lib/data/load.ts"
+import { factsOf } from "../lib/data/load.ts"
 import { summarize } from "../lib/format.ts"
+import { tally } from "../lib/evidence.ts"
+import HowWeKnow from "./HowWeKnow.astro"
 
 interface Props {
   entity: Entity
   kindLabel: string
   subtitle?: string
-  facts?: [string, string | undefined][]
+  // [term, value], or [term, value, fact id] for a value with evidence
+  facts?: [string, string | undefined, string?][]
 }
 const { entity, kindLabel, subtitle, facts = [] } = Astro.props
 const lede = summarize(entity.description)
 const shown = facts.filter(([, v]) => v)
+// How far this record's facts have been checked, by anyone: details in Sources.
+const t = tally(factsOf(entity.id).map((f) => f.evidence))
+const checked = t.facts - t.unchecked
 ---
 
 <header>
@@ -25,15 +32,25 @@ const shown = facts.filter(([, v]) => v)
         <span class="badge" title="Theographic marks this record as a work in progress">draft</span>
       )
     }
+    {
+      t.facts > 0 && (
+        <a class="badge checks" href="#sources" title="How many of this record's facts have been checked against Scripture, and by whom">
+          {checked} of {t.facts} checked
+        </a>
+      )
+    }
   </h1>
   {subtitle && subtitle !== entity.name && <p class="subtitle">{subtitle}</p>}
   {
     shown.length > 0 && (
       <dl>
-        {shown.map(([term, value]) => (
+        {shown.map(([term, value, fact]) => (
           <div>
             <dt>{term}</dt>
-            <dd>{value}</dd>
+            <dd>
+              {value}
+              {fact && <HowWeKnow fact={fact} context={entity.id} />}
+            </dd>
           </div>
         ))}
       </dl>
@@ -58,6 +75,12 @@ const shown = facts.filter(([, v]) => v)
   }
   h1 .badge {
     margin-left: 0.5rem;
+    vertical-align: middle;
+  }
+  .badge.checks {
+    text-decoration: none;
+    text-transform: none;
+    letter-spacing: 0;
   }
   dl {
     display: flex;

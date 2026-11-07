@@ -1,11 +1,14 @@
 ---
 // Labelled rows of related records ("Parents: Amram, Jochebed"). Rows with
-// nothing in them are left out.
+// nothing in them are left out. A row's optional third element names the
+// fact behind each link, so it gets its "how we know" marker.
 import type { Entity } from "../lib/data/load.ts"
 import EntityLinks from "./EntityLinks.astro"
 
+type FactOf = (e: Entity) => string | undefined
 interface Props {
-  rows: [string, Entity[]][]
+  rows: [string, Entity[], FactOf?][]
+  context?: string // the page's record id
 }
 const rows = Astro.props.rows.filter(([, items]) => items.length > 0)
 ---
@@ -13,11 +16,11 @@ const rows = Astro.props.rows.filter(([, items]) => items.length > 0)
 {
   rows.length > 0 && (
     <dl class="relations">
-      {rows.map(([term, items]) => (
+      {rows.map(([term, items, factOf]) => (
         <>
           <dt>{term}</dt>
           <dd>
-            <EntityLinks items={items} />
+            <EntityLinks items={items} factOf={factOf} context={Astro.props.context} />
           </dd>
         </>
       ))}

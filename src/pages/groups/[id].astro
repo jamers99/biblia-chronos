@@ -2,7 +2,7 @@
 import Page from "../../layouts/Page.astro"
 import EntityHeader from "../../components/EntityHeader.astro"
 import EntityLinks from "../../components/EntityLinks.astro"
-import SourceNote from "../../components/SourceNote.astro"
+import Sources from "../../components/Sources.astro"
 import { peopleGroups, graph, resolve } from "../../lib/data/load.ts"
 import type { PeopleGroup } from "../../lib/data/schema.ts"
 
@@ -16,6 +16,6 @@ const members = resolve(graph.incoming(group.id, "member-of"), "person")
 <Page title={group.name}>
   <EntityHeader entity={group} kindLabel="Group" facts={[["Members", String(members.length)]]} />
   <h2>Members</h2>
-  <EntityLinks items={members} />
-  <SourceNote sourceId={group.source} />
+  <EntityLinks items={members} context={group.id} factOf={(e) => `member-of:${e.id}>${group.id}`} />
+  <Sources record={group} />
 </Page>

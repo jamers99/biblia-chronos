@@ -7,6 +7,7 @@ import type { Person, Place, Event, PeopleGroup, Period, Kingdom, Book, Edge, So
 import { mergeEntities, mergeEdges } from "./merge.ts"
 import { createGraph } from "./graph.ts"
 import { kingdomTrack } from "../kingdoms.ts"
+import { collectEvidence, enumerateFacts, type BatchEvidence, type Fact, type FactEvidence, type ScriptEvidence } from "../evidence.ts"
 
 // JSON imports are resolved by Vite at build time (relative to this file).
 import peopleData from "../../../data/seed/people.json"
@@ -69,3 +70,32 @@ export const track = kingdomTrack(kingdoms, events, (id) => graph.incoming(id, "
 
 // The dated (or undated) events a person took part in.
 export const eventsOf = (personId: string) => resolve(graph.outgoing(personId, "participated-in"), "event")
+
+// --- Evidence ---------------------------------------------------------------
+
+// The audit's evidence layers (docs/data-audit-plan.md): the script's verse
+// matches (data/evidence/script.json) and AI/editor review batches (the other
+// files there), keyed to the facts the pages show.
+const evidenceModules = import.meta.glob("../../../data/evidence/*.json", { eager: true }) as Record<string, { default: unknown }>
+const evidenceFile = (path: string) => path.slice(path.lastIndexOf("/") + 1)
+const scriptEvidence = Object.entries(evidenceModules).find(([path]) => evidenceFile(path) === "script.json")?.[1]
+  .default as ScriptEvidence | undefined
+const batches = Object.entries(evidenceModules)
+  .filter(([path]) => evidenceFile(path) !== "script.json")
+  .map(([path, mod]) => [evidenceFile(path).replace(/\.json$/, ""), mod.default as BatchEvidence] as [string, BatchEvidence])
+
+export const facts = enumerateFacts({ people, places, events, edges, periods, kingdoms })
+const evidence = collectEvidence(facts, scriptEvidence, batches)
+const factsByRecord = new Map<string, Fact[]>()
+for (const f of facts) for (const r of f.records) factsByRecord.set(r, [...(factsByRecord.get(r) ?? []), f])
+
+// The fact id for a link either way round ("near", shown from both ends),
+// whichever way the data stores it.
+export const factBetween = (type: string, a: string, b: string) =>
+  evidence.has(`${type}:${a}>${b}`) ? `${type}:${a}>${b}` : evidence.has(`${type}:${b}>${a}`) ? `${type}:${b}>${a}` : undefined
+
+// What's known about one fact, by id ("parent-of:abraham_58>isaac_616").
+export const evidenceFor = (factId: string): FactEvidence | undefined => evidence.get(factId)
+// The facts a record's page shows, with their evidence.
+export const factsOf = (recordId: string) =>
+  (factsByRecord.get(recordId) ?? []).map((f) => ({ fact: f, evidence: evidence.get(f.id)! }))

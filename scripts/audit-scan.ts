@@ -241,7 +241,8 @@ function ageAtDeath(p: Person): Found | undefined {
   const keys = sortVerses(versesOf(p.id))
   return firstMatch(keys, (t) =>
     new RegExp(patternOf(p.id)).test(t) &&
-    /\b(?:died|dead|death)\b/.test(t) &&
+    // "and he died", or "the days of Isaac were an hundred and fourscore years"
+    /\b(?:died|dead|death|days\s+of)\b/.test(t) &&
     [...yearsAfter(t, "were"), ...yearsAfter(t, "being"), ...yearsAfter(t, "was"), ...yearsAfter(t, "lived"), ...yearsAfter(t, "of")].some(
       (n) => Math.abs(n - age) <= 1,
     )

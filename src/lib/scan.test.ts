@@ -78,3 +78,9 @@ test("partnerRule reads the KJV's other ways of saying wife", () => {
   // his wife is someone else
   assert.equal(partnerRule("And Abram took Sarai his wife, and Lot his brother’s son", n("Abram"), n("Lot")), undefined)
 })
+
+test("parentRule reads 'bare to him'", () => {
+  const gen21 = "And Abraham called the name of his son that was born unto him, whom Sarah bare to him, Isaac."
+  assert.equal(parentRule(gen21, n("Sarah"), n("Isaac")), "bare")
+  assert.equal(parentRule(gen21, n("Abraham"), n("Isaac")), "named-child")
+})

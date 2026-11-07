@@ -79,3 +79,19 @@ export function passageUrl(book: Book, run: VerseRun) {
   const { id, code } = BIBLE_COM_VERSION
   return `https://www.bible.com/bible/${id}/${usfm(book)}.${run.chapter}.${verses}.${code}`
 }
+
+// One cited verse ("gen.25.19", as evidence cites them): a short label
+// ("Gen 25:19", "1 Kgs 16:15"), a long one ("Genesis 25:19"), and a link to
+// read it.
+export function verse(key: string, books: Book[]) {
+  const m = /^([1-3]?[a-z]+)\.(\d+)\.(\d+)$/.exec(key)
+  const book = m && books.find((b) => b.id === m[1])
+  if (!m || !book) return undefined
+  const [chapter, v] = [Number(m[2]), Number(m[3])]
+  const at = `${chapter}:${v}`
+  return {
+    short: `${book.osis.replace(/^(\d)/, "$1 ")} ${at}`,
+    long: `${book.name} ${at}`,
+    url: passageUrl(book, { chapter, start: v, end: v, label: at }),
+  }
+}
