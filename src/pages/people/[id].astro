@@ -29,7 +29,7 @@ const hasGrandchildren = children.some((c) => graph.outgoing(c.id, "parent-of").
 const facts: [string, string | undefined][] = [
   ["Born", person.birth && formatEstimate(person.birth)],
   ["Died", person.death && formatEstimate(person.death)],
-  ["Attested", span && !span.lifetime ? formatSpan(span.start, span.end) : undefined],
+  ["Mentioned", span && !span.lifetime ? `${formatSpan(span.start, span.end)} · lifespan unknown` : undefined],
   ["Era", eras.map((p) => p.name).join(", ") || undefined],
 ]
 ---

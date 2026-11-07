@@ -48,6 +48,7 @@ test("timelineItems keeps dated items in range and skips lifetime-of events", ()
   ])
   assert.equal(items[1].draft, true)
   assert.equal(items[1].lifetime, false)
+  assert.deepEqual(items[1].marks, [-60, -50])
   // connections keep only items that made it onto the timeline
   assert.deepEqual(items[1].related, ["in"])
 })

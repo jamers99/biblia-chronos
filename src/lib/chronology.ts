@@ -23,7 +23,9 @@ export function spanOf(d: DateEstimate | undefined): Span | undefined {
 //   is placed in the run with the most events (the earliest, on a tie), so a
 //   later appearance (Elijah at the Transfiguration) doesn't stretch a life
 //   across 900 years.
-export type PersonSpan = Span & { lifetime: boolean }
+// `marks` (attested years only): the years of the dated things the span was
+// built from, so a reader can see it's a few sightings, not a life.
+export type PersonSpan = Span & { lifetime: boolean; marks?: number[] }
 
 const LIFETIME = 80
 const GAP = 100
@@ -39,16 +41,17 @@ export function personSpan(person: Person, events: Event[]): PersonSpan | undefi
     .sort((a, b) => a.start - b.start)
   if (!spans.length) return undefined
 
-  const runs: { start: number; end: number; count: number }[] = []
+  const runs: { start: number; end: number; count: number; marks: number[] }[] = []
   for (const s of spans) {
     const run = runs.at(-1)
     if (run && s.start - run.end <= GAP) {
       run.end = Math.max(run.end, s.end)
       run.count++
-    } else runs.push({ ...s, count: 1 })
+      run.marks.push(s.start)
+    } else runs.push({ ...s, count: 1, marks: [s.start] })
   }
   const best = runs.reduce((a, b) => (b.count > a.count ? b : a))
-  return { start: best.start, end: best.end, lifetime: false }
+  return { start: best.start, end: best.end, lifetime: false, marks: [...new Set(best.marks)] }
 }
 
 // Periods are half-open — [earliest, latest) — so a year on a boundary belongs

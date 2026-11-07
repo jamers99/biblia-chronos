@@ -24,18 +24,18 @@ test("personSpan prefers a known lifetime", () => {
 })
 
 test("personSpan falls back to attested years from events and partial dates", () => {
-  assert.deepEqual(personSpan(person({}), [event(45, 46), event(33), event(57, 60)]), { start: 33, end: 60, lifetime: false })
-  assert.deepEqual(personSpan(person({ death: { earliest: 30 } }), [event(27)]), { start: 27, end: 30, lifetime: false })
+  assert.deepEqual(personSpan(person({}), [event(45, 46), event(33), event(57, 60)]), { start: 33, end: 60, lifetime: false, marks: [33, 45, 57] })
+  assert.deepEqual(personSpan(person({ death: { earliest: 30 } }), [event(27)]), { start: 27, end: 30, lifetime: false, marks: [27, 30] })
   assert.equal(personSpan(person({}), []), undefined)
 })
 
 test("personSpan keeps attested years human-sized", () => {
   // a 430-year event counts only by its start
-  assert.deepEqual(personSpan(person({}), [event(-1920, -1490), event(-1895)]), { start: -1920, end: -1895, lifetime: false })
+  assert.deepEqual(personSpan(person({}), [event(-1920, -1490), event(-1895)]), { start: -1920, end: -1895, lifetime: false, marks: [-1920, -1895] })
   // a century's gap splits runs; the busiest run wins, the earliest on a tie
-  assert.deepEqual(personSpan(person({}), [event(29), event(-909), event(-905)]), { start: -909, end: -905, lifetime: false })
-  assert.deepEqual(personSpan(person({}), [event(-909), event(29)]), { start: -909, end: -909, lifetime: false })
-  assert.deepEqual(personSpan(person({}), [event(-4003), event(30), event(32)]), { start: 30, end: 32, lifetime: false })
+  assert.deepEqual(personSpan(person({}), [event(29), event(-909), event(-905)]), { start: -909, end: -905, lifetime: false, marks: [-909, -905] })
+  assert.deepEqual(personSpan(person({}), [event(-909), event(29)]), { start: -909, end: -909, lifetime: false, marks: [-909] })
+  assert.deepEqual(personSpan(person({}), [event(-4003), event(30), event(32)]), { start: 30, end: 32, lifetime: false, marks: [30, 32] })
 })
 
 test("periodAt and periodsOverlapping use the period spans", () => {

@@ -87,9 +87,12 @@
   const k = $derived(transform.k)
   const world = $derived(scaleLinear().domain(domain).range([0, width * k]))
   // An item's footprint: its mark plus its label, which starts at the mark.
+  // Attested people's traces fade out past their first and last sighting.
+  const FADE = 16
+  const pad = (i: TimelineItem) => (i.kind === "person" && !i.lifetime ? FADE : 6)
   function extent(i: TimelineItem): [number, number] {
-    const left = world(i.start) - 6
-    return [left, Math.max(world(i.end) + 6, left + labelWidth(i.name))]
+    const left = world(i.start) - pad(i)
+    return [left, Math.max(world(i.end) + pad(i), left + labelWidth(i.name))]
   }
   // The selection and its connections jump the queue, so they're always shown.
   const priority = (i: TimelineItem) => (i === focus ? 2e9 : related.has(i.id) ? 1e9 + i.weight : i.weight)
@@ -199,6 +202,15 @@
   // A label sticks to the left edge while its item runs off-screen, but never
   // slides out of the item's footprint (where it could hit a neighbour).
   const labelX = (i: TimelineItem, xs: number, xe: number) => Math.max(xs, Math.min(6, xe + 6 - labelWidth(i.name)))
+
+  // When an item is: a person we only see at a few dated moments says so, so
+  // the span doesn't read as a lifetime.
+  function when(i: TimelineItem) {
+    const span = formatSpan(i.start, i.end)
+    if (i.kind !== "person" || i.lifetime) return span
+    const n = (i.marks ?? [i.start]).length
+    return `Mentioned ${span} (${n} dated ${n === 1 ? "event" : "events"})`
+  }
 
   const dotRadius = (i: TimelineItem) => 3 + 2.5 * Math.sqrt(i.weight / maxWeight)
   const ribbon = (i: TimelineItem) => 4 + 4 * Math.sqrt(i.weight / maxWeight)
@@ -412,6 +424,15 @@
           <stop offset="1" style="stop-color: var({color}); stop-opacity: 0.35" />
         </linearGradient>
       {/each}
+      <!-- An attested person's trace: no hard ends, since we don't know when they lived -->
+      {#each [["tl-trace", "--people"], ["tl-trace-focus", "--accent"]] as [id, color] (id)}
+        <linearGradient {id}>
+          <stop offset="0" style="stop-color: var({color}); stop-opacity: 0" />
+          <stop offset="0.3" style="stop-color: var({color}); stop-opacity: 0.7" />
+          <stop offset="0.7" style="stop-color: var({color}); stop-opacity: 0.7" />
+          <stop offset="1" style="stop-color: var({color}); stop-opacity: 0" />
+        </linearGradient>
+      {/each}
       <filter id="tl-glow" x="-20%" y="-300%" width="140%" height="700%">
         <feGaussianBlur stdDeviation="3" result="blur" />
         <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
@@ -556,18 +577,32 @@
               <text class:strong={strong(item)} x={span ? labelX(item, xs, xe) : xs + dotRadius(item) + 5} y={span ? -9 : 4}
                 >{item.name}</text
               >
+            {:else if !item.lifetime}
+              <!-- Lifespan unknown: a dot for each dated sighting on a faded trace -->
+              <rect class="hit" x={xs - FADE} y="-20" width={Math.max(xe - xs + 2 * FADE, labelWidth(item.name) + FADE)} height="30" />
+              <rect
+                class="trace"
+                x={xs - FADE}
+                y="-1"
+                width={xe - xs + 2 * FADE}
+                height="2"
+                fill="url(#{item === focus ? 'tl-trace-focus' : 'tl-trace'})"
+              />
+              {#each item.marks ?? [item.start] as year (year)}
+                <circle class="sighting" cx={x(year)} cy="0" r={dotRadius(item) - 0.5} />
+              {/each}
+              <text class:strong={strong(item)} x={labelX(item, xs, xe)} y="-9">{item.name}</text>
             {:else}
               {@const h = ribbon(item)}
               <rect class="hit" x={xs - 6} y="-20" width={Math.max(xe - xs, labelWidth(item.name)) + 12} height="30" />
               <rect
                 class="ribbon"
-                class:attested={!item.lifetime}
                 x={xs}
                 y={-h / 2}
                 width={Math.max(6, xe - xs)}
                 height={h}
                 rx={h / 2}
-                style={item.lifetime && xe - xs > 40 ? `fill: url(#${item === focus ? "tl-focus" : "tl-person"})` : ""}
+                style={xe - xs > 40 ? `fill: url(#${item === focus ? "tl-focus" : "tl-person"})` : ""}
                 filter={item === focus ? "url(#tl-glow)" : undefined}
               />
               <text class:strong={strong(item)} x={labelX(item, xs, xe)} y={-h / 2 - 5}>{item.name}</text>
@@ -603,7 +638,7 @@
 
   {#if hovered && hovered.item !== focus}
     <div class="tooltip" style="left: {hovered.x + 14}px; top: {hovered.y + 10}px" in:fade={{ duration: 120 }}>
-      <strong>{formatSpan(hovered.item.start, hovered.item.end)}</strong>
+      <strong>{when(hovered.item)}</strong>
       <span>{hovered.note ?? hovered.item.name}</span>
     </div>
   {/if}
@@ -613,11 +648,11 @@
       <button type="button" class="close" aria-label="Close" onclick={() => (selected = undefined)}>×</button>
       {#if isItem(selected)}
         <p class="kind">
-          {selected.kind === "person" ? (selected.lifetime ? "Person" : "Person · attested years") : trackKind(selected.id)}
+          {selected.kind === "person" ? (selected.lifetime ? "Person" : "Person · lifespan unknown") : trackKind(selected.id)}
           {#if selected.draft}<span class="badge">draft</span>{/if}
         </p>
         <h2>{selected.name}</h2>
-        <p class="when">{formatSpan(selected.start, selected.end)}{selected.eras ? ` · ${selected.eras}` : ""}</p>
+        <p class="when">{when(selected)}{selected.eras ? ` · ${selected.eras}` : ""}</p>
         {#if trackNote(selected.id)}<p class="when throne">{trackNote(selected.id)}</p>{/if}
         {#if selected.summary}<p class="summary">{selected.summary}</p>{/if}
         {#if relatedPeople.length}
@@ -769,10 +804,14 @@
   .ribbon {
     fill: var(--people);
   }
-  .ribbon.attested {
-    fill-opacity: 0.4;
+  .sighting {
+    fill: var(--people);
+    stroke: var(--paper);
+    stroke-width: 1.5;
+    paint-order: stroke;
   }
-  .item.focus .ribbon {
+  .item.focus .ribbon,
+  .item.focus .sighting {
     fill: var(--accent);
   }
   .link {

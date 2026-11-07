@@ -23,9 +23,14 @@ export function formatEstimate(d: DateEstimate | undefined): string {
   return span ? formatSpan(span.start, span.end) : "—"
 }
 
+// Abbreviations Easton's uses mid-sentence before a capital ("A.D. Herod").
+const ABBREVIATIONS = new Set(["B.C", "A.D", "A.V", "R.V", "St", "Mt", "cf", "i.e", "e.g", "viz", "comp", "ver", "ch"])
+
 // The first sentence of a long description, for previews. A sentence ends at
-// . ! or ? followed by a space — but not inside parentheses, where Easton's
-// puts its scripture refs ("named (Gen. 11:27) before his brothers").
+// . ! or ? followed by a space and a new sentence — but not inside
+// parentheses, where Easton's puts its scripture refs ("named (Gen. 11:27)
+// before his brothers"), and not at an abbreviation: "1 Chr. 6:44" and
+// "B.C. 459" carry on, so a summary never stops mid-citation or mid-date.
 export function summarize(text: string | undefined, max = 220): string | undefined {
   if (!text) return undefined
   const first = text.trim().split("\n")[0]
@@ -35,13 +40,24 @@ export function summarize(text: string | undefined, max = 220): string | undefin
     const c = first[i]
     if (c === "(") depth++
     else if (c === ")") depth = Math.max(0, depth - 1)
-    else if (depth === 0 && ".!?".includes(c) && (i + 1 === first.length || first[i + 1] === " ")) {
+    else if (depth === 0 && ".!?".includes(c) && endsSentence(first, i)) {
       end = i + 1
       break
     }
   }
   const sentence = first.slice(0, end)
   return sentence.length <= max ? sentence : sentence.slice(0, max).replace(/\s+\S*$/, "") + "…"
+}
+
+// Whether the punctuation at `i` ends a sentence: it's last, or a space and
+// something that can start a sentence follow, and it isn't an abbreviation.
+function endsSentence(text: string, i: number): boolean {
+  if (i + 1 === text.length) return true
+  if (text[i + 1] !== " ") return false
+  const next = text.slice(i + 1).trimStart()[0]
+  if (!next || /[a-z0-9(]/.test(next)) return false
+  const word = /(\S+)$/.exec(text.slice(0, i))?.[1] ?? ""
+  return text[i] !== "." || !ABBREVIATIONS.has(word)
 }
 
 // Rough rendered width of a 12px sans label, for laying out SVG text without

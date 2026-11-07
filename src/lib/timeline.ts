@@ -17,6 +17,9 @@ export type TimelineItem = {
   weight: number
   draft: boolean
   lifetime: boolean // people: true = birth–death known; false = attested years only
+  // Attested people only: the years they're seen in (dated events, a recorded
+  // birth or death). Drawn as dots, so the span doesn't read as a lifetime.
+  marks?: number[]
   eras: string // the eras it overlaps, e.g. "Israel in Egypt, Exodus & Wilderness"
   summary?: string
   related: string[] // ids of connected items on the timeline: family, events, participants
@@ -74,6 +77,7 @@ export function timelineItems(
         kind: "person" as const,
         name: label(p),
         lifetime: span!.lifetime,
+        ...(span!.marks && { marks: span!.marks }),
         summary: summarize(p.description),
       }))
     }),
