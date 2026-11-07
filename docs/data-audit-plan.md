@@ -70,8 +70,8 @@ reviewed it and when, once at the top, not on every row:
 
   // The AI agrees with the script's verse: just the id
   "agreed": [
-    "participated-in:esther_1180>esther-becomes-queen",
-    "participated-in:mordecai_2093>esther-becomes-queen"
+    "participated-in:esther_1343>esther-becomes-queen",
+    "participated-in:mordecai_2107>esther-becomes-queen"
   ],
 
   // Facts that need a word of explanation
@@ -81,7 +81,7 @@ reviewed it and when, once at the top, not on every row:
       "sources": ["xerxes-accession"],
       "note": "Tenth month, seventh year of Ahasuerus (Esth 2:16). 479 BC follows from Xerxes taking the throne in 486 BC."
     },
-    "partner-of:ahasuerus_95>esther_1180": {
+    "partner-of:ahasuerus_117>esther_1343": {
       "refs": ["esth.2.17"],
       "note": "The script missed it: the verse says he 'made her queen', not 'wife'."
     },
