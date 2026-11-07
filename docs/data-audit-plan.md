@@ -176,12 +176,21 @@ drops a fact, then fix or label it. Already spotted:
   - **Locally,** `check:data` (which needs no verse text) warns about
     facts the scan has never seen (an override added since the last scan)
     and about entries for facts that no longer exist.
-  - **In CI,** on pull requests, a step fetches `verses.json` and runs
-    `audit:scan --check`. The fetch is cached by Theographic commit, so it
-    happens rarely. The check fails if `script.json` would change, for
-    example when an override edited a date. The message says to run
-    `npm run audit:scan` and commit, the usual way to keep a generated file
-    up to date.
+  - **In CI,** a separate workflow, `.github/workflows/audit.yml`, runs
+    only on pull requests that touch the data:
+    - It triggers on changes to `data/seed/`, `data/overrides/`,
+      `data/evidence/`, `data/sources.json`, the snapshot pin, or the audit
+      scripts themselves. PRs that only change code skip it.
+    - It fetches `verses.json` (cached by Theographic commit, so the 37 MB
+      download is rare), runs the full scan, and fails if `script.json` or
+      `audit/unmatched.md` would come out different from what's committed.
+    - It never commits anything itself. The failure shows the diff and says
+      to run `npm run audit:scan` and commit, so every change to the
+      evidence goes through a person's PR.
+    - It runs alongside the existing `ci.yml`, which stays as it is. If the
+      audit is ever made a required check, give it a job that always
+      runs and skips the work when no data changed. A required check from a
+      workflow that never started stays "pending" and blocks the merge.
 
   Either way, the fix is the same: run the scan (a few seconds) and commit
   the result alongside the override change.
