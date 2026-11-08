@@ -1,11 +1,10 @@
 # Data Audit Plan: checking the data against Scripture
 
-> **Status (Nov 2026):** steps 1 and 2 are built. The text match finds a verse for 3,438 of
-> 5,950 facts to a verse. Step 3 has begun: six AI batches (Esther, Ezra,
-> Nehemiah, the kings' houses and notes, the era summaries) cover 260 facts. Of
-> those, 5 are flagged wrong and 66 are readings. None has had an editor's
-> review yet. See [data/evidence/README.md](../data/evidence/README.md) for how
-> to run a batch.
+> **Status (Nov 2026):** steps 1 and 2 are built. The text match supports
+> 3,455 of the 5,950 facts. Step 3's AI pass is done: 5,839 facts have an AI
+> verdict, of which 233 are flagged wrong and 2,181 are readings. For the other
+> 111 it found no support. None has had an editor's review yet; see "The first
+> full pass" below for what to look at first.
 
 **Goal:** every fact the site shows points to the verse that supports it,
 and says plainly how that was checked: by an automatic text match, by an AI, or by a
@@ -278,18 +277,18 @@ drafts, so drafts are where most of this work is.
 
 ## The first full pass (Nov 2026)
 
-Every fact has now been through the AI layer once. The first pass ran 59
-batches by passage, Acts first and 1 Chronicles last, plus a sweep of the
-facts it left without a verdict. Most of those had been filed under the
-wrong chapter.
+Every fact has now been through the AI layer. The pass ran 59 batches by
+passage, Acts first and 1 Chronicles last. Then it swept the facts left
+without a verdict, most of which had been filed under the wrong chapter, and
+ended with one batch of era dates.
 
 | | Facts |
 |---|---|
 | AI agreed with the text match | 1,995 |
 | AI wrote a verse | 1,430 |
-| AI called it a reading | 2,166 |
-| AI flagged it wrong | 232 |
-| No support found, after two passes | ~110 |
+| AI called it a reading | 2,181 |
+| AI flagged it wrong | 233 |
+| No support found, after two passes | 111 |
 
 Most readings are dates, which come from an outside chronology. Most of the
 rest are identifications the text doesn't make: a tribe inferred from
@@ -312,7 +311,8 @@ What the flags found, for the editor:
   Zerubbabel and Zorobabel are two records.
 - **Dates that disagree with the text.** Jacob's lifetime ends 33 years after
   his death (Gen 47:28). Job lives 140 years in all, against "after this lived
-  Job an hundred and forty years" (Job 42:16).
+  Job an hundred and forty years" (Job 42:16). Israel's time in Egypt spans 216
+  years, against the 430 of Exod 12:40, a known chronology question.
 
 **Running a batch** (for new or changed facts, or a re-review):
 
