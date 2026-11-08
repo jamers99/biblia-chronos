@@ -46,8 +46,9 @@ Rules:
   the text states it: kind "verse", citing the verse that names it. Use
   "reading" only when it takes something from outside the passage, or the
   text leaves it open.
-- **"Took part in the event"** means the person acts in what happens, not that
-  their name appears nearby.
+- **"Took part in the event"** means the person acts in what happens, or is
+  the one it happens to (born, healed, slain), not just that their name
+  appears nearby.
 - **People share names.** Make sure the verse is about the same person, from
   context: whose son they are, the time, the place.
 - **Parents.** A literal "Y the son of X" (or "the sons of X; Y") is the text
