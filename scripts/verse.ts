@@ -7,7 +7,9 @@
 
 import { loadData, loadVerses } from "./data.ts"
 
-const text = loadVerses(loadData().books)
+const { books } = loadData()
+const text = loadVerses(books)
+const bookIds = books.map((b) => b.id)
 
 for (const arg of process.argv.slice(2)) {
   const m = /^([1-3]?[a-z]+)\.(\d+)(?:\.(\d+)(?:-(\d+))?)?$/.exec(arg)
@@ -16,6 +18,10 @@ for (const arg of process.argv.slice(2)) {
     continue
   }
   const [, book, chapter, from, to] = m
+  if (!bookIds.includes(book)) {
+    console.log(`? ${arg}: no book "${book}"; the book ids are ${bookIds.join(" ")}`)
+    continue
+  }
   const prefix = `${book}.${chapter}.`
   const inRange = (v: number) => !from || (v >= Number(from) && v <= Number(to ?? from))
   const found = [...text].filter(([key]) => key.startsWith(prefix) && inRange(Number(key.slice(prefix.length))))
