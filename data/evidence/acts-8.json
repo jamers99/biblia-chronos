@@ -1,0 +1,422 @@
+{
+  "passage": "acts.19-20",
+  "ai": { "model": "haiku", "on": "2026-11-07" },
+  "agreed": [
+    "occurred-at:mission-to-ephesus-1-cor-written>asia_108@999166",
+    "occurred-at:mission-to-ephesus-1-cor-written>ephesus_400@0ac3d0",
+    "occurred-at:mission-to-macedonia-and-greece>greece_495@0149d7",
+    "occurred-at:mission-to-macedonia-and-greece>macedonia_747@5e259f",
+    "occurred-at:mission-to-macedonia-and-greece>philippi_942@f8fc2f",
+    "occurred-at:mission-to-macedonia-and-greece>troas_1182@36a194",
+    "occurred-at:paul-speaks-to-ephesian-elders>miletus_801@79443e",
+    "occurred-at:riot-in-ephesus>ephesus_400@278457",
+    "occurred-at:voyage-to-miletus>assos_110@13de00",
+    "occurred-at:voyage-to-miletus>miletus_801@956a61",
+    "occurred-at:voyage-to-miletus>mitylene_808@5b0690",
+    "occurred-at:voyage-to-miletus>samos_1024@678bfa",
+    "occurred-at:voyage-to-miletus>trogyllium_1278@b4dc46",
+    "participated-in:alexander_188>riot-in-ephesus@77630d",
+    "participated-in:demetrius_1007>riot-in-ephesus@73ce13",
+    "participated-in:eutychus_1230>eutychus-revived@442346",
+    "participated-in:paul_2479>eutychus-revived@e219e4",
+    "participated-in:paul_2479>mission-to-ephesus-1-cor-written@7d77a6",
+    "participated-in:paul_2479>mission-to-macedonia-and-greece@3bc864",
+    "visited:paul_2479>assos_110@8f2f72",
+    "visited:paul_2479>ephesus_400@2ad6fa"
+  ],
+  "facts": {
+    "date:eutychus-revived@06daca": {
+      "refs": ["acts.20.6", "acts.20.7"],
+      "note": "Text gives no year. Timing: Paul's seven-day stay at Troas, then the first day of the week. The year depends on dating outside Scripture.",
+      "kind": "reading"
+    },
+    "date:mission-to-ephesus-1-cor-written@ecc36f": {
+      "refs": ["acts.19.8", "acts.19.10", "acts.20.31"],
+      "note": "Text gives no year. Timing: three months in the synagogue, then two years at Ephesus, and three years of warning. The BC/AD year depends on dating outside Scripture.",
+      "kind": "reading"
+    },
+    "date:mission-to-macedonia-and-greece@e94e1e": {
+      "refs": ["acts.20.1", "acts.20.2", "acts.20.3"],
+      "note": "Text gives no year. Timing: through Macedonia, then three months in Greece. The year depends on dating outside Scripture.",
+      "kind": "reading"
+    },
+    "date:paul-speaks-to-ephesian-elders@06daca": {
+      "refs": ["acts.20.16", "acts.20.17"],
+      "note": "Text gives no year. Timing: at Miletus, with Paul hurrying to Jerusalem for Pentecost. The year depends on dating outside Scripture.",
+      "kind": "reading"
+    },
+    "date:riot-in-ephesus@98117b": {
+      "refs": ["acts.19.10", "acts.19.21", "acts.19.23"],
+      "note": "Text gives no year. Timing: after the two years at Ephesus, once these things were ended. The year depends on dating outside Scripture.",
+      "kind": "reading"
+    },
+    "date:voyage-to-miletus@06daca": {
+      "refs": ["acts.20.13", "acts.20.16"],
+      "note": "Text gives no year. Timing: sailing from Assos to Miletus, before Pentecost. The year depends on dating outside Scripture.",
+      "kind": "reading"
+    },
+    "occurred-at:eutychus-revived>troas_1182@c16aa9": {
+      "refs": ["acts.20.6", "acts.20.8"],
+      "note": "Eutychus is in an upper room during Paul's seven-day stay at Troas. Troas is implied by that stay, not named at 20:8-9.",
+      "kind": "reading"
+    },
+    "occurred-at:riot-in-ephesus>asia_108@8af59b": {
+      "refs": ["acts.19.35", "acts.20.18"],
+      "note": "The riot is in Ephesus. Ephesus is in Asia (20:17-18), so Asia is containment by inference, not stated.",
+      "kind": "reading"
+    },
+    "occurred-at:voyage-to-miletus>asia_108@391624": {
+      "refs": ["acts.20.15", "acts.20.16"],
+      "note": "The ports on the voyage (Trogyllium, Miletus) lie in Asia, and 20:16 speaks of not spending time in Asia. Containment is inferred.",
+      "kind": "reading"
+    },
+    "occurred-at:voyage-to-miletus>chios_296@94ff73": {
+      "refs": ["acts.20.15"],
+      "note": "They came over against Chios, opposite it. Sailing past is stated; landing there is not.",
+      "kind": "reading"
+    },
+    "participated-in:aristarchus_306>mission-to-macedonia-and-greece@efe55d": {
+      "refs": ["acts.20.3", "acts.20.4"],
+      "note": "Named among those who accompanied Paul into Asia. The joining point and role in the Macedonia and Greece stage are not stated.",
+      "kind": "reading"
+    },
+    "participated-in:aristarchus_306>riot-in-ephesus@8eccd6": {
+      "refs": ["acts.19.29"],
+      "note": "Seized with Gaius and rushed into the theatre. He is carried into the event; no action of his is recorded.",
+      "kind": "reading"
+    },
+    "participated-in:aristarchus_306>third-missionary-journey@603af2": {
+      "refs": ["acts.19.29"],
+      "note": "Named as one of Paul's companions in travel. The text does not use the label third missionary journey."
+    },
+    "participated-in:erastus_1213>mission-to-ephesus-1-cor-written@311392": {
+      "refs": ["acts.19.22"],
+      "note": "Sent with Timotheus into Macedonia while Paul stayed in Asia, as one who ministered to Paul. His role in Ephesus itself is not stated.",
+      "kind": "reading"
+    },
+    "participated-in:gaius_1269>riot-in-ephesus@aedba2": {
+      "refs": ["acts.19.29"],
+      "note": "Seized with Aristarchus and rushed into the theatre. He is carried into the event; no action of his is recorded.",
+      "kind": "reading"
+    },
+    "participated-in:gaius_1270>mission-to-macedonia-and-greece@5863c4": {
+      "refs": ["acts.20.4"],
+      "note": "Named among those who accompanied Paul into Asia. His role in the Macedonia and Greece stage is not stated.",
+      "kind": "reading"
+    },
+    "participated-in:luke_1836>eutychus-revived@6e0c51": {
+      "refs": ["acts.20.6", "col.4.14", "phlm.1.24"],
+      "note": "The we narrator is with Paul at Troas (20:6). Luke is not named in Acts 20; identifying the narrator as Luke rests on Col 4:14 and Phlm 24.",
+      "kind": "reading"
+    },
+    "participated-in:luke_1836>mission-to-macedonia-and-greece@709798": {
+      "refs": ["acts.20.5", "acts.20.6", "col.4.14"],
+      "note": "The we narrator sails from Philippi with Paul (20:5-6). Luke is not named; identity as Luke rests on Col 4:14 and Phlm 24.",
+      "kind": "reading"
+    },
+    "participated-in:luke_1836>paul-speaks-to-ephesian-elders@dd3aa3": {
+      "refs": ["acts.20.15", "acts.20.17", "col.4.14"],
+      "note": "The we narrator came to Miletus with Paul, where Paul called the elders (20:15-17). Luke is not named; identity rests on Col 4:14 and Phlm 24.",
+      "kind": "reading"
+    },
+    "participated-in:luke_1836>voyage-to-miletus@105740": {
+      "refs": ["acts.20.13", "acts.20.15", "col.4.14"],
+      "note": "The we narrator went ahead to the ship and sailed (20:13-15). Luke is not named; identity as Luke rests on Col 4:14 and Phlm 24.",
+      "kind": "reading"
+    },
+    "participated-in:paul_2479>paul-speaks-to-ephesian-elders@9395c2": {
+      "refs": ["acts.20.18", "acts.20.36"],
+      "note": "Paul gives the speech to the Ephesian elders (20:18) and kneels to pray with them (20:36)."
+    },
+    "participated-in:paul_2479>riot-in-ephesus@d3a3e4": {
+      "refs": ["acts.19.30"],
+      "note": "Paul wanted to go in to the people, but the disciples would not let him. He tried to act, but is not recorded acting in the uproar itself.",
+      "kind": "reading"
+    },
+    "participated-in:paul_2479>third-missionary-journey@4b6541": {
+      "refs": ["acts.19.1", "acts.19.21"],
+      "note": "Paul comes to Ephesus and purposes to pass through Macedonia and Achaia. The text does not name the journey."
+    },
+    "participated-in:paul_2479>voyage-to-miletus@3d016a": {
+      "refs": ["acts.20.14", "acts.20.15"],
+      "note": "Paul went on foot to Assos, where the ship took him in, and they sailed on to Miletus."
+    },
+    "participated-in:sceva_2480>mission-to-ephesus-1-cor-written@de8e49": {
+      "refs": ["acts.19.14"],
+      "note": "The text says the seven sons of Sceva did this exorcism. Sceva himself is not described acting.",
+      "kind": "wrong"
+    },
+    "participated-in:secundus_2482>mission-to-macedonia-and-greece@18e08c": {
+      "refs": ["acts.20.4"],
+      "note": "Named among those who accompanied Paul into Asia. His role in the Macedonia and Greece stage is not stated.",
+      "kind": "reading"
+    },
+    "participated-in:sopater_2770>mission-to-macedonia-and-greece@a1e4b2": {
+      "refs": ["acts.20.4"],
+      "note": "Sopater of Berea accompanied Paul into Asia. The text does not say he took part in the Macedonia and Greece stage.",
+      "kind": "reading"
+    },
+    "participated-in:timotheus_2863>mission-to-ephesus-1-cor-written@bf0a24": {
+      "refs": ["acts.19.22"],
+      "note": "Sent with Erastus into Macedonia while Paul stayed in Asia, as one who ministered to him. His role in Ephesus is not stated.",
+      "kind": "reading"
+    },
+    "participated-in:timotheus_2863>mission-to-macedonia-and-greece@a423d3": {
+      "refs": ["acts.20.4"],
+      "note": "Named among those who accompanied Paul into Asia. His role in the Macedonia and Greece stage is not stated.",
+      "kind": "reading"
+    },
+    "participated-in:timotheus_2863>third-missionary-journey@6611fc": {
+      "refs": ["acts.19.22"],
+      "note": "Sent into Macedonia by Paul while Paul stayed in Asia. The text does not name the journey.",
+      "kind": "reading"
+    },
+    "participated-in:trophimus_2880>mission-to-macedonia-and-greece@4ba196": {
+      "refs": ["acts.20.4"],
+      "note": "Trophimus of Asia accompanied Paul into Asia. His role in the Macedonia and Greece stage is not stated.",
+      "kind": "reading"
+    },
+    "participated-in:trophimus_2880>third-missionary-journey@30c506": {
+      "refs": ["acts.20.4", "acts.21.29"],
+      "note": "Accompanied Paul into Asia (20:4). Later called an Ephesian (21:29). The text does not name the journey.",
+      "kind": "reading"
+    },
+    "participated-in:tychicus_2885>mission-to-macedonia-and-greece@4eee8e": {
+      "refs": ["acts.20.4"],
+      "note": "Tychicus of Asia accompanied Paul into Asia. His role in the Macedonia and Greece stage is not stated.",
+      "kind": "reading"
+    },
+    "visited:alexander_188>asia_108@9a5af0": {
+      "refs": ["acts.19.33", "acts.20.17"],
+      "note": "Alexander is in the Ephesian riot (19:33-34). Ephesus is in Asia (20:17-18), so Asia is inferred.",
+      "kind": "reading"
+    },
+    "visited:alexander_188>ephesus_400@5c2189": {
+      "refs": ["acts.19.33", "acts.19.35"],
+      "note": "Alexander is in the Ephesian assembly in the theatre (19:33-35)."
+    },
+    "visited:aristarchus_306>adria_30@7f1011": {
+      "refs": ["acts.27.2", "acts.27.27"],
+      "note": "Named as on the ship (27:2), which was driven up and down in Adria (27:27). His presence is inferred from the we narrative.",
+      "kind": "reading"
+    },
+    "visited:aristarchus_306>appii_forum_427@281f64": {
+      "refs": ["acts.27.2", "acts.28.15"],
+      "note": "The brethren met us at Appii forum and The three taverns (28:15). Aristarchus is named only at 27:2; his presence here is inferred.",
+      "kind": "reading"
+    },
+    "visited:aristarchus_306>asia_108@fcba83": {
+      "refs": ["acts.20.4"],
+      "note": "Aristarchus accompanied Paul into Asia."
+    },
+    "visited:aristarchus_306>clauda_280@e6f53d": {
+      "refs": ["acts.27.2", "acts.27.16"],
+      "note": "The ship ran under Clauda, where the boat was taken up (27:16). His presence is inferred from 27:2 and the we narrative.",
+      "kind": "reading"
+    },
+    "visited:aristarchus_306>cnidus_304@d8dbf0": {
+      "refs": ["acts.27.7"],
+      "note": "The wind did not let them reach Cnidus; they came only over against it (27:7).",
+      "kind": "wrong"
+    },
+    "visited:aristarchus_306>crete_310@b55626": {
+      "refs": ["acts.27.7", "acts.27.8", "acts.27.12"],
+      "note": "They sailed under Crete and reached the Fair Havens, a haven of Crete (27:7-8, 27:12). Presence is inferred from the we narrative.",
+      "kind": "reading"
+    },
+    "visited:aristarchus_306>ephesus_400@45f6ed": {
+      "refs": ["acts.19.29", "acts.19.35"],
+      "note": "Aristarchus is seized in the city, which is Ephesus (19:29, 19:35)."
+    },
+    "visited:aristarchus_306>fair_havens_424@e5d6ce": {
+      "refs": ["acts.27.2", "acts.27.8"],
+      "note": "They came to a place called The Fair Havens (27:8). Aristarchus is named only at 27:2; his presence here is inferred.",
+      "kind": "reading"
+    },
+    "visited:aristarchus_306>italy_601@908bd0": {
+      "refs": ["acts.27.1", "acts.27.2", "acts.28.14"],
+      "note": "The party was to sail into Italy with Aristarchus aboard (27:1-2). Presence through the voyage is inferred.",
+      "kind": "reading"
+    },
+    "visited:aristarchus_306>lycia_740@9da518": {
+      "refs": ["acts.27.2", "acts.27.5"],
+      "note": "They came to Myra, a city of Lycia (27:5). Aristarchus is named on the ship at 27:2; his presence here is inferred.",
+      "kind": "reading"
+    },
+    "visited:aristarchus_306>macedonia_747@ca1fd1": {
+      "refs": ["acts.20.3", "acts.20.4"],
+      "note": "Paul returned through Macedonia and the companions went with him (20:3-4). No stop is named for Aristarchus.",
+      "kind": "reading"
+    },
+    "visited:aristarchus_306>melita_761@261c22": {
+      "refs": ["acts.27.2", "acts.28.1"],
+      "note": "After the shipwreck they knew the island as Melita (28:1). Aristarchus is named only at 27:2; his presence is inferred.",
+      "kind": "reading"
+    },
+    "visited:aristarchus_306>myra_864@1bd235": {
+      "refs": ["acts.27.2", "acts.27.5"],
+      "note": "They came to Myra, a city of Lycia (27:5). Presence is inferred from 27:2 and the we narrative.",
+      "kind": "reading"
+    },
+    "visited:aristarchus_306>philippi_942@882312": {
+      "refs": ["acts.20.4", "acts.20.6"],
+      "note": "Paul's party sailed from Philippi (20:6), and the companions went on ahead (20:5). Aristarchus at Philippi is inferred.",
+      "kind": "reading"
+    },
+    "visited:aristarchus_306>puteoli_963@22b17f": {
+      "refs": ["acts.27.2", "acts.28.13"],
+      "note": "They came to Puteoli (28:13). Aristarchus is named only at 27:2; his presence is inferred.",
+      "kind": "reading"
+    },
+    "visited:aristarchus_306>rhegium_999@ee47c9": {
+      "refs": ["acts.27.2", "acts.28.13"],
+      "note": "They came to Rhegium (28:13). Presence is inferred from 27:2 and the we narrative.",
+      "kind": "reading"
+    },
+    "visited:aristarchus_306>rome_1013@f21c74": {
+      "refs": ["acts.27.2", "acts.28.14", "acts.28.16", "col.4.10"],
+      "note": "When we came to Rome (28:16). Aristarchus is named at 27:2 and as Paul's fellowprisoner (Col 4:10); presence is inferred.",
+      "kind": "reading"
+    },
+    "visited:aristarchus_306>sidon_1093@303bf8": {
+      "refs": ["acts.27.2", "acts.27.3"],
+      "note": "They touched at Sidon (27:3). Presence is inferred from 27:2 and the we narrative.",
+      "kind": "reading"
+    },
+    "visited:aristarchus_306>syracuse_1121@94f340": {
+      "refs": ["acts.27.2", "acts.28.12"],
+      "note": "They landed at Syracuse and stayed three days (28:12). Presence is inferred from 27:2.",
+      "kind": "reading"
+    },
+    "visited:aristarchus_306>three_taverns_1159@b150c2": {
+      "refs": ["acts.27.2", "acts.28.15"],
+      "note": "The brethren met us at The three taverns (28:15). Aristarchus is named only at 27:2; his presence here is inferred.",
+      "kind": "reading"
+    },
+    "visited:aristarchus_306>troas_1182@6f74fd": {
+      "refs": ["acts.20.5"],
+      "note": "The companions who went before tarried for us at Troas (20:5)."
+    },
+    "visited:demetrius_1007>asia_108@6e029a": {
+      "refs": ["acts.19.26", "acts.20.18"],
+      "note": "Demetrius speaks of almost throughout all Asia (19:26) and works in Ephesus. Ephesus is in Asia (20:18), so Asia is inferred.",
+      "kind": "reading"
+    },
+    "visited:demetrius_1007>ephesus_400@d00fd2": {
+      "refs": ["acts.19.26", "acts.19.35"],
+      "note": "Demetrius leads the craftsmen against Paul in Ephesus (19:25-26, 19:35)."
+    },
+    "visited:erastus_1213>asia_108@ad4475": {
+      "refs": ["acts.19.22"],
+      "note": "Paul sent Erastus from his side while Paul stayed in Asia (19:22). Erastus's presence in Asia is inferred.",
+      "kind": "reading"
+    },
+    "visited:erastus_1213>ephesus_400@670f12": {
+      "refs": ["acts.19.1", "acts.19.22"],
+      "note": "Erastus was with Paul, who came to Ephesus (19:1), before being sent on (19:22). Presence at Ephesus is inferred.",
+      "kind": "reading"
+    },
+    "visited:eutychus_1230>troas_1182@679f1b": {
+      "refs": ["acts.20.6", "acts.20.9"],
+      "note": "He sits in a window of the upper room where the disciples met during Paul's seven-day stay at Troas (20:6-9). Troas is implied.",
+      "kind": "reading"
+    },
+    "visited:gaius_1269>asia_108@081482": {
+      "refs": ["acts.19.29", "acts.19.35"],
+      "note": "Seized in the city, which is Ephesus (19:29, 19:35). Ephesus is in Asia (20:18), so Asia is inferred.",
+      "kind": "reading"
+    },
+    "visited:gaius_1269>ephesus_400@7e356d": {
+      "refs": ["acts.19.29", "acts.19.35"],
+      "note": "Seized in the city and rushed into the theatre at Ephesus (19:29, 19:35)."
+    },
+    "visited:gaius_1270>macedonia_747@75cf50": {
+      "refs": ["acts.20.3", "acts.20.4"],
+      "note": "Paul returned through Macedonia and Gaius accompanied him (20:3-4). No stop is named for Gaius.",
+      "kind": "reading"
+    },
+    "visited:gaius_1270>philippi_942@a42bc8": {
+      "refs": ["acts.20.4", "acts.20.6"],
+      "note": "Paul's party sailed from Philippi (20:6), and the companions went on ahead (20:5). Gaius at Philippi is inferred.",
+      "kind": "reading"
+    },
+    "visited:gaius_1270>troas_1182@04a2ae": {
+      "refs": ["acts.20.5"],
+      "note": "The companions who went before tarried for us at Troas (20:5)."
+    },
+    "visited:paul_2479>rome_1013@82bd81": {
+      "refs": ["acts.28.16", "acts.19.21"],
+      "note": "Acts 28:16 says when we came to Rome, with Paul dwelling there. 19:21 states only his intention to see Rome."
+    },
+    "visited:secundus_2482>macedonia_747@37c6ce": {
+      "refs": ["acts.20.3", "acts.20.4"],
+      "note": "Paul returned through Macedonia and Secundus accompanied him (20:3-4). No stop is named for Secundus.",
+      "kind": "reading"
+    },
+    "visited:secundus_2482>philippi_942@5f7d90": {
+      "refs": ["acts.20.4", "acts.20.6"],
+      "note": "Paul's party sailed from Philippi (20:6), and the companions went on ahead (20:5). Secundus at Philippi is inferred.",
+      "kind": "reading"
+    },
+    "visited:secundus_2482>troas_1182@2c76cd": {
+      "refs": ["acts.20.5"],
+      "note": "The companions who went before tarried for us at Troas (20:5)."
+    },
+    "visited:sopater_2770>macedonia_747@f9b4a6": {
+      "refs": ["acts.20.3", "acts.20.4"],
+      "note": "Paul returned through Macedonia and Sopater accompanied him (20:3-4). No stop is named for Sopater.",
+      "kind": "reading"
+    },
+    "visited:sopater_2770>philippi_942@6e08c7": {
+      "refs": ["acts.20.4", "acts.20.6"],
+      "note": "Paul's party sailed from Philippi (20:6), and the companions went on ahead (20:5). Sopater at Philippi is inferred.",
+      "kind": "reading"
+    },
+    "visited:sopater_2770>troas_1182@42dcfc": {
+      "refs": ["acts.20.5"],
+      "note": "The companions who went before tarried for us at Troas (20:5)."
+    },
+    "visited:trophimus_2880>jerusalem_636@cc8b72": {
+      "refs": ["acts.21.27", "acts.21.29"],
+      "note": "Jews had seen Trophimus with Paul in the city, in the temple area (21:27-29). The city is Jerusalem."
+    },
+    "visited:trophimus_2880>macedonia_747@13b4c6": {
+      "refs": ["acts.20.3", "acts.20.4"],
+      "note": "Paul returned through Macedonia and Trophimus accompanied him (20:3-4). No stop is named for Trophimus.",
+      "kind": "reading"
+    },
+    "visited:trophimus_2880>philippi_942@bd0197": {
+      "refs": ["acts.20.4", "acts.20.6"],
+      "note": "Paul's party sailed from Philippi (20:6), and the companions went on ahead (20:5). Trophimus at Philippi is inferred.",
+      "kind": "reading"
+    },
+    "visited:trophimus_2880>troas_1182@83d1a3": {
+      "refs": ["acts.20.5"],
+      "note": "The companions who went before tarried for us at Troas (20:5)."
+    },
+    "visited:tychicus_2885>macedonia_747@07f058": {
+      "refs": ["acts.20.3", "acts.20.4"],
+      "note": "Paul returned through Macedonia and Tychicus accompanied him (20:3-4). No stop is named for Tychicus.",
+      "kind": "reading"
+    },
+    "visited:tychicus_2885>philippi_942@ae726b": {
+      "refs": ["acts.20.4", "acts.20.6"],
+      "note": "Paul's party sailed from Philippi (20:6), and the companions went on ahead (20:5). Tychicus at Philippi is inferred.",
+      "kind": "reading"
+    },
+    "visited:tychicus_2885>troas_1182@355e72": {
+      "refs": ["acts.20.5"],
+      "note": "The companions who went before tarried for us at Troas (20:5)."
+    },
+    "visited:tyrannus_2886>asia_108@627545": {
+      "refs": ["acts.19.9", "acts.19.10"],
+      "note": "Paul taught daily in the school of Tyrannus (19:9), and the Ephesus work reached all Asia (19:10). The school's location is not named.",
+      "kind": "reading"
+    },
+    "visited:tyrannus_2886>ephesus_400@1556f7": {
+      "refs": ["acts.19.1", "acts.19.9"],
+      "note": "The school of Tyrannus is where Paul taught after coming to Ephesus (19:1, 19:9). Tyrannus's own presence is inferred from his school.",
+      "kind": "reading"
+    }
+  }
+}
