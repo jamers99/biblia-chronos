@@ -80,6 +80,12 @@ export function passageUrl(book: Book, run: VerseRun) {
   return `https://www.bible.com/bible/${id}/${usfm(book)}.${run.chapter}.${verses}.${code}`
 }
 
+// A whole chapter, for citations that name no verse ("Gen. 12").
+export function chapterUrl(book: Book, chapter: number) {
+  const { id, code } = BIBLE_COM_VERSION
+  return `https://www.bible.com/bible/${id}/${usfm(book)}.${chapter}.${code}`
+}
+
 // Evidence cites single verses as "gen.25.19": book id, chapter, verse.
 export type VerseRef = { book: string; chapter: number; verse: number }
 

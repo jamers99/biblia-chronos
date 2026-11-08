@@ -1,20 +1,49 @@
 ---
 // The record's Easton's Bible Dictionary entry (via Theographic), split into
 // paragraphs. Placed below the structured facts: entries run long, and the
-// family, places, and events are what most visitors come for.
+// family, places, and events are what most visitors come for. Its scripture
+// citations link out to read on Bible.com, in a new tab, like In Scripture's.
+import { books } from "../lib/data/load.ts"
+import { linkCitations } from "../lib/citations.ts"
+
 interface Props {
   text?: string
 }
 const paragraphs = (Astro.props.text ?? "").split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean)
+const linked = linkCitations(paragraphs, books)
 ---
 
 {
-  paragraphs.length > 0 && (
+  linked.length > 0 && (
     <section>
       <h2>Easton's Bible Dictionary</h2>
       <div class="prose">
-        {paragraphs.map((p) => <p>{p}</p>)}
+        {linked.map((segments) => (
+          <p>
+            {segments.map((s) =>
+              s.url ? (
+                <a href={s.url} target="_blank" rel="noopener">
+                  {s.text}
+                </a>
+              ) : (
+                s.text
+              ),
+            )}
+          </p>
+        ))}
       </div>
     </section>
   )
 }
+
+<style>
+  .prose a {
+    color: inherit;
+    text-decoration-color: var(--rule);
+    text-underline-offset: 0.2em;
+  }
+  .prose a:hover {
+    color: var(--accent);
+    text-decoration-color: currentColor;
+  }
+</style>
