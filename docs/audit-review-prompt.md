@@ -26,7 +26,8 @@ For EVERY fact key, decide one of these:
    support the claim about these same people or places. Put the key in
    "agreed".
 2. **WRITTEN ENTRY.** Put the key in "facts" with:
-   - "refs": verse keys that support it, written like "gen.25.19".
+   - "refs": verse keys that support it, written like "gen.25.19" (one verse
+     each; list every verse of a range).
    - "note": under 30 words. You may quote a short phrase.
    - "kind": "verse" if the text states it; "reading" if it's a reasonable
      interpretation but not stated (say why); "wrong" if the text contradicts
