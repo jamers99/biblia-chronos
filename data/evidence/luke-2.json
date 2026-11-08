@@ -1,0 +1,851 @@
+{
+  "passage": "luke.3",
+  "ai": {
+    "model": "haiku",
+    "on": "2026-11-08"
+  },
+  "agreed": [
+    "member-of:adam_78>genealogy-of-jesus@252b04",
+    "member-of:addi_81>genealogy-of-jesus@7b3de8",
+    "member-of:amos_239>genealogy-of-jesus@aa1afe",
+    "member-of:arphaxad_312>genealogy-of-jesus@220439",
+    "member-of:cainan_535>genealogy-of-jesus@e8df5e",
+    "member-of:cosam_957>genealogy-of-jesus@2941a8",
+    "member-of:eber_1030>genealogy-of-jesus@6c7e94",
+    "member-of:eliezer_1123>genealogy-of-jesus@d67351",
+    "member-of:elmodam_1175>genealogy-of-jesus@5d36a3",
+    "member-of:enoch_1192>genealogy-of-jesus@036e65",
+    "member-of:enos_1193>genealogy-of-jesus@ff03ea",
+    "member-of:er_1211>genealogy-of-jesus@41d846",
+    "member-of:esli_1221>genealogy-of-jesus@0c1c47",
+    "member-of:god_1324>genealogy-of-jesus@c6510c",
+    "member-of:heli_1484>genealogy-of-jesus@e5935b",
+    "member-of:janna_724>genealogy-of-jesus@fa912f",
+    "member-of:jared_730>genealogy-of-jesus@efdab7",
+    "member-of:joanna_1628>genealogy-of-jesus@d04be8",
+    "member-of:jonan_1690>genealogy-of-jesus@fdefa1",
+    "member-of:jorim_1707>genealogy-of-jesus@e24b93",
+    "member-of:jose_1709>genealogy-of-jesus@db7505",
+    "member-of:juda_1749>genealogy-of-jesus@f075c2",
+    "member-of:lamech_1809>genealogy-of-jesus@f888af",
+    "member-of:levi_1821>genealogy-of-jesus@9c03a7",
+    "member-of:maath_1871>genealogy-of-jesus@33fdc7",
+    "member-of:mahalaleel_1885>genealogy-of-jesus@b242c2",
+    "member-of:mattatha_1961>genealogy-of-jesus@4b0832",
+    "member-of:mattathias_1963>genealogy-of-jesus@005414",
+    "member-of:matthat_1969>genealogy-of-jesus@27ce45",
+    "member-of:melchi_1987>genealogy-of-jesus@1617aa",
+    "member-of:melea_1992>genealogy-of-jesus@4905f7",
+    "member-of:menan_1997>genealogy-of-jesus@595569",
+    "member-of:methuselah_2042>genealogy-of-jesus@c8015f",
+    "member-of:nagge_2132>genealogy-of-jesus@edbf60",
+    "member-of:nahor_2142>genealogy-of-jesus@9f13bd",
+    "member-of:nathan_2152>genealogy-of-jesus@08ad5d",
+    "member-of:naum_2160>genealogy-of-jesus@8deabb",
+    "member-of:neri_2185>genealogy-of-jesus@42c6ff",
+    "member-of:noah_2210>genealogy-of-jesus@6861b1",
+    "member-of:peleg_2308>genealogy-of-jesus@ce283f",
+    "member-of:reu_2428>genealogy-of-jesus@692bba",
+    "member-of:rhesa_2438>genealogy-of-jesus@307222",
+    "member-of:semei_2488>genealogy-of-jesus@1770a2",
+    "member-of:serug_2503>genealogy-of-jesus@bc50fc",
+    "member-of:seth_2504>genealogy-of-jesus@1f176b",
+    "member-of:shem_2613>genealogy-of-jesus@5e76f5",
+    "member-of:simeon_2743>genealogy-of-jesus@baf832",
+    "member-of:terah_2841>genealogy-of-jesus@b55dc6",
+    "parent-of:adam_78>seth_2504@e6f6a6",
+    "parent-of:addi_81>melchi_1988@d6a207",
+    "parent-of:amos_239>mattathias_1963@aae05f",
+    "parent-of:arphaxad_312>cainan_535@191cda",
+    "parent-of:cosam_957>addi_81@e35457",
+    "parent-of:david_994>nathan_2152@0fbf6b",
+    "parent-of:eliakim_1088>jonan_1690@993dd8",
+    "parent-of:eliezer_1123>jose_1709@e103f1",
+    "parent-of:elmodam_1175>cosam_957@47039d",
+    "parent-of:er_1211>elmodam_1175@374c54",
+    "parent-of:esli_1221>naum_2160@16075d",
+    "parent-of:god_1324>adam_78@e48776",
+    "parent-of:janna_724>melchi_1987@89e03f",
+    "parent-of:jonan_1690>joseph_1719@9d9b4d",
+    "parent-of:jorim_1707>eliezer_1123@7a6887",
+    "parent-of:joseph_1717>janna_724@17ca4c",
+    "parent-of:joseph_1718>semei_2488@994223",
+    "parent-of:joseph_1719>juda_1750@5867fe",
+    "parent-of:juda_1749>joseph_1718@3e1e57",
+    "parent-of:juda_1750>simeon_2743@57c8cc",
+    "parent-of:levi_1821>matthat_1969@de0006",
+    "parent-of:mattatha_1961>menan_1997@f45ff4",
+    "parent-of:mattathias_1964>maath_1871@a77e37",
+    "parent-of:matthat_1970>jorim_1707@e012ab",
+    "parent-of:melchi_1987>levi_1821@9069b5",
+    "parent-of:menan_1997>melea_1992@7cba91",
+    "parent-of:nagge_2132>esli_1221@cd33ba",
+    "parent-of:nathan_2152>mattatha_1961@b6fe9a",
+    "parent-of:naum_2160>amos_239@223a9d",
+    "parent-of:neri_2185>salathiel_2457@fee2b9",
+    "parent-of:rhesa_2438>joanna_1628@2ec37f",
+    "parent-of:semei_2488>mattathias_1964@b6c040",
+    "parent-of:zacharias_2971>john_1676@9fb770",
+    "parent-of:zorobabel_3106>rhesa_2438@e12732"
+  ],
+  "facts": {
+    "member-of:addi_81>tribe-of-judah@80a634": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.28. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:amos_239>tribe-of-judah@e0bea4": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.25. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:cainan_534>genealogy-of-jesus@2265d6": {
+      "refs": [
+        "luke.3.37"
+      ],
+      "note": "Luke 3:37 names Cainan as the father of Maleleel (the antediluvian line). The 3:36 Cainan is a different man."
+    },
+    "member-of:cosam_957>tribe-of-judah@e5bcfb": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.28. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:eliakim_1088>tribe-of-judah@c48527": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.30. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:eliezer_1123>tribe-of-judah@7291cb": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.29. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:elmodam_1175>tribe-of-judah@7ae2c5": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.28. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:er_1211>tribe-of-judah@0fa442": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.28. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:esli_1221>tribe-of-judah@3b0765": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.25. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:heli_1484>tribe-of-judah@683b65": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.23. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:janna_724>tribe-of-judah@9e5a82": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.24. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:joanna_1628>tribe-of-judah@02c7b5": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.27. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:jonan_1690>tribe-of-judah@c0529a": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.30. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:jorim_1707>tribe-of-judah@43e954": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.29. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:jose_1709>tribe-of-judah@357b17": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.29. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:joseph_1717>tribe-of-judah@a94ecb": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.24. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:joseph_1718>tribe-of-judah@db2f50": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.26. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:joseph_1719>tribe-of-judah@23d9d7": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.30. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:juda_1749>tribe-of-judah@71cbe5": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.26. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:juda_1750>genealogy-of-jesus@6ca853": {
+      "refs": [
+        "luke.3.30"
+      ],
+      "note": "Luke 3:30 names Juda, son of Joseph and father of Simeon. The 3:26 Juda is a different man."
+    },
+    "member-of:juda_1750>tribe-of-judah@36318c": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.30. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:levi_1821>tribe-of-judah@7d9626": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.24. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:levi_1822>genealogy-of-jesus@982ab4": {
+      "refs": [
+        "luke.3.29",
+        "luke.3.30"
+      ],
+      "note": "Luke 3:29 names Levi, son of Simeon (3:30). The 3:24 Levi is a different man."
+    },
+    "member-of:levi_1822>tribe-of-judah@7bf6cc": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.29. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:maath_1871>tribe-of-judah@672a60": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.26. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:mattatha_1961>tribe-of-judah@a005a6": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.31. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:mattathias_1963>tribe-of-judah@b175fe": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.25. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:mattathias_1964>genealogy-of-jesus@52c12c": {
+      "refs": [
+        "luke.3.26"
+      ],
+      "note": "Luke 3:26 names Mattathias, son of Semei. The 3:25 Mattathias is a different man."
+    },
+    "member-of:mattathias_1964>tribe-of-judah@b08c3f": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.26. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:matthat_1969>tribe-of-judah@406948": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.24. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:matthat_1970>genealogy-of-jesus@aa776b": {
+      "refs": [
+        "luke.3.29"
+      ],
+      "note": "Luke 3:29 names Matthat, son of Levi and father of Jorim. The 3:24 Matthat is a different man."
+    },
+    "member-of:matthat_1970>tribe-of-judah@30be1a": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.29. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:melchi_1987>tribe-of-judah@86ecaa": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.24. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:melchi_1988>genealogy-of-jesus@49b179": {
+      "refs": [
+        "luke.3.28"
+      ],
+      "note": "Luke 3:28 names Melchi, son of Addi and father of Neri. The 3:24 Melchi is a different man."
+    },
+    "member-of:melchi_1988>tribe-of-judah@91e4ad": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.28. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:melea_1992>tribe-of-judah@1ea611": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.31. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:menan_1997>tribe-of-judah@d456dd": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.31. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:nagge_2132>tribe-of-judah@6e6de1": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.25. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:naum_2160>tribe-of-judah@b62dca": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.25. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:neri_2185>tribe-of-judah@2053fe": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.27. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:rhesa_2438>tribe-of-judah@e3597a": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.27. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:salathiel_2457>tribe-of-judah@6a121a": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.27. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:semei_2488>tribe-of-judah@629f1a": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.26. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "member-of:zorobabel_3106>tribe-of-judah@fea25a": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24",
+        "luke.3.25",
+        "luke.3.26",
+        "luke.3.27",
+        "luke.3.28",
+        "luke.3.29",
+        "luke.3.30",
+        "luke.3.31",
+        "luke.3.32",
+        "luke.3.33"
+      ],
+      "note": "Named at luke.3.27. Descent from Juda (3:33) runs through 3:23-33. The tribe is not named, so this is a reading.",
+      "kind": "reading"
+    },
+    "parent-of:cainan_535>salah_2455@1395cd": {
+      "refs": [
+        "luke.3.35",
+        "luke.3.36"
+      ],
+      "note": "Luke 3:35 names Sala; 3:36 says Sala is the son of Cainan (son of Arphaxad)."
+    },
+    "parent-of:joanna_1628>juda_1749@61162e": {
+      "refs": [
+        "luke.3.26",
+        "luke.3.27"
+      ],
+      "note": "Luke 3:26 names Juda; 3:27 says Juda is the son of Joanna."
+    },
+    "parent-of:jose_1709>er_1211@0486c6": {
+      "refs": [
+        "luke.3.28",
+        "luke.3.29"
+      ],
+      "note": "Luke 3:28 names Er; 3:29 says Er is the son of Jose."
+    },
+    "parent-of:levi_1822>matthat_1970@5c1e39": {
+      "refs": [
+        "luke.3.29"
+      ],
+      "note": "Luke 3:29: Matthat (father of Jorim) is the son of Levi."
+    },
+    "parent-of:maath_1871>nagge_2132@bcab1a": {
+      "refs": [
+        "luke.3.25",
+        "luke.3.26"
+      ],
+      "note": "Luke 3:25 names Nagge; 3:26 says Nagge is the son of Maath."
+    },
+    "parent-of:mattathias_1963>joseph_1717@960daa": {
+      "refs": [
+        "luke.3.24",
+        "luke.3.25"
+      ],
+      "note": "Luke 3:24 names Joseph (son of Janna); 3:25 says that Joseph is the son of Mattathias."
+    },
+    "parent-of:matthat_1969>heli_1484@1aa9d1": {
+      "refs": [
+        "luke.3.23",
+        "luke.3.24"
+      ],
+      "note": "Luke 3:23 names Heli; 3:24 says Heli is the son of Matthat."
+    },
+    "parent-of:melchi_1988>neri_2185@0fef13": {
+      "refs": [
+        "luke.3.27",
+        "luke.3.28"
+      ],
+      "note": "Luke 3:27 names Neri; 3:28 says Neri is the son of Melchi."
+    },
+    "parent-of:melea_1992>eliakim_1088@2f2b29": {
+      "refs": [
+        "luke.3.30",
+        "luke.3.31"
+      ],
+      "note": "Luke 3:30 names Eliakim; 3:31 says Eliakim is the son of Melea."
+    },
+    "parent-of:simeon_2743>levi_1822@4db6ad": {
+      "refs": [
+        "luke.3.29",
+        "luke.3.30"
+      ],
+      "note": "Luke 3:29 names Levi; 3:30 says Levi is the son of Simeon."
+    },
+    "partner-of:herodias_1507>philip_2345@d6bd04": {
+      "refs": [
+        "luke.3.19"
+      ],
+      "note": "Luke 3:19 calls Herodias \"his brother Philip's wife\"; Philip is Herod's brother (3:1)."
+    }
+  }
+}
