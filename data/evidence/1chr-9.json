@@ -1,0 +1,333 @@
+{
+  "passage": "1chr.23-25",
+  "ai": { "model": "haiku", "on": "2026-11-08" },
+  "agreed": [
+    "parent-of:asaph_330>joseph_1712@fc56b0",
+    "parent-of:asaph_330>nethaniah_2199@ea2469",
+    "parent-of:asaph_330>zaccur_2965@ea919d",
+    "parent-of:eliezer_1114>rehabiah_2409@713bc3",
+    "parent-of:hebron_1475>amariah_200@0a242a",
+    "parent-of:hebron_1475>jahaziel_698@e5e785",
+    "parent-of:hebron_1475>jekameam_834@897786",
+    "parent-of:hebron_1475>jeriah_860@b7005f",
+    "parent-of:heman_1490>bukkiah_524@300c4e",
+    "parent-of:heman_1490>eliathah_1102@9b3970",
+    "parent-of:heman_1490>giddalti_1311@48f605",
+    "parent-of:heman_1490>hanani_1380@b66969",
+    "parent-of:heman_1490>hananiah_1386@7d887b",
+    "parent-of:heman_1490>hothir_1564@0254d1",
+    "parent-of:heman_1490>jerimoth_867@a40e6a",
+    "parent-of:heman_1490>joshbekashah_1726@bb2171",
+    "parent-of:heman_1490>mahazioth_1893@bf45a6",
+    "parent-of:heman_1490>mallothi_1917@0d0d64",
+    "parent-of:heman_1490>mattaniah_1952@e7bf05",
+    "parent-of:heman_1490>uzziel_2932@2fb5c5",
+    "parent-of:isshiah_901>zechariah_3005@ea8fdc",
+    "parent-of:jaaziah_671>beno_462@97df57",
+    "parent-of:mahli_1889>eleazar_1065@ba8ce4",
+    "parent-of:mahli_1889>kish_1785@af0a3d",
+    "parent-of:michah_2052>shamir_2536@18c714",
+    "parent-of:moses_2108>eliezer_1114@c0c7c9",
+    "parent-of:moses_2108>gershom_1302@7c7430",
+    "parent-of:mushi_2116>eder_1035@19a82d",
+    "parent-of:mushi_2116>jeremoth_857@73f5ec",
+    "parent-of:nethaneel_2191>shemaiah_2626@3605d7",
+    "parent-of:shelomoth_2608>jahath_693@25c2e8",
+    "parent-of:shimei_2699>beriah_481@3fabe6",
+    "parent-of:shimei_2699>jahath_692@52dcaa",
+    "parent-of:shimei_2699>jeush_1602@24a55e",
+    "parent-of:uzziel_2929>michah_2052@195698"
+  ],
+  "facts": {
+    "member-of:amariah_200>tribe-of-levi@34fce0": {
+      "refs": ["1chr.23.19", "1chr.23.24"],
+      "note": "Son of Hebron the Kohathite (23.19), one of the sons of Levi by their fathers' houses (23.24)."
+    },
+    "member-of:beno_462>tribe-of-levi@566b02": {
+      "refs": ["1chr.24.20", "1chr.24.26"],
+      "note": "Son of Jaaziah in the Merari line, within the rest of the sons of Levi (24.20)."
+    },
+    "member-of:beriah_481>tribe-of-levi@7b0450": {
+      "refs": ["1chr.23.10", "1chr.23.24"],
+      "note": "Son of Shimei the Gershonite (23.10), one of the sons of Levi (23.24)."
+    },
+    "member-of:bukkiah_524>tribe-of-levi@2fbcf7": {
+      "refs": ["1chr.25.4", "1chr.6.33", "1chr.6.38"],
+      "note": "Son of Heman the singer (25.4); Heman is a Kohathite, son of Levi (6.33-38)."
+    },
+    "member-of:eder_1035>tribe-of-levi@74601d": {
+      "refs": ["1chr.23.23", "1chr.23.24"],
+      "note": "Son of Mushi the Merarite (23.23), one of the sons of Levi (23.24)."
+    },
+    "member-of:eleazar_1065>tribe-of-levi@fdbf3b": {
+      "refs": ["1chr.23.21", "1chr.23.24"],
+      "note": "Son of Mahli the Merarite (23.21), one of the sons of Levi (23.24)."
+    },
+    "member-of:eliathah_1102>tribe-of-levi@a3b0d4": {
+      "refs": ["1chr.25.4", "1chr.6.33", "1chr.6.38"],
+      "note": "Son of Heman the singer (25.4); Heman is a Kohathite, son of Levi (6.33-38)."
+    },
+    "member-of:gedaliah_1288>tribe-of-levi@e91319": {
+      "refs": ["1chr.25.3", "1chr.25.1"],
+      "kind": "reading",
+      "note": "Son of Jeduthun (25.3). The passage never calls Jeduthun a Levite; equating him with Ethan of 6.42/6.44 is from outside the text."
+    },
+    "member-of:giddalti_1311>tribe-of-levi@05f9bd": {
+      "refs": ["1chr.25.4", "1chr.6.33", "1chr.6.38"],
+      "note": "Son of Heman the singer (25.4); Heman is a Kohathite, son of Levi (6.33-38)."
+    },
+    "member-of:hanani_1380>tribe-of-levi@9b6e56": {
+      "refs": ["1chr.25.4", "1chr.6.33", "1chr.6.38"],
+      "note": "Son of Heman the singer (25.4); Heman is a Kohathite, son of Levi (6.33-38)."
+    },
+    "member-of:hananiah_1386>tribe-of-levi@a930a8": {
+      "refs": ["1chr.25.4", "1chr.6.33", "1chr.6.38"],
+      "note": "Son of Heman the singer (25.4); Heman is a Kohathite, son of Levi (6.33-38)."
+    },
+    "member-of:hashabiah_1430>tribe-of-levi@c8d82c": {
+      "refs": ["1chr.25.3", "1chr.25.1"],
+      "kind": "reading",
+      "note": "Son of Jeduthun (25.3). The passage never calls Jeduthun a Levite; equating him with Ethan of 6.42/6.44 is from outside the text."
+    },
+    "member-of:hothir_1564>tribe-of-levi@43a4c4": {
+      "refs": ["1chr.25.4", "1chr.6.33", "1chr.6.38"],
+      "note": "Son of Heman the singer (25.4); Heman is a Kohathite, son of Levi (6.33-38)."
+    },
+    "member-of:ibri_1587>tribe-of-levi@0ec335": {
+      "refs": ["1chr.24.20", "1chr.24.27"],
+      "note": "Named among the sons of Merari by Jaaziah (24.27), within the rest of the sons of Levi (24.20)."
+    },
+    "member-of:isshiah_901>tribe-of-levi@f2f73f": {
+      "refs": ["1chr.24.20", "1chr.24.25"],
+      "note": "Brother of Michah, a son of Uzziel (24.25); within the rest of the sons of Levi (24.20)."
+    },
+    "member-of:izri_3051>tribe-of-levi@cab23a": {
+      "refs": ["1chr.25.1", "1chr.25.11"],
+      "kind": "reading",
+      "note": "Head of a course of singers (25.11), who are sons of Asaph, Heman or Jeduthun (25.1). His family is not stated."
+    },
+    "member-of:jaaziah_671>tribe-of-levi@0da1b1": {
+      "refs": ["1chr.24.20", "1chr.24.26"],
+      "note": "Named in the Merari line (24.26-27), within the rest of the sons of Levi (24.20)."
+    },
+    "member-of:jahath_692>tribe-of-levi@98dd88": {
+      "refs": ["1chr.23.10", "1chr.23.24"],
+      "note": "Son of Shimei the Gershonite (23.10), one of the sons of Levi (23.24)."
+    },
+    "member-of:jahath_693>tribe-of-levi@96c25f": {
+      "refs": ["1chr.24.20", "1chr.24.22"],
+      "note": "Son of Shelomoth of the Izharites (24.22), within the rest of the sons of Levi (24.20)."
+    },
+    "member-of:jahaziel_698>tribe-of-levi@886dfa": {
+      "refs": ["1chr.23.19", "1chr.23.24"],
+      "note": "Son of Hebron the Kohathite (23.19), one of the sons of Levi (23.24)."
+    },
+    "member-of:jehdeiah_766>tribe-of-levi@aecd9b": {
+      "refs": ["1chr.24.20"],
+      "note": "Son of Shubael, in the Amramite list of the rest of the sons of Levi (24.20)."
+    },
+    "member-of:jekameam_834>tribe-of-levi@bada91": {
+      "refs": ["1chr.23.19", "1chr.24.23"],
+      "note": "Son of Hebron the Kohathite (23.19; 24.23), a son of Levi."
+    },
+    "member-of:jerahmeel_844>tribe-of-levi@77e3fc": {
+      "refs": ["1chr.24.20", "1chr.24.29"],
+      "note": "Son of Kish, in the Mahli line of the rest of the sons of Levi (24.20, 24.29)."
+    },
+    "member-of:jeremoth_857>tribe-of-levi@14cf5c": {
+      "refs": ["1chr.23.23", "1chr.23.24"],
+      "note": "Son of Mushi the Merarite (23.23), one of the sons of Levi (23.24)."
+    },
+    "member-of:jeriah_860>tribe-of-levi@aa465a": {
+      "refs": ["1chr.23.19", "1chr.23.24"],
+      "note": "Son of Hebron the Kohathite (23.19), one of the sons of Levi (23.24)."
+    },
+    "member-of:jerimoth_867>tribe-of-levi@056388": {
+      "refs": ["1chr.25.4", "1chr.6.33", "1chr.6.38"],
+      "note": "Son of Heman the singer (25.4); Heman is a Kohathite, son of Levi (6.33-38)."
+    },
+    "member-of:jeshaiah_885>tribe-of-levi@0996a5": {
+      "refs": ["1chr.25.3", "1chr.25.1"],
+      "kind": "reading",
+      "note": "Son of Jeduthun (25.3). The passage never calls Jeduthun a Levite; equating him with Ethan of 6.42/6.44 is from outside the text."
+    },
+    "member-of:jesharelah_334>tribe-of-levi@d2abe9": {
+      "refs": ["1chr.25.2", "1chr.25.14"],
+      "kind": "reading",
+      "note": "25.2 names Asarelah as a son of Asaph; Jesharelah (25.14) is taken as the same name, a spelling reading."
+    },
+    "member-of:jeush_1602>tribe-of-levi@fc60cf": {
+      "refs": ["1chr.23.10", "1chr.23.24"],
+      "note": "Son of Shimei the Gershonite (23.10), one of the sons of Levi (23.24)."
+    },
+    "member-of:joseph_1712>tribe-of-levi@57a102": {
+      "refs": ["1chr.25.2", "1chr.6.39", "1chr.6.43"],
+      "note": "Son of Asaph the singer (25.2); Asaph is a Gershonite, son of Levi (6.39-43)."
+    },
+    "member-of:joshbekashah_1726>tribe-of-levi@50475d": {
+      "refs": ["1chr.25.4", "1chr.6.33", "1chr.6.38"],
+      "note": "Son of Heman the singer (25.4); Heman is a Kohathite, son of Levi (6.33-38)."
+    },
+    "member-of:kish_1785>tribe-of-levi@149bba": {
+      "refs": ["1chr.23.21", "1chr.23.24"],
+      "note": "Son of Mahli the Merarite (23.21), one of the sons of Levi (23.24)."
+    },
+    "member-of:mahazioth_1893>tribe-of-levi@e72983": {
+      "refs": ["1chr.25.4", "1chr.6.33", "1chr.6.38"],
+      "note": "Son of Heman the singer (25.4); Heman is a Kohathite, son of Levi (6.33-38)."
+    },
+    "member-of:mallothi_1917>tribe-of-levi@57b4df": {
+      "refs": ["1chr.25.4", "1chr.6.33", "1chr.6.38"],
+      "note": "Son of Heman the singer (25.4); Heman is a Kohathite, son of Levi (6.33-38)."
+    },
+    "member-of:mattaniah_1952>tribe-of-levi@d06f4d": {
+      "refs": ["1chr.25.4", "1chr.6.33", "1chr.6.38"],
+      "note": "Son of Heman the singer (25.4); Heman is a Kohathite, son of Levi (6.33-38)."
+    },
+    "member-of:michah_2052>tribe-of-levi@898d7b": {
+      "refs": ["1chr.23.20", "1chr.24.24"],
+      "note": "Son of Uzziel the Kohathite (23.20; 24.24), within the sons of Levi (23.24)."
+    },
+    "member-of:nethaniah_2199>tribe-of-levi@8a317f": {
+      "refs": ["1chr.25.2", "1chr.6.39", "1chr.6.43"],
+      "note": "Son of Asaph the singer (25.2); Asaph is a Gershonite, son of Levi (6.39-43)."
+    },
+    "member-of:rehabiah_2409>tribe-of-levi@3c9ccb": {
+      "refs": ["1chr.23.17", "1chr.23.24"],
+      "note": "Son of Eliezer, son of Moses (23.15, 23.17), one of the sons of Levi (23.24)."
+    },
+    "member-of:romamti-ezer_2446>tribe-of-levi@06406d": {
+      "refs": ["1chr.25.4"],
+      "kind": "reading",
+      "note": "Named as a son of Heman as Romamtiezer (25.4), unhyphenated. Same name, spelling reading."
+    },
+    "member-of:shamir_2536>tribe-of-levi@628f61": {
+      "refs": ["1chr.24.20", "1chr.24.24"],
+      "note": "Son of Michah, a son of Uzziel (24.24), within the rest of the sons of Levi (24.20)."
+    },
+    "member-of:shelomoth_2608>tribe-of-levi@36064a": {
+      "refs": ["1chr.24.20", "1chr.24.22"],
+      "note": "Shelomoth of the Izharites (24.22), within the rest of the sons of Levi (24.20)."
+    },
+    "member-of:shimei_2233>tribe-of-levi@7f961f": {
+      "refs": ["1chr.25.1", "1chr.25.17"],
+      "kind": "reading",
+      "note": "Head of a course of singers (25.17), who are sons of Asaph, Heman or Jeduthun (25.1). His family is not stated."
+    },
+    "member-of:shoham_2723>tribe-of-levi@9796ac": {
+      "refs": ["1chr.24.20", "1chr.24.27"],
+      "note": "Named among the sons of Merari by Jaaziah (24.27), within the rest of the sons of Levi (24.20)."
+    },
+    "member-of:shubael_2579>tribe-of-levi@e9c7af": {
+      "refs": ["1chr.23.14", "1chr.23.16"],
+      "kind": "reading",
+      "note": "Son of Gershom, son of Moses, whose sons were of Levi (23.14-16). 23.16 says Shebuel; identifying him with Shubael is a spelling reading."
+    },
+    "member-of:shubael_2580>tribe-of-levi@e264fe": {
+      "refs": ["1chr.25.4"],
+      "kind": "reading",
+      "note": "Son of Heman as Shebuel (25.4). Identifying him with Shubael is a spelling reading."
+    },
+    "member-of:uzziel_2932>tribe-of-levi@dad345": {
+      "refs": ["1chr.25.4", "1chr.6.33", "1chr.6.38"],
+      "note": "Son of Heman the singer (25.4); Heman is a Kohathite, son of Levi (6.33-38)."
+    },
+    "member-of:zaccur_2964>tribe-of-levi@520bae": {
+      "refs": ["1chr.24.20", "1chr.24.27"],
+      "note": "Named among the sons of Merari by Jaaziah (24.27), within the rest of the sons of Levi (24.20)."
+    },
+    "member-of:zaccur_2965>tribe-of-levi@4ff085": {
+      "refs": ["1chr.25.2", "1chr.6.39", "1chr.6.43"],
+      "note": "Son of Asaph the singer (25.2); Asaph is a Gershonite, son of Levi (6.39-43)."
+    },
+    "member-of:zechariah_3005>tribe-of-levi@b9248f": {
+      "refs": ["1chr.24.20", "1chr.24.25"],
+      "note": "Son of Isshiah (24.25), within the rest of the sons of Levi (24.20)."
+    },
+    "member-of:zizah_3090>tribe-of-levi@bedd69": {
+      "refs": ["1chr.23.11", "1chr.23.24"],
+      "note": "Named second among the sons of Shimei the Gershonite (23.11), one of the sons of Levi (23.24)."
+    },
+    "parent-of:asaph_330>jesharelah_334@3a8972": {
+      "refs": ["1chr.25.2"],
+      "kind": "reading",
+      "note": "25.2 names Asarelah as Asaph's son. Taking him as Jesharelah (25.14) is a spelling reading."
+    },
+    "parent-of:gershom_1302>shubael_2579@4a0ba7": {
+      "refs": ["1chr.23.16"],
+      "kind": "reading",
+      "note": "23.16 names Shebuel as Gershom's chief son. Identifying him with Shubael is a spelling reading; Shebuel of 25.4 is another man."
+    },
+    "parent-of:heman_1490>romamti-ezer_2446@477db1": {
+      "refs": ["1chr.25.4"],
+      "kind": "reading",
+      "note": "25.4 names Romamtiezer among Heman's sons, unhyphenated. Same name, spelling reading."
+    },
+    "parent-of:heman_1490>shubael_2580@d1453d": {
+      "refs": ["1chr.25.4"],
+      "kind": "reading",
+      "note": "25.4 names Shebuel among Heman's sons. Identifying him with Shubael is a spelling reading."
+    },
+    "parent-of:izhar_658>shelomoth_2608@bbb967": {
+      "refs": ["1chr.23.18", "1chr.24.22"],
+      "kind": "reading",
+      "note": "23.18 names Shelomith as Izhar's chief son; equating him with Shelomoth of 24.22 is a spelling reading."
+    },
+    "parent-of:jaaziah_671>ibri_1587@c4bc32": {
+      "refs": ["1chr.24.27"],
+      "note": "24.27 lists Ibri among the sons of Merari by Jaaziah."
+    },
+    "parent-of:jaaziah_671>shoham_2723@486164": {
+      "refs": ["1chr.24.27"],
+      "note": "24.27 lists Shoham among the sons of Merari by Jaaziah."
+    },
+    "parent-of:jaaziah_671>zaccur_2964@da0d4f": {
+      "refs": ["1chr.24.27"],
+      "note": "24.27 lists Zaccur among the sons of Merari by Jaaziah."
+    },
+    "parent-of:jeduthun_1224>gedaliah_1288@6d778c": {
+      "refs": ["1chr.25.3"],
+      "kind": "reading",
+      "note": "25.3 names Gedaliah as a son of Jeduthun. Equating Jeduthun with Ethan comes from outside this passage."
+    },
+    "parent-of:jeduthun_1224>hashabiah_1430@0b6bf9": {
+      "refs": ["1chr.25.3"],
+      "kind": "reading",
+      "note": "25.3 names Hashabiah as a son of Jeduthun. Equating Jeduthun with Ethan comes from outside this passage."
+    },
+    "parent-of:jeduthun_1224>jeshaiah_885@bd2afa": {
+      "refs": ["1chr.25.3"],
+      "kind": "reading",
+      "note": "25.3 names Jeshaiah as a son of Jeduthun. Equating Jeduthun with Ethan comes from outside this passage."
+    },
+    "parent-of:jeduthun_1224>mattithiah_1974@d5c860": {
+      "refs": ["1chr.25.3"],
+      "kind": "reading",
+      "note": "25.3 names Mattithiah as a son of Jeduthun. Equating Jeduthun with Ethan comes from outside this passage."
+    },
+    "parent-of:kish_1785>jerahmeel_844@2e0512": {
+      "refs": ["1chr.24.29"],
+      "note": "24.29 says the son of Kish was Jerahmeel, in the Mahli line named just before (24.28)."
+    },
+    "parent-of:merari_2004>jaaziah_671@cb2b16": {
+      "refs": ["1chr.24.26", "1chr.24.27"],
+      "kind": "reading",
+      "note": "The text gives Jaaziah's sons but never names his father. 24.26-27 places him in the Merari line; Jaaziah as son of Merari is a reading."
+    },
+    "parent-of:shimei_2699>zizah_3090@ed0077": {
+      "refs": ["1chr.23.11"],
+      "kind": "reading",
+      "note": "23.11 names Zizah as Shimei's second son. 23.10 gives 'Zina' in that list; identifying the two is a spelling reading."
+    },
+    "parent-of:shubael_2579>jehdeiah_766@5b1983": {
+      "refs": ["1chr.24.20"],
+      "kind": "reading",
+      "note": "24.20 names Jehdeiah as a son of Shubael of the sons of Amram. Linking that Shubael to Shebuel of 23.16 is a reading."
+    },
+    "parent-of:uzziel_2929>isshiah_901@25ee87": {
+      "refs": ["1chr.23.20", "1chr.24.25"],
+      "kind": "reading",
+      "note": "23.20 has Jesiah as Uzziel's second son, matching Michah's brother (24.25). But 24.21 makes Isshiah a son of Rehabiah; the father is uncertain."
+    }
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "passage": "1chr.9-22",
+  "ai": { "model": "haiku", "on": "2026-11-08" },
+  "agreed": [
+    "parent-of:ahlai_167>zabad_2947@1320f2",
+    "parent-of:ammihud_227>uthai_2906@1ce033",
+    "parent-of:asa_319>berechiah_472@78b1a8",
+    "parent-of:asaph_331>zichri_3069@3698ff",
+    "parent-of:azmaveth_557>pelet_2310@79cfc3",
+    "parent-of:azrikam_565>hasshub_1450@b88317",
+    "parent-of:bani_390>imri_604@49730b",
+    "parent-of:ebiasaph_19>kore_1797@f15996",
+    "parent-of:elkanah_1171>asa_319@30040e",
+    "parent-of:elnaam_1176>joshaviah_1725@03ecfd",
+    "parent-of:ezbai_1234>naarai_2125@9c21fb",
+    "parent-of:galal_1274>shemaiah_2624@364610",
+    "parent-of:haggeri_1350>mibhar_2045@97ff2e",
+    "parent-of:hasenuah_1427>hodaviah_1541@09ee83",
+    "parent-of:hashabiah_1429>azrikam_565@70132d",
+    "parent-of:hasshub_1450>shemaiah_2623@ecfb9f",
+    "parent-of:hodaviah_1541>meshullam_2024@3d2aaa",
+    "parent-of:hothan_1563>jehiel_769@acc4bf",
+    "parent-of:ibnijah_1586>reuel_2432@6909b3",
+    "parent-of:immer_598>meshillemith_2017@4dbf6b",
+    "parent-of:imri_604>omri_2245@4f4691",
+    "parent-of:jair_664>elhanan_1070@989c34",
+    "parent-of:jeduthun_762>galal_1274@38cf62",
+    "parent-of:jeroham_876>ibneiah_1585@49d42c",
+    "parent-of:jeroham_877>adaiah_72@71de03",
+    "parent-of:jeroham_878>zebadiah_2990@840a0f",
+    "parent-of:joel_1647>heman_1490@b2a07a",
+    "parent-of:kore_1797>shallum_2520@1e898a",
+    "parent-of:maachah_1845>hanan_1372@0d2a13",
+    "parent-of:malchijah_1909>pashur_2283@99405b",
+    "parent-of:meshelemiah_2013>zechariah_3004@226012",
+    "parent-of:meshillemith_2017>meshullam_2026@065874",
+    "parent-of:meshullam_2024>sallu_2459@95172a",
+    "parent-of:meshullam_2026>jahzerah_707@bb8f15",
+    "parent-of:micha_2051>mattaniah_1951@74b26f",
+    "parent-of:michri_2074>uzzi_2920@7f4a05",
+    "parent-of:omri_2245>ammihud_227@d83e3c",
+    "parent-of:reuel_2432>shephathiah_2656@fceb80",
+    "parent-of:shage_2541>jonathan_1694@d9d5ff",
+    "parent-of:shemaah_2618>joash_1636@2d0564",
+    "parent-of:shemaiah_2624>obadiah_2219@e6da20",
+    "parent-of:shephathiah_2656>meshullam_2025@17d8f3",
+    "parent-of:shimri_2704>jediael_758@7f6647",
+    "parent-of:shiza_2714>adina_88@26f002",
+    "parent-of:ur_2893>eliphal_1142@3500d1",
+    "parent-of:uzzi_2920>elah_1048@4fe30e",
+    "parent-of:zichri_3069>micha_2051@599a18"
+  ],
+  "facts": {
+    "alias-of:aram-maacah_83>maacah_743@6c084b": {
+      "refs": ["1chr.19.6", "1chr.19.7"],
+      "note": "19.6 has Syriamaachah (Aram-maacah) in a list; 19.7 has the king of Maachah. One spelling in a parallel list; the same-place link is a reading.",
+      "kind": "reading"
+    },
+    "alias-of:baharum_153>bahurim_154@c88748": {
+      "refs": ["1chr.11.33"],
+      "note": "11.33 names only Azmaveth the Baharumite. Bahurim is not named; equating the two rests on an identification from outside the passage.",
+      "kind": "reading"
+    },
+    "alias-of:cun_311>berothah_179@13d490": {
+      "refs": ["1chr.18.8"],
+      "note": "18.8 names Chun as a city of Hadarezer. Berothah is not named; equating them rests on an identification from outside the passage.",
+      "kind": "reading"
+    },
+    "alias-of:pas-dammim_923>ephes-dammim_399@d66f07": {
+      "refs": ["1chr.11.13"],
+      "note": "11.13 names Pasdammim as the battle place. Ephes-dammim is not named; equating them rests on an identification from outside the passage.",
+      "kind": "reading"
+    },
+    "alias-of:perez-uzza_934>perez-uzzah_935@542eeb": {
+      "refs": ["1chr.13.11"],
+      "note": "13.11 names the place Perezuzza. The spelling Perez-uzzah is not in this passage; one place under two spellings is a reading.",
+      "kind": "reading"
+    },
+    "alias-of:zobah-hamath_1273>zobah_1272@9382d3": {
+      "refs": ["1chr.18.3"],
+      "note": "18.3 names Zobah and Hamath as separate places (king of Zobah unto Hamath). Zobah-Hamath is not named; equating it with Zobah is a reading.",
+      "kind": "reading"
+    },
+    "member-of:kore_1797>tribe-of-levi@0c0564": {
+      "refs": ["1chr.9.18", "1chr.9.19"],
+      "note": "9.19 names Shallum son of Kore as a Korahite gatekeeper; 9.18 puts the porters among the children of Levi. Kore's own tribe is not stated.",
+      "kind": "reading"
+    },
+    "member-of:mattithiah_1974>tribe-of-levi@a190c3": {
+      "refs": ["1chr.9.31"],
+      "note": "9.31 calls Mattithiah one of the Levites, firstborn of Shallum the Korahite."
+    },
+    "member-of:meshelemiah_2013>tribe-of-levi@0b82ae": {
+      "refs": ["1chr.9.18", "1chr.9.21"],
+      "note": "9.21 has Zechariah son of Meshelemiah as a porter, and 9.18 places porters among the children of Levi. Meshelemiah's own tribe is not stated.",
+      "kind": "reading"
+    },
+    "member-of:shallum_2520>tribe-of-levi@5b934b": {
+      "refs": ["1chr.9.17", "1chr.9.18"],
+      "note": "9.17 names Shallum as chief porter; 9.18 says the porters were in the companies of the children of Levi."
+    },
+    "parent-of:azareel_84>maasiai_1870@bec03f": {
+      "refs": ["1chr.9.12"],
+      "note": "9.12 makes Maasiai the son of Adiel, son of Jahzerah. Azareel is not named in the verse.",
+      "kind": "wrong"
+    },
+    "parent-of:azmaveth_557>jeziel_1608@7c09a2": {
+      "refs": ["1chr.12.3"],
+      "note": "12.3 names Jeziel and Pelet as the sons of Azmaveth."
+    },
+    "parent-of:elnaam_1176>jeribai_861@4edfa6": {
+      "refs": ["1chr.11.46"],
+      "note": "11.46 names Jeribai and Joshaviah as the sons of Elnaam."
+    },
+    "parent-of:hothan_1563>shama_2530@2adea7": {
+      "refs": ["1chr.11.44"],
+      "note": "11.44 names Shama and Jehiel as the sons of Hothan the Aroerite."
+    },
+    "parent-of:jeroham_878>joelah_1661@e64cc4": {
+      "refs": ["1chr.12.7"],
+      "note": "12.7 names Joelah and Zebadiah as the sons of Jeroham of Gedor."
+    },
+    "parent-of:maachah_1844>ner_2181@82cd08": {
+      "refs": ["1chr.9.35", "1chr.9.36"],
+      "note": "9.35 names Jehiel's wife as Maachah; 9.36 lists Ner among Jehiel's sons. The text does not say Maachah bore Ner.",
+      "kind": "reading"
+    },
+    "parent-of:meshullam_2036>sallu_2460@f1d905": {
+      "refs": ["1chr.9.7"],
+      "note": "9.7 says Sallu is the son of a Meshullam who is the son of Hodaviah. Whether key 2036 is that Meshullam is not stated; possible duplicate record.",
+      "kind": "reading"
+    },
+    "parent-of:shallum_2520>mattithiah_1973@7e0d14": {
+      "refs": ["1chr.9.31"],
+      "note": "9.31 calls Mattithiah the firstborn of Shallum the Korahite."
+    },
+    "parent-of:shemaah_2618>ahiezer_132@1d2e38": {
+      "refs": ["1chr.12.3"],
+      "note": "12.3 names Ahiezer and Joash as the sons of Shemaah the Gibeathite."
+    },
+    "parent-of:shimri_2704>joha_1665@8c6580": {
+      "refs": ["1chr.11.45"],
+      "note": "11.45 calls Joha the brother of Jediael, son of Shimri. Sonship from Shimri is inferred from brotherhood, not stated.",
+      "kind": "reading"
+    },
+    "parent-of:the_giant_in_gath_2848>lahmi_1806@aa857a": {
+      "refs": ["1chr.20.5", "1chr.20.8"],
+      "note": "20.5 names Lahmi, brother of Goliath the Gittite; 20.8 says these, the giants named, were born unto the giant in Gath."
+    },
+    "partner-of:abiel_23>maachah_1844@f2b8f6": {
+      "refs": ["1chr.9.35"],
+      "note": "9.35 says Maachah was the wife of Jehiel, father of Gibeon (8.29 gives no name). Abiel is not named; identifying him with Jehiel is a reading.",
+      "kind": "reading"
+    }
+  }
+}

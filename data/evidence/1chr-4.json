@@ -1,0 +1,731 @@
+{
+  "passage": "1chr.4",
+  "ai": {
+    "model": "haiku",
+    "on": "2026-11-08"
+  },
+  "agreed": [
+    "parent-of:allon_190>shiphi_2709@fd8d77",
+    "parent-of:amaziah_215>joshah_1723@0d1f96",
+    "parent-of:asiel_344>seraiah_2497@529a18",
+    "parent-of:chelub_929>mehir_1982@a1dc5d",
+    "parent-of:coz_958>anub_272@407c8c",
+    "parent-of:coz_958>zobebah_3100@b2cd48",
+    "parent-of:eshton_1220>paseah_2280@5af67b",
+    "parent-of:eshton_1220>tehinnah_2834@2594fa",
+    "parent-of:ezra_1244>epher_1202@35ddc2",
+    "parent-of:ezra_1244>jalon_715@23287a",
+    "parent-of:ezra_1244>jether_909@a6d4a2",
+    "parent-of:ezra_1244>mered_2005@e4b632",
+    "parent-of:hamuel_1366>zacchur_2962@39ab87",
+    "parent-of:harum_1423>aharhel_115@be0040",
+    "parent-of:helah_1478>ethnan_1226@7fbf78",
+    "parent-of:helah_1478>jezoar_1610@021346",
+    "parent-of:helah_1478>zereth_3050@f0260d",
+    "parent-of:hur_1571>ezer_1239@79c01e",
+    "parent-of:hur_1571>penuel_2314@efa1b1",
+    "parent-of:ishi_624>zoheth_3103@22218c",
+    "parent-of:jahath_690>ahumai_174@93e31d",
+    "parent-of:jahath_690>lahad_1805@73c55f",
+    "parent-of:jedaiah_751>allon_190@2984a4",
+    "parent-of:jehaleleel_764>asareel_333@3d9e08",
+    "parent-of:jehaleleel_764>tiria_2867@371080",
+    "parent-of:jehaleleel_764>ziph_3091@d5a62f",
+    "parent-of:jehaleleel_764>ziphah_3092@12d316",
+    "parent-of:jehudijah_824>jered_846@58896a",
+    "parent-of:josibiah_1732>jehu_819@47bbc9",
+    "parent-of:kenaz_1778>seraiah_2496@2d2561",
+    "parent-of:meonothai_1998>ophrah_2254@dffad0",
+    "parent-of:mibsam_2047>mishma_2095@c5ce40",
+    "parent-of:naarah_2124>ahuzam_175@bf8328",
+    "parent-of:naarah_2124>haahashtari_1332@400785",
+    "parent-of:naarah_2124>hepher_1497@5c255d",
+    "parent-of:naarah_2124>temeni_2840@5b4edf",
+    "parent-of:othniel_2259>hathath_1453@422075",
+    "parent-of:pharaoh_2334>bithiah_516@7f0404",
+    "parent-of:reaiah_1421>jahath_690@a371df",
+    "parent-of:seraiah_2497>josibiah_1732@8a448e",
+    "parent-of:shallum_2518>mibsam_2047@fd7c47",
+    "parent-of:shemaiah_2621>shimri_2703@c62f37",
+    "parent-of:shimon_2701>amnon_233@b2145d",
+    "parent-of:shimon_2701>rinnah_2442@d5391b",
+    "parent-of:shimon_2701>tilon_2857@0dd5ba",
+    "parent-of:shimri_2703>jedaiah_751@5d580c",
+    "parent-of:shiphi_2709>ziza_3097@85121a",
+    "parent-of:shobal_2720>reaiah_1421@4c7547",
+    "parent-of:simeon_2741>shaul_2562@1a1f8c",
+    "parent-of:zacchur_2962>shimei_2687@f04580"
+  ],
+  "facts": {
+    "alias-of:baal_133>baalath-beer_138@d48ec7": {
+      "refs": [
+        "1chr.4.33"
+      ],
+      "kind": "reading",
+      "note": "Verse names only 'Baal' among Simeon's villages. Identifying it with Baalath-beer rests on Josh 19:8, outside this passage."
+    },
+    "alias-of:cozeba_309>achzib_18@63300b": {
+      "refs": [
+        "1chr.4.22"
+      ],
+      "kind": "reading",
+      "note": "Verse names 'the men of Chozeba' (KJV spelling of Cozeba). Equating it with Achzib rests on outside identification, not on this text."
+    },
+    "alias-of:gedor_456>gedor_455@0b4c38": {
+      "refs": [
+        "1chr.4.4",
+        "1chr.4.18",
+        "1chr.4.39"
+      ],
+      "kind": "reading",
+      "note": "Gedor is named as a town (4.4, 4.18 founders; 4.39 entrance). The text never says two Gedor records are one place; that rests on the shared name."
+    },
+    "alias-of:hazar-susim_541>hazar-susah_540@7bd5b0": {
+      "refs": [
+        "1chr.4.28",
+        "1chr.4.31"
+      ],
+      "kind": "wrong",
+      "note": "Verses list Hazarshual (4.28) and Hazarsusim (4.31) as two separate cities in one list, not as one place."
+    },
+    "alias-of:shaaraim_1056>shaaraim_1055@b172cb": {
+      "refs": [
+        "1chr.4.31"
+      ],
+      "kind": "reading",
+      "note": "Only one Shaaraim is named, a Simeonite city (4.31). That the two records are one place rests on the shared name."
+    },
+    "alias-of:tolad_1174>eltolad_380@8258a3": {
+      "refs": [
+        "1chr.4.29"
+      ],
+      "kind": "reading",
+      "note": "Verse names only Tolad (4.29). Identifying it with Eltolad rests on Josh 19:4, outside this passage."
+    },
+    "member-of:aharhel_115>tribe-of-judah@c82d3b": {
+      "refs": [
+        "1chr.4.8"
+      ],
+      "kind": "reading",
+      "note": "Aharhel is son of Harum (4.8), within the Judah section (4.1). Harum's own descent from Judah is not stated."
+    },
+    "member-of:ahumai_174>tribe-of-judah@3a4f2b": {
+      "refs": [
+        "1chr.4.1",
+        "1chr.4.2"
+      ],
+      "note": "Shobal is a son of Judah (4.1); Reaiah son of Shobal begat Jahath, who begat Ahumai (4.2)."
+    },
+    "member-of:ahuzam_175>tribe-of-judah@1f1b55": {
+      "refs": [
+        "1chr.4.5",
+        "1chr.4.6"
+      ],
+      "kind": "reading",
+      "note": "Son of Naarah, wife of Ashur (4.5-6). Ashur's descent from Judah is not stated; membership rests on the Judah section."
+    },
+    "member-of:anub_272>tribe-of-judah@908bc9": {
+      "refs": [
+        "1chr.4.8"
+      ],
+      "kind": "reading",
+      "note": "Coz begat Anub (4.8). Coz's descent from Judah is not stated; he is named only within the Judah section."
+    },
+    "member-of:coz_958>tribe-of-judah@fab3d3": {
+      "refs": [
+        "1chr.4.1",
+        "1chr.4.8"
+      ],
+      "kind": "reading",
+      "note": "Coz appears in the Judah section (4.1-8), but his father is not named, so his descent from Judah is not stated."
+    },
+    "member-of:er_1210>tribe-of-judah@9735c6": {
+      "refs": [
+        "1chr.4.21"
+      ],
+      "note": "Shelah is 'the son of Judah' (4.21), and Er is named among the sons of Shelah."
+    },
+    "member-of:ethnan_1226>tribe-of-judah@a5c309": {
+      "refs": [
+        "1chr.4.5",
+        "1chr.4.7"
+      ],
+      "kind": "reading",
+      "note": "Son of Helah, wife of Ashur (4.5, 4.7). Ashur's descent from Judah is not stated in the text."
+    },
+    "member-of:ezer_1239>tribe-of-judah@c91c83": {
+      "refs": [
+        "1chr.4.1",
+        "1chr.4.4"
+      ],
+      "note": "Hur is a son of Judah (4.1); Ezer is named among the sons of Hur (4.4)."
+    },
+    "member-of:haahashtari_1332>tribe-of-judah@9b5f2d": {
+      "refs": [
+        "1chr.4.5",
+        "1chr.4.6"
+      ],
+      "kind": "reading",
+      "note": "Son of Naarah, wife of Ashur (4.5-6). Ashur's descent from Judah is not stated in the text."
+    },
+    "member-of:hamuel_1366>tribe-of-simeon@325ed3": {
+      "refs": [
+        "1chr.4.24",
+        "1chr.4.25",
+        "1chr.4.26"
+      ],
+      "note": "Shaul is a son of Simeon (4.24); the line runs Shallum, Mibsam, Mishma, Hamuel (4.25-26)."
+    },
+    "member-of:harum_1423>tribe-of-judah@b3ab0f": {
+      "refs": [
+        "1chr.4.8"
+      ],
+      "kind": "reading",
+      "note": "Father of Aharhel (4.8). Harum's own father is not named, so his descent from Judah rests on the section heading."
+    },
+    "member-of:hazelelponi_1466>tribe-of-judah@d47e63": {
+      "refs": [
+        "1chr.4.3"
+      ],
+      "kind": "reading",
+      "note": "Sister of Jezreel, Ishma and Idbash, 'of the father of Etam' (4.3). The text does not name that father or tie him to Judah."
+    },
+    "member-of:hepher_1497>tribe-of-judah@899ad0": {
+      "refs": [
+        "1chr.4.5",
+        "1chr.4.6"
+      ],
+      "kind": "reading",
+      "note": "Son of Naarah, wife of Ashur (4.5-6). Ashur's descent from Judah is not stated in the text."
+    },
+    "member-of:idbash_1590>tribe-of-judah@007d02": {
+      "refs": [
+        "1chr.4.3"
+      ],
+      "kind": "reading",
+      "note": "Named among those 'of the father of Etam' (4.3). The text does not name that father or tie him to Judah."
+    },
+    "member-of:ishma_629>tribe-of-judah@7ff281": {
+      "refs": [
+        "1chr.4.3"
+      ],
+      "kind": "reading",
+      "note": "Named among those 'of the father of Etam' (4.3). The text does not name that father or tie him to Judah."
+    },
+    "member-of:jahath_690>tribe-of-judah@35c66f": {
+      "refs": [
+        "1chr.4.1",
+        "1chr.4.2"
+      ],
+      "note": "Shobal is a son of Judah (4.1); Reaiah son of Shobal begat Jahath (4.2)."
+    },
+    "member-of:jezoar_1610>tribe-of-judah@bb6bfa": {
+      "refs": [
+        "1chr.4.5",
+        "1chr.4.7"
+      ],
+      "kind": "reading",
+      "note": "Son of Helah, wife of Ashur (4.5, 4.7). Ashur's descent from Judah is not stated in the text."
+    },
+    "member-of:jezreel_1612>tribe-of-judah@979db7": {
+      "refs": [
+        "1chr.4.3"
+      ],
+      "kind": "reading",
+      "note": "Named among those 'of the father of Etam' (4.3). The text does not name that father or tie him to Judah."
+    },
+    "member-of:joash_1634>tribe-of-judah@186a5c": {
+      "refs": [
+        "1chr.4.21",
+        "1chr.4.22"
+      ],
+      "kind": "reading",
+      "note": "Named in 4.22, which continues the list of Shelah's sons (4.21). The verse does not say so outright."
+    },
+    "member-of:jokim_1684>tribe-of-judah@9ad2b1": {
+      "refs": [
+        "1chr.4.21",
+        "1chr.4.22"
+      ],
+      "kind": "reading",
+      "note": "Named in 4.22, which continues the list of Shelah's sons (4.21). The verse does not say so outright."
+    },
+    "member-of:laadah_1801>tribe-of-judah@9f8504": {
+      "refs": [
+        "1chr.4.21"
+      ],
+      "note": "Shelah is 'the son of Judah' (4.21), and Laadah is named among the sons of Shelah."
+    },
+    "member-of:lahad_1805>tribe-of-judah@5ab593": {
+      "refs": [
+        "1chr.4.1",
+        "1chr.4.2"
+      ],
+      "note": "Shobal is a son of Judah (4.1); Reaiah son of Shobal begat Jahath, who begat Lahad (4.2)."
+    },
+    "member-of:mibsam_2047>tribe-of-simeon@cf652e": {
+      "refs": [
+        "1chr.4.24",
+        "1chr.4.25"
+      ],
+      "note": "Shaul is a son of Simeon (4.24); Shallum, then Mibsam, are named as his sons in the line (4.25)."
+    },
+    "member-of:mishma_2095>tribe-of-simeon@3de8e7": {
+      "refs": [
+        "1chr.4.24",
+        "1chr.4.25"
+      ],
+      "note": "Shaul is a son of Simeon (4.24); the line runs Shallum, Mibsam, Mishma (4.25)."
+    },
+    "member-of:penuel_2314>tribe-of-judah@537fa3": {
+      "refs": [
+        "1chr.4.1",
+        "1chr.4.4"
+      ],
+      "note": "Hur is a son of Judah (4.1); Penuel is named among the sons of Hur (4.4)."
+    },
+    "member-of:saraph_2474>tribe-of-judah@123da5": {
+      "refs": [
+        "1chr.4.21",
+        "1chr.4.22"
+      ],
+      "kind": "reading",
+      "note": "Named in 4.22, which continues the list of Shelah's sons (4.21). The verse does not say so outright."
+    },
+    "member-of:shallum_2518>tribe-of-simeon@547f19": {
+      "refs": [
+        "1chr.4.24",
+        "1chr.4.25"
+      ],
+      "note": "Shaul is a son of Simeon (4.24); 'Shallum his son' follows (4.25)."
+    },
+    "member-of:shimei_2687>tribe-of-simeon@19d3ea": {
+      "refs": [
+        "1chr.4.24",
+        "1chr.4.25",
+        "1chr.4.26"
+      ],
+      "note": "Chain from Simeon through Shaul, Shallum, Mibsam, Mishma, Hamuel, Zacchur to Shimei (4.24-26)."
+    },
+    "member-of:temeni_2840>tribe-of-judah@cf43b1": {
+      "refs": [
+        "1chr.4.5",
+        "1chr.4.6"
+      ],
+      "kind": "reading",
+      "note": "Son of Naarah, wife of Ashur (4.5-6). Ashur's descent from Judah is not stated in the text."
+    },
+    "member-of:zacchur_2962>tribe-of-simeon@61b518": {
+      "refs": [
+        "1chr.4.24",
+        "1chr.4.25",
+        "1chr.4.26"
+      ],
+      "note": "Chain from Simeon through Shaul, Shallum, Mibsam, Mishma, Hamuel to Zacchur (4.24-26)."
+    },
+    "member-of:zereth_3050>tribe-of-judah@62d4be": {
+      "refs": [
+        "1chr.4.5",
+        "1chr.4.7"
+      ],
+      "kind": "reading",
+      "note": "Son of Helah, wife of Ashur (4.5, 4.7). Ashur's descent from Judah is not stated in the text."
+    },
+    "member-of:zobebah_3100>tribe-of-judah@9304e5": {
+      "refs": [
+        "1chr.4.8"
+      ],
+      "kind": "reading",
+      "note": "Son of Coz (4.8). Coz's descent from Judah is not stated in the passage."
+    },
+    "parent-of:ashur_342>ahuzam_175@1a73f9": {
+      "refs": [
+        "1chr.4.5",
+        "1chr.4.6"
+      ],
+      "note": "Ashur had two wives, Helah and Naarah (4.5); Naarah 'bare him' Ahuzam (4.6)."
+    },
+    "parent-of:ashur_342>ethnan_1226@553f60": {
+      "refs": [
+        "1chr.4.5",
+        "1chr.4.7"
+      ],
+      "note": "Ashur had two wives, including Helah (4.5); the sons of Helah were Zereth, Jezoar, Ethnan (4.7)."
+    },
+    "parent-of:ashur_342>haahashtari_1332@ee5ccd": {
+      "refs": [
+        "1chr.4.5",
+        "1chr.4.6"
+      ],
+      "note": "Naarah, one of Ashur's two wives (4.5), bare him Haahashtari (4.6)."
+    },
+    "parent-of:ashur_342>hepher_1497@0db549": {
+      "refs": [
+        "1chr.4.5",
+        "1chr.4.6"
+      ],
+      "note": "Naarah, one of Ashur's two wives (4.5), bare him Hepher (4.6)."
+    },
+    "parent-of:ashur_342>jezoar_1610@6a8bd7": {
+      "refs": [
+        "1chr.4.5",
+        "1chr.4.7"
+      ],
+      "note": "Ashur had two wives, including Helah (4.5); the sons of Helah include Jezoar (4.7)."
+    },
+    "parent-of:ashur_342>temeni_2840@17c1ba": {
+      "refs": [
+        "1chr.4.5",
+        "1chr.4.6"
+      ],
+      "note": "Naarah, one of Ashur's two wives (4.5), bare him Temeni (4.6)."
+    },
+    "parent-of:ashur_342>zereth_3050@40edff": {
+      "refs": [
+        "1chr.4.5",
+        "1chr.4.7"
+      ],
+      "note": "Ashur had two wives, including Helah (4.5); the sons of Helah include Zereth (4.7)."
+    },
+    "parent-of:bithiah_516>ishbah_619@109159": {
+      "refs": [
+        "1chr.4.17",
+        "1chr.4.18"
+      ],
+      "kind": "reading",
+      "note": "4.17 says 'she bare' Ishbah without naming the mother. 4.18 calls Bithiah Mered's wife but does not say which sons are hers."
+    },
+    "parent-of:bithiah_516>miriam_2088@e3d991": {
+      "refs": [
+        "1chr.4.17",
+        "1chr.4.18"
+      ],
+      "kind": "reading",
+      "note": "4.17 says 'she bare' Miriam without naming the mother. 4.18 calls Bithiah Mered's wife but does not say which sons are hers."
+    },
+    "parent-of:bithiah_516>shammai_2544@ccb40f": {
+      "refs": [
+        "1chr.4.17",
+        "1chr.4.18"
+      ],
+      "kind": "reading",
+      "note": "4.17 says 'she bare' Shammai without naming the mother. 4.18 calls Bithiah Mered's wife but does not say which sons are hers."
+    },
+    "parent-of:caleb_537>elah_1047@63b4cc": {
+      "refs": [
+        "1chr.4.15"
+      ],
+      "note": "The sons of Caleb the son of Jephunneh: Iru, Elah, and Naam (4.15)."
+    },
+    "parent-of:caleb_537>iru_615@49772f": {
+      "refs": [
+        "1chr.4.15"
+      ],
+      "note": "The sons of Caleb the son of Jephunneh: Iru, Elah, and Naam (4.15)."
+    },
+    "parent-of:caleb_537>naam_2117@22268d": {
+      "refs": [
+        "1chr.4.15"
+      ],
+      "note": "The sons of Caleb the son of Jephunneh: Iru, Elah, and Naam (4.15)."
+    },
+    "parent-of:elah_1047>kenaz_1779@915284": {
+      "refs": [
+        "1chr.4.15"
+      ],
+      "note": "'The sons of Elah, even Kenaz' (4.15)."
+    },
+    "parent-of:eshton_1220>beth-rapha_486@47bf12": {
+      "refs": [
+        "1chr.4.12"
+      ],
+      "note": "Eshton begat Bethrapha, and Paseah, and Tehinnah (4.12)."
+    },
+    "parent-of:helah_1478>coz_958@01b612": {
+      "refs": [
+        "1chr.4.7"
+      ],
+      "kind": "wrong",
+      "note": "The sons of Helah are named as Zereth, Jezoar and Ethnan (4.7). Coz is named as one who 'begat' Anub and Zobebah (4.8), not as Helah's son."
+    },
+    "parent-of:hodiah_1544>eshtemoa_1219@93122b": {
+      "refs": [
+        "1chr.4.19"
+      ],
+      "kind": "reading",
+      "note": "4.19 names Eshtemoa the Maachathite among Hodiah's sons. Eshtemoa in 4.17 is a town, so this record's identity is assumed."
+    },
+    "parent-of:hodiah_1544>garmite_1280@d10f4f": {
+      "refs": [
+        "1chr.4.19"
+      ],
+      "kind": "wrong",
+      "note": "Naham, Hodiah's brother, is the father of Keilah the Garmite (4.19). Garmite is not named as Hodiah's son; Eshtemoa is."
+    },
+    "parent-of:hur_1571>hazelelponi_1466@d12301": {
+      "refs": [
+        "1chr.4.3",
+        "1chr.4.4"
+      ],
+      "kind": "wrong",
+      "note": "Hazelelponi is sister of those 'of the father of Etam' (4.3). The sons of Hur named are Penuel and Ezer (4.4)."
+    },
+    "parent-of:hur_1571>idbash_1590@8bdbc8": {
+      "refs": [
+        "1chr.4.3",
+        "1chr.4.4"
+      ],
+      "kind": "wrong",
+      "note": "Idbash is 'of the father of Etam' (4.3), not of Hur. The sons of Hur named are Penuel and Ezer (4.4)."
+    },
+    "parent-of:hur_1571>ishma_629@e4410b": {
+      "refs": [
+        "1chr.4.3",
+        "1chr.4.4"
+      ],
+      "kind": "wrong",
+      "note": "Ishma is 'of the father of Etam' (4.3), not of Hur. The sons of Hur named are Penuel and Ezer (4.4)."
+    },
+    "parent-of:hur_1571>jezreel_1612@e97e50": {
+      "refs": [
+        "1chr.4.3",
+        "1chr.4.4"
+      ],
+      "kind": "wrong",
+      "note": "Jezreel is 'of the father of Etam' (4.3), not of Hur. The sons of Hur named are Penuel and Ezer (4.4)."
+    },
+    "parent-of:ishbah_619>heber_1471@6886cb": {
+      "refs": [
+        "1chr.4.17",
+        "1chr.4.18"
+      ],
+      "kind": "wrong",
+      "note": "4.18 says Jehudijah bare Heber, with Jered and Jekuthiel. Ishbah is named as father of Eshtemoa (4.17), not of Heber."
+    },
+    "parent-of:ishbah_619>jekuthiel_836@bea458": {
+      "refs": [
+        "1chr.4.17",
+        "1chr.4.18"
+      ],
+      "kind": "wrong",
+      "note": "4.18 says Jehudijah bare Jekuthiel, with Jered and Heber. Ishbah is named as father of Eshtemoa (4.17), not of Jekuthiel."
+    },
+    "parent-of:ishbah_619>jered_846@d03ecc": {
+      "refs": [
+        "1chr.4.17",
+        "1chr.4.18"
+      ],
+      "kind": "wrong",
+      "note": "4.18 says Jehudijah bare Jered, with Heber and Jekuthiel. Ishbah is named as father of Eshtemoa (4.17), not of Jered."
+    },
+    "parent-of:ishi_624>ben-zoheth_464@868a3f": {
+      "refs": [
+        "1chr.4.20"
+      ],
+      "note": "'The sons of Ishi were, Zoheth, and Benzoheth' (4.20)."
+    },
+    "parent-of:ishi_625>neariah_2162@7c1ae5": {
+      "refs": [
+        "1chr.4.42"
+      ],
+      "kind": "reading",
+      "note": "4.42 names Neariah among 'the sons of Ishi' of Simeon. Ishi of 4.20 is another man; that record 625 is this Ishi is assumed."
+    },
+    "parent-of:ishi_625>pelatiah_2305@b84dcc": {
+      "refs": [
+        "1chr.4.42"
+      ],
+      "kind": "reading",
+      "note": "4.42 names Pelatiah among 'the sons of Ishi' of Simeon. Ishi of 4.20 is another man; that record 625 is this Ishi is assumed."
+    },
+    "parent-of:ishi_625>rephaiah_2424@1f601d": {
+      "refs": [
+        "1chr.4.42"
+      ],
+      "kind": "reading",
+      "note": "4.42 names Rephaiah among 'the sons of Ishi' of Simeon. Ishi of 4.20 is another man; that record 625 is this Ishi is assumed."
+    },
+    "parent-of:ishi_625>uzziel_2930@7ede0c": {
+      "refs": [
+        "1chr.4.42"
+      ],
+      "kind": "reading",
+      "note": "4.42 names Uzziel among 'the sons of Ishi' of Simeon. Ishi of 4.20 is another man; that record 625 is this Ishi is assumed."
+    },
+    "parent-of:jehudijah_824>heber_1471@cf2667": {
+      "refs": [
+        "1chr.4.18"
+      ],
+      "note": "'His wife Jehudijah bare Jered ... and Heber ... and Jekuthiel' (4.18)."
+    },
+    "parent-of:jehudijah_824>jekuthiel_836@6a7c3f": {
+      "refs": [
+        "1chr.4.18"
+      ],
+      "note": "'His wife Jehudijah bare Jered ... and Heber ... and Jekuthiel' (4.18)."
+    },
+    "parent-of:mehir_1982>eshton_1220@41d03a": {
+      "refs": [
+        "1chr.4.11"
+      ],
+      "note": "Chelub begat Mehir, 'which was the father of Eshton' (4.11)."
+    },
+    "parent-of:mered_2005>eshtemoa_1219@4784ca": {
+      "refs": [
+        "1chr.4.18",
+        "1chr.4.19"
+      ],
+      "kind": "reading",
+      "note": "4.19 gives 'his wife Hodiah' with Eshtemoa as her son. The husband is not named in 4.19; Mered is taken from 4.18."
+    },
+    "parent-of:mered_2005>garmite_1280@335e71": {
+      "refs": [
+        "1chr.4.19"
+      ],
+      "kind": "wrong",
+      "note": "Keilah the Garmite's father is Naham (4.19), not Mered. Garmite is not named as a son of Mered."
+    },
+    "parent-of:mered_2005>ishbah_619@bd64e8": {
+      "refs": [
+        "1chr.4.17",
+        "1chr.4.18"
+      ],
+      "kind": "reading",
+      "note": "Mered took Bithiah (4.18), and 4.17 says 'she bare' Ishbah without naming the mother. The link is probable, not stated."
+    },
+    "parent-of:mered_2005>miriam_2088@0957d7": {
+      "refs": [
+        "1chr.4.17",
+        "1chr.4.18"
+      ],
+      "kind": "reading",
+      "note": "Mered took Bithiah (4.18), and 4.17 says 'she bare' Miriam without naming the mother. The link is probable, not stated."
+    },
+    "parent-of:mered_2005>shammai_2544@dfa236": {
+      "refs": [
+        "1chr.4.17",
+        "1chr.4.18"
+      ],
+      "kind": "reading",
+      "note": "Mered took Bithiah (4.18), and 4.17 says 'she bare' Shammai without naming the mother. The link is probable, not stated."
+    },
+    "parent-of:mishma_2095>hamuel_1366@a40de8": {
+      "refs": [
+        "1chr.4.26"
+      ],
+      "note": "'The sons of Mishma; Hamuel his son' (4.26)."
+    },
+    "parent-of:othniel_2259>meonothai_1998@156e1e": {
+      "refs": [
+        "1chr.4.13"
+      ],
+      "kind": "wrong",
+      "note": "The sons of Othniel are named as Hathath alone (4.13). Meonothai's father is not stated in this passage."
+    },
+    "parent-of:seraiah_2496>joab_1618@b41909": {
+      "refs": [
+        "1chr.4.13",
+        "1chr.4.14"
+      ],
+      "note": "Seraiah son of Kenaz (4.13) 'begat Joab, the father of the valley of Charashim' (4.14)."
+    },
+    "parent-of:shaul_2562>shallum_2518@c315f9": {
+      "refs": [
+        "1chr.4.24",
+        "1chr.4.25"
+      ],
+      "note": "Shaul is a son of Simeon (4.24); 'Shallum his son' follows (4.25)."
+    },
+    "parent-of:shelah_2593>er_1210@3c05c2": {
+      "refs": [
+        "1chr.4.21"
+      ],
+      "note": "'The sons of Shelah the son of Judah were, Er the father of Lecah' (4.21)."
+    },
+    "parent-of:shelah_2593>joash_1634@f37500": {
+      "refs": [
+        "1chr.4.21",
+        "1chr.4.22"
+      ],
+      "kind": "reading",
+      "note": "4.22 continues the list of Shelah's sons (4.21) with 'And Joash'. The verse does not say so outright."
+    },
+    "parent-of:shelah_2593>jokim_1684@f83136": {
+      "refs": [
+        "1chr.4.21",
+        "1chr.4.22"
+      ],
+      "kind": "reading",
+      "note": "4.22 continues the list of Shelah's sons (4.21) with 'And Jokim'. The verse does not say so outright."
+    },
+    "parent-of:shelah_2593>laadah_1801@676794": {
+      "refs": [
+        "1chr.4.21"
+      ],
+      "note": "'The sons of Shelah the son of Judah were, ... and Laadah the father of Mareshah' (4.21)."
+    },
+    "parent-of:shelah_2593>saraph_2474@8aa006": {
+      "refs": [
+        "1chr.4.21",
+        "1chr.4.22"
+      ],
+      "kind": "reading",
+      "note": "4.22 continues the list of Shelah's sons (4.21) with 'and Saraph'. The verse does not say so outright."
+    },
+    "parent-of:shimon_2701>ben-hanan_456@c350a6": {
+      "refs": [
+        "1chr.4.20"
+      ],
+      "note": "'The sons of Shimon were, Amnon, and Rinnah, Benhanan, and Tilon' (4.20)."
+    },
+    "partner-of:ashur_342>helah_1478@c58748": {
+      "refs": [
+        "1chr.4.5"
+      ],
+      "note": "'Ashur the father of Tekoa had two wives, Helah and Naarah' (4.5)."
+    },
+    "partner-of:ashur_342>naarah_2124@1e2a3f": {
+      "refs": [
+        "1chr.4.5"
+      ],
+      "note": "'Ashur the father of Tekoa had two wives, Helah and Naarah' (4.5)."
+    },
+    "partner-of:bithiah_516>mered_2005@5ad008": {
+      "refs": [
+        "1chr.4.18"
+      ],
+      "note": "'Bithiah the daughter of Pharaoh, which Mered took' (4.18)."
+    },
+    "partner-of:hodiah_1544>mered_2005@736497": {
+      "refs": [
+        "1chr.4.18",
+        "1chr.4.19"
+      ],
+      "kind": "reading",
+      "note": "4.19 says 'his wife Hodiah'. The husband is not named there; Mered is taken from 4.18, where 'his wife' is Jehudijah."
+    },
+    "partner-of:ishbah_619>jehudijah_824@42751d": {
+      "refs": [
+        "1chr.4.18"
+      ],
+      "kind": "wrong",
+      "note": "Jehudijah is 'his wife' in Mered's household, who bare Jered, Heber and Jekuthiel (4.18). She is not named as Ishbah's wife."
+    },
+    "part-of:ezem_422>judah_1280@d72bf5": {
+      "refs": [
+        "1chr.4.28",
+        "1chr.4.29"
+      ],
+      "kind": "wrong",
+      "note": "Ezem is listed among Simeon's cities (4.28-29, 'they dwelt'), not Judah's. Simeon's lot lay within Judah only per Josh 19:1."
+    },
+    "part-of:shaaraim_1055>judah_1280@827f0b": {
+      "refs": [
+        "1chr.4.24",
+        "1chr.4.31"
+      ],
+      "kind": "wrong",
+      "note": "4.31 lists Shaaraim among 'their cities', the sons of Simeon (4.24), not Judah's. The Judah-heading match is wrong."
+    }
+  }
+}
