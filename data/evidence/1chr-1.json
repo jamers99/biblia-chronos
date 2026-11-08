@@ -1,0 +1,131 @@
+{
+  "passage": "1chr.1",
+  "ai": { "model": "haiku", "on": "2026-11-08" },
+  "agreed": [
+    "parent-of:dishan_1015>aran_288@0385aa",
+    "parent-of:dishan_1015>uz_2909@504a95",
+    "parent-of:ezer_1238>bilhan_503@e8fc21",
+    "parent-of:ezer_1238>zavan_2944@31aa90",
+    "parent-of:isaac_616>esau_1216@9a898f",
+    "parent-of:ishmael_630>jetur_911@f3f553",
+    "parent-of:ishmael_630>kedemah_1770@3e28ff",
+    "parent-of:ishmael_630>naphish_2148@d5f062",
+    "parent-of:lotan_1831>homam_1487@579bea",
+    "parent-of:lotan_1831>hori_1552@dd904d",
+    "parent-of:seir_2485>anah_248@59a4cf",
+    "parent-of:seir_2485>dishan_1015@02c5c9",
+    "parent-of:seir_2485>dishon_1016@52049c",
+    "parent-of:seir_2485>ezer_1238@61a0e6",
+    "parent-of:seir_2485>lotan_1831@df51b4",
+    "parent-of:seir_2485>shobal_2719@ecee6a",
+    "parent-of:seir_2485>zibeon_3062@eb3fa0",
+    "parent-of:shem_2613>aram_285@5c1e10",
+    "parent-of:shem_2613>asshur_349@b8e1ec",
+    "parent-of:shem_2613>elam_1049@763687",
+    "parent-of:shem_2613>lud_1834@42c222",
+    "parent-of:shobal_2719>ebal_1026@05a77d",
+    "parent-of:shobal_2719>manahath_1927@b501cc",
+    "parent-of:shobal_2719>onam_2248@98728f"
+  ],
+  "facts": {
+    "alias-of:pai_917>pau_927@7ebc7c": {
+      "refs": ["1chr.1.50", "gen.36.39"],
+      "note": "1.50 names Hadad's city Pai; Gen.36.39 names Hadar's city Pau. Spelling differs across parallel lists; same city is inferred.",
+      "kind": "reading"
+    },
+    "parent-of:abraham_58>ishbak_620@58a2cb": {
+      "refs": ["1chr.1.32"],
+      "note": "Keturah, Abraham's concubine, bare Ishbak."
+    },
+    "parent-of:abraham_58>jokshan_1685@590694": {
+      "refs": ["1chr.1.32"],
+      "note": "Keturah, Abraham's concubine, bare Jokshan."
+    },
+    "parent-of:abraham_58>medan_1978@3ae5fc": {
+      "refs": ["1chr.1.32"],
+      "note": "Keturah, Abraham's concubine, bare Medan."
+    },
+    "parent-of:abraham_58>midian_2075@3c7f70": {
+      "refs": ["1chr.1.32"],
+      "note": "Keturah, Abraham's concubine, bare Midian."
+    },
+    "parent-of:abraham_58>shuah_2727@7bbf69": {
+      "refs": ["1chr.1.32"],
+      "note": "Keturah, Abraham's concubine, bare Shuah."
+    },
+    "parent-of:abraham_58>zimran_3086@99fa99": {
+      "refs": ["1chr.1.32"],
+      "note": "Keturah, Abraham's concubine, bare Zimran."
+    },
+    "parent-of:anah_248>dishon_1017@f2a001": {
+      "refs": ["1chr.1.40", "1chr.1.41", "gen.36.24"],
+      "note": "The Anah who fathers Dishon is Zibeon's son (1.40; Gen.36.24), a different man from Seir's son Anah (anah_248).",
+      "kind": "wrong"
+    },
+    "parent-of:dishon_1016>cheran_937@c24c49": {
+      "refs": ["1chr.1.41", "gen.36.25"],
+      "note": "1.41 gives these as sons of Dishon, son of Anah (dishon_1017), not Seir's son Dishon (dishon_1016).",
+      "kind": "wrong"
+    },
+    "parent-of:dishon_1016>eshban_1217@3a38fc": {
+      "refs": ["1chr.1.41", "gen.36.25"],
+      "note": "1.41 gives these as sons of Dishon, son of Anah (dishon_1017), not Seir's son Dishon (dishon_1016).",
+      "kind": "wrong"
+    },
+    "parent-of:dishon_1016>hemdan_1492@3eb483": {
+      "refs": ["1chr.1.41", "gen.36.26"],
+      "note": "1.41 does not name Hemdan. Gen.36.26 names him as son of Dishon, son of Anah (dishon_1017), not dishon_1016.",
+      "kind": "wrong"
+    },
+    "parent-of:dishon_1016>ithran_653@2add30": {
+      "refs": ["1chr.1.41", "gen.36.25"],
+      "note": "1.41 gives these as sons of Dishon, son of Anah (dishon_1017), not Seir's son Dishon (dishon_1016).",
+      "kind": "wrong"
+    },
+    "parent-of:ezer_1238>akan_179@095bcf": {
+      "refs": ["1chr.1.42", "gen.36.27"],
+      "note": "1.42 says Jakan; Gen.36.27 says Akan. Spelling variant of the same son, inferred.",
+      "kind": "reading"
+    },
+    "parent-of:isaac_616>israel_682@e70fad": {
+      "refs": ["1chr.1.34", "gen.32.28"],
+      "note": "1.34 says Israel. That Israel is Jacob comes from outside the passage (Gen.32.28 renames Jacob Israel).",
+      "kind": "reading"
+    },
+    "parent-of:keturah_1782>ishbak_620@9b3d87": {
+      "refs": ["1chr.1.32"],
+      "note": "Keturah, Abraham's concubine, bare Ishbak."
+    },
+    "parent-of:keturah_1782>jokshan_1685@417af4": {
+      "refs": ["1chr.1.32"],
+      "note": "Keturah, Abraham's concubine, bare Jokshan."
+    },
+    "parent-of:keturah_1782>medan_1978@19a46c": {
+      "refs": ["1chr.1.32"],
+      "note": "Keturah, Abraham's concubine, bare Medan."
+    },
+    "parent-of:keturah_1782>shuah_2727@85d0e9": {
+      "refs": ["1chr.1.32"],
+      "note": "Keturah, Abraham's concubine, bare Shuah."
+    },
+    "parent-of:keturah_1782>zimran_3086@966189": {
+      "refs": ["1chr.1.32"],
+      "note": "Keturah, Abraham's concubine, bare Zimran."
+    },
+    "parent-of:shobal_2719>alvan_195@6d625c": {
+      "refs": ["1chr.1.40", "gen.36.23"],
+      "note": "1.40 says Alian; Gen.36.23 says Alvan. Spelling variant of the same son, inferred.",
+      "kind": "reading"
+    },
+    "parent-of:shobal_2719>shepho_2665@f8ea83": {
+      "refs": ["1chr.1.40", "gen.36.23"],
+      "note": "1.40 says Shephi; Gen.36.23 says Shepho. Spelling variant of the same son, inferred.",
+      "kind": "reading"
+    },
+    "parent-of:zibeon_3062>ajah_178@4477d0": {
+      "refs": ["1chr.1.40", "gen.36.24"],
+      "note": "1.40 says Aiah; Gen.36.24 says Ajah. Spelling variant of the same son, inferred.",
+      "kind": "reading"
+    }
+  }
+}
