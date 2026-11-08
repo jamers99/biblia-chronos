@@ -1,0 +1,265 @@
+{
+  "passage": "2kgs.1-13",
+  "ai": { "model": "haiku", "on": "2026-11-08" },
+  "agreed": [
+    "parent-of:ahab_113>joram_804@0fdf12",
+    "parent-of:ahaziah_121>joash_1632@f449d6",
+    "parent-of:athaliah_359>ahaziah_121@57ea4f",
+    "parent-of:jehoahaz_784>joash_1633@792115",
+    "parent-of:jehoram_803>ahaziah_121@8fcecb",
+    "parent-of:jehoshaphat_808>jehoram_803@d93ade",
+    "parent-of:jehoshaphat_809>jehu_817@b37a77",
+    "parent-of:jehu_817>jehoahaz_784@d78e4b",
+    "parent-of:nimshi_2207>jehoshaphat_809@ba7d0f",
+    "parent-of:zibiah_3064>joash_1632@40df19",
+    "participated-in:ahaziah_121>reign-of-ahaziah-jehoahaz@1f8c8e",
+    "participated-in:jehoahaz_784>death-of-jehoahaz@f117cb",
+    "participated-in:jehoahaz_784>reign-of-jehoahaz@4629ed",
+    "participated-in:jehoram_803>death-of-jehoram@732908",
+    "participated-in:jehu_817>death-of-jehu@9ba612",
+    "participated-in:joash_1632>reign-of-joash@484c9d",
+    "participated-in:joash_1633>reign-of-jehoash@3d8f7f",
+    "participated-in:joram_804>reign-of-joram@ace82a",
+    "occurred-at:reign-of-ahaziah-jehoahaz>jerusalem_636@098d7d",
+    "occurred-at:reign-of-jehoahaz>samaria_1022@08cac3",
+    "occurred-at:reign-of-jehoash>samaria_1022@a335f0",
+    "occurred-at:reign-of-jehoram>jerusalem_636@fda3ae",
+    "occurred-at:reign-of-joash>jerusalem_636@4cf773",
+    "occurred-at:reign-of-joram>samaria_1022@e2a0a3"
+  ],
+  "facts": {
+    "alias-of:ramah_976>ramoth-gilead_984@ff8cf0": {
+      "refs": ["2kgs.8.28", "2kgs.8.29"],
+      "note": "Joram is wounded in the same fight with Hazael, 'in Ramothgilead' (8.28) and 'at Ramah' (8.29). Treating the two spellings as one place is a reading.",
+      "kind": "reading"
+    },
+    "birth:ahaziah_121@629f51": {
+      "refs": ["2kgs.8.26"],
+      "note": "Age 22 at accession (8.26), which began in Joram's twelfth year (8.25). The year depends on dating outside Scripture.",
+      "kind": "reading"
+    },
+    "birth:amaziah_214@d268b0": {
+      "refs": ["2kgs.14.2"],
+      "note": "Age 25 when he began to reign (14.2), at Joash's death (12.21). The year depends on dating outside Scripture.",
+      "kind": "reading"
+    },
+    "date:death-of-jehoahash@3a5d08": {
+      "refs": ["2kgs.13.10"],
+      "note": "Jehoash of Israel reigned sixteen years from Joash's 37th year (13.10); the year depends on dating outside Scripture. Name 'Jehoahash' is a spelling reading.",
+      "kind": "reading"
+    },
+    "date:death-of-jehoahaz@112309": {
+      "refs": ["2kgs.13.1", "2kgs.13.9"],
+      "note": "Jehoahaz reigned seventeen years from Joash's 23rd year (13.1), then died (13.9). The year depends on dating outside Scripture.",
+      "kind": "reading"
+    },
+    "date:death-of-jehoram@62b673": {
+      "refs": ["2kgs.8.17", "2kgs.8.24"],
+      "note": "Eight-year reign in Jerusalem (8.17), then he slept with his fathers (8.24). The year depends on dating outside Scripture.",
+      "kind": "reading"
+    },
+    "date:death-of-jehu@e97582": {
+      "refs": ["2kgs.10.36"],
+      "note": "Jehu reigned twenty-eight years over Israel (10.36), then died (10.35). The year depends on dating outside Scripture.",
+      "kind": "reading"
+    },
+    "date:elijah-translated@f74fb5": {
+      "refs": ["2kgs.2.1"],
+      "note": "The text gives no year for the translation (2.1). The year depends on dating outside Scripture.",
+      "kind": "reading"
+    },
+    "date:prophecies-of-elisha@69be1c": {
+      "refs": ["2kgs.2.1", "2kgs.13.20"],
+      "note": "From Elijah's translation (2.1) to Elisha's death (13.20). The years depend on dating outside Scripture.",
+      "kind": "reading"
+    },
+    "date:reign-of-ahaziah-jehoahaz@91a96f": {
+      "refs": ["2kgs.8.25", "2kgs.8.26"],
+      "note": "Began in Joram's twelfth year (8.25) and reigned one year (8.26). The years depend on dating outside Scripture.",
+      "kind": "reading"
+    },
+    "date:reign-of-athaliah@f91d8d": {
+      "refs": ["2kgs.11.3", "2kgs.11.4"],
+      "note": "Athaliah reigned while Joash was hidden six years (11.3), until the seventh year (11.4). The years depend on dating outside Scripture.",
+      "kind": "reading"
+    },
+    "date:reign-of-jehoahaz@4fd95d": {
+      "refs": ["2kgs.13.1"],
+      "note": "Began in Joash's 23rd year and reigned seventeen years (13.1). The years depend on dating outside Scripture.",
+      "kind": "reading"
+    },
+    "date:reign-of-jehoash@abb825": {
+      "refs": ["2kgs.13.10"],
+      "note": "Began in Joash of Judah's 37th year and reigned sixteen years (13.10). The years depend on dating outside Scripture.",
+      "kind": "reading"
+    },
+    "date:reign-of-jehoram@6cbdb7": {
+      "refs": ["2kgs.8.16", "2kgs.8.17"],
+      "note": "Began in Joram of Israel's fifth year (8.16) and reigned eight years (8.17). The years depend on dating outside Scripture.",
+      "kind": "reading"
+    },
+    "date:reign-of-jehu@90604b": {
+      "refs": ["2kgs.10.36"],
+      "note": "Reigned twenty-eight years over Israel (10.36). The start year depends on dating outside Scripture.",
+      "kind": "reading"
+    },
+    "date:reign-of-joash@a9e5b9": {
+      "refs": ["2kgs.11.21", "2kgs.12.1"],
+      "note": "Began at seven years old (11.21) and reigned forty years in Jerusalem (12.1). The years depend on dating outside Scripture.",
+      "kind": "reading"
+    },
+    "date:reign-of-joram@4437bb": {
+      "refs": ["2kgs.3.1"],
+      "note": "Began in Jehoshaphat's eighteenth year and reigned twelve years (3.1). The years depend on dating outside Scripture.",
+      "kind": "reading"
+    },
+    "death:ahaziah_121@62b673": {
+      "refs": ["2kgs.8.26", "2kgs.9.27"],
+      "note": "After a one-year reign (8.26), he fled to Megiddo and died there (9.27). The year depends on dating outside Scripture.",
+      "kind": "reading"
+    },
+    "death:amaziah_214@1c91d2": {
+      "refs": ["2kgs.14.2", "2kgs.14.17"],
+      "note": "Reigned twenty-nine years (14.2) and lived fifteen years after Jehoash's death (14.17). The year depends on dating outside Scripture.",
+      "kind": "reading"
+    },
+    "death:athaliah_359@a6d37c": {
+      "refs": ["2kgs.11.3", "2kgs.11.20"],
+      "note": "Slain after her reign of about six years (11.3), beside the king's house (11.20). The year depends on dating outside Scripture.",
+      "kind": "reading"
+    },
+    "death:joash_1632@daf459": {
+      "refs": ["2kgs.12.1", "2kgs.12.20"],
+      "note": "Reigned forty years in Jerusalem (12.1), then was slain by his servants (12.20). The year depends on dating outside Scripture.",
+      "kind": "reading"
+    },
+    "died-at:athaliah_359>jerusalem_636@9eb4b8": {
+      "refs": ["2kgs.11.16", "2kgs.11.20"],
+      "note": "Slain by the way the horses came into the king's house, in the city (11.16, 11.20). Ch. 11 never names Jerusalem; the identification is a reading.",
+      "kind": "reading"
+    },
+    "died-at:joash_1632>jerusalem_636@91614b": {
+      "refs": ["2kgs.12.1", "2kgs.12.21"],
+      "note": "Reigned in Jerusalem (12.1) and was buried in the city of David (12.21). The death place, the house of Millo (12.20), is not named as Jerusalem.",
+      "kind": "reading"
+    },
+    "member-of:ahaziah_121>tribe-of-judah@40e979": {
+      "refs": ["2kgs.8.25"],
+      "note": "Called king of Judah (8.25) in a line from Jehoshaphat (8.16). Descent to the tribe of Judah is outside this passage.",
+      "kind": "reading"
+    },
+    "member-of:amaziah_214>tribe-of-judah@aed8a0": {
+      "refs": ["2kgs.14.1"],
+      "note": "Called Amaziah the son of Joash, king of Judah (14.1). Descent to the tribe of Judah is outside this passage.",
+      "kind": "reading"
+    },
+    "member-of:jehoshabeath_811>tribe-of-judah@a04315": {
+      "refs": ["2kgs.11.2"],
+      "note": "Daughter of king Joram of Judah and sister of Ahaziah (11.2). Descent to the tribe of Judah is outside this passage.",
+      "kind": "reading"
+    },
+    "member-of:joash_1632>tribe-of-judah@a34d16": {
+      "refs": ["2kgs.12.1"],
+      "note": "Reigned as king in Jerusalem (12.1), son of Ahaziah king of Judah (11.2). Descent to the tribe of Judah is outside this passage.",
+      "kind": "reading"
+    },
+    "occurred-at:death-of-jehoahash>samaria_1022@7e0301": {
+      "refs": ["2kgs.13.13"],
+      "note": "Buried in Samaria (13.13), where his reign was (13.10). The place of death is not stated.",
+      "kind": "reading"
+    },
+    "occurred-at:death-of-jehoahaz>samaria_1022@852489": {
+      "refs": ["2kgs.13.9"],
+      "note": "Buried in Samaria (13.9). The place of death is not stated.",
+      "kind": "reading"
+    },
+    "occurred-at:death-of-jehoram>jerusalem_636@a2a32c": {
+      "refs": ["2kgs.8.24", "2kgs.8.17"],
+      "note": "Buried in the city of David (8.24), where he reigned in Jerusalem (8.17). The place of death is not stated.",
+      "kind": "reading"
+    },
+    "occurred-at:death-of-jehu>samaria_1022@9ee205": {
+      "refs": ["2kgs.10.35"],
+      "note": "Buried in Samaria (10.35). The place of death is not stated.",
+      "kind": "reading"
+    },
+    "occurred-at:reign-of-athaliah>jerusalem_636@d88eaf": {
+      "refs": ["2kgs.11.3", "2kgs.11.20"],
+      "note": "Athaliah reigned over the land (11.3), from the king's house in the city (11.20). Ch. 11 does not name Jerusalem.",
+      "kind": "reading"
+    },
+    "occurred-at:reign-of-jehu>samaria_1022@5163dc": {
+      "refs": ["2kgs.10.36"],
+      "note": "Jehu reigned over Israel in Samaria twenty-eight years (10.36). The matched 10.1 only has letters sent to Samaria."
+    },
+    "parent-of:ahab_113>athaliah_359@6a7538": {
+      "refs": ["2kgs.8.18", "2kgs.8.26"],
+      "note": "8.18 calls Jehoram's wife 'the daughter of Ahab'; 8.26 calls Athaliah 'the daughter of Omri'. The text gives two different fathers.",
+      "kind": "reading"
+    },
+    "parent-of:hazael_1463>ben-hadad_454@db01d2": {
+      "refs": ["2kgs.13.3", "2kgs.13.25"],
+      "note": "'Benhadad the son of Hazael' (13.3, 13.25)."
+    },
+    "parent-of:jehoram_803>jehoshabeath_811@956d57": {
+      "refs": ["2kgs.11.2"],
+      "note": "'Jehosheba, the daughter of king Joram' (11.2). The spelling Jehoshabeath is from outside this passage.",
+      "kind": "reading"
+    },
+    "parent-of:jezebel_1605>joram_804@a2f299": {
+      "refs": ["2kgs.9.22"],
+      "note": "Jehu tells Joram 'thy mother Jezebel' (9.22)."
+    },
+    "parent-of:rechab_2403>jonadab_799@0053a1": {
+      "refs": ["2kgs.10.15"],
+      "note": "'Jehonadab the son of Rechab' (10.15). The spelling Jonadab is a reading.",
+      "kind": "reading"
+    },
+    "parent-of:shimeath_2683>zabad_1746@85f03d": {
+      "refs": ["2kgs.12.21"],
+      "note": "12.21 names Jozachar, son of Shimeath. The name Zabad is from outside this passage.",
+      "kind": "reading"
+    },
+    "parent-of:shimrith_2724>jehozabad_812@6735b8": {
+      "refs": ["2kgs.12.21"],
+      "note": "12.21 says Jehozabad is 'the son of Shomer'. Shimrith is not named as his parent here.",
+      "kind": "wrong"
+    },
+    "part-of:sur_1117>jerusalem_636@e15ae9": {
+      "refs": ["2kgs.11.6"],
+      "note": "The gate of Sur is one of the guard posts for the king's house and the LORD's house (11.5-7). Jerusalem is not named in the text.",
+      "kind": "reading"
+    },
+    "participated-in:athaliah_359>reign-of-athaliah@b48f31": {
+      "refs": ["2kgs.11.3"],
+      "note": "Athaliah did reign over the land (11.3). The matched 11.1 shows her killing the royal seed, not her reign."
+    },
+    "participated-in:elisha_1153>prophecies-of-elisha@6f1d73": {
+      "refs": ["2kgs.3.16"],
+      "note": "Elisha speaks 'Thus saith the LORD' to the kings (3.16). The matched 2.15 does not show a prophecy."
+    },
+    "participated-in:jehoram_803>reign-of-jehoram@12ba70": {
+      "refs": ["2kgs.8.16", "2kgs.8.17"],
+      "note": "Judah's Jehoram began to reign in Joram of Israel's fifth year and reigned eight years in Jerusalem (8.16-17). The matched 1.17 is about Israel's Jehoram."
+    },
+    "participated-in:jehu_817>reign-of-jehu@f33385": {
+      "refs": ["2kgs.9.6", "2kgs.10.36"],
+      "note": "Jehu is anointed king over Israel (9.6) and reigned there twenty-eight years (10.36). The matched 9.2 is the errand to anoint him."
+    },
+    "participated-in:joash_1633>death-of-jehoahash@4271ab": {
+      "refs": ["2kgs.13.13"],
+      "note": "Joash of Israel dies (13.13). The event name 'Jehoahash' is a spelling of Jehoash, outside this passage.",
+      "kind": "reading"
+    },
+    "partner-of:ahaziah_121>zibiah_3064@e5978e": {
+      "refs": ["2kgs.11.2", "2kgs.12.1"],
+      "note": "Joash is Ahaziah's son (11.2) and Zibiah is Joash's mother (12.1). The marriage is inferred, not stated.",
+      "kind": "reading"
+    },
+    "partner-of:athaliah_359>jehoram_803@10268a": {
+      "refs": ["2kgs.8.18", "2kgs.8.26"],
+      "note": "Jehoram's wife was Ahab's daughter (8.18), and Athaliah was Ahaziah's mother, Ahaziah being Jehoram's son (8.25-26). The marriage is inferred.",
+      "kind": "reading"
+    }
+  }
+}
