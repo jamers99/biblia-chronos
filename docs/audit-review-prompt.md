@@ -29,9 +29,11 @@ For EVERY fact key, decide one of these:
    - "refs": verse keys that support it, written like "gen.25.19" (one verse
      each; list every verse of a range).
    - "note": under 30 words. You may quote a short phrase.
-   - "kind": "verse" if the text states it; "reading" if it's a reasonable
-     interpretation but not stated (say why); "wrong" if the text contradicts
-     it (say what the text says instead).
+   - "kind": "verse" if the text states it; "reading" if it's probably true
+     but rests on something the text doesn't state, such as an identification,
+     a spelling, or a date from outside (say what); "wrong" if the text says
+     otherwise or the claim misdescribes it, e.g. the vision came at Troas, not
+     Philippi (say what the text says instead).
 
    Use a written entry when the match found nothing but the text supports the
    claim, when the matched verse is wrong or about a different person of the
@@ -59,9 +61,10 @@ Rules:
   naming a different father.
 - **Places.** "Within" or "the same place as" must be stated or plain from
   the text. Parallel lists spelling one name two ways are a "reading"; say so.
-- **Dates.** BC years come from an outside chronology. Cite the verse with the
-  biblical timing, use kind "reading", and say the BC year depends on dating
-  outside Scripture. If the text doesn't date the event at all, say so.
+- **Dates.** BC years come from an outside chronology. Give every date fact
+  an entry: kind "reading", citing the verse with the biblical timing (or the
+  event's verse, if the text doesn't date it), and say the year depends on
+  dating outside Scripture.
 - **Keys.** Copy every key exactly, including the part after the @.
 
 Write the result to /home/user/biblia-chronos/data/evidence/`<name>`.json, in
