@@ -51,12 +51,18 @@ for (const [key, t] of text)
 
 // People: their name plus upstream's surname and other names for them (Simon
 // is "Peter"; Joshua is "Jeshua" in Ezra). Places: their name plus the KJV/ESV
-// spellings.
+// spellings. Upstream's other names include plain nouns ("mother", "hen") and
+// titles ("Lord", "King"): a title the KJV also uses as an ordinary word names
+// no one in particular, except God's ("the LORD said").
+const GOD = "god_1324"
+const lowercase = new Set([...text.values()].flatMap((t) => t.match(/(?<![\w-])[a-z][a-z]+(?![\w-])/g) ?? []))
+const isName = (name: string, id: string) =>
+  /^[A-Z]/.test(name) && (id === GOD || name.includes(" ") || !lowercase.has(name.toLowerCase()))
 type Upstream = { personLookup: string; surname?: string; alsoCalled?: string }
 const alsoCalled = new Map<string, string[]>(
-  (readJson("data/vendor/theographic/people.json") as { fields: Upstream }[]).map(({ fields }) => [
-    fields.personLookup,
-    [fields.surname ?? "", ...(fields.alsoCalled ?? "").split(",")].map((s) => s.trim()).filter(Boolean),
+  (readJson("data/vendor/theographic/people.json") as { fields: Upstream }[]).map(({ fields: f }) => [
+    f.personLookup,
+    [f.surname ?? "", ...(f.alsoCalled ?? "").split(",")].map((s) => s.trim()).filter((s) => isName(s, f.personLookup)),
   ]),
 )
 const namesOf = new Map<string, string[]>([

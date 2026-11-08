@@ -1,6 +1,9 @@
 {
   "passage": "matt.10-16",
-  "ai": { "model": "haiku", "on": "2026-11-08" },
+  "ai": {
+    "model": "haiku",
+    "on": "2026-11-08"
+  },
   "agreed": [
     "member-of:andrew_264>apostles@b9e797",
     "member-of:bartholomew_405>apostles@3bb3ce",
@@ -21,7 +24,6 @@
     "participated-in:jesus_905>blind-and-dumb-demoniac-and-following-discourse@c7db4d",
     "participated-in:jesus_905>commandments-and-tradition-discourse@7571aa",
     "participated-in:jesus_905>corn-on-the-sabbath@9b7960",
-    "participated-in:jesus_905>discourse-with-pharisees-and-saducees@a16a6a",
     "participated-in:jesus_905>feeding-of-five-thousand@f336c9",
     "participated-in:jesus_905>feeding-of-four-thousand@63b2e0",
     "participated-in:jesus_905>foretelling-the-death-and-resurrection@448cfb",
@@ -48,62 +50,411 @@
     "participated-in:thomas_2851>apostles-chosen@d8865d"
   ],
   "facts": {
-    "date:2nd-rejection-at-nazareth@2c186f": { "refs": ["matt.13.54", "matt.13.57"], "note": "Text gives no year; the AD 29 date depends on outside chronology, not on these verses.", "kind": "reading" },
-    "date:apostles-chosen@a1e239": { "refs": ["matt.10.1", "matt.10.2"], "note": "Text gives no year; the AD 28 date depends on outside chronology, not on these verses.", "kind": "reading" },
-    "date:blind-and-dumb-demoniac-and-following-discourse@a1e239": { "refs": ["matt.12.22", "matt.12.24"], "note": "Text gives no year; the AD 28 date depends on outside chronology, not on these verses.", "kind": "reading" },
-    "date:commandments-and-tradition-discourse@2c186f": { "refs": ["matt.15.1", "matt.15.11"], "note": "Text gives no year; the AD 29 date depends on outside chronology, not on these verses.", "kind": "reading" },
-    "date:corn-on-the-sabbath@a1e239": { "refs": ["matt.12.1", "matt.12.8"], "note": "Text gives no year; the AD 28 date depends on outside chronology, not on these verses.", "kind": "reading" },
-    "date:discourse-with-pharisees-and-saducees@2c186f": { "refs": ["matt.16.1", "matt.16.4"], "note": "Text gives no year; the AD 29 date depends on outside chronology, not on these verses.", "kind": "reading" },
-    "date:feeding-of-five-thousand@2c186f": { "refs": ["matt.14.13", "matt.14.21"], "note": "Text gives no year; the AD 29 date depends on outside chronology, not on these verses.", "kind": "reading" },
-    "date:feeding-of-four-thousand@2c186f": { "refs": ["matt.15.32", "matt.15.38"], "note": "Text gives no year; the AD 29 date depends on outside chronology, not on these verses.", "kind": "reading" },
-    "date:foretelling-the-death-and-resurrection@2c186f": { "refs": ["matt.16.21"], "note": "Text gives no year; the AD 29 date depends on outside chronology, not on these verses.", "kind": "reading" },
-    "date:healing-a-crowd-near-sea-of-galilee@2c186f": { "refs": ["matt.15.29", "matt.15.31"], "note": "Text gives no year; the AD 29 date depends on outside chronology, not on these verses.", "kind": "reading" },
-    "date:healing-canaanite-daughter@2c186f": { "refs": ["matt.15.21", "matt.15.28"], "note": "Text gives no year; the AD 29 date depends on outside chronology, not on these verses.", "kind": "reading" },
-    "date:healing-in-gennesaret@2c186f": { "refs": ["matt.14.34", "matt.14.36"], "note": "Text gives no year; the AD 29 date depends on outside chronology, not on these verses.", "kind": "reading" },
-    "date:healing-a-withered-hand@a1e239": { "refs": ["matt.12.9", "matt.12.13"], "note": "Text gives no year; the AD 28 date depends on outside chronology, not on these verses.", "kind": "reading" },
-    "date:healing-multitudes@a1e239": { "refs": ["matt.12.15"], "note": "Text gives no year; the AD 28 date depends on outside chronology, not on these verses.", "kind": "reading" },
-    "date:jesus-message-on-john-the-baptist@a1e239": { "refs": ["matt.11.2", "matt.11.6"], "note": "Text gives no year; the AD 28 date depends on outside chronology, not on these verses.", "kind": "reading" },
-    "date:jesus-walks-on-water@2c186f": { "refs": ["matt.14.22", "matt.14.33"], "note": "Text gives no year; the AD 29 date depends on outside chronology, not on these verses.", "kind": "reading" },
-    "date:john-beheaded@2c186f": { "refs": ["matt.14.8", "matt.14.10"], "note": "Text gives no year; the AD 29 date depends on outside chronology, not on these verses.", "kind": "reading" },
-    "date:john-the-baptist-imprisoned@7a82e9": { "refs": ["matt.14.3", "matt.14.4"], "note": "Text gives no year; the AD 27 date depends on outside chronology, not on these verses.", "kind": "reading" },
-    "date:peter-s-confession-upon-this-rock@2c186f": { "refs": ["matt.16.13", "matt.16.16"], "note": "Text gives no year; the AD 29 date depends on outside chronology, not on these verses.", "kind": "reading" },
-    "date:woe-to-chorazin-and-bethsaida@a1e239": { "refs": ["matt.11.20", "matt.11.21"], "note": "Text gives no year; the AD 28 date depends on outside chronology, not on these verses.", "kind": "reading" },
-
-    "member-of:james_719>apostles@049fc1": { "refs": ["matt.10.2", "matt.10.3"], "note": "The apostle Jameses are Zebedee's son (10.2) and Alphaeus's son (10.3); Jesus' brother is not named among the twelve.", "kind": "wrong" },
-    "member-of:james_719>tribe-of-judah@4b5627": { "refs": ["matt.1.3", "matt.1.16", "matt.1.25", "matt.13.55"], "note": "Joseph's line runs from Judas (1.3-16). James as Joseph's son is a reading: 1.25 hints at later sons, 13.55 names him brother only.", "kind": "reading" },
-    "member-of:joses_1721>tribe-of-judah@a5e164": { "refs": ["matt.1.3", "matt.1.16", "matt.1.25", "matt.13.55"], "note": "Joseph's line runs from Judas (1.3-16). Joses as Joseph's son is a reading: 1.25 hints at later sons, 13.55 names him brother only.", "kind": "reading" },
-    "member-of:jude_1756>tribe-of-judah@741581": { "refs": ["matt.1.3", "matt.1.16", "matt.1.25", "matt.13.55"], "note": "13.55's 'Judas' is taken to be Jude. Descent from Judah follows only if Joseph is his father, a reading (1.25).", "kind": "reading" },
-    "member-of:simon_2746>apostles@b2b863": { "refs": ["matt.10.4"], "note": "Simon the Canaanite (10.4) is taken to be Zelotes; that name equivalence comes from outside knowledge. The 10.2 match is Simon Peter.", "kind": "reading" },
-    "member-of:simon_2747>tribe-of-judah@1be173": { "refs": ["matt.1.3", "matt.1.16", "matt.1.25", "matt.13.55"], "note": "Joseph's line runs from Judas (1.3-16). Simon as Joseph's son is a reading: 1.25 hints at later sons, 13.55 names him brother only.", "kind": "reading" },
-
-    "occurred-at:2nd-rejection-at-nazareth>nazareth_878@e92f94": { "refs": ["matt.13.54", "matt.2.23"], "note": "13.54 says 'his own country' without naming the town. Matthew 2.23 names Nazareth as his home.", "kind": "reading" },
-    "occurred-at:corn-on-the-sabbath>galilee_433@19ba3e": { "refs": ["matt.12.1", "matt.4.23"], "note": "Galilee is not named in 12.1. Matthew places Jesus' ministry through all Galilee (4.23); the location is a reading.", "kind": "reading" },
-    "occurred-at:foretelling-the-death-and-resurrection>caesarea_philippi_267@902478": { "refs": ["matt.16.13", "matt.16.21"], "note": "Caesarea Philippi is set at 16.13; 16.21 continues the same talk, which Peter answers in 16.22." },
-    "occurred-at:healing-a-crowd-near-sea-of-galilee>sea_of_galilee_1032@e37f41": { "refs": ["matt.15.29", "matt.15.30"], "note": "He came nigh unto the sea of Galilee, went up into a mountain, and healed the crowd there." },
-    "occurred-at:healing-canaanite-daughter>sidon_1093@d4093e": { "refs": ["matt.15.21", "matt.15.22"], "note": "The text says 'the coasts of Tyre and Sidon' (15.21), a region naming two towns; no single town is given.", "kind": "reading" },
-    "occurred-at:healing-canaanite-daughter>tyre_1184@757072": { "refs": ["matt.15.21", "matt.15.22"], "note": "The text says 'the coasts of Tyre and Sidon' (15.21), a region naming two towns; it does not single out Tyre.", "kind": "reading" },
-    "occurred-at:healing-in-gennesaret>gennesaret_458@30be8b": { "refs": ["matt.14.34", "matt.14.35"], "note": "They came into the land of Gennesaret, where the sick were brought to him (14.34-35)." },
-    "occurred-at:jesus-message-on-john-the-baptist>galilee_433@77d2bd": { "refs": ["matt.11.2", "matt.4.12"], "note": "Galilee is not named in 11.2-6. Jesus had departed into Galilee when John was imprisoned (4.12); the location is a reading.", "kind": "reading" },
-    "occurred-at:peter-s-confession-upon-this-rock>caesarea_philippi_267@870b0e": { "refs": ["matt.16.13", "matt.16.16"], "note": "Jesus came into the coasts of Caesarea Philippi (16.13), where Peter answers (16.16)." },
-    "occurred-at:woe-to-chorazin-and-bethsaida>galilee_433@c06783": { "refs": ["matt.11.20", "matt.4.23"], "note": "Galilee is not named here; the Galilean setting is a reading (compare 4.23).", "kind": "reading" },
-
-    "part-of:chorazin_299>galilee_433@8776e7": { "refs": ["matt.11.21"], "note": "Chorazin is named (11.21), but the passage does not place it in a region; Galilee is outside knowledge.", "kind": "reading" },
-
-    "parent-of:alphaeus_192>lebbaeus_1815@9f00a9": { "refs": ["matt.10.3"], "note": "Only James is called 'the son of Alphaeus'; Lebbaeus is an unlabelled name in the same clause.", "kind": "reading" },
-    "parent-of:herodias_1507>daughter_of_herodias_983@8ec92c": { "refs": ["matt.14.6", "matt.14.8"], "note": "'The daughter of Herodias' danced (14.6); she was 'instructed of her mother' (14.8)." },
-    "parent-of:joseph_1715>james_719@c42354": { "refs": ["matt.1.16", "matt.1.25", "matt.13.55"], "note": "Joseph is Mary's husband (1.16); 'firstborn' (1.25) hints at later sons. No verse names Joseph as James's father.", "kind": "reading" },
-    "parent-of:joseph_1715>joses_1721@4aa3d1": { "refs": ["matt.1.16", "matt.1.25", "matt.13.55"], "note": "Joseph is Mary's husband (1.16); 'firstborn' (1.25) hints at later sons. No verse names Joseph as Joses's father.", "kind": "reading" },
-    "parent-of:joseph_1715>simon_2747@67d0c7": { "refs": ["matt.1.16", "matt.1.25", "matt.13.55"], "note": "Joseph is Mary's husband (1.16); 'firstborn' (1.25) hints at later sons. No verse names Joseph as Simon's father.", "kind": "reading" },
-    "parent-of:mary_1938>james_719@3ac64b": { "refs": ["matt.13.55", "matt.12.46"], "note": "13.55 names Mary as Jesus' mother and his brethren James, Joses, Simon, Judas. Mary as James's mother is a reading.", "kind": "reading" },
-    "parent-of:mary_1938>joses_1721@f8b3c8": { "refs": ["matt.13.55", "matt.12.46"], "note": "13.55 names Mary as Jesus' mother and Joses among his brethren. Mary as Joses's mother is a reading.", "kind": "reading" },
-    "parent-of:mary_1938>jude_1756@e724a4": { "refs": ["matt.13.55", "matt.12.46"], "note": "13.55 names Mary as Jesus' mother and 'Judas' among his brethren, taken to be Jude. Mary as his mother is a reading.", "kind": "reading" },
-    "parent-of:mary_1938>simon_2747@8a7732": { "refs": ["matt.13.55", "matt.12.46"], "note": "13.55 names Mary as Jesus' mother and Simon among his brethren. Mary as Simon's mother is a reading.", "kind": "reading" },
-
-    "participated-in:herod_1505>john-beheaded@235a33": { "refs": ["matt.14.1", "matt.14.10"], "note": "'Herod the tetrarch' (14.1) has John beheaded (14.10). The name Antipas is outside knowledge.", "kind": "reading" },
-    "participated-in:herod_1505>john-the-baptist-imprisoned@b196a7": { "refs": ["matt.14.1", "matt.14.3"], "note": "'Herod' laid hold on John and put him in prison (14.3). The name Antipas is outside knowledge.", "kind": "reading" },
-    "participated-in:simon_2746>apostles-chosen@e4c436": { "refs": ["matt.10.4"], "note": "Simon the Canaanite (10.4) is taken to be Zelotes; that name equivalence comes from outside knowledge. The 10.2 match is Simon Peter.", "kind": "reading" },
-    "participated-in:jesus_905>healing-in-gennesaret@677367": { "refs": ["matt.14.35", "matt.14.36"], "note": "They brought the sick to him and touched his garment; all who touched were made whole." },
-
-    "partner-of:herod_1505>herodias_1507@ddda9b": { "refs": ["matt.14.3", "matt.14.4"], "note": "Herodias was his brother Philip's wife (14.3); John says it is not lawful for Herod 'to have her' (14.4)." }
+    "date:2nd-rejection-at-nazareth@2c186f": {
+      "refs": [
+        "matt.13.54",
+        "matt.13.57"
+      ],
+      "note": "Text gives no year; the AD 29 date depends on outside chronology, not on these verses.",
+      "kind": "reading"
+    },
+    "date:apostles-chosen@a1e239": {
+      "refs": [
+        "matt.10.1",
+        "matt.10.2"
+      ],
+      "note": "Text gives no year; the AD 28 date depends on outside chronology, not on these verses.",
+      "kind": "reading"
+    },
+    "date:blind-and-dumb-demoniac-and-following-discourse@a1e239": {
+      "refs": [
+        "matt.12.22",
+        "matt.12.24"
+      ],
+      "note": "Text gives no year; the AD 28 date depends on outside chronology, not on these verses.",
+      "kind": "reading"
+    },
+    "date:commandments-and-tradition-discourse@2c186f": {
+      "refs": [
+        "matt.15.1",
+        "matt.15.11"
+      ],
+      "note": "Text gives no year; the AD 29 date depends on outside chronology, not on these verses.",
+      "kind": "reading"
+    },
+    "date:corn-on-the-sabbath@a1e239": {
+      "refs": [
+        "matt.12.1",
+        "matt.12.8"
+      ],
+      "note": "Text gives no year; the AD 28 date depends on outside chronology, not on these verses.",
+      "kind": "reading"
+    },
+    "date:discourse-with-pharisees-and-saducees@2c186f": {
+      "refs": [
+        "matt.16.1",
+        "matt.16.4"
+      ],
+      "note": "Text gives no year; the AD 29 date depends on outside chronology, not on these verses.",
+      "kind": "reading"
+    },
+    "date:feeding-of-five-thousand@2c186f": {
+      "refs": [
+        "matt.14.13",
+        "matt.14.21"
+      ],
+      "note": "Text gives no year; the AD 29 date depends on outside chronology, not on these verses.",
+      "kind": "reading"
+    },
+    "date:feeding-of-four-thousand@2c186f": {
+      "refs": [
+        "matt.15.32",
+        "matt.15.38"
+      ],
+      "note": "Text gives no year; the AD 29 date depends on outside chronology, not on these verses.",
+      "kind": "reading"
+    },
+    "date:foretelling-the-death-and-resurrection@2c186f": {
+      "refs": [
+        "matt.16.21"
+      ],
+      "note": "Text gives no year; the AD 29 date depends on outside chronology, not on these verses.",
+      "kind": "reading"
+    },
+    "date:healing-a-crowd-near-sea-of-galilee@2c186f": {
+      "refs": [
+        "matt.15.29",
+        "matt.15.31"
+      ],
+      "note": "Text gives no year; the AD 29 date depends on outside chronology, not on these verses.",
+      "kind": "reading"
+    },
+    "date:healing-canaanite-daughter@2c186f": {
+      "refs": [
+        "matt.15.21",
+        "matt.15.28"
+      ],
+      "note": "Text gives no year; the AD 29 date depends on outside chronology, not on these verses.",
+      "kind": "reading"
+    },
+    "date:healing-in-gennesaret@2c186f": {
+      "refs": [
+        "matt.14.34",
+        "matt.14.36"
+      ],
+      "note": "Text gives no year; the AD 29 date depends on outside chronology, not on these verses.",
+      "kind": "reading"
+    },
+    "date:healing-a-withered-hand@a1e239": {
+      "refs": [
+        "matt.12.9",
+        "matt.12.13"
+      ],
+      "note": "Text gives no year; the AD 28 date depends on outside chronology, not on these verses.",
+      "kind": "reading"
+    },
+    "date:healing-multitudes@a1e239": {
+      "refs": [
+        "matt.12.15"
+      ],
+      "note": "Text gives no year; the AD 28 date depends on outside chronology, not on these verses.",
+      "kind": "reading"
+    },
+    "date:jesus-message-on-john-the-baptist@a1e239": {
+      "refs": [
+        "matt.11.2",
+        "matt.11.6"
+      ],
+      "note": "Text gives no year; the AD 28 date depends on outside chronology, not on these verses.",
+      "kind": "reading"
+    },
+    "date:jesus-walks-on-water@2c186f": {
+      "refs": [
+        "matt.14.22",
+        "matt.14.33"
+      ],
+      "note": "Text gives no year; the AD 29 date depends on outside chronology, not on these verses.",
+      "kind": "reading"
+    },
+    "date:john-beheaded@2c186f": {
+      "refs": [
+        "matt.14.8",
+        "matt.14.10"
+      ],
+      "note": "Text gives no year; the AD 29 date depends on outside chronology, not on these verses.",
+      "kind": "reading"
+    },
+    "date:john-the-baptist-imprisoned@7a82e9": {
+      "refs": [
+        "matt.14.3",
+        "matt.14.4"
+      ],
+      "note": "Text gives no year; the AD 27 date depends on outside chronology, not on these verses.",
+      "kind": "reading"
+    },
+    "date:peter-s-confession-upon-this-rock@2c186f": {
+      "refs": [
+        "matt.16.13",
+        "matt.16.16"
+      ],
+      "note": "Text gives no year; the AD 29 date depends on outside chronology, not on these verses.",
+      "kind": "reading"
+    },
+    "date:woe-to-chorazin-and-bethsaida@a1e239": {
+      "refs": [
+        "matt.11.20",
+        "matt.11.21"
+      ],
+      "note": "Text gives no year; the AD 28 date depends on outside chronology, not on these verses.",
+      "kind": "reading"
+    },
+    "member-of:james_719>apostles@049fc1": {
+      "refs": [
+        "matt.10.2",
+        "matt.10.3"
+      ],
+      "note": "The apostle Jameses are Zebedee's son (10.2) and Alphaeus's son (10.3); Jesus' brother is not named among the twelve.",
+      "kind": "wrong"
+    },
+    "member-of:james_719>tribe-of-judah@4b5627": {
+      "refs": [
+        "matt.1.3",
+        "matt.1.16",
+        "matt.1.25",
+        "matt.13.55"
+      ],
+      "note": "Joseph's line runs from Judas (1.3-16). James as Joseph's son is a reading: 1.25 hints at later sons, 13.55 names him brother only.",
+      "kind": "reading"
+    },
+    "member-of:joses_1721>tribe-of-judah@a5e164": {
+      "refs": [
+        "matt.1.3",
+        "matt.1.16",
+        "matt.1.25",
+        "matt.13.55"
+      ],
+      "note": "Joseph's line runs from Judas (1.3-16). Joses as Joseph's son is a reading: 1.25 hints at later sons, 13.55 names him brother only.",
+      "kind": "reading"
+    },
+    "member-of:jude_1756>tribe-of-judah@741581": {
+      "refs": [
+        "matt.1.3",
+        "matt.1.16",
+        "matt.1.25",
+        "matt.13.55"
+      ],
+      "note": "13.55's 'Judas' is taken to be Jude. Descent from Judah follows only if Joseph is his father, a reading (1.25).",
+      "kind": "reading"
+    },
+    "member-of:simon_2746>apostles@b2b863": {
+      "refs": [
+        "matt.10.4"
+      ],
+      "note": "Simon the Canaanite (10.4) is taken to be Zelotes; that name equivalence comes from outside knowledge. The 10.2 match is Simon Peter.",
+      "kind": "reading"
+    },
+    "member-of:simon_2747>tribe-of-judah@1be173": {
+      "refs": [
+        "matt.1.3",
+        "matt.1.16",
+        "matt.1.25",
+        "matt.13.55"
+      ],
+      "note": "Joseph's line runs from Judas (1.3-16). Simon as Joseph's son is a reading: 1.25 hints at later sons, 13.55 names him brother only.",
+      "kind": "reading"
+    },
+    "occurred-at:2nd-rejection-at-nazareth>nazareth_878@e92f94": {
+      "refs": [
+        "matt.13.54",
+        "matt.2.23"
+      ],
+      "note": "13.54 says 'his own country' without naming the town. Matthew 2.23 names Nazareth as his home.",
+      "kind": "reading"
+    },
+    "occurred-at:corn-on-the-sabbath>galilee_433@19ba3e": {
+      "refs": [
+        "matt.12.1",
+        "matt.4.23"
+      ],
+      "note": "Galilee is not named in 12.1. Matthew places Jesus' ministry through all Galilee (4.23); the location is a reading.",
+      "kind": "reading"
+    },
+    "occurred-at:foretelling-the-death-and-resurrection>caesarea_philippi_267@902478": {
+      "refs": [
+        "matt.16.13",
+        "matt.16.21"
+      ],
+      "note": "Caesarea Philippi is set at 16.13; 16.21 continues the same talk, which Peter answers in 16.22."
+    },
+    "occurred-at:healing-a-crowd-near-sea-of-galilee>sea_of_galilee_1032@e37f41": {
+      "refs": [
+        "matt.15.29",
+        "matt.15.30"
+      ],
+      "note": "He came nigh unto the sea of Galilee, went up into a mountain, and healed the crowd there."
+    },
+    "occurred-at:healing-canaanite-daughter>sidon_1093@d4093e": {
+      "refs": [
+        "matt.15.21",
+        "matt.15.22"
+      ],
+      "note": "The text says 'the coasts of Tyre and Sidon' (15.21), a region naming two towns; no single town is given.",
+      "kind": "reading"
+    },
+    "occurred-at:healing-canaanite-daughter>tyre_1184@757072": {
+      "refs": [
+        "matt.15.21",
+        "matt.15.22"
+      ],
+      "note": "The text says 'the coasts of Tyre and Sidon' (15.21), a region naming two towns; it does not single out Tyre.",
+      "kind": "reading"
+    },
+    "occurred-at:healing-in-gennesaret>gennesaret_458@30be8b": {
+      "refs": [
+        "matt.14.34",
+        "matt.14.35"
+      ],
+      "note": "They came into the land of Gennesaret, where the sick were brought to him (14.34-35)."
+    },
+    "occurred-at:jesus-message-on-john-the-baptist>galilee_433@77d2bd": {
+      "refs": [
+        "matt.11.2",
+        "matt.4.12"
+      ],
+      "note": "Galilee is not named in 11.2-6. Jesus had departed into Galilee when John was imprisoned (4.12); the location is a reading.",
+      "kind": "reading"
+    },
+    "occurred-at:peter-s-confession-upon-this-rock>caesarea_philippi_267@870b0e": {
+      "refs": [
+        "matt.16.13",
+        "matt.16.16"
+      ],
+      "note": "Jesus came into the coasts of Caesarea Philippi (16.13), where Peter answers (16.16)."
+    },
+    "occurred-at:woe-to-chorazin-and-bethsaida>galilee_433@c06783": {
+      "refs": [
+        "matt.11.20",
+        "matt.4.23"
+      ],
+      "note": "Galilee is not named here; the Galilean setting is a reading (compare 4.23).",
+      "kind": "reading"
+    },
+    "part-of:chorazin_299>galilee_433@8776e7": {
+      "refs": [
+        "matt.11.21"
+      ],
+      "note": "Chorazin is named (11.21), but the passage does not place it in a region; Galilee is outside knowledge.",
+      "kind": "reading"
+    },
+    "parent-of:alphaeus_192>lebbaeus_1815@9f00a9": {
+      "refs": [
+        "matt.10.3"
+      ],
+      "note": "Only James is called 'the son of Alphaeus'; Lebbaeus is an unlabelled name in the same clause.",
+      "kind": "reading"
+    },
+    "parent-of:herodias_1507>daughter_of_herodias_983@8ec92c": {
+      "refs": [
+        "matt.14.6",
+        "matt.14.8"
+      ],
+      "note": "'The daughter of Herodias' danced (14.6); she was 'instructed of her mother' (14.8)."
+    },
+    "parent-of:joseph_1715>james_719@c42354": {
+      "refs": [
+        "matt.1.16",
+        "matt.1.25",
+        "matt.13.55"
+      ],
+      "note": "Joseph is Mary's husband (1.16); 'firstborn' (1.25) hints at later sons. No verse names Joseph as James's father.",
+      "kind": "reading"
+    },
+    "parent-of:joseph_1715>joses_1721@4aa3d1": {
+      "refs": [
+        "matt.1.16",
+        "matt.1.25",
+        "matt.13.55"
+      ],
+      "note": "Joseph is Mary's husband (1.16); 'firstborn' (1.25) hints at later sons. No verse names Joseph as Joses's father.",
+      "kind": "reading"
+    },
+    "parent-of:joseph_1715>simon_2747@67d0c7": {
+      "refs": [
+        "matt.1.16",
+        "matt.1.25",
+        "matt.13.55"
+      ],
+      "note": "Joseph is Mary's husband (1.16); 'firstborn' (1.25) hints at later sons. No verse names Joseph as Simon's father.",
+      "kind": "reading"
+    },
+    "parent-of:mary_1938>james_719@3ac64b": {
+      "refs": [
+        "matt.13.55",
+        "matt.12.46"
+      ],
+      "note": "13.55 names Mary as Jesus' mother and his brethren James, Joses, Simon, Judas. Mary as James's mother is a reading.",
+      "kind": "reading"
+    },
+    "parent-of:mary_1938>joses_1721@f8b3c8": {
+      "refs": [
+        "matt.13.55",
+        "matt.12.46"
+      ],
+      "note": "13.55 names Mary as Jesus' mother and Joses among his brethren. Mary as Joses's mother is a reading.",
+      "kind": "reading"
+    },
+    "parent-of:mary_1938>jude_1756@e724a4": {
+      "refs": [
+        "matt.13.55",
+        "matt.12.46"
+      ],
+      "note": "13.55 names Mary as Jesus' mother and 'Judas' among his brethren, taken to be Jude. Mary as his mother is a reading.",
+      "kind": "reading"
+    },
+    "parent-of:mary_1938>simon_2747@8a7732": {
+      "refs": [
+        "matt.13.55",
+        "matt.12.46"
+      ],
+      "note": "13.55 names Mary as Jesus' mother and Simon among his brethren. Mary as Simon's mother is a reading.",
+      "kind": "reading"
+    },
+    "participated-in:herod_1505>john-beheaded@235a33": {
+      "refs": [
+        "matt.14.1",
+        "matt.14.10"
+      ],
+      "note": "'Herod the tetrarch' (14.1) has John beheaded (14.10). The name Antipas is outside knowledge.",
+      "kind": "reading"
+    },
+    "participated-in:herod_1505>john-the-baptist-imprisoned@b196a7": {
+      "refs": [
+        "matt.14.1",
+        "matt.14.3"
+      ],
+      "note": "'Herod' laid hold on John and put him in prison (14.3). The name Antipas is outside knowledge.",
+      "kind": "reading"
+    },
+    "participated-in:simon_2746>apostles-chosen@e4c436": {
+      "refs": [
+        "matt.10.4"
+      ],
+      "note": "Simon the Canaanite (10.4) is taken to be Zelotes; that name equivalence comes from outside knowledge. The 10.2 match is Simon Peter.",
+      "kind": "reading"
+    },
+    "participated-in:jesus_905>healing-in-gennesaret@677367": {
+      "refs": [
+        "matt.14.35",
+        "matt.14.36"
+      ],
+      "note": "They brought the sick to him and touched his garment; all who touched were made whole."
+    },
+    "partner-of:herod_1505>herodias_1507@ddda9b": {
+      "refs": [
+        "matt.14.3",
+        "matt.14.4"
+      ],
+      "note": "Herodias was his brother Philip's wife (14.3); John says it is not lawful for Herod 'to have her' (14.4)."
+    }
   }
 }

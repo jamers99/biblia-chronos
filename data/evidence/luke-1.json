@@ -1,124 +1,203 @@
 {
   "passage": "luke.1-2",
-  "ai": { "model": "haiku", "on": "2026-11-08" },
+  "ai": {
+    "model": "haiku",
+    "on": "2026-11-08"
+  },
   "agreed": [
     "occurred-at:jesus-growing-up>nazareth_878@8a9a91",
     "occurred-at:temple-presentation-of-jesus>jerusalem_636@5d1a5c",
     "occurred-at:the-annuciation>nazareth_878@a67b38",
     "participated-in:elisabeth_1152>mary-visits-elizabeth@97cd2f",
-    "participated-in:jesus_905>childhood-of-jesus@378efb",
     "participated-in:jesus_905>jesus-as-a-child-in-the-temple@78280b",
-    "participated-in:jesus_905>jesus-circumsized@f344de",
     "participated-in:jesus_905>jesus-growing-up@cbc2e5",
-    "participated-in:jesus_905>temple-presentation-of-jesus@eb7a0f",
     "participated-in:mary_1938>mary-visits-elizabeth@73479a",
-    "participated-in:mary_1938>temple-presentation-of-jesus@7e13b7",
-    "participated-in:mary_1938>the-annuciation@899783"
+    "participated-in:mary_1938>the-annuciation@899783",
+    "participated-in:jesus_905>jesus-circumsized@f344de"
   ],
   "facts": {
     "date:birth-of-jesus@7d6db1": {
-      "refs": ["luke.2.1", "luke.2.2", "luke.2.6"],
+      "refs": [
+        "luke.2.1",
+        "luke.2.2",
+        "luke.2.6"
+      ],
       "note": "Dated only to Augustus's decree and Cyrenius as governor (2.1-2), with the birth 'while they were there' (2.6). The BC year depends on dating outside Scripture.",
       "kind": "reading"
     },
     "date:birth-of-john-the-baptist@858502": {
-      "refs": ["luke.1.36", "luke.1.57", "luke.1.59"],
+      "refs": [
+        "luke.1.36",
+        "luke.1.57",
+        "luke.1.59"
+      ],
       "note": "Timed by Elisabeth's sixth month (1.36), her full time (1.57) and the eighth-day circumcision (1.59). The BC year depends on dating outside Scripture.",
       "kind": "reading"
     },
     "date:childhood-of-jesus@7d6db1": {
-      "refs": ["luke.2.39", "luke.2.40"],
+      "refs": [
+        "luke.2.39",
+        "luke.2.40"
+      ],
       "note": "Set after the temple presentation and return to Nazareth, where the child grows (2.39-40). No year is given; the BC year depends on outside dating.",
       "kind": "reading"
     },
     "date:jesus-as-a-child-in-the-temple@9c7a64": {
-      "refs": ["luke.2.42", "luke.2.43"],
+      "refs": [
+        "luke.2.42",
+        "luke.2.43"
+      ],
       "note": "Jesus is twelve years old (2.42), so the year follows from the birth date. The AD year depends on dating the birth outside Scripture.",
       "kind": "reading"
     },
     "date:jesus-circumsized@7d6db1": {
-      "refs": ["luke.2.21"],
+      "refs": [
+        "luke.2.21"
+      ],
       "note": "Circumcised on the eighth day after birth (2.21), so the year follows the birth date. The BC year depends on dating outside Scripture.",
       "kind": "reading"
     },
     "date:jesus-growing-up@78ea36": {
-      "refs": ["luke.2.42", "luke.2.51", "luke.2.52"],
+      "refs": [
+        "luke.2.42",
+        "luke.2.51",
+        "luke.2.52"
+      ],
       "note": "Begins after age twelve (2.42) and continues at Nazareth (2.51-52). The text gives no end date; the age 26 and the BC years depend on outside dating.",
       "kind": "reading"
     },
     "date:john-s-birth-predicted@a419da": {
-      "refs": ["luke.1.5", "luke.1.8"],
+      "refs": [
+        "luke.1.5",
+        "luke.1.8"
+      ],
       "note": "Set in the days of Herod, king of Judaea (1.5), while Zacharias served in his course (1.8). The BC year depends on outside dating of Herod's reign.",
       "kind": "reading"
     },
     "date:mary-visits-elizabeth@858502": {
-      "refs": ["luke.1.36", "luke.1.39"],
+      "refs": [
+        "luke.1.36",
+        "luke.1.39"
+      ],
       "note": "Mary goes 'in those days', after the annunciation in Elisabeth's sixth month (1.36, 1.39). The text gives no year; the BC year depends on outside dating.",
       "kind": "reading"
     },
     "date:temple-presentation-of-jesus@7d6db1": {
-      "refs": ["luke.2.21", "luke.2.22"],
+      "refs": [
+        "luke.2.21",
+        "luke.2.22"
+      ],
       "note": "Timed by Mary's days of purification being accomplished after the birth (2.22). No year is given; the BC year depends on outside dating.",
       "kind": "reading"
     },
     "date:the-annuciation@858502": {
-      "refs": ["luke.1.24", "luke.1.26", "luke.1.36"],
+      "refs": [
+        "luke.1.24",
+        "luke.1.26",
+        "luke.1.36"
+      ],
       "note": "Dated only to the sixth month of Elisabeth's pregnancy (1.26, 1.36). The text gives no year; the BC year depends on outside dating.",
       "kind": "reading"
     },
     "occurred-at:birth-of-jesus>bethlehem_218@275ba8": {
-      "refs": ["luke.2.4", "luke.2.6", "luke.2.7"],
+      "refs": [
+        "luke.2.4",
+        "luke.2.6",
+        "luke.2.7"
+      ],
       "note": "Joseph and Mary go up to Bethlehem (2.4), and the birth comes 'while they were there' (2.6); she bare her firstborn son (2.7)."
     },
     "occurred-at:childhood-of-jesus>nazareth_878@d15fcc": {
-      "refs": ["luke.2.39", "luke.2.40"],
+      "refs": [
+        "luke.2.39",
+        "luke.2.40"
+      ],
       "note": "After the temple visits they return to their own city Nazareth (2.39), where the child grows (2.40)."
     },
     "occurred-at:espousal-of-mary>nazareth_878@b878b7": {
-      "refs": ["luke.1.26", "luke.1.27"],
+      "refs": [
+        "luke.1.26",
+        "luke.1.27"
+      ],
       "note": "The angel is sent to Nazareth to the virgin espoused to Joseph (1.26-27), so the espousal is set there."
     },
     "occurred-at:jesus-as-a-child-in-the-temple>jerusalem_636@5a8115": {
-      "refs": ["luke.2.42", "luke.2.46"],
+      "refs": [
+        "luke.2.42",
+        "luke.2.46"
+      ],
       "note": "They go up to Jerusalem for the feast (2.42) and find him in the temple there after three days (2.46)."
     },
     "occurred-at:john-s-birth-predicted>jerusalem_636@a707d9": {
-      "refs": ["luke.1.9", "luke.1.11"],
+      "refs": [
+        "luke.1.9",
+        "luke.1.11"
+      ],
       "kind": "reading",
       "note": "Zacharias burns incense in the temple of the Lord (1.9), where the angel appears (1.11). Jerusalem is never named in chapter 1; the city comes from outside knowledge."
     },
     "parent-of:elisabeth_1152>john_1676@897c81": {
-      "refs": ["luke.1.13", "luke.1.57", "luke.1.60"],
+      "refs": [
+        "luke.1.13",
+        "luke.1.57",
+        "luke.1.60"
+      ],
       "note": "Elisabeth is to bear the son named John (1.13), brings forth a son (1.57), and his mother says he shall be called John (1.60)."
     },
     "parent-of:phanuel_2327>anna_268@052aa9": {
-      "refs": ["luke.2.36"],
+      "refs": [
+        "luke.2.36"
+      ],
       "note": "Anna is 'the daughter of Phanuel' (2.36)."
     },
     "participated-in:elisabeth_1152>john-s-birth-predicted@321f68": {
-      "refs": ["luke.1.13"],
+      "refs": [
+        "luke.1.13"
+      ],
       "kind": "reading",
       "note": "Named as the wife who will bear John (1.13), but she is absent from the scene; the angel speaks to Zacharias alone."
     },
     "participated-in:jesus_905>birth-of-jesus@5f0187": {
-      "refs": ["luke.1.31", "luke.2.7"],
+      "refs": [
+        "luke.1.31",
+        "luke.2.7"
+      ],
       "note": "Mary brings forth her firstborn son (2.7), the one the angel said should be named JESUS (1.31)."
     },
     "participated-in:john_1676>birth-of-john-the-baptist@989ed1": {
-      "refs": ["luke.1.57", "luke.1.59", "luke.1.60"],
+      "refs": [
+        "luke.1.57",
+        "luke.1.59",
+        "luke.1.60"
+      ],
       "note": "Elisabeth brings forth a son (1.57), named John on the eighth day (1.59-60)."
     },
     "participated-in:joseph_1715>temple-presentation-of-jesus@b2eeae": {
-      "refs": ["luke.2.22", "luke.2.27", "luke.2.33"],
+      "refs": [
+        "luke.2.22",
+        "luke.2.27",
+        "luke.2.33"
+      ],
       "note": "The parents, Joseph and Mary, bring the child Jesus into the temple (2.22, 2.27); Joseph is named among them (2.33)."
     },
     "participated-in:zacharias_2971>john-s-birth-predicted@a0c1a8": {
-      "refs": ["luke.1.11", "luke.1.13"],
+      "refs": [
+        "luke.1.11",
+        "luke.1.13"
+      ],
       "note": "The angel of the Lord appears to Zacharias and speaks to him (1.11-13)."
     },
     "partner-of:elisabeth_1152>zacharias_2971@0e5e3d": {
-      "refs": ["luke.1.5"],
+      "refs": [
+        "luke.1.5"
+      ],
       "note": "Elisabeth is named as the wife of Zacharias (1.5)."
+    },
+    "participated-in:mary_1938>temple-presentation-of-jesus@7e13b7": {
+      "refs": [
+        "luke.2.33"
+      ],
+      "note": "Named here as \"mother\"."
     }
   }
 }
