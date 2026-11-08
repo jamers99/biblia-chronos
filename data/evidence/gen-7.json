@@ -1,0 +1,398 @@
+{
+  "passage": "gen.29-34",
+  "ai": { "model": "haiku", "on": "2026-11-08" },
+  "agreed": [
+    "parent-of:hamor_1365>shechem_2588@5c14f3",
+    "parent-of:laban_1803>rachel_2386@1b35e1",
+    "parent-of:leah_1813>dinah_1012@e96e96",
+    "participated-in:bilhah_502>birth-of-naphtali@45cd9a",
+    "participated-in:leah_1813>birth-of-issachar@e4be46",
+    "participated-in:leah_1813>birth-of-reuben@24eace",
+    "participated-in:leah_1813>birth-of-zebulon@254b4e",
+    "participated-in:zilpah_3081>birth-of-asher@1a67bd",
+    "participated-in:zilpah_3081>birth-of-gad@a39a3a"
+  ],
+  "facts": {
+    "alias-of:galeed_432>mizpah_809@337e25": {
+      "refs": ["gen.31.48", "gen.31.49"],
+      "note": "Laban and Jacob's heap is called Galeed (31:48), then 'And Mizpah' (31:49), the same heap."
+    },
+    "alias-of:jegar-sahadutha_631>mizpah_809@b952cb": {
+      "refs": ["gen.31.47", "gen.31.48", "gen.31.49"],
+      "note": "Laban calls the heap Jegarsahadutha (31:47); it is the heap named Galeed and Mizpah (31:48-49)."
+    },
+    "alias-of:peniel_930>penuel_931@bc7428": {
+      "refs": ["gen.32.30", "gen.32.31"],
+      "kind": "reading",
+      "note": "Jacob names the place Peniel (32:30); Penuel (32:31) is the same place in the next verse. Spelling variant, so a reading."
+    },
+    "birth:asher_337@bcd54f": {
+      "refs": ["gen.30.13"],
+      "kind": "reading",
+      "note": "Text gives only birth order, not a year. The BC year depends on dating outside Scripture."
+    },
+    "birth:dan_973@56866b": {
+      "refs": ["gen.30.6"],
+      "kind": "reading",
+      "note": "Text gives only birth order, not a year. The BC year depends on dating outside Scripture."
+    },
+    "birth:dinah_1012@7906d6": {
+      "refs": ["gen.30.21"],
+      "kind": "reading",
+      "note": "Text gives only birth order, not a year. The BC year depends on dating outside Scripture."
+    },
+    "birth:gad_1262@5be353": {
+      "refs": ["gen.30.11"],
+      "kind": "reading",
+      "note": "Text gives only birth order, not a year. The BC year depends on dating outside Scripture."
+    },
+    "birth:issachar_645@bcd54f": {
+      "refs": ["gen.30.18"],
+      "kind": "reading",
+      "note": "Text gives only birth order, not a year. The BC year depends on dating outside Scripture."
+    },
+    "birth:joseph_1710@a21f2d": {
+      "refs": ["gen.30.24"],
+      "kind": "reading",
+      "note": "Text gives only birth order, not a year. The BC year depends on dating outside Scripture."
+    },
+    "birth:judah_1751@56866b": {
+      "refs": ["gen.29.35"],
+      "kind": "reading",
+      "note": "Text gives only birth order, not a year. The BC year depends on dating outside Scripture."
+    },
+    "birth:levi_1820@7a9a77": {
+      "refs": ["gen.29.34"],
+      "kind": "reading",
+      "note": "Text gives only birth order, not a year. The BC year depends on dating outside Scripture."
+    },
+    "birth:naphtali_2149@abb275": {
+      "refs": ["gen.30.8"],
+      "kind": "reading",
+      "note": "Text gives only birth order, not a year. The BC year depends on dating outside Scripture."
+    },
+    "birth:reuben_2429@ab0998": {
+      "refs": ["gen.29.32"],
+      "kind": "reading",
+      "note": "Text gives only birth order, not a year. The BC year depends on dating outside Scripture."
+    },
+    "birth:simeon_2741@07242d": {
+      "refs": ["gen.29.33"],
+      "kind": "reading",
+      "note": "Text gives only birth order, not a year. The BC year depends on dating outside Scripture."
+    },
+    "birth:zebulun_3002@daefca": {
+      "refs": ["gen.30.20"],
+      "kind": "reading",
+      "note": "Text gives only birth order, not a year. The BC year depends on dating outside Scripture."
+    },
+    "date:birth-of-asher@bcd54f": {
+      "refs": ["gen.30.13"],
+      "kind": "reading",
+      "note": "Text gives only birth order, not a year. The BC year depends on dating outside Scripture."
+    },
+    "date:birth-of-dan@56866b": {
+      "refs": ["gen.30.6"],
+      "kind": "reading",
+      "note": "Text gives only birth order, not a year. The BC year depends on dating outside Scripture."
+    },
+    "date:birth-of-dinah@7906d6": {
+      "refs": ["gen.30.21"],
+      "kind": "reading",
+      "note": "Text gives only birth order, not a year. The BC year depends on dating outside Scripture."
+    },
+    "date:birth-of-gad@5be353": {
+      "refs": ["gen.30.11"],
+      "kind": "reading",
+      "note": "Text gives only birth order, not a year. The BC year depends on dating outside Scripture."
+    },
+    "date:birth-of-issachar@bcd54f": {
+      "refs": ["gen.30.18"],
+      "kind": "reading",
+      "note": "Text gives only birth order, not a year. The BC year depends on dating outside Scripture."
+    },
+    "date:birth-of-joseph@a21f2d": {
+      "refs": ["gen.30.24"],
+      "kind": "reading",
+      "note": "Text gives only birth order, not a year. The BC year depends on dating outside Scripture."
+    },
+    "date:birth-of-judah@56866b": {
+      "refs": ["gen.29.35"],
+      "kind": "reading",
+      "note": "Text gives only birth order, not a year. The BC year depends on dating outside Scripture."
+    },
+    "date:birth-of-levi@7a9a77": {
+      "refs": ["gen.29.34"],
+      "kind": "reading",
+      "note": "Text gives only birth order, not a year. The BC year depends on dating outside Scripture."
+    },
+    "date:birth-of-naphtali@abb275": {
+      "refs": ["gen.30.8"],
+      "kind": "reading",
+      "note": "Text gives only birth order, not a year. The BC year depends on dating outside Scripture."
+    },
+    "date:birth-of-reuben@ab0998": {
+      "refs": ["gen.29.32"],
+      "kind": "reading",
+      "note": "Text gives only birth order, not a year. The BC year depends on dating outside Scripture."
+    },
+    "date:birth-of-simeon@07242d": {
+      "refs": ["gen.29.33"],
+      "kind": "reading",
+      "note": "Text gives only birth order, not a year. The BC year depends on dating outside Scripture."
+    },
+    "date:birth-of-zebulon@daefca": {
+      "refs": ["gen.30.20"],
+      "kind": "reading",
+      "note": "Text gives only birth order, not a year. The BC year depends on dating outside Scripture."
+    },
+    "date:lifetime-of-joseph@011222": {
+      "refs": ["gen.30.24", "gen.50.26"],
+      "kind": "reading",
+      "note": "Born in Laban's household (30:24), died aged 110 (50:26). The -1744 to -1634 span depends on dating outside Scripture."
+    },
+    "death:rachel_2386@371bd5": {
+      "refs": ["gen.35.19"],
+      "kind": "reading",
+      "note": "Text says Rachel died (35:19) but gives no date. The -1738 year depends on dating outside Scripture."
+    },
+    "member-of:asher_337>tribe-of-asher@6212d5": {
+      "refs": ["gen.30.13"],
+      "kind": "reading",
+      "note": "Son of Jacob (30:13). Membership in the tribe comes from later books, outside this passage."
+    },
+    "member-of:dan_973>tribe-of-dan@18c821": {
+      "refs": ["gen.30.6"],
+      "kind": "reading",
+      "note": "Son of Jacob (30:6). Membership in the tribe comes from later books, outside this passage."
+    },
+    "member-of:issachar_645>tribe-of-issachar@fd76a9": {
+      "refs": ["gen.30.18"],
+      "kind": "reading",
+      "note": "Son of Jacob (30:18). Membership in the tribe comes from later books, outside this passage."
+    },
+    "member-of:joseph_1710>tribe-of-joseph@6de740": {
+      "refs": ["gen.30.24"],
+      "kind": "reading",
+      "note": "Son of Jacob (30:24). This passage names no tribe of Joseph; the group claim comes from outside it."
+    },
+    "member-of:judah_1751>genealogy-of-jesus@852d7b": {
+      "refs": ["gen.29.35", "matt.1.2-3"],
+      "kind": "reading",
+      "note": "Son of Jacob (29:35). Judah's line to Jesus is in Matthew 1:2-3, outside this passage."
+    },
+    "member-of:judah_1751>tribe-of-judah@08baf0": {
+      "refs": ["gen.29.35"],
+      "kind": "reading",
+      "note": "Son of Jacob (29:35). Membership in the tribe comes from later books, outside this passage."
+    },
+    "member-of:levi_1820>tribe-of-levi@fccf35": {
+      "refs": ["gen.29.34"],
+      "kind": "reading",
+      "note": "Son of Jacob (29:34). Membership in the tribe comes from later books, outside this passage."
+    },
+    "member-of:naphtali_2149>tribe-of-naphtali@64a52e": {
+      "refs": ["gen.30.8"],
+      "kind": "reading",
+      "note": "Son of Jacob (30:8). Membership in the tribe comes from later books, outside this passage."
+    },
+    "member-of:reuben_2429>tribe-of-reuben@3c1b21": {
+      "refs": ["gen.29.32"],
+      "kind": "reading",
+      "note": "Son of Jacob (29:32). Membership in the tribe comes from later books, outside this passage."
+    },
+    "member-of:simeon_2741>tribe-of-simeon@282c76": {
+      "refs": ["gen.29.33"],
+      "kind": "reading",
+      "note": "Son of Jacob (29:33). Membership in the tribe comes from later books, outside this passage."
+    },
+    "member-of:zebulun_3002>tribe-of-zebulun@eadf9d": {
+      "refs": ["gen.30.20"],
+      "kind": "reading",
+      "note": "Son of Jacob (30:20). Membership in the tribe comes from later books, outside this passage."
+    },
+    "occurred-at:birth-of-joseph>egypt_362@363b86": {
+      "refs": ["gen.30.25", "gen.31.18"],
+      "kind": "wrong",
+      "note": "Joseph is born in Laban's household before Jacob leaves Padanaram (30:25; 31:18). Egypt is where he dies (50:26)."
+    },
+    "parent-of:israel_682>dinah_1012@0514bf": {
+      "refs": ["gen.34.1"],
+      "note": "Dinah is the daughter Leah 'bare unto Jacob' (34:1)."
+    },
+    "parent-of:israel_682>naphtali_2149@331917": {
+      "refs": ["gen.30.7", "gen.30.8"],
+      "note": "Bilhah 'bare Jacob a second son' (30:7); Rachel names him Naphtali (30:8)."
+    },
+    "parent-of:laban_1803>leah_1813@78cec7": {
+      "refs": ["gen.29.16"],
+      "note": "'Laban had two daughters: the name of the elder was Leah' (29:16)."
+    },
+    "parent-of:leah_1813>issachar_645@98a199": {
+      "refs": ["gen.30.17", "gen.30.18"],
+      "note": "Leah 'bare Jacob the fifth son' (30:17); she names him Issachar (30:18)."
+    },
+    "parent-of:leah_1813>zebulun_3002@031608": {
+      "refs": ["gen.30.19", "gen.30.20"],
+      "note": "Leah 'bare Jacob the sixth son' (30:19); she names him Zebulun (30:20)."
+    },
+    "participated-in:asher_337>birth-of-asher@07e5eb": {
+      "refs": ["gen.30.13"],
+      "kind": "reading",
+      "note": "The newborn is named in this verse but does not act; 'took part' fits only loosely."
+    },
+    "participated-in:dan_973>birth-of-dan@2bdeb8": {
+      "refs": ["gen.30.6"],
+      "kind": "reading",
+      "note": "The newborn is named in this verse but does not act; 'took part' fits only loosely."
+    },
+    "participated-in:dinah_1012>birth-of-dinah@8ca010": {
+      "refs": ["gen.30.21"],
+      "kind": "reading",
+      "note": "The newborn is named in this verse but does not act; 'took part' fits only loosely."
+    },
+    "participated-in:gad_1262>birth-of-gad@8aa4a0": {
+      "refs": ["gen.30.11"],
+      "kind": "reading",
+      "note": "The newborn is named in this verse but does not act; 'took part' fits only loosely."
+    },
+    "participated-in:israel_682>birth-of-asher@4ddd3f": {
+      "refs": ["gen.30.9", "gen.30.12"],
+      "note": "Zilpah is given to Jacob 'to wife' (30:9) and 'bare Jacob a second son' (30:12)."
+    },
+    "participated-in:israel_682>birth-of-dan@5f102c": {
+      "refs": ["gen.30.4", "gen.30.5"],
+      "note": "Jacob went in unto Bilhah (30:4), and she 'bare Jacob a son' (30:5)."
+    },
+    "participated-in:israel_682>birth-of-dinah@9006a7": {
+      "refs": ["gen.30.21", "gen.34.1"],
+      "note": "Leah bore Dinah (30:21), who is the daughter she 'bare unto Jacob' (34:1)."
+    },
+    "participated-in:israel_682>birth-of-gad@dac25e": {
+      "refs": ["gen.30.9", "gen.30.10"],
+      "note": "Zilpah is given to Jacob 'to wife' (30:9) and 'bare Jacob a son' (30:10)."
+    },
+    "participated-in:israel_682>birth-of-issachar@8b369d": {
+      "refs": ["gen.30.16", "gen.30.17"],
+      "note": "Jacob lay with Leah that night (30:16); she 'bare Jacob the fifth son' (30:17)."
+    },
+    "participated-in:israel_682>birth-of-joseph@3536bf": {
+      "refs": ["gen.30.23", "gen.30.25"],
+      "kind": "reading",
+      "note": "Rachel bears Joseph (30:23). Jacob's part is inferred; he speaks after the birth (30:25), not in it."
+    },
+    "participated-in:israel_682>birth-of-judah@ef2b9b": {
+      "refs": ["gen.29.23", "gen.29.35"],
+      "kind": "reading",
+      "note": "Jacob went in to Leah (29:23), but the birth verse names only Leah. His part as father is inferred."
+    },
+    "participated-in:israel_682>birth-of-levi@423865": {
+      "refs": ["gen.29.23", "gen.29.34", "gen.34.25"],
+      "kind": "reading",
+      "note": "Jacob went in to Leah (29:23); Levi is named a son of Jacob (34:25). The birth verse names only Leah."
+    },
+    "participated-in:israel_682>birth-of-naphtali@e110c8": {
+      "refs": ["gen.30.4", "gen.30.7"],
+      "note": "Jacob went in unto Bilhah (30:4), and she 'bare Jacob a second son' (30:7)."
+    },
+    "participated-in:israel_682>birth-of-reuben@2a93aa": {
+      "refs": ["gen.29.23", "gen.29.32"],
+      "kind": "reading",
+      "note": "Jacob went in to Leah (29:23), but the birth verse names only Leah. His part as father is inferred."
+    },
+    "participated-in:israel_682>birth-of-simeon@d71b27": {
+      "refs": ["gen.29.23", "gen.29.33", "gen.34.25"],
+      "kind": "reading",
+      "note": "Jacob went in to Leah (29:23); Simeon is named a son of Jacob (34:25). The birth verse names only Leah."
+    },
+    "participated-in:israel_682>birth-of-zebulon@e9140c": {
+      "refs": ["gen.30.19"],
+      "note": "Leah 'bare Jacob the sixth son' (30:19)."
+    },
+    "participated-in:issachar_645>birth-of-issachar@84ee71": {
+      "refs": ["gen.30.18"],
+      "kind": "reading",
+      "note": "The newborn is named in this verse but does not act; 'took part' fits only loosely."
+    },
+    "participated-in:joseph_1710>birth-of-joseph@9279b9": {
+      "refs": ["gen.30.24"],
+      "kind": "reading",
+      "note": "The newborn is named in this verse but does not act; 'took part' fits only loosely."
+    },
+    "participated-in:joseph_1710>lifetime-of-joseph@179b04": {
+      "refs": ["gen.30.24", "gen.50.26"],
+      "kind": "reading",
+      "note": "A lifetime is a span he lives, not an act he takes part in. Born 30:24; died aged 110 (50:26)."
+    },
+    "participated-in:judah_1751>birth-of-judah@6ca2d2": {
+      "refs": ["gen.29.35"],
+      "kind": "reading",
+      "note": "The newborn is named in this verse but does not act; 'took part' fits only loosely."
+    },
+    "participated-in:levi_1820>birth-of-levi@b7ce2c": {
+      "refs": ["gen.29.34"],
+      "kind": "reading",
+      "note": "The newborn is named in this verse but does not act; 'took part' fits only loosely."
+    },
+    "participated-in:naphtali_2149>birth-of-naphtali@4dacee": {
+      "refs": ["gen.30.8"],
+      "kind": "reading",
+      "note": "The newborn is named in this verse but does not act; 'took part' fits only loosely."
+    },
+    "participated-in:reuben_2429>birth-of-reuben@5eea9a": {
+      "refs": ["gen.29.32"],
+      "kind": "reading",
+      "note": "The newborn is named in this verse but does not act; 'took part' fits only loosely."
+    },
+    "participated-in:simeon_2741>birth-of-simeon@813773": {
+      "refs": ["gen.29.33"],
+      "kind": "reading",
+      "note": "The newborn is named in this verse but does not act; 'took part' fits only loosely."
+    },
+    "participated-in:zebulun_3002>birth-of-zebulon@40fa86": {
+      "refs": ["gen.30.20"],
+      "kind": "reading",
+      "note": "The newborn is named in this verse but does not act; 'took part' fits only loosely."
+    },
+    "participated-in:bilhah_502>birth-of-dan@46c3be": {
+      "refs": ["gen.30.5"],
+      "note": "Bilhah conceived and 'bare Jacob a son' (30:5)."
+    },
+    "participated-in:leah_1813>birth-of-dinah@662575": {
+      "refs": ["gen.30.21"],
+      "note": "Leah 'bare a daughter' (30:21)."
+    },
+    "participated-in:leah_1813>birth-of-judah@b5562d": {
+      "refs": ["gen.29.35"],
+      "note": "Leah conceived again and 'bare a son' (29:35)."
+    },
+    "participated-in:leah_1813>birth-of-levi@6ace94": {
+      "refs": ["gen.29.34"],
+      "note": "Leah conceived again and 'bare a son' (29:34)."
+    },
+    "participated-in:leah_1813>birth-of-simeon@80a030": {
+      "refs": ["gen.29.33"],
+      "note": "Leah conceived again and 'bare a son' (29:33)."
+    },
+    "participated-in:rachel_2386>birth-of-joseph@884771": {
+      "refs": ["gen.30.22", "gen.30.23"],
+      "note": "God remembers Rachel (30:22); she conceived and 'bare a son' (30:23)."
+    },
+    "partner-of:bilhah_502>israel_682@e7d698": {
+      "refs": ["gen.30.4"],
+      "note": "Rachel gives Bilhah to Jacob 'to wife' (30:4), and he went in unto her."
+    },
+    "partner-of:israel_682>leah_1813@88db68": {
+      "refs": ["gen.29.23", "gen.29.28"],
+      "note": "Leah is brought to Jacob and he went in unto her (29:23); Rachel is given 'to wife also' (29:28)."
+    },
+    "partner-of:israel_682>rachel_2386@989bf7": {
+      "refs": ["gen.29.28"],
+      "note": "Laban gives Rachel to Jacob 'to wife' (29:28)."
+    },
+    "partner-of:israel_682>zilpah_3081@a4edf9": {
+      "refs": ["gen.30.9"],
+      "note": "Leah gives Zilpah to Jacob 'to wife' (30:9)."
+    }
+  }
+}
