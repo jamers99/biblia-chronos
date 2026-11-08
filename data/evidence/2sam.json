@@ -1,0 +1,440 @@
+{
+  "passage": "2sam.1-24",
+  "ai": { "model": "haiku", "on": "2026-11-08" },
+  "agreed": [
+    "died-at:asahel_320>gibeon_470@0ebbb3",
+    "occurred-at:reign-of-david>jerusalem_636@f4d9be",
+    "parent-of:abiathar_20>jonathan_1693@c444ec",
+    "parent-of:abinadab_43>ahio_154@26c35d",
+    "parent-of:abital_54>shephatiah_2657@4cdc72",
+    "parent-of:agee_110>shammah_2539@34500f",
+    "parent-of:ahasbai_116>eliphelet_1147@b7ea3f",
+    "parent-of:ahilud_142>jehoshaphat_806@acf8a7",
+    "parent-of:ahithophel_162>eliam_1090@dd59f1",
+    "parent-of:ahitub_164>zadok_2973@905aeb",
+    "parent-of:ahitub_165>zadok_2975@5f4127",
+    "parent-of:aiah_177>rizpah_2444@8a7304",
+    "parent-of:ammiel_221>machir_1878@c542de",
+    "parent-of:ammihud_226>talmai_2819@cdf94a",
+    "parent-of:baanah_583>heleb_1480@6abf7f",
+    "parent-of:barzillai_412>adriel_105@b13c36",
+    "parent-of:bichri_493>sheba_2570@8b6bc1",
+    "parent-of:david_994>absalom_59@0d57a1",
+    "parent-of:david_994>amnon_232@a8818b",
+    "parent-of:dodo_1021>eleazar_1064@888b5b",
+    "parent-of:eliam_1089>bathsheba_416@5e448e",
+    "parent-of:gera_1299>shimei_2684@33fa3d",
+    "parent-of:haggith_1353>adonijah_97@bbb686",
+    "parent-of:ikkesh_596>ira_609@0a560b",
+    "parent-of:jehoiada_792>benaiah_439@1390e0",
+    "parent-of:jerubbesheth_881>abimelech_42@b4e210",
+    "parent-of:jonathan_1692>mephibosheth_1999@849218",
+    "parent-of:laish_1807>phaltiel_2326@dad060",
+    "parent-of:maacah_1839>absalom_59@8d4fb0",
+    "parent-of:nahash_2137>hanun_1404@f5b488",
+    "parent-of:nahash_2139>shobi_2722@f88a22",
+    "parent-of:nathan_2154>igal_1599@8eef49",
+    "parent-of:rehob_2410>hadarezer_1340@ce56e0",
+    "parent-of:ribai_2440>ittai_657@e30bab",
+    "parent-of:rimmon_2441>rechab_2402@d32ef3",
+    "parent-of:rizpah_2444>armoni_309@493254",
+    "parent-of:rizpah_2444>mephibosheth_2000@894c98",
+    "parent-of:sharar_2558>ahiam_129@265f64",
+    "parent-of:talmai_2819>maacah_1839@3293e4",
+    "parent-of:zadok_2973>ahimaaz_144@8f63c5",
+    "parent-of:zeruiah_3055>joab_1617@26fe51",
+    "partner-of:bathsheba_416>david_994@3e6e12",
+    "partner-of:david_994>eglah_1036@280c43"
+  ],
+  "facts": {
+    "alias-of:abel_4>abel-beth-maacah_5@26b5e9": {
+      "refs": ["2sam.20.15"],
+      "note": "2 Sam 20:15 'Abel of Bethmaachah' names one city with both names; 20:14 gives 'Abel' and 'Bethmaachah'."
+    },
+    "alias-of:baale-judah_139>kiriath-jearim_701@b3530e": {
+      "refs": ["2sam.6.2", "1chr.13.6"],
+      "note": "1 Chr 13:6 says 'Baalah, that is, to Kirjathjearim'; 2 Sam 6:2 has only Baale of Judah. Identification from Chronicles.",
+      "kind": "reading"
+    },
+    "alias-of:berothai_180>berothah_179@db6883": {
+      "refs": ["2sam.8.8", "ezek.47.16"],
+      "note": "2 Sam 8:8 has Berothai; Ezek 47:16 has Berothah. That they are one city is a spelling identification from outside 2 Samuel.",
+      "kind": "reading"
+    },
+    "alias-of:betah_182>tibhath_1162@bf03f4": {
+      "refs": ["2sam.8.8", "1chr.18.8"],
+      "note": "Parallel lists of Hadadezer's cities: 2 Sam 8:8 'Betah', 1 Chr 18:8 'Tibhath'. One place spelled two ways.",
+      "kind": "reading"
+    },
+    "alias-of:beth-maacah_221>abel-beth-maacah_5@288f2e": {
+      "refs": ["2sam.20.14", "2sam.20.15"],
+      "note": "2 Sam 20:14 'unto Abel, and to Bethmaachah'; 20:15 'Abel of Bethmaachah'. Same city."
+    },
+    "alias-of:gilo_478>giloh_479@1fbb79": {
+      "refs": ["2sam.15.12"],
+      "note": "2 Sam 15:12: Ahithophel the Gilonite, 'from his city, even from Giloh'. The same place under two spellings."
+    },
+    "alias-of:gob_483>gezer_463@4fc2fa": {
+      "refs": ["2sam.21.18", "1chr.20.4"],
+      "note": "Parallel accounts of one battle: 2 Sam 21:18 'at Gob', 1 Chr 20:4 'at Gezer'. Reading from the parallel.",
+      "kind": "reading"
+    },
+    "alias-of:metheg-ammah_791>gath_442@8f5808": {
+      "refs": ["2sam.8.1", "1chr.18.1"],
+      "note": "2 Sam 8:1 has 'Methegammah'; the parallel 1 Chr 18:1 says 'Gath and her towns'. Reading from the parallel.",
+      "kind": "reading"
+    },
+    "alias-of:rehob_987>beth-rehob_230@efeb51": {
+      "refs": ["2sam.10.6", "2sam.10.8"],
+      "note": "10:6 'Syrians of Bethrehob' and 10:8 'of Rehob' seem to name one group in parallel lists.",
+      "kind": "reading"
+    },
+    "birth:solomon_2762@6d0f24": {
+      "refs": ["2sam.12.24"],
+      "note": "2 Sam 12:24: Bathsheba bare Solomon. No year is given; the year depends on outside dating.",
+      "kind": "reading"
+    },
+    "date:reign-of-david@5c924d": {
+      "refs": ["2sam.5.4", "2sam.5.5"],
+      "note": "5:4 gives forty years' reign; 5:5 gives 7.5 years in Hebron and 33 in Jerusalem. The BC years depend on outside dating.",
+      "kind": "reading"
+    },
+    "death:solomon_2762@b9fb65": {
+      "refs": ["1kgs.11.42", "1kgs.11.43"],
+      "note": "1 Kgs 11:42 gives forty years' reign and 11:43 his burial. The year of death depends on outside dating.",
+      "kind": "reading"
+    },
+    "died-at:david_994>jerusalem_636@0d7644": {
+      "refs": ["1kgs.2.10", "1kgs.2.11"],
+      "note": "1 Kgs 2:10-11: buried in the city of David; he reigned in Jerusalem. No verse names where he died. 2 Sam 20:3 is not about his death.",
+      "kind": "reading"
+    },
+    "died-at:sheba_2570>abel-beth-maacah_5@2a3325": {
+      "refs": ["2sam.20.15", "2sam.20.22"],
+      "note": "Besieged in Abel of Bethmaachah (20:15); his head was cut off and thrown out from the city to Joab (20:22)."
+    },
+    "died-at:solomon_2762>jerusalem_636@4d1666": {
+      "refs": ["1kgs.11.42", "1kgs.11.43"],
+      "note": "Reigned in Jerusalem forty years and was buried in the city of David (1 Kgs 11:43). No verse names where he died.",
+      "kind": "reading"
+    },
+    "member-of:absalom_59>genealogy-of-jesus@153c06": {
+      "refs": ["matt.1.6", "luke.3.31"],
+      "note": "Neither genealogy includes Absalom: Matthew runs David to Solomon (1:6), Luke runs David to Nathan (3:31).",
+      "kind": "wrong"
+    },
+    "member-of:absalom_59>tribe-of-judah@62ded2": {
+      "refs": ["matt.1.3", "ruth.4.18", "ruth.4.19", "ruth.4.20", "ruth.4.21", "ruth.4.22", "2sam.13.1"],
+      "note": "By descent from Judah through David (Matt 1:3; Ruth 4:18-22). The tribe is not named in 2 Samuel.",
+      "kind": "reading"
+    },
+    "member-of:adonijah_97>tribe-of-judah@71dd6a": {
+      "refs": ["matt.1.3", "ruth.4.18", "ruth.4.19", "ruth.4.20", "ruth.4.21", "ruth.4.22", "2sam.3.4"],
+      "note": "By descent from Judah through David (Matt 1:3; Ruth 4:18-22). The tribe is not named in 2 Samuel.",
+      "kind": "reading"
+    },
+    "member-of:ahimaaz_144>tribe-of-levi@70d710": {
+      "refs": ["1chr.6.3", "1chr.6.4", "1chr.6.5", "1chr.6.6", "1chr.6.7", "1chr.6.8", "2sam.15.36"],
+      "note": "By descent from Aaron through Eleazar, Phinehas, Ahitub and Zadok (1 Chr 6:3-8). The tribe is not named in 2 Samuel.",
+      "kind": "reading"
+    },
+    "member-of:ahitub_164>tribe-of-levi@e2c734": {
+      "refs": ["1chr.6.3", "1sam.22.9", "1chr.24.3"],
+      "note": "Ahitub is Ahimelech's father (1 Sam 22:9); Ahimelech is of Ithamar's sons (1 Chr 24:3), sons of Aaron (1 Chr 6:3).",
+      "kind": "reading"
+    },
+    "member-of:amnon_232>tribe-of-judah@7c252d": {
+      "refs": ["matt.1.3", "ruth.4.18", "ruth.4.19", "ruth.4.20", "ruth.4.21", "ruth.4.22", "2sam.3.2"],
+      "note": "By descent from Judah through David (Matt 1:3; Ruth 4:18-22). The tribe is not named in 2 Samuel.",
+      "kind": "reading"
+    },
+    "member-of:ammihud_226>genealogy-of-jesus@1b6b19": {
+      "refs": ["matt.1.6", "luke.3.31"],
+      "note": "Neither genealogy includes Ammihud: Matthew runs David to Solomon (1:6), Luke runs David to Nathan (3:31).",
+      "kind": "wrong"
+    },
+    "member-of:bathsheba_416>genealogy-of-jesus@55f67f": {
+      "refs": ["matt.1.6", "2sam.11.3"],
+      "note": "Matt 1:6 names her only as 'her that had been the wife of Urias'; 2 Sam 11:3 names that woman Bathsheba.",
+      "kind": "reading"
+    },
+    "member-of:daniel_939>tribe-of-judah@daa8aa": {
+      "refs": ["matt.1.3", "ruth.4.18", "ruth.4.19", "ruth.4.20", "ruth.4.21", "ruth.4.22", "1chr.3.1"],
+      "note": "By descent from Judah through David (Matt 1:3; Ruth 4:18-22). The tribe is not named in 2 Samuel.",
+      "kind": "reading"
+    },
+    "member-of:eliada_1078>tribe-of-judah@aef2e4": {
+      "refs": ["matt.1.3", "ruth.4.18", "ruth.4.19", "ruth.4.20", "ruth.4.21", "ruth.4.22", "2sam.5.16"],
+      "note": "By descent from Judah through David (Matt 1:3; Ruth 4:18-22). The tribe is not named in 2 Samuel.",
+      "kind": "reading"
+    },
+    "member-of:eliam_1089>genealogy-of-jesus@6e8321": {
+      "refs": ["matt.1.6", "luke.3.31"],
+      "note": "Eliam is Bathsheba's father (2 Sam 11:3); neither genealogy names him. Matthew runs David to Solomon (1:6).",
+      "kind": "wrong"
+    },
+    "member-of:eliphalet_1143>tribe-of-judah@769a70": {
+      "refs": ["matt.1.3", "ruth.4.18", "ruth.4.19", "ruth.4.20", "ruth.4.21", "ruth.4.22", "2sam.5.16"],
+      "note": "By descent from Judah through David (Matt 1:3; Ruth 4:18-22). The tribe is not named in 2 Samuel.",
+      "kind": "reading"
+    },
+    "member-of:elishama_1156>tribe-of-judah@5ad2c7": {
+      "refs": ["matt.1.3", "ruth.4.18", "ruth.4.19", "ruth.4.20", "ruth.4.21", "ruth.4.22", "2sam.5.16"],
+      "note": "By descent from Judah through David (Matt 1:3; Ruth 4:18-22). The tribe is not named in 2 Samuel.",
+      "kind": "reading"
+    },
+    "member-of:elishua_1163>tribe-of-judah@84c3bc": {
+      "refs": ["matt.1.3", "ruth.4.18", "ruth.4.19", "ruth.4.20", "ruth.4.21", "ruth.4.22", "2sam.5.15"],
+      "note": "By descent from Judah through David (Matt 1:3; Ruth 4:18-22). The tribe is not named in 2 Samuel.",
+      "kind": "reading"
+    },
+    "member-of:ibhar_1584>tribe-of-judah@032a53": {
+      "refs": ["matt.1.3", "ruth.4.18", "ruth.4.19", "ruth.4.20", "ruth.4.21", "ruth.4.22", "2sam.5.15"],
+      "note": "By descent from Judah through David (Matt 1:3; Ruth 4:18-22). The tribe is not named in 2 Samuel.",
+      "kind": "reading"
+    },
+    "member-of:ithream_655>tribe-of-judah@42fa60": {
+      "refs": ["matt.1.3", "ruth.4.18", "ruth.4.19", "ruth.4.20", "ruth.4.21", "ruth.4.22", "2sam.3.5"],
+      "note": "By descent from Judah through David (Matt 1:3; Ruth 4:18-22). The tribe is not named in 2 Samuel.",
+      "kind": "reading"
+    },
+    "member-of:japhia_728>tribe-of-judah@5c2bf2": {
+      "refs": ["matt.1.3", "ruth.4.18", "ruth.4.19", "ruth.4.20", "ruth.4.21", "ruth.4.22", "2sam.5.15"],
+      "note": "By descent from Judah through David (Matt 1:3; Ruth 4:18-22). The tribe is not named in 2 Samuel.",
+      "kind": "reading"
+    },
+    "member-of:jonadab_1688>tribe-of-judah@115ca8": {
+      "refs": ["2sam.13.3", "1chr.2.13", "matt.1.3", "ruth.4.18", "ruth.4.19", "ruth.4.20", "ruth.4.21", "ruth.4.22"],
+      "note": "Jonadab's father Shimeah is David's brother, a son of Jesse (1 Chr 2:13), of Judah (Matt 1:3; Ruth 4:18-22).",
+      "kind": "reading"
+    },
+    "member-of:maacah_1839>genealogy-of-jesus@ec4e73": {
+      "refs": ["matt.1.6", "luke.3.31"],
+      "note": "Maacah is in neither genealogy. Matthew runs David to Solomon (1:6); Luke runs David to Nathan (3:31).",
+      "kind": "wrong"
+    },
+    "member-of:nathan_2152>tribe-of-judah@09627e": {
+      "refs": ["matt.1.3", "ruth.4.18", "ruth.4.19", "ruth.4.20", "ruth.4.21", "ruth.4.22", "2sam.5.14"],
+      "note": "By descent from Judah through David (Matt 1:3; Ruth 4:18-22). The tribe is not named in 2 Samuel.",
+      "kind": "reading"
+    },
+    "member-of:nepheg_2179>tribe-of-judah@2c9cbd": {
+      "refs": ["matt.1.3", "ruth.4.18", "ruth.4.19", "ruth.4.20", "ruth.4.21", "ruth.4.22", "2sam.5.15"],
+      "note": "By descent from Judah through David (Matt 1:3; Ruth 4:18-22). The tribe is not named in 2 Samuel.",
+      "kind": "reading"
+    },
+    "member-of:shammua_2547>tribe-of-judah@56ab70": {
+      "refs": ["matt.1.3", "ruth.4.18", "ruth.4.19", "ruth.4.20", "ruth.4.21", "ruth.4.22", "2sam.5.14"],
+      "note": "By descent from Judah through David (Matt 1:3; Ruth 4:18-22). The tribe is not named in 2 Samuel.",
+      "kind": "reading"
+    },
+    "member-of:shephatiah_2657>tribe-of-judah@308f0d": {
+      "refs": ["matt.1.3", "ruth.4.18", "ruth.4.19", "ruth.4.20", "ruth.4.21", "ruth.4.22", "2sam.3.4"],
+      "note": "By descent from Judah through David (Matt 1:3; Ruth 4:18-22). The tribe is not named in 2 Samuel.",
+      "kind": "reading"
+    },
+    "member-of:shobab_2715>tribe-of-judah@871738": {
+      "refs": ["matt.1.3", "ruth.4.18", "ruth.4.19", "ruth.4.20", "ruth.4.21", "ruth.4.22", "2sam.5.14"],
+      "note": "By descent from Judah through David (Matt 1:3; Ruth 4:18-22). The tribe is not named in 2 Samuel.",
+      "kind": "reading"
+    },
+    "member-of:talmai_2819>genealogy-of-jesus@ced528": {
+      "refs": ["matt.1.6", "luke.3.31"],
+      "note": "Talmai is in neither genealogy. Matthew runs David to Solomon (1:6); Luke runs David to Nathan (3:31).",
+      "kind": "wrong"
+    },
+    "member-of:tamar_2822>tribe-of-judah@4503bf": {
+      "refs": ["matt.1.3", "ruth.4.18", "ruth.4.19", "ruth.4.20", "ruth.4.21", "ruth.4.22", "1chr.3.9"],
+      "note": "By descent from Judah through David (Matt 1:3; Ruth 4:18-22). The tribe is not named in 2 Samuel.",
+      "kind": "reading"
+    },
+    "member-of:tamar_2823>tribe-of-judah@bd723b": {
+      "refs": ["matt.1.3", "ruth.4.18", "ruth.4.19", "ruth.4.20", "ruth.4.21", "ruth.4.22", "2sam.14.27"],
+      "note": "Daughter of Absalom, so by descent from Judah through David (Matt 1:3; Ruth 4:18-22). Tribe not named in 2 Samuel.",
+      "kind": "reading"
+    },
+    "member-of:zadok_2973>tribe-of-levi@3b0210": {
+      "refs": ["1chr.6.3", "1chr.6.4", "1chr.6.5", "1chr.6.6", "1chr.6.7", "1chr.6.8", "2sam.8.17"],
+      "note": "Zadok is son of Ahitub (2 Sam 8:17), in Aaron's line through Eleazar (1 Chr 6:3-8). The tribe is not named in 2 Samuel.",
+      "kind": "reading"
+    },
+    "occurred-at:reign-of-david>hebron_551@6fa460": {
+      "refs": ["2sam.5.5", "2sam.2.4"],
+      "note": "5:5: 'In Hebron he reigned over Judah seven years and six months'; 2:4 gives the anointing there. The matched 2:1 only sends David to Hebron."
+    },
+    "parent-of:abigail_26>daniel_939@9f2832": {
+      "refs": ["1chr.3.1"],
+      "note": "1 Chr 3:1 names Daniel, 'of Abigail the Carmelitess'. 2 Sam 3:3 calls this second son Chileab."
+    },
+    "parent-of:abiathar_20>ahimelech_149@b7662a": {
+      "refs": ["2sam.8.17", "1sam.22.20"],
+      "note": "2 Sam 8:17 says Ahimelech was Abiathar's son; 1 Sam 22:20 says Abiathar was Ahimelech's son.",
+      "kind": "reading"
+    },
+    "parent-of:abinadab_43>uzzah_2916@4c3753": {
+      "refs": ["2sam.6.3"],
+      "note": "2 Sam 6:3: 'Uzzah and Ahio, the sons of Abinadab'."
+    },
+    "parent-of:absalom_59>tamar_2823@f253ed": {
+      "refs": ["2sam.14.27"],
+      "note": "2 Sam 14:27: Absalom had three sons and 'one daughter, whose name was Tamar'."
+    },
+    "parent-of:ahinoam_153>amnon_232@fa9e4b": {
+      "refs": ["2sam.3.2"],
+      "note": "2 Sam 3:2: 'his firstborn was Amnon, of Ahinoam the Jezreelitess'."
+    },
+    "parent-of:bathsheba_416>solomon_2762@698a5e": {
+      "refs": ["2sam.12.24"],
+      "note": "2 Sam 12:24: Bathsheba bare a son and he called his name Solomon."
+    },
+    "parent-of:david_994>eliada_1078@26c74f": {
+      "refs": ["2sam.5.14", "2sam.5.16"],
+      "note": "2 Sam 5:14-16 lists sons 'born unto him in Jerusalem', including Eliada."
+    },
+    "parent-of:david_994>eliphalet_1143@4a5901": {
+      "refs": ["2sam.5.14", "2sam.5.16"],
+      "note": "2 Sam 5:14-16 lists sons 'born unto him in Jerusalem', including Eliphalet."
+    },
+    "parent-of:david_994>elishama_1156@e2b202": {
+      "refs": ["2sam.5.14", "2sam.5.16"],
+      "note": "2 Sam 5:14-16 lists sons 'born unto him in Jerusalem', including Elishama."
+    },
+    "parent-of:david_994>elishua_1163@c55ee9": {
+      "refs": ["2sam.5.14", "2sam.5.15"],
+      "note": "2 Sam 5:14-15 lists sons 'born unto him in Jerusalem', including Elishua."
+    },
+    "parent-of:david_994>ibhar_1584@828f9a": {
+      "refs": ["2sam.5.14", "2sam.5.15"],
+      "note": "2 Sam 5:14-15 lists sons 'born unto him in Jerusalem', including Ibhar."
+    },
+    "parent-of:david_994>ithream_655@962461": {
+      "refs": ["2sam.3.2", "2sam.3.5"],
+      "note": "2 Sam 3:5: 'the sixth, Ithream, by Eglah David's wife. These were born to David in Hebron.'"
+    },
+    "parent-of:david_994>japhia_728@e38647": {
+      "refs": ["2sam.5.14", "2sam.5.15"],
+      "note": "2 Sam 5:14-15 lists sons 'born unto him in Jerusalem', including Japhia."
+    },
+    "parent-of:david_994>nepheg_2179@c22084": {
+      "refs": ["2sam.5.14", "2sam.5.15"],
+      "note": "2 Sam 5:14-15 lists sons 'born unto him in Jerusalem', including Nepheg."
+    },
+    "parent-of:david_994>shammua_2547@d7860b": {
+      "refs": ["2sam.5.14"],
+      "note": "2 Sam 5:14 lists Shammua among those 'born unto him in Jerusalem'."
+    },
+    "parent-of:david_994>shephatiah_2657@4aa014": {
+      "refs": ["2sam.3.2", "2sam.3.4"],
+      "note": "2 Sam 3:2-4: sons born to David in Hebron, including 'the fifth, Shephatiah the son of Abital'."
+    },
+    "parent-of:david_994>shobab_2715@fcfdb7": {
+      "refs": ["2sam.5.14"],
+      "note": "2 Sam 5:14 lists Shobab among those 'born unto him in Jerusalem'."
+    },
+    "parent-of:david_994>tamar_2822@2250d2": {
+      "refs": ["2sam.13.1", "1chr.3.9"],
+      "note": "1 Chr 3:9 lists Tamar among David's children, 'Tamar their sister'; 2 Sam 13:1 calls her Absalom's sister."
+    },
+    "parent-of:dodo_1022>elhanan_1071@efea09": {
+      "refs": ["2sam.23.24", "2sam.21.19"],
+      "note": "2 Sam 23:24 calls Elhanan son of Dodo of Bethlehem; 21:19 calls the Bethlehemite Elhanan son of Jaareoregim.",
+      "kind": "reading"
+    },
+    "parent-of:eglah_1036>ithream_655@b70c0f": {
+      "refs": ["2sam.3.5"],
+      "note": "2 Sam 3:5: 'the sixth, Ithream, by Eglah David's wife'."
+    },
+    "parent-of:jashen_736>sons_of_jashen_2769@5379b1": {
+      "refs": ["2sam.23.32"],
+      "note": "2 Sam 23:32 names 'of the sons of Jashen' as a family; the text names Jashen as their father."
+    },
+    "parent-of:mephibosheth_1999>micah_2055@0c904f": {
+      "refs": ["2sam.9.12", "1chr.8.34"],
+      "note": "2 Sam 9:12: Mephibosheth had 'a young son, whose name was Micha'. 1 Chr 8:34 also gives Micah as Meribbaal's son."
+    },
+    "parent-of:nahash_2138>abigail_27@310640": {
+      "refs": ["2sam.17.25", "1chr.2.16"],
+      "note": "2 Sam 17:25 makes Abigail Nahash's daughter; 1 Chr 2:16 makes Abigail and Zeruiah sisters of David, Jesse's children.",
+      "kind": "reading"
+    },
+    "parent-of:nahash_2138>zeruiah_3055@b50646": {
+      "refs": ["2sam.17.25", "1chr.2.16"],
+      "note": "2 Sam 17:25 calls Zeruiah Abigail's sister; 1 Chr 2:16 calls her David's sister. Her father is in doubt.",
+      "kind": "reading"
+    },
+    "parent-of:rimmon_2441>baanah_582@b013be": {
+      "refs": ["2sam.4.2"],
+      "note": "2 Sam 4:2: 'the sons of Rimmon a Beerothite', Baanah and Rechab named together."
+    },
+    "parent-of:saul_2478>armoni_309@109a8c": {
+      "refs": ["2sam.21.8"],
+      "note": "2 Sam 21:8: Rizpah's sons Armoni and Mephibosheth, 'whom she bare unto Saul'."
+    },
+    "parent-of:saul_2478>ish-bosheth_622@c5d980": {
+      "refs": ["2sam.2.8", "2sam.2.10"],
+      "note": "2 Sam 2:8 'Ishbosheth the son of Saul'; 2:10 'Ishbosheth Saul's son'."
+    },
+    "parent-of:saul_2478>mephibosheth_2000@f9d25d": {
+      "refs": ["2sam.21.8"],
+      "note": "2 Sam 21:8: Rizpah's son Mephibosheth, 'whom she bare unto Saul'. The matched 19:24 means Jonathan's son (1999)."
+    },
+    "parent-of:shammah_2700>jonadab_1688@0ef237": {
+      "refs": ["2sam.13.3", "1sam.16.9", "1chr.2.13"],
+      "note": "2 Sam 13:3 says Shimeah, David's brother. Shammah (1 Sam 16:9) and Shimma (1 Chr 2:13) look like the same brother.",
+      "kind": "reading"
+    },
+    "parent-of:the_giant_in_gath_2848>ishbi-benob_621@e49f9b": {
+      "refs": ["2sam.21.16"],
+      "note": "2 Sam 21:16: Ishbibenob 'was of the sons of the giant'."
+    },
+    "parent-of:the_giant_in_gath_2848>man_of_great_stature_1924@5c08f6": {
+      "refs": ["2sam.21.20", "2sam.21.22"],
+      "note": "2 Sam 21:20: the man of great stature 'was born to the giant'; 21:22: 'These four were born to the giant in Gath'."
+    },
+    "parent-of:the_giant_in_gath_2848>sippai_2471@827333": {
+      "refs": ["2sam.21.18", "1chr.20.4"],
+      "note": "2 Sam 21:18 names Saph 'of the sons of the giant'; 1 Chr 20:4 names Sippai, 'of the children of the giant'. Same man is a reading.",
+      "kind": "reading"
+    },
+    "parent-of:toi_2877>joram_1705@6f57bb": {
+      "refs": ["2sam.8.10"],
+      "note": "2 Sam 8:10: Toi sent 'Joram his son' to King David."
+    },
+    "participated-in:david_994>reign-of-david@e3aa18": {
+      "refs": ["2sam.5.4", "2sam.5.5"],
+      "note": "5:4: David began to reign at thirty and reigned forty years; 5:5 gives where he reigned. The matched 2:1 does not show him reigning."
+    },
+    "part-of:jerusalem_636>united-kingdom-of-israel_1301@3c177e": {
+      "refs": ["2sam.5.5", "2sam.5.7"],
+      "note": "5:5: from Jerusalem he reigned over all Israel and Judah; 5:7: he took Zion, the city of David."
+    },
+    "partner-of:abigail_27>jether_907@8d2600": {
+      "refs": ["2sam.17.25", "1chr.2.17"],
+      "note": "2 Sam 17:25 says Ithra 'went in to Abigail'; 1 Chr 2:17 says Abigail bare Amasa, whose father was Jether. Marriage implied, not stated.",
+      "kind": "reading"
+    },
+    "partner-of:abital_54>david_994@30088f": {
+      "refs": ["2sam.3.4"],
+      "note": "Abital bore David's son Shephatiah (3:4). The text never calls her David's wife.",
+      "kind": "reading"
+    },
+    "partner-of:bathsheba_416>uriah_2898@2d5412": {
+      "refs": ["2sam.11.3", "2sam.11.26"],
+      "note": "2 Sam 11:3 'the wife of Uriah the Hittite'; 11:26 she mourned 'her husband'."
+    },
+    "partner-of:david_994>maacah_1839@c21ea8": {
+      "refs": ["2sam.3.3", "1chr.3.2"],
+      "note": "Maacah bore David's son Absalom (2 Sam 3:3; 1 Chr 3:2). The text never calls her David's wife.",
+      "kind": "reading"
+    },
+    "partner-of:rizpah_2444>saul_2478@56418f": {
+      "refs": ["2sam.3.7", "2sam.21.11"],
+      "note": "The text calls Rizpah Saul's concubine (3:7; 21:11), not his wife.",
+      "kind": "wrong"
+    },
+    "visited:jesus_905>jerusalem_636@c1b80c": {
+      "refs": ["luke.2.22", "john.2.13"],
+      "note": "Luke 2:22 'they brought him to Jerusalem'; John 2:13 'Jesus went up to Jerusalem'. The matched 2 Sam 15:8 is about Absalom."
+    }
+  }
+}
