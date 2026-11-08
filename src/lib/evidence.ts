@@ -136,19 +136,20 @@ export function collectEvidence(facts: Fact[], matches: MatchEvidence | undefine
       }
     }
     for (const key of b.agreed ?? []) touch(key, true)
-    for (const [key, entry] of Object.entries(b.facts ?? {})) touch(key, entry.kind !== "wrong", entry)
+    for (const [key, entry] of Object.entries(b.facts ?? {})) touch(key, entry.kind !== "wrong" && entry.kind !== "unsupported", entry)
   }
   return byId
 }
 
 // --- For display ------------------------------------------------------------------
 
-export type FactState = "verse" | "derived" | "reading" | "wrong" | "unchecked"
+export type FactState = "verse" | "derived" | "reading" | "wrong" | "unsupported" | "unchecked"
 
 // Where a fact stands, and the verses that support it: a reviewer's own refs
 // first, else the text match.
 export function factStatus(ev: FactEvidence | undefined): { state: FactState; refs: string[] } {
   const entry = ev?.entry
+  if (entry?.kind === "unsupported") return { state: "unsupported", refs: [] }
   const refs = entry?.refs?.length ? entry.refs : ev?.match?.ref ? [ev.match.ref] : []
   if (entry?.kind === "wrong") return { state: "wrong", refs }
   if (entry?.kind === "reading") return { state: "reading", refs }
@@ -188,6 +189,7 @@ export function explain(ev: FactEvidence, short: (ref: string) => string) {
       derived: "worked out",
       reading: "a reading",
       wrong: corrected ? "corrected" : "flagged",
+      unsupported: "no verse found",
       unchecked: "unchecked",
     }[state],
     note: ev.entry?.note && `${prefix[state as keyof typeof prefix] ?? ""}${ev.entry.note}`,

@@ -1,51 +1,16 @@
 {
   "passage": "era summaries",
-  "ai": { "model": "haiku", "on": "2026-11-07" },
+  "ai": {"model":"haiku","on":"2026-11-07"},
   "facts": {
-    "lede:divided-kingdom@a6fa0e": {
-      "refs": ["1kgs.12.20", "1kgs.12.21", "1kgs.16.24", "2kgs.17.6", "2kgs.17.13"],
-      "note": "The split, Samaria, Jerusalem, the prophets and Assyria's removal of Israel are stated. 'North' and 'south' are geographic glosses these verses do not state.",
-      "kind": "reading"
-    },
-    "lede:early-church@1fe961": {
-      "refs": ["acts.1.8", "acts.2.1", "acts.2.4", "acts.8.1", "acts.28.16"],
-      "note": "Pentecost, the witness from Jerusalem through Judaea and Samaria, and arrival in Rome are stated. 'Roman world' is a gloss; Acts 1:8 says 'the uttermost part of the earth'.",
-      "kind": "reading"
-    },
-    "lede:exiles@19605c": {
-      "refs": ["2kgs.25.9", "2kgs.25.21", "dan.1.8", "dan.9.2", "ezek.2.7", "ezek.37.12"],
-      "note": "The burning of the house, Judah's exile and Daniel's faithfulness and looking for return are stated. Ezekiel's obedience is shown (ezek.2.7), but not that he looked for return; only God's promise to him is stated (ezek.37.12).",
-      "kind": "reading"
-    },
-    "lede:exodus@f78663": {
-      "refs": ["exod.14.21", "exod.19.2", "exod.20.1", "num.14.34", "deut.8.2", "deut.34.1"],
-      "note": "The sea crossing, the arrival at Sinai, the law, the forty years and the view of the land are all stated."
-    },
-    "lede:israel-in-egypt@f95517": {
-      "refs": ["gen.41.41", "gen.45.10", "gen.47.27", "exod.1.7", "exod.1.8", "exod.1.14"],
-      "note": "Joseph's rule, the settlement in Goshen, the growth of the family, the new Pharaoh and the bondage are all stated."
-    },
-    "lede:judges@b003a8": {
-      "refs": ["josh.3.17", "judg.2.11", "judg.2.16", "judg.4.4", "judg.6.14", "judg.15.20"],
-      "note": "The Jordan crossing, the drift after Joshua, and the judges Deborah, Gideon and Samson are all stated."
-    },
-    "lede:life-of-christ@ef552d": {
-      "refs": ["matt.2.1", "matt.2.23", "luke.2.52", "matt.4.23", "matt.20.19", "matt.28.6"],
-      "note": "Birth in Bethlehem, growing up in Nazareth, teaching and healing in Galilee, the journey to Jerusalem, death and rising are all stated."
-    },
-    "lede:patriarchs@a762fc": {
-      "refs": ["gen.11.31", "acts.7.3", "gen.12.2", "gen.12.3", "gen.23.4", "heb.11.9"],
-      "note": "Ur, the call with land, nation and blessing, and the wandering in Canaan are stated. Genesis places the call after the family reaches Haran (gen.11.31-12.1); Acts 7:2-4 places it in Mesopotamia."
-    },
-    "lede:return@29268d": {
-      "refs": ["ezra.1.1", "ezra.1.3", "ezra.6.15", "ezra.7.10", "neh.2.17", "neh.6.15"],
-      "note": "Cyrus's release, the finished temple, Ezra's teaching of the law (ezra.7.10) and the walls under Nehemiah are stated. 'Again' is a gloss: the text does not say the law had been lost.",
-      "kind": "reading"
-    },
-    "lede:united-kingdom-era@e8c0fb": {
-      "refs": ["1sam.13.1", "2sam.5.3", "2sam.5.5", "2sam.5.9", "1kgs.4.1", "2chr.3.1"],
-      "note": "Saul is king over Israel (1sam.13.1), but the text does not say he ruled all twelve tribes. 'Capital' is a gloss for David dwelling in Zion (2sam.5.9). The rest is stated.",
-      "kind": "reading"
-    }
+    "lede:divided-kingdom@a6fa0e": {"refs":["1kgs.12.20","1kgs.12.21","1kgs.16.24","2kgs.17.6","2kgs.17.13"],"note":"The split, Samaria, Jerusalem, the prophets and Assyria's removal of Israel are stated. 'North' and 'south' are geographic glosses these verses do not state.","kind":"reading"},
+    "lede:early-church@1fe961": {"refs":["acts.1.8","acts.2.1","acts.2.4","acts.8.1","acts.28.16"],"note":"Pentecost, the witness from Jerusalem through Judaea and Samaria, and arrival in Rome are stated. 'Roman world' is a gloss; Acts 1:8 says 'the uttermost part of the earth'.","kind":"reading"},
+    "lede:exiles@19605c": {"refs":["2kgs.25.9","2kgs.25.21","dan.1.8","dan.9.2","ezek.2.7","ezek.37.12"],"note":"The burning of the house, Judah's exile and Daniel's faithfulness and looking for return are stated. Ezekiel's obedience is shown (ezek.2.7), but not that he looked for return; only God's promise to him is stated (ezek.37.12).","kind":"reading"},
+    "lede:exodus@f78663": {"refs":["exod.14.21","exod.19.2","exod.20.1","num.14.34","deut.8.2","deut.34.1"],"note":"The sea crossing, the arrival at Sinai, the law, the forty years and the view of the land are all stated."},
+    "lede:israel-in-egypt@f95517": {"refs":["gen.41.41","gen.45.10","gen.47.27","exod.1.7","exod.1.8","exod.1.14"],"note":"Joseph's rule, the settlement in Goshen, the growth of the family, the new Pharaoh and the bondage are all stated."},
+    "lede:judges@b003a8": {"refs":["josh.3.17","judg.2.11","judg.2.16","judg.4.4","judg.6.14","judg.15.20"],"note":"The Jordan crossing, the drift after Joshua, and the judges Deborah, Gideon and Samson are all stated."},
+    "lede:life-of-christ@ef552d": {"refs":["matt.2.1","matt.2.23","luke.2.52","matt.4.23","matt.20.19","matt.28.6"],"note":"Birth in Bethlehem, growing up in Nazareth, teaching and healing in Galilee, the journey to Jerusalem, death and rising are all stated."},
+    "lede:patriarchs@a762fc": {"refs":["gen.11.31","acts.7.3","gen.12.2","gen.12.3","gen.23.4","heb.11.9"],"note":"Ur, the call with land, nation and blessing, and the wandering in Canaan are stated. Genesis places the call after the family reaches Haran (gen.11.31-12.1); Acts 7:2-4 places it in Mesopotamia."},
+    "lede:return@29268d": {"refs":["ezra.1.1","ezra.1.3","ezra.6.15","ezra.7.10","neh.2.17","neh.6.15"],"note":"Cyrus's release, the finished temple, Ezra's teaching of the law (ezra.7.10) and the walls under Nehemiah are stated. 'Again' is a gloss: the text does not say the law had been lost.","kind":"reading"},
+    "lede:united-kingdom-era@e8c0fb": {"refs":["1sam.13.1","2sam.5.3","2sam.5.5","2sam.5.9","1kgs.4.1","2chr.3.1"],"note":"Saul is king over Israel (1sam.13.1), but the text does not say he ruled all twelve tribes. 'Capital' is a gloss for David dwelling in Zion (2sam.5.9). The rest is stated.","kind":"reading"}
   }
 }

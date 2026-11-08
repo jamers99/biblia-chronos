@@ -1,9 +1,6 @@
 {
   "passage": "esth.1-10",
-  "ai": {
-    "model": "haiku",
-    "on": "2026-11-07"
-  },
+  "ai": {"model":"haiku","on":"2026-11-07"},
   "agreed": [
     "partner-of:haman_1360>zeresh_3049@5e8323",
     "parent-of:abihail_32>esther_1343@170af3",
@@ -13,151 +10,25 @@
     "parent-of:shimei_2696>jair_710@f9b878"
   ],
   "facts": {
-    "date:esther-becomes-queen@20cdc1": {
-      "refs": [
-        "esth.2.16"
-      ],
-      "note": "Tenth month, seventh year of his reign (2:16). The BC year depends on dating Xerxes's reign outside Scripture.",
-      "kind": "reading"
-    },
-    "date:esther-saves-her-people@ea4ca3": {
-      "refs": [
-        "esth.3.7",
-        "esth.3.13",
-        "esth.9.1"
-      ],
-      "note": "Lot cast in the twelfth year (3:7); the 13th of Adar is in the twelfth month (3:13, 9:1), not the next year. BC year needs outside dating.",
-      "kind": "reading"
-    },
-    "parent-of:haman_1360>adalia_77@6c524d": {
-      "refs": [
-        "esth.9.8",
-        "esth.9.10"
-      ],
-      "note": "Adalia is among 'the ten sons of Haman' (9:10)."
-    },
-    "parent-of:haman_1360>aridai_299@8e6e8e": {
-      "refs": [
-        "esth.9.9",
-        "esth.9.10"
-      ],
-      "note": "Aridai is among 'the ten sons of Haman' (9:10)."
-    },
-    "parent-of:haman_1360>aridatha_300@37c738": {
-      "refs": [
-        "esth.9.8",
-        "esth.9.10"
-      ],
-      "note": "Aridatha is among 'the ten sons of Haman' (9:10)."
-    },
-    "parent-of:haman_1360>arisai_305@e9a44f": {
-      "refs": [
-        "esth.9.9",
-        "esth.9.10"
-      ],
-      "note": "Arisai is among 'the ten sons of Haman' (9:10)."
-    },
-    "parent-of:haman_1360>aspatha_347@c6fc18": {
-      "refs": [
-        "esth.9.7",
-        "esth.9.10"
-      ],
-      "note": "Aspatha is among 'the ten sons of Haman' (9:10)."
-    },
-    "parent-of:haman_1360>dalphon_971@0c88bf": {
-      "refs": [
-        "esth.9.7",
-        "esth.9.10"
-      ],
-      "note": "Dalphon is among 'the ten sons of Haman' (9:10)."
-    },
-    "parent-of:haman_1360>parmashta_2271@d7b536": {
-      "refs": [
-        "esth.9.9",
-        "esth.9.10"
-      ],
-      "note": "Parmashta is among 'the ten sons of Haman' (9:10)."
-    },
-    "parent-of:haman_1360>parshandatha_2277@1fd7fd": {
-      "refs": [
-        "esth.9.7",
-        "esth.9.10"
-      ],
-      "note": "Parshandatha is among 'the ten sons of Haman' (9:10)."
-    },
-    "parent-of:haman_1360>poratha_2366@ccd6e2": {
-      "refs": [
-        "esth.9.8",
-        "esth.9.10"
-      ],
-      "note": "Poratha is among 'the ten sons of Haman' (9:10)."
-    },
-    "parent-of:haman_1360>vajezatha_2935@8389a3": {
-      "refs": [
-        "esth.9.9",
-        "esth.9.10"
-      ],
-      "note": "Vajezatha is among 'the ten sons of Haman' (9:10)."
-    },
-    "participated-in:ahasuerus_117>esther-becomes-queen@ae1b55": {
-      "refs": [
-        "esth.2.16",
-        "esth.2.17"
-      ],
-      "note": "The king has Esther taken into his house and sets the royal crown on her head, making her queen (2:16-17)."
-    },
-    "participated-in:ahasuerus_117>esther-saves-her-people@512b07": {
-      "refs": [
-        "esth.8.4",
-        "esth.8.8"
-      ],
-      "note": "The king holds out the golden sceptre to Esther (8:4) and authorizes the counter-decree for the Jews (8:8)."
-    },
-    "participated-in:esther_1343>esther-becomes-queen@19f225": {
-      "refs": [
-        "esth.2.15",
-        "esth.2.17"
-      ],
-      "note": "Esther goes in to the king, prepared by Hegai, and is made queen (2:15-17)."
-    },
-    "participated-in:esther_1343>esther-saves-her-people@948403": {
-      "refs": [
-        "esth.4.16",
-        "esth.7.3"
-      ],
-      "note": "Esther fasts, goes in to the king unbidden (4:16), and pleads for her people's life (7:3)."
-    },
-    "participated-in:haman_1360>esther-saves-her-people@313a66": {
-      "refs": [
-        "esth.3.7",
-        "esth.7.10"
-      ],
-      "note": "Haman casts the lot to destroy the Jews (3:7) and is hanged on the gallows he prepared (7:10)."
-    },
-    "participated-in:mordecai_2107>esther-becomes-queen@5667f7": {
-      "refs": [
-        "esth.2.7",
-        "esth.2.10",
-        "esth.2.11"
-      ],
-      "note": "Mordecai raises Esther and charges her to hide her people (2:7, 2:10), but takes no part in the king's choosing itself.",
-      "kind": "reading"
-    },
-    "participated-in:mordecai_2107>esther-saves-her-people@82036f": {
-      "refs": [
-        "esth.4.8",
-        "esth.8.9"
-      ],
-      "note": "Mordecai sends the decree to Esther with his charge (4:8), and the scribes write the new decree as he commanded (8:9)."
-    },
-    "partner-of:ahasuerus_117>vashti_2937@9b5be7": {
-      "refs": [
-        "esth.1.9",
-        "esth.1.11",
-        "esth.1.19"
-      ],
-      "note": "Vashti is called 'the queen' of king Ahasuerus (1:9, 1:19), which implies marriage, but the text never says 'married' or 'wife'.",
-      "kind": "reading"
-    }
+    "date:esther-becomes-queen@20cdc1": {"refs":["esth.2.16"],"note":"Tenth month, seventh year of his reign (2:16). The BC year depends on dating Xerxes's reign outside Scripture.","kind":"reading"},
+    "date:esther-saves-her-people@ea4ca3": {"refs":["esth.3.7","esth.3.13","esth.9.1"],"note":"Lot cast in the twelfth year (3:7); the 13th of Adar is in the twelfth month (3:13, 9:1), not the next year. BC year needs outside dating.","kind":"reading"},
+    "parent-of:haman_1360>adalia_77@6c524d": {"refs":["esth.9.8","esth.9.10"],"note":"Adalia is among 'the ten sons of Haman' (9:10)."},
+    "parent-of:haman_1360>aridai_299@8e6e8e": {"refs":["esth.9.9","esth.9.10"],"note":"Aridai is among 'the ten sons of Haman' (9:10)."},
+    "parent-of:haman_1360>aridatha_300@37c738": {"refs":["esth.9.8","esth.9.10"],"note":"Aridatha is among 'the ten sons of Haman' (9:10)."},
+    "parent-of:haman_1360>arisai_305@e9a44f": {"refs":["esth.9.9","esth.9.10"],"note":"Arisai is among 'the ten sons of Haman' (9:10)."},
+    "parent-of:haman_1360>aspatha_347@c6fc18": {"refs":["esth.9.7","esth.9.10"],"note":"Aspatha is among 'the ten sons of Haman' (9:10)."},
+    "parent-of:haman_1360>dalphon_971@0c88bf": {"refs":["esth.9.7","esth.9.10"],"note":"Dalphon is among 'the ten sons of Haman' (9:10)."},
+    "parent-of:haman_1360>parmashta_2271@d7b536": {"refs":["esth.9.9","esth.9.10"],"note":"Parmashta is among 'the ten sons of Haman' (9:10)."},
+    "parent-of:haman_1360>parshandatha_2277@1fd7fd": {"refs":["esth.9.7","esth.9.10"],"note":"Parshandatha is among 'the ten sons of Haman' (9:10)."},
+    "parent-of:haman_1360>poratha_2366@ccd6e2": {"refs":["esth.9.8","esth.9.10"],"note":"Poratha is among 'the ten sons of Haman' (9:10)."},
+    "parent-of:haman_1360>vajezatha_2935@8389a3": {"refs":["esth.9.9","esth.9.10"],"note":"Vajezatha is among 'the ten sons of Haman' (9:10)."},
+    "participated-in:ahasuerus_117>esther-becomes-queen@ae1b55": {"refs":["esth.2.16","esth.2.17"],"note":"The king has Esther taken into his house and sets the royal crown on her head, making her queen (2:16-17)."},
+    "participated-in:ahasuerus_117>esther-saves-her-people@512b07": {"refs":["esth.8.4","esth.8.8"],"note":"The king holds out the golden sceptre to Esther (8:4) and authorizes the counter-decree for the Jews (8:8)."},
+    "participated-in:esther_1343>esther-becomes-queen@19f225": {"refs":["esth.2.15","esth.2.17"],"note":"Esther goes in to the king, prepared by Hegai, and is made queen (2:15-17)."},
+    "participated-in:esther_1343>esther-saves-her-people@948403": {"refs":["esth.4.16","esth.7.3"],"note":"Esther fasts, goes in to the king unbidden (4:16), and pleads for her people's life (7:3)."},
+    "participated-in:haman_1360>esther-saves-her-people@313a66": {"refs":["esth.3.7","esth.7.10"],"note":"Haman casts the lot to destroy the Jews (3:7) and is hanged on the gallows he prepared (7:10)."},
+    "participated-in:mordecai_2107>esther-becomes-queen@5667f7": {"refs":["esth.2.7","esth.2.10","esth.2.11"],"note":"Mordecai raises Esther and charges her to hide her people (2:7, 2:10), but takes no part in the king's choosing itself.","kind":"reading"},
+    "participated-in:mordecai_2107>esther-saves-her-people@82036f": {"refs":["esth.4.8","esth.8.9"],"note":"Mordecai sends the decree to Esther with his charge (4:8), and the scribes write the new decree as he commanded (8:9)."},
+    "partner-of:ahasuerus_117>vashti_2937@9b5be7": {"refs":["esth.1.9","esth.1.11","esth.1.19"],"note":"Vashti is called 'the queen' of king Ahasuerus (1:9, 1:19), which implies marriage, but the text never says 'married' or 'wife'.","kind":"reading"}
   }
 }

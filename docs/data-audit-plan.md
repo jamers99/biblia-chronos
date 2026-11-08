@@ -1,11 +1,10 @@
 # Data Audit Plan: checking the data against Scripture
 
-> **Status (Nov 2026):** steps 1 and 2 are built. The text match finds a verse for 3,438 of
-> 5,950 facts to a verse. Step 3 has begun: six AI batches (Esther, Ezra,
-> Nehemiah, the kings' houses and notes, the era summaries) cover 260 facts. Of
-> those, 5 are flagged wrong and 66 are readings. None has had an editor's
-> review yet. See [data/evidence/README.md](../data/evidence/README.md) for how
-> to run a batch.
+> **Status (Nov 2026):** steps 1 and 2 are built. The text match supports
+> 3,455 of the 5,950 facts. Step 3's AI pass is done, and every fact has an AI
+> verdict: 233 are flagged wrong, 2,181 are readings, and 111 are marked "no
+> verse found". None has had an editor's review yet; see "The first full pass"
+> below for what to look at first.
 
 **Goal:** every fact the site shows points to the verse that supports it,
 and says plainly how that was checked: by an automatic text match, by an AI, or by a
@@ -276,56 +275,71 @@ drafts, so drafts are where most of this work is.
 
 ---
 
-## Next batches
+## The first full pass (Nov 2026)
 
-5,690 facts have no AI review yet (Nov 2026). Here they are by where they're
-filed, as batches of roughly 50–150 facts each, one AI run apiece. The batches
-with the most published records come first; 1 Chronicles, which is mostly
-draft genealogies, comes last.
+Every fact has now been through the AI layer. The pass ran 59 batches by
+passage, Acts first and 1 Chronicles last. Then it swept the facts left
+without a verdict, most of which had been filed under the wrong chapter, and
+ended with one batch of era dates.
 
-| # | Batch name | Passage | Facts | Notes |
-|---|---|---|---|---|
-| 1–8 | `acts-1`…`acts-8` | acts.1-8, 9-12, 13-15, 16, 17-18, 19-21, 22-26, 27-28 | 985 | Nearly all published; mostly Paul's places and journeys |
-| 9–12 | `gen-1`…`gen-4` | gen.1-11, 12-25, 26-36, 37-50 | 981 | Gen 5 and 11 have the ages, Gen 46 the family list |
-| 13–15 | `matt-1`…`matt-3` | matt.1, matt.2-13, matt.14-28 | 400 | Matt 1 is the genealogy (83) |
-| 16–18 | `luke-1`…`luke-3` | luke.1-2, luke.3, luke.4-24 | 232 | Luke 3 is the genealogy (139) |
-| 19 | `mark-john` | mark.1-16, john.1-21 | 117 | |
-| 20–22 | `josh-1`…`josh-3` | josh.1-14, josh.15, josh.16-24 | 350 | Towns in tribal lands: many already matched by text |
-| 23 | `exod-lev-deut` | exod.1-40, lev.1-27, deut.1-34 | 192 | |
-| 24 | `num` | num.1-36 | 142 | Num 26 is the census by families |
-| 25 | `judg-ruth` | judg.1-21, ruth.1-4 | 134 | |
-| 26–27 | `1sam`, `2sam` | 1sam.1-31, 2sam.1-24 | 228 | |
-| 28–29 | `1kgs-1`, `1kgs-2` | 1kgs.1-11, 1kgs.12-22 | 171 | |
-| 30–31 | `2kgs-1`, `2kgs-2` | 2kgs.1-13, 2kgs.14-25 | 299 | |
-| 32 | `2chr` | 2chr.1-36 | 101 | |
-| 33 | `prophets-and-letters` | job, ps, prov, isa … mal, gal, col, 2tim, rev | ~190 | Small counts across many books; pass each book's chapters |
-| 34–39 | `1chr-1`…`1chr-6` | 1chr.1, 2, 3-4, 5-6, 7-8, 9-29 | 1,179 | Mostly drafts; long genealogies with many namesakes |
+| | Facts |
+|---|---|
+| AI agreed with the text match | 1,995 |
+| AI wrote a verse | 1,430 |
+| AI called it a reading | 2,181 |
+| AI flagged it wrong | 233 |
+| No verse found, after two passes (`unsupported`) | 111 |
 
-The counts change as batches land and as facts are added, so let the tool's
-own count guide splitting: aim for under ~150 facts and ~500 verses per batch.
+Most readings are dates, which come from an outside chronology. Most of the
+rest are identifications the text doesn't make: a tribe inferred from
+descent, a spelling variant, a "same place as" from outside the passage.
 
-**Running a batch**, about 5–10 minutes each:
+What the flags found, for the editor:
+
+- **Events placed at every stop of a journey.** Upstream puts Cnidus under
+  "the journey to Rome begins" and Puteoli under "Paul arrives at Rome". It
+  also puts reigns from before Omri built Samaria (1 Kgs 16:24) in Samaria.
+- **Loose "visited" links.** Paul's companions are linked to every stop of a
+  voyage, and the ports of ships' origins count as visits. About 65 have no
+  verse at all. They stay in the data, marked "no verse found".
+- **Generation slips in genealogies.** Grandfathers and brothers are recorded
+  as fathers (Hur and Caleb's sons in 1 Chr 2:50; Shimei for Obed-edom's sons
+  in 1 Chr 26:4).
+- **Merged or duplicated people.** One record covers Jacob the patriarch and
+  Jacob the father of Joseph (Matt 1:16), and another covers both Anahs of
+  Gen 36. `james_719`, the Lord's brother, is also listed among the twelve.
+  Zerubbabel and Zorobabel are two records.
+- **Dates that disagree with the text.** Jacob's lifetime ends 33 years after
+  his death (Gen 47:28). Job lives 140 years in all, against "after this lived
+  Job an hundred and forty years" (Job 42:16). Israel's time in Egypt spans 216
+  years, against the 430 of Exod 12:40, a known chronology question.
+
+**Running a batch** (for new or changed facts, or a re-review):
 
 1. `npm run audit:batch -- <name> <passage>` writes `audit/batches/<name>.md`.
+   A passage can list chapters (`gen.12-24` or `exod.12,exod.14`); aim for
+   under ~150 facts. `--kind date,lede` picks facts by kind instead, and
+   `--stale` gives a batch's reviews that the data has since changed under.
 2. Give a Haiku sub-agent the prompt in
-   [audit-review-prompt.md](./audit-review-prompt.md), with the name and passage
-   filled in. It writes `data/evidence/<name>.json`.
-3. Check the result:
-   - Run `npm run check:data`.
-   - Spot-check that the cited verses name the people involved.
-   - Read every "wrong" and "reading" entry.
-4. For missing facts it reports that the text plainly states, add them to
-   `data/overrides/`, re-run `npm run audit:scan`, and review the new facts
-   in a small follow-up batch, as `return-additions` did.
-5. Commit one batch (or a few small ones) per commit. The editor's review
-   happens in the PR.
+   [audit-review-prompt.md](./audit-review-prompt.md), with the name and
+   passage filled in. It writes `data/evidence/<name>.json`.
+3. Check the result. Run `npm run audit:format` (one entry per line) and
+   `npm run check:data`, spot-check that the cited verses name the people
+   involved, and read every "wrong" entry.
+4. Commit it. The editor's review happens in the PR.
 
-Lessons from the first six batches:
+Lessons from the first pass:
 
-- Tell the reviewer that a literal "Y the son of X" is a *verse*, not a
-  reading. Otherwise it hedges every parent link.
-- Give it `npm run verse` for summaries and long passages: thin text makes it
-  call true claims "readings".
-- Have a second, small batch re-check any missing fact the AI proposes before
-  it lands in overrides. Two of the six proposed in the first round didn't
-  hold up.
+- **File a fact where its verse is.** A fact with no text match goes under
+  the first verse naming both its records, or under one of them in a chapter
+  naming the other. Filed under a person's first verse instead, Paul's 52
+  visits all landed at Acts 7.
+- **Upstream's other names include titles.** "Lord", "King" and "mother"
+  aren't names to match on, except God's titles. Left in, "God" in Judges
+  1:7 matched "Jesus died at Jerusalem".
+- **Spell out the kinds.** A reading is probably true but rests on something
+  the text doesn't say. Wrong means the text says otherwise. Without the
+  examples in the prompt, Haiku calls a contradiction a "reading".
+- **Its missing-fact reports are mostly already in the data,** filed in
+  another batch (Adam is Seth's father at Luke 3:38). Check them against the
+  whole dataset before adding any.

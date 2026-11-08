@@ -1,0 +1,22 @@
+{
+  "passage": "remaining dates and era summary",
+  "ai": {"model":"haiku","on":"2026-11-08"},
+  "facts": {
+    "birth:jesus_905@7d6db1": {"refs":["matt.2.1","luke.2.7"],"note":"Matthew 2:1 places the birth in Herod's days; Luke 2:7 records it. The year, 4 BC (-3), comes from outside chronology.","kind":"reading"},
+    "date:between-the-testaments@524500": {"refs":["mal.1.1","luke.1.5"],"note":"Scripture records no events in this gap. Malachi (1:1) closes the Old Testament; Luke 1:5 is the next dated scene, in Herod's days. Both bounds are outside dating.","kind":"reading"},
+    "date:birth-of-job@af497d": {"refs":["job.1.1","job.42.16"],"note":"Scripture never gives Job's birth; Job 42:16 gives 140 more years after his restoration. The year -1719 (1720 BC) is outside dating.","kind":"reading"},
+    "date:death-of-moses@957d63": {"refs":["deut.34.5","deut.34.7"],"note":"Deuteronomy 34:5 records his death in Moab; 34:7 gives his age, 120. Scripture gives no BC year; -1451 (1452 BC) is outside dating.","kind":"reading"},
+    "date:divided-kingdom@2c7e3d": {"refs":["1kgs.11.43","1kgs.12.19","1kgs.12.20","2kgs.17.6"],"note":"Solomon's death and Rehoboam's succession (1 Kings 11:43), the split (12:19-20), and Samaria's fall (2 Kings 17:6) are stated. The BC years are outside dating.","kind":"reading"},
+    "date:early-church@a90e19": {"refs":["acts.1.8","acts.2.1","acts.28.14"],"note":"Pentecost (2:1), the witness to the uttermost part (1:8), and the road to Rome (28:14) are stated. AD 30 and AD 96 are outside dating.","kind":"reading"},
+    "date:exiles@d4e1be": {"refs":["2kgs.17.6","2kgs.25.1","2kgs.25.9","ezra.1.1"],"note":"Stated: Assyria's carrying away (2 Kings 17:6), Babylon's siege (25:1), the temple burned (25:9), and Cyrus's first year (Ezra 1:1). The BC years are outside dating.","kind":"reading"},
+    "date:exodus@5ea65a": {"refs":["exod.12.41","josh.4.1","deut.1.3"],"note":"Exodus 12:41 says Israel left at the end of 430 years; Joshua 4:1 has the Jordan crossed; Deuteronomy 1:3 gives the fortieth year. BC years are outside dating.","kind":"reading"},
+    "date:israel-in-egypt@85a626": {"refs":["gen.46.6","exod.1.11","exod.12.40","exod.12.41"],"note":"Exodus 12:40-41 says the sojourn in Egypt lasted 430 years, ending the day Israel left. These dates span about 216 years, so they contradict the text's length.","kind":"wrong"},
+    "date:judges@4ee86b": {"refs":["josh.4.1","judg.16.31","1sam.10.1"],"note":"Joshua 4:1 has Israel crossing the Jordan; Judges 16:31 gives Samson's twenty years; 1 Samuel 10:1 anoints Saul. Years like -1450 and -1094 are outside dating.","kind":"reading"},
+    "date:life-of-christ@e5a8ac": {"refs":["luke.1.5","luke.1.13","luke.3.1","john.19.30"],"note":"Luke 1:5-13 places John's announced birth in Herod's days; Luke 3:1 dates the ministry to Tiberius's fifteenth year; John 19:30 records his death. -5 and 30 are outside dating.","kind":"reading"},
+    "date:patriarchs@130aac": {"refs":["gen.11.26","gen.12.4","gen.46.6"],"note":"Terah begets Abram at 70 (11:26); Abram leaves Haran at 75 (12:4); Jacob enters Egypt (46:6). Ages, not BC years, are given; -1995 and -1706 are outside dating.","kind":"reading"},
+    "date:return@9b1605": {"refs":["ezra.1.1","ezra.6.15","neh.13.6"],"note":"Stated: Cyrus's first year (Ezra 1:1), the temple done in Darius's sixth (6:15), Artaxerxes' 32nd (Neh 13:6). The description's c. 432 BC does not match -430 (431 BC).","kind":"reading"},
+    "date:united-kingdom-era@b63762": {"refs":["1sam.10.1","2sam.2.4","1kgs.11.43"],"note":"Saul is anointed 'captain' (1 Sam 10:1); David first reigns over Judah only (2 Sam 2:4); Solomon's death ends it (1 Kings 11:43). The BC years are outside dating.","kind":"reading"},
+    "death:jesus_905@22ede5": {"refs":["john.19.30","luke.3.1"],"note":"John 19:30 records the death; Luke 3:1 dates the ministry to Tiberius's fifteenth year. AD 30 is not stated and rests on outside dating.","kind":"reading"},
+    "lede:between-the-testaments@44033c": {"refs":["dan.8.21","dan.11.2"],"note":"No count of four centuries or Maccabees in Scripture. Daniel 8:21 and 11:2 foretell Greece and Persia; Scripture says nothing of Rome taking hold here.","kind":"reading"}
+  }
+}

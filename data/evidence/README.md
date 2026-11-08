@@ -57,8 +57,10 @@ sitting. A fact lives in exactly one batch.
   - `sources`: keys into `sources.json`, for anything from outside Scripture.
   - `note`: a short explanation.
   - `kind`: `verse` (the default: the text says it), `reading` (an
-    interpretation, so a note is required), or `wrong` (an error, fixed in
-    `data/overrides/`).
+    interpretation, so a note is required), `wrong` (an error, fixed in
+    `data/overrides/`), or `unsupported` (no verse found for it). An
+    unsupported fact stays in the data, and the site marks it "no verse
+    found".
 - **`editor`**: set when a person reviews the batch.
   - The editor reads every written entry, and spot-checks `agreed` at the
     `sampled` rate.

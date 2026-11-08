@@ -176,7 +176,8 @@ export const EvidenceBatch = z
             refs: z.array(VerseKey).optional(),
             sources: z.array(z.string()).optional(), // keys into sources.json, for what's outside Scripture
             note: z.string().optional(),
-            kind: z.enum(["verse", "reading", "wrong"]).optional(), // default "verse"
+            // default "verse"; "unsupported": no verse found for it, though the record keeps it
+            kind: z.enum(["verse", "reading", "wrong", "unsupported"]).optional(),
           })
           .strict(),
       )

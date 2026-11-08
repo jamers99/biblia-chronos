@@ -262,7 +262,7 @@ for (const file of batchFiles.sort()) {
   }
   for (const key of batch.editor?.read ?? []) if (!keys.includes(key)) err(`${where}: editor.read lists ${key}, which isn't in this batch`)
   for (const [key, entry] of Object.entries(batch.facts ?? {})) {
-    if ((entry.kind ?? "verse") !== "wrong" && !entry.refs?.length && !entry.sources?.length)
+    if ((entry.kind === undefined || entry.kind === "verse" || entry.kind === "reading") && !entry.refs?.length && !entry.sources?.length)
       err(`${where}: ${key} has no verse or source; a "${entry.kind ?? "verse"}" entry needs one`)
     if (entry.kind === "reading" && !entry.note) err(`${where}: ${key} is a reading, so it needs a note saying which and why`)
     for (const ref of entry.refs ?? []) checkVerse(`${where} ${key}`, ref)

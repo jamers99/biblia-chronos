@@ -16,7 +16,8 @@
     "import:theographic": "tsx scripts/import-theographic.ts && tsx scripts/audit-scan.ts",
     "audit:scan": "tsx scripts/audit-scan.ts",
     "audit:batch": "tsx scripts/audit-batch.ts",
-    "verse": "tsx scripts/verse.ts"
+    "verse": "tsx scripts/verse.ts",
+    "audit:format": "tsx scripts/format-evidence.ts"
   },
   "dependencies": {
     "d3-geo": "^3.1.1",

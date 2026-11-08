@@ -41,6 +41,7 @@ test("collectEvidence layers the text match, the AI, and the editor, and ignores
       agreed: [key("parent-of:abraham>isaac")],
       facts: {
         [key("date:e")]: { refs: ["esth.2.16"], note: "seventh year", kind: "reading" },
+        [key("partner-of:abraham>sarah")]: { note: "No verse says they married.", kind: "unsupported" },
         "note:k/e@000000": { refs: ["gen.1.1"] }, // stale: ignored
       },
     },
@@ -53,7 +54,7 @@ test("collectEvidence layers the text match, the AI, and the editor, and ignores
   assert.equal(evs.get("note:k/e")!.entry, undefined)
   assert.deepEqual(factStatus(parent), { state: "verse", refs: ["gen.25.19"] })
   assert.deepEqual(factStatus(evs.get("note:k/e")), { state: "unchecked", refs: [] })
-  assert.deepEqual(tally([...evs.values()]), { facts: 5, matched: 1, ai: 2, editor: 1, unchecked: 3 })
+  assert.deepEqual(tally([...evs.values()]), { facts: 5, matched: 1, ai: 3, editor: 2, unchecked: 2 })
 
   // What the "how we know" popover says, layer by layer
   const short = (ref: string) => ref.toUpperCase()
@@ -71,4 +72,6 @@ test("collectEvidence layers the text match, the AI, and the editor, and ignores
   assert.equal(date.note, "A reading: seventh year")
   assert.equal(date.match, undefined)
   assert.equal(date.editor, "Read by ed, Nov 2026")
+  const partners = explain(evs.get("partner-of:abraham>sarah")!, short)
+  assert.deepEqual([partners.label, partners.note, partners.ai], ["no verse found", "No verse says they married.", "Flagged (haiku, Nov 2026)"])
 })

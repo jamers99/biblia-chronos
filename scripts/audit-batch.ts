@@ -7,10 +7,11 @@
 //   npm run audit:batch -- esther --stale              esther.json's reviews the data has since changed under
 //
 // A fact is filed under its first supporting verse: the text match's verse if
-// it has one, else the first verse of the record that tells it (the child,
-// the event, the town). Facts reviewed in another batch file are left out, so
-// each fact lives in one batch. A stale review comes with its old verdict, to
-// re-check and update in place.
+// it has one, else the first verse naming both its records (or one of them, in
+// a chapter naming the other), else the first verse of the record that tells
+// it (the child, the event, the town). Facts reviewed in another batch file
+// are left out, so each fact lives in one batch. A stale review comes with its
+// old verdict, to re-check and update in place.
 
 import { existsSync, mkdirSync, readdirSync, writeFileSync } from "node:fs"
 import { join } from "node:path"
@@ -50,7 +51,17 @@ const ownKey = new Map(keysOf(own).map((k) => [factId(k), k]))
 // The record whose verses tell a fact: a parent link is told at the child,
 // a part in an event at the event; otherwise the record it's about.
 const teller = (f: Fact) => (f.kind === "parent-of" || f.kind === "participated-in" ? [...f.records].reverse() : f.records)
-const home = (f: Fact) => matches.facts[f.key]?.[0] ?? teller(f).map((id) => refsOf(id)[0]).find(Boolean)
+// The first verse naming both records; else the first verse naming the second
+// in a chapter that names the first ("we launched" from Adramyttium, in a
+// chapter about Paul).
+const chapterOf = (k: string) => k.slice(0, k.lastIndexOf("."))
+function together([a, b]: string[]) {
+  if (b === undefined) return undefined
+  const [ra, rb] = [refsOf(a), new Set(refsOf(b))]
+  const chapters = new Set(ra.map(chapterOf))
+  return ra.find((k) => rb.has(k)) ?? [...rb].find((k) => chapters.has(chapterOf(k)))
+}
+const home = (f: Fact) => matches.facts[f.key]?.[0] ?? together(f.records) ?? teller(f).map((id) => refsOf(id)[0]).find(Boolean)
 
 // "esth.1-10" → Esther 1 to 10; "neh.12" → Nehemiah 12.
 const passages = mode === "passage"
@@ -85,7 +96,7 @@ const reign = (body: string) => {
 function describe(f: Fact): string {
   const body = f.id.slice(f.id.indexOf(":") + 1)
   const [a, b] = body.split(">")
-  const years = "(astronomical years: -478 is 479 BC)"
+  const years = "(years are astronomical: a negative year is BC, one off, so -478 is 479 BC and 30 is AD 30)"
   switch (f.kind) {
     case "parent-of": return `${nameOf(a)} is a parent of ${nameOf(b)}`
     case "partner-of": return `${nameOf(a)} and ${nameOf(b)} were married`
