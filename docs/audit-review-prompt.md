@@ -1,6 +1,6 @@
 # AI review prompt
 
-The prompt given to a Haiku sub-agent for one review batch (see "Next batches"
+The prompt given to a Haiku sub-agent for one review batch (see "Running a batch"
 in [data-audit-plan.md](./data-audit-plan.md)). Fill in `<name>` and
 `<passage>` (e.g. `gen-1`, `gen.1-11`).
 
