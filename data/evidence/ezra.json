@@ -1,6 +1,6 @@
 {
   "passage": "ezra.1-10",
-  "ai": { "model": "haiku", "on": "2026-11-07" },
+  "ai": {"model":"haiku","on":"2026-11-07"},
   "agreed": [
     "occurred-at:cyrus-decree-and-first-return>babylon_151@4e6470",
     "occurred-at:ezra-returns-to-jerusalem>babylon_151@45c424",
@@ -27,74 +27,20 @@
     "parent-of:zerahiah_3048>elihoenai_1124@0d68c9"
   ],
   "facts": {
-    "date:ezra-returns-to-jerusalem@de6f0a": {
-      "refs": ["ezra.7.7", "ezra.7.8"],
-      "note": "Seventh year of Artaxerxes, fifth month (7:7-8). The BC year depends on dating Artaxerxes' reign outside Scripture.",
-      "kind": "reading"
-    },
-    "date:second-temple-completed@87e7a6": {
-      "refs": ["ezra.4.24", "ezra.6.15"],
-      "note": "Work resumed in Darius's second year (4:24) and finished in his sixth year, Adar 3 (6:15). The BC years depend on dating Darius outside Scripture.",
-      "kind": "reading"
-    },
-    "date:second-temple-foundation-laid@879656": {
-      "refs": ["ezra.3.8"],
-      "note": "Gives only relative timing, 'the second year of their coming' (3:8). The BC year depends on dating Cyrus's return outside Scripture.",
-      "kind": "reading"
-    },
-    "member-of:ezra_1245>tribe-of-levi@2221ed": {
-      "refs": ["ezra.7.5", "ezra.7.11"],
-      "note": "Ezra descends from Aaron the chief priest (7:5) and is called the priest (7:11). Levitical descent is not stated in this text.",
-      "kind": "reading"
-    },
-    "member-of:joshua_893>tribe-of-levi@389572": {
-      "refs": ["ezra.3.2"],
-      "note": "Called a priest, son of Jozadak (3:2). The text never says Levite; Levitical priesthood is an inference from the Aaronic line.",
-      "kind": "reading"
-    },
-    "occurred-at:second-temple-completed>jerusalem_636@28ee05": {
-      "refs": ["ezra.5.2", "ezra.6.15"],
-      "note": "5:2 has them build 'the house of God which is at Jerusalem'; 6:15 says this house was finished."
-    },
-    "occurred-at:second-temple-foundation-laid>jerusalem_636@7e0120": {
-      "refs": ["ezra.3.8", "ezra.3.10"],
-      "note": "3:8 has the work begin on the house of God at Jerusalem; 3:10 says the builders laid its foundation."
-    },
-    "participated-in:artaxerxes_314>ezra-returns-to-jerusalem@f6475d": {
-      "refs": ["ezra.7.6", "ezra.7.13"],
-      "note": "Artaxerxes granted Ezra all his request (7:6) and decreed that Israelites may go up with him (7:13)."
-    },
-    "participated-in:ezra_1245>ezra-returns-to-jerusalem@a47d1b": {
-      "refs": ["ezra.7.6", "ezra.7.10"],
-      "note": "Ezra went up from Babylon (7:6) and had prepared his heart to teach the law (7:10). Script verse 7:1 is only his genealogy."
-    },
-    "participated-in:haggai_1349>second-temple-completed@360f4e": {
-      "refs": ["ezra.5.1", "ezra.6.14"],
-      "note": "Haggai prophesied to the Jews (5:1); the building prospered through his prophesying (6:14). He did not build, so this is an interpretation.",
-      "kind": "reading"
-    },
-    "participated-in:joshua_893>cyrus-decree-and-first-return@6d5802": {
-      "refs": ["ezra.2.2", "ezra.3.2"],
-      "note": "2:2 lists Jeshua among those who came with Zerubbabel; 3:2 identifies that Jeshua as the priest son of Jozadak. Identity is by context.",
-      "kind": "reading"
-    },
-    "participated-in:zechariah_3016>second-temple-completed@21d43d": {
-      "refs": ["ezra.5.1", "ezra.6.14"],
-      "note": "Zechariah son of Iddo prophesied (5:1); the building prospered through his prophesying (6:14). He did not build, so this is an interpretation.",
-      "kind": "reading"
-    },
-    "participated-in:zerubbabel_3054>cyrus-decree-and-first-return@0c6b03": {
-      "refs": ["ezra.2.2"],
-      "note": "'Which came with Zerubbabel' (2:2) places him in the first return. Script verse 1:8 does not name him."
-    },
-    "parent-of:josedech_815>joshua_893@e86869": {
-      "refs": ["ezra.3.2"],
-      "note": "3:2 gives the father as Jozadak, not Josedech. Josedech is that name in another spelling, so the link rests on the spelling."
-    },
-    "parent-of:seraiah_2494>ezra_1245@a799ee": {
-      "refs": ["ezra.7.1"],
-      "note": "'Ezra the son of Seraiah' (7:1). The 7:1-5 genealogy skips generations compared with 1 Chronicles 6, so Seraiah may be a remote ancestor.",
-      "kind": "reading"
-    }
+    "date:ezra-returns-to-jerusalem@de6f0a": {"refs":["ezra.7.7","ezra.7.8"],"note":"Seventh year of Artaxerxes, fifth month (7:7-8). The BC year depends on dating Artaxerxes' reign outside Scripture.","kind":"reading"},
+    "date:second-temple-completed@87e7a6": {"refs":["ezra.4.24","ezra.6.15"],"note":"Work resumed in Darius's second year (4:24) and finished in his sixth year, Adar 3 (6:15). The BC years depend on dating Darius outside Scripture.","kind":"reading"},
+    "date:second-temple-foundation-laid@879656": {"refs":["ezra.3.8"],"note":"Gives only relative timing, 'the second year of their coming' (3:8). The BC year depends on dating Cyrus's return outside Scripture.","kind":"reading"},
+    "member-of:ezra_1245>tribe-of-levi@2221ed": {"refs":["ezra.7.5","ezra.7.11"],"note":"Ezra descends from Aaron the chief priest (7:5) and is called the priest (7:11). Levitical descent is not stated in this text.","kind":"reading"},
+    "member-of:joshua_893>tribe-of-levi@389572": {"refs":["ezra.3.2"],"note":"Called a priest, son of Jozadak (3:2). The text never says Levite; Levitical priesthood is an inference from the Aaronic line.","kind":"reading"},
+    "occurred-at:second-temple-completed>jerusalem_636@28ee05": {"refs":["ezra.5.2","ezra.6.15"],"note":"5:2 has them build 'the house of God which is at Jerusalem'; 6:15 says this house was finished."},
+    "occurred-at:second-temple-foundation-laid>jerusalem_636@7e0120": {"refs":["ezra.3.8","ezra.3.10"],"note":"3:8 has the work begin on the house of God at Jerusalem; 3:10 says the builders laid its foundation."},
+    "participated-in:artaxerxes_314>ezra-returns-to-jerusalem@f6475d": {"refs":["ezra.7.6","ezra.7.13"],"note":"Artaxerxes granted Ezra all his request (7:6) and decreed that Israelites may go up with him (7:13)."},
+    "participated-in:ezra_1245>ezra-returns-to-jerusalem@a47d1b": {"refs":["ezra.7.6","ezra.7.10"],"note":"Ezra went up from Babylon (7:6) and had prepared his heart to teach the law (7:10). Script verse 7:1 is only his genealogy."},
+    "participated-in:haggai_1349>second-temple-completed@360f4e": {"refs":["ezra.5.1","ezra.6.14"],"note":"Haggai prophesied to the Jews (5:1); the building prospered through his prophesying (6:14). He did not build, so this is an interpretation.","kind":"reading"},
+    "participated-in:joshua_893>cyrus-decree-and-first-return@6d5802": {"refs":["ezra.2.2","ezra.3.2"],"note":"2:2 lists Jeshua among those who came with Zerubbabel; 3:2 identifies that Jeshua as the priest son of Jozadak. Identity is by context.","kind":"reading"},
+    "participated-in:zechariah_3016>second-temple-completed@21d43d": {"refs":["ezra.5.1","ezra.6.14"],"note":"Zechariah son of Iddo prophesied (5:1); the building prospered through his prophesying (6:14). He did not build, so this is an interpretation.","kind":"reading"},
+    "participated-in:zerubbabel_3054>cyrus-decree-and-first-return@0c6b03": {"refs":["ezra.2.2"],"note":"'Which came with Zerubbabel' (2:2) places him in the first return. Script verse 1:8 does not name him."},
+    "parent-of:josedech_815>joshua_893@e86869": {"refs":["ezra.3.2"],"note":"3:2 gives the father as Jozadak, not Josedech. Josedech is that name in another spelling, so the link rests on the spelling."},
+    "parent-of:seraiah_2494>ezra_1245@a799ee": {"refs":["ezra.7.1"],"note":"'Ezra the son of Seraiah' (7:1). The 7:1-5 genealogy skips generations compared with 1 Chronicles 6, so Seraiah may be a remote ancestor.","kind":"reading"}
   }
 }

@@ -1,9 +1,6 @@
 {
   "passage": "matt.17-28",
-  "ai": {
-    "model": "haiku",
-    "on": "2026-11-08"
-  },
+  "ai": {"model":"haiku","on":"2026-11-08"},
   "agreed": [
     "participated-in:caiaphas_532>jewish-trials@b6400c",
     "participated-in:elijah_1131>the-transfiguation@3d2a05",
@@ -33,432 +30,60 @@
     "occurred-at:second-foretelling-of-death-and-resurrection>galilee_433@3781fd"
   ],
   "facts": {
-    "alias-of:place_954>golgotha_487@33a83b": {
-      "refs": [
-        "matt.27.33"
-      ],
-      "note": "Matthew explains that Golgotha is 'a place of a skull' (27.33)."
-    },
-    "date:bearing-cross-to-golgotha@22ede5": {
-      "refs": [
-        "matt.26.2",
-        "matt.27.32"
-      ],
-      "note": "Set in Passover week (26.2), on the crucifixion day (27.32). No year is given. The year 30 (AD) depends on outside chronology.",
-      "kind": "reading"
-    },
-    "date:crucifixion-and-burial@22ede5": {
-      "refs": [
-        "matt.27.45",
-        "matt.27.57"
-      ],
-      "note": "Darkness from the sixth to the ninth hour (27.45), burial at evening (27.57). No year is given. The year 30 (AD) depends on outside chronology.",
-      "kind": "reading"
-    },
-    "date:debates-in-the-temple@22ede5": {
-      "refs": [
-        "matt.21.1",
-        "matt.21.23"
-      ],
-      "note": "Set in the week that began with the entry into Jerusalem (21.1, 21.23). No year is given. The year 30 (AD) depends on outside chronology.",
-      "kind": "reading"
-    },
-    "date:fig-tree-cursed@22ede5": {
-      "refs": [
-        "matt.21.1",
-        "matt.21.18"
-      ],
-      "note": "Set on the morning he returned to the city, in the week of the entry (21.1, 21.18). No year is given. The year 30 (AD) depends on outside chronology.",
-      "kind": "reading"
-    },
-    "date:healing-a-boy-with-a-demon@2c186f": {
-      "refs": [
-        "matt.17.1",
-        "matt.17.14"
-      ],
-      "note": "Set after the transfiguration, which came 'after six days' (17.1, 17.14). No year is given. The year 29 (AD) depends on outside chronology.",
-      "kind": "reading"
-    },
-    "date:healing-blind-bartimaeus@22ede5": {
-      "refs": [
-        "matt.20.17",
-        "matt.20.29"
-      ],
-      "note": "Set on the road up to Jerusalem before Passover (20.17, 20.29). No year is given. The year 30 (AD) depends on outside chronology.",
-      "kind": "reading"
-    },
-    "date:holy-week@22ede5": {
-      "refs": [
-        "matt.21.1",
-        "matt.26.2"
-      ],
-      "note": "The week from the entry into Jerusalem (21.1) to Passover in two days (26.2). No year is given. The year 30 (AD) depends on outside chronology.",
-      "kind": "reading"
-    },
-    "date:jesus-teaches-in-perea@22ede5": {
-      "refs": [
-        "matt.19.1",
-        "matt.20.17"
-      ],
-      "note": "Set beyond Jordan before the journey up to Jerusalem (19.1, 20.17). No year is given. The year 30 (AD) depends on outside chronology.",
-      "kind": "reading"
-    },
-    "date:jewish-trials@22ede5": {
-      "refs": [
-        "matt.26.2",
-        "matt.26.57"
-      ],
-      "note": "Night arrest and trial before the Passover (26.2, 26.57). No year is given. The year 30 (AD) depends on outside chronology.",
-      "kind": "reading"
-    },
-    "date:judas-plans-betrayal@22ede5": {
-      "refs": [
-        "matt.26.2",
-        "matt.26.14"
-      ],
-      "note": "Set after the Bethany anointing and two days before Passover (26.2, 26.14). No year is given. The year 30 (AD) depends on outside chronology.",
-      "kind": "reading"
-    },
-    "date:judas-suicide@22ede5": {
-      "refs": [
-        "matt.27.1",
-        "matt.27.5"
-      ],
-      "note": "Set on the morning Jesus is condemned (27.1, 27.5). No year is given. The year 30 (AD) depends on outside chronology.",
-      "kind": "reading"
-    },
-    "date:olivet-discourse@22ede5": {
-      "refs": [
-        "matt.24.3",
-        "matt.26.2"
-      ],
-      "note": "Given on the Mount of Olives, before the 'after two days' Passover statement (24.3, 26.2). No year is given. The year 30 (AD) depends on outside chronology.",
-      "kind": "reading"
-    },
-    "date:prayer-and-betrayal-in-gethsemane@22ede5": {
-      "refs": [
-        "matt.26.20",
-        "matt.26.36"
-      ],
-      "note": "Set on the night after the Last Supper (26.20, 26.36). No year is given. The year 30 (AD) depends on outside chronology.",
-      "kind": "reading"
-    },
-    "date:resurrection-and-ascension@22ede5": {
-      "refs": [
-        "matt.28.1"
-      ],
-      "note": "Set at dawn on the first day of the week (28.1). Matthew gives no ascension and no year. The year 30 (AD) depends on outside chronology.",
-      "kind": "reading"
-    },
-    "date:roman-trials@22ede5": {
-      "refs": [
-        "matt.27.1",
-        "matt.27.2"
-      ],
-      "note": "Set on the morning after the night arrest, when they delivered him to Pilate (27.1, 27.2). No year is given. The year 30 (AD) depends on outside chronology.",
-      "kind": "reading"
-    },
-    "date:sanhedrin-conspiracy@22ede5": {
-      "refs": [
-        "matt.26.2",
-        "matt.26.3"
-      ],
-      "note": "Chief priests assemble before the feast, two days before Passover (26.2, 26.3). No year is given. The year 30 (AD) depends on outside chronology.",
-      "kind": "reading"
-    },
-    "date:second-foretelling-of-death-and-resurrection@2c186f": {
-      "refs": [
-        "matt.17.22"
-      ],
-      "note": "Given while they abode in Galilee (17.22). No year is given. The year 29 (AD) depends on outside chronology.",
-      "kind": "reading"
-    },
-    "date:tax-coin-in-a-fish-s-mouth@2c186f": {
-      "refs": [
-        "matt.17.22",
-        "matt.17.24"
-      ],
-      "note": "Set in Galilee after the second foretelling, when they came to Capernaum (17.22, 17.24). No year is given. The year 29 (AD) depends on outside chronology.",
-      "kind": "reading"
-    },
-    "date:teaching-by-the-fig-tree@22ede5": {
-      "refs": [
-        "matt.21.18",
-        "matt.21.21"
-      ],
-      "note": "Set on the morning after the entry, when the fig tree withered (21.18, 21.21). No year is given. The year 30 (AD) depends on outside chronology.",
-      "kind": "reading"
-    },
-    "date:teachings-on-humility-temptation-reconciliation@2c186f": {
-      "refs": [
-        "matt.17.24",
-        "matt.18.1"
-      ],
-      "note": "Set 'at the same time' after the Capernaum episode (17.24, 18.1). No year is given. The year 29 (AD) depends on outside chronology.",
-      "kind": "reading"
-    },
-    "date:temple-cleansed@22ede5": {
-      "refs": [
-        "matt.21.1",
-        "matt.21.12"
-      ],
-      "note": "Set on entering Jerusalem, in the week before Passover (21.1, 21.12). No year is given. The year 30 (AD) depends on outside chronology.",
-      "kind": "reading"
-    },
-    "date:the-last-supper@22ede5": {
-      "refs": [
-        "matt.26.2",
-        "matt.26.17"
-      ],
-      "note": "Set on the first day of unleavened bread, two days before Passover (26.2, 26.17). No year is given. The year 30 (AD) depends on outside chronology.",
-      "kind": "reading"
-    },
-    "date:the-transfiguation@2c186f": {
-      "refs": [
-        "matt.17.1"
-      ],
-      "note": "Dated only as 'after six days' (17.1), from an unstated starting point. No year is given. The year 29 (AD) depends on outside chronology.",
-      "kind": "reading"
-    },
-    "date:triumphal-entry@22ede5": {
-      "refs": [
-        "matt.21.1",
-        "matt.26.2"
-      ],
-      "note": "Set as they drew near Jerusalem (21.1), days before Passover (26.2). No year is given. The year 30 (AD) depends on outside chronology.",
-      "kind": "reading"
-    },
-    "near:gethsemane_462>jerusalem_636@534bea": {
-      "refs": [
-        "matt.21.1",
-        "matt.26.30",
-        "matt.26.36"
-      ],
-      "note": "Gethsemane is reached from the Mount of Olives (26.30, 26.36), which they reached as they drew near Jerusalem (21.1). Distance is not stated.",
-      "kind": "reading"
-    },
-    "occurred-at:bearing-cross-to-golgotha>golgotha_487@391ebe": {
-      "refs": [
-        "matt.27.32",
-        "matt.27.33"
-      ],
-      "note": "Simon is made to carry the cross as they came out (27.32). Only after that do they come to Golgotha (27.33).",
-      "kind": "wrong"
-    },
-    "occurred-at:crucifixion-and-burial>golgotha_487@f26a61": {
-      "refs": [
-        "matt.27.33",
-        "matt.27.35",
-        "matt.27.60"
-      ],
-      "note": "The crucifixion is at Golgotha (27.33, 27.35). The text does not place Joseph's tomb (27.60) at Golgotha.",
-      "kind": "reading"
-    },
-    "occurred-at:debates-in-the-temple>jerusalem_636@8c6f5f": {
-      "refs": [
-        "matt.21.10",
-        "matt.21.23"
-      ],
-      "note": "Jesus came into Jerusalem, then into the temple, where the chief priests questioned him (21.10, 21.23)."
-    },
-    "occurred-at:holy-week>jerusalem_636@29a3a4": {
-      "refs": [
-        "matt.21.10",
-        "matt.21.17",
-        "matt.24.3"
-      ],
-      "note": "Entry and temple teaching are in Jerusalem (21.10), but the week also includes Bethany (21.17) and the Mount of Olives (24.3).",
-      "kind": "reading"
-    },
-    "occurred-at:jewish-trials>jerusalem_636@966b32": {
-      "refs": [
-        "matt.26.3",
-        "matt.26.57"
-      ],
-      "note": "The trial is at the high priest's palace (26.3, 26.57). No city is named there; Jerusalem is inferred from the wider story.",
-      "kind": "reading"
-    },
-    "occurred-at:judas-suicide>jerusalem_636@810803": {
-      "refs": [
-        "matt.21.10",
-        "matt.27.5"
-      ],
-      "note": "He threw the silver down in the temple (27.5), which Matthew reaches after coming into Jerusalem (21.10). The place of hanging is not named.",
-      "kind": "reading"
-    },
-    "occurred-at:sanhedrin-conspiracy>jerusalem_636@706c74": {
-      "refs": [
-        "matt.26.3",
-        "matt.26.4"
-      ],
-      "note": "The chief priests and elders meet at the high priest's palace (26.3). No city is named; Jerusalem is inferred from the wider story.",
-      "kind": "reading"
-    },
-    "occurred-at:the-last-supper>jerusalem_636@d7b1a6": {
-      "refs": [
-        "matt.21.10",
-        "matt.26.18"
-      ],
-      "note": "They are sent into 'the city' for the Passover (26.18), the Jerusalem he entered (21.10)."
-    },
-    "occurred-at:triumphal-entry>jerusalem_636@dc275f": {
-      "refs": [
-        "matt.21.1",
-        "matt.21.10"
-      ],
-      "note": "They drew near Jerusalem (21.1); when he was come into Jerusalem, the whole city was moved (21.10)."
-    },
-    "participated-in:barabbas_399>roman-trials@3db3df": {
-      "refs": [
-        "matt.27.16",
-        "matt.27.26"
-      ],
-      "note": "Barabbas is the prisoner set against Jesus (27.16), and Pilate releases him during the trial (27.26)."
-    },
-    "participated-in:caiaphas_532>sanhedrin-conspiracy@f6624a": {
-      "refs": [
-        "matt.26.3",
-        "matt.26.4"
-      ],
-      "note": "The meeting is at Caiaphas's palace (26.3), but the text does not say he took part in the plot (26.4).",
-      "kind": "reading"
-    },
-    "participated-in:james_717>the-transfiguation@4600b6": {
-      "refs": [
-        "matt.17.1",
-        "matt.17.7"
-      ],
-      "note": "James, brother of John, is one of the three taken up the mountain (17.1) and touched by Jesus (17.7)."
-    },
-    "participated-in:jesus_905>healing-a-boy-with-a-demon@a52e6b": {
-      "refs": [
-        "matt.17.17",
-        "matt.17.18"
-      ],
-      "note": "Jesus rebukes the devil, and the child is cured from that very hour (17.18)."
-    },
-    "participated-in:jesus_905>healing-blind-bartimaeus@3a2ddf": {
-      "refs": [
-        "matt.20.32",
-        "matt.20.34"
-      ],
-      "note": "Jesus stands still, calls the blind men, and touches their eyes; they receive sight (20.32, 20.34)."
-    },
-    "participated-in:jesus_905>judas-suicide@793077": {
-      "refs": [
-        "matt.27.3",
-        "matt.27.5",
-        "matt.27.9"
-      ],
-      "note": "Judas acts alone: he returns the silver and hangs himself (27.3, 27.5). Jesus is absent; only his price is named (27.9).",
-      "kind": "wrong"
-    },
-    "participated-in:jesus_905>resurrection-and-ascension@5778b6": {
-      "refs": [
-        "matt.28.6",
-        "matt.28.9"
-      ],
-      "note": "Jesus is risen (28.6) and meets the women (28.9). Matthew has no ascension."
-    },
-    "participated-in:jesus_905>tax-coin-in-a-fish-s-mouth@1dd435": {
-      "refs": [
-        "matt.17.25",
-        "matt.17.27"
-      ],
-      "note": "Jesus asks Peter about the tribute (17.25), then tells him to take the coin from the fish (17.27)."
-    },
-    "participated-in:jesus_905>teachings-on-humility-temptation-reconciliation@0f6bcd": {
-      "refs": [
-        "matt.18.2",
-        "matt.18.3"
-      ],
-      "note": "Jesus sets a little child in the midst and teaches humility (18.2, 18.3)."
-    },
-    "participated-in:jesus_905>the-last-supper@2c1afb": {
-      "refs": [
-        "matt.26.20",
-        "matt.26.26",
-        "matt.26.27"
-      ],
-      "note": "He sits down with the twelve (26.20) and gives the bread and the cup (26.26, 26.27)."
-    },
-    "participated-in:john_1677>the-transfiguation@41a9bb": {
-      "refs": [
-        "matt.17.1",
-        "matt.17.8"
-      ],
-      "note": "John, brother of James, is taken up with the other two (17.1) and sees only Jesus with them (17.8)."
-    },
-    "participated-in:joseph_1716>crucifixion-and-burial@21e4e0": {
-      "refs": [
-        "matt.27.58",
-        "matt.27.60"
-      ],
-      "note": "Joseph of Arimathaea begs the body from Pilate (27.58) and lays it in his own new tomb (27.60)."
-    },
-    "participated-in:mary_1940>crucifixion-and-burial@11566a": {
-      "refs": [
-        "matt.27.55",
-        "matt.27.56",
-        "matt.27.61"
-      ],
-      "note": "Watches from afar (27.55, 27.56) and sits facing the tomb (27.61). The text says Mary, mother of James and Joses, not wife of Cleophas.",
-      "kind": "reading"
-    },
-    "participated-in:mary_1940>resurrection-and-ascension@01979c": {
-      "refs": [
-        "matt.28.1",
-        "matt.28.9"
-      ],
-      "note": "'The other Mary' comes to the tomb and meets Jesus (28.1, 28.9). The text does not call her the wife of Cleophas.",
-      "kind": "reading"
-    },
-    "participated-in:mary_1943>crucifixion-and-burial@fd2f4e": {
-      "refs": [
-        "matt.27.55",
-        "matt.27.56",
-        "matt.27.61"
-      ],
-      "note": "Watches from afar (27.55, 27.56) and sits facing the tomb (27.61). The text does not say she acts in the crucifixion or burial.",
-      "kind": "reading"
-    },
-    "participated-in:mother_of_zebedees_children_2112>crucifixion-and-burial@464fb9": {
-      "refs": [
-        "matt.27.55",
-        "matt.27.56"
-      ],
-      "note": "Among the women watching from afar (27.55, 27.56). The text does not say she acts in the crucifixion or burial.",
-      "kind": "reading"
-    },
-    "participated-in:peter_2745>jewish-trials@970dd4": {
-      "refs": [
-        "matt.26.58",
-        "matt.26.69",
-        "matt.26.70"
-      ],
-      "note": "Peter is in the high priest's palace (26.58) and denies Jesus there (26.69, 26.70), but the trial itself does not involve him.",
-      "kind": "reading"
-    },
-    "participated-in:peter_2745>prayer-and-betrayal-in-gethsemane@f00c6c": {
-      "refs": [
-        "matt.26.37",
-        "matt.26.40"
-      ],
-      "note": "Jesus takes Peter to Gethsemane (26.37) and speaks to him about watching (26.40)."
-    },
-    "participated-in:peter_2745>tax-coin-in-a-fish-s-mouth@72f6c4": {
-      "refs": [
-        "matt.17.24",
-        "matt.17.27"
-      ],
-      "note": "The tribute collectors come to Peter (17.24), and Jesus tells him to take the coin from the fish (17.27)."
-    },
-    "participated-in:peter_2745>the-transfiguation@87346e": {
-      "refs": [
-        "matt.17.1",
-        "matt.17.4"
-      ],
-      "note": "Peter is taken up with Jesus (17.1) and answers him, offering three tabernacles (17.4)."
-    }
+    "alias-of:place_954>golgotha_487@33a83b": {"refs":["matt.27.33"],"note":"Matthew explains that Golgotha is 'a place of a skull' (27.33)."},
+    "date:bearing-cross-to-golgotha@22ede5": {"refs":["matt.26.2","matt.27.32"],"note":"Set in Passover week (26.2), on the crucifixion day (27.32). No year is given. The year 30 (AD) depends on outside chronology.","kind":"reading"},
+    "date:crucifixion-and-burial@22ede5": {"refs":["matt.27.45","matt.27.57"],"note":"Darkness from the sixth to the ninth hour (27.45), burial at evening (27.57). No year is given. The year 30 (AD) depends on outside chronology.","kind":"reading"},
+    "date:debates-in-the-temple@22ede5": {"refs":["matt.21.1","matt.21.23"],"note":"Set in the week that began with the entry into Jerusalem (21.1, 21.23). No year is given. The year 30 (AD) depends on outside chronology.","kind":"reading"},
+    "date:fig-tree-cursed@22ede5": {"refs":["matt.21.1","matt.21.18"],"note":"Set on the morning he returned to the city, in the week of the entry (21.1, 21.18). No year is given. The year 30 (AD) depends on outside chronology.","kind":"reading"},
+    "date:healing-a-boy-with-a-demon@2c186f": {"refs":["matt.17.1","matt.17.14"],"note":"Set after the transfiguration, which came 'after six days' (17.1, 17.14). No year is given. The year 29 (AD) depends on outside chronology.","kind":"reading"},
+    "date:healing-blind-bartimaeus@22ede5": {"refs":["matt.20.17","matt.20.29"],"note":"Set on the road up to Jerusalem before Passover (20.17, 20.29). No year is given. The year 30 (AD) depends on outside chronology.","kind":"reading"},
+    "date:holy-week@22ede5": {"refs":["matt.21.1","matt.26.2"],"note":"The week from the entry into Jerusalem (21.1) to Passover in two days (26.2). No year is given. The year 30 (AD) depends on outside chronology.","kind":"reading"},
+    "date:jesus-teaches-in-perea@22ede5": {"refs":["matt.19.1","matt.20.17"],"note":"Set beyond Jordan before the journey up to Jerusalem (19.1, 20.17). No year is given. The year 30 (AD) depends on outside chronology.","kind":"reading"},
+    "date:jewish-trials@22ede5": {"refs":["matt.26.2","matt.26.57"],"note":"Night arrest and trial before the Passover (26.2, 26.57). No year is given. The year 30 (AD) depends on outside chronology.","kind":"reading"},
+    "date:judas-plans-betrayal@22ede5": {"refs":["matt.26.2","matt.26.14"],"note":"Set after the Bethany anointing and two days before Passover (26.2, 26.14). No year is given. The year 30 (AD) depends on outside chronology.","kind":"reading"},
+    "date:judas-suicide@22ede5": {"refs":["matt.27.1","matt.27.5"],"note":"Set on the morning Jesus is condemned (27.1, 27.5). No year is given. The year 30 (AD) depends on outside chronology.","kind":"reading"},
+    "date:olivet-discourse@22ede5": {"refs":["matt.24.3","matt.26.2"],"note":"Given on the Mount of Olives, before the 'after two days' Passover statement (24.3, 26.2). No year is given. The year 30 (AD) depends on outside chronology.","kind":"reading"},
+    "date:prayer-and-betrayal-in-gethsemane@22ede5": {"refs":["matt.26.20","matt.26.36"],"note":"Set on the night after the Last Supper (26.20, 26.36). No year is given. The year 30 (AD) depends on outside chronology.","kind":"reading"},
+    "date:resurrection-and-ascension@22ede5": {"refs":["matt.28.1"],"note":"Set at dawn on the first day of the week (28.1). Matthew gives no ascension and no year. The year 30 (AD) depends on outside chronology.","kind":"reading"},
+    "date:roman-trials@22ede5": {"refs":["matt.27.1","matt.27.2"],"note":"Set on the morning after the night arrest, when they delivered him to Pilate (27.1, 27.2). No year is given. The year 30 (AD) depends on outside chronology.","kind":"reading"},
+    "date:sanhedrin-conspiracy@22ede5": {"refs":["matt.26.2","matt.26.3"],"note":"Chief priests assemble before the feast, two days before Passover (26.2, 26.3). No year is given. The year 30 (AD) depends on outside chronology.","kind":"reading"},
+    "date:second-foretelling-of-death-and-resurrection@2c186f": {"refs":["matt.17.22"],"note":"Given while they abode in Galilee (17.22). No year is given. The year 29 (AD) depends on outside chronology.","kind":"reading"},
+    "date:tax-coin-in-a-fish-s-mouth@2c186f": {"refs":["matt.17.22","matt.17.24"],"note":"Set in Galilee after the second foretelling, when they came to Capernaum (17.22, 17.24). No year is given. The year 29 (AD) depends on outside chronology.","kind":"reading"},
+    "date:teaching-by-the-fig-tree@22ede5": {"refs":["matt.21.18","matt.21.21"],"note":"Set on the morning after the entry, when the fig tree withered (21.18, 21.21). No year is given. The year 30 (AD) depends on outside chronology.","kind":"reading"},
+    "date:teachings-on-humility-temptation-reconciliation@2c186f": {"refs":["matt.17.24","matt.18.1"],"note":"Set 'at the same time' after the Capernaum episode (17.24, 18.1). No year is given. The year 29 (AD) depends on outside chronology.","kind":"reading"},
+    "date:temple-cleansed@22ede5": {"refs":["matt.21.1","matt.21.12"],"note":"Set on entering Jerusalem, in the week before Passover (21.1, 21.12). No year is given. The year 30 (AD) depends on outside chronology.","kind":"reading"},
+    "date:the-last-supper@22ede5": {"refs":["matt.26.2","matt.26.17"],"note":"Set on the first day of unleavened bread, two days before Passover (26.2, 26.17). No year is given. The year 30 (AD) depends on outside chronology.","kind":"reading"},
+    "date:the-transfiguation@2c186f": {"refs":["matt.17.1"],"note":"Dated only as 'after six days' (17.1), from an unstated starting point. No year is given. The year 29 (AD) depends on outside chronology.","kind":"reading"},
+    "date:triumphal-entry@22ede5": {"refs":["matt.21.1","matt.26.2"],"note":"Set as they drew near Jerusalem (21.1), days before Passover (26.2). No year is given. The year 30 (AD) depends on outside chronology.","kind":"reading"},
+    "near:gethsemane_462>jerusalem_636@534bea": {"refs":["matt.21.1","matt.26.30","matt.26.36"],"note":"Gethsemane is reached from the Mount of Olives (26.30, 26.36), which they reached as they drew near Jerusalem (21.1). Distance is not stated.","kind":"reading"},
+    "occurred-at:bearing-cross-to-golgotha>golgotha_487@391ebe": {"refs":["matt.27.32","matt.27.33"],"note":"Simon is made to carry the cross as they came out (27.32). Only after that do they come to Golgotha (27.33).","kind":"wrong"},
+    "occurred-at:crucifixion-and-burial>golgotha_487@f26a61": {"refs":["matt.27.33","matt.27.35","matt.27.60"],"note":"The crucifixion is at Golgotha (27.33, 27.35). The text does not place Joseph's tomb (27.60) at Golgotha.","kind":"reading"},
+    "occurred-at:debates-in-the-temple>jerusalem_636@8c6f5f": {"refs":["matt.21.10","matt.21.23"],"note":"Jesus came into Jerusalem, then into the temple, where the chief priests questioned him (21.10, 21.23)."},
+    "occurred-at:holy-week>jerusalem_636@29a3a4": {"refs":["matt.21.10","matt.21.17","matt.24.3"],"note":"Entry and temple teaching are in Jerusalem (21.10), but the week also includes Bethany (21.17) and the Mount of Olives (24.3).","kind":"reading"},
+    "occurred-at:jewish-trials>jerusalem_636@966b32": {"refs":["matt.26.3","matt.26.57"],"note":"The trial is at the high priest's palace (26.3, 26.57). No city is named there; Jerusalem is inferred from the wider story.","kind":"reading"},
+    "occurred-at:judas-suicide>jerusalem_636@810803": {"refs":["matt.21.10","matt.27.5"],"note":"He threw the silver down in the temple (27.5), which Matthew reaches after coming into Jerusalem (21.10). The place of hanging is not named.","kind":"reading"},
+    "occurred-at:sanhedrin-conspiracy>jerusalem_636@706c74": {"refs":["matt.26.3","matt.26.4"],"note":"The chief priests and elders meet at the high priest's palace (26.3). No city is named; Jerusalem is inferred from the wider story.","kind":"reading"},
+    "occurred-at:the-last-supper>jerusalem_636@d7b1a6": {"refs":["matt.21.10","matt.26.18"],"note":"They are sent into 'the city' for the Passover (26.18), the Jerusalem he entered (21.10)."},
+    "occurred-at:triumphal-entry>jerusalem_636@dc275f": {"refs":["matt.21.1","matt.21.10"],"note":"They drew near Jerusalem (21.1); when he was come into Jerusalem, the whole city was moved (21.10)."},
+    "participated-in:barabbas_399>roman-trials@3db3df": {"refs":["matt.27.16","matt.27.26"],"note":"Barabbas is the prisoner set against Jesus (27.16), and Pilate releases him during the trial (27.26)."},
+    "participated-in:caiaphas_532>sanhedrin-conspiracy@f6624a": {"refs":["matt.26.3","matt.26.4"],"note":"The meeting is at Caiaphas's palace (26.3), but the text does not say he took part in the plot (26.4).","kind":"reading"},
+    "participated-in:james_717>the-transfiguation@4600b6": {"refs":["matt.17.1","matt.17.7"],"note":"James, brother of John, is one of the three taken up the mountain (17.1) and touched by Jesus (17.7)."},
+    "participated-in:jesus_905>healing-a-boy-with-a-demon@a52e6b": {"refs":["matt.17.17","matt.17.18"],"note":"Jesus rebukes the devil, and the child is cured from that very hour (17.18)."},
+    "participated-in:jesus_905>healing-blind-bartimaeus@3a2ddf": {"refs":["matt.20.32","matt.20.34"],"note":"Jesus stands still, calls the blind men, and touches their eyes; they receive sight (20.32, 20.34)."},
+    "participated-in:jesus_905>judas-suicide@793077": {"refs":["matt.27.3","matt.27.5","matt.27.9"],"note":"Judas acts alone: he returns the silver and hangs himself (27.3, 27.5). Jesus is absent; only his price is named (27.9).","kind":"wrong"},
+    "participated-in:jesus_905>resurrection-and-ascension@5778b6": {"refs":["matt.28.6","matt.28.9"],"note":"Jesus is risen (28.6) and meets the women (28.9). Matthew has no ascension."},
+    "participated-in:jesus_905>tax-coin-in-a-fish-s-mouth@1dd435": {"refs":["matt.17.25","matt.17.27"],"note":"Jesus asks Peter about the tribute (17.25), then tells him to take the coin from the fish (17.27)."},
+    "participated-in:jesus_905>teachings-on-humility-temptation-reconciliation@0f6bcd": {"refs":["matt.18.2","matt.18.3"],"note":"Jesus sets a little child in the midst and teaches humility (18.2, 18.3)."},
+    "participated-in:jesus_905>the-last-supper@2c1afb": {"refs":["matt.26.20","matt.26.26","matt.26.27"],"note":"He sits down with the twelve (26.20) and gives the bread and the cup (26.26, 26.27)."},
+    "participated-in:john_1677>the-transfiguation@41a9bb": {"refs":["matt.17.1","matt.17.8"],"note":"John, brother of James, is taken up with the other two (17.1) and sees only Jesus with them (17.8)."},
+    "participated-in:joseph_1716>crucifixion-and-burial@21e4e0": {"refs":["matt.27.58","matt.27.60"],"note":"Joseph of Arimathaea begs the body from Pilate (27.58) and lays it in his own new tomb (27.60)."},
+    "participated-in:mary_1940>crucifixion-and-burial@11566a": {"refs":["matt.27.55","matt.27.56","matt.27.61"],"note":"Watches from afar (27.55, 27.56) and sits facing the tomb (27.61). The text says Mary, mother of James and Joses, not wife of Cleophas.","kind":"reading"},
+    "participated-in:mary_1940>resurrection-and-ascension@01979c": {"refs":["matt.28.1","matt.28.9"],"note":"'The other Mary' comes to the tomb and meets Jesus (28.1, 28.9). The text does not call her the wife of Cleophas.","kind":"reading"},
+    "participated-in:mary_1943>crucifixion-and-burial@fd2f4e": {"refs":["matt.27.55","matt.27.56","matt.27.61"],"note":"Watches from afar (27.55, 27.56) and sits facing the tomb (27.61). The text does not say she acts in the crucifixion or burial.","kind":"reading"},
+    "participated-in:mother_of_zebedees_children_2112>crucifixion-and-burial@464fb9": {"refs":["matt.27.55","matt.27.56"],"note":"Among the women watching from afar (27.55, 27.56). The text does not say she acts in the crucifixion or burial.","kind":"reading"},
+    "participated-in:peter_2745>jewish-trials@970dd4": {"refs":["matt.26.58","matt.26.69","matt.26.70"],"note":"Peter is in the high priest's palace (26.58) and denies Jesus there (26.69, 26.70), but the trial itself does not involve him.","kind":"reading"},
+    "participated-in:peter_2745>prayer-and-betrayal-in-gethsemane@f00c6c": {"refs":["matt.26.37","matt.26.40"],"note":"Jesus takes Peter to Gethsemane (26.37) and speaks to him about watching (26.40)."},
+    "participated-in:peter_2745>tax-coin-in-a-fish-s-mouth@72f6c4": {"refs":["matt.17.24","matt.17.27"],"note":"The tribute collectors come to Peter (17.24), and Jesus tells him to take the coin from the fish (17.27)."},
+    "participated-in:peter_2745>the-transfiguation@87346e": {"refs":["matt.17.1","matt.17.4"],"note":"Peter is taken up with Jesus (17.1) and answers him, offering three tabernacles (17.4)."}
   }
 }

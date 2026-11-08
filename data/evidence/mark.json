@@ -1,6 +1,6 @@
 {
   "passage": "mark.1-16",
-  "ai": { "model": "haiku", "on": "2026-11-08" },
+  "ai": {"model":"haiku","on":"2026-11-08"},
   "agreed": [
     "occurred-at:discourse-with-pharisees-and-saducees>dalmanutha_320@51fc84",
     "occurred-at:healing-a-blind-man-at-bethsaida>bethsaida_231@20621b",
@@ -21,105 +21,27 @@
     "participated-in:salome_2464>resurrection-and-ascension@781111"
   ],
   "facts": {
-    "date:healing-a-blind-man-at-bethsaida@2c186f": {
-      "refs": ["mark.8.22"],
-      "note": "Mark 8:22 gives no date. The 29 AD year depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:the-demoniac@7a82e9": {
-      "refs": ["mark.1.21"],
-      "note": "Mark 1:21 gives no date, only 'on the sabbath day'. The 27 AD year depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "near:golgotha_487>jerusalem_636@9931b8": {
-      "refs": ["mark.15.22", "mark.15.41"],
-      "note": "15:22 names Golgotha; 15:41 has the women coming up with him to Jerusalem. No distance is given, so 'near' is a reading.",
-      "kind": "reading"
-    },
-    "occurred-at:3rd-tour-of-galilee>galilee_433@5b3690": {
-      "refs": ["mark.1.39"],
-      "note": "1:39 has him preaching throughout all Galilee. The text does not number a 'third tour', so linking the event to this passage is a reading.",
-      "kind": "reading"
-    },
-    "occurred-at:fasting-question>capernaum_274@7e66da": {
-      "refs": ["mark.2.1", "mark.2.15"],
-      "note": "2:1 places him in Capernaum and 2:15 has a meal 'in his house'. The fasting question names no place, so Capernaum is a reading.",
-      "kind": "reading"
-    },
-    "occurred-at:healing-a-crowd-near-sea-of-galilee>decapolis_328@25ca67": {
-      "refs": ["mark.7.31"],
-      "note": "7:31 says he passed through the coasts of Decapolis on his way to the sea of Galilee. The healing comes after, at the sea, not in Decapolis.",
-      "kind": "wrong"
-    },
-    "occurred-at:healing-multitudes>galilee_433@0249d8": {
-      "refs": ["mark.3.7"],
-      "note": "3:7 has him withdraw 'to the sea' with crowds from many regions. Galilee is a reading; the verse does not name the place of healing.",
-      "kind": "reading"
-    },
-    "occurred-at:healing-the-leper>galilee_433@ecf983": {
-      "refs": ["mark.1.39"],
-      "note": "1:39 has him preaching throughout all Galilee, and 1:40 continues the scene with the leper coming to him."
-    },
-    "occurred-at:jesus-calls-matthew>capernaum_274@cf5bcf": {
-      "refs": ["mark.2.1", "mark.2.14"],
-      "note": "The call is by the sea (2:13-14) with no town named; Capernaum is inferred from 2:1. Mark names the caller Levi, not Matthew.",
-      "kind": "reading"
-    },
-    "occurred-at:parable-of-the-winseskins>capernaum_274@5b3d56": {
-      "refs": ["mark.2.1", "mark.2.22"],
-      "note": "The new-wine parable (2:21-22) follows the fasting scene, which names no place. Capernaum is inferred from 2:1.",
-      "kind": "reading"
-    },
-    "parent-of:alphaeus_193>matthew_1971@cc38e6": {
-      "refs": ["mark.2.14"],
-      "note": "2:14 says Levi the son of Alphaeus. Mark never calls him Matthew; the Levi-Matthew identity comes from outside Mark.",
-      "kind": "reading"
-    },
-    "parent-of:simon_2749>alexander_186@fad3c7": {
-      "refs": ["mark.15.21"],
-      "note": "15:21 says Simon a Cyrenian was 'the father of Alexander and Rufus'."
-    },
-    "parent-of:simon_2749>rufus_2448@89fa2f": {
-      "refs": ["mark.15.21"],
-      "note": "15:21 says Simon a Cyrenian was 'the father of Alexander and Rufus'."
-    },
-    "participated-in:jesus_905>fig-tree-cursed@b69e37": {
-      "refs": ["mark.11.13", "mark.11.14"],
-      "note": "Jesus comes to the fig tree, finds only leaves, and says no man shall eat fruit of it (11:13-14)."
-    },
-    "participated-in:jesus_905>healing-a-blind-man-at-bethsaida@d49bb3": {
-      "refs": ["mark.8.23", "mark.8.25"],
-      "note": "Jesus leads the blind man out, spits on his eyes and lays hands on him (8:23); he is restored (8:25)."
-    },
-    "participated-in:salome_2464>crucifixion-and-burial@7461cf": {
-      "refs": ["mark.15.40"],
-      "note": "15:40 says Salome was 'looking on afar off'. She acts in neither the crucifixion nor the burial.",
-      "kind": "wrong"
-    },
-    "visited:bartholomew_405>jerusalem_636@e3a0d6": {
-      "refs": ["mark.3.18", "mark.10.32", "mark.11.11"],
-      "note": "Bartholomew is one of the twelve (3:18). The twelve go up to Jerusalem with Jesus (10:32) and leave it with him (11:11)."
-    },
-    "visited:james_718>jerusalem_636@e510f2": {
-      "refs": ["mark.3.18", "mark.10.32", "mark.11.11"],
-      "note": "James the son of Alphaeus is one of the twelve (3:18). The twelve go up to Jerusalem with Jesus (10:32) and leave it with him (11:11)."
-    },
-    "visited:lebbaeus_1815>jerusalem_636@b68e06": {
-      "refs": ["mark.3.18", "mark.10.32", "mark.11.11"],
-      "note": "Mark 3:18 names Thaddaeus, one of the twelve. The twelve go up to Jerusalem with Jesus (10:32) and leave it with him (11:11)."
-    },
-    "visited:matthew_1971>jerusalem_636@29ce74": {
-      "refs": ["mark.3.18", "mark.10.32", "mark.11.11"],
-      "note": "Matthew is named among the twelve (3:18). The twelve go up to Jerusalem with Jesus (10:32) and leave it with him (11:11)."
-    },
-    "visited:simon_2746>jerusalem_636@0b3b16": {
-      "refs": ["mark.3.18", "mark.10.32", "mark.11.11"],
-      "note": "3:18 names 'Simon the Canaanite' among the twelve; the Zelotes name is from outside Mark. The twelve go up to Jerusalem (10:32) and leave it with him (11:11).",
-      "kind": "reading"
-    },
-    "visited:thomas_2851>jerusalem_636@264ddc": {
-      "refs": ["mark.3.18", "mark.10.32", "mark.11.11"],
-      "note": "Thomas is named among the twelve (3:18). The twelve go up to Jerusalem with Jesus (10:32) and leave it with him (11:11)."
-    }
+    "date:healing-a-blind-man-at-bethsaida@2c186f": {"refs":["mark.8.22"],"note":"Mark 8:22 gives no date. The 29 AD year depends on dating outside Scripture.","kind":"reading"},
+    "date:the-demoniac@7a82e9": {"refs":["mark.1.21"],"note":"Mark 1:21 gives no date, only 'on the sabbath day'. The 27 AD year depends on dating outside Scripture.","kind":"reading"},
+    "near:golgotha_487>jerusalem_636@9931b8": {"refs":["mark.15.22","mark.15.41"],"note":"15:22 names Golgotha; 15:41 has the women coming up with him to Jerusalem. No distance is given, so 'near' is a reading.","kind":"reading"},
+    "occurred-at:3rd-tour-of-galilee>galilee_433@5b3690": {"refs":["mark.1.39"],"note":"1:39 has him preaching throughout all Galilee. The text does not number a 'third tour', so linking the event to this passage is a reading.","kind":"reading"},
+    "occurred-at:fasting-question>capernaum_274@7e66da": {"refs":["mark.2.1","mark.2.15"],"note":"2:1 places him in Capernaum and 2:15 has a meal 'in his house'. The fasting question names no place, so Capernaum is a reading.","kind":"reading"},
+    "occurred-at:healing-a-crowd-near-sea-of-galilee>decapolis_328@25ca67": {"refs":["mark.7.31"],"note":"7:31 says he passed through the coasts of Decapolis on his way to the sea of Galilee. The healing comes after, at the sea, not in Decapolis.","kind":"wrong"},
+    "occurred-at:healing-multitudes>galilee_433@0249d8": {"refs":["mark.3.7"],"note":"3:7 has him withdraw 'to the sea' with crowds from many regions. Galilee is a reading; the verse does not name the place of healing.","kind":"reading"},
+    "occurred-at:healing-the-leper>galilee_433@ecf983": {"refs":["mark.1.39"],"note":"1:39 has him preaching throughout all Galilee, and 1:40 continues the scene with the leper coming to him."},
+    "occurred-at:jesus-calls-matthew>capernaum_274@cf5bcf": {"refs":["mark.2.1","mark.2.14"],"note":"The call is by the sea (2:13-14) with no town named; Capernaum is inferred from 2:1. Mark names the caller Levi, not Matthew.","kind":"reading"},
+    "occurred-at:parable-of-the-winseskins>capernaum_274@5b3d56": {"refs":["mark.2.1","mark.2.22"],"note":"The new-wine parable (2:21-22) follows the fasting scene, which names no place. Capernaum is inferred from 2:1.","kind":"reading"},
+    "parent-of:alphaeus_193>matthew_1971@cc38e6": {"refs":["mark.2.14"],"note":"2:14 says Levi the son of Alphaeus. Mark never calls him Matthew; the Levi-Matthew identity comes from outside Mark.","kind":"reading"},
+    "parent-of:simon_2749>alexander_186@fad3c7": {"refs":["mark.15.21"],"note":"15:21 says Simon a Cyrenian was 'the father of Alexander and Rufus'."},
+    "parent-of:simon_2749>rufus_2448@89fa2f": {"refs":["mark.15.21"],"note":"15:21 says Simon a Cyrenian was 'the father of Alexander and Rufus'."},
+    "participated-in:jesus_905>fig-tree-cursed@b69e37": {"refs":["mark.11.13","mark.11.14"],"note":"Jesus comes to the fig tree, finds only leaves, and says no man shall eat fruit of it (11:13-14)."},
+    "participated-in:jesus_905>healing-a-blind-man-at-bethsaida@d49bb3": {"refs":["mark.8.23","mark.8.25"],"note":"Jesus leads the blind man out, spits on his eyes and lays hands on him (8:23); he is restored (8:25)."},
+    "participated-in:salome_2464>crucifixion-and-burial@7461cf": {"refs":["mark.15.40"],"note":"15:40 says Salome was 'looking on afar off'. She acts in neither the crucifixion nor the burial.","kind":"wrong"},
+    "visited:bartholomew_405>jerusalem_636@e3a0d6": {"refs":["mark.3.18","mark.10.32","mark.11.11"],"note":"Bartholomew is one of the twelve (3:18). The twelve go up to Jerusalem with Jesus (10:32) and leave it with him (11:11)."},
+    "visited:james_718>jerusalem_636@e510f2": {"refs":["mark.3.18","mark.10.32","mark.11.11"],"note":"James the son of Alphaeus is one of the twelve (3:18). The twelve go up to Jerusalem with Jesus (10:32) and leave it with him (11:11)."},
+    "visited:lebbaeus_1815>jerusalem_636@b68e06": {"refs":["mark.3.18","mark.10.32","mark.11.11"],"note":"Mark 3:18 names Thaddaeus, one of the twelve. The twelve go up to Jerusalem with Jesus (10:32) and leave it with him (11:11)."},
+    "visited:matthew_1971>jerusalem_636@29ce74": {"refs":["mark.3.18","mark.10.32","mark.11.11"],"note":"Matthew is named among the twelve (3:18). The twelve go up to Jerusalem with Jesus (10:32) and leave it with him (11:11)."},
+    "visited:simon_2746>jerusalem_636@0b3b16": {"refs":["mark.3.18","mark.10.32","mark.11.11"],"note":"3:18 names 'Simon the Canaanite' among the twelve; the Zelotes name is from outside Mark. The twelve go up to Jerusalem (10:32) and leave it with him (11:11).","kind":"reading"},
+    "visited:thomas_2851>jerusalem_636@264ddc": {"refs":["mark.3.18","mark.10.32","mark.11.11"],"note":"Thomas is named among the twelve (3:18). The twelve go up to Jerusalem with Jesus (10:32) and leave it with him (11:11)."}
   }
 }

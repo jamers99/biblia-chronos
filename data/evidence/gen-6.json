@@ -1,6 +1,6 @@
 {
   "passage": "gen.25-28",
-  "ai": { "model": "haiku", "on": "2026-11-08" },
+  "ai": {"model":"haiku","on":"2026-11-08"},
   "agreed": [
     "parent-of:bethuel_487>laban_1803@edde00",
     "parent-of:dedan_999>asshurim_350@e977ce",
@@ -19,161 +19,40 @@
     "partner-of:isaac_616>rebekah_2401@7f68b5"
   ],
   "facts": {
-    "alias-of:shibah_1075>beersheba_170@18c68a": {
-      "refs": ["gen.26.33"],
-      "note": "Gen 26.33 says he called the well Shebah and the city is Beersheba. It does not say Shibah is the same place; the spelling differs.",
-      "kind": "reading"
-    },
-    "alias-of:valley_of_gerar_1203>gerar_459@ec2eed": {
-      "refs": ["gen.26.6", "gen.26.17"],
-      "note": "The valley is named for Gerar and lies in its area (26.17, 26.19-20). Being the same place is not stated.",
-      "kind": "reading"
-    },
-    "birth:esau_1216@e60a80": {
-      "refs": ["gen.25.25", "gen.25.26"],
-      "note": "Twins born, Esau first; Isaac was 60 at their birth. The text gives no BC year; -1835 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "birth:israel_682@e60a80": {
-      "refs": ["gen.25.26"],
-      "note": "Jacob came out after Esau, his hand on Esau's heel. The text gives no BC year; -1835 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:birth-of-jacob-and-esau@e60a80": {
-      "refs": ["gen.25.20", "gen.25.26"],
-      "note": "Isaac was 40 at marriage and 60 at the twins' birth: biblical timing only. The BC year -1835 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:death-of-abraham@ce0d91": {
-      "refs": ["gen.25.7", "gen.25.8"],
-      "note": "Abraham lived 175 years, then died. The text gives no BC year; -1820 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:death-of-ishmael@60d5db": {
-      "refs": ["gen.25.17"],
-      "note": "Ishmael lived 137 years, then died. The text gives no BC year; -1772 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:isaac-marries-rebekah@a82ffe": {
-      "refs": ["gen.25.20"],
-      "note": "Isaac was forty when he took Rebekah to wife. Biblical timing only; the BC year -1855 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:lifetime-of-jacob@519daf": {
-      "refs": ["gen.47.28", "gen.25.26"],
-      "note": "Gen 47.28 says Jacob's whole life was 147 years. Born -1835 plus 147 ends about -1688, not -1655.",
-      "kind": "wrong"
-    },
-    "death:israel_682@72a729": {
-      "refs": ["gen.49.33", "gen.47.28"],
-      "note": "Jacob yielded up the ghost (49.33) at 147 years (47.28). The BC year -1688 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "died-at:isaac_616>mamre_762@b72515": {
-      "refs": ["gen.35.27", "gen.35.29"],
-      "note": "Jacob came to Isaac at Mamre (35.27); Isaac then died (35.29), with no move stated. Gen 25.9 is about Abraham."
-    },
-    "near:esek_409>gerar_459@149389": {
-      "refs": ["gen.26.17", "gen.26.20"],
-      "note": "Esek was a well in the valley of Gerar, disputed by Gerar's herdmen. The word 'near' is inferred, not stated.",
-      "kind": "reading"
-    },
-    "near:sitnah_1102>gerar_459@545c8c": {
-      "refs": ["gen.26.20", "gen.26.21"],
-      "note": "Sitnah was another well in the same dispute with Gerar's herdmen. The word 'near' is inferred, not stated.",
-      "kind": "reading"
-    },
-    "occurred-at:death-of-abraham>machpelah_748@5442b1": {
-      "refs": ["gen.25.8", "gen.25.9"],
-      "note": "Abraham died (25.8). The text says he was buried in Machpelah (25.9), not where he died.",
-      "kind": "reading"
-    },
-    "parent-of:beeri_432>aholibamah_1761@460dce": {
-      "refs": ["gen.36.2"],
-      "note": "Gen 36.2 says Aholibamah was the daughter of Anah. Gen 26.34 names Judith as the daughter of Beeri.",
-      "kind": "wrong"
-    },
-    "parent-of:elon_1182>adah_414@0a7538": {
-      "refs": ["gen.36.2"],
-      "note": "Gen 36.2 names Adah as the daughter of Elon the Hittite. Gen 26.34 is about Bashemath, not Adah."
-    },
-    "parent-of:ishmael_630>adbeel_79@688bb2": {
-      "refs": ["gen.25.13"],
-      "note": "Adbeel is listed among the sons of Ishmael, by name and generation."
-    },
-    "parent-of:ishmael_630>bashemath_1887@dfe805": {
-      "refs": ["gen.36.3"],
-      "note": "Gen 36.3 calls Bashemath Ishmael's daughter. But Gen 26.34 calls Bashemath the daughter of Elon, and 28.9 names Ishmael's daughter Mahalath.",
-      "kind": "reading"
-    },
-    "parent-of:ishmael_630>dumah_1025@1925b3": {
-      "refs": ["gen.25.14"],
-      "note": "Dumah is listed among the sons of Ishmael (25.14, 25.16)."
-    },
-    "parent-of:ishmael_630>hadar_1341@22c468": {
-      "refs": ["gen.25.15", "gen.25.16"],
-      "note": "Hadar is listed among the sons of Ishmael (25.15, 25.16)."
-    },
-    "parent-of:ishmael_630>kedar_1769@e9934e": {
-      "refs": ["gen.25.13"],
-      "note": "Kedar is listed among the sons of Ishmael, by name and generation."
-    },
-    "parent-of:ishmael_630>massa_1945@6092c1": {
-      "refs": ["gen.25.14"],
-      "note": "Massa is listed among the sons of Ishmael (25.14, 25.16)."
-    },
-    "parent-of:ishmael_630>mibsam_2046@184452": {
-      "refs": ["gen.25.13"],
-      "note": "Mibsam is listed among the sons of Ishmael, by name and generation."
-    },
-    "parent-of:ishmael_630>mishma_2094@12e95e": {
-      "refs": ["gen.25.14"],
-      "note": "Mishma is listed among the sons of Ishmael (25.14, 25.16)."
-    },
-    "parent-of:ishmael_630>nebajoth_2164@e6f993": {
-      "refs": ["gen.25.13"],
-      "note": "Nebajoth is named as the firstborn of Ishmael."
-    },
-    "parent-of:ishmael_630>tema_2837@59251e": {
-      "refs": ["gen.25.15", "gen.25.16"],
-      "note": "Tema is listed among the sons of Ishmael (25.15, 25.16)."
-    },
-    "parent-of:keturah_1782>midian_2075@336048": {
-      "refs": ["gen.25.2"],
-      "note": "Keturah bare him Zimran, Jokshan, Medan, Midian and others; Midian is among them."
-    },
-    "parent-of:rebekah_2401>esau_1216@7e9bfc": {
-      "refs": ["gen.25.26"],
-      "note": "Rebekah bare the twins, Esau among them, after her days of delivery (25.24, 25.26)."
-    },
-    "parent-of:rebekah_2401>israel_682@46e041": {
-      "refs": ["gen.25.26"],
-      "note": "Rebekah bare the twins, Jacob among them (25.26)."
-    },
-    "participated-in:abraham_58>death-of-abraham@b7da3c": {
-      "refs": ["gen.25.8"],
-      "note": "Abraham is the one who died (25.8). The matched verse 25.7 gives only his lifespan."
-    },
-    "participated-in:esau_1216>birth-of-jacob-and-esau@a908b8": {
-      "refs": ["gen.25.25"],
-      "note": "Esau is one of the twins; he came out first (25.25)."
-    },
-    "participated-in:israel_682>birth-of-jacob-and-esau@73369a": {
-      "refs": ["gen.25.26"],
-      "note": "Jacob came out after Esau, taking hold of Esau's heel (25.26)."
-    },
-    "participated-in:israel_682>lifetime-of-jacob@c3efe8": {
-      "refs": ["gen.47.28", "gen.25.27"],
-      "note": "Jacob lived and dwelt in tents (25.27); his whole age was 147 years (47.28)."
-    },
-    "participated-in:rebekah_2401>birth-of-jacob-and-esau@987a49": {
-      "refs": ["gen.25.24", "gen.25.26"],
-      "note": "Rebekah bare the twins (25.26), after her days to be delivered were fulfilled (25.24)."
-    },
-    "participated-in:rebekah_2401>isaac-marries-rebekah@bb184c": {
-      "refs": ["gen.25.20"],
-      "note": "She is the bride Isaac took to wife (25.20), but the text gives her no action in the marriage.",
-      "kind": "reading"
-    }
+    "alias-of:shibah_1075>beersheba_170@18c68a": {"refs":["gen.26.33"],"note":"Gen 26.33 says he called the well Shebah and the city is Beersheba. It does not say Shibah is the same place; the spelling differs.","kind":"reading"},
+    "alias-of:valley_of_gerar_1203>gerar_459@ec2eed": {"refs":["gen.26.6","gen.26.17"],"note":"The valley is named for Gerar and lies in its area (26.17, 26.19-20). Being the same place is not stated.","kind":"reading"},
+    "birth:esau_1216@e60a80": {"refs":["gen.25.25","gen.25.26"],"note":"Twins born, Esau first; Isaac was 60 at their birth. The text gives no BC year; -1835 depends on dating outside Scripture.","kind":"reading"},
+    "birth:israel_682@e60a80": {"refs":["gen.25.26"],"note":"Jacob came out after Esau, his hand on Esau's heel. The text gives no BC year; -1835 depends on dating outside Scripture.","kind":"reading"},
+    "date:birth-of-jacob-and-esau@e60a80": {"refs":["gen.25.20","gen.25.26"],"note":"Isaac was 40 at marriage and 60 at the twins' birth: biblical timing only. The BC year -1835 depends on dating outside Scripture.","kind":"reading"},
+    "date:death-of-abraham@ce0d91": {"refs":["gen.25.7","gen.25.8"],"note":"Abraham lived 175 years, then died. The text gives no BC year; -1820 depends on dating outside Scripture.","kind":"reading"},
+    "date:death-of-ishmael@60d5db": {"refs":["gen.25.17"],"note":"Ishmael lived 137 years, then died. The text gives no BC year; -1772 depends on dating outside Scripture.","kind":"reading"},
+    "date:isaac-marries-rebekah@a82ffe": {"refs":["gen.25.20"],"note":"Isaac was forty when he took Rebekah to wife. Biblical timing only; the BC year -1855 depends on dating outside Scripture.","kind":"reading"},
+    "date:lifetime-of-jacob@519daf": {"refs":["gen.47.28","gen.25.26"],"note":"Gen 47.28 says Jacob's whole life was 147 years. Born -1835 plus 147 ends about -1688, not -1655.","kind":"wrong"},
+    "death:israel_682@72a729": {"refs":["gen.49.33","gen.47.28"],"note":"Jacob yielded up the ghost (49.33) at 147 years (47.28). The BC year -1688 depends on dating outside Scripture.","kind":"reading"},
+    "died-at:isaac_616>mamre_762@b72515": {"refs":["gen.35.27","gen.35.29"],"note":"Jacob came to Isaac at Mamre (35.27); Isaac then died (35.29), with no move stated. Gen 25.9 is about Abraham."},
+    "near:esek_409>gerar_459@149389": {"refs":["gen.26.17","gen.26.20"],"note":"Esek was a well in the valley of Gerar, disputed by Gerar's herdmen. The word 'near' is inferred, not stated.","kind":"reading"},
+    "near:sitnah_1102>gerar_459@545c8c": {"refs":["gen.26.20","gen.26.21"],"note":"Sitnah was another well in the same dispute with Gerar's herdmen. The word 'near' is inferred, not stated.","kind":"reading"},
+    "occurred-at:death-of-abraham>machpelah_748@5442b1": {"refs":["gen.25.8","gen.25.9"],"note":"Abraham died (25.8). The text says he was buried in Machpelah (25.9), not where he died.","kind":"reading"},
+    "parent-of:beeri_432>aholibamah_1761@460dce": {"refs":["gen.36.2"],"note":"Gen 36.2 says Aholibamah was the daughter of Anah. Gen 26.34 names Judith as the daughter of Beeri.","kind":"wrong"},
+    "parent-of:elon_1182>adah_414@0a7538": {"refs":["gen.36.2"],"note":"Gen 36.2 names Adah as the daughter of Elon the Hittite. Gen 26.34 is about Bashemath, not Adah."},
+    "parent-of:ishmael_630>adbeel_79@688bb2": {"refs":["gen.25.13"],"note":"Adbeel is listed among the sons of Ishmael, by name and generation."},
+    "parent-of:ishmael_630>bashemath_1887@dfe805": {"refs":["gen.36.3"],"note":"Gen 36.3 calls Bashemath Ishmael's daughter. But Gen 26.34 calls Bashemath the daughter of Elon, and 28.9 names Ishmael's daughter Mahalath.","kind":"reading"},
+    "parent-of:ishmael_630>dumah_1025@1925b3": {"refs":["gen.25.14"],"note":"Dumah is listed among the sons of Ishmael (25.14, 25.16)."},
+    "parent-of:ishmael_630>hadar_1341@22c468": {"refs":["gen.25.15","gen.25.16"],"note":"Hadar is listed among the sons of Ishmael (25.15, 25.16)."},
+    "parent-of:ishmael_630>kedar_1769@e9934e": {"refs":["gen.25.13"],"note":"Kedar is listed among the sons of Ishmael, by name and generation."},
+    "parent-of:ishmael_630>massa_1945@6092c1": {"refs":["gen.25.14"],"note":"Massa is listed among the sons of Ishmael (25.14, 25.16)."},
+    "parent-of:ishmael_630>mibsam_2046@184452": {"refs":["gen.25.13"],"note":"Mibsam is listed among the sons of Ishmael, by name and generation."},
+    "parent-of:ishmael_630>mishma_2094@12e95e": {"refs":["gen.25.14"],"note":"Mishma is listed among the sons of Ishmael (25.14, 25.16)."},
+    "parent-of:ishmael_630>nebajoth_2164@e6f993": {"refs":["gen.25.13"],"note":"Nebajoth is named as the firstborn of Ishmael."},
+    "parent-of:ishmael_630>tema_2837@59251e": {"refs":["gen.25.15","gen.25.16"],"note":"Tema is listed among the sons of Ishmael (25.15, 25.16)."},
+    "parent-of:keturah_1782>midian_2075@336048": {"refs":["gen.25.2"],"note":"Keturah bare him Zimran, Jokshan, Medan, Midian and others; Midian is among them."},
+    "parent-of:rebekah_2401>esau_1216@7e9bfc": {"refs":["gen.25.26"],"note":"Rebekah bare the twins, Esau among them, after her days of delivery (25.24, 25.26)."},
+    "parent-of:rebekah_2401>israel_682@46e041": {"refs":["gen.25.26"],"note":"Rebekah bare the twins, Jacob among them (25.26)."},
+    "participated-in:abraham_58>death-of-abraham@b7da3c": {"refs":["gen.25.8"],"note":"Abraham is the one who died (25.8). The matched verse 25.7 gives only his lifespan."},
+    "participated-in:esau_1216>birth-of-jacob-and-esau@a908b8": {"refs":["gen.25.25"],"note":"Esau is one of the twins; he came out first (25.25)."},
+    "participated-in:israel_682>birth-of-jacob-and-esau@73369a": {"refs":["gen.25.26"],"note":"Jacob came out after Esau, taking hold of Esau's heel (25.26)."},
+    "participated-in:israel_682>lifetime-of-jacob@c3efe8": {"refs":["gen.47.28","gen.25.27"],"note":"Jacob lived and dwelt in tents (25.27); his whole age was 147 years (47.28)."},
+    "participated-in:rebekah_2401>birth-of-jacob-and-esau@987a49": {"refs":["gen.25.24","gen.25.26"],"note":"Rebekah bare the twins (25.26), after her days to be delivered were fulfilled (25.24)."},
+    "participated-in:rebekah_2401>isaac-marries-rebekah@bb184c": {"refs":["gen.25.20"],"note":"She is the bride Isaac took to wife (25.20), but the text gives her no action in the marriage.","kind":"reading"}
   }
 }

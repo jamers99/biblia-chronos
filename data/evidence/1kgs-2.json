@@ -1,6 +1,6 @@
 {
   "passage": "1kgs.12-22",
-  "ai": { "model": "haiku", "on": "2026-11-08" },
+  "ai": {"model":"haiku","on":"2026-11-08"},
   "agreed": [
     "occurred-at:reign-of-ahaziah>samaria_1022@ae8163",
     "occurred-at:reign-of-asa>jerusalem_636@ff7cea",
@@ -42,317 +42,69 @@
     "partner-of:ahab_113>jezebel_1605@7d95bf"
   ],
   "facts": {
-    "alias-of:samarias_1023>samaria_1022@e11b74": {
-      "refs": ["1kgs.16.24"],
-      "note": "The text names only Samaria (16.24, built by Omri). 'Samarias' does not occur in this passage, so the alias is a spelling identification from outside it.",
-      "kind": "reading"
-    },
-    "birth:jehoram_803@19dfb8": {
-      "refs": ["1kgs.22.50"],
-      "note": "Text names Jehoram as Jehoshaphat's son who succeeded him, with no birth date. The year rests on outside chronology.",
-      "kind": "reading"
-    },
-    "birth:jehoshaphat_808@d77b9d": {
-      "refs": ["1kgs.22.41", "1kgs.22.42"],
-      "note": "Text gives his age at accession as 35, in Ahab's fourth year, so birth is 35 years before accession. The year depends on outside dating of Ahab.",
-      "kind": "reading"
-    },
-    "birth:josiah_1730@75ed67": {
-      "refs": ["1kgs.13.2"],
-      "note": "Text foretells a child of David's house named Josiah, with no birth date. The year rests on outside chronology.",
-      "kind": "reading"
-    },
-    "date:death-of-abijam@1dc3ed": {
-      "refs": ["1kgs.15.1", "1kgs.15.2", "1kgs.15.8"],
-      "note": "Text gives accession in Jeroboam's 18th year, a three-year reign, and that he slept with his fathers. The year depends on outside dating.",
-      "kind": "reading"
-    },
-    "date:death-of-asa@b7f255": {
-      "refs": ["1kgs.15.9", "1kgs.15.10", "1kgs.15.24"],
-      "note": "Text gives accession in Jeroboam's 20th year, a 41-year reign, and his death (15.24). The year depends on outside dating.",
-      "kind": "reading"
-    },
-    "date:death-of-jehoshaphat@fa8c7e": {
-      "refs": ["1kgs.22.41", "1kgs.22.42", "1kgs.22.50"],
-      "note": "Text gives accession in Ahab's fourth year, a 25-year reign, and his death (22.50). The year depends on outside dating.",
-      "kind": "reading"
-    },
-    "date:death-of-omri@d58d14": {
-      "refs": ["1kgs.16.23", "1kgs.16.28"],
-      "note": "Text gives accession in Asa's 31st year, a 12-year reign, and his death (16.28). The year depends on outside dating.",
-      "kind": "reading"
-    },
-    "date:death-of-tibni@19dfb8": {
-      "refs": ["1kgs.16.21", "1kgs.16.22"],
-      "note": "Text says Tibni died in the rivalry with Omri (16.22), with no date. The year depends on outside chronology.",
-      "kind": "reading"
-    },
-    "date:judah-southern_1281@f605bf": {
-      "refs": ["1kgs.12.17"],
-      "note": "Text has Rehoboam reigning over Judah's cities from the division. The start is stated; the end (-587) and all years rest on outside dating.",
-      "kind": "reading"
-    },
-    "date:northern-kingdom-israel@2c7e3d": {
-      "refs": ["1kgs.12.19", "1kgs.12.20"],
-      "note": "Text says Israel rebelled from David's house and made Jeroboam king (12.19-20). The end date (-720) and all years rest on outside dating.",
-      "kind": "reading"
-    },
-    "date:northern-kingdom-of-israel_1302@2c7e3d": {
-      "refs": ["1kgs.12.19", "1kgs.12.20"],
-      "note": "Text says Israel rebelled from David's house and made Jeroboam king (12.19-20). The end date (-720) and all years rest on outside dating.",
-      "kind": "reading"
-    },
-    "date:prophecies-of-elijah@336dc4": {
-      "refs": ["1kgs.17.1", "1kgs.18.1", "1kgs.21.29"],
-      "note": "Text gives Elijah's word to Ahab (17.1), the drought's third year (18.1), and a word about Ahab's son's days (21.29). The years depend on outside dating.",
-      "kind": "reading"
-    },
-    "date:reign-of-abijam@ad14cd": {
-      "refs": ["1kgs.15.1", "1kgs.15.2"],
-      "note": "Text gives accession in Jeroboam's 18th year and a three-year reign. The BC years depend on outside dating.",
-      "kind": "reading"
-    },
-    "date:reign-of-ahab@5d995b": {
-      "refs": ["1kgs.16.29"],
-      "note": "Text gives accession in Asa's 38th year and a 22-year reign. The BC years depend on outside dating.",
-      "kind": "reading"
-    },
-    "date:reign-of-ahaziah@f68647": {
-      "refs": ["1kgs.22.51"],
-      "note": "Text gives accession in Jehoshaphat's 17th year and a two-year reign. The BC years depend on outside dating.",
-      "kind": "reading"
-    },
-    "date:reign-of-asa@918cad": {
-      "refs": ["1kgs.15.9", "1kgs.15.10"],
-      "note": "Text gives accession in Jeroboam's 20th year and a 41-year reign. The BC years depend on outside dating.",
-      "kind": "reading"
-    },
-    "date:reign-of-baasha@e7db58": {
-      "refs": ["1kgs.15.28", "1kgs.15.33"],
-      "note": "Text gives accession in Asa's third year and a 24-year reign. The BC years depend on outside dating.",
-      "kind": "reading"
-    },
-    "date:reign-of-elah@38bfbd": {
-      "refs": ["1kgs.16.8"],
-      "note": "Text gives accession in Asa's 26th year and a two-year reign. The BC years depend on outside dating.",
-      "kind": "reading"
-    },
-    "date:reign-of-jehoshaphat@897640": {
-      "refs": ["1kgs.22.41", "1kgs.22.42"],
-      "note": "Text gives accession in Ahab's fourth year and a 25-year reign. The BC years depend on outside dating.",
-      "kind": "reading"
-    },
-    "date:reign-of-jeroboam-i@876fab": {
-      "refs": ["1kgs.12.20", "1kgs.14.20"],
-      "note": "Text has him made king over Israel (12.20) and reigning 22 years (14.20). The BC years depend on outside dating.",
-      "kind": "reading"
-    },
-    "date:reign-of-nadab@7d1d8f": {
-      "refs": ["1kgs.15.25"],
-      "note": "Text gives accession in Asa's second year and a two-year reign. The BC years depend on outside dating.",
-      "kind": "reading"
-    },
-    "date:reign-of-omri@a26377": {
-      "refs": ["1kgs.16.23"],
-      "note": "Text gives accession in Asa's 31st year and a 12-year reign. The BC years depend on outside dating.",
-      "kind": "reading"
-    },
-    "date:reign-of-rehoboam@4a1c94": {
-      "refs": ["1kgs.12.17", "1kgs.14.21"],
-      "note": "Text has him reigning over Judah (12.17) for seventeen years in Jerusalem (14.21). The BC years depend on outside dating.",
-      "kind": "reading"
-    },
-    "date:reign-of-tibni@18a5c9": {
-      "refs": ["1kgs.16.21", "1kgs.16.22"],
-      "note": "Text has Tibni's rival kingship and death but gives no reign length. The dates rest on outside chronology.",
-      "kind": "reading"
-    },
-    "date:reign-of-zimri@b75a2e": {
-      "refs": ["1kgs.16.15"],
-      "note": "Text gives a seven-day reign in Asa's 27th year. The BC year depends on outside dating.",
-      "kind": "reading"
-    },
-    "death:abijah_38@1dc3ed": {
-      "refs": ["1kgs.15.8", "1kgs.15.1", "1kgs.15.2"],
-      "note": "Text calls this king Abijam (15.1, 15.8), not Abijah, and says he slept with his fathers (15.8). The year depends on outside dating.",
-      "kind": "reading"
-    },
-    "death:asa_318@b7f255": {
-      "refs": ["1kgs.15.24"],
-      "note": "Text says Asa slept with his fathers and was buried (15.24), with no date. The year depends on outside dating.",
-      "kind": "reading"
-    },
-    "death:jehoram_803@62b673": {
-      "refs": ["1kgs.22.50"],
-      "note": "This passage records only Jehoram's succession (22.50), not his death. The year rests entirely on outside chronology.",
-      "kind": "reading"
-    },
-    "death:jehoshaphat_808@fa8c7e": {
-      "refs": ["1kgs.22.50"],
-      "note": "Text says Jehoshaphat slept with his fathers (22.50), with no date. The year depends on outside dating.",
-      "kind": "reading"
-    },
-    "death:josiah_1730@2ba304": {
-      "refs": ["1kgs.13.2"],
-      "note": "This passage only foretells Josiah (13.2) and does not record his death. The year rests entirely on outside chronology.",
-      "kind": "reading"
-    },
-    "died-at:jehoshaphat_808>jerusalem_636@d2ca05": {
-      "refs": ["1kgs.22.42", "1kgs.22.50"],
-      "note": "Text says he reigned in Jerusalem and was buried in the city of David (22.42, 22.50). His place of death is not stated.",
-      "kind": "reading"
-    },
-    "died-at:rehoboam_2412>jerusalem_636@445222": {
-      "refs": ["1kgs.14.21", "1kgs.14.31"],
-      "note": "Text says he reigned in Jerusalem and was buried in the city of David (14.21, 14.31). 12.18 only has him fleeing there; death place is not stated.",
-      "kind": "reading"
-    },
-    "member-of:abijah_38>tribe-of-judah@57fc3e": {
-      "refs": ["1kgs.14.31", "1kgs.15.1", "1kgs.15.4"],
-      "note": "Text makes him Rehoboam's son, king of Judah, of David's line (14.31, 15.1, 15.4). Tribal membership rests on genealogy outside this passage; 'Abijah' is the Abijam of the text.",
-      "kind": "reading"
-    },
-    "member-of:asa_318>tribe-of-judah@60ceae": {
-      "refs": ["1kgs.15.4", "1kgs.15.8"],
-      "note": "Text makes him Abijam's son and of David's line (15.8, 15.4). Tribal membership rests on genealogy outside this passage.",
-      "kind": "reading"
-    },
-    "member-of:david_994>tribe-of-judah@10e0ff": {
-      "refs": ["1kgs.12.20"],
-      "note": "Text says the tribe of Judah alone followed David's house (12.20). David's own tribe is not stated here; it rests on outside genealogy.",
-      "kind": "reading"
-    },
-    "member-of:jehoram_803>tribe-of-judah@2fb6da": {
-      "refs": ["1kgs.22.41", "1kgs.22.50"],
-      "note": "Text makes him Jehoshaphat's son and successor over Judah (22.41, 22.50). Tribal membership rests on genealogy outside this passage.",
-      "kind": "reading"
-    },
-    "member-of:jehoshaphat_808>tribe-of-judah@1f0867": {
-      "refs": ["1kgs.15.24", "1kgs.22.41"],
-      "note": "Text makes him Asa's son and king of Judah (15.24, 22.41). Tribal membership rests on genealogy outside this passage.",
-      "kind": "reading"
-    },
-    "member-of:josiah_1730>tribe-of-judah@d3b15a": {
-      "refs": ["1kgs.13.2"],
-      "note": "Text foretells a child of the house of David named Josiah (13.2). Tribal membership rests on genealogy outside this passage.",
-      "kind": "reading"
-    },
-    "occurred-at:death-of-abijam>jerusalem_636@753efe": {
-      "refs": ["1kgs.15.2", "1kgs.15.8"],
-      "note": "Text says he reigned in Jerusalem and was buried in the city of David (15.2, 15.8). Death place is not stated; city of David equals Jerusalem by outside identification.",
-      "kind": "reading"
-    },
-    "occurred-at:death-of-asa>jerusalem_636@dbad1f": {
-      "refs": ["1kgs.15.10", "1kgs.15.24"],
-      "note": "Text says he reigned in Jerusalem and was buried in the city of David (15.10, 15.24). Death place is not stated.",
-      "kind": "reading"
-    },
-    "occurred-at:death-of-jehoshaphat>jerusalem_636@8a5959": {
-      "refs": ["1kgs.22.42", "1kgs.22.50"],
-      "note": "Text says he reigned in Jerusalem and was buried in the city of David (22.42, 22.50). Death place is not stated.",
-      "kind": "reading"
-    },
-    "occurred-at:death-of-omri>samaria_1022@3309b8": {
-      "refs": ["1kgs.16.28"],
-      "note": "Text says he was buried in Samaria (16.28), not where he died. The death place is a reading from the burial.",
-      "kind": "reading"
-    },
-    "occurred-at:reign-of-abijam>jerusalem_636@ccbd4b": {
-      "refs": ["1kgs.15.2"],
-      "note": "Text says he reigned three years in Jerusalem."
-    },
-    "occurred-at:reign-of-ahab>samaria_1022@9ae931": {
-      "refs": ["1kgs.16.29"],
-      "note": "Text says Ahab reigned over Israel in Samaria twenty and two years."
-    },
-    "occurred-at:reign-of-baasha>samaria_1022@ded833": {
-      "refs": ["1kgs.15.33"],
-      "note": "Text says Baasha reigned over Israel in Tirzah, not Samaria.",
-      "kind": "wrong"
-    },
-    "occurred-at:reign-of-elah>samaria_1022@6a34f3": {
-      "refs": ["1kgs.16.8"],
-      "note": "Text says Elah reigned over Israel in Tirzah, not Samaria.",
-      "kind": "wrong"
-    },
-    "occurred-at:reign-of-jeroboam-i>samaria_1022@f2085b": {
-      "refs": ["1kgs.12.25"],
-      "note": "Text has Jeroboam building and dwelling at Shechem (12.25). Omri bought and built Samaria much later (16.24).",
-      "kind": "wrong"
-    },
-    "occurred-at:reign-of-nadab>samaria_1022@1e7d87": {
-      "refs": ["1kgs.15.27", "1kgs.16.24"],
-      "note": "Text has Nadab killed at Gibbethon (15.27). Samaria did not exist yet; Omri built it later (16.24).",
-      "kind": "wrong"
-    },
-    "occurred-at:reign-of-omri>samaria_1022@beb9b0": {
-      "refs": ["1kgs.16.23", "1kgs.16.24", "1kgs.16.28"],
-      "note": "Text says he reigned six years in Tirzah (16.23), built Samaria (16.24) and was buried there (16.28). Reigning there the other six years is implied, not stated.",
-      "kind": "reading"
-    },
-    "occurred-at:reign-of-rehoboam>jerusalem_636@1dacb4": {
-      "refs": ["1kgs.14.21"],
-      "note": "Text says he reigned seventeen years in Jerusalem."
-    },
-    "occurred-at:reign-of-tibni>samaria_1022@049495": {
-      "refs": ["1kgs.16.22", "1kgs.16.24"],
-      "note": "Tibni died before Omri bought and built Samaria (16.22, 16.24). The text gives no place for Tibni's reign.",
-      "kind": "wrong"
-    },
-    "occurred-at:reign-of-zimri>samaria_1022@febe8c": {
-      "refs": ["1kgs.16.15"],
-      "note": "Text places Zimri's seven-day reign in Tirzah, not Samaria.",
-      "kind": "wrong"
-    },
-    "parent-of:ahab_113>joash_1631@59c584": {
-      "refs": ["1kgs.22.26"],
-      "note": "Text calls Joash 'the king's son' in the court of the king of Israel, Ahab (22.20, 22.26)."
-    },
-    "parent-of:ahijah_136>baasha_589@209d5a": {
-      "refs": ["1kgs.15.27"],
-      "note": "Text says Baasha was the son of Ahijah of Issachar. It does not say this Ahijah is the prophet Ahijah the Shilonite (15.29); identity is a reading.",
-      "kind": "reading"
-    },
-    "parent-of:hiel_1522>abiram_48@6a1ede": {
-      "refs": ["1kgs.16.34"],
-      "note": "Text says the foundation was laid in Abiram, Hiel's firstborn."
-    },
-    "parent-of:hiel_1522>segub_2483@68754b": {
-      "refs": ["1kgs.16.34"],
-      "note": "Text says the gates were set up in Segub, Hiel's youngest son."
-    },
-    "parent-of:jezebel_1605>ahaziah_120@68ead8": {
-      "refs": ["1kgs.22.52", "1kgs.21.25"],
-      "note": "Text calls Jezebel Ahab's wife (21.25) and says Ahaziah walked in his mother's way (22.52) without naming her. Her motherhood is a reading.",
-      "kind": "reading"
-    },
-    "parent-of:tabrimon_2811>ben-hadad_452@212294": {
-      "refs": ["1kgs.15.18"],
-      "note": "Text names this Benhadad, king of Syria at Damascus, as the son of Tabrimon (15.18)."
-    },
-    "part-of:dan_323>northern-kingdom-of-israel_1302@8015a3": {
-      "refs": ["1kgs.15.20"],
-      "note": "Text lists Dan among the cities of Israel that Benhadad smote (15.20)."
-    },
-    "participated-in:abijah_38>death-of-abijam@21f70b": {
-      "refs": ["1kgs.15.8"],
-      "note": "Text says Abijam slept with his fathers (15.8). The record's 'Abijah' is the same king, a spelling identification.",
-      "kind": "reading"
-    },
-    "participated-in:abijah_38>reign-of-abijam@06f72a": {
-      "refs": ["1kgs.15.1", "1kgs.15.2"],
-      "note": "Text says Abijam reigned over Judah for three years (15.1, 15.2). The record's 'Abijah' is the same king, a spelling identification.",
-      "kind": "reading"
-    },
-    "partner-of:asa_318>azubah_567@e5df21": {
-      "refs": ["1kgs.22.41", "1kgs.22.42"],
-      "note": "Text makes Azubah Jehoshaphat's mother (22.42) and Asa his father (22.41). It never calls her Asa's wife.",
-      "kind": "reading"
-    },
-    "partner-of:naamah_2119>solomon_2762@692548": {
-      "refs": ["1kgs.12.21", "1kgs.14.21"],
-      "note": "Text makes Solomon Rehoboam's father (12.21) and Naamah his mother (14.21). It never calls her Solomon's wife.",
-      "kind": "reading"
-    }
+    "alias-of:samarias_1023>samaria_1022@e11b74": {"refs":["1kgs.16.24"],"note":"The text names only Samaria (16.24, built by Omri). 'Samarias' does not occur in this passage, so the alias is a spelling identification from outside it.","kind":"reading"},
+    "birth:jehoram_803@19dfb8": {"refs":["1kgs.22.50"],"note":"Text names Jehoram as Jehoshaphat's son who succeeded him, with no birth date. The year rests on outside chronology.","kind":"reading"},
+    "birth:jehoshaphat_808@d77b9d": {"refs":["1kgs.22.41","1kgs.22.42"],"note":"Text gives his age at accession as 35, in Ahab's fourth year, so birth is 35 years before accession. The year depends on outside dating of Ahab.","kind":"reading"},
+    "birth:josiah_1730@75ed67": {"refs":["1kgs.13.2"],"note":"Text foretells a child of David's house named Josiah, with no birth date. The year rests on outside chronology.","kind":"reading"},
+    "date:death-of-abijam@1dc3ed": {"refs":["1kgs.15.1","1kgs.15.2","1kgs.15.8"],"note":"Text gives accession in Jeroboam's 18th year, a three-year reign, and that he slept with his fathers. The year depends on outside dating.","kind":"reading"},
+    "date:death-of-asa@b7f255": {"refs":["1kgs.15.9","1kgs.15.10","1kgs.15.24"],"note":"Text gives accession in Jeroboam's 20th year, a 41-year reign, and his death (15.24). The year depends on outside dating.","kind":"reading"},
+    "date:death-of-jehoshaphat@fa8c7e": {"refs":["1kgs.22.41","1kgs.22.42","1kgs.22.50"],"note":"Text gives accession in Ahab's fourth year, a 25-year reign, and his death (22.50). The year depends on outside dating.","kind":"reading"},
+    "date:death-of-omri@d58d14": {"refs":["1kgs.16.23","1kgs.16.28"],"note":"Text gives accession in Asa's 31st year, a 12-year reign, and his death (16.28). The year depends on outside dating.","kind":"reading"},
+    "date:death-of-tibni@19dfb8": {"refs":["1kgs.16.21","1kgs.16.22"],"note":"Text says Tibni died in the rivalry with Omri (16.22), with no date. The year depends on outside chronology.","kind":"reading"},
+    "date:judah-southern_1281@f605bf": {"refs":["1kgs.12.17"],"note":"Text has Rehoboam reigning over Judah's cities from the division. The start is stated; the end (-587) and all years rest on outside dating.","kind":"reading"},
+    "date:northern-kingdom-israel@2c7e3d": {"refs":["1kgs.12.19","1kgs.12.20"],"note":"Text says Israel rebelled from David's house and made Jeroboam king (12.19-20). The end date (-720) and all years rest on outside dating.","kind":"reading"},
+    "date:northern-kingdom-of-israel_1302@2c7e3d": {"refs":["1kgs.12.19","1kgs.12.20"],"note":"Text says Israel rebelled from David's house and made Jeroboam king (12.19-20). The end date (-720) and all years rest on outside dating.","kind":"reading"},
+    "date:prophecies-of-elijah@336dc4": {"refs":["1kgs.17.1","1kgs.18.1","1kgs.21.29"],"note":"Text gives Elijah's word to Ahab (17.1), the drought's third year (18.1), and a word about Ahab's son's days (21.29). The years depend on outside dating.","kind":"reading"},
+    "date:reign-of-abijam@ad14cd": {"refs":["1kgs.15.1","1kgs.15.2"],"note":"Text gives accession in Jeroboam's 18th year and a three-year reign. The BC years depend on outside dating.","kind":"reading"},
+    "date:reign-of-ahab@5d995b": {"refs":["1kgs.16.29"],"note":"Text gives accession in Asa's 38th year and a 22-year reign. The BC years depend on outside dating.","kind":"reading"},
+    "date:reign-of-ahaziah@f68647": {"refs":["1kgs.22.51"],"note":"Text gives accession in Jehoshaphat's 17th year and a two-year reign. The BC years depend on outside dating.","kind":"reading"},
+    "date:reign-of-asa@918cad": {"refs":["1kgs.15.9","1kgs.15.10"],"note":"Text gives accession in Jeroboam's 20th year and a 41-year reign. The BC years depend on outside dating.","kind":"reading"},
+    "date:reign-of-baasha@e7db58": {"refs":["1kgs.15.28","1kgs.15.33"],"note":"Text gives accession in Asa's third year and a 24-year reign. The BC years depend on outside dating.","kind":"reading"},
+    "date:reign-of-elah@38bfbd": {"refs":["1kgs.16.8"],"note":"Text gives accession in Asa's 26th year and a two-year reign. The BC years depend on outside dating.","kind":"reading"},
+    "date:reign-of-jehoshaphat@897640": {"refs":["1kgs.22.41","1kgs.22.42"],"note":"Text gives accession in Ahab's fourth year and a 25-year reign. The BC years depend on outside dating.","kind":"reading"},
+    "date:reign-of-jeroboam-i@876fab": {"refs":["1kgs.12.20","1kgs.14.20"],"note":"Text has him made king over Israel (12.20) and reigning 22 years (14.20). The BC years depend on outside dating.","kind":"reading"},
+    "date:reign-of-nadab@7d1d8f": {"refs":["1kgs.15.25"],"note":"Text gives accession in Asa's second year and a two-year reign. The BC years depend on outside dating.","kind":"reading"},
+    "date:reign-of-omri@a26377": {"refs":["1kgs.16.23"],"note":"Text gives accession in Asa's 31st year and a 12-year reign. The BC years depend on outside dating.","kind":"reading"},
+    "date:reign-of-rehoboam@4a1c94": {"refs":["1kgs.12.17","1kgs.14.21"],"note":"Text has him reigning over Judah (12.17) for seventeen years in Jerusalem (14.21). The BC years depend on outside dating.","kind":"reading"},
+    "date:reign-of-tibni@18a5c9": {"refs":["1kgs.16.21","1kgs.16.22"],"note":"Text has Tibni's rival kingship and death but gives no reign length. The dates rest on outside chronology.","kind":"reading"},
+    "date:reign-of-zimri@b75a2e": {"refs":["1kgs.16.15"],"note":"Text gives a seven-day reign in Asa's 27th year. The BC year depends on outside dating.","kind":"reading"},
+    "death:abijah_38@1dc3ed": {"refs":["1kgs.15.8","1kgs.15.1","1kgs.15.2"],"note":"Text calls this king Abijam (15.1, 15.8), not Abijah, and says he slept with his fathers (15.8). The year depends on outside dating.","kind":"reading"},
+    "death:asa_318@b7f255": {"refs":["1kgs.15.24"],"note":"Text says Asa slept with his fathers and was buried (15.24), with no date. The year depends on outside dating.","kind":"reading"},
+    "death:jehoram_803@62b673": {"refs":["1kgs.22.50"],"note":"This passage records only Jehoram's succession (22.50), not his death. The year rests entirely on outside chronology.","kind":"reading"},
+    "death:jehoshaphat_808@fa8c7e": {"refs":["1kgs.22.50"],"note":"Text says Jehoshaphat slept with his fathers (22.50), with no date. The year depends on outside dating.","kind":"reading"},
+    "death:josiah_1730@2ba304": {"refs":["1kgs.13.2"],"note":"This passage only foretells Josiah (13.2) and does not record his death. The year rests entirely on outside chronology.","kind":"reading"},
+    "died-at:jehoshaphat_808>jerusalem_636@d2ca05": {"refs":["1kgs.22.42","1kgs.22.50"],"note":"Text says he reigned in Jerusalem and was buried in the city of David (22.42, 22.50). His place of death is not stated.","kind":"reading"},
+    "died-at:rehoboam_2412>jerusalem_636@445222": {"refs":["1kgs.14.21","1kgs.14.31"],"note":"Text says he reigned in Jerusalem and was buried in the city of David (14.21, 14.31). 12.18 only has him fleeing there; death place is not stated.","kind":"reading"},
+    "member-of:abijah_38>tribe-of-judah@57fc3e": {"refs":["1kgs.14.31","1kgs.15.1","1kgs.15.4"],"note":"Text makes him Rehoboam's son, king of Judah, of David's line (14.31, 15.1, 15.4). Tribal membership rests on genealogy outside this passage; 'Abijah' is the Abijam of the text.","kind":"reading"},
+    "member-of:asa_318>tribe-of-judah@60ceae": {"refs":["1kgs.15.4","1kgs.15.8"],"note":"Text makes him Abijam's son and of David's line (15.8, 15.4). Tribal membership rests on genealogy outside this passage.","kind":"reading"},
+    "member-of:david_994>tribe-of-judah@10e0ff": {"refs":["1kgs.12.20"],"note":"Text says the tribe of Judah alone followed David's house (12.20). David's own tribe is not stated here; it rests on outside genealogy.","kind":"reading"},
+    "member-of:jehoram_803>tribe-of-judah@2fb6da": {"refs":["1kgs.22.41","1kgs.22.50"],"note":"Text makes him Jehoshaphat's son and successor over Judah (22.41, 22.50). Tribal membership rests on genealogy outside this passage.","kind":"reading"},
+    "member-of:jehoshaphat_808>tribe-of-judah@1f0867": {"refs":["1kgs.15.24","1kgs.22.41"],"note":"Text makes him Asa's son and king of Judah (15.24, 22.41). Tribal membership rests on genealogy outside this passage.","kind":"reading"},
+    "member-of:josiah_1730>tribe-of-judah@d3b15a": {"refs":["1kgs.13.2"],"note":"Text foretells a child of the house of David named Josiah (13.2). Tribal membership rests on genealogy outside this passage.","kind":"reading"},
+    "occurred-at:death-of-abijam>jerusalem_636@753efe": {"refs":["1kgs.15.2","1kgs.15.8"],"note":"Text says he reigned in Jerusalem and was buried in the city of David (15.2, 15.8). Death place is not stated; city of David equals Jerusalem by outside identification.","kind":"reading"},
+    "occurred-at:death-of-asa>jerusalem_636@dbad1f": {"refs":["1kgs.15.10","1kgs.15.24"],"note":"Text says he reigned in Jerusalem and was buried in the city of David (15.10, 15.24). Death place is not stated.","kind":"reading"},
+    "occurred-at:death-of-jehoshaphat>jerusalem_636@8a5959": {"refs":["1kgs.22.42","1kgs.22.50"],"note":"Text says he reigned in Jerusalem and was buried in the city of David (22.42, 22.50). Death place is not stated.","kind":"reading"},
+    "occurred-at:death-of-omri>samaria_1022@3309b8": {"refs":["1kgs.16.28"],"note":"Text says he was buried in Samaria (16.28), not where he died. The death place is a reading from the burial.","kind":"reading"},
+    "occurred-at:reign-of-abijam>jerusalem_636@ccbd4b": {"refs":["1kgs.15.2"],"note":"Text says he reigned three years in Jerusalem."},
+    "occurred-at:reign-of-ahab>samaria_1022@9ae931": {"refs":["1kgs.16.29"],"note":"Text says Ahab reigned over Israel in Samaria twenty and two years."},
+    "occurred-at:reign-of-baasha>samaria_1022@ded833": {"refs":["1kgs.15.33"],"note":"Text says Baasha reigned over Israel in Tirzah, not Samaria.","kind":"wrong"},
+    "occurred-at:reign-of-elah>samaria_1022@6a34f3": {"refs":["1kgs.16.8"],"note":"Text says Elah reigned over Israel in Tirzah, not Samaria.","kind":"wrong"},
+    "occurred-at:reign-of-jeroboam-i>samaria_1022@f2085b": {"refs":["1kgs.12.25"],"note":"Text has Jeroboam building and dwelling at Shechem (12.25). Omri bought and built Samaria much later (16.24).","kind":"wrong"},
+    "occurred-at:reign-of-nadab>samaria_1022@1e7d87": {"refs":["1kgs.15.27","1kgs.16.24"],"note":"Text has Nadab killed at Gibbethon (15.27). Samaria did not exist yet; Omri built it later (16.24).","kind":"wrong"},
+    "occurred-at:reign-of-omri>samaria_1022@beb9b0": {"refs":["1kgs.16.23","1kgs.16.24","1kgs.16.28"],"note":"Text says he reigned six years in Tirzah (16.23), built Samaria (16.24) and was buried there (16.28). Reigning there the other six years is implied, not stated.","kind":"reading"},
+    "occurred-at:reign-of-rehoboam>jerusalem_636@1dacb4": {"refs":["1kgs.14.21"],"note":"Text says he reigned seventeen years in Jerusalem."},
+    "occurred-at:reign-of-tibni>samaria_1022@049495": {"refs":["1kgs.16.22","1kgs.16.24"],"note":"Tibni died before Omri bought and built Samaria (16.22, 16.24). The text gives no place for Tibni's reign.","kind":"wrong"},
+    "occurred-at:reign-of-zimri>samaria_1022@febe8c": {"refs":["1kgs.16.15"],"note":"Text places Zimri's seven-day reign in Tirzah, not Samaria.","kind":"wrong"},
+    "parent-of:ahab_113>joash_1631@59c584": {"refs":["1kgs.22.26"],"note":"Text calls Joash 'the king's son' in the court of the king of Israel, Ahab (22.20, 22.26)."},
+    "parent-of:ahijah_136>baasha_589@209d5a": {"refs":["1kgs.15.27"],"note":"Text says Baasha was the son of Ahijah of Issachar. It does not say this Ahijah is the prophet Ahijah the Shilonite (15.29); identity is a reading.","kind":"reading"},
+    "parent-of:hiel_1522>abiram_48@6a1ede": {"refs":["1kgs.16.34"],"note":"Text says the foundation was laid in Abiram, Hiel's firstborn."},
+    "parent-of:hiel_1522>segub_2483@68754b": {"refs":["1kgs.16.34"],"note":"Text says the gates were set up in Segub, Hiel's youngest son."},
+    "parent-of:jezebel_1605>ahaziah_120@68ead8": {"refs":["1kgs.22.52","1kgs.21.25"],"note":"Text calls Jezebel Ahab's wife (21.25) and says Ahaziah walked in his mother's way (22.52) without naming her. Her motherhood is a reading.","kind":"reading"},
+    "parent-of:tabrimon_2811>ben-hadad_452@212294": {"refs":["1kgs.15.18"],"note":"Text names this Benhadad, king of Syria at Damascus, as the son of Tabrimon (15.18)."},
+    "part-of:dan_323>northern-kingdom-of-israel_1302@8015a3": {"refs":["1kgs.15.20"],"note":"Text lists Dan among the cities of Israel that Benhadad smote (15.20)."},
+    "participated-in:abijah_38>death-of-abijam@21f70b": {"refs":["1kgs.15.8"],"note":"Text says Abijam slept with his fathers (15.8). The record's 'Abijah' is the same king, a spelling identification.","kind":"reading"},
+    "participated-in:abijah_38>reign-of-abijam@06f72a": {"refs":["1kgs.15.1","1kgs.15.2"],"note":"Text says Abijam reigned over Judah for three years (15.1, 15.2). The record's 'Abijah' is the same king, a spelling identification.","kind":"reading"},
+    "partner-of:asa_318>azubah_567@e5df21": {"refs":["1kgs.22.41","1kgs.22.42"],"note":"Text makes Azubah Jehoshaphat's mother (22.42) and Asa his father (22.41). It never calls her Asa's wife.","kind":"reading"},
+    "partner-of:naamah_2119>solomon_2762@692548": {"refs":["1kgs.12.21","1kgs.14.21"],"note":"Text makes Solomon Rehoboam's father (12.21) and Naamah his mother (14.21). It never calls her Solomon's wife.","kind":"reading"}
   }
 }

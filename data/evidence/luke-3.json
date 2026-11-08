@@ -1,9 +1,6 @@
 {
   "passage": "luke.4-24",
-  "ai": {
-    "model": "haiku",
-    "on": "2026-11-08"
-  },
+  "ai": {"model":"haiku","on":"2026-11-08"},
   "agreed": [
     "occurred-at:feeding-of-five-thousand>bethsaida_231@cb5830",
     "occurred-at:jesus-rejected-at-nazareth>nazareth_878@df6422",
@@ -23,294 +20,43 @@
     "partner-of:chuza_945>joanna_1629@6dfe3b"
   ],
   "facts": {
-    "alias-of:olivet_907>mount_of_olives_861@b5621f": {
-      "refs": [
-        "luke.21.37",
-        "luke.22.39"
-      ],
-      "note": "Luke says 'the mount of Olives' (21:37; 22:39) and never 'Olivet'. The equivalence comes from outside Luke.",
-      "kind": "reading"
-    },
-    "alias-of:skull_1154>golgotha_487@7d6a50": {
-      "refs": [
-        "luke.23.33"
-      ],
-      "note": "Luke 23:33 says 'Calvary' (Latin for skull) and never names Golgotha. That the two are one place comes from outside Luke.",
-      "kind": "reading"
-    },
-    "date:70-sent-out@2c186f": {
-      "refs": [
-        "luke.10.1"
-      ],
-      "note": "Text gives only relative timing, 'after these things' (10:1). Year 29 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:anointed-by-a-sinner-woman@a1e239": {
-      "refs": [
-        "luke.7.36",
-        "luke.7.37"
-      ],
-      "note": "Text gives no date, only a meal at a Pharisee's house (7:36-37). Year 28 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:discourse-on-the-kingdom-and-other-parables@22ede5": {
-      "refs": [
-        "luke.8.4",
-        "luke.13.18"
-      ],
-      "note": "Text gives no date for these parables. Year 30 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:good-samaritan-parable-taught@2c186f": {
-      "refs": [
-        "luke.10.25",
-        "luke.10.37"
-      ],
-      "note": "Text gives no date for the lawyer's question and parable. Year 29 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:healing-woman-with-18-year-infirmity@2c186f": {
-      "refs": [
-        "luke.13.10",
-        "luke.13.16"
-      ],
-      "note": "Text gives no year, only a sabbath (13:10) and eighteen years of infirmity (13:16). Year 29 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:jesus-2nd-tour-of-galilee@a1e239": {
-      "refs": [
-        "luke.8.1"
-      ],
-      "note": "Text gives no date, only that he went through every city and village (8:1). Year 28 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:jesus-meets-martha-and-mary@2c186f": {
-      "refs": [
-        "luke.10.38"
-      ],
-      "note": "Text gives no date, only 'as they went' (10:38). Year 29 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:jesus-rejected-at-nazareth@7a82e9": {
-      "refs": [
-        "luke.4.14",
-        "luke.4.16"
-      ],
-      "note": "Relative timing only: after his return to Galilee in the Spirit (4:14). Year 27 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:lepers-healed@22ede5": {
-      "refs": [
-        "luke.17.11"
-      ],
-      "note": "Relative timing only: 'as he went to Jerusalem' (17:11). Year 30 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:lord-s-prayer-taught@2c186f": {
-      "refs": [
-        "luke.11.1"
-      ],
-      "note": "Text gives no date, only 'in a certain place' (11:1). Year 29 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:mustard-seed-and-leaven-teaching@2c186f": {
-      "refs": [
-        "luke.13.18",
-        "luke.13.21"
-      ],
-      "note": "Text gives no date for these two parables. Year 29 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:samaritans-reject-jesus@2c186f": {
-      "refs": [
-        "luke.9.51",
-        "luke.9.52"
-      ],
-      "note": "Relative timing only: 'when the time was come' (9:51). Year 29 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:teaching-and-healing-in-perea-to-jerusalem@22ede5": {
-      "refs": [
-        "luke.13.22",
-        "luke.13.23"
-      ],
-      "note": "Relative timing only: he is journeying toward Jerusalem (13:22). Year 30 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:widow-s-son-resurrected@a1e239": {
-      "refs": [
-        "luke.7.1",
-        "luke.7.11"
-      ],
-      "note": "Relative timing only: 'the day after' the centurion's servant was healed (7:1, 7:11). Year 28 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:woes-and-parables-with-pharisees@2c186f": {
-      "refs": [
-        "luke.11.37",
-        "luke.11.53"
-      ],
-      "note": "Text gives no date, only a meal with a Pharisee (11:37). Year 29 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:zaccheus-converted-and-parable-of-the-pounds@22ede5": {
-      "refs": [
-        "luke.19.1",
-        "luke.19.11"
-      ],
-      "note": "Relative timing only: he passes through Jericho and is nigh to Jerusalem (19:1, 19:11). Year 30 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "occurred-at:anointed-by-a-sinner-woman>galilee_433@7e71f1": {
-      "refs": [
-        "luke.4.14",
-        "luke.4.44",
-        "luke.7.36"
-      ],
-      "note": "The meal's place is not named. It falls in Luke's Galilean stretch (4:14, 4:44). Galilee comes from that framing.",
-      "kind": "reading"
-    },
-    "occurred-at:discourse-on-the-kingdom-and-other-parables>galilee_433@a057ff": {
-      "refs": [
-        "luke.4.14",
-        "luke.4.44",
-        "luke.8.4"
-      ],
-      "note": "The place is not named in 8:4-18. It falls in Luke's Galilean stretch, before the turn to Jerusalem at 9:51.",
-      "kind": "reading"
-    },
-    "occurred-at:jesus-2nd-tour-of-galilee>galilee_433@a14791": {
-      "refs": [
-        "luke.4.44",
-        "luke.8.1"
-      ],
-      "note": "8:1 names no region, only cities and villages. Galilee comes from Luke's framing of the ministry (4:44).",
-      "kind": "reading"
-    },
-    "occurred-at:lepers-healed>galilee_433@aae2e2": {
-      "refs": [
-        "luke.17.11",
-        "luke.17.12"
-      ],
-      "note": "17:11 places him between Samaria and Galilee, and the village is unnamed. Galilee is only a border inference.",
-      "kind": "reading"
-    },
-    "occurred-at:resurrection-and-ascension>jerusalem_636@f82b54": {
-      "refs": [
-        "luke.24.33",
-        "luke.24.36",
-        "luke.24.49",
-        "luke.24.50"
-      ],
-      "note": "The appearance and command are in Jerusalem (24:33-36, 49). The ascension is at Bethany (24:50), so the event is only partly Jerusalem.",
-      "kind": "reading"
-    },
-    "occurred-at:roman-trials>jerusalem_636@7937b0": {
-      "refs": [
-        "luke.23.7",
-        "luke.23.11"
-      ],
-      "note": "Pilate's own location is not named. Herod was at Jerusalem (23:7), and Jesus was sent between them (23:11).",
-      "kind": "reading"
-    },
-    "occurred-at:samaritans-reject-jesus>jerusalem_636@1617a0": {
-      "refs": [
-        "luke.9.52",
-        "luke.9.53"
-      ],
-      "note": "Text says a village of the Samaritans (9:52). Jerusalem is only where he was heading (9:53).",
-      "kind": "wrong"
-    },
-    "occurred-at:zaccheus-converted-and-parable-of-the-pounds>jericho_634@4103d9": {
-      "refs": [
-        "luke.19.1",
-        "luke.19.5",
-        "luke.19.11"
-      ],
-      "note": "The conversion is in Jericho (19:1-9). The parable follows with no move stated; 19:11 says only 'nigh to Jerusalem'.",
-      "kind": "reading"
-    },
-    "part-of:nain_872>galilee_433@e24389": {
-      "refs": [
-        "luke.4.14",
-        "luke.7.11"
-      ],
-      "note": "Text names Nain (7:11) but not Galilee. Galilee comes from Luke's Galilean stretch (4:14) and outside knowledge.",
-      "kind": "reading"
-    },
-    "part-of:siloam_1096>jerusalem_636@c8f109": {
-      "refs": [
-        "luke.13.4"
-      ],
-      "note": "Text names the tower in Siloam and 'men that dwelt in Jerusalem' (13:4). Siloam lying within the city is outside knowledge.",
-      "kind": "reading"
-    },
-    "participated-in:jesus_905>discourse-on-the-kingdom-and-other-parables@8ff1e1": {
-      "refs": [
-        "luke.8.4",
-        "luke.8.11",
-        "luke.13.18"
-      ],
-      "note": "Jesus speaks kingdom parables here (8:4-11; 13:18). Luke 17:20 is a different talk. The link to this named discourse is outside Luke.",
-      "kind": "reading"
-    },
-    "participated-in:mary_1939>jesus-meets-martha-and-mary@f1d203": {
-      "refs": [
-        "luke.10.38",
-        "luke.10.39"
-      ],
-      "note": "Luke 10:39 names Mary, Martha's sister, who sat at Jesus' feet. The link to Lazarus's sister comes from outside Luke.",
-      "kind": "reading"
-    },
-    "visited:jesus_905>olivet_907@4be2df": {
-      "refs": [
-        "luke.21.37",
-        "luke.22.39"
-      ],
-      "note": "Jesus abode on the mount of Olives (21:37; 22:39). That this is Olivet comes from outside Luke, which never says Olivet.",
-      "kind": "reading"
-    },
-    "participated-in:jesus_905>70-sent-out@18cea6": {
-      "refs": [
-        "luke.10.1"
-      ],
-      "note": "Named here as \"Lord\"."
-    },
-    "participated-in:jesus_905>good-samaritan-parable-taught@09ba03": {
-      "refs": [
-        "luke.10.25"
-      ],
-      "note": "Named here as \"Master\"."
-    },
-    "participated-in:jesus_905>lord-s-prayer-taught@431d30": {
-      "refs": [
-        "luke.11.1"
-      ],
-      "note": "Named here as \"Lord\"."
-    },
-    "participated-in:jesus_905>samaritans-reject-jesus@dad7cf": {
-      "refs": [
-        "luke.9.54"
-      ],
-      "note": "Named here as \"Lord\"."
-    },
-    "participated-in:jesus_905>teaching-and-healing-in-perea-to-jerusalem@1f5333": {
-      "refs": [
-        "luke.13.23"
-      ],
-      "note": "Named here as \"Lord\"."
-    },
-    "participated-in:jesus_905>widow-s-son-resurrected@7af0a7": {
-      "refs": [
-        "luke.7.13"
-      ],
-      "note": "Named here as \"Lord\"."
-    },
-    "participated-in:jesus_905>woes-and-parables-with-pharisees@32ace9": {
-      "refs": [
-        "luke.11.39"
-      ],
-      "note": "Named here as \"Lord\"."
-    }
+    "alias-of:olivet_907>mount_of_olives_861@b5621f": {"refs":["luke.21.37","luke.22.39"],"note":"Luke says 'the mount of Olives' (21:37; 22:39) and never 'Olivet'. The equivalence comes from outside Luke.","kind":"reading"},
+    "alias-of:skull_1154>golgotha_487@7d6a50": {"refs":["luke.23.33"],"note":"Luke 23:33 says 'Calvary' (Latin for skull) and never names Golgotha. That the two are one place comes from outside Luke.","kind":"reading"},
+    "date:70-sent-out@2c186f": {"refs":["luke.10.1"],"note":"Text gives only relative timing, 'after these things' (10:1). Year 29 depends on dating outside Scripture.","kind":"reading"},
+    "date:anointed-by-a-sinner-woman@a1e239": {"refs":["luke.7.36","luke.7.37"],"note":"Text gives no date, only a meal at a Pharisee's house (7:36-37). Year 28 depends on dating outside Scripture.","kind":"reading"},
+    "date:discourse-on-the-kingdom-and-other-parables@22ede5": {"refs":["luke.8.4","luke.13.18"],"note":"Text gives no date for these parables. Year 30 depends on dating outside Scripture.","kind":"reading"},
+    "date:good-samaritan-parable-taught@2c186f": {"refs":["luke.10.25","luke.10.37"],"note":"Text gives no date for the lawyer's question and parable. Year 29 depends on dating outside Scripture.","kind":"reading"},
+    "date:healing-woman-with-18-year-infirmity@2c186f": {"refs":["luke.13.10","luke.13.16"],"note":"Text gives no year, only a sabbath (13:10) and eighteen years of infirmity (13:16). Year 29 depends on dating outside Scripture.","kind":"reading"},
+    "date:jesus-2nd-tour-of-galilee@a1e239": {"refs":["luke.8.1"],"note":"Text gives no date, only that he went through every city and village (8:1). Year 28 depends on dating outside Scripture.","kind":"reading"},
+    "date:jesus-meets-martha-and-mary@2c186f": {"refs":["luke.10.38"],"note":"Text gives no date, only 'as they went' (10:38). Year 29 depends on dating outside Scripture.","kind":"reading"},
+    "date:jesus-rejected-at-nazareth@7a82e9": {"refs":["luke.4.14","luke.4.16"],"note":"Relative timing only: after his return to Galilee in the Spirit (4:14). Year 27 depends on dating outside Scripture.","kind":"reading"},
+    "date:lepers-healed@22ede5": {"refs":["luke.17.11"],"note":"Relative timing only: 'as he went to Jerusalem' (17:11). Year 30 depends on dating outside Scripture.","kind":"reading"},
+    "date:lord-s-prayer-taught@2c186f": {"refs":["luke.11.1"],"note":"Text gives no date, only 'in a certain place' (11:1). Year 29 depends on dating outside Scripture.","kind":"reading"},
+    "date:mustard-seed-and-leaven-teaching@2c186f": {"refs":["luke.13.18","luke.13.21"],"note":"Text gives no date for these two parables. Year 29 depends on dating outside Scripture.","kind":"reading"},
+    "date:samaritans-reject-jesus@2c186f": {"refs":["luke.9.51","luke.9.52"],"note":"Relative timing only: 'when the time was come' (9:51). Year 29 depends on dating outside Scripture.","kind":"reading"},
+    "date:teaching-and-healing-in-perea-to-jerusalem@22ede5": {"refs":["luke.13.22","luke.13.23"],"note":"Relative timing only: he is journeying toward Jerusalem (13:22). Year 30 depends on dating outside Scripture.","kind":"reading"},
+    "date:widow-s-son-resurrected@a1e239": {"refs":["luke.7.1","luke.7.11"],"note":"Relative timing only: 'the day after' the centurion's servant was healed (7:1, 7:11). Year 28 depends on dating outside Scripture.","kind":"reading"},
+    "date:woes-and-parables-with-pharisees@2c186f": {"refs":["luke.11.37","luke.11.53"],"note":"Text gives no date, only a meal with a Pharisee (11:37). Year 29 depends on dating outside Scripture.","kind":"reading"},
+    "date:zaccheus-converted-and-parable-of-the-pounds@22ede5": {"refs":["luke.19.1","luke.19.11"],"note":"Relative timing only: he passes through Jericho and is nigh to Jerusalem (19:1, 19:11). Year 30 depends on dating outside Scripture.","kind":"reading"},
+    "occurred-at:anointed-by-a-sinner-woman>galilee_433@7e71f1": {"refs":["luke.4.14","luke.4.44","luke.7.36"],"note":"The meal's place is not named. It falls in Luke's Galilean stretch (4:14, 4:44). Galilee comes from that framing.","kind":"reading"},
+    "occurred-at:discourse-on-the-kingdom-and-other-parables>galilee_433@a057ff": {"refs":["luke.4.14","luke.4.44","luke.8.4"],"note":"The place is not named in 8:4-18. It falls in Luke's Galilean stretch, before the turn to Jerusalem at 9:51.","kind":"reading"},
+    "occurred-at:jesus-2nd-tour-of-galilee>galilee_433@a14791": {"refs":["luke.4.44","luke.8.1"],"note":"8:1 names no region, only cities and villages. Galilee comes from Luke's framing of the ministry (4:44).","kind":"reading"},
+    "occurred-at:lepers-healed>galilee_433@aae2e2": {"refs":["luke.17.11","luke.17.12"],"note":"17:11 places him between Samaria and Galilee, and the village is unnamed. Galilee is only a border inference.","kind":"reading"},
+    "occurred-at:resurrection-and-ascension>jerusalem_636@f82b54": {"refs":["luke.24.33","luke.24.36","luke.24.49","luke.24.50"],"note":"The appearance and command are in Jerusalem (24:33-36, 49). The ascension is at Bethany (24:50), so the event is only partly Jerusalem.","kind":"reading"},
+    "occurred-at:roman-trials>jerusalem_636@7937b0": {"refs":["luke.23.7","luke.23.11"],"note":"Pilate's own location is not named. Herod was at Jerusalem (23:7), and Jesus was sent between them (23:11).","kind":"reading"},
+    "occurred-at:samaritans-reject-jesus>jerusalem_636@1617a0": {"refs":["luke.9.52","luke.9.53"],"note":"Text says a village of the Samaritans (9:52). Jerusalem is only where he was heading (9:53).","kind":"wrong"},
+    "occurred-at:zaccheus-converted-and-parable-of-the-pounds>jericho_634@4103d9": {"refs":["luke.19.1","luke.19.5","luke.19.11"],"note":"The conversion is in Jericho (19:1-9). The parable follows with no move stated; 19:11 says only 'nigh to Jerusalem'.","kind":"reading"},
+    "part-of:nain_872>galilee_433@e24389": {"refs":["luke.4.14","luke.7.11"],"note":"Text names Nain (7:11) but not Galilee. Galilee comes from Luke's Galilean stretch (4:14) and outside knowledge.","kind":"reading"},
+    "part-of:siloam_1096>jerusalem_636@c8f109": {"refs":["luke.13.4"],"note":"Text names the tower in Siloam and 'men that dwelt in Jerusalem' (13:4). Siloam lying within the city is outside knowledge.","kind":"reading"},
+    "participated-in:jesus_905>discourse-on-the-kingdom-and-other-parables@8ff1e1": {"refs":["luke.8.4","luke.8.11","luke.13.18"],"note":"Jesus speaks kingdom parables here (8:4-11; 13:18). Luke 17:20 is a different talk. The link to this named discourse is outside Luke.","kind":"reading"},
+    "participated-in:mary_1939>jesus-meets-martha-and-mary@f1d203": {"refs":["luke.10.38","luke.10.39"],"note":"Luke 10:39 names Mary, Martha's sister, who sat at Jesus' feet. The link to Lazarus's sister comes from outside Luke.","kind":"reading"},
+    "visited:jesus_905>olivet_907@4be2df": {"refs":["luke.21.37","luke.22.39"],"note":"Jesus abode on the mount of Olives (21:37; 22:39). That this is Olivet comes from outside Luke, which never says Olivet.","kind":"reading"},
+    "participated-in:jesus_905>70-sent-out@18cea6": {"refs":["luke.10.1"],"note":"Named here as \"Lord\"."},
+    "participated-in:jesus_905>good-samaritan-parable-taught@09ba03": {"refs":["luke.10.25"],"note":"Named here as \"Master\"."},
+    "participated-in:jesus_905>lord-s-prayer-taught@431d30": {"refs":["luke.11.1"],"note":"Named here as \"Lord\"."},
+    "participated-in:jesus_905>samaritans-reject-jesus@dad7cf": {"refs":["luke.9.54"],"note":"Named here as \"Lord\"."},
+    "participated-in:jesus_905>teaching-and-healing-in-perea-to-jerusalem@1f5333": {"refs":["luke.13.23"],"note":"Named here as \"Lord\"."},
+    "participated-in:jesus_905>widow-s-son-resurrected@7af0a7": {"refs":["luke.7.13"],"note":"Named here as \"Lord\"."},
+    "participated-in:jesus_905>woes-and-parables-with-pharisees@32ace9": {"refs":["luke.11.39"],"note":"Named here as \"Lord\"."}
   }
 }

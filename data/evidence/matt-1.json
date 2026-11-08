@@ -1,9 +1,6 @@
 {
   "passage": "matt.1",
-  "ai": {
-    "model": "haiku",
-    "on": "2026-11-08"
-  },
+  "ai": {"model":"haiku","on":"2026-11-08"},
   "agreed": [
     "member-of:abijah_38>genealogy-of-jesus@67461b",
     "member-of:abiud_56>genealogy-of-jesus@5ca719",
@@ -65,269 +62,28 @@
     "partner-of:joseph_1715>mary_1938@0cc169"
   ],
   "facts": {
-    "date:an-angel-speaks-to-joseph-in-a-dream@858502": {
-      "refs": [
-        "matt.1.20"
-      ],
-      "note": "Matt 1:20 gives no year, only that the dream came while Joseph pondered the espousal. The BC year depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:espousal-of-mary@a419da": {
-      "refs": [
-        "matt.1.18"
-      ],
-      "note": "Matt 1:18 gives no year, only that the espousal came before Joseph and Mary came together. The BC year depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "member-of:abiud_56>tribe-of-judah@3165f9": {
-      "refs": [
-        "matt.1.2",
-        "matt.1.3",
-        "matt.1.4",
-        "matt.1.5",
-        "matt.1.6",
-        "matt.1.7",
-        "matt.1.8",
-        "matt.1.9",
-        "matt.1.10",
-        "matt.1.11",
-        "matt.1.12",
-        "matt.1.13"
-      ],
-      "note": "Matt 1:2 to 1:13 traces this man down from Judas by begetting. That the tribe is named for Judah's line is outside this passage.",
-      "kind": "reading"
-    },
-    "member-of:achim_65>tribe-of-judah@bcc2ca": {
-      "refs": [
-        "matt.1.2",
-        "matt.1.3",
-        "matt.1.4",
-        "matt.1.5",
-        "matt.1.6",
-        "matt.1.7",
-        "matt.1.8",
-        "matt.1.9",
-        "matt.1.10",
-        "matt.1.11",
-        "matt.1.12",
-        "matt.1.13",
-        "matt.1.14"
-      ],
-      "note": "Matt 1:2 to 1:14 traces this man down from Judas by begetting. That the tribe is named for Judah's line is outside this passage.",
-      "kind": "reading"
-    },
-    "member-of:azor_559>tribe-of-judah@98b413": {
-      "refs": [
-        "matt.1.2",
-        "matt.1.3",
-        "matt.1.4",
-        "matt.1.5",
-        "matt.1.6",
-        "matt.1.7",
-        "matt.1.8",
-        "matt.1.9",
-        "matt.1.10",
-        "matt.1.11",
-        "matt.1.12",
-        "matt.1.13"
-      ],
-      "note": "Matt 1:2 to 1:13 traces this man down from Judas by begetting. That the tribe is named for Judah's line is outside this passage.",
-      "kind": "reading"
-    },
-    "member-of:eleazar_1069>tribe-of-judah@c05a58": {
-      "refs": [
-        "matt.1.2",
-        "matt.1.3",
-        "matt.1.4",
-        "matt.1.5",
-        "matt.1.6",
-        "matt.1.7",
-        "matt.1.8",
-        "matt.1.9",
-        "matt.1.10",
-        "matt.1.11",
-        "matt.1.12",
-        "matt.1.13",
-        "matt.1.14",
-        "matt.1.15"
-      ],
-      "note": "Matt 1:2 to 1:15 traces this man down from Judas by begetting. That the tribe is named for Judah's line is outside this passage.",
-      "kind": "reading"
-    },
-    "member-of:eliakim_1087>tribe-of-judah@549537": {
-      "refs": [
-        "matt.1.2",
-        "matt.1.3",
-        "matt.1.4",
-        "matt.1.5",
-        "matt.1.6",
-        "matt.1.7",
-        "matt.1.8",
-        "matt.1.9",
-        "matt.1.10",
-        "matt.1.11",
-        "matt.1.12",
-        "matt.1.13"
-      ],
-      "note": "Matt 1:2 to 1:13 traces this man down from Judas by begetting. That the tribe is named for Judah's line is outside this passage.",
-      "kind": "reading"
-    },
-    "member-of:eliud_1164>tribe-of-judah@f8adb7": {
-      "refs": [
-        "matt.1.2",
-        "matt.1.3",
-        "matt.1.4",
-        "matt.1.5",
-        "matt.1.6",
-        "matt.1.7",
-        "matt.1.8",
-        "matt.1.9",
-        "matt.1.10",
-        "matt.1.11",
-        "matt.1.12",
-        "matt.1.13",
-        "matt.1.14"
-      ],
-      "note": "Matt 1:2 to 1:14 traces this man down from Judas by begetting. That the tribe is named for Judah's line is outside this passage.",
-      "kind": "reading"
-    },
-    "member-of:joseph_1715>tribe-of-judah@fa3a9a": {
-      "refs": [
-        "matt.1.2",
-        "matt.1.3",
-        "matt.1.4",
-        "matt.1.5",
-        "matt.1.6",
-        "matt.1.7",
-        "matt.1.8",
-        "matt.1.9",
-        "matt.1.10",
-        "matt.1.11",
-        "matt.1.12",
-        "matt.1.13",
-        "matt.1.14",
-        "matt.1.15",
-        "matt.1.16"
-      ],
-      "note": "Matt 1:2 to 1:16 traces this man down from Judas by begetting. That the tribe is named for Judah's line is outside this passage.",
-      "kind": "reading"
-    },
-    "member-of:matthan_1968>tribe-of-judah@8e4330": {
-      "refs": [
-        "matt.1.2",
-        "matt.1.3",
-        "matt.1.4",
-        "matt.1.5",
-        "matt.1.6",
-        "matt.1.7",
-        "matt.1.8",
-        "matt.1.9",
-        "matt.1.10",
-        "matt.1.11",
-        "matt.1.12",
-        "matt.1.13",
-        "matt.1.14",
-        "matt.1.15"
-      ],
-      "note": "Matt 1:2 to 1:15 traces this man down from Judas by begetting. That the tribe is named for Judah's line is outside this passage.",
-      "kind": "reading"
-    },
-    "member-of:sadoc_2454>tribe-of-judah@e390ed": {
-      "refs": [
-        "matt.1.2",
-        "matt.1.3",
-        "matt.1.4",
-        "matt.1.5",
-        "matt.1.6",
-        "matt.1.7",
-        "matt.1.8",
-        "matt.1.9",
-        "matt.1.10",
-        "matt.1.11",
-        "matt.1.12",
-        "matt.1.13",
-        "matt.1.14"
-      ],
-      "note": "Matt 1:2 to 1:14 traces this man down from Judas by begetting. That the tribe is named for Judah's line is outside this passage.",
-      "kind": "reading"
-    },
-    "member-of:jacob_683>tribe-of-judah@929cb7": {
-      "refs": [
-        "matt.1.2"
-      ],
-      "note": "Matt 1:2 says Jacob begat Judas, so this patriarch is Judah's father, not a tribe member. The Jacob of 1:15-16 is another man sharing this ID.",
-      "kind": "wrong"
-    },
-    "member-of:eliakim_1088>genealogy-of-jesus@5bb513": {
-      "refs": [
-        "luke.3.30"
-      ],
-      "note": "Luke 3:30 names an Eliakim in the line, son of Melea (3:31). Matthew's Eliakim (1:13) is Abiud's son, a different man."
-    },
-    "member-of:jehoiakim_1085>genealogy-of-jesus@3d1372": {
-      "refs": [
-        "matt.1.11",
-        "matt.1.13"
-      ],
-      "note": "Matt 1:11 gives Jechonias, not Jehoiakim, as Josiah's son. The Eliakim of 1:13 comes after Zerubbabel, so is not the king.",
-      "kind": "wrong"
-    },
-    "member-of:joseph_1717>genealogy-of-jesus@4d1576": {
-      "refs": [
-        "luke.3.24"
-      ],
-      "note": "Luke 3:24 names a Joseph, father of Janna, in the line. Not Mary's husband (Matt 1:16)."
-    },
-    "member-of:joseph_1718>genealogy-of-jesus@7580fb": {
-      "refs": [
-        "luke.3.26"
-      ],
-      "note": "Luke 3:26 names a Joseph, son of Juda, in the line. Not Mary's husband (Matt 1:16)."
-    },
-    "member-of:joseph_1719>genealogy-of-jesus@6e795b": {
-      "refs": [
-        "luke.3.30"
-      ],
-      "note": "Luke 3:30 names a Joseph, son of Jonan, in the line. Not Mary's husband (Matt 1:16)."
-    },
-    "parent-of:jehoiachin_791>shealtiel_2456@de85ce": {
-      "refs": [
-        "matt.1.12"
-      ],
-      "note": "Matt 1:12 says Jechonias begat Salathiel. Equating Salathiel with Shealtiel comes from 1 Chr 3:17, not this passage.",
-      "kind": "reading"
-    },
-    "parent-of:matthan_1968>jacob_683@a910ae": {
-      "refs": [
-        "matt.1.15",
-        "matt.1.16"
-      ],
-      "note": "Matt 1:15 says Matthan begat Jacob, Joseph's father (1:16). The patriarch Jacob (1:2) is another man sharing this ID; the record needs splitting.",
-      "kind": "reading"
-    },
-    "parent-of:mary_1938>jesus_905@faab13": {
-      "refs": [
-        "matt.1.16"
-      ],
-      "note": "Matt 1:16 says Jesus was born 'of whom' (Mary), so Mary is named as his mother."
-    },
-    "parent-of:rachab_2385>boaz_519@a7be9e": {
-      "refs": [
-        "matt.1.5"
-      ],
-      "note": "Matt 1:5 says Salmon begat Booz of Rachab, so Rachab is named as Boaz's mother."
-    },
-    "parent-of:ruth_2450>obed_2228@14c07f": {
-      "refs": [
-        "matt.1.5"
-      ],
-      "note": "Matt 1:5 says Booz begat Obed of Ruth, so Ruth is named as Obed's mother."
-    },
-    "participated-in:joseph_1715>an-angel-speaks-to-joseph-in-a-dream@9db3f2": {
-      "refs": [
-        "matt.1.20"
-      ],
-      "note": "The angel of the Lord appears to Joseph in a dream and speaks to him."
-    }
+    "date:an-angel-speaks-to-joseph-in-a-dream@858502": {"refs":["matt.1.20"],"note":"Matt 1:20 gives no year, only that the dream came while Joseph pondered the espousal. The BC year depends on dating outside Scripture.","kind":"reading"},
+    "date:espousal-of-mary@a419da": {"refs":["matt.1.18"],"note":"Matt 1:18 gives no year, only that the espousal came before Joseph and Mary came together. The BC year depends on dating outside Scripture.","kind":"reading"},
+    "member-of:abiud_56>tribe-of-judah@3165f9": {"refs":["matt.1.2","matt.1.3","matt.1.4","matt.1.5","matt.1.6","matt.1.7","matt.1.8","matt.1.9","matt.1.10","matt.1.11","matt.1.12","matt.1.13"],"note":"Matt 1:2 to 1:13 traces this man down from Judas by begetting. That the tribe is named for Judah's line is outside this passage.","kind":"reading"},
+    "member-of:achim_65>tribe-of-judah@bcc2ca": {"refs":["matt.1.2","matt.1.3","matt.1.4","matt.1.5","matt.1.6","matt.1.7","matt.1.8","matt.1.9","matt.1.10","matt.1.11","matt.1.12","matt.1.13","matt.1.14"],"note":"Matt 1:2 to 1:14 traces this man down from Judas by begetting. That the tribe is named for Judah's line is outside this passage.","kind":"reading"},
+    "member-of:azor_559>tribe-of-judah@98b413": {"refs":["matt.1.2","matt.1.3","matt.1.4","matt.1.5","matt.1.6","matt.1.7","matt.1.8","matt.1.9","matt.1.10","matt.1.11","matt.1.12","matt.1.13"],"note":"Matt 1:2 to 1:13 traces this man down from Judas by begetting. That the tribe is named for Judah's line is outside this passage.","kind":"reading"},
+    "member-of:eleazar_1069>tribe-of-judah@c05a58": {"refs":["matt.1.2","matt.1.3","matt.1.4","matt.1.5","matt.1.6","matt.1.7","matt.1.8","matt.1.9","matt.1.10","matt.1.11","matt.1.12","matt.1.13","matt.1.14","matt.1.15"],"note":"Matt 1:2 to 1:15 traces this man down from Judas by begetting. That the tribe is named for Judah's line is outside this passage.","kind":"reading"},
+    "member-of:eliakim_1087>tribe-of-judah@549537": {"refs":["matt.1.2","matt.1.3","matt.1.4","matt.1.5","matt.1.6","matt.1.7","matt.1.8","matt.1.9","matt.1.10","matt.1.11","matt.1.12","matt.1.13"],"note":"Matt 1:2 to 1:13 traces this man down from Judas by begetting. That the tribe is named for Judah's line is outside this passage.","kind":"reading"},
+    "member-of:eliud_1164>tribe-of-judah@f8adb7": {"refs":["matt.1.2","matt.1.3","matt.1.4","matt.1.5","matt.1.6","matt.1.7","matt.1.8","matt.1.9","matt.1.10","matt.1.11","matt.1.12","matt.1.13","matt.1.14"],"note":"Matt 1:2 to 1:14 traces this man down from Judas by begetting. That the tribe is named for Judah's line is outside this passage.","kind":"reading"},
+    "member-of:joseph_1715>tribe-of-judah@fa3a9a": {"refs":["matt.1.2","matt.1.3","matt.1.4","matt.1.5","matt.1.6","matt.1.7","matt.1.8","matt.1.9","matt.1.10","matt.1.11","matt.1.12","matt.1.13","matt.1.14","matt.1.15","matt.1.16"],"note":"Matt 1:2 to 1:16 traces this man down from Judas by begetting. That the tribe is named for Judah's line is outside this passage.","kind":"reading"},
+    "member-of:matthan_1968>tribe-of-judah@8e4330": {"refs":["matt.1.2","matt.1.3","matt.1.4","matt.1.5","matt.1.6","matt.1.7","matt.1.8","matt.1.9","matt.1.10","matt.1.11","matt.1.12","matt.1.13","matt.1.14","matt.1.15"],"note":"Matt 1:2 to 1:15 traces this man down from Judas by begetting. That the tribe is named for Judah's line is outside this passage.","kind":"reading"},
+    "member-of:sadoc_2454>tribe-of-judah@e390ed": {"refs":["matt.1.2","matt.1.3","matt.1.4","matt.1.5","matt.1.6","matt.1.7","matt.1.8","matt.1.9","matt.1.10","matt.1.11","matt.1.12","matt.1.13","matt.1.14"],"note":"Matt 1:2 to 1:14 traces this man down from Judas by begetting. That the tribe is named for Judah's line is outside this passage.","kind":"reading"},
+    "member-of:jacob_683>tribe-of-judah@929cb7": {"refs":["matt.1.2"],"note":"Matt 1:2 says Jacob begat Judas, so this patriarch is Judah's father, not a tribe member. The Jacob of 1:15-16 is another man sharing this ID.","kind":"wrong"},
+    "member-of:eliakim_1088>genealogy-of-jesus@5bb513": {"refs":["luke.3.30"],"note":"Luke 3:30 names an Eliakim in the line, son of Melea (3:31). Matthew's Eliakim (1:13) is Abiud's son, a different man."},
+    "member-of:jehoiakim_1085>genealogy-of-jesus@3d1372": {"refs":["matt.1.11","matt.1.13"],"note":"Matt 1:11 gives Jechonias, not Jehoiakim, as Josiah's son. The Eliakim of 1:13 comes after Zerubbabel, so is not the king.","kind":"wrong"},
+    "member-of:joseph_1717>genealogy-of-jesus@4d1576": {"refs":["luke.3.24"],"note":"Luke 3:24 names a Joseph, father of Janna, in the line. Not Mary's husband (Matt 1:16)."},
+    "member-of:joseph_1718>genealogy-of-jesus@7580fb": {"refs":["luke.3.26"],"note":"Luke 3:26 names a Joseph, son of Juda, in the line. Not Mary's husband (Matt 1:16)."},
+    "member-of:joseph_1719>genealogy-of-jesus@6e795b": {"refs":["luke.3.30"],"note":"Luke 3:30 names a Joseph, son of Jonan, in the line. Not Mary's husband (Matt 1:16)."},
+    "parent-of:jehoiachin_791>shealtiel_2456@de85ce": {"refs":["matt.1.12"],"note":"Matt 1:12 says Jechonias begat Salathiel. Equating Salathiel with Shealtiel comes from 1 Chr 3:17, not this passage.","kind":"reading"},
+    "parent-of:matthan_1968>jacob_683@a910ae": {"refs":["matt.1.15","matt.1.16"],"note":"Matt 1:15 says Matthan begat Jacob, Joseph's father (1:16). The patriarch Jacob (1:2) is another man sharing this ID; the record needs splitting.","kind":"reading"},
+    "parent-of:mary_1938>jesus_905@faab13": {"refs":["matt.1.16"],"note":"Matt 1:16 says Jesus was born 'of whom' (Mary), so Mary is named as his mother."},
+    "parent-of:rachab_2385>boaz_519@a7be9e": {"refs":["matt.1.5"],"note":"Matt 1:5 says Salmon begat Booz of Rachab, so Rachab is named as Boaz's mother."},
+    "parent-of:ruth_2450>obed_2228@14c07f": {"refs":["matt.1.5"],"note":"Matt 1:5 says Booz begat Obed of Ruth, so Ruth is named as Obed's mother."},
+    "participated-in:joseph_1715>an-angel-speaks-to-joseph-in-a-dream@9db3f2": {"refs":["matt.1.20"],"note":"The angel of the Lord appears to Joseph in a dream and speaks to him."}
   }
 }

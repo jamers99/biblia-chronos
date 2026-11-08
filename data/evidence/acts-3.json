@@ -1,6 +1,6 @@
 {
   "passage": "acts.7-8",
-  "ai": { "model": "haiku", "on": "2026-11-07" },
+  "ai": {"model":"haiku","on":"2026-11-07"},
   "agreed": [
     "occurred-at:philip-preaches-in-samaria>samaria_1022@11b70a",
     "occurred-at:saul-persecutes-the-church>jerusalem_636@38a941",
@@ -9,99 +9,25 @@
     "visited:philip_2347>samaria_1022@3f6813"
   ],
   "facts": {
-    "date:conversion-of-ethiopian-eunuch@66b37a": {
-      "refs": ["acts.8.1", "acts.8.26"],
-      "note": "Text gives no year. Placed after the persecution and the Samaria mission (8:1, 8:26). Year 32 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:philip-preaches-in-samaria@84a195": {
-      "refs": ["acts.8.4", "acts.8.5"],
-      "note": "Text gives no year. Follows the scattering after Stephen's death (8:4-5). Year 31 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:saul-persecutes-the-church@84a195": {
-      "refs": ["acts.8.1", "acts.8.3"],
-      "note": "Text gives no year. Follows directly after Stephen's stoning (7:58-8:1). Year 31 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:stephen-addresses-the-council@22ede5": {
-      "refs": ["acts.7.1", "acts.7.2"],
-      "note": "Text gives no year. Stephen answers the high priest's question (7:1-2). Year 30 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:stephen-is-stoned@84a195": {
-      "refs": ["acts.7.58", "acts.7.59"],
-      "note": "Text gives no year. Stoning follows Stephen's speech (7:54-58). Year 31 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "occurred-at:conversion-of-ethiopian-eunuch>gaza_446@8b5073": {
-      "refs": ["acts.8.26", "acts.8.36"],
-      "note": "Text puts it on the desert road toward Gaza, at a water on the way (8:26, 8:36-38), not at Gaza.",
-      "kind": "wrong"
-    },
-    "occurred-at:stephen-addresses-the-council>jerusalem_636@08bcc4": {
-      "refs": ["acts.7.1", "acts.7.58", "acts.8.1"],
-      "note": "The place is not named. The high priest's council and stoning 'out of the city' (7:1, 7:58) fit Jerusalem, where the church is at 8:1.",
-      "kind": "reading"
-    },
-    "occurred-at:stephen-is-stoned>jerusalem_636@03a275": {
-      "refs": ["acts.7.58", "acts.8.1", "acts.8.2"],
-      "note": "The place is not named. Stoned 'out of the city' (7:58), and the church at Jerusalem scatters after it (8:1-2). Reading.",
-      "kind": "reading"
-    },
-    "participated-in:holy_spirit_7400>conversion-of-ethiopian-eunuch@e7fa98": {
-      "refs": ["acts.8.29", "acts.8.39"],
-      "note": "The Spirit speaks to Philip, sending him to the chariot (8:29), and catches Philip away after the baptism (8:39)."
-    },
-    "participated-in:holy_spirit_7400>philip-preaches-in-samaria@7e8106": {
-      "refs": ["acts.8.15", "acts.8.17"],
-      "note": "The Holy Ghost is received by the Samaritans through the apostles' prayer and hands (8:15-17). The Spirit is given, not described as acting. Reading.",
-      "kind": "reading"
-    },
-    "participated-in:john_1677>philip-preaches-in-samaria@6c66ec": {
-      "refs": ["acts.8.14", "acts.8.15"],
-      "note": "John is sent with Peter to Samaria and prays for the converts (8:14-15). The text does not place him in Philip's preaching itself. Reading.",
-      "kind": "reading"
-    },
-    "participated-in:paul_2479>saul-persecutes-the-church@8bd3e9": {
-      "refs": ["acts.8.1", "acts.8.3", "acts.13.9"],
-      "note": "Saul makes havoc of the church, entering houses and committing men and women to prison (8:1, 8:3). Saul is called Paul in 13:9."
-    },
-    "participated-in:paul_2479>stephen-is-stoned@18cdd1": {
-      "refs": ["acts.7.58", "acts.8.1", "acts.13.9"],
-      "note": "Witnesses lay their clothes at Saul's feet at the stoning (7:58), and Saul consented to Stephen's death (8:1). The text does not say he cast stones. Reading.",
-      "kind": "reading"
-    },
-    "participated-in:peter_2745>philip-preaches-in-samaria@8e4363": {
-      "refs": ["acts.8.14", "acts.8.15", "acts.8.20"],
-      "note": "Peter is sent to Samaria, prays for the converts, and rebukes Simon (8:14-15, 8:20). Not part of Philip's preaching itself. Reading.",
-      "kind": "reading"
-    },
-    "participated-in:philip_2347>conversion-of-ethiopian-eunuch@bda34d": {
-      "refs": ["acts.8.26", "acts.8.35", "acts.8.38"],
-      "note": "Philip is sent to the road to Gaza (8:26), preaches Jesus to the eunuch (8:35), and baptizes him (8:38)."
-    },
-    "participated-in:simon_2752>philip-preaches-in-samaria@0e870d": {
-      "refs": ["acts.8.9", "acts.8.13"],
-      "note": "Simon believes Philip's preaching and is baptized, continuing with Philip (8:13). His sorcery is earlier (8:9)."
-    },
-    "participated-in:stephen_2802>saul-persecutes-the-church@1ab92d": {
-      "refs": ["acts.7.59", "acts.7.60", "acts.8.2"],
-      "note": "Stephen was already dead (7:59-60) when the persecution began (8:1). Devout men buried him (8:2).",
-      "kind": "wrong"
-    },
-    "participated-in:stephen_2802>stephen-addresses-the-council@27113d": {
-      "refs": ["acts.7.2"],
-      "note": "Stephen gives the speech: 'Men, brethren, and fathers, hearken' (7:2)."
-    },
-    "visited:philip_2344>jerusalem_636@f06516": {
-      "refs": ["acts.1.13", "acts.8.1", "acts.8.14"],
-      "note": "Acts 8:26 concerns Philip the evangelist, not the apostle. Philip is an apostle (1:13), and the apostles stayed at Jerusalem (8:1, 8:14). Reading.",
-      "kind": "reading"
-    },
-    "visited:simon_2752>samaria_1022@b7665f": {
-      "refs": ["acts.8.9"],
-      "note": "Simon used sorcery 'in the same city' as the people of Samaria (8:9)."
-    }
+    "date:conversion-of-ethiopian-eunuch@66b37a": {"refs":["acts.8.1","acts.8.26"],"note":"Text gives no year. Placed after the persecution and the Samaria mission (8:1, 8:26). Year 32 depends on dating outside Scripture.","kind":"reading"},
+    "date:philip-preaches-in-samaria@84a195": {"refs":["acts.8.4","acts.8.5"],"note":"Text gives no year. Follows the scattering after Stephen's death (8:4-5). Year 31 depends on dating outside Scripture.","kind":"reading"},
+    "date:saul-persecutes-the-church@84a195": {"refs":["acts.8.1","acts.8.3"],"note":"Text gives no year. Follows directly after Stephen's stoning (7:58-8:1). Year 31 depends on dating outside Scripture.","kind":"reading"},
+    "date:stephen-addresses-the-council@22ede5": {"refs":["acts.7.1","acts.7.2"],"note":"Text gives no year. Stephen answers the high priest's question (7:1-2). Year 30 depends on dating outside Scripture.","kind":"reading"},
+    "date:stephen-is-stoned@84a195": {"refs":["acts.7.58","acts.7.59"],"note":"Text gives no year. Stoning follows Stephen's speech (7:54-58). Year 31 depends on dating outside Scripture.","kind":"reading"},
+    "occurred-at:conversion-of-ethiopian-eunuch>gaza_446@8b5073": {"refs":["acts.8.26","acts.8.36"],"note":"Text puts it on the desert road toward Gaza, at a water on the way (8:26, 8:36-38), not at Gaza.","kind":"wrong"},
+    "occurred-at:stephen-addresses-the-council>jerusalem_636@08bcc4": {"refs":["acts.7.1","acts.7.58","acts.8.1"],"note":"The place is not named. The high priest's council and stoning 'out of the city' (7:1, 7:58) fit Jerusalem, where the church is at 8:1.","kind":"reading"},
+    "occurred-at:stephen-is-stoned>jerusalem_636@03a275": {"refs":["acts.7.58","acts.8.1","acts.8.2"],"note":"The place is not named. Stoned 'out of the city' (7:58), and the church at Jerusalem scatters after it (8:1-2). Reading.","kind":"reading"},
+    "participated-in:holy_spirit_7400>conversion-of-ethiopian-eunuch@e7fa98": {"refs":["acts.8.29","acts.8.39"],"note":"The Spirit speaks to Philip, sending him to the chariot (8:29), and catches Philip away after the baptism (8:39)."},
+    "participated-in:holy_spirit_7400>philip-preaches-in-samaria@7e8106": {"refs":["acts.8.15","acts.8.17"],"note":"The Holy Ghost is received by the Samaritans through the apostles' prayer and hands (8:15-17). The Spirit is given, not described as acting. Reading.","kind":"reading"},
+    "participated-in:john_1677>philip-preaches-in-samaria@6c66ec": {"refs":["acts.8.14","acts.8.15"],"note":"John is sent with Peter to Samaria and prays for the converts (8:14-15). The text does not place him in Philip's preaching itself. Reading.","kind":"reading"},
+    "participated-in:paul_2479>saul-persecutes-the-church@8bd3e9": {"refs":["acts.8.1","acts.8.3","acts.13.9"],"note":"Saul makes havoc of the church, entering houses and committing men and women to prison (8:1, 8:3). Saul is called Paul in 13:9."},
+    "participated-in:paul_2479>stephen-is-stoned@18cdd1": {"refs":["acts.7.58","acts.8.1","acts.13.9"],"note":"Witnesses lay their clothes at Saul's feet at the stoning (7:58), and Saul consented to Stephen's death (8:1). The text does not say he cast stones. Reading.","kind":"reading"},
+    "participated-in:peter_2745>philip-preaches-in-samaria@8e4363": {"refs":["acts.8.14","acts.8.15","acts.8.20"],"note":"Peter is sent to Samaria, prays for the converts, and rebukes Simon (8:14-15, 8:20). Not part of Philip's preaching itself. Reading.","kind":"reading"},
+    "participated-in:philip_2347>conversion-of-ethiopian-eunuch@bda34d": {"refs":["acts.8.26","acts.8.35","acts.8.38"],"note":"Philip is sent to the road to Gaza (8:26), preaches Jesus to the eunuch (8:35), and baptizes him (8:38)."},
+    "participated-in:simon_2752>philip-preaches-in-samaria@0e870d": {"refs":["acts.8.9","acts.8.13"],"note":"Simon believes Philip's preaching and is baptized, continuing with Philip (8:13). His sorcery is earlier (8:9)."},
+    "participated-in:stephen_2802>saul-persecutes-the-church@1ab92d": {"refs":["acts.7.59","acts.7.60","acts.8.2"],"note":"Stephen was already dead (7:59-60) when the persecution began (8:1). Devout men buried him (8:2).","kind":"wrong"},
+    "participated-in:stephen_2802>stephen-addresses-the-council@27113d": {"refs":["acts.7.2"],"note":"Stephen gives the speech: 'Men, brethren, and fathers, hearken' (7:2)."},
+    "visited:philip_2344>jerusalem_636@f06516": {"refs":["acts.1.13","acts.8.1","acts.8.14"],"note":"Acts 8:26 concerns Philip the evangelist, not the apostle. Philip is an apostle (1:13), and the apostles stayed at Jerusalem (8:1, 8:14). Reading.","kind":"reading"},
+    "visited:simon_2752>samaria_1022@b7665f": {"refs":["acts.8.9"],"note":"Simon used sorcery 'in the same city' as the people of Samaria (8:9)."}
   }
 }

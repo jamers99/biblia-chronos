@@ -1,9 +1,6 @@
 {
   "passage": "gen.46",
-  "ai": {
-    "model": "haiku",
-    "on": "2026-11-08"
-  },
+  "ai": {"model":"haiku","on":"2026-11-08"},
   "agreed": [
     "parent-of:asher_337>beriah_478@735ccb",
     "parent-of:asher_337>isui_648@4cc025",
@@ -46,523 +43,77 @@
     "parent-of:zebulun_3002>sered_2501@ca50e7"
   ],
   "facts": {
-    "member-of:ard_293>tribe-of-benjamin@4e34b5": {
-      "refs": [
-        "gen.46.21",
-        "num.26.40"
-      ],
-      "note": "Descended from Benjamin (Gen 46:21), though Num 26:40 makes Ard a son of Bela. Tribe membership is inferred.",
-      "kind": "reading"
-    },
-    "member-of:areli_296>tribe-of-gad@9e9764": {
-      "refs": [
-        "gen.46.16"
-      ],
-      "note": "Descended from Gad (Gen 46:16). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:arod_311>tribe-of-gad@137cbe": {
-      "refs": [
-        "gen.46.16",
-        "num.26.17"
-      ],
-      "note": "Descended from Gad (Gen 46:16, spelled Arodi). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:ashbel_336>tribe-of-benjamin@59790e": {
-      "refs": [
-        "gen.46.21"
-      ],
-      "note": "Descended from Benjamin (Gen 46:21). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:becher_423>tribe-of-benjamin@03fc88": {
-      "refs": [
-        "gen.46.21"
-      ],
-      "note": "Descended from Benjamin (Gen 46:21). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:bela_436>tribe-of-benjamin@f15e8c": {
-      "refs": [
-        "gen.46.21",
-        "1chr.8.1"
-      ],
-      "note": "Descended from Benjamin (1 Chr 8:1; Gen 46:21 spells him Belah). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:beriah_478>tribe-of-asher@f9666f": {
-      "refs": [
-        "gen.46.17"
-      ],
-      "note": "Descended from Asher (Gen 46:17). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:carmi_920>tribe-of-reuben@112e83": {
-      "refs": [
-        "gen.46.9"
-      ],
-      "note": "Descended from Reuben (Gen 46:9). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:ehi_1038>tribe-of-benjamin@fd29d7": {
-      "refs": [
-        "gen.46.21"
-      ],
-      "note": "Descended from Benjamin (Gen 46:21). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:elon_1183>tribe-of-zebulun@440eb7": {
-      "refs": [
-        "gen.46.14"
-      ],
-      "note": "Descended from Zebulun (Gen 46:14). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:eri_1214>tribe-of-gad@d84b1c": {
-      "refs": [
-        "gen.46.16"
-      ],
-      "note": "Descended from Gad (Gen 46:16). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:gera_1298>tribe-of-benjamin@7592d0": {
-      "refs": [
-        "gen.46.21"
-      ],
-      "note": "Descended from Benjamin (Gen 46:21). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:gershon_1305>tribe-of-levi@a983e4": {
-      "refs": [
-        "gen.46.11"
-      ],
-      "note": "Descended from Levi (Gen 46:11). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:guni_1330>tribe-of-naphtali@545568": {
-      "refs": [
-        "gen.46.24"
-      ],
-      "note": "Descended from Naphtali (Gen 46:24). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:haggi_1351>tribe-of-gad@331e05": {
-      "refs": [
-        "gen.46.16"
-      ],
-      "note": "Descended from Gad (Gen 46:16). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:hamul_1367>tribe-of-judah@36463c": {
-      "refs": [
-        "gen.46.12"
-      ],
-      "note": "Descended from Pharez, Judah's son (Gen 46:12). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:hanoch_1403>tribe-of-reuben@45029e": {
-      "refs": [
-        "gen.46.9"
-      ],
-      "note": "Descended from Reuben (Gen 46:9). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:heber_1469>tribe-of-asher@0cdc4f": {
-      "refs": [
-        "gen.46.17"
-      ],
-      "note": "Descended from Beriah, Asher's son (Gen 46:17). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:hezron_1519>tribe-of-reuben@d22e6c": {
-      "refs": [
-        "gen.46.9"
-      ],
-      "note": "Descended from Reuben (Gen 46:9). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:hezron_1520>tribe-of-judah@167aa4": {
-      "refs": [
-        "gen.46.12"
-      ],
-      "note": "Descended from Pharez, Judah's son (Gen 46:12). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:huram_1569>tribe-of-benjamin@bcd608": {
-      "refs": [
-        "1chr.8.3",
-        "1chr.8.5"
-      ],
-      "note": "Descended from Bela, Benjamin's son (1 Chr 8:3-5). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:hushim_1579>tribe-of-dan@3b560b": {
-      "refs": [
-        "gen.46.23"
-      ],
-      "note": "Descended from Dan (Gen 46:23). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:imnah_1616>tribe-of-asher@a9ee05": {
-      "refs": [
-        "gen.46.17"
-      ],
-      "note": "Descended from Asher (Gen 46:17, spelled Jimnah). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:isuah_640>tribe-of-asher@eef550": {
-      "refs": [
-        "gen.46.17"
-      ],
-      "note": "Descended from Asher (Gen 46:17, spelled Ishuah). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:isui_648>tribe-of-asher@ff9fc2": {
-      "refs": [
-        "gen.46.17"
-      ],
-      "note": "Descended from Asher (Gen 46:17). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:jachin_679>tribe-of-simeon@d46b2d": {
-      "refs": [
-        "gen.46.10"
-      ],
-      "note": "Descended from Simeon (Gen 46:10). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:jahleel_704>tribe-of-zebulun@fa863f": {
-      "refs": [
-        "gen.46.14"
-      ],
-      "note": "Descended from Zebulun (Gen 46:14). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:jahzeel_706>tribe-of-naphtali@ece7aa": {
-      "refs": [
-        "gen.46.24"
-      ],
-      "note": "Descended from Naphtali (Gen 46:24). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:jamin_720>tribe-of-simeon@6226c3": {
-      "refs": [
-        "gen.46.10"
-      ],
-      "note": "Descended from Simeon (Gen 46:10). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:jashub_1638>tribe-of-issachar@9cbb06": {
-      "refs": [
-        "gen.46.13",
-        "num.26.24"
-      ],
-      "note": "Descended from Issachar (Gen 46:13 says Job; Num 26:24 says Jashub). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:jemuel_838>tribe-of-simeon@235ec7": {
-      "refs": [
-        "gen.46.10"
-      ],
-      "note": "Descended from Simeon (Gen 46:10). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:jezer_1606>tribe-of-naphtali@fa405e": {
-      "refs": [
-        "gen.46.24"
-      ],
-      "note": "Descended from Naphtali (Gen 46:24). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:kohath_1790>tribe-of-levi@6ea30e": {
-      "refs": [
-        "gen.46.11"
-      ],
-      "note": "Descended from Levi (Gen 46:11). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:malchiel_1908>tribe-of-asher@b90ab1": {
-      "refs": [
-        "gen.46.17"
-      ],
-      "note": "Descended from Beriah, Asher's son (Gen 46:17). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:merari_2004>tribe-of-levi@e92652": {
-      "refs": [
-        "gen.46.11"
-      ],
-      "note": "Descended from Levi (Gen 46:11). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:nohah_2120>tribe-of-benjamin@a4b77c": {
-      "refs": [
-        "1chr.8.2"
-      ],
-      "note": "Descended from Benjamin (1 Chr 8:2). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:ohad_2239>tribe-of-simeon@3c8915": {
-      "refs": [
-        "gen.46.10"
-      ],
-      "note": "Descended from Simeon (Gen 46:10). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:ozni_1235>tribe-of-gad@025127": {
-      "refs": [
-        "gen.46.16",
-        "num.26.16"
-      ],
-      "note": "Descended from Gad (Num 26:16; Gen 46:16 says Ezbon). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:pallu_2325>tribe-of-reuben@d96e34": {
-      "refs": [
-        "gen.46.9"
-      ],
-      "note": "Descended from Reuben (Gen 46:9, spelled Phallu). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:puah_2355>tribe-of-issachar@ebaf38": {
-      "refs": [
-        "gen.46.13",
-        "num.26.23"
-      ],
-      "note": "Descended from Issachar (Gen 46:13 spells Phuvah; Num 26:23 Pua). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:rapha_2447>tribe-of-benjamin@05cf8c": {
-      "refs": [
-        "1chr.8.2"
-      ],
-      "note": "Descended from Benjamin (1 Chr 8:2). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:serah_2492>tribe-of-asher@9db25a": {
-      "refs": [
-        "gen.46.17"
-      ],
-      "note": "Descended from Asher (Gen 46:17, called their sister). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:sered_2501>tribe-of-zebulun@33bdf0": {
-      "refs": [
-        "gen.46.14"
-      ],
-      "note": "Descended from Zebulun (Gen 46:14). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:shaul_2562>tribe-of-simeon@ed3935": {
-      "refs": [
-        "gen.46.10"
-      ],
-      "note": "Descended from Simeon (Gen 46:10). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:shillem_2677>tribe-of-naphtali@632600": {
-      "refs": [
-        "gen.46.24"
-      ],
-      "note": "Descended from Naphtali (Gen 46:24). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:shimron_2706>tribe-of-issachar@3e7b20": {
-      "refs": [
-        "gen.46.13"
-      ],
-      "note": "Descended from Issachar (Gen 46:13). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:shuni_2731>tribe-of-gad@f7c1c0": {
-      "refs": [
-        "gen.46.16"
-      ],
-      "note": "Descended from Gad (Gen 46:16). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:shupham_2115>tribe-of-benjamin@42f0e3": {
-      "refs": [
-        "gen.46.21",
-        "num.26.39"
-      ],
-      "note": "Descended from Benjamin (Num 26:39; Gen 46:21 says Muppim). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:tola_2878>tribe-of-issachar@3d98ba": {
-      "refs": [
-        "gen.46.13"
-      ],
-      "note": "Descended from Issachar (Gen 46:13). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:zephon_3093>tribe-of-gad@c5fead": {
-      "refs": [
-        "gen.46.16",
-        "num.26.15"
-      ],
-      "note": "Descended from Gad (Gen 46:16, spelled Ziphion; Num 26:15 Zephon). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:zerah_3102>tribe-of-simeon@d6d092": {
-      "refs": [
-        "gen.46.10",
-        "num.26.13"
-      ],
-      "note": "Descended from Simeon (Num 26:13; Gen 46:10 says Zohar). Tribe membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "parent-of:asenath_335>ephraim_1206@7c310d": {
-      "refs": [
-        "gen.46.20"
-      ],
-      "note": "Gen 46:20: Asenath bore Manasseh and Ephraim unto Joseph."
-    },
-    "parent-of:asenath_335>manasseh_1928@bd3688": {
-      "refs": [
-        "gen.46.20"
-      ],
-      "note": "Gen 46:20: Asenath bore Manasseh and Ephraim unto Joseph."
-    },
-    "parent-of:asher_337>imnah_1616@8a1908": {
-      "refs": [
-        "gen.46.17"
-      ],
-      "note": "Gen 46:17 spells him Jimnah among Asher's sons. Same man assumed.",
-      "kind": "reading"
-    },
-    "parent-of:asher_337>isuah_640@27ca5b": {
-      "refs": [
-        "gen.46.17"
-      ],
-      "note": "Gen 46:17 spells him Ishuah among Asher's sons. Same man assumed.",
-      "kind": "reading"
-    },
-    "parent-of:benjamin_463>ard_293@f219b5": {
-      "refs": [
-        "gen.46.21",
-        "num.26.40"
-      ],
-      "note": "Gen 46:21 lists Ard among Benjamin's sons, but Num 26:40 makes him a son of Bela.",
-      "kind": "reading"
-    },
-    "parent-of:benjamin_463>bela_436@510e38": {
-      "refs": [
-        "gen.46.21",
-        "1chr.8.1"
-      ],
-      "note": "Gen 46:21 spells him Belah among Benjamin's sons. 1 Chr 8:1 names Bela the firstborn. Same man assumed.",
-      "kind": "reading"
-    },
-    "parent-of:benjamin_463>gera_1298@64b40c": {
-      "refs": [
-        "gen.46.21"
-      ],
-      "note": "Gen 46:21 lists Gera among Benjamin's sons. 1 Chr 8:3 lists a Gera under Bela, so this may be another man.",
-      "kind": "reading"
-    },
-    "parent-of:benjamin_463>huram_1569@089cbb": {
-      "refs": [
-        "1chr.8.3",
-        "1chr.8.5"
-      ],
-      "note": "Huram is not in Gen 46:21. 1 Chr 8:3-5 lists him among the sons of Bela, not Benjamin.",
-      "kind": "wrong"
-    },
-    "parent-of:benjamin_463>nohah_2120@162ff8": {
-      "refs": [
-        "1chr.8.2"
-      ],
-      "note": "1 Chr 8:2 names Nohah the fourth son of Benjamin. Gen 46:21 does not name him."
-    },
-    "parent-of:benjamin_463>rapha_2447@1ab2f5": {
-      "refs": [
-        "1chr.8.2"
-      ],
-      "note": "1 Chr 8:2 names Rapha the fifth son of Benjamin. Gen 46:21 does not name him."
-    },
-    "parent-of:benjamin_463>shupham_2115@01a113": {
-      "refs": [
-        "gen.46.21",
-        "num.26.39"
-      ],
-      "note": "Num 26:39 lists Shupham among Benjamin's families. Gen 46:21 spells the name Muppim. Same man assumed.",
-      "kind": "reading"
-    },
-    "parent-of:canaanitish_woman_915>shaul_2562@9f2edc": {
-      "refs": [
-        "gen.46.10"
-      ],
-      "note": "Gen 46:10 calls Shaul the son of a Canaanitish woman. Her name is not given."
-    },
-    "parent-of:gad_1262>arod_311@86792c": {
-      "refs": [
-        "gen.46.16",
-        "num.26.17"
-      ],
-      "note": "Gen 46:16 spells him Arodi among Gad's sons. Num 26:17 has Arod. Same man assumed.",
-      "kind": "reading"
-    },
-    "parent-of:gad_1262>ozni_1235@92a690": {
-      "refs": [
-        "gen.46.16",
-        "num.26.16"
-      ],
-      "note": "Gen 46:16 names Ezbon among Gad's sons. Num 26:16 names Ozni. Same man assumed.",
-      "kind": "reading"
-    },
-    "parent-of:gad_1262>zephon_3093@3e01a7": {
-      "refs": [
-        "gen.46.16",
-        "num.26.15"
-      ],
-      "note": "Gen 46:16 spells him Ziphion among Gad's sons. Num 26:15 has Zephon. Same man assumed.",
-      "kind": "reading"
-    },
-    "parent-of:issachar_645>jashub_1638@7cd41d": {
-      "refs": [
-        "gen.46.13",
-        "num.26.24"
-      ],
-      "note": "Gen 46:13 names Job among Issachar's sons. Num 26:24 names Jashub. Same man assumed.",
-      "kind": "reading"
-    },
-    "parent-of:issachar_645>puah_2355@8491d3": {
-      "refs": [
-        "gen.46.13",
-        "num.26.23"
-      ],
-      "note": "Gen 46:13 spells him Phuvah among Issachar's sons. Num 26:23 has Pua. Same man assumed.",
-      "kind": "reading"
-    },
-    "parent-of:reuben_2429>pallu_2325@bcdeed": {
-      "refs": [
-        "gen.46.9"
-      ],
-      "note": "Gen 46:9 spells him Phallu among Reuben's sons. Same man assumed.",
-      "kind": "reading"
-    },
-    "parent-of:simeon_2741>zerah_3102@7a4792": {
-      "refs": [
-        "gen.46.10",
-        "num.26.13"
-      ],
-      "note": "Gen 46:10 names Zohar among Simeon's sons. Num 26:13 names Zerah. Same man assumed.",
-      "kind": "reading"
-    },
-    "date:lifetime-of-job@3dac2e": {
-      "refs": [
-        "job.42.16"
-      ],
-      "note": "Job 42:16 says Job lived 140 years after his trial, so his life exceeded 140 years. The dated span is only 140 years.",
-      "kind": "wrong"
-    },
-    "participated-in:job_1639>lifetime-of-job@58533a": {
-      "refs": [
-        "job.42.16"
-      ],
-      "note": "Job 42:16 says Job lived on after his trial and saw four generations."
-    }
+    "member-of:ard_293>tribe-of-benjamin@4e34b5": {"refs":["gen.46.21","num.26.40"],"note":"Descended from Benjamin (Gen 46:21), though Num 26:40 makes Ard a son of Bela. Tribe membership is inferred.","kind":"reading"},
+    "member-of:areli_296>tribe-of-gad@9e9764": {"refs":["gen.46.16"],"note":"Descended from Gad (Gen 46:16). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:arod_311>tribe-of-gad@137cbe": {"refs":["gen.46.16","num.26.17"],"note":"Descended from Gad (Gen 46:16, spelled Arodi). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:ashbel_336>tribe-of-benjamin@59790e": {"refs":["gen.46.21"],"note":"Descended from Benjamin (Gen 46:21). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:becher_423>tribe-of-benjamin@03fc88": {"refs":["gen.46.21"],"note":"Descended from Benjamin (Gen 46:21). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:bela_436>tribe-of-benjamin@f15e8c": {"refs":["gen.46.21","1chr.8.1"],"note":"Descended from Benjamin (1 Chr 8:1; Gen 46:21 spells him Belah). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:beriah_478>tribe-of-asher@f9666f": {"refs":["gen.46.17"],"note":"Descended from Asher (Gen 46:17). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:carmi_920>tribe-of-reuben@112e83": {"refs":["gen.46.9"],"note":"Descended from Reuben (Gen 46:9). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:ehi_1038>tribe-of-benjamin@fd29d7": {"refs":["gen.46.21"],"note":"Descended from Benjamin (Gen 46:21). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:elon_1183>tribe-of-zebulun@440eb7": {"refs":["gen.46.14"],"note":"Descended from Zebulun (Gen 46:14). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:eri_1214>tribe-of-gad@d84b1c": {"refs":["gen.46.16"],"note":"Descended from Gad (Gen 46:16). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:gera_1298>tribe-of-benjamin@7592d0": {"refs":["gen.46.21"],"note":"Descended from Benjamin (Gen 46:21). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:gershon_1305>tribe-of-levi@a983e4": {"refs":["gen.46.11"],"note":"Descended from Levi (Gen 46:11). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:guni_1330>tribe-of-naphtali@545568": {"refs":["gen.46.24"],"note":"Descended from Naphtali (Gen 46:24). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:haggi_1351>tribe-of-gad@331e05": {"refs":["gen.46.16"],"note":"Descended from Gad (Gen 46:16). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:hamul_1367>tribe-of-judah@36463c": {"refs":["gen.46.12"],"note":"Descended from Pharez, Judah's son (Gen 46:12). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:hanoch_1403>tribe-of-reuben@45029e": {"refs":["gen.46.9"],"note":"Descended from Reuben (Gen 46:9). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:heber_1469>tribe-of-asher@0cdc4f": {"refs":["gen.46.17"],"note":"Descended from Beriah, Asher's son (Gen 46:17). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:hezron_1519>tribe-of-reuben@d22e6c": {"refs":["gen.46.9"],"note":"Descended from Reuben (Gen 46:9). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:hezron_1520>tribe-of-judah@167aa4": {"refs":["gen.46.12"],"note":"Descended from Pharez, Judah's son (Gen 46:12). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:huram_1569>tribe-of-benjamin@bcd608": {"refs":["1chr.8.3","1chr.8.5"],"note":"Descended from Bela, Benjamin's son (1 Chr 8:3-5). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:hushim_1579>tribe-of-dan@3b560b": {"refs":["gen.46.23"],"note":"Descended from Dan (Gen 46:23). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:imnah_1616>tribe-of-asher@a9ee05": {"refs":["gen.46.17"],"note":"Descended from Asher (Gen 46:17, spelled Jimnah). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:isuah_640>tribe-of-asher@eef550": {"refs":["gen.46.17"],"note":"Descended from Asher (Gen 46:17, spelled Ishuah). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:isui_648>tribe-of-asher@ff9fc2": {"refs":["gen.46.17"],"note":"Descended from Asher (Gen 46:17). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:jachin_679>tribe-of-simeon@d46b2d": {"refs":["gen.46.10"],"note":"Descended from Simeon (Gen 46:10). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:jahleel_704>tribe-of-zebulun@fa863f": {"refs":["gen.46.14"],"note":"Descended from Zebulun (Gen 46:14). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:jahzeel_706>tribe-of-naphtali@ece7aa": {"refs":["gen.46.24"],"note":"Descended from Naphtali (Gen 46:24). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:jamin_720>tribe-of-simeon@6226c3": {"refs":["gen.46.10"],"note":"Descended from Simeon (Gen 46:10). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:jashub_1638>tribe-of-issachar@9cbb06": {"refs":["gen.46.13","num.26.24"],"note":"Descended from Issachar (Gen 46:13 says Job; Num 26:24 says Jashub). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:jemuel_838>tribe-of-simeon@235ec7": {"refs":["gen.46.10"],"note":"Descended from Simeon (Gen 46:10). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:jezer_1606>tribe-of-naphtali@fa405e": {"refs":["gen.46.24"],"note":"Descended from Naphtali (Gen 46:24). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:kohath_1790>tribe-of-levi@6ea30e": {"refs":["gen.46.11"],"note":"Descended from Levi (Gen 46:11). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:malchiel_1908>tribe-of-asher@b90ab1": {"refs":["gen.46.17"],"note":"Descended from Beriah, Asher's son (Gen 46:17). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:merari_2004>tribe-of-levi@e92652": {"refs":["gen.46.11"],"note":"Descended from Levi (Gen 46:11). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:nohah_2120>tribe-of-benjamin@a4b77c": {"refs":["1chr.8.2"],"note":"Descended from Benjamin (1 Chr 8:2). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:ohad_2239>tribe-of-simeon@3c8915": {"refs":["gen.46.10"],"note":"Descended from Simeon (Gen 46:10). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:ozni_1235>tribe-of-gad@025127": {"refs":["gen.46.16","num.26.16"],"note":"Descended from Gad (Num 26:16; Gen 46:16 says Ezbon). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:pallu_2325>tribe-of-reuben@d96e34": {"refs":["gen.46.9"],"note":"Descended from Reuben (Gen 46:9, spelled Phallu). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:puah_2355>tribe-of-issachar@ebaf38": {"refs":["gen.46.13","num.26.23"],"note":"Descended from Issachar (Gen 46:13 spells Phuvah; Num 26:23 Pua). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:rapha_2447>tribe-of-benjamin@05cf8c": {"refs":["1chr.8.2"],"note":"Descended from Benjamin (1 Chr 8:2). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:serah_2492>tribe-of-asher@9db25a": {"refs":["gen.46.17"],"note":"Descended from Asher (Gen 46:17, called their sister). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:sered_2501>tribe-of-zebulun@33bdf0": {"refs":["gen.46.14"],"note":"Descended from Zebulun (Gen 46:14). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:shaul_2562>tribe-of-simeon@ed3935": {"refs":["gen.46.10"],"note":"Descended from Simeon (Gen 46:10). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:shillem_2677>tribe-of-naphtali@632600": {"refs":["gen.46.24"],"note":"Descended from Naphtali (Gen 46:24). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:shimron_2706>tribe-of-issachar@3e7b20": {"refs":["gen.46.13"],"note":"Descended from Issachar (Gen 46:13). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:shuni_2731>tribe-of-gad@f7c1c0": {"refs":["gen.46.16"],"note":"Descended from Gad (Gen 46:16). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:shupham_2115>tribe-of-benjamin@42f0e3": {"refs":["gen.46.21","num.26.39"],"note":"Descended from Benjamin (Num 26:39; Gen 46:21 says Muppim). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:tola_2878>tribe-of-issachar@3d98ba": {"refs":["gen.46.13"],"note":"Descended from Issachar (Gen 46:13). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:zephon_3093>tribe-of-gad@c5fead": {"refs":["gen.46.16","num.26.15"],"note":"Descended from Gad (Gen 46:16, spelled Ziphion; Num 26:15 Zephon). Tribe membership is inferred, not stated.","kind":"reading"},
+    "member-of:zerah_3102>tribe-of-simeon@d6d092": {"refs":["gen.46.10","num.26.13"],"note":"Descended from Simeon (Num 26:13; Gen 46:10 says Zohar). Tribe membership is inferred, not stated.","kind":"reading"},
+    "parent-of:asenath_335>ephraim_1206@7c310d": {"refs":["gen.46.20"],"note":"Gen 46:20: Asenath bore Manasseh and Ephraim unto Joseph."},
+    "parent-of:asenath_335>manasseh_1928@bd3688": {"refs":["gen.46.20"],"note":"Gen 46:20: Asenath bore Manasseh and Ephraim unto Joseph."},
+    "parent-of:asher_337>imnah_1616@8a1908": {"refs":["gen.46.17"],"note":"Gen 46:17 spells him Jimnah among Asher's sons. Same man assumed.","kind":"reading"},
+    "parent-of:asher_337>isuah_640@27ca5b": {"refs":["gen.46.17"],"note":"Gen 46:17 spells him Ishuah among Asher's sons. Same man assumed.","kind":"reading"},
+    "parent-of:benjamin_463>ard_293@f219b5": {"refs":["gen.46.21","num.26.40"],"note":"Gen 46:21 lists Ard among Benjamin's sons, but Num 26:40 makes him a son of Bela.","kind":"reading"},
+    "parent-of:benjamin_463>bela_436@510e38": {"refs":["gen.46.21","1chr.8.1"],"note":"Gen 46:21 spells him Belah among Benjamin's sons. 1 Chr 8:1 names Bela the firstborn. Same man assumed.","kind":"reading"},
+    "parent-of:benjamin_463>gera_1298@64b40c": {"refs":["gen.46.21"],"note":"Gen 46:21 lists Gera among Benjamin's sons. 1 Chr 8:3 lists a Gera under Bela, so this may be another man.","kind":"reading"},
+    "parent-of:benjamin_463>huram_1569@089cbb": {"refs":["1chr.8.3","1chr.8.5"],"note":"Huram is not in Gen 46:21. 1 Chr 8:3-5 lists him among the sons of Bela, not Benjamin.","kind":"wrong"},
+    "parent-of:benjamin_463>nohah_2120@162ff8": {"refs":["1chr.8.2"],"note":"1 Chr 8:2 names Nohah the fourth son of Benjamin. Gen 46:21 does not name him."},
+    "parent-of:benjamin_463>rapha_2447@1ab2f5": {"refs":["1chr.8.2"],"note":"1 Chr 8:2 names Rapha the fifth son of Benjamin. Gen 46:21 does not name him."},
+    "parent-of:benjamin_463>shupham_2115@01a113": {"refs":["gen.46.21","num.26.39"],"note":"Num 26:39 lists Shupham among Benjamin's families. Gen 46:21 spells the name Muppim. Same man assumed.","kind":"reading"},
+    "parent-of:canaanitish_woman_915>shaul_2562@9f2edc": {"refs":["gen.46.10"],"note":"Gen 46:10 calls Shaul the son of a Canaanitish woman. Her name is not given."},
+    "parent-of:gad_1262>arod_311@86792c": {"refs":["gen.46.16","num.26.17"],"note":"Gen 46:16 spells him Arodi among Gad's sons. Num 26:17 has Arod. Same man assumed.","kind":"reading"},
+    "parent-of:gad_1262>ozni_1235@92a690": {"refs":["gen.46.16","num.26.16"],"note":"Gen 46:16 names Ezbon among Gad's sons. Num 26:16 names Ozni. Same man assumed.","kind":"reading"},
+    "parent-of:gad_1262>zephon_3093@3e01a7": {"refs":["gen.46.16","num.26.15"],"note":"Gen 46:16 spells him Ziphion among Gad's sons. Num 26:15 has Zephon. Same man assumed.","kind":"reading"},
+    "parent-of:issachar_645>jashub_1638@7cd41d": {"refs":["gen.46.13","num.26.24"],"note":"Gen 46:13 names Job among Issachar's sons. Num 26:24 names Jashub. Same man assumed.","kind":"reading"},
+    "parent-of:issachar_645>puah_2355@8491d3": {"refs":["gen.46.13","num.26.23"],"note":"Gen 46:13 spells him Phuvah among Issachar's sons. Num 26:23 has Pua. Same man assumed.","kind":"reading"},
+    "parent-of:reuben_2429>pallu_2325@bcdeed": {"refs":["gen.46.9"],"note":"Gen 46:9 spells him Phallu among Reuben's sons. Same man assumed.","kind":"reading"},
+    "parent-of:simeon_2741>zerah_3102@7a4792": {"refs":["gen.46.10","num.26.13"],"note":"Gen 46:10 names Zohar among Simeon's sons. Num 26:13 names Zerah. Same man assumed.","kind":"reading"},
+    "date:lifetime-of-job@3dac2e": {"refs":["job.42.16"],"note":"Job 42:16 says Job lived 140 years after his trial, so his life exceeded 140 years. The dated span is only 140 years.","kind":"wrong"},
+    "participated-in:job_1639>lifetime-of-job@58533a": {"refs":["job.42.16"],"note":"Job 42:16 says Job lived on after his trial and saw four generations."}
   }
 }

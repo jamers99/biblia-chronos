@@ -1,6 +1,6 @@
 {
   "passage": "neh.1-13",
-  "ai": { "model": "haiku", "on": "2026-11-07" },
+  "ai": {"model":"haiku","on":"2026-11-07"},
   "agreed": [
     "parent-of:adaiah_76>hazaiah_1464@e3af0b",
     "parent-of:amariah_205>zechariah_3022@9bb16d",
@@ -74,189 +74,45 @@
     "participated-in:nehemiah_2172>ezra-reads-the-law@ce7699"
   ],
   "facts": {
-    "date:ezra-reads-the-law@570463": {
-      "refs": ["neh.2.1", "neh.6.15", "neh.8.2"],
-      "note": "Seventh month follows the wall's Elul finish (6:15) in the twentieth-year sequence (2:1). The BC year depends on dating Artaxerxes' reign outside Scripture.",
-      "kind": "reading"
-    },
-    "date:nehemiah-rebuilds-the-walls@570463": {
-      "refs": ["neh.2.1", "neh.6.15"],
-      "note": "Work begins in Nisan of Artaxerxes' twentieth year (2:1) and the wall is finished in 52 days (6:15). The BC year depends on dating the reign outside Scripture.",
-      "kind": "reading"
-    },
-    "date:nehemiah-s-second-term@94bd82": {
-      "refs": ["neh.13.6"],
-      "note": "Nehemiah returns in the thirty-second year of Artaxerxes (13:6). The BC year depends on dating the king's reign outside Scripture.",
-      "kind": "reading"
-    },
-    "member-of:eliashib_1100>tribe-of-levi@08ffe1": {
-      "refs": ["neh.3.1", "neh.12.22", "neh.12.23"],
-      "note": "Named high priest (3:1), and his line is among the Levites' recorded fathers (12:22-23). Priests descending from Levi is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:jaddua_687>tribe-of-levi@a4fec4": {
-      "refs": ["neh.12.11", "neh.12.22"],
-      "note": "Listed among the Levites' recorded chief fathers in the days of Eliashib, Joiada, Johanan and Jaddua (12:22). Membership is inferred from that list.",
-      "kind": "reading"
-    },
-    "member-of:johanan_1698>tribe-of-levi@84ef28": {
-      "refs": ["neh.12.22", "neh.12.23"],
-      "note": "12:22 lists him among the Levites' chief fathers; 12:23 cites the sons of Levi up to his days. Levite membership is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:joiada_1680>tribe-of-levi@d00645": {
-      "refs": ["neh.12.22", "neh.13.28"],
-      "note": "12:22 lists Joiada among the Levites' chief fathers; he is a priest in Eliashib's line (13:28). Levite membership is inferred.",
-      "kind": "reading"
-    },
-    "member-of:joiakim_1681>tribe-of-levi@814229": {
-      "refs": ["neh.12.1", "neh.12.10", "neh.12.26"],
-      "note": "His father Jeshua is named with the priests and Levites (12:1). The Levite line through Jeshua is inferred for Joiakim, not stated.",
-      "kind": "reading"
-    },
-    "member-of:son_of_joiada_2768>tribe-of-levi@e90616": {
-      "refs": ["neh.13.28", "neh.13.29"],
-      "note": "He is a son of the priest Joiada (13:28), and 13:29 speaks of those who defiled the priesthood. Levite membership is inferred.",
-      "kind": "reading"
-    },
-    "occurred-at:ezra-reads-the-law>jerusalem_636@41d3f5": {
-      "refs": ["neh.8.1", "neh.3.26", "neh.12.37"],
-      "note": "The reading is in the street before the water gate (8:1), a Jerusalem gate per 3:26 and 12:37. Jerusalem is not named in 8:1, so this is a reading.",
-      "kind": "reading"
-    },
-    "occurred-at:nehemiah-rebuilds-the-walls>jerusalem_636@228753": {
-      "refs": ["neh.2.17", "neh.6.15"],
-      "note": "Nehemiah urges them to build up 'the wall of Jerusalem' (2:17), and the wall is finished (6:15)."
-    },
-    "occurred-at:nehemiah-s-second-term>jerusalem_636@3eb96c": {
-      "refs": ["neh.13.7"],
-      "note": "'And I came to Jerusalem' (13:7), where the second-term reforms take place."
-    },
-    "parent-of:col-hozeh_951>shallun_2527@12ee39": {
-      "refs": ["neh.3.15"],
-      "note": "Shallun is called the son of Colhozeh (3:15)."
-    },
-    "parent-of:col-hozeh_952>baruch_409@61abf5": {
-      "refs": ["neh.11.5"],
-      "note": "Baruch is called the son of Colhozeh (11:5)."
-    },
-    "parent-of:hazaiah_1464>col-hozeh_952@25518e": {
-      "refs": ["neh.11.5"],
-      "note": "Colhozeh is called the son of Hazaiah (11:5)."
-    },
-    "parent-of:joiada_1680>son_of_joiada_2768@d2d03e": {
-      "refs": ["neh.13.28"],
-      "note": "One of the sons of Joiada, the son of Eliashib, is named (13:28)."
-    },
-    "parent-of:joshua_893>joiakim_1681@509550": {
-      "refs": ["neh.12.10", "neh.12.26"],
-      "note": "The text spells it Jeshua. Jeshua begat Joiakim (12:10), and Joiakim is the son of Jeshua, son of Jozadak (12:26)."
-    },
-    "parent-of:meshullam_2031>daughter_of_meshullam_987@1796cd": {
-      "refs": ["neh.6.18"],
-      "note": "Johanan took 'the daughter of Meshullam the son of Berechiah' (6:18). Meshullam is her father."
-    },
-    "parent-of:pahath-moab_2266>hashub_1442@9e2597": {
-      "refs": ["neh.3.11"],
-      "note": "Hashub is called the son of Pahathmoab (3:11)."
-    },
-    "parent-of:tobiah_2872>johanan_1675@7953e6": {
-      "refs": ["neh.6.18"],
-      "note": "Johanan is called Tobiah's son ('his son Johanan', 6:18)."
-    },
-    "parent-of:zalaph_2981>hanun_1406@db715f": {
-      "refs": ["neh.3.30"],
-      "note": "Hanun is called the sixth son of Zalaph (3:30)."
-    },
-    "parent-of:hachaliah_1336>hanani_1382@2f381f": {
-      "refs": ["neh.1.1", "neh.1.2", "neh.7.2"],
-      "note": "Nehemiah is son of Hachaliah (1:1) and Hanani is his brother (1:2, 7:2). Hanani's father is not named, so a shared father is inferred.",
-      "kind": "reading"
-    },
-    "parent-of:johanan_1698>jaddua_687@b21b19": {
-      "refs": ["neh.12.11", "neh.12.22"],
-      "note": "12:11 says Jonathan begat Jaddua; Johanan stands in the same slot (12:22). Identifying Jonathan with Johanan is a reading.",
-      "kind": "reading"
-    },
-    "parent-of:joiada_1680>johanan_1698@aaef85": {
-      "refs": ["neh.12.11", "neh.12.22", "neh.12.23"],
-      "note": "12:11 says Joiada begat Jonathan, not Johanan, and 12:23 calls Johanan son of Eliashib. Identifying Jonathan with Johanan, and this parent, is a reading.",
-      "kind": "reading"
-    },
-    "parent-of:jonathan_1700>azarael_369@778dab": {
-      "refs": ["neh.12.35", "neh.12.36"],
-      "note": "12:36 calls these men Zechariah's brethren, so sons of Jonathan (12:35) is inferred, not stated.",
-      "kind": "reading"
-    },
-    "parent-of:jonathan_1700>gilalai_1316@b770dc": {
-      "refs": ["neh.12.35", "neh.12.36"],
-      "note": "12:36 calls these men Zechariah's brethren, so sons of Jonathan (12:35) is inferred, not stated.",
-      "kind": "reading"
-    },
-    "parent-of:jonathan_1700>hanani_1383@a7fe4e": {
-      "refs": ["neh.12.35", "neh.12.36"],
-      "note": "12:36 calls these men Zechariah's brethren, so sons of Jonathan (12:35) is inferred, not stated.",
-      "kind": "reading"
-    },
-    "parent-of:jonathan_1700>judah_1755@35ec76": {
-      "refs": ["neh.12.35", "neh.12.36"],
-      "note": "12:36 calls these men Zechariah's brethren, so sons of Jonathan (12:35) is inferred, not stated.",
-      "kind": "reading"
-    },
-    "parent-of:jonathan_1700>maai_1848@049069": {
-      "refs": ["neh.12.35", "neh.12.36"],
-      "note": "12:36 calls these men Zechariah's brethren, so sons of Jonathan (12:35) is inferred, not stated.",
-      "kind": "reading"
-    },
-    "parent-of:jonathan_1700>milalai_2081@7fc4ac": {
-      "refs": ["neh.12.35", "neh.12.36"],
-      "note": "12:36 calls these men Zechariah's brethren, so sons of Jonathan (12:35) is inferred, not stated.",
-      "kind": "reading"
-    },
-    "parent-of:jonathan_1700>nethaneel_2197@191583": {
-      "refs": ["neh.12.35", "neh.12.36"],
-      "note": "12:36 calls these men Zechariah's brethren, so sons of Jonathan (12:35) is inferred, not stated.",
-      "kind": "reading"
-    },
-    "parent-of:jonathan_1700>shemaiah_2640@ca0fd2": {
-      "refs": ["neh.12.35", "neh.12.36"],
-      "note": "12:36 calls these men Zechariah's brethren, so sons of Jonathan (12:35) is inferred, not stated.",
-      "kind": "reading"
-    },
-    "participated-in:artaxerxes_314>nehemiah-rebuilds-the-walls@ceafa2": {
-      "refs": ["neh.2.5", "neh.2.8", "neh.2.9"],
-      "note": "He authorizes the work and gives timber and an escort (2:5-9) but builds nothing. Taking part only in a sponsoring sense; a reading.",
-      "kind": "reading"
-    },
-    "participated-in:artaxerxes_314>nehemiah-s-second-term@63abf9": {
-      "refs": ["neh.13.6"],
-      "note": "He only grants Nehemiah leave to return (13:6), before the events of 13:7-31, where the king is not mentioned. A reading at best.",
-      "kind": "reading"
-    },
-    "participated-in:ezra_1245>ezra-reads-the-law@cb89de": {
-      "refs": ["neh.8.2", "neh.8.3", "neh.8.5"],
-      "note": "Ezra brings the law (8:2), reads it aloud (8:3) and opens the book (8:5)."
-    },
-    "participated-in:nehemiah_2172>nehemiah-rebuilds-the-walls@300e01": {
-      "refs": ["neh.2.17", "neh.5.16"],
-      "note": "He urges the building (2:17) and says 'I continued in the work of this wall' (5:16)."
-    },
-    "participated-in:nehemiah_2172>nehemiah-s-second-term@863deb": {
-      "refs": ["neh.13.7", "neh.13.8"],
-      "note": "He comes to Jerusalem (13:7) and acts there: he casts out Tobiah's goods and reforms the chambers (13:8-9)."
-    },
-    "participated-in:sanballat_2470>nehemiah-rebuilds-the-walls@1f5a2b": {
-      "refs": ["neh.2.19", "neh.4.1", "neh.4.8"],
-      "note": "As an opponent: he mocks the builders (2:19; 4:1) and conspires with others to fight and hinder (4:8)."
-    },
-    "participated-in:tobiah_2872>nehemiah-rebuilds-the-walls@9897ec": {
-      "refs": ["neh.4.3", "neh.4.7", "neh.4.8"],
-      "note": "As an opponent: he mocks the wall (4:3) and conspires with the others to fight and hinder (4:7-8)."
-    },
-    "participated-in:tobiah_2872>nehemiah-s-second-term@77fd8e": {
-      "refs": ["neh.13.4", "neh.13.8"],
-      "note": "Text: Tobiah acts nowhere in 13:4-9. Eliashib gives him a chamber (13:4-5) and Nehemiah casts out his goods (13:8).",
-      "kind": "wrong"
-    }
+    "date:ezra-reads-the-law@570463": {"refs":["neh.2.1","neh.6.15","neh.8.2"],"note":"Seventh month follows the wall's Elul finish (6:15) in the twentieth-year sequence (2:1). The BC year depends on dating Artaxerxes' reign outside Scripture.","kind":"reading"},
+    "date:nehemiah-rebuilds-the-walls@570463": {"refs":["neh.2.1","neh.6.15"],"note":"Work begins in Nisan of Artaxerxes' twentieth year (2:1) and the wall is finished in 52 days (6:15). The BC year depends on dating the reign outside Scripture.","kind":"reading"},
+    "date:nehemiah-s-second-term@94bd82": {"refs":["neh.13.6"],"note":"Nehemiah returns in the thirty-second year of Artaxerxes (13:6). The BC year depends on dating the king's reign outside Scripture.","kind":"reading"},
+    "member-of:eliashib_1100>tribe-of-levi@08ffe1": {"refs":["neh.3.1","neh.12.22","neh.12.23"],"note":"Named high priest (3:1), and his line is among the Levites' recorded fathers (12:22-23). Priests descending from Levi is inferred, not stated.","kind":"reading"},
+    "member-of:jaddua_687>tribe-of-levi@a4fec4": {"refs":["neh.12.11","neh.12.22"],"note":"Listed among the Levites' recorded chief fathers in the days of Eliashib, Joiada, Johanan and Jaddua (12:22). Membership is inferred from that list.","kind":"reading"},
+    "member-of:johanan_1698>tribe-of-levi@84ef28": {"refs":["neh.12.22","neh.12.23"],"note":"12:22 lists him among the Levites' chief fathers; 12:23 cites the sons of Levi up to his days. Levite membership is inferred, not stated.","kind":"reading"},
+    "member-of:joiada_1680>tribe-of-levi@d00645": {"refs":["neh.12.22","neh.13.28"],"note":"12:22 lists Joiada among the Levites' chief fathers; he is a priest in Eliashib's line (13:28). Levite membership is inferred.","kind":"reading"},
+    "member-of:joiakim_1681>tribe-of-levi@814229": {"refs":["neh.12.1","neh.12.10","neh.12.26"],"note":"His father Jeshua is named with the priests and Levites (12:1). The Levite line through Jeshua is inferred for Joiakim, not stated.","kind":"reading"},
+    "member-of:son_of_joiada_2768>tribe-of-levi@e90616": {"refs":["neh.13.28","neh.13.29"],"note":"He is a son of the priest Joiada (13:28), and 13:29 speaks of those who defiled the priesthood. Levite membership is inferred.","kind":"reading"},
+    "occurred-at:ezra-reads-the-law>jerusalem_636@41d3f5": {"refs":["neh.8.1","neh.3.26","neh.12.37"],"note":"The reading is in the street before the water gate (8:1), a Jerusalem gate per 3:26 and 12:37. Jerusalem is not named in 8:1, so this is a reading.","kind":"reading"},
+    "occurred-at:nehemiah-rebuilds-the-walls>jerusalem_636@228753": {"refs":["neh.2.17","neh.6.15"],"note":"Nehemiah urges them to build up 'the wall of Jerusalem' (2:17), and the wall is finished (6:15)."},
+    "occurred-at:nehemiah-s-second-term>jerusalem_636@3eb96c": {"refs":["neh.13.7"],"note":"'And I came to Jerusalem' (13:7), where the second-term reforms take place."},
+    "parent-of:col-hozeh_951>shallun_2527@12ee39": {"refs":["neh.3.15"],"note":"Shallun is called the son of Colhozeh (3:15)."},
+    "parent-of:col-hozeh_952>baruch_409@61abf5": {"refs":["neh.11.5"],"note":"Baruch is called the son of Colhozeh (11:5)."},
+    "parent-of:hazaiah_1464>col-hozeh_952@25518e": {"refs":["neh.11.5"],"note":"Colhozeh is called the son of Hazaiah (11:5)."},
+    "parent-of:joiada_1680>son_of_joiada_2768@d2d03e": {"refs":["neh.13.28"],"note":"One of the sons of Joiada, the son of Eliashib, is named (13:28)."},
+    "parent-of:joshua_893>joiakim_1681@509550": {"refs":["neh.12.10","neh.12.26"],"note":"The text spells it Jeshua. Jeshua begat Joiakim (12:10), and Joiakim is the son of Jeshua, son of Jozadak (12:26)."},
+    "parent-of:meshullam_2031>daughter_of_meshullam_987@1796cd": {"refs":["neh.6.18"],"note":"Johanan took 'the daughter of Meshullam the son of Berechiah' (6:18). Meshullam is her father."},
+    "parent-of:pahath-moab_2266>hashub_1442@9e2597": {"refs":["neh.3.11"],"note":"Hashub is called the son of Pahathmoab (3:11)."},
+    "parent-of:tobiah_2872>johanan_1675@7953e6": {"refs":["neh.6.18"],"note":"Johanan is called Tobiah's son ('his son Johanan', 6:18)."},
+    "parent-of:zalaph_2981>hanun_1406@db715f": {"refs":["neh.3.30"],"note":"Hanun is called the sixth son of Zalaph (3:30)."},
+    "parent-of:hachaliah_1336>hanani_1382@2f381f": {"refs":["neh.1.1","neh.1.2","neh.7.2"],"note":"Nehemiah is son of Hachaliah (1:1) and Hanani is his brother (1:2, 7:2). Hanani's father is not named, so a shared father is inferred.","kind":"reading"},
+    "parent-of:johanan_1698>jaddua_687@b21b19": {"refs":["neh.12.11","neh.12.22"],"note":"12:11 says Jonathan begat Jaddua; Johanan stands in the same slot (12:22). Identifying Jonathan with Johanan is a reading.","kind":"reading"},
+    "parent-of:joiada_1680>johanan_1698@aaef85": {"refs":["neh.12.11","neh.12.22","neh.12.23"],"note":"12:11 says Joiada begat Jonathan, not Johanan, and 12:23 calls Johanan son of Eliashib. Identifying Jonathan with Johanan, and this parent, is a reading.","kind":"reading"},
+    "parent-of:jonathan_1700>azarael_369@778dab": {"refs":["neh.12.35","neh.12.36"],"note":"12:36 calls these men Zechariah's brethren, so sons of Jonathan (12:35) is inferred, not stated.","kind":"reading"},
+    "parent-of:jonathan_1700>gilalai_1316@b770dc": {"refs":["neh.12.35","neh.12.36"],"note":"12:36 calls these men Zechariah's brethren, so sons of Jonathan (12:35) is inferred, not stated.","kind":"reading"},
+    "parent-of:jonathan_1700>hanani_1383@a7fe4e": {"refs":["neh.12.35","neh.12.36"],"note":"12:36 calls these men Zechariah's brethren, so sons of Jonathan (12:35) is inferred, not stated.","kind":"reading"},
+    "parent-of:jonathan_1700>judah_1755@35ec76": {"refs":["neh.12.35","neh.12.36"],"note":"12:36 calls these men Zechariah's brethren, so sons of Jonathan (12:35) is inferred, not stated.","kind":"reading"},
+    "parent-of:jonathan_1700>maai_1848@049069": {"refs":["neh.12.35","neh.12.36"],"note":"12:36 calls these men Zechariah's brethren, so sons of Jonathan (12:35) is inferred, not stated.","kind":"reading"},
+    "parent-of:jonathan_1700>milalai_2081@7fc4ac": {"refs":["neh.12.35","neh.12.36"],"note":"12:36 calls these men Zechariah's brethren, so sons of Jonathan (12:35) is inferred, not stated.","kind":"reading"},
+    "parent-of:jonathan_1700>nethaneel_2197@191583": {"refs":["neh.12.35","neh.12.36"],"note":"12:36 calls these men Zechariah's brethren, so sons of Jonathan (12:35) is inferred, not stated.","kind":"reading"},
+    "parent-of:jonathan_1700>shemaiah_2640@ca0fd2": {"refs":["neh.12.35","neh.12.36"],"note":"12:36 calls these men Zechariah's brethren, so sons of Jonathan (12:35) is inferred, not stated.","kind":"reading"},
+    "participated-in:artaxerxes_314>nehemiah-rebuilds-the-walls@ceafa2": {"refs":["neh.2.5","neh.2.8","neh.2.9"],"note":"He authorizes the work and gives timber and an escort (2:5-9) but builds nothing. Taking part only in a sponsoring sense; a reading.","kind":"reading"},
+    "participated-in:artaxerxes_314>nehemiah-s-second-term@63abf9": {"refs":["neh.13.6"],"note":"He only grants Nehemiah leave to return (13:6), before the events of 13:7-31, where the king is not mentioned. A reading at best.","kind":"reading"},
+    "participated-in:ezra_1245>ezra-reads-the-law@cb89de": {"refs":["neh.8.2","neh.8.3","neh.8.5"],"note":"Ezra brings the law (8:2), reads it aloud (8:3) and opens the book (8:5)."},
+    "participated-in:nehemiah_2172>nehemiah-rebuilds-the-walls@300e01": {"refs":["neh.2.17","neh.5.16"],"note":"He urges the building (2:17) and says 'I continued in the work of this wall' (5:16)."},
+    "participated-in:nehemiah_2172>nehemiah-s-second-term@863deb": {"refs":["neh.13.7","neh.13.8"],"note":"He comes to Jerusalem (13:7) and acts there: he casts out Tobiah's goods and reforms the chambers (13:8-9)."},
+    "participated-in:sanballat_2470>nehemiah-rebuilds-the-walls@1f5a2b": {"refs":["neh.2.19","neh.4.1","neh.4.8"],"note":"As an opponent: he mocks the builders (2:19; 4:1) and conspires with others to fight and hinder (4:8)."},
+    "participated-in:tobiah_2872>nehemiah-rebuilds-the-walls@9897ec": {"refs":["neh.4.3","neh.4.7","neh.4.8"],"note":"As an opponent: he mocks the wall (4:3) and conspires with the others to fight and hinder (4:7-8)."},
+    "participated-in:tobiah_2872>nehemiah-s-second-term@77fd8e": {"refs":["neh.13.4","neh.13.8"],"note":"Text: Tobiah acts nowhere in 13:4-9. Eliashib gives him a chamber (13:4-5) and Nehemiah casts out his goods (13:8).","kind":"wrong"}
   }
 }

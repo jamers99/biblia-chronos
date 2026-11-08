@@ -1,6 +1,6 @@
 {
   "passage": "gen.1-4",
-  "ai": { "model": "haiku", "on": "2026-11-08" },
+  "ai": {"model":"haiku","on":"2026-11-08"},
   "agreed": [
     "participated-in:cain_533>god-curses-cain@0506a9",
     "participated-in:god_1324>creation-of-all-things@14d478",
@@ -14,243 +14,57 @@
     "partner-of:lamech_1808>zillah_3080@0c12c7"
   ],
   "facts": {
-    "alias-of:ethiopia_419>cush_312@028806": {
-      "refs": ["gen.2.13"],
-      "note": "Gen 2:13 names Ethiopia as the land Gihon encircles. Cush is not named here; equating the two relies on outside knowledge of the Hebrew name.",
-      "kind": "reading"
-    },
-    "birth:abel_13@cb527a": {
-      "refs": ["gen.4.2"],
-      "note": "The text gives no date. Gen 4:2 only says Abel was born after Cain. The year -3937 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "birth:adam_78@60af93": {
-      "refs": ["gen.2.7"],
-      "note": "Gen 2:7 says God formed the man from dust, with no date. The year -4003 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "birth:cain_533@a297f3": {
-      "refs": ["gen.4.1"],
-      "note": "Gen 4:1 says Eve bare Cain, with no date. The year -4002 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "birth:eve_1231@60af93": {
-      "refs": ["gen.2.22"],
-      "note": "Gen 2:22 says God made Eve from Adam's rib, with no date. The year -4003 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:birth-of-enos@275678": {
-      "refs": ["gen.4.26"],
-      "note": "Gen 4:26 says a son was born to Seth and named Enos, with no date. The year -3768 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:birth-of-seth@2fbc1d": {
-      "refs": ["gen.4.25"],
-      "note": "Gen 4:25 says Eve bare Seth, with no date. The year -3873 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:cain-kills-abel@90b2a5": {
-      "refs": ["gen.4.8"],
-      "note": "Gen 4:8 tells the killing with no date. The year -3874 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:creation-of-adam-and-eve@60af93": {
-      "refs": ["gen.1.27", "gen.2.22"],
-      "note": "Gen 1:27 and 2:22 describe the making of man and woman, with no date. The year -4003 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:creation-of-all-things@60af93": {
-      "refs": ["gen.1.1"],
-      "note": "Gen 1:1 gives no date for creation. The year -4003 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:god-curses-cain@90b2a5": {
-      "refs": ["gen.4.11"],
-      "note": "Gen 4:11 has the curse after the killing, with no date. The year -3874 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "date:the-fall@60af93": {
-      "refs": ["gen.3.6"],
-      "note": "Gen 3:6 gives the eating with no date. The year -4003 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "death:abel_13@90b2a5": {
-      "refs": ["gen.4.8"],
-      "note": "Gen 4:8 says Cain slew Abel, with no date. The year -3874 depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "member-of:enoch_1191>line-of-cain@04b814": {
-      "refs": ["gen.4.17", "gen.4.18"],
-      "note": "Gen 4:17 gives Enoch as Cain's son, and 4:18 starts the line of descent from him."
-    },
-    "member-of:irad_611>line-of-cain@1c2aee": {
-      "refs": ["gen.4.18"],
-      "note": "Gen 4:18: unto Enoch was born Irad, in the line descended from Cain."
-    },
-    "member-of:jabal_673>line-of-cain@5d66d4": {
-      "refs": ["gen.4.19", "gen.4.20"],
-      "note": "Gen 4:19-20: Adah, Lamech's wife, bare Jabal. Lamech as his father, and so Cain's line, is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:jubal_1748>line-of-cain@69f24b": {
-      "refs": ["gen.4.19", "gen.4.21"],
-      "note": "Gen 4:19, 4:21: Jubal is Jabal's brother in Lamech's household. Descent from Cain through Lamech is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:lamech_1808>line-of-cain@273f38": {
-      "refs": ["gen.4.18"],
-      "note": "Gen 4:18: Methusael begat Lamech, in the line descended from Cain."
-    },
-    "member-of:mehujael_1983>line-of-cain@91f51d": {
-      "refs": ["gen.4.18"],
-      "note": "Gen 4:18: Irad begat Mehujael, in the line descended from Cain."
-    },
-    "member-of:methusael_2041>line-of-cain@7646fa": {
-      "refs": ["gen.4.18"],
-      "note": "Gen 4:18: Mehujael begat Methusael, in the line descended from Cain."
-    },
-    "member-of:naamah_2118>line-of-cain@b05fbf": {
-      "refs": ["gen.4.19", "gen.4.22"],
-      "note": "Gen 4:22 calls Naamah the sister of Tubalcain, son of Zillah. Her descent from Cain through Lamech is inferred, not stated.",
-      "kind": "reading"
-    },
-    "member-of:tubal-cain_2884>line-of-cain@651008": {
-      "refs": ["gen.4.19", "gen.4.22"],
-      "note": "Gen 4:22: Zillah, Lamech's wife, bare Tubalcain. Lamech as his father, and so Cain's line, is inferred, not stated.",
-      "kind": "reading"
-    },
-    "occurred-at:creation-of-adam-and-eve>eden_354@702591": {
-      "refs": ["gen.2.7", "gen.2.8", "gen.2.22"],
-      "note": "Gen 2:7 forms the man and 2:8 puts him in Eden, but the place of the forming is not stated. The place of Eve's making is not stated either.",
-      "kind": "reading"
-    },
-    "occurred-at:the-fall>eden_354@45d433": {
-      "refs": ["gen.3.3", "gen.3.23"],
-      "note": "Gen 3:3 places the forbidden tree in the midst of the garden, and 3:23 sends Adam out of the garden of Eden after the eating."
-    },
-    "parent-of:adah_69>jubal_1748@32aced": {
-      "refs": ["gen.4.20", "gen.4.21"],
-      "note": "Gen 4:21 calls Jubal the brother of Jabal, both in Lamech's household. Adah as Jubal's mother is inferred, not stated.",
-      "kind": "reading"
-    },
-    "parent-of:adam_78>abel_13@59263d": {
-      "refs": ["gen.4.1", "gen.4.2"],
-      "note": "Gen 4:2 says Eve again bare Abel, calling him Cain's brother. Adam as his father is inferred from 4:1, not stated.",
-      "kind": "reading"
-    },
-    "parent-of:adam_78>cain_533@bd8dad": {
-      "refs": ["gen.4.1"],
-      "note": "Gen 4:1: Adam knew Eve his wife, and she conceived and bare Cain."
-    },
-    "parent-of:cain_533>enoch_1191@a8f6bb": {
-      "refs": ["gen.4.17"],
-      "note": "Gen 4:17: Cain knew his wife, and she conceived and bare Enoch."
-    },
-    "parent-of:eve_1231>abel_13@604f97": {
-      "refs": ["gen.4.2"],
-      "note": "Gen 4:2: she again bare his brother Abel."
-    },
-    "parent-of:eve_1231>cain_533@9fce90": {
-      "refs": ["gen.4.1"],
-      "note": "Gen 4:1: Eve conceived and bare Cain."
-    },
-    "parent-of:eve_1231>seth_2504@4c4369": {
-      "refs": ["gen.4.25"],
-      "note": "Gen 4:25: Adam knew his wife again, and she bare a son, called Seth."
-    },
-    "parent-of:god_1324>eve_1231@3453a8": {
-      "refs": ["gen.2.22"],
-      "kind": "wrong",
-      "note": "Gen 2:22 says God made Eve from Adam's rib and brought her to Adam. Eve came from Adam, not from God as a parent."
-    },
-    "parent-of:lamech_1808>jabal_673@aa17cd": {
-      "refs": ["gen.4.19", "gen.4.20"],
-      "note": "Gen 4:19-20: Lamech took Adah, who bare Jabal. Lamech as the father is inferred, not stated.",
-      "kind": "reading"
-    },
-    "parent-of:lamech_1808>jubal_1748@4f7671": {
-      "refs": ["gen.4.19", "gen.4.21"],
-      "note": "Gen 4:19, 4:21: Lamech took Adah, and Jubal is Jabal's brother. Lamech as the father is inferred, not stated.",
-      "kind": "reading"
-    },
-    "parent-of:lamech_1808>naamah_2118@af50fc": {
-      "refs": ["gen.4.19", "gen.4.22"],
-      "note": "Gen 4:19, 4:22: Lamech took Zillah, and Naamah is Tubalcain's sister. Lamech as the father is inferred, not stated.",
-      "kind": "reading"
-    },
-    "parent-of:lamech_1808>tubal-cain_2884@e2ba9c": {
-      "refs": ["gen.4.19", "gen.4.22"],
-      "note": "Gen 4:19, 4:22: Lamech took Zillah, who bare Tubalcain. Lamech as the father is inferred, not stated.",
-      "kind": "reading"
-    },
-    "parent-of:zillah_3080>naamah_2118@d31da9": {
-      "refs": ["gen.4.19", "gen.4.22"],
-      "note": "Gen 4:22: Zillah bare Tubalcain, and Naamah is his sister. Zillah as Naamah's mother is inferred, not stated.",
-      "kind": "reading"
-    },
-    "parent-of:zillah_3080>tubal-cain_2884@893437": {
-      "refs": ["gen.4.22"],
-      "note": "Gen 4:22: Zillah, she also bare Tubalcain."
-    },
-    "participated-in:adam_78>birth-of-seth@a136d6": {
-      "refs": ["gen.4.25"],
-      "note": "Gen 4:25: Adam knew his wife again, and she bare a son, called Seth."
-    },
-    "participated-in:adam_78>the-fall@503443": {
-      "refs": ["gen.3.6"],
-      "note": "Gen 3:6: Eve gave the fruit to her husband, and he did eat."
-    },
-    "participated-in:cain_533>cain-kills-abel@ba74c3": {
-      "refs": ["gen.4.8"],
-      "note": "Gen 4:8: Cain rose up against Abel his brother, and slew him."
-    },
-    "participated-in:eve_1231>birth-of-seth@22d9a4": {
-      "refs": ["gen.4.25"],
-      "note": "Gen 4:25: Eve bare a son, called Seth."
-    },
-    "participated-in:eve_1231>the-fall@8185d5": {
-      "refs": ["gen.3.6"],
-      "note": "Gen 3:6: she took of the fruit and did eat, and gave to her husband."
-    },
-    "participated-in:god_1324>creation-of-adam-and-eve@9047f6": {
-      "refs": ["gen.1.27", "gen.2.7", "gen.2.22"],
-      "note": "Gen 1:27: God created man in his own image. Gen 2:7 and 2:22: the LORD God formed Adam and made Eve."
-    },
-    "participated-in:god_1324>god-curses-cain@c684b0": {
-      "refs": ["gen.4.11"],
-      "note": "Gen 4:9-11: the LORD asks Cain where Abel is, then says Cain is cursed from the earth."
-    },
-    "participated-in:god_1324>the-fall@b85d90": {
-      "refs": ["gen.2.17", "gen.3.9"],
-      "note": "The LORD God gave the command (2:17) and questions Adam after the eating (3:9). Taking part in the eating itself is not stated.",
-      "kind": "reading"
-    },
-    "participated-in:holy_spirit_7400>creation-of-all-things@7ab6b5": {
-      "refs": ["gen.1.2"],
-      "note": "Gen 1:2 says the Spirit of God moved upon the waters. Identifying him as the Holy Spirit is a reading from outside the passage.",
-      "kind": "reading"
-    },
-    "participated-in:jesus_905>creation-of-all-things@698303": {
-      "refs": ["gen.1.1"],
-      "note": "Gen 1:1 names God alone as creator. Jesus' role in creation comes from outside Genesis 1-4, so this is a reading.",
-      "kind": "reading"
-    },
-    "participated-in:seth_2504>birth-of-enos@445289": {
-      "refs": ["gen.4.26"],
-      "note": "Gen 4:26: to Seth there was born a son, and he called his name Enos."
-    },
-    "visited:adam_78>eden_354@d2f821": {
-      "refs": ["gen.2.8", "gen.2.15", "gen.3.8"],
-      "note": "Gen 2:8 and 2:15: God planted the garden in Eden and put the man in it. Gen 3:8: Adam hid among the trees of that garden."
-    },
-    "visited:cain_533>eden_354@8291c9": {
-      "refs": ["gen.4.16"],
-      "kind": "wrong",
-      "note": "Gen 4:16 says Cain dwelt in the land of Nod, on the east of Eden. He was east of Eden, not in it."
-    },
-    "visited:eve_1231>eden_354@a9492c": {
-      "refs": ["gen.3.8", "gen.2.8"],
-      "note": "Gen 3:8: Adam and his wife hid themselves amongst the trees of the garden, which Gen 2:8 places in Eden."
-    }
+    "alias-of:ethiopia_419>cush_312@028806": {"refs":["gen.2.13"],"note":"Gen 2:13 names Ethiopia as the land Gihon encircles. Cush is not named here; equating the two relies on outside knowledge of the Hebrew name.","kind":"reading"},
+    "birth:abel_13@cb527a": {"refs":["gen.4.2"],"note":"The text gives no date. Gen 4:2 only says Abel was born after Cain. The year -3937 depends on dating outside Scripture.","kind":"reading"},
+    "birth:adam_78@60af93": {"refs":["gen.2.7"],"note":"Gen 2:7 says God formed the man from dust, with no date. The year -4003 depends on dating outside Scripture.","kind":"reading"},
+    "birth:cain_533@a297f3": {"refs":["gen.4.1"],"note":"Gen 4:1 says Eve bare Cain, with no date. The year -4002 depends on dating outside Scripture.","kind":"reading"},
+    "birth:eve_1231@60af93": {"refs":["gen.2.22"],"note":"Gen 2:22 says God made Eve from Adam's rib, with no date. The year -4003 depends on dating outside Scripture.","kind":"reading"},
+    "date:birth-of-enos@275678": {"refs":["gen.4.26"],"note":"Gen 4:26 says a son was born to Seth and named Enos, with no date. The year -3768 depends on dating outside Scripture.","kind":"reading"},
+    "date:birth-of-seth@2fbc1d": {"refs":["gen.4.25"],"note":"Gen 4:25 says Eve bare Seth, with no date. The year -3873 depends on dating outside Scripture.","kind":"reading"},
+    "date:cain-kills-abel@90b2a5": {"refs":["gen.4.8"],"note":"Gen 4:8 tells the killing with no date. The year -3874 depends on dating outside Scripture.","kind":"reading"},
+    "date:creation-of-adam-and-eve@60af93": {"refs":["gen.1.27","gen.2.22"],"note":"Gen 1:27 and 2:22 describe the making of man and woman, with no date. The year -4003 depends on dating outside Scripture.","kind":"reading"},
+    "date:creation-of-all-things@60af93": {"refs":["gen.1.1"],"note":"Gen 1:1 gives no date for creation. The year -4003 depends on dating outside Scripture.","kind":"reading"},
+    "date:god-curses-cain@90b2a5": {"refs":["gen.4.11"],"note":"Gen 4:11 has the curse after the killing, with no date. The year -3874 depends on dating outside Scripture.","kind":"reading"},
+    "date:the-fall@60af93": {"refs":["gen.3.6"],"note":"Gen 3:6 gives the eating with no date. The year -4003 depends on dating outside Scripture.","kind":"reading"},
+    "death:abel_13@90b2a5": {"refs":["gen.4.8"],"note":"Gen 4:8 says Cain slew Abel, with no date. The year -3874 depends on dating outside Scripture.","kind":"reading"},
+    "member-of:enoch_1191>line-of-cain@04b814": {"refs":["gen.4.17","gen.4.18"],"note":"Gen 4:17 gives Enoch as Cain's son, and 4:18 starts the line of descent from him."},
+    "member-of:irad_611>line-of-cain@1c2aee": {"refs":["gen.4.18"],"note":"Gen 4:18: unto Enoch was born Irad, in the line descended from Cain."},
+    "member-of:jabal_673>line-of-cain@5d66d4": {"refs":["gen.4.19","gen.4.20"],"note":"Gen 4:19-20: Adah, Lamech's wife, bare Jabal. Lamech as his father, and so Cain's line, is inferred, not stated.","kind":"reading"},
+    "member-of:jubal_1748>line-of-cain@69f24b": {"refs":["gen.4.19","gen.4.21"],"note":"Gen 4:19, 4:21: Jubal is Jabal's brother in Lamech's household. Descent from Cain through Lamech is inferred, not stated.","kind":"reading"},
+    "member-of:lamech_1808>line-of-cain@273f38": {"refs":["gen.4.18"],"note":"Gen 4:18: Methusael begat Lamech, in the line descended from Cain."},
+    "member-of:mehujael_1983>line-of-cain@91f51d": {"refs":["gen.4.18"],"note":"Gen 4:18: Irad begat Mehujael, in the line descended from Cain."},
+    "member-of:methusael_2041>line-of-cain@7646fa": {"refs":["gen.4.18"],"note":"Gen 4:18: Mehujael begat Methusael, in the line descended from Cain."},
+    "member-of:naamah_2118>line-of-cain@b05fbf": {"refs":["gen.4.19","gen.4.22"],"note":"Gen 4:22 calls Naamah the sister of Tubalcain, son of Zillah. Her descent from Cain through Lamech is inferred, not stated.","kind":"reading"},
+    "member-of:tubal-cain_2884>line-of-cain@651008": {"refs":["gen.4.19","gen.4.22"],"note":"Gen 4:22: Zillah, Lamech's wife, bare Tubalcain. Lamech as his father, and so Cain's line, is inferred, not stated.","kind":"reading"},
+    "occurred-at:creation-of-adam-and-eve>eden_354@702591": {"refs":["gen.2.7","gen.2.8","gen.2.22"],"note":"Gen 2:7 forms the man and 2:8 puts him in Eden, but the place of the forming is not stated. The place of Eve's making is not stated either.","kind":"reading"},
+    "occurred-at:the-fall>eden_354@45d433": {"refs":["gen.3.3","gen.3.23"],"note":"Gen 3:3 places the forbidden tree in the midst of the garden, and 3:23 sends Adam out of the garden of Eden after the eating."},
+    "parent-of:adah_69>jubal_1748@32aced": {"refs":["gen.4.20","gen.4.21"],"note":"Gen 4:21 calls Jubal the brother of Jabal, both in Lamech's household. Adah as Jubal's mother is inferred, not stated.","kind":"reading"},
+    "parent-of:adam_78>abel_13@59263d": {"refs":["gen.4.1","gen.4.2"],"note":"Gen 4:2 says Eve again bare Abel, calling him Cain's brother. Adam as his father is inferred from 4:1, not stated.","kind":"reading"},
+    "parent-of:adam_78>cain_533@bd8dad": {"refs":["gen.4.1"],"note":"Gen 4:1: Adam knew Eve his wife, and she conceived and bare Cain."},
+    "parent-of:cain_533>enoch_1191@a8f6bb": {"refs":["gen.4.17"],"note":"Gen 4:17: Cain knew his wife, and she conceived and bare Enoch."},
+    "parent-of:eve_1231>abel_13@604f97": {"refs":["gen.4.2"],"note":"Gen 4:2: she again bare his brother Abel."},
+    "parent-of:eve_1231>cain_533@9fce90": {"refs":["gen.4.1"],"note":"Gen 4:1: Eve conceived and bare Cain."},
+    "parent-of:eve_1231>seth_2504@4c4369": {"refs":["gen.4.25"],"note":"Gen 4:25: Adam knew his wife again, and she bare a son, called Seth."},
+    "parent-of:god_1324>eve_1231@3453a8": {"refs":["gen.2.22"],"kind":"wrong","note":"Gen 2:22 says God made Eve from Adam's rib and brought her to Adam. Eve came from Adam, not from God as a parent."},
+    "parent-of:lamech_1808>jabal_673@aa17cd": {"refs":["gen.4.19","gen.4.20"],"note":"Gen 4:19-20: Lamech took Adah, who bare Jabal. Lamech as the father is inferred, not stated.","kind":"reading"},
+    "parent-of:lamech_1808>jubal_1748@4f7671": {"refs":["gen.4.19","gen.4.21"],"note":"Gen 4:19, 4:21: Lamech took Adah, and Jubal is Jabal's brother. Lamech as the father is inferred, not stated.","kind":"reading"},
+    "parent-of:lamech_1808>naamah_2118@af50fc": {"refs":["gen.4.19","gen.4.22"],"note":"Gen 4:19, 4:22: Lamech took Zillah, and Naamah is Tubalcain's sister. Lamech as the father is inferred, not stated.","kind":"reading"},
+    "parent-of:lamech_1808>tubal-cain_2884@e2ba9c": {"refs":["gen.4.19","gen.4.22"],"note":"Gen 4:19, 4:22: Lamech took Zillah, who bare Tubalcain. Lamech as the father is inferred, not stated.","kind":"reading"},
+    "parent-of:zillah_3080>naamah_2118@d31da9": {"refs":["gen.4.19","gen.4.22"],"note":"Gen 4:22: Zillah bare Tubalcain, and Naamah is his sister. Zillah as Naamah's mother is inferred, not stated.","kind":"reading"},
+    "parent-of:zillah_3080>tubal-cain_2884@893437": {"refs":["gen.4.22"],"note":"Gen 4:22: Zillah, she also bare Tubalcain."},
+    "participated-in:adam_78>birth-of-seth@a136d6": {"refs":["gen.4.25"],"note":"Gen 4:25: Adam knew his wife again, and she bare a son, called Seth."},
+    "participated-in:adam_78>the-fall@503443": {"refs":["gen.3.6"],"note":"Gen 3:6: Eve gave the fruit to her husband, and he did eat."},
+    "participated-in:cain_533>cain-kills-abel@ba74c3": {"refs":["gen.4.8"],"note":"Gen 4:8: Cain rose up against Abel his brother, and slew him."},
+    "participated-in:eve_1231>birth-of-seth@22d9a4": {"refs":["gen.4.25"],"note":"Gen 4:25: Eve bare a son, called Seth."},
+    "participated-in:eve_1231>the-fall@8185d5": {"refs":["gen.3.6"],"note":"Gen 3:6: she took of the fruit and did eat, and gave to her husband."},
+    "participated-in:god_1324>creation-of-adam-and-eve@9047f6": {"refs":["gen.1.27","gen.2.7","gen.2.22"],"note":"Gen 1:27: God created man in his own image. Gen 2:7 and 2:22: the LORD God formed Adam and made Eve."},
+    "participated-in:god_1324>god-curses-cain@c684b0": {"refs":["gen.4.11"],"note":"Gen 4:9-11: the LORD asks Cain where Abel is, then says Cain is cursed from the earth."},
+    "participated-in:god_1324>the-fall@b85d90": {"refs":["gen.2.17","gen.3.9"],"note":"The LORD God gave the command (2:17) and questions Adam after the eating (3:9). Taking part in the eating itself is not stated.","kind":"reading"},
+    "participated-in:holy_spirit_7400>creation-of-all-things@7ab6b5": {"refs":["gen.1.2"],"note":"Gen 1:2 says the Spirit of God moved upon the waters. Identifying him as the Holy Spirit is a reading from outside the passage.","kind":"reading"},
+    "participated-in:jesus_905>creation-of-all-things@698303": {"refs":["gen.1.1"],"note":"Gen 1:1 names God alone as creator. Jesus' role in creation comes from outside Genesis 1-4, so this is a reading.","kind":"reading"},
+    "participated-in:seth_2504>birth-of-enos@445289": {"refs":["gen.4.26"],"note":"Gen 4:26: to Seth there was born a son, and he called his name Enos."},
+    "visited:adam_78>eden_354@d2f821": {"refs":["gen.2.8","gen.2.15","gen.3.8"],"note":"Gen 2:8 and 2:15: God planted the garden in Eden and put the man in it. Gen 3:8: Adam hid among the trees of that garden."},
+    "visited:cain_533>eden_354@8291c9": {"refs":["gen.4.16"],"kind":"wrong","note":"Gen 4:16 says Cain dwelt in the land of Nod, on the east of Eden. He was east of Eden, not in it."},
+    "visited:eve_1231>eden_354@a9492c": {"refs":["gen.3.8","gen.2.8"],"note":"Gen 3:8: Adam and his wife hid themselves amongst the trees of the garden, which Gen 2:8 places in Eden."}
   }
 }

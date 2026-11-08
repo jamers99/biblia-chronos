@@ -323,8 +323,9 @@ What the flags found, for the editor:
 2. Give a Haiku sub-agent the prompt in
    [audit-review-prompt.md](./audit-review-prompt.md), with the name and
    passage filled in. It writes `data/evidence/<name>.json`.
-3. Check the result. Run `npm run check:data`, spot-check that the cited
-   verses name the people involved, and read every "wrong" entry.
+3. Check the result. Run `npm run audit:format` (one entry per line) and
+   `npm run check:data`, spot-check that the cited verses name the people
+   involved, and read every "wrong" entry.
 4. Commit it. The editor's review happens in the PR.
 
 Lessons from the first pass:

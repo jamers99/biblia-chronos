@@ -1,6 +1,6 @@
 {
   "passage": "2chr.1-36",
-  "ai": { "model": "haiku", "on": "2026-11-08" },
+  "ai": {"model":"haiku","on":"2026-11-08"},
   "agreed": [
     "participated-in:cyrus_968>cyrus-decree-and-first-return@f60cc7",
     "parent-of:abdi_7>kish_1786@f56ce0",
@@ -41,316 +41,71 @@
     "partner-of:mahalath_1888>rehoboam_2412@21854e"
   ],
   "facts": {
-    "alias-of:abel-maim_7>abel-beth-maacah_5@13a37d": {
-      "refs": ["2chr.16.4"],
-      "note": "16.4 names Abelmaim only. Abel-beth-maacah is not named here, so the identity rests on outside identification.",
-      "kind": "reading"
-    },
-    "alias-of:brook_kidron_688>kidron_687@085e1f": {
-      "refs": ["2chr.15.16", "2chr.29.16"],
-      "note": "The text names only 'the brook Kidron'. Calling it the Kidron Valley and equating it with Kidron rests on outside knowledge.",
-      "kind": "reading"
-    },
-    "alias-of:hamath-zobah_517>hamath_516@47c4a3": {
-      "refs": ["2chr.8.3", "2chr.8.4"],
-      "note": "8.3 spells 'Hamathzobah' and 8.4 'Hamath'. The text does not say they are one place; the identity rests on outside identification.",
-      "kind": "reading"
-    },
-    "alias-of:hazazon-tamar_542>engedi_389@794995": {
-      "refs": ["2chr.20.2"],
-      "note": "20.2 says 'Hazazontamar, which is Engedi'."
-    },
-    "alias-of:jabneh_615>jabneel_613@a11aa3": {
-      "refs": ["2chr.26.6"],
-      "note": "26.6 names Jabneh. Jabneel is not named here, so the identity rests on outside identification.",
-      "kind": "reading"
-    },
-    "alias-of:soco_1104>socoh_1105@2b8c07": {
-      "refs": ["2chr.11.7", "2chr.28.18"],
-      "note": "11.7 spells 'Shoco' and 28.18 'Shocho', one name in two spellings. That these are the Soco and Socoh records is an outside identification.",
-      "kind": "reading"
-    },
-    "alias-of:zeredah_1255>zeredah_1254@d5e442": {
-      "refs": ["2chr.4.17"],
-      "note": "4.17 names one place, 'Zeredathah'. That two Zeredah records are the same place rests on outside identification.",
-      "kind": "reading"
-    },
-    "date:cyrus-decree-and-first-return@a642ab": {
-      "refs": ["2chr.36.22"],
-      "note": "36.22 dates the decree only to Cyrus's first year. The year (536 BC, -535) depends on dating outside Scripture.",
-      "kind": "reading"
-    },
-    "death:azariah_381@fa8c7e": {
-      "refs": ["2chr.21.2", "2chr.21.4"],
-      "note": "21.4: Jehoram slew his brothers when he took the kingdom; 21.2 lists two sons named Azariah. No year is given; -888 depends on outside dating.",
-      "kind": "reading"
-    },
-    "death:jehiel_773@fa8c7e": {
-      "refs": ["2chr.21.2", "2chr.21.4"],
-      "note": "21.4: Jehoram slew his brothers when he took the kingdom, and 21.2 lists Jehiel among them. No year is given; -888 depends on outside dating.",
-      "kind": "reading"
-    },
-    "death:michael_2066@fa8c7e": {
-      "refs": ["2chr.21.2", "2chr.21.4"],
-      "note": "21.4: Jehoram slew his brothers when he took the kingdom, and 21.2 lists Michael among them. No year is given; -888 depends on outside dating.",
-      "kind": "reading"
-    },
-    "death:shephatiah_2660@fa8c7e": {
-      "refs": ["2chr.21.2", "2chr.21.4"],
-      "note": "21.4: Jehoram slew his brothers when he took the kingdom, and 21.2 lists Shephatiah among them. No year is given; -888 depends on outside dating.",
-      "kind": "reading"
-    },
-    "death:zechariah_3010@fa8c7e": {
-      "refs": ["2chr.21.2", "2chr.21.4"],
-      "note": "21.4: Jehoram slew his brothers when he took the kingdom, and 21.2 lists Zechariah among them. No year is given; -888 depends on outside dating.",
-      "kind": "reading"
-    },
-    "died-at:abijah_38>jerusalem_636@3dd227": {
-      "refs": ["2chr.13.2", "2chr.14.1"],
-      "note": "14.1 says he slept with his fathers and was buried in the city of David. The place of death is not stated.",
-      "kind": "reading"
-    },
-    "died-at:ahaz_118>jerusalem_636@2f05f6": {
-      "refs": ["2chr.28.27"],
-      "note": "28.27 says he was buried in the city, even in Jerusalem. The place of death is not stated.",
-      "kind": "reading"
-    },
-    "died-at:amaziah_214>jerusalem_636@0df374": {
-      "refs": ["2chr.25.27", "2chr.25.28"],
-      "note": "25.27: the plot was in Jerusalem, but he fled to Lachish and was slain there. The text puts his death at Lachish.",
-      "kind": "wrong"
-    },
-    "died-at:asa_318>jerusalem_636@e54c02": {
-      "refs": ["2chr.16.13", "2chr.16.14"],
-      "note": "16.14 says he was buried in the city of David. The place of death is not stated.",
-      "kind": "reading"
-    },
-    "died-at:hezekiah_1512>jerusalem_636@7f4701": {
-      "refs": ["2chr.32.33"],
-      "note": "32.33 says he was buried among the sepulchres of the sons of David; the place of death is not stated. The matched 28.27 is about Ahaz.",
-      "kind": "reading"
-    },
-    "died-at:jehoram_803>jerusalem_636@b45acc": {
-      "refs": ["2chr.21.19", "2chr.21.20"],
-      "note": "21.20 says he was buried in the city of David, not in the kings' sepulchres. The place of death is not stated. The matched 22.1 is about Ahaziah.",
-      "kind": "reading"
-    },
-    "died-at:jotham_1735>jerusalem_636@650f16": {
-      "refs": ["2chr.27.9"],
-      "note": "27.9 says he was buried in the city of David. The place of death is not stated.",
-      "kind": "reading"
-    },
-    "died-at:manasseh_1930>jerusalem_636@b8167b": {
-      "refs": ["2chr.33.13", "2chr.33.20"],
-      "note": "33.20 says he was buried in his own house; Jerusalem is inferred from 33.13. The matched 32.33 is about Hezekiah.",
-      "kind": "reading"
-    },
-    "died-at:uzziah_375>jerusalem_636@e12328": {
-      "refs": ["2chr.26.3", "2chr.26.23"],
-      "note": "26.23 says he was buried in the field of burial belonging to the kings. Jerusalem is not named there, though 26.3 says he reigned there.",
-      "kind": "reading"
-    },
-    "member-of:abihail_31>tribe-of-judah@3f45bb": {
-      "refs": ["2chr.11.18"],
-      "note": "11.18 names her Eliab's daughter, Eliab son of Jesse. Tribe membership is not stated; it follows from outside genealogy.",
-      "kind": "reading"
-    },
-    "member-of:attai_365>tribe-of-judah@657286": {
-      "refs": ["2chr.11.20", "2chr.11.17"],
-      "note": "11.20 names him a son of Rehoboam, son of Solomon (11.17). Tribe membership is not stated; it follows from the David line by outside genealogy.",
-      "kind": "reading"
-    },
-    "member-of:azariah_381>tribe-of-judah@a11bcf": {
-      "refs": ["2chr.21.2", "2chr.20.31"],
-      "note": "21.2 makes him a son of Jehoshaphat, king of Judah (20.31). Tribe membership is not stated, and two sons named Azariah are listed.",
-      "kind": "reading"
-    },
-    "member-of:azariah_382>tribe-of-judah@42b1a1": {
-      "refs": ["2chr.21.2", "2chr.20.31"],
-      "note": "21.2 makes him a son of Jehoshaphat, king of Judah (20.31). Tribe membership is not stated, and two sons named Azariah are listed.",
-      "kind": "reading"
-    },
-    "member-of:jehiel_773>tribe-of-judah@b4f767": {
-      "refs": ["2chr.21.2", "2chr.20.31"],
-      "note": "21.2 makes him a son of Jehoshaphat, king of Judah (20.31). Tribe membership is not stated; it follows from outside genealogy.",
-      "kind": "reading"
-    },
-    "member-of:jerimoth_869>tribe-of-judah@115ef7": {
-      "refs": ["2chr.11.18"],
-      "note": "11.18 names him a son of David. Tribe membership is not stated; it follows from outside genealogy.",
-      "kind": "reading"
-    },
-    "member-of:jeush_1603>tribe-of-judah@538590": {
-      "refs": ["2chr.11.19", "2chr.11.17"],
-      "note": "11.19 names him a son of Rehoboam (11.17). Tribe membership is not stated; it follows from the David line by outside genealogy.",
-      "kind": "reading"
-    },
-    "member-of:maaseiah_1852>tribe-of-judah@167564": {
-      "refs": ["2chr.28.7", "2chr.28.1"],
-      "note": "28.7 calls him 'the king's son', the king being Ahaz (28.1). Tribe membership is not stated; it follows from the royal line.",
-      "kind": "reading"
-    },
-    "member-of:mahalath_1888>tribe-of-judah@e42099": {
-      "refs": ["2chr.11.18"],
-      "note": "11.18 names her daughter of Jerimoth, son of David. Tribe membership is not stated; it follows from outside genealogy.",
-      "kind": "reading"
-    },
-    "member-of:michael_2066>tribe-of-judah@804110": {
-      "refs": ["2chr.21.2", "2chr.20.31"],
-      "note": "21.2 makes him a son of Jehoshaphat, king of Judah (20.31). Tribe membership is not stated; it follows from outside genealogy.",
-      "kind": "reading"
-    },
-    "member-of:shamariah_2531>tribe-of-judah@0bcb87": {
-      "refs": ["2chr.11.19", "2chr.11.17"],
-      "note": "11.19 names him a son of Rehoboam (11.17). Tribe membership is not stated; it follows from the David line by outside genealogy.",
-      "kind": "reading"
-    },
-    "member-of:shelomith_2610>tribe-of-judah@4924ce": {
-      "refs": ["2chr.11.20", "2chr.11.17"],
-      "note": "11.20 names her a child of Rehoboam (11.17). Tribe membership is not stated; it follows from the David line by outside genealogy.",
-      "kind": "reading"
-    },
-    "member-of:shephatiah_2660>tribe-of-judah@a776d2": {
-      "refs": ["2chr.21.2", "2chr.20.31"],
-      "note": "21.2 makes him a son of Jehoshaphat, king of Judah (20.31). Tribe membership is not stated; it follows from outside genealogy.",
-      "kind": "reading"
-    },
-    "member-of:zaham_2980>tribe-of-judah@0a9900": {
-      "refs": ["2chr.11.19", "2chr.11.17"],
-      "note": "11.19 names him a son of Rehoboam (11.17). Tribe membership is not stated; it follows from the David line by outside genealogy.",
-      "kind": "reading"
-    },
-    "member-of:zechariah_3010>tribe-of-judah@c6272f": {
-      "refs": ["2chr.21.2", "2chr.20.31"],
-      "note": "21.2 makes him a son of Jehoshaphat, king of Judah (20.31). Tribe membership is not stated; it follows from outside genealogy.",
-      "kind": "reading"
-    },
-    "member-of:ziza_3098>tribe-of-judah@84bb87": {
-      "refs": ["2chr.11.20", "2chr.11.17"],
-      "note": "11.20 names him a child of Rehoboam (11.17). Tribe membership is not stated; it follows from the David line by outside genealogy.",
-      "kind": "reading"
-    },
-    "occurred-at:cyrus-decree-and-first-return>jerusalem_636@91ba49": {
-      "refs": ["2chr.36.22", "2chr.36.23"],
-      "note": "36.22: the decree goes out through all Cyrus's kingdom; 36.23 sends the exiles to build in Jerusalem. The decree's place is not stated.",
-      "kind": "reading"
-    },
-    "part-of:angle_66>jerusalem_636@cb13ff": {
-      "refs": ["2chr.26.9"],
-      "note": "26.9 places 'the turning of the wall' in Jerusalem. Identifying it with the Angle is an outside identification.",
-      "kind": "reading"
-    },
-    "part-of:fish_gate_426>jerusalem_636@abf962": {
-      "refs": ["2chr.33.14"],
-      "note": "33.14: a wall built out to the fish gate, around the city of David in Jerusalem (33.13-15)."
-    },
-    "part-of:gate_of_the_foundation_440>jerusalem_636@8bc0a0": {
-      "refs": ["2chr.23.5"],
-      "note": "23.5 names the gate of the foundation among the temple arrangements at Jerusalem (23.2)."
-    },
-    "part-of:ophel_910>jerusalem_636@a91fd8": {
-      "refs": ["2chr.27.3", "2chr.33.14"],
-      "note": "27.3 builds on the wall of Ophel in the Jerusalem setting; 33.14 has the wall of the city of David compass Ophel."
-    },
-    "partner-of:abihail_31>rehoboam_2412@832673": {
-      "refs": ["2chr.11.18"],
-      "note": "11.18: Rehoboam took Abihail, daughter of Eliab, to wife."
-    },
-    "partner-of:jehoiada_793>jehoshabeath_811@2ee439": {
-      "refs": ["2chr.22.11"],
-      "note": "22.11 calls Jehoshabeath 'the wife of Jehoiada the priest'."
-    },
-    "partner-of:maachah_1841>rehoboam_2412@51d597": {
-      "refs": ["2chr.11.20", "2chr.11.21"],
-      "note": "11.20: Rehoboam took Maachah, daughter of Absalom; 11.21 counts her among his wives."
-    },
-    "parent-of:ahaz_118>maaseiah_1852@85c9a3": {
-      "refs": ["2chr.28.7"],
-      "note": "28.7 names 'Maaseiah the king's son'; the king in the scene is Ahaz (28.1)."
-    },
-    "parent-of:abihail_31>jeush_1603@d5d919": {
-      "refs": ["2chr.11.18", "2chr.11.19"],
-      "note": "11.19 says the two wives together 'bare him' Jeush, Shamariah and Zaham. The text does not say which wife bore which.",
-      "kind": "reading"
-    },
-    "parent-of:abihail_31>shamariah_2531@09e638": {
-      "refs": ["2chr.11.18", "2chr.11.19"],
-      "note": "11.19 says the two wives together 'bare him' Jeush, Shamariah and Zaham. The text does not say which wife bore which.",
-      "kind": "reading"
-    },
-    "parent-of:abihail_31>zaham_2980@3c92e4": {
-      "refs": ["2chr.11.18", "2chr.11.19"],
-      "note": "11.19 says the two wives together 'bare him' Jeush, Shamariah and Zaham. The text does not say which wife bore which.",
-      "kind": "reading"
-    },
-    "parent-of:huram_1575>hiram_1532@30ee3a": {
-      "refs": ["2chr.4.16", "2chr.2.13"],
-      "note": "4.16 says 'Huram his father' made the bronze work, but 2.13-14 gives the craftsman's father only as a man of Tyre, and 'Huram my father' may be a title.",
-      "kind": "reading"
-    },
-    "parent-of:jecoliah_750>uzziah_375@99a761": {
-      "refs": ["2chr.26.3"],
-      "note": "26.3 names Uzziah's mother as Jecoliah of Jerusalem."
-    },
-    "parent-of:jehoshaphat_808>azariah_381@68940a": {
-      "refs": ["2chr.21.2"],
-      "note": "21.2 lists two sons named Azariah among Jehoshaphat's sons. The text does not say which of the two this record is.",
-      "kind": "reading"
-    },
-    "parent-of:jehoshaphat_808>azariah_382@679409": {
-      "refs": ["2chr.21.2"],
-      "note": "21.2 lists two sons named Azariah among Jehoshaphat's sons. The text does not say which of the two this record is.",
-      "kind": "reading"
-    },
-    "parent-of:jerushah_882>jotham_1735@12b23f": {
-      "refs": ["2chr.27.1"],
-      "note": "27.1 names Jotham's mother as Jerushah, daughter of Zadok."
-    },
-    "parent-of:maachah_1841>abijah_38@4959e4": {
-      "refs": ["2chr.11.22", "2chr.13.2"],
-      "note": "11.22 calls Abijah 'the son of Maachah', but 13.2 names his mother as Michaiah, daughter of Uriel. That is reason to doubt.",
-      "kind": "reading"
-    },
-    "parent-of:maachah_1841>attai_365@79d304": {
-      "refs": ["2chr.11.20"],
-      "note": "11.20: Maachah bare Rehoboam Abijah, Attai, Ziza and Shelomith."
-    },
-    "parent-of:maachah_1841>shelomith_2610@2c4fc6": {
-      "refs": ["2chr.11.20"],
-      "note": "11.20: Maachah bare Rehoboam Abijah, Attai, Ziza and Shelomith."
-    },
-    "parent-of:maachah_1841>ziza_3098@4877e2": {
-      "refs": ["2chr.11.20"],
-      "note": "11.20: Maachah bare Rehoboam Abijah, Attai, Ziza and Shelomith."
-    },
-    "parent-of:rehoboam_2412>attai_365@b9c91c": {
-      "refs": ["2chr.11.20"],
-      "note": "11.20: Maachah, whom Rehoboam took, bare him Abijah, Attai, Ziza and Shelomith."
-    },
-    "parent-of:rehoboam_2412>jeush_1603@a5dd29": {
-      "refs": ["2chr.11.19"],
-      "note": "11.19: the wives Rehoboam took bore him children, Jeush, Shamariah and Zaham."
-    },
-    "parent-of:rehoboam_2412>shamariah_2531@523f2a": {
-      "refs": ["2chr.11.19"],
-      "note": "11.19: the wives Rehoboam took bore him children, Jeush, Shamariah and Zaham."
-    },
-    "parent-of:rehoboam_2412>shelomith_2610@3ba516": {
-      "refs": ["2chr.11.20"],
-      "note": "11.20: Maachah, whom Rehoboam took, bare him Abijah, Attai, Ziza and Shelomith."
-    },
-    "parent-of:rehoboam_2412>zaham_2980@e894a6": {
-      "refs": ["2chr.11.19"],
-      "note": "11.19: the wives Rehoboam took bore him children, Jeush, Shamariah and Zaham."
-    },
-    "parent-of:rehoboam_2412>ziza_3098@435148": {
-      "refs": ["2chr.11.20"],
-      "note": "11.20: Maachah, whom Rehoboam took, bare him Abijah, Attai, Ziza and Shelomith."
-    },
-    "parent-of:uriel_2902>maachah_1841@a4d2c5": {
-      "refs": ["2chr.11.20", "2chr.13.2"],
-      "note": "11.20 names Maachah as daughter of Absalom; 13.2 names Michaiah as daughter of Uriel. Uriel is not Maachah's father.",
-      "kind": "wrong"
-    }
+    "alias-of:abel-maim_7>abel-beth-maacah_5@13a37d": {"refs":["2chr.16.4"],"note":"16.4 names Abelmaim only. Abel-beth-maacah is not named here, so the identity rests on outside identification.","kind":"reading"},
+    "alias-of:brook_kidron_688>kidron_687@085e1f": {"refs":["2chr.15.16","2chr.29.16"],"note":"The text names only 'the brook Kidron'. Calling it the Kidron Valley and equating it with Kidron rests on outside knowledge.","kind":"reading"},
+    "alias-of:hamath-zobah_517>hamath_516@47c4a3": {"refs":["2chr.8.3","2chr.8.4"],"note":"8.3 spells 'Hamathzobah' and 8.4 'Hamath'. The text does not say they are one place; the identity rests on outside identification.","kind":"reading"},
+    "alias-of:hazazon-tamar_542>engedi_389@794995": {"refs":["2chr.20.2"],"note":"20.2 says 'Hazazontamar, which is Engedi'."},
+    "alias-of:jabneh_615>jabneel_613@a11aa3": {"refs":["2chr.26.6"],"note":"26.6 names Jabneh. Jabneel is not named here, so the identity rests on outside identification.","kind":"reading"},
+    "alias-of:soco_1104>socoh_1105@2b8c07": {"refs":["2chr.11.7","2chr.28.18"],"note":"11.7 spells 'Shoco' and 28.18 'Shocho', one name in two spellings. That these are the Soco and Socoh records is an outside identification.","kind":"reading"},
+    "alias-of:zeredah_1255>zeredah_1254@d5e442": {"refs":["2chr.4.17"],"note":"4.17 names one place, 'Zeredathah'. That two Zeredah records are the same place rests on outside identification.","kind":"reading"},
+    "date:cyrus-decree-and-first-return@a642ab": {"refs":["2chr.36.22"],"note":"36.22 dates the decree only to Cyrus's first year. The year (536 BC, -535) depends on dating outside Scripture.","kind":"reading"},
+    "death:azariah_381@fa8c7e": {"refs":["2chr.21.2","2chr.21.4"],"note":"21.4: Jehoram slew his brothers when he took the kingdom; 21.2 lists two sons named Azariah. No year is given; -888 depends on outside dating.","kind":"reading"},
+    "death:jehiel_773@fa8c7e": {"refs":["2chr.21.2","2chr.21.4"],"note":"21.4: Jehoram slew his brothers when he took the kingdom, and 21.2 lists Jehiel among them. No year is given; -888 depends on outside dating.","kind":"reading"},
+    "death:michael_2066@fa8c7e": {"refs":["2chr.21.2","2chr.21.4"],"note":"21.4: Jehoram slew his brothers when he took the kingdom, and 21.2 lists Michael among them. No year is given; -888 depends on outside dating.","kind":"reading"},
+    "death:shephatiah_2660@fa8c7e": {"refs":["2chr.21.2","2chr.21.4"],"note":"21.4: Jehoram slew his brothers when he took the kingdom, and 21.2 lists Shephatiah among them. No year is given; -888 depends on outside dating.","kind":"reading"},
+    "death:zechariah_3010@fa8c7e": {"refs":["2chr.21.2","2chr.21.4"],"note":"21.4: Jehoram slew his brothers when he took the kingdom, and 21.2 lists Zechariah among them. No year is given; -888 depends on outside dating.","kind":"reading"},
+    "died-at:abijah_38>jerusalem_636@3dd227": {"refs":["2chr.13.2","2chr.14.1"],"note":"14.1 says he slept with his fathers and was buried in the city of David. The place of death is not stated.","kind":"reading"},
+    "died-at:ahaz_118>jerusalem_636@2f05f6": {"refs":["2chr.28.27"],"note":"28.27 says he was buried in the city, even in Jerusalem. The place of death is not stated.","kind":"reading"},
+    "died-at:amaziah_214>jerusalem_636@0df374": {"refs":["2chr.25.27","2chr.25.28"],"note":"25.27: the plot was in Jerusalem, but he fled to Lachish and was slain there. The text puts his death at Lachish.","kind":"wrong"},
+    "died-at:asa_318>jerusalem_636@e54c02": {"refs":["2chr.16.13","2chr.16.14"],"note":"16.14 says he was buried in the city of David. The place of death is not stated.","kind":"reading"},
+    "died-at:hezekiah_1512>jerusalem_636@7f4701": {"refs":["2chr.32.33"],"note":"32.33 says he was buried among the sepulchres of the sons of David; the place of death is not stated. The matched 28.27 is about Ahaz.","kind":"reading"},
+    "died-at:jehoram_803>jerusalem_636@b45acc": {"refs":["2chr.21.19","2chr.21.20"],"note":"21.20 says he was buried in the city of David, not in the kings' sepulchres. The place of death is not stated. The matched 22.1 is about Ahaziah.","kind":"reading"},
+    "died-at:jotham_1735>jerusalem_636@650f16": {"refs":["2chr.27.9"],"note":"27.9 says he was buried in the city of David. The place of death is not stated.","kind":"reading"},
+    "died-at:manasseh_1930>jerusalem_636@b8167b": {"refs":["2chr.33.13","2chr.33.20"],"note":"33.20 says he was buried in his own house; Jerusalem is inferred from 33.13. The matched 32.33 is about Hezekiah.","kind":"reading"},
+    "died-at:uzziah_375>jerusalem_636@e12328": {"refs":["2chr.26.3","2chr.26.23"],"note":"26.23 says he was buried in the field of burial belonging to the kings. Jerusalem is not named there, though 26.3 says he reigned there.","kind":"reading"},
+    "member-of:abihail_31>tribe-of-judah@3f45bb": {"refs":["2chr.11.18"],"note":"11.18 names her Eliab's daughter, Eliab son of Jesse. Tribe membership is not stated; it follows from outside genealogy.","kind":"reading"},
+    "member-of:attai_365>tribe-of-judah@657286": {"refs":["2chr.11.20","2chr.11.17"],"note":"11.20 names him a son of Rehoboam, son of Solomon (11.17). Tribe membership is not stated; it follows from the David line by outside genealogy.","kind":"reading"},
+    "member-of:azariah_381>tribe-of-judah@a11bcf": {"refs":["2chr.21.2","2chr.20.31"],"note":"21.2 makes him a son of Jehoshaphat, king of Judah (20.31). Tribe membership is not stated, and two sons named Azariah are listed.","kind":"reading"},
+    "member-of:azariah_382>tribe-of-judah@42b1a1": {"refs":["2chr.21.2","2chr.20.31"],"note":"21.2 makes him a son of Jehoshaphat, king of Judah (20.31). Tribe membership is not stated, and two sons named Azariah are listed.","kind":"reading"},
+    "member-of:jehiel_773>tribe-of-judah@b4f767": {"refs":["2chr.21.2","2chr.20.31"],"note":"21.2 makes him a son of Jehoshaphat, king of Judah (20.31). Tribe membership is not stated; it follows from outside genealogy.","kind":"reading"},
+    "member-of:jerimoth_869>tribe-of-judah@115ef7": {"refs":["2chr.11.18"],"note":"11.18 names him a son of David. Tribe membership is not stated; it follows from outside genealogy.","kind":"reading"},
+    "member-of:jeush_1603>tribe-of-judah@538590": {"refs":["2chr.11.19","2chr.11.17"],"note":"11.19 names him a son of Rehoboam (11.17). Tribe membership is not stated; it follows from the David line by outside genealogy.","kind":"reading"},
+    "member-of:maaseiah_1852>tribe-of-judah@167564": {"refs":["2chr.28.7","2chr.28.1"],"note":"28.7 calls him 'the king's son', the king being Ahaz (28.1). Tribe membership is not stated; it follows from the royal line.","kind":"reading"},
+    "member-of:mahalath_1888>tribe-of-judah@e42099": {"refs":["2chr.11.18"],"note":"11.18 names her daughter of Jerimoth, son of David. Tribe membership is not stated; it follows from outside genealogy.","kind":"reading"},
+    "member-of:michael_2066>tribe-of-judah@804110": {"refs":["2chr.21.2","2chr.20.31"],"note":"21.2 makes him a son of Jehoshaphat, king of Judah (20.31). Tribe membership is not stated; it follows from outside genealogy.","kind":"reading"},
+    "member-of:shamariah_2531>tribe-of-judah@0bcb87": {"refs":["2chr.11.19","2chr.11.17"],"note":"11.19 names him a son of Rehoboam (11.17). Tribe membership is not stated; it follows from the David line by outside genealogy.","kind":"reading"},
+    "member-of:shelomith_2610>tribe-of-judah@4924ce": {"refs":["2chr.11.20","2chr.11.17"],"note":"11.20 names her a child of Rehoboam (11.17). Tribe membership is not stated; it follows from the David line by outside genealogy.","kind":"reading"},
+    "member-of:shephatiah_2660>tribe-of-judah@a776d2": {"refs":["2chr.21.2","2chr.20.31"],"note":"21.2 makes him a son of Jehoshaphat, king of Judah (20.31). Tribe membership is not stated; it follows from outside genealogy.","kind":"reading"},
+    "member-of:zaham_2980>tribe-of-judah@0a9900": {"refs":["2chr.11.19","2chr.11.17"],"note":"11.19 names him a son of Rehoboam (11.17). Tribe membership is not stated; it follows from the David line by outside genealogy.","kind":"reading"},
+    "member-of:zechariah_3010>tribe-of-judah@c6272f": {"refs":["2chr.21.2","2chr.20.31"],"note":"21.2 makes him a son of Jehoshaphat, king of Judah (20.31). Tribe membership is not stated; it follows from outside genealogy.","kind":"reading"},
+    "member-of:ziza_3098>tribe-of-judah@84bb87": {"refs":["2chr.11.20","2chr.11.17"],"note":"11.20 names him a child of Rehoboam (11.17). Tribe membership is not stated; it follows from the David line by outside genealogy.","kind":"reading"},
+    "occurred-at:cyrus-decree-and-first-return>jerusalem_636@91ba49": {"refs":["2chr.36.22","2chr.36.23"],"note":"36.22: the decree goes out through all Cyrus's kingdom; 36.23 sends the exiles to build in Jerusalem. The decree's place is not stated.","kind":"reading"},
+    "part-of:angle_66>jerusalem_636@cb13ff": {"refs":["2chr.26.9"],"note":"26.9 places 'the turning of the wall' in Jerusalem. Identifying it with the Angle is an outside identification.","kind":"reading"},
+    "part-of:fish_gate_426>jerusalem_636@abf962": {"refs":["2chr.33.14"],"note":"33.14: a wall built out to the fish gate, around the city of David in Jerusalem (33.13-15)."},
+    "part-of:gate_of_the_foundation_440>jerusalem_636@8bc0a0": {"refs":["2chr.23.5"],"note":"23.5 names the gate of the foundation among the temple arrangements at Jerusalem (23.2)."},
+    "part-of:ophel_910>jerusalem_636@a91fd8": {"refs":["2chr.27.3","2chr.33.14"],"note":"27.3 builds on the wall of Ophel in the Jerusalem setting; 33.14 has the wall of the city of David compass Ophel."},
+    "partner-of:abihail_31>rehoboam_2412@832673": {"refs":["2chr.11.18"],"note":"11.18: Rehoboam took Abihail, daughter of Eliab, to wife."},
+    "partner-of:jehoiada_793>jehoshabeath_811@2ee439": {"refs":["2chr.22.11"],"note":"22.11 calls Jehoshabeath 'the wife of Jehoiada the priest'."},
+    "partner-of:maachah_1841>rehoboam_2412@51d597": {"refs":["2chr.11.20","2chr.11.21"],"note":"11.20: Rehoboam took Maachah, daughter of Absalom; 11.21 counts her among his wives."},
+    "parent-of:ahaz_118>maaseiah_1852@85c9a3": {"refs":["2chr.28.7"],"note":"28.7 names 'Maaseiah the king's son'; the king in the scene is Ahaz (28.1)."},
+    "parent-of:abihail_31>jeush_1603@d5d919": {"refs":["2chr.11.18","2chr.11.19"],"note":"11.19 says the two wives together 'bare him' Jeush, Shamariah and Zaham. The text does not say which wife bore which.","kind":"reading"},
+    "parent-of:abihail_31>shamariah_2531@09e638": {"refs":["2chr.11.18","2chr.11.19"],"note":"11.19 says the two wives together 'bare him' Jeush, Shamariah and Zaham. The text does not say which wife bore which.","kind":"reading"},
+    "parent-of:abihail_31>zaham_2980@3c92e4": {"refs":["2chr.11.18","2chr.11.19"],"note":"11.19 says the two wives together 'bare him' Jeush, Shamariah and Zaham. The text does not say which wife bore which.","kind":"reading"},
+    "parent-of:huram_1575>hiram_1532@30ee3a": {"refs":["2chr.4.16","2chr.2.13"],"note":"4.16 says 'Huram his father' made the bronze work, but 2.13-14 gives the craftsman's father only as a man of Tyre, and 'Huram my father' may be a title.","kind":"reading"},
+    "parent-of:jecoliah_750>uzziah_375@99a761": {"refs":["2chr.26.3"],"note":"26.3 names Uzziah's mother as Jecoliah of Jerusalem."},
+    "parent-of:jehoshaphat_808>azariah_381@68940a": {"refs":["2chr.21.2"],"note":"21.2 lists two sons named Azariah among Jehoshaphat's sons. The text does not say which of the two this record is.","kind":"reading"},
+    "parent-of:jehoshaphat_808>azariah_382@679409": {"refs":["2chr.21.2"],"note":"21.2 lists two sons named Azariah among Jehoshaphat's sons. The text does not say which of the two this record is.","kind":"reading"},
+    "parent-of:jerushah_882>jotham_1735@12b23f": {"refs":["2chr.27.1"],"note":"27.1 names Jotham's mother as Jerushah, daughter of Zadok."},
+    "parent-of:maachah_1841>abijah_38@4959e4": {"refs":["2chr.11.22","2chr.13.2"],"note":"11.22 calls Abijah 'the son of Maachah', but 13.2 names his mother as Michaiah, daughter of Uriel. That is reason to doubt.","kind":"reading"},
+    "parent-of:maachah_1841>attai_365@79d304": {"refs":["2chr.11.20"],"note":"11.20: Maachah bare Rehoboam Abijah, Attai, Ziza and Shelomith."},
+    "parent-of:maachah_1841>shelomith_2610@2c4fc6": {"refs":["2chr.11.20"],"note":"11.20: Maachah bare Rehoboam Abijah, Attai, Ziza and Shelomith."},
+    "parent-of:maachah_1841>ziza_3098@4877e2": {"refs":["2chr.11.20"],"note":"11.20: Maachah bare Rehoboam Abijah, Attai, Ziza and Shelomith."},
+    "parent-of:rehoboam_2412>attai_365@b9c91c": {"refs":["2chr.11.20"],"note":"11.20: Maachah, whom Rehoboam took, bare him Abijah, Attai, Ziza and Shelomith."},
+    "parent-of:rehoboam_2412>jeush_1603@a5dd29": {"refs":["2chr.11.19"],"note":"11.19: the wives Rehoboam took bore him children, Jeush, Shamariah and Zaham."},
+    "parent-of:rehoboam_2412>shamariah_2531@523f2a": {"refs":["2chr.11.19"],"note":"11.19: the wives Rehoboam took bore him children, Jeush, Shamariah and Zaham."},
+    "parent-of:rehoboam_2412>shelomith_2610@3ba516": {"refs":["2chr.11.20"],"note":"11.20: Maachah, whom Rehoboam took, bare him Abijah, Attai, Ziza and Shelomith."},
+    "parent-of:rehoboam_2412>zaham_2980@e894a6": {"refs":["2chr.11.19"],"note":"11.19: the wives Rehoboam took bore him children, Jeush, Shamariah and Zaham."},
+    "parent-of:rehoboam_2412>ziza_3098@435148": {"refs":["2chr.11.20"],"note":"11.20: Maachah, whom Rehoboam took, bare him Abijah, Attai, Ziza and Shelomith."},
+    "parent-of:uriel_2902>maachah_1841@a4d2c5": {"refs":["2chr.11.20","2chr.13.2"],"note":"11.20 names Maachah as daughter of Absalom; 13.2 names Michaiah as daughter of Uriel. Uriel is not Maachah's father.","kind":"wrong"}
   }
 }
