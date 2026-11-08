@@ -1,0 +1,165 @@
+{
+  "passage": "matt.2-9",
+  "ai": { "model": "haiku", "on": "2026-11-08" },
+  "agreed": [
+    "occurred-at:fishers-of-men>sea_of_galilee_1032@4565c1",
+    "occurred-at:healing-centurion-s-servant>capernaum_274@9be592",
+    "occurred-at:herod-slays-male-children>bethlehem_218@00f9fc",
+    "occurred-at:jesus-1st-tour-of-galilee>galilee_433@827814",
+    "occurred-at:jesus-in-capernaum>capernaum_274@4ee86d",
+    "occurred-at:jesus-leaves-judea-toward-galilee>galilee_433@19427d",
+    "occurred-at:jesus-visits-galilee>galilee_433@471894",
+    "occurred-at:john-baptizes-jesus>jordan_653@d4095a",
+    "occurred-at:joseph-and-mary-flee-to-egypt>egypt_362@ae682a",
+    "occurred-at:joseph-and-mary-return-to-nazareth>nazareth_878@9e03e6",
+    "occurred-at:wise-men-visit-herod>jerusalem_636@eecf5b",
+    "parent-of:zebedee_2998>james_717@c236fd",
+    "participated-in:andrew_264>fishers-of-men@417553",
+    "participated-in:herod_1504>herod-slays-male-children@74c671",
+    "participated-in:james_717>fishers-of-men@e21272",
+    "participated-in:jesus_905>3rd-tour-of-galilee@63c885",
+    "participated-in:jesus_905>fasting-question@3d00c1",
+    "participated-in:jesus_905>fishers-of-men@65bc32",
+    "participated-in:jesus_905>gadarene-demoniacs@0b6cf5",
+    "participated-in:jesus_905>healing-centurion-s-servant@c6a246",
+    "participated-in:jesus_905>healing-the-leper@a61a9f",
+    "participated-in:jesus_905>healing-the-man-with-palsy@6bc944",
+    "participated-in:jesus_905>jesus-1st-tour-of-galilee@802358",
+    "participated-in:jesus_905>jesus-calls-matthew@b95952",
+    "participated-in:jesus_905>jesus-leaves-judea-toward-galilee@2fc971",
+    "participated-in:jesus_905>jesus-visits-galilee@ded149",
+    "participated-in:jesus_905>john-baptizes-jesus@19a2a3",
+    "participated-in:jesus_905>peter-s-mother-in-law-and-others-healed@279a13",
+    "participated-in:jesus_905>seaside-parables-and-miracle@60b94b",
+    "participated-in:jesus_905>sermon-on-the-mount@cca421",
+    "participated-in:jesus_905>temptations-of-jesus@24817f",
+    "participated-in:john_1676>john-baptizes-jesus@e92c80",
+    "participated-in:john_1676>john-the-baptist-begins-ministry@31ff96",
+    "participated-in:joseph_1715>joseph-and-mary-flee-to-egypt@711eb9",
+    "participated-in:joseph_1715>joseph-and-mary-return-from-egypt@590ded",
+    "participated-in:mary_1938>joseph-and-mary-flee-to-egypt@441dc8",
+    "participated-in:mary_1938>joseph-and-mary-return-from-egypt@3d62d5",
+    "participated-in:matthew_1971>jesus-calls-matthew@c3ea4b",
+    "participated-in:mother_of_the_wife_of_simon_2111>peter-s-mother-in-law-and-others-healed@739836",
+    "participated-in:peter_2745>fishers-of-men@3fa9d9",
+    "participated-in:satan_2476>temptations-of-jesus@008972"
+  ],
+  "facts": {
+    "date:herod-slays-male-children@7d6db1": {
+      "refs": ["matt.2.7", "matt.2.16"],
+      "note": "Timed by Herod's enquiry of the wise men, while he lived (2:7, 2:16). The BC year depends on dating Herod's death outside Scripture.",
+      "kind": "reading"
+    },
+    "date:joseph-and-mary-flee-to-egypt@7d6db1": {
+      "refs": ["matt.2.13", "matt.2.15"],
+      "note": "Fled before Herod died (2:15). The BC year depends on dating Herod's death outside Scripture.",
+      "kind": "reading"
+    },
+    "date:joseph-and-mary-return-from-egypt@7d6db1": {
+      "refs": ["matt.2.19"],
+      "note": "Came back after Herod was dead (2:19). The BC year depends on dating Herod's death outside Scripture.",
+      "kind": "reading"
+    },
+    "date:joseph-and-mary-return-to-nazareth@7d6db1": {
+      "refs": ["matt.2.22"],
+      "note": "After Herod's death, when Archelaus reigned in Judaea (2:22). The BC year depends on dating Herod's death outside Scripture.",
+      "kind": "reading"
+    },
+    "date:wise-men-visit-herod@7d6db1": {
+      "refs": ["matt.2.1", "matt.2.7"],
+      "note": "Herod the king reigned then (2:1), and was alive when he met them (2:7). The BC year depends on dating his reign outside Scripture.",
+      "kind": "reading"
+    },
+    "date:wise-men-visit-jesus@7d6db1": {
+      "refs": ["matt.2.11", "matt.2.13"],
+      "note": "The visit came before the flight to Egypt (2:11, 2:13), while Herod lived. The BC year depends on dating Herod's death outside Scripture.",
+      "kind": "reading"
+    },
+    "occurred-at:capernaum-miracles>capernaum_274@ea64fa": {
+      "refs": ["matt.8.5", "matt.8.14"],
+      "note": "Jesus entered Capernaum (8:5), then came into Peter's house there (8:14)."
+    },
+    "occurred-at:peter-s-mother-in-law-and-others-healed>capernaum_274@6ec5c1": {
+      "refs": ["matt.8.5", "matt.8.14"],
+      "note": "Jesus entered Capernaum (8:5), then came into Peter's house (8:14)."
+    },
+    "occurred-at:wise-men-visit-jesus>bethlehem_218@2e663e": {
+      "refs": ["matt.2.8", "matt.2.9", "matt.2.11"],
+      "note": "Herod sent them to Bethlehem (2:8). The star stopped over the young child there, in a house (2:9, 2:11)."
+    },
+    "occurred-at:john-the-baptist-begins-ministry>jordan_653@e22851": {
+      "refs": ["matt.3.1", "matt.3.6"],
+      "note": "He preached in the wilderness of Judaea (3:1); the baptisms were in Jordan (3:6). Placing the ministry at Jordan is a reading of the setting.",
+      "kind": "reading"
+    },
+    "occurred-at:seaside-parables-and-miracle>sea_of_galilee_1032@8ef7c9": {
+      "refs": ["matt.8.24", "matt.4.18"],
+      "note": "The storm is on 'the sea' (8:24). The Sea of Galilee is named only at 4:18, so this is a reading.",
+      "kind": "reading"
+    },
+    "occurred-at:joseph-and-mary-return-from-egypt>jerusalem_636@f7b3d8": {
+      "refs": ["matt.2.21", "matt.2.22"],
+      "note": "Text: they came into the land of Israel, and Joseph turned aside to Galilee, fearing Archelaus in Judaea (2:21-22). Jerusalem is not named.",
+      "kind": "wrong"
+    },
+    "occurred-at:sermon-on-the-mount>jerusalem_636@d68d7e": {
+      "refs": ["matt.5.1"],
+      "note": "Text: he went up into a mountain (5:1). Jerusalem appears only in an oath (5:35) and as a source of crowds (4:25).",
+      "kind": "wrong"
+    },
+    "parent-of:herod_1504>archelaus_291@ce4be1": {
+      "refs": ["matt.2.22"],
+      "note": "Archelaus reigned 'in the room of his father Herod' (2:22)."
+    },
+    "parent-of:mother_of_the_wife_of_simon_2111>wife_of_simon_2943@a5bad0": {
+      "refs": ["matt.8.14"],
+      "note": "Peter's wife's mother, sick of a fever (8:14), is the mother of his wife."
+    },
+    "parent-of:mother_of_zebedees_children_2112>james_717@05b4bd": {
+      "refs": ["matt.20.20", "matt.4.21"],
+      "note": "'The mother of Zebedee's children' (20:20). James is Zebedee's son (4:21)."
+    },
+    "parent-of:mother_of_zebedees_children_2112>john_1677@9ae8ff": {
+      "refs": ["matt.20.20", "matt.4.21"],
+      "note": "'The mother of Zebedee's children' (20:20). John is Zebedee's son (4:21)."
+    },
+    "participated-in:herod_1504>wise-men-visit-herod@7b77dd": {
+      "refs": ["matt.2.3", "matt.2.7"],
+      "note": "Herod was troubled at the news (2:3), and privily called the wise men and enquired of them (2:7)."
+    },
+    "participated-in:jesus_905>capernaum-miracles@0c40f7": {
+      "refs": ["matt.8.5", "matt.8.13"],
+      "note": "Jesus heals the centurion's servant at Capernaum (8:5-13)."
+    },
+    "participated-in:jesus_905>jesus-in-capernaum@2b9955": {
+      "refs": ["matt.4.13"],
+      "note": "He came and dwelt in Capernaum (4:13)."
+    },
+    "participated-in:jesus_905>joseph-and-mary-return-from-egypt@2c7028": {
+      "refs": ["matt.2.1", "matt.2.21"],
+      "note": "The young child, Jesus (born 2:1), is taken and brought into the land of Israel (2:21)."
+    },
+    "participated-in:jesus_905>joseph-and-mary-return-to-nazareth@f32821": {
+      "refs": ["matt.2.1", "matt.2.21", "matt.2.23"],
+      "note": "The young child, Jesus (born 2:1), is taken into the land of Israel (2:21) and dwells in Nazareth (2:23)."
+    },
+    "participated-in:jesus_905>parable-of-the-winseskins@59a724": {
+      "refs": ["matt.9.16", "matt.9.17"],
+      "note": "Jesus speaks the new-cloth and new-wine parables (9:16-17)."
+    },
+    "participated-in:joseph_1715>joseph-and-mary-return-to-nazareth@439d98": {
+      "refs": ["matt.2.22", "matt.2.23"],
+      "note": "Joseph hears of Archelaus, turns aside into Galilee, and dwells in Nazareth (2:22-23)."
+    },
+    "participated-in:mary_1938>joseph-and-mary-return-to-nazareth@80f371": {
+      "refs": ["matt.2.21", "matt.2.23"],
+      "note": "The text has Joseph take 'the young child and his mother' (2:21) and dwell in Nazareth (2:23). Mary's move there is implied, not named.",
+      "kind": "reading"
+    },
+    "participated-in:zebedee_2998>fishers-of-men@9c7f20": {
+      "refs": ["matt.4.21", "matt.4.22"],
+      "note": "Zebedee is in the boat mending nets with his sons (4:21) and is left behind (4:22). He is not said to act in the call.",
+      "kind": "reading"
+    }
+  }
+}
