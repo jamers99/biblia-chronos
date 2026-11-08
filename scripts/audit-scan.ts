@@ -49,12 +49,15 @@ for (const [key, t] of text)
 
 // --- Names and verses ---------------------------------------------------------
 
-// People: their name plus upstream's other names for them (Joshua is "Jeshua"
-// in Ezra). Places: their name plus the KJV/ESV spellings.
+// People: their name plus upstream's surname and other names for them (Simon
+// is "Peter"; Joshua is "Jeshua" in Ezra). Places: their name plus the KJV/ESV
+// spellings.
+type Upstream = { personLookup: string; surname?: string; alsoCalled?: string }
 const alsoCalled = new Map<string, string[]>(
-  (readJson("data/vendor/theographic/people.json") as { fields: { personLookup: string; alsoCalled?: string } }[]).map(
-    ({ fields }) => [fields.personLookup, (fields.alsoCalled ?? "").split(",").map((s) => s.trim()).filter(Boolean)],
-  ),
+  (readJson("data/vendor/theographic/people.json") as { fields: Upstream }[]).map(({ fields }) => [
+    fields.personLookup,
+    [fields.surname ?? "", ...(fields.alsoCalled ?? "").split(",")].map((s) => s.trim()).filter(Boolean),
+  ]),
 )
 const namesOf = new Map<string, string[]>([
   ...people.map((p): [string, string[]] => [p.id, [p.name, ...(alsoCalled.get(p.id) ?? [])]]),

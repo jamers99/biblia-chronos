@@ -1,0 +1,269 @@
+{
+  "passage": "acts.27-28",
+  "ai": { "model": "haiku", "on": "2026-11-07" },
+  "agreed": [
+    "occurred-at:paul-is-shipwrecked-by-a-storm>adria_30@16ce39",
+    "occurred-at:paul-is-shipwrecked-by-a-storm>clauda_280@7248fa",
+    "occurred-at:paul-s-journey-to-rome>adria_30@f5bb97",
+    "occurred-at:paul-s-journey-to-rome>clauda_280@4fd5e1",
+    "occurred-at:paul-s-journey-to-rome>crete_310@967c8e",
+    "occurred-at:paul-s-journey-to-rome>cyprus_316@365a0d",
+    "occurred-at:paul-s-journey-to-rome>lycia_740@6f0333",
+    "occurred-at:paul-s-journey-to-rome>melita_761@7cbdc7",
+    "occurred-at:paul-s-journey-to-rome>myra_864@e48f87",
+    "occurred-at:paul-s-journey-to-rome>puteoli_963@3fbd70",
+    "occurred-at:paul-s-journey-to-rome>rhegium_999@3bfc49",
+    "occurred-at:paul-s-journey-to-rome>sidon_1093@260214",
+    "occurred-at:paul-s-journey-to-rome>syracuse_1121@52683d",
+    "occurred-at:paul-stays-at-malta>melita_761@8513e7",
+    "participated-in:julius_1763>journey-to-rome-begins@28feaa",
+    "participated-in:julius_1763>paul-s-journey-to-rome@7ae187",
+    "participated-in:paul_2479>journey-to-rome-begins@5a887e",
+    "participated-in:paul_2479>paul-is-shipwrecked-by-a-storm@86eb78",
+    "participated-in:paul_2479>paul-s-first-roman-imprisonment@bde8a9",
+    "participated-in:paul_2479>paul-s-journey-to-rome@846190",
+    "participated-in:paul_2479>paul-stays-at-malta@04305f",
+    "participated-in:publius_2374>paul-stays-at-malta@86778c",
+    "visited:julius_1763>sidon_1093@bdddc7"
+  ],
+  "facts": {
+    "date:journey-to-rome-begins@a8fc17": {
+      "refs": ["acts.27.1", "acts.27.9"],
+      "note": "Text gives no year. 27:1 starts the voyage; 27:9 places it after the fast. The year depends on outside chronology.",
+      "kind": "reading"
+    },
+    "date:paul-arrives-at-rome@da64dd": {
+      "refs": ["acts.28.16", "acts.28.30"],
+      "note": "Text gives no year. 28:16 says he came to Rome; 28:30 gives two years there. The year depends on outside chronology.",
+      "kind": "reading"
+    },
+    "date:paul-is-shipwrecked-by-a-storm@da64dd": {
+      "refs": ["acts.27.27", "acts.27.41"],
+      "note": "Text gives no year. The wreck comes on the fourteenth night of the storm (27:27; 27:41). The year depends on outside chronology.",
+      "kind": "reading"
+    },
+    "date:paul-s-first-roman-imprisonment@6514c7": {
+      "refs": ["acts.28.16", "acts.28.30"],
+      "note": "Text gives no year, only two whole years at Rome (28:30). The span 57 to 60 depends on outside chronology.",
+      "kind": "reading"
+    },
+    "date:paul-s-journey-to-rome@7e8b91": {
+      "refs": ["acts.27.1", "acts.28.16"],
+      "note": "Text gives no year. The journey runs from 27:1 to arrival at Rome (28:16). The span depends on outside chronology.",
+      "kind": "reading"
+    },
+    "date:paul-stays-at-malta@da64dd": {
+      "refs": ["acts.28.11"],
+      "note": "Text gives no year. Paul stayed three months on Malta (28:11). The year depends on outside chronology.",
+      "kind": "reading"
+    },
+    "occurred-at:journey-to-rome-begins>italy_601@d843ea": {
+      "refs": ["acts.27.1"],
+      "note": "Text says they were to sail into Italy, its destination (27:1). The voyage did not begin there.",
+      "kind": "wrong"
+    },
+    "occurred-at:journey-to-rome-begins>sidon_1093@3d3498": {
+      "refs": ["acts.27.3"],
+      "note": "Opening stop, the day after launching (27:3). The departure port is not named, so Sidon is the first stop, not the start.",
+      "kind": "reading"
+    },
+    "occurred-at:paul-arrives-at-rome>rome_1013@50eb52": {
+      "refs": ["acts.28.16"],
+      "note": "They came to Rome, where the prisoners were handed over (28:16)."
+    },
+    "occurred-at:paul-s-first-roman-imprisonment>rome_1013@a44465": {
+      "refs": ["acts.28.16", "acts.28.30"],
+      "note": "Paul was kept at Rome by a soldier (28:16) and dwelt two whole years in his hired house (28:30)."
+    },
+    "occurred-at:paul-s-journey-to-rome>cilicia_300@4585f0": {
+      "refs": ["acts.27.5"],
+      "note": "They sailed over the sea of Cilicia (27:5). The text names the sea, not a place they reached.",
+      "kind": "reading"
+    },
+    "occurred-at:paul-s-journey-to-rome>cnidus_304@f814ed": {
+      "refs": ["acts.27.7"],
+      "note": "They scarce came over against Cnidus, then the wind stopped them (27:7). They did not reach the city.",
+      "kind": "reading"
+    },
+    "occurred-at:paul-s-journey-to-rome>fair_havens_424@de7e08": {
+      "refs": ["acts.27.8"],
+      "note": "They came unto a place called The fair havens (27:8)."
+    },
+    "occurred-at:paul-s-journey-to-rome>italy_601@63120d": {
+      "refs": ["acts.27.1", "acts.28.13"],
+      "note": "They were sailing into Italy (27:1) and reached Puteoli and Rhegium (28:13). Italy's extent is not stated.",
+      "kind": "reading"
+    },
+    "occurred-at:paul-s-journey-to-rome>pamphylia_918@fa90c3": {
+      "refs": ["acts.27.5"],
+      "note": "They sailed over the sea of Pamphylia (27:5). The text names the sea, not a place they reached.",
+      "kind": "reading"
+    },
+    "occurred-at:paul-s-journey-to-rome>rome_1013@9644e5": {
+      "refs": ["acts.28.14", "acts.28.16"],
+      "note": "They went toward Rome (28:14) and came to Rome (28:16)."
+    },
+    "occurred-at:paul-s-journey-to-rome>salmone_1020@3a0fbb": {
+      "refs": ["acts.27.7"],
+      "note": "They sailed under Crete, over against Salmone (27:7). Positional only; the text does not say they landed there.",
+      "kind": "reading"
+    },
+    "occurred-at:paul-s-journey-to-rome>three_taverns_1159@9b604d": {
+      "refs": ["acts.28.15"],
+      "note": "The brethren met them as far as Appii forum and The three taverns (28:15)."
+    },
+    "part-of:appii_forum_427>italy_601@f04b22": {
+      "refs": ["acts.27.1", "acts.28.15"],
+      "note": "They sailed into Italy (27:1) and met them at Appii forum on the way to Rome (28:15). Italy's extent is not stated.",
+      "kind": "reading"
+    },
+    "part-of:puteoli_963>italy_601@7b3232": {
+      "refs": ["acts.27.1", "acts.28.13"],
+      "note": "They sailed into Italy (27:1) and came to Puteoli (28:13). Italy's extent is not stated.",
+      "kind": "reading"
+    },
+    "part-of:rhegium_999>italy_601@192ece": {
+      "refs": ["acts.27.1", "acts.28.13"],
+      "note": "They sailed into Italy (27:1) and came to Rhegium (28:13). Italy's extent is not stated.",
+      "kind": "reading"
+    },
+    "part-of:three_taverns_1159>italy_601@11e8b0": {
+      "refs": ["acts.27.1", "acts.28.15"],
+      "note": "They sailed into Italy (27:1) and met them at The three taverns on the road to Rome (28:15). Italy's extent is not stated.",
+      "kind": "reading"
+    },
+    "participated-in:aristarchus_306>journey-to-rome-begins@a3449c": {
+      "refs": ["acts.27.2"],
+      "note": "Being with us on board (27:2). Only presence is stated, not any action.",
+      "kind": "reading"
+    },
+    "participated-in:aristarchus_306>paul-arrives-at-rome@965d19": {
+      "refs": ["acts.27.2", "acts.28.16"],
+      "note": "Named only in 27:2 as being with us. 'When we came to Rome' (28:16) assumes the same group; presence only.",
+      "kind": "reading"
+    },
+    "participated-in:aristarchus_306>paul-is-shipwrecked-by-a-storm@95e3fb": {
+      "refs": ["acts.27.2", "acts.27.37"],
+      "note": "Named only in 27:2 as being with us. 'We were in all in the ship' (27:37) assumes the same group; presence only.",
+      "kind": "reading"
+    },
+    "participated-in:aristarchus_306>paul-s-journey-to-rome@5f89c0": {
+      "refs": ["acts.27.2"],
+      "note": "Being with us on the voyage (27:2). Only presence is stated, not any action.",
+      "kind": "reading"
+    },
+    "participated-in:aristarchus_306>paul-stays-at-malta@1d3668": {
+      "refs": ["acts.27.2", "acts.28.11"],
+      "note": "Named only in 27:2 as being with us. 'We departed' after three months (28:11) assumes the same group; presence only.",
+      "kind": "reading"
+    },
+    "participated-in:julius_1763>paul-arrives-at-rome@0ad869": {
+      "refs": ["acts.28.16", "acts.27.1"],
+      "note": "'The centurion delivered the prisoners' at Rome (28:16). Unnamed there; identity with Julius, the centurion of 27:1, is a reading.",
+      "kind": "reading"
+    },
+    "participated-in:julius_1763>paul-is-shipwrecked-by-a-storm@c17ec4": {
+      "refs": ["acts.27.31", "acts.27.43"],
+      "note": "'The centurion' acts in the storm (27:31, 27:43). Unnamed there; identity with Julius of 27:1 is a reading.",
+      "kind": "reading"
+    },
+    "participated-in:paul_2479>paul-arrives-at-rome@ef5b08": {
+      "refs": ["acts.28.16"],
+      "note": "Paul was suffered to dwell at Rome by himself with a soldier that kept him (28:16)."
+    },
+    "visited:julius_1763>adria_30@0ffbd2": {
+      "refs": ["acts.27.27", "acts.27.31"],
+      "note": "The centurion is aboard while they are driven in Adria (27:27), and is addressed by Paul there (27:31). Identity is a reading.",
+      "kind": "reading"
+    },
+    "visited:julius_1763>appii_forum_427@1e9d3e": {
+      "refs": ["acts.28.14", "acts.28.16"],
+      "note": "The party travelled toward Rome with the centurion (28:14), met at Appii forum (28:15). His presence is inferred; not named there.",
+      "kind": "reading"
+    },
+    "visited:julius_1763>cilicia_300@e31671": {
+      "refs": ["acts.27.3", "acts.27.5"],
+      "note": "The centurion is with the ship from Sidon (27:3) onward, sailing over the sea of Cilicia (27:5). Presence is inferred.",
+      "kind": "reading"
+    },
+    "visited:julius_1763>clauda_280@6caeb6": {
+      "refs": ["acts.27.16", "acts.27.31"],
+      "note": "The party ran under Clauda (27:16); the centurion is aboard and active after it (27:31). Presence is inferred.",
+      "kind": "reading"
+    },
+    "visited:julius_1763>cnidus_304@d17f70": {
+      "refs": ["acts.27.7"],
+      "note": "The ship came scarce over against Cnidus and was stopped by wind (27:7). The centurion's presence is inferred.",
+      "kind": "reading"
+    },
+    "visited:julius_1763>crete_310@21357b": {
+      "refs": ["acts.27.7", "acts.27.11"],
+      "note": "The ship sailed under Crete (27:7). The centurion takes part in the Fair Havens discussion after it (27:11). Presence is inferred.",
+      "kind": "reading"
+    },
+    "visited:julius_1763>cyprus_316@aee006": {
+      "refs": ["acts.27.3", "acts.27.4"],
+      "note": "The centurion is with the ship from Sidon (27:3); the ship sailed under Cyprus (27:4). Presence is inferred.",
+      "kind": "reading"
+    },
+    "visited:julius_1763>fair_havens_424@69f3ab": {
+      "refs": ["acts.27.8", "acts.27.11"],
+      "note": "They came to The fair havens (27:8); the centurion believed the master there (27:11). Presence is inferred.",
+      "kind": "reading"
+    },
+    "visited:julius_1763>italy_601@636f65": {
+      "refs": ["acts.27.1", "acts.28.16"],
+      "note": "The voyage was to sail into Italy (27:1), and the centurion delivered the prisoners at Rome (28:16). Italy's extent is not stated.",
+      "kind": "reading"
+    },
+    "visited:julius_1763>lycia_740@127262": {
+      "refs": ["acts.27.5", "acts.27.6"],
+      "note": "They came to Myra, a city of Lycia (27:5); the centurion found a ship there (27:6). Identity is a reading.",
+      "kind": "reading"
+    },
+    "visited:julius_1763>myra_864@e0422f": {
+      "refs": ["acts.27.5", "acts.27.6"],
+      "note": "They came to Myra (27:5); the centurion found a ship of Alexandria there (27:6). Identity is a reading.",
+      "kind": "reading"
+    },
+    "visited:julius_1763>pamphylia_918@7eed95": {
+      "refs": ["acts.27.5"],
+      "note": "They sailed over the sea of Cilicia and Pamphylia (27:5). The sea is named, and the centurion's presence is inferred.",
+      "kind": "reading"
+    },
+    "visited:julius_1763>puteoli_963@d0417a": {
+      "refs": ["acts.28.13"],
+      "note": "They came the next day to Puteoli (28:13). The centurion's presence is inferred from the party.",
+      "kind": "reading"
+    },
+    "visited:julius_1763>rhegium_999@4a8947": {
+      "refs": ["acts.28.13"],
+      "note": "They came to Rhegium (28:13). The centurion's presence is inferred from the party.",
+      "kind": "reading"
+    },
+    "visited:julius_1763>rome_1013@ab4655": {
+      "refs": ["acts.28.16", "acts.27.1"],
+      "note": "'The centurion delivered the prisoners' at Rome (28:16). Unnamed there; identity with Julius of 27:1 is a reading.",
+      "kind": "reading"
+    },
+    "visited:julius_1763>salmone_1020@435a50": {
+      "refs": ["acts.27.7"],
+      "note": "They sailed under Crete, over against Salmone (27:7). Positional only; the centurion's presence is inferred.",
+      "kind": "reading"
+    },
+    "visited:julius_1763>syracuse_1121@f41b93": {
+      "refs": ["acts.28.12"],
+      "note": "They landed at Syracuse and tarried three days (28:12). The centurion's presence is inferred from the party.",
+      "kind": "reading"
+    },
+    "visited:julius_1763>three_taverns_1159@fe1b5d": {
+      "refs": ["acts.28.15", "acts.28.16"],
+      "note": "The brethren met them at The three taverns (28:15); the centurion then took the prisoners to Rome (28:16). Presence is inferred.",
+      "kind": "reading"
+    },
+    "visited:publius_2374>melita_761@91c6a1": {
+      "refs": ["acts.28.1", "acts.28.7"],
+      "note": "The island was called Melita (28:1); Publius was the chief man of the island (28:7)."
+    }
+  }
+}

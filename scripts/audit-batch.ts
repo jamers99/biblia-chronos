@@ -7,8 +7,8 @@
 //   npm run audit:batch -- esther --stale              esther.json's reviews the data has since changed under
 //
 // A fact is filed under its first supporting verse: the text match's verse if
-// it has one, else the first verse of the record that tells it (the child,
-// the event, the town). Facts reviewed in another batch file are left out, so
+// it has one, else the first verse that names both its records, else the first
+// verse of the record that tells it (the child, the event, the town). Facts reviewed in another batch file are left out, so
 // each fact lives in one batch. A stale review comes with its old verdict, to
 // re-check and update in place.
 
@@ -50,7 +50,8 @@ const ownKey = new Map(keysOf(own).map((k) => [factId(k), k]))
 // The record whose verses tell a fact: a parent link is told at the child,
 // a part in an event at the event; otherwise the record it's about.
 const teller = (f: Fact) => (f.kind === "parent-of" || f.kind === "participated-in" ? [...f.records].reverse() : f.records)
-const home = (f: Fact) => matches.facts[f.key]?.[0] ?? teller(f).map((id) => refsOf(id)[0]).find(Boolean)
+const shared = ([a, b]: string[]) => b !== undefined && refsOf(a).find((k) => refsOf(b).includes(k))
+const home = (f: Fact) => matches.facts[f.key]?.[0] ?? (shared(f.records) || teller(f).map((id) => refsOf(id)[0]).find(Boolean))
 
 // "esth.1-10" → Esther 1 to 10; "neh.12" → Nehemiah 12.
 const passages = mode === "passage"

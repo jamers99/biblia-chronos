@@ -1,0 +1,61 @@
+{
+  "passage": "acts.16",
+  "ai": { "model": "haiku", "on": "2026-11-07" },
+  "agreed": [
+    "occurred-at:mission-to-phrygia-galatia-and-asia>galatia_431@a33598",
+    "occurred-at:mission-to-phrygia-galatia-and-asia>mysia_865@48f62b",
+    "occurred-at:mission-to-phrygia-galatia-and-asia>phrygia_946@0c1951",
+    "occurred-at:mission-to-phrygia-galatia-and-asia>troas_1182@6ca73c",
+    "occurred-at:timothy-joins-paul-and-silas>lystra_742@acd5e7",
+    "participated-in:holy_spirit_7400>mission-to-phrygia-galatia-and-asia@1fea1f",
+    "participated-in:lydia_1837>lydia-s-conversion@e53177",
+    "participated-in:paul_2479>call-to-macedonia@559384",
+    "participated-in:paul_2479>lydia-s-conversion@0f9ed3",
+    "participated-in:paul_2479>paul-and-silas-imprisoned@2b78e2",
+    "participated-in:paul_2479>paul-and-silas-released@69b1f8",
+    "participated-in:paul_2479>paul-casts-demon-out-of-soothsayer@ca6803",
+    "participated-in:paul_2479>philippian-jailer-converted@8d0c51",
+    "participated-in:paul_2479>timothy-joins-paul-and-silas@9b79b7",
+    "participated-in:silas_2740>paul-and-silas-imprisoned@d8d0a6",
+    "participated-in:silas_2740>philippian-jailer-converted@063b34",
+    "participated-in:timotheus_2863>timothy-joins-paul-and-silas@da8ff6"
+  ],
+  "facts": {
+    "date:call-to-macedonia@a4e617": { "refs": ["acts.16.9"], "note": "Text gives no year. The AD 47 date depends on outside chronology; the verse shows only biblical timing.", "kind": "reading" },
+    "date:lydia-s-conversion@a4e617": { "refs": ["acts.16.14"], "note": "Text gives no year. The AD 47 date depends on outside chronology; the verse shows only biblical timing.", "kind": "reading" },
+    "date:mission-to-phrygia-galatia-and-asia@a4e617": { "refs": ["acts.16.6"], "note": "Text gives no year. The AD 47 date depends on outside chronology; the verse shows only biblical timing.", "kind": "reading" },
+    "date:paul-and-silas-imprisoned@a4e617": { "refs": ["acts.16.23"], "note": "Text gives no year. The AD 47 date depends on outside chronology; the verse shows only biblical timing.", "kind": "reading" },
+    "date:paul-and-silas-released@a4e617": { "refs": ["acts.16.35"], "note": "Text gives no year. The AD 47 date depends on outside chronology; the verse shows only biblical timing.", "kind": "reading" },
+    "date:paul-casts-demon-out-of-soothsayer@a4e617": { "refs": ["acts.16.18"], "note": "Text gives no year. The AD 47 date depends on outside chronology; the verse shows only biblical timing.", "kind": "reading" },
+    "date:philippian-jailer-converted@a4e617": { "refs": ["acts.16.25"], "note": "Text gives no year. The AD 47 date depends on outside chronology; the verse shows only biblical timing.", "kind": "reading" },
+    "date:timothy-joins-paul-and-silas@a4e617": { "refs": ["acts.16.1"], "note": "Text gives no year. The AD 47 date depends on outside chronology; the verse shows only biblical timing.", "kind": "reading" },
+
+    "occurred-at:call-to-macedonia>troas_1182@f50066": { "refs": ["acts.16.8", "acts.16.9", "acts.16.11"], "note": "The vision comes after they reached Troas and before they sailed from there. The place of the vision is implied, not stated.", "kind": "reading" },
+    "occurred-at:lydia-s-conversion>philippi_942@f66131": { "refs": ["acts.16.12", "acts.16.13"], "note": "Lydia heard them at a riverside prayer place outside the city (16:13), in Philippi (16:12). Near Philippi; 'at Philippi' is a reading.", "kind": "reading" },
+    "occurred-at:mission-to-phrygia-galatia-and-asia>asia_108@b3f7c7": { "refs": ["acts.16.6"], "note": "The text says they were forbidden of the Holy Ghost to preach the word in Asia. They went through Phrygia and Galatia instead.", "kind": "wrong" },
+    "occurred-at:paul-and-silas-imprisoned>philippi_942@697774": { "refs": ["acts.16.12", "acts.16.20"], "note": "The scene is in the city where they were abiding (16:12); the accusers say 'our city' (16:20). Philippi is not named in 16:19-24.", "kind": "reading" },
+    "occurred-at:paul-and-silas-released>philippi_942@b984e8": { "refs": ["acts.16.12", "acts.16.39"], "note": "The magistrates bring them out and ask them to leave the city (16:39). Philippi is not named in 16:35-40.", "kind": "reading" },
+    "occurred-at:paul-casts-demon-out-of-soothsayer>philippi_942@a96eab": { "refs": ["acts.16.12", "acts.16.16"], "note": "The scene falls in their stay at Philippi (16:12). The city is not named in 16:16-18.", "kind": "reading" },
+    "occurred-at:philippian-jailer-converted>philippi_942@d9a97f": { "refs": ["acts.16.12", "acts.16.30"], "note": "The jailer's prison is in the city where they were staying (16:12). The city is not named in 16:25-34.", "kind": "reading" },
+    "occurred-at:timothy-joins-paul-and-silas>derbe_330@74e305": { "refs": ["acts.16.1", "acts.16.2"], "note": "They came to Derbe and Lystra and the disciple was 'there'; the text does not say which. Reputation at Lystra (16:2) points to Lystra.", "kind": "reading" },
+
+    "parent-of:eunice_1228>timotheus_2863@a1636e": { "refs": ["2tim.1.5", "acts.16.1"], "note": "2 Timothy 1:5 names Eunice as Timothy's mother. Acts 16:1 says his mother was a Jewess, which fits." },
+    "part-of:neapolis_880>macedonia_747@950da4": { "refs": ["acts.16.11", "acts.16.12"], "note": "They sail to Neapolis and go from there to Philippi, 'that part of Macedonia' (16:12). Neapolis in Macedonia is inferred, not stated.", "kind": "reading" },
+    "part-of:philippi_942>macedonia_747@68f682": { "refs": ["acts.16.12"], "note": "Philippi is 'the chief city of that part of Macedonia' (16:12)." },
+
+    "participated-in:lydia_1837>second-missionary-journey@41e515": { "refs": ["acts.16.14", "acts.16.15"], "note": "Lydia acts only in the Philippi stop of the journey (16:14-15, 40). The journey as a whole is not hers; the event name is outside the text.", "kind": "reading" },
+    "participated-in:paul_2479>mission-to-phrygia-galatia-and-asia@3c8b4e": { "refs": ["acts.16.3", "acts.16.6"], "note": "'They' in 16:6 is Paul's company, which Paul leads (16:3-4). The travel through Phrygia and Galatia is theirs.", "kind": "reading" },
+    "participated-in:silas_2740>mission-to-phrygia-galatia-and-asia@860887": { "refs": ["acts.15.40", "acts.16.4", "acts.16.6"], "note": "Paul chose Silas to go with him (15:40). 'They' went through the cities (16:4) and through Phrygia and Galatia (16:6). Silas is inferred within 'they'.", "kind": "reading" },
+    "participated-in:silas_2740>paul-and-silas-released@002b71": { "refs": ["acts.16.35", "acts.16.36", "acts.16.40"], "note": "'Those men' and 'you' are let go (16:35-36). 'They' went out of the prison (16:40), and Silas is with Paul there (16:19, 16:25).", "kind": "reading" },
+    "participated-in:silas_2740>paul-casts-demon-out-of-soothsayer@e8f6a6": { "refs": ["acts.16.16", "acts.16.18", "acts.16.19"], "note": "Silas is not named in 16:16-18. The masters seize Paul and Silas right after the exorcism (16:19), which implies he was there.", "kind": "reading" },
+    "participated-in:timotheus_2863>mission-to-phrygia-galatia-and-asia@18bd34": { "refs": ["acts.16.3", "acts.16.4", "acts.16.6"], "note": "Timothy goes forth with Paul (16:3). 'They' went through the cities (16:4) and through Phrygia and Galatia (16:6).", "kind": "reading" },
+    "participated-in:timotheus_2863>second-missionary-journey@92e0a6": { "refs": ["acts.16.1", "acts.16.3"], "note": "Timothy joins Paul and goes forth with him (16:3). The journey's name is outside the text, so this is a reading.", "kind": "reading" },
+
+    "visited:timotheus_2863>derbe_330@e8c607": { "refs": ["acts.16.1"], "note": "Paul came to Derbe and Lystra, and the disciple was 'there'; the text does not say which place. Reading.", "kind": "reading" },
+    "visited:timotheus_2863>galatia_431@d8d33e": { "refs": ["acts.16.3", "acts.16.6"], "note": "Timothy goes with Paul (16:3), and 'they' went throughout the region of Galatia (16:6). Reading.", "kind": "reading" },
+    "visited:timotheus_2863>lystra_742@06d203": { "refs": ["acts.16.1", "acts.16.2"], "note": "The disciple Timotheus was at Lystra when Paul came there, and the brethren at Lystra spoke well of him (16:2)." },
+    "visited:timotheus_2863>mysia_865@aab0df": { "refs": ["acts.16.7", "acts.16.3"], "note": "'They' came to Mysia (16:7). Timothy is with Paul's company from 16:3. Reading.", "kind": "reading" },
+    "visited:timotheus_2863>phrygia_946@ea3967": { "refs": ["acts.16.3", "acts.16.6"], "note": "Timothy goes with Paul (16:3), and 'they' went throughout Phrygia (16:6). Reading.", "kind": "reading" },
+    "visited:timotheus_2863>troas_1182@6e9d62": { "refs": ["acts.16.3", "acts.16.8"], "note": "'They' passed by Mysia and came down to Troas (16:8). Timothy is with Paul's company from 16:3. Reading.", "kind": "reading" }
+  }
+}

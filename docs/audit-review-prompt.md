@@ -40,6 +40,12 @@ For EVERY fact key, decide one of these:
 
 Rules:
 
+- **Read the scene as a whole.** When nearby verses plainly set the place
+  (the apostles are in Jerusalem; "that city" after Philippi is named), or a
+  pronoun plainly means a named person ("he" right after "Peter stood up"),
+  the text states it: kind "verse", citing the verse that names it. Use
+  "reading" only when it takes something from outside the passage, or the
+  text leaves it open.
 - **"Took part in the event"** means the person acts in what happens, not that
   their name appears nearby.
 - **People share names.** Make sure the verse is about the same person, from
