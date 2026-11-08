@@ -96,7 +96,7 @@ const reign = (body: string) => {
 function describe(f: Fact): string {
   const body = f.id.slice(f.id.indexOf(":") + 1)
   const [a, b] = body.split(">")
-  const years = "(astronomical years: -478 is 479 BC)"
+  const years = "(years are astronomical: a negative year is BC, one off, so -478 is 479 BC and 30 is AD 30)"
   switch (f.kind) {
     case "parent-of": return `${nameOf(a)} is a parent of ${nameOf(b)}`
     case "partner-of": return `${nameOf(a)} and ${nameOf(b)} were married`
