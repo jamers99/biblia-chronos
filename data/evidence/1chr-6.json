@@ -1,0 +1,657 @@
+{
+  "passage": "1chr.7",
+  "ai": { "model": "haiku", "on": "2026-11-08" },
+  "agreed": [
+    "parent-of:aher_123>hushim_1580@058b9b",
+    "parent-of:becher_423>abiah_17@1836be",
+    "parent-of:becher_423>alameth_184@709ba9",
+    "parent-of:becher_423>anathoth_262@29eafc",
+    "parent-of:becher_423>eliezer_1115@fe7067",
+    "parent-of:becher_423>elioenai_1137@272f18",
+    "parent-of:becher_423>jerimoth_865@3c562e",
+    "parent-of:becher_423>joash_1635@604409",
+    "parent-of:becher_423>omri_2244@3b012e",
+    "parent-of:becher_423>zemira_3037@690c13",
+    "parent-of:bela_436>ezbon_1236@70c17c",
+    "parent-of:bela_436>iri_613@d1d816",
+    "parent-of:bela_436>jerimoth_864@cdfd98",
+    "parent-of:bela_436>uzzi_2919@176589",
+    "parent-of:bela_436>uzziel_2931@9ddcd8",
+    "parent-of:benjamin_463>jediael_757@3ee0f1",
+    "parent-of:bilhan_504>ahishahar_160@e92e1e",
+    "parent-of:bilhan_504>benjamin_458@efdfd2",
+    "parent-of:bilhan_504>chenaanah_933@63c364",
+    "parent-of:bilhan_504>ehud_1040@f2dae2",
+    "parent-of:bilhan_504>jeush_1601@f0a742",
+    "parent-of:bilhan_504>tharshish_2847@648e03",
+    "parent-of:bilhan_504>zethan_3057@18c12d",
+    "parent-of:ephraim_1206>shuthelah_2734@09841c",
+    "parent-of:hammoleketh_1364>abiezer_25@f2ff95",
+    "parent-of:hammoleketh_1364>ishod_638@b73550",
+    "parent-of:hammoleketh_1364>mahalah_1884@db0c57",
+    "parent-of:heber_1469>hotham_1562@5c2671",
+    "parent-of:heber_1469>japhlet_729@b1a017",
+    "parent-of:izrahiah_659>ishiah_627@6134c4",
+    "parent-of:izrahiah_659>joel_1652@95a25e",
+    "parent-of:izrahiah_659>michael_2062@0a11b7",
+    "parent-of:izrahiah_659>obadiah_2217@48ec0e",
+    "parent-of:japhlet_729>ashvath_343@34a9fa",
+    "parent-of:japhlet_729>bimhal_506@227648",
+    "parent-of:japhlet_729>pasach_2279@ef39b5",
+    "parent-of:jether_654>ara_280@552f2f",
+    "parent-of:jether_654>jephunneh_841@ee1ec3",
+    "parent-of:jether_654>pispah_2362@448d23",
+    "parent-of:laadan_1802>ammihud_223@6ea425",
+    "parent-of:manasseh_1928>ashriel_340@1ab39d",
+    "parent-of:shamer_2725>ahi_125@62cf47",
+    "parent-of:shamer_2725>aram_287@a1a8ef",
+    "parent-of:shamer_2725>jehubbah_821@3e0df6",
+    "parent-of:shamer_2725>rohgah_2445@20a4cc",
+    "parent-of:shemida_2650>ahian_130@163010",
+    "parent-of:shemida_2650>aniam_267@0bc116",
+    "parent-of:shemida_2650>likhi_1825@a479e2",
+    "parent-of:shemida_2650>shechem_2590@26c1d3",
+    "parent-of:tola_2878>jahmai_705@b174b3",
+    "parent-of:tola_2878>jeriel_862@822ebb",
+    "parent-of:tola_2878>jibsam_1614@7c0033",
+    "parent-of:tola_2878>rephaiah_2425@143b23",
+    "parent-of:tola_2878>shemuel_2654@5a47b4",
+    "parent-of:tola_2878>uzzi_2918@e03c27",
+    "parent-of:ulam_2889>bedan_428@edeaae",
+    "parent-of:ulla_2730>arah_282@c4263b",
+    "parent-of:ulla_2730>haniel_1399@d93eab",
+    "parent-of:ulla_2730>rezia_2434@ce7f1c",
+    "parent-of:uzzi_2918>izrahiah_659@a8dfca",
+    "parent-of:zophah_3104>beri_477@937c98",
+    "parent-of:zophah_3104>harnepher_1420@59a9ad",
+    "parent-of:zophah_3104>imrah_603@bf2ca7",
+    "parent-of:zophah_3104>suah_2803@2c8428",
+    "partner-of:maachah_1843>machir_1877@781dcb"
+  ],
+  "facts": {
+    "alias-of:beth-horon_734>upper_beth-horon_1188@6ff82e": {
+      "refs": ["1chr.7.24"],
+      "note": "Text names two places, 'Bethhoron the nether, and the upper'. The combined Lower-and-Upper place is not the same as its upper part.",
+      "kind": "wrong"
+    },
+    "member-of:abiah_17>tribe-of-benjamin@ce8cad": {
+      "refs": ["1chr.7.6", "1chr.7.8"],
+      "note": "Son of Becher (7.8), and Becher is a son of Benjamin (7.6)."
+    },
+    "member-of:ahi_125>tribe-of-asher@66d41a": {
+      "refs": ["1chr.7.34", "1chr.7.40"],
+      "note": "Son of Shamer (7.34). Verse 7.40 says all these listed in Asher's genealogy were children of Asher."
+    },
+    "member-of:ahian_130>tribe-of-joseph@b598a9": {
+      "refs": ["1chr.7.19", "num.26.32", "josh.17.2"],
+      "note": "Son of Shemida (7.19). Shemida's family is Manasseh's (Num 26:32; Josh 17:2), and Manasseh is Joseph's son (Josh 17:2). Those links lie outside this passage.",
+      "kind": "reading"
+    },
+    "member-of:ahishahar_160>tribe-of-benjamin@e71f2b": {
+      "refs": ["1chr.7.6", "1chr.7.10"],
+      "note": "Son of Bilhan (7.10), whose father Jediael is a son of Benjamin (7.6)."
+    },
+    "member-of:alameth_184>tribe-of-benjamin@aa741c": {
+      "refs": ["1chr.7.6", "1chr.7.8"],
+      "note": "Son of Becher (7.8), and Becher is a son of Benjamin (7.6)."
+    },
+    "member-of:amal_196>tribe-of-asher@802b41": {
+      "refs": ["1chr.7.35", "1chr.7.40"],
+      "note": "Named among the sons of Helem (7.35) in Asher's genealogy. Verse 7.40 says all these were children of Asher."
+    },
+    "member-of:anathoth_262>tribe-of-benjamin@cae538": {
+      "refs": ["1chr.7.6", "1chr.7.8"],
+      "note": "Son of Becher (7.8), and Becher is a son of Benjamin (7.6)."
+    },
+    "member-of:aniam_267>tribe-of-joseph@167925": {
+      "refs": ["1chr.7.19", "num.26.32", "josh.17.2"],
+      "note": "Son of Shemida (7.19). Shemida's family is Manasseh's (Num 26:32; Josh 17:2), and Manasseh is Joseph's son (Josh 17:2). Those links lie outside this passage.",
+      "kind": "reading"
+    },
+    "member-of:ara_280>tribe-of-asher@4d18bf": {
+      "refs": ["1chr.7.38", "1chr.7.40"],
+      "note": "Son of Jether (7.38) in Asher's genealogy. Verse 7.40 says all these were children of Asher."
+    },
+    "member-of:arah_282>tribe-of-asher@8086b4": {
+      "refs": ["1chr.7.39", "1chr.7.40"],
+      "note": "Son of Ulla (7.39) in Asher's genealogy. Verse 7.40 says all these were children of Asher."
+    },
+    "member-of:aram_287>tribe-of-asher@fa5a6c": {
+      "refs": ["1chr.7.34", "1chr.7.40"],
+      "note": "Son of Shamer (7.34) in Asher's genealogy. Verse 7.40 says all these were children of Asher."
+    },
+    "member-of:ashriel_340>tribe-of-joseph@6c9a97": {
+      "refs": ["1chr.7.14", "josh.17.2"],
+      "note": "Son of Manasseh (7.14). Manasseh is Joseph's son (Josh 17:2), a link outside this passage.",
+      "kind": "reading"
+    },
+    "member-of:ashvath_343>tribe-of-asher@3bedf1": {
+      "refs": ["1chr.7.33", "1chr.7.40"],
+      "note": "Son of Japhlet (7.33) in Asher's genealogy. Verse 7.40 says all these were children of Asher."
+    },
+    "member-of:bedan_428>tribe-of-joseph@d3f1a8": {
+      "refs": ["1chr.7.16", "1chr.7.17", "josh.17.2"],
+      "note": "Son of Ulam (7.17), whose father is Sheresh or Peresh (7.16), in Machir's line. Descent from Manasseh and Joseph lies outside this passage.",
+      "kind": "reading"
+    },
+    "member-of:beera_430>tribe-of-asher@96c76b": {
+      "refs": ["1chr.7.37", "1chr.7.40"],
+      "note": "Named in the list of Zophah's sons (7.36-37) in Asher's genealogy. Verse 7.40 says all these were children of Asher."
+    },
+    "member-of:benjamin_458>tribe-of-benjamin@4f3733": {
+      "refs": ["1chr.7.6", "1chr.7.10"],
+      "note": "Son of Bilhan (7.10), whose father Jediael is a son of Benjamin (7.6). Not the patriarch Benjamin."
+    },
+    "member-of:bered_476>tribe-of-joseph@c24aaa": {
+      "refs": ["1chr.7.20", "gen.48.5"],
+      "note": "Son of Shuthelah (7.20) in Ephraim's line. Ephraim is Joseph's son (Gen 48:5), a link outside this passage.",
+      "kind": "reading"
+    },
+    "member-of:beri_477>tribe-of-asher@b143f4": {
+      "refs": ["1chr.7.36", "1chr.7.40"],
+      "note": "Son of Zophah (7.36) in Asher's genealogy. Verse 7.40 says all these were children of Asher."
+    },
+    "member-of:beriah_479>tribe-of-joseph@9e4b5e": {
+      "refs": ["1chr.7.22", "1chr.7.23", "gen.48.5"],
+      "note": "Son of Ephraim (7.23). Ephraim is Joseph's son (Gen 48:5), a link outside this passage.",
+      "kind": "reading"
+    },
+    "member-of:bezer_492>tribe-of-asher@46b245": {
+      "refs": ["1chr.7.37", "1chr.7.40"],
+      "note": "Named in the list of Zophah's sons (7.36-37) in Asher's genealogy. Verse 7.40 says all these were children of Asher."
+    },
+    "member-of:bilhan_504>tribe-of-benjamin@bd021a": {
+      "refs": ["1chr.7.6", "1chr.7.10"],
+      "note": "Son of Jediael (7.10), and Jediael is a son of Benjamin (7.6)."
+    },
+    "member-of:bimhal_506>tribe-of-asher@b49a47": {
+      "refs": ["1chr.7.33", "1chr.7.40"],
+      "note": "Son of Japhlet (7.33) in Asher's genealogy. Verse 7.40 says all these were children of Asher."
+    },
+    "member-of:birzavith_514>tribe-of-asher@b2df3e": {
+      "refs": ["1chr.7.31", "1chr.7.40"],
+      "note": "Son of Malchiel (7.31), who is a son of Beriah in Asher's genealogy (7.30-31). Verse 7.40 says all these were children of Asher."
+    },
+    "member-of:chenaanah_933>tribe-of-benjamin@3a3aa8": {
+      "refs": ["1chr.7.6", "1chr.7.10"],
+      "note": "Son of Bilhan (7.10), whose father Jediael is a son of Benjamin (7.6)."
+    },
+    "member-of:ehud_1040>tribe-of-benjamin@7bc415": {
+      "refs": ["1chr.7.6", "1chr.7.10"],
+      "note": "Son of Bilhan (7.10), whose father Jediael is a son of Benjamin (7.6)."
+    },
+    "member-of:eladah_1042>tribe-of-joseph@4e50dd": {
+      "refs": ["1chr.7.20", "gen.48.5"],
+      "note": "Son of Tahath (7.20) in Ephraim's line. Ephraim is Joseph's son (Gen 48:5), a link outside this passage.",
+      "kind": "reading"
+    },
+    "member-of:elead_1059>tribe-of-joseph@fbb8df": {
+      "refs": ["1chr.7.21", "1chr.7.22", "gen.48.5"],
+      "note": "Son of Ephraim (7.22: 'Ephraim their father'). Ephraim is Joseph's son (Gen 48:5), a link outside this passage.",
+      "kind": "reading"
+    },
+    "member-of:eliezer_1115>tribe-of-benjamin@988e9d": {
+      "refs": ["1chr.7.6", "1chr.7.8"],
+      "note": "Son of Becher (7.8), and Becher is a son of Benjamin (7.6)."
+    },
+    "member-of:elioenai_1137>tribe-of-benjamin@191f7f": {
+      "refs": ["1chr.7.6", "1chr.7.8"],
+      "note": "Son of Becher (7.8), and Becher is a son of Benjamin (7.6)."
+    },
+    "member-of:ezbon_1236>tribe-of-benjamin@079c57": {
+      "refs": ["1chr.7.6", "1chr.7.7"],
+      "note": "Son of Bela (7.7), and Bela is a son of Benjamin (7.6)."
+    },
+    "member-of:ezer_1240>tribe-of-joseph@95f382": {
+      "refs": ["1chr.7.21", "1chr.7.22", "gen.48.5"],
+      "note": "Son of Ephraim (7.22: 'Ephraim their father'). Ephraim is Joseph's son (Gen 48:5), a link outside this passage.",
+      "kind": "reading"
+    },
+    "member-of:hammoleketh_1364>tribe-of-joseph@922105": {
+      "refs": ["1chr.7.17", "1chr.7.18", "josh.17.2"],
+      "note": "Sister of Gilead, a son of Machir (7.17-18), in Manasseh's line. The link to Machir as her father is by sibling relation, and Joseph lies outside this passage.",
+      "kind": "reading"
+    },
+    "member-of:haniel_1399>tribe-of-asher@f69bc9": {
+      "refs": ["1chr.7.39", "1chr.7.40"],
+      "note": "Son of Ulla (7.39) in Asher's genealogy. Verse 7.40 says all these were children of Asher."
+    },
+    "member-of:harnepher_1420>tribe-of-asher@af02f4": {
+      "refs": ["1chr.7.36", "1chr.7.40"],
+      "note": "Son of Zophah (7.36) in Asher's genealogy. Verse 7.40 says all these were children of Asher."
+    },
+    "member-of:hod_1538>tribe-of-asher@5680fb": {
+      "refs": ["1chr.7.37", "1chr.7.40"],
+      "note": "Named in the list of Zophah's sons (7.36-37) in Asher's genealogy. Verse 7.40 says all these were children of Asher."
+    },
+    "member-of:hotham_1562>tribe-of-asher@5b7d3c": {
+      "refs": ["1chr.7.32", "1chr.7.40"],
+      "note": "Son of Heber (7.32), who is a son of Beriah in Asher's genealogy (7.30-31). Verse 7.40 says all these were children of Asher."
+    },
+    "member-of:imna_601>tribe-of-asher@073d0b": {
+      "refs": ["1chr.7.35", "1chr.7.40"],
+      "note": "Named among the sons of Helem (7.35) in Asher's genealogy. Verse 7.40 says all these were children of Asher."
+    },
+    "member-of:imrah_603>tribe-of-asher@c571a4": {
+      "refs": ["1chr.7.36", "1chr.7.40"],
+      "note": "Son of Zophah (7.36) in Asher's genealogy. Verse 7.40 says all these were children of Asher."
+    },
+    "member-of:iri_613>tribe-of-benjamin@2dfa7d": {
+      "refs": ["1chr.7.6", "1chr.7.7"],
+      "note": "Son of Bela (7.7), and Bela is a son of Benjamin (7.6)."
+    },
+    "member-of:ishiah_627>tribe-of-issachar@7e7af1": {
+      "refs": ["1chr.7.1", "1chr.7.2", "1chr.7.3"],
+      "note": "Son of Izrahiah (7.3), son of Uzzi (7.3), son of Tola (7.2), son of Issachar (7.1)."
+    },
+    "member-of:izrahiah_659>tribe-of-issachar@10b492": {
+      "refs": ["1chr.7.1", "1chr.7.2", "1chr.7.3"],
+      "note": "Son of Uzzi (7.3), son of Tola (7.2), son of Issachar (7.1)."
+    },
+    "member-of:jahmai_705>tribe-of-issachar@e4043e": {
+      "refs": ["1chr.7.1", "1chr.7.2"],
+      "note": "Son of Tola (7.2), and Tola is a son of Issachar (7.1)."
+    },
+    "member-of:japhlet_729>tribe-of-asher@6b3b80": {
+      "refs": ["1chr.7.32", "1chr.7.33", "1chr.7.40"],
+      "note": "Son of Heber (7.32), in Asher's genealogy (7.30-31). Verse 7.40 says all these were children of Asher."
+    },
+    "member-of:jediael_757>tribe-of-benjamin@fcb1f3": {
+      "refs": ["1chr.7.6"],
+      "note": "Named as one of the three sons of Benjamin (7.6)."
+    },
+    "member-of:jehubbah_821>tribe-of-asher@3859e3": {
+      "refs": ["1chr.7.34", "1chr.7.40"],
+      "note": "Son of Shamer (7.34) in Asher's genealogy. Verse 7.40 says all these were children of Asher."
+    },
+    "member-of:jephunneh_841>tribe-of-asher@99e414": {
+      "refs": ["1chr.7.38", "1chr.7.40"],
+      "note": "Son of Jether (7.38) in Asher's genealogy. Verse 7.40 says all these were children of Asher."
+    },
+    "member-of:jeriel_862>tribe-of-issachar@0d8ae4": {
+      "refs": ["1chr.7.1", "1chr.7.2"],
+      "note": "Son of Tola (7.2), and Tola is a son of Issachar (7.1)."
+    },
+    "member-of:jerimoth_864>tribe-of-benjamin@b4b6e0": {
+      "refs": ["1chr.7.6", "1chr.7.7"],
+      "note": "Son of Bela (7.7), and Bela is a son of Benjamin (7.6)."
+    },
+    "member-of:jerimoth_865>tribe-of-benjamin@cc9195": {
+      "refs": ["1chr.7.6", "1chr.7.8"],
+      "note": "Son of Becher (7.8), and Becher is a son of Benjamin (7.6)."
+    },
+    "member-of:jether_654>tribe-of-asher@62ceb2": {
+      "refs": ["1chr.7.38", "1chr.7.40"],
+      "note": "Named as the father of Jephunneh, Pispah and Ara (7.38), in Asher's genealogy. Verse 7.40 says all these were children of Asher."
+    },
+    "member-of:jeush_1601>tribe-of-benjamin@3a084c": {
+      "refs": ["1chr.7.6", "1chr.7.10"],
+      "note": "Son of Bilhan (7.10), whose father Jediael is a son of Benjamin (7.6)."
+    },
+    "member-of:jibsam_1614>tribe-of-issachar@640512": {
+      "refs": ["1chr.7.1", "1chr.7.2"],
+      "note": "Son of Tola (7.2), and Tola is a son of Issachar (7.1)."
+    },
+    "member-of:joash_1635>tribe-of-benjamin@a6025c": {
+      "refs": ["1chr.7.6", "1chr.7.8"],
+      "note": "Son of Becher (7.8), and Becher is a son of Benjamin (7.6)."
+    },
+    "member-of:joel_1652>tribe-of-issachar@e630b1": {
+      "refs": ["1chr.7.1", "1chr.7.2", "1chr.7.3"],
+      "note": "Son of Izrahiah (7.3), son of Uzzi (7.3), son of Tola (7.2), son of Issachar (7.1)."
+    },
+    "member-of:laadan_1802>tribe-of-joseph@8e7069": {
+      "refs": ["1chr.7.25", "1chr.7.26", "gen.48.5"],
+      "note": "Son of Tahan (7.26), in Ephraim's line through Telah and Resheph. The 'his son' links in 7.25 are open, and Ephraim is Joseph's son (Gen 48:5).",
+      "kind": "reading"
+    },
+    "member-of:likhi_1825>tribe-of-joseph@c4a8ec": {
+      "refs": ["1chr.7.19", "num.26.32", "josh.17.2"],
+      "note": "Son of Shemida (7.19). Shemida's family is Manasseh's (Num 26:32; Josh 17:2), and Manasseh is Joseph's son (Josh 17:2). Those links lie outside this passage.",
+      "kind": "reading"
+    },
+    "member-of:michael_2062>tribe-of-issachar@728025": {
+      "refs": ["1chr.7.1", "1chr.7.2", "1chr.7.3"],
+      "note": "Son of Izrahiah (7.3), son of Uzzi (7.3), son of Tola (7.2), son of Issachar (7.1)."
+    },
+    "member-of:obadiah_2217>tribe-of-issachar@9b8a28": {
+      "refs": ["1chr.7.1", "1chr.7.2", "1chr.7.3"],
+      "note": "Son of Izrahiah (7.3), son of Uzzi (7.3), son of Tola (7.2), son of Issachar (7.1)."
+    },
+    "member-of:omri_2244>tribe-of-benjamin@0f90c7": {
+      "refs": ["1chr.7.6", "1chr.7.8"],
+      "note": "Son of Becher (7.8), and Becher is a son of Benjamin (7.6)."
+    },
+    "member-of:pasach_2279>tribe-of-asher@b1622c": {
+      "refs": ["1chr.7.33", "1chr.7.40"],
+      "note": "Son of Japhlet (7.33) in Asher's genealogy. Verse 7.40 says all these were children of Asher."
+    },
+    "member-of:peresh_2316>tribe-of-joseph@9e7c97": {
+      "refs": ["1chr.7.14", "1chr.7.16", "josh.17.2"],
+      "note": "Son of Machir, whose wife Maachah bore him (7.16), and Machir is a son of Manasseh (7.14). Manasseh's place under Joseph lies outside this passage.",
+      "kind": "reading"
+    },
+    "member-of:pispah_2362>tribe-of-asher@451928": {
+      "refs": ["1chr.7.38", "1chr.7.40"],
+      "note": "Son of Jether (7.38) in Asher's genealogy. Verse 7.40 says all these were children of Asher."
+    },
+    "member-of:rakem_2390>tribe-of-joseph@cb505a": {
+      "refs": ["1chr.7.16", "josh.17.2"],
+      "note": "Named with Ulam as sons of Sheresh (7.16), whose father is open in 7.16. Manasseh's place under Joseph lies outside this passage.",
+      "kind": "reading"
+    },
+    "member-of:rephah_2422>tribe-of-joseph@5d0da3": {
+      "refs": ["1chr.7.23", "1chr.7.25", "gen.48.5"],
+      "note": "Son of Beriah or Ephraim (7.25: 'his son' is open). Either way in Ephraim's line, and Ephraim is Joseph's son (Gen 48:5).",
+      "kind": "reading"
+    },
+    "member-of:rephaiah_2425>tribe-of-issachar@a4639f": {
+      "refs": ["1chr.7.1", "1chr.7.2"],
+      "note": "Son of Tola (7.2), and Tola is a son of Issachar (7.1)."
+    },
+    "member-of:resheph_2427>tribe-of-joseph@a72296": {
+      "refs": ["1chr.7.23", "1chr.7.25", "gen.48.5"],
+      "note": "Son of Beriah or Ephraim (7.25: 'his son' is open). Either way in Ephraim's line, and Ephraim is Joseph's son (Gen 48:5).",
+      "kind": "reading"
+    },
+    "member-of:rezia_2434>tribe-of-asher@bad75f": {
+      "refs": ["1chr.7.39", "1chr.7.40"],
+      "note": "Son of Ulla (7.39) in Asher's genealogy. Verse 7.40 says all these were children of Asher."
+    },
+    "member-of:rohgah_2445>tribe-of-asher@beed84": {
+      "refs": ["1chr.7.34", "1chr.7.40"],
+      "note": "Son of Shamer (7.34) in Asher's genealogy. Verse 7.40 says all these were children of Asher."
+    },
+    "member-of:shamer_2725>tribe-of-asher@01f927": {
+      "refs": ["1chr.7.32", "1chr.7.34", "1chr.7.40"],
+      "note": "Named as Shomer, son of Heber (7.32), and as father of Ahi and others (7.34). Verse 7.40 says all these were children of Asher."
+    },
+    "member-of:shamma_2537>tribe-of-asher@d4ffa2": {
+      "refs": ["1chr.7.37", "1chr.7.40"],
+      "note": "Named in the list of Zophah's sons (7.36-37) in Asher's genealogy. Verse 7.40 says all these were children of Asher."
+    },
+    "member-of:shechem_2590>tribe-of-joseph@d124a2": {
+      "refs": ["1chr.7.19", "josh.17.2"],
+      "note": "Son of Shemida (7.19). Shemida's family is Manasseh's (Josh 17:2), and Manasseh is Joseph's son (Josh 17:2). Those links lie outside this passage.",
+      "kind": "reading"
+    },
+    "member-of:shelesh_2603>tribe-of-asher@59f49e": {
+      "refs": ["1chr.7.35", "1chr.7.40"],
+      "note": "Named among the sons of Helem (7.35) in Asher's genealogy. Verse 7.40 says all these were children of Asher."
+    },
+    "member-of:shemuel_2654>tribe-of-issachar@be8566": {
+      "refs": ["1chr.7.1", "1chr.7.2"],
+      "note": "Son of Tola (7.2), and Tola is a son of Issachar (7.1)."
+    },
+    "member-of:sherah_2666>tribe-of-joseph@2d49f4": {
+      "refs": ["1chr.7.23", "1chr.7.24", "gen.48.5"],
+      "note": "Called 'his daughter' (7.24), so her father is Beriah or Ephraim, both in Ephraim's line. Ephraim is Joseph's son (Gen 48:5).",
+      "kind": "reading"
+    },
+    "member-of:sheresh_2669>tribe-of-joseph@2a4fce": {
+      "refs": ["1chr.7.14", "1chr.7.16", "josh.17.2"],
+      "note": "Brother of Peresh, a son of Maachah the wife of Machir (7.16), and Machir is a son of Manasseh (7.14). Manasseh's place under Joseph lies outside this passage.",
+      "kind": "reading"
+    },
+    "member-of:shilshah_2679>tribe-of-asher@9bd0fe": {
+      "refs": ["1chr.7.37", "1chr.7.40"],
+      "note": "Named in the list of Zophah's sons (7.36-37) in Asher's genealogy. Verse 7.40 says all these were children of Asher."
+    },
+    "member-of:shua_2726>tribe-of-asher@7423ae": {
+      "refs": ["1chr.7.32", "1chr.7.40"],
+      "note": "Named as sister of Heber's sons (7.32), in Asher's genealogy. Verse 7.40 says all these were children of Asher."
+    },
+    "member-of:shuthelah_2735>tribe-of-joseph@57c811": {
+      "refs": ["1chr.7.20", "1chr.7.21", "gen.48.5"],
+      "note": "Son of Zabad (7.21), son of Tahath (7.21), in Ephraim's line. Ephraim is Joseph's son (Gen 48:5), a link outside this passage.",
+      "kind": "reading"
+    },
+    "member-of:suah_2803>tribe-of-asher@6c6b41": {
+      "refs": ["1chr.7.36", "1chr.7.40"],
+      "note": "Son of Zophah (7.36) in Asher's genealogy. Verse 7.40 says all these were children of Asher."
+    },
+    "member-of:tahan_2813>tribe-of-joseph@581ec2": {
+      "refs": ["1chr.7.23", "1chr.7.25", "gen.48.5"],
+      "note": "Son of Telah (7.25), in Ephraim's line through Resheph. The 'his son' links in 7.25 are open, and Ephraim is Joseph's son (Gen 48:5).",
+      "kind": "reading"
+    },
+    "member-of:tahath_2815>tribe-of-joseph@123a1c": {
+      "refs": ["1chr.7.20", "gen.48.5"],
+      "note": "Son of Bered (7.20) in Ephraim's line. Ephraim is Joseph's son (Gen 48:5), a link outside this passage.",
+      "kind": "reading"
+    },
+    "member-of:tahath_2816>tribe-of-joseph@4b08f1": {
+      "refs": ["1chr.7.20", "gen.48.5"],
+      "note": "Son of Eladah (7.20) in Ephraim's line. Ephraim is Joseph's son (Gen 48:5), a link outside this passage.",
+      "kind": "reading"
+    },
+    "member-of:telah_2835>tribe-of-joseph@c1e962": {
+      "refs": ["1chr.7.23", "1chr.7.25", "gen.48.5"],
+      "note": "Son of Resheph (7.25), in Ephraim's line through Beriah or Ephraim. Ephraim is Joseph's son (Gen 48:5), a link outside this passage.",
+      "kind": "reading"
+    },
+    "member-of:tharshish_2847>tribe-of-benjamin@e7b43a": {
+      "refs": ["1chr.7.6", "1chr.7.10"],
+      "note": "Son of Bilhan (7.10), whose father Jediael is a son of Benjamin (7.6)."
+    },
+    "member-of:ulam_2889>tribe-of-joseph@c34adf": {
+      "refs": ["1chr.7.16", "1chr.7.17", "josh.17.2"],
+      "note": "Son of Sheresh (7.16, 'his sons'), whose father is in Machir's line. Manasseh's place under Joseph lies outside this passage.",
+      "kind": "reading"
+    },
+    "member-of:ulla_2730>tribe-of-asher@0892be": {
+      "refs": ["1chr.7.39", "1chr.7.40"],
+      "note": "Named as the father of Arah, Haniel and Rezia (7.39), in Asher's genealogy. Verse 7.40 says all these were children of Asher."
+    },
+    "member-of:uzzi_2918>tribe-of-issachar@1c5aed": {
+      "refs": ["1chr.7.1", "1chr.7.2"],
+      "note": "Son of Tola (7.2), and Tola is a son of Issachar (7.1)."
+    },
+    "member-of:uzzi_2919>tribe-of-benjamin@ebccbf": {
+      "refs": ["1chr.7.6", "1chr.7.7"],
+      "note": "Son of Bela (7.7), and Bela is a son of Benjamin (7.6)."
+    },
+    "member-of:uzziel_2931>tribe-of-benjamin@d18ba8": {
+      "refs": ["1chr.7.6", "1chr.7.7"],
+      "note": "Son of Bela (7.7), and Bela is a son of Benjamin (7.6)."
+    },
+    "member-of:zabad_2946>tribe-of-joseph@6f9338": {
+      "refs": ["1chr.7.20", "1chr.7.21", "gen.48.5"],
+      "note": "Son of Tahath (7.21), in Ephraim's line through Eladah. Ephraim is Joseph's son (Gen 48:5), a link outside this passage.",
+      "kind": "reading"
+    },
+    "member-of:zemira_3037>tribe-of-benjamin@0234d9": {
+      "refs": ["1chr.7.6", "1chr.7.8"],
+      "note": "Son of Becher (7.8), and Becher is a son of Benjamin (7.6)."
+    },
+    "member-of:zethan_3057>tribe-of-benjamin@8405f1": {
+      "refs": ["1chr.7.6", "1chr.7.10"],
+      "note": "Son of Bilhan (7.10), whose father Jediael is a son of Benjamin (7.6)."
+    },
+    "member-of:zophah_3104>tribe-of-asher@a499ba": {
+      "refs": ["1chr.7.35", "1chr.7.36", "1chr.7.40"],
+      "note": "Named among the sons of Helem (7.35) and as father of Suah and others (7.36). Verse 7.40 says all these were children of Asher."
+    },
+    "parent-of:beriah_479>rephah_2422@a4038c": {
+      "refs": ["1chr.7.23", "1chr.7.25"],
+      "note": "7.25 'Rephah was his son' is open: 'his' may mean Beriah or Ephraim. The text does not settle it.",
+      "kind": "reading"
+    },
+    "parent-of:beriah_479>resheph_2427@88abc3": {
+      "refs": ["1chr.7.23", "1chr.7.25"],
+      "note": "7.25 'also Resheph' follows 'Rephah was his son'; 'his' may mean Beriah or Ephraim. The text does not settle it.",
+      "kind": "reading"
+    },
+    "parent-of:beriah_479>sherah_2666@a8289a": {
+      "refs": ["1chr.7.23", "1chr.7.24"],
+      "note": "7.24 says 'his daughter was Sherah' without saying whether 'his' is Beriah or Ephraim.",
+      "kind": "reading"
+    },
+    "parent-of:bered_476>tahath_2815@e8ccf4": {
+      "refs": ["1chr.7.20"],
+      "note": "'Shuthelah, and Bered his son, and Tahath his son': Tahath is Bered's son."
+    },
+    "parent-of:concubine_the_aramitess_954>machir_1877@43d992": {
+      "refs": ["1chr.7.14"],
+      "note": "'His concubine the Aramitess bare Machir the father of Gilead': she is Machir's mother."
+    },
+    "parent-of:eladah_1042>tahath_2816@c5068c": {
+      "refs": ["1chr.7.20"],
+      "note": "'Eladah his son, and Tahath his son': Tahath is Eladah's son."
+    },
+    "parent-of:elishama_1155>nun_2214@3712dc": {
+      "refs": ["1chr.7.26", "1chr.7.27"],
+      "note": "7.27 'Non his son' makes Non Elishama's son. Equating this Non with Nun, Joshua's father (Num 13:8), is an identification from outside this passage.",
+      "kind": "reading"
+    },
+    "parent-of:ephraim_1206>beriah_479@3a0890": {
+      "refs": ["1chr.7.22", "1chr.7.23"],
+      "note": "'He called his name Beriah': the 'he' is Ephraim, named as 'their father' in 7.22."
+    },
+    "parent-of:ephraim_1206>elead_1059@fde993": {
+      "refs": ["1chr.7.21", "1chr.7.22"],
+      "note": "Elead was slain (7.21), and 'Ephraim their father mourned' (7.22)."
+    },
+    "parent-of:ephraim_1206>ezer_1240@c9c78d": {
+      "refs": ["1chr.7.21", "1chr.7.22"],
+      "note": "Ezer was slain (7.21), and 'Ephraim their father mourned' (7.22)."
+    },
+    "parent-of:heber_1469>shamer_2725@c0ba13": {
+      "refs": ["1chr.7.32", "1chr.7.34"],
+      "note": "7.32 names Shomer, not Shamer, as Heber's son. Treating the Shomer of 7.32 and the Shamer of 7.34 as one man is a spelling identification.",
+      "kind": "reading"
+    },
+    "parent-of:heber_1469>shua_2726@b4b583": {
+      "refs": ["1chr.7.32"],
+      "note": "7.32 calls Shua 'their sister', so Heber is her father only by sibling relation, not by 'begat'.",
+      "kind": "reading"
+    },
+    "parent-of:hotham_1562>amal_196@70d6f5": {
+      "refs": ["1chr.7.32", "1chr.7.35"],
+      "note": "7.35 names 'his brother Helem' as father of Amal. Taking Helem to be Hotham is a spelling identification, not stated.",
+      "kind": "reading"
+    },
+    "parent-of:hotham_1562>imna_601@eea7f8": {
+      "refs": ["1chr.7.32", "1chr.7.35"],
+      "note": "7.35 names 'his brother Helem' as father of Imna. Taking Helem to be Hotham is a spelling identification, not stated.",
+      "kind": "reading"
+    },
+    "parent-of:hotham_1562>shelesh_2603@1cda22": {
+      "refs": ["1chr.7.32", "1chr.7.35"],
+      "note": "7.35 names 'his brother Helem' as father of Shelesh. Taking Helem to be Hotham is a spelling identification, not stated.",
+      "kind": "reading"
+    },
+    "parent-of:hotham_1562>zophah_3104@c6dc4d": {
+      "refs": ["1chr.7.32", "1chr.7.35"],
+      "note": "7.35 names 'his brother Helem' as father of Zophah. Taking Helem to be Hotham is a spelling identification, not stated.",
+      "kind": "reading"
+    },
+    "parent-of:ir_607>huppim_1570@a46d68": {
+      "refs": ["1chr.7.12"],
+      "note": "'Shuppim also, and Huppim, the children of Ir': Huppim is Ir's child."
+    },
+    "parent-of:ir_607>maachah_1843@07bcc7": {
+      "refs": ["1chr.7.12", "1chr.7.15"],
+      "note": "7.15 makes Maachah the sister of Huppim and Shuppim, children of Ir (7.12). Her father is implied by sibling relation, not stated.",
+      "kind": "reading"
+    },
+    "parent-of:ir_607>shuppim_2732@dc1a08": {
+      "refs": ["1chr.7.12"],
+      "note": "'Shuppim also, and Huppim, the children of Ir': Shuppim is Ir's child."
+    },
+    "parent-of:jediael_757>bilhan_504@1f9f24": {
+      "refs": ["1chr.7.10"],
+      "note": "'The sons also of Jediael; Bilhan': Bilhan is Jediael's son."
+    },
+    "parent-of:maachah_1843>peresh_2316@3f7a1a": {
+      "refs": ["1chr.7.16"],
+      "note": "'Maachah the wife of Machir bare a son, and she called his name Peresh.'"
+    },
+    "parent-of:maachah_1843>sheresh_2669@6974fa": {
+      "refs": ["1chr.7.15", "1chr.7.16"],
+      "note": "7.16 calls Sheresh Peresh's brother, but does not say Maachah bore him. Her motherhood is by sibling relation.",
+      "kind": "reading"
+    },
+    "parent-of:machir_1877>hammoleketh_1364@d38a02": {
+      "refs": ["1chr.7.17", "1chr.7.18"],
+      "note": "7.18 calls Hammoleketh the sister of Gilead, son of Machir (7.17). Her father is implied by sibling relation, not stated.",
+      "kind": "reading"
+    },
+    "parent-of:machir_1877>peresh_2316@bcf818": {
+      "refs": ["1chr.7.16"],
+      "note": "'Maachah the wife of Machir bare a son... Peresh': Machir's wife bore him."
+    },
+    "parent-of:machir_1877>sheresh_2669@6d289a": {
+      "refs": ["1chr.7.16"],
+      "note": "Sheresh is Peresh's brother, son of Machir's wife Maachah (7.16). Machir's fatherhood is by sibling relation, not stated.",
+      "kind": "reading"
+    },
+    "parent-of:malchiel_1908>birzavith_514@f58362": {
+      "refs": ["1chr.7.31"],
+      "note": "'Malchiel, who is the father of Birzavith' (7.31)."
+    },
+    "parent-of:resheph_2427>telah_2835@7f69c4": {
+      "refs": ["1chr.7.25"],
+      "note": "'Resheph ... and Telah his son': 'his' is the nearest named son, Resheph."
+    },
+    "parent-of:sheresh_2669>rakem_2390@21a554": {
+      "refs": ["1chr.7.16"],
+      "note": "7.16 'his sons were Ulam and Rakem' follows Sheresh but 'his' could mean Peresh. The text leaves it open.",
+      "kind": "reading"
+    },
+    "parent-of:sheresh_2669>ulam_2889@f8757a": {
+      "refs": ["1chr.7.16", "1chr.7.17"],
+      "note": "7.16 'his sons were Ulam and Rakem' follows Sheresh but 'his' could mean Peresh. The text leaves it open.",
+      "kind": "reading"
+    },
+    "parent-of:shuthelah_2734>bered_476@ef897f": {
+      "refs": ["1chr.7.20"],
+      "note": "'Shuthelah, and Bered his son': Bered is Shuthelah's son."
+    },
+    "parent-of:tahan_2813>laadan_1802@6dd50f": {
+      "refs": ["1chr.7.25", "1chr.7.26"],
+      "note": "'Tahan his son' then 'Laadan his son': Laadan is Tahan's son."
+    },
+    "parent-of:tahath_2815>eladah_1042@40c367": {
+      "refs": ["1chr.7.20"],
+      "note": "'Bered his son, and Tahath his son, and Eladah his son': Eladah is Tahath's son."
+    },
+    "parent-of:tahath_2816>zabad_2946@1d2472": {
+      "refs": ["1chr.7.21"],
+      "note": "'And Zabad his son': Zabad is Tahath's son (Tahath named in 7.20)."
+    },
+    "parent-of:telah_2835>tahan_2813@82a2d1": {
+      "refs": ["1chr.7.25"],
+      "note": "'And Telah his son, and Tahan his son': Tahan is Telah's son."
+    },
+    "parent-of:zabad_2946>shuthelah_2735@979614": {
+      "refs": ["1chr.7.21"],
+      "note": "'Zabad his son, and Shuthelah his son': Shuthelah is Zabad's son."
+    },
+    "parent-of:zophah_3104>beera_430@1988f6": {
+      "refs": ["1chr.7.36", "1chr.7.37"],
+      "note": "7.37 continues the list 'The sons of Zophah' (7.36), naming Beera among them."
+    },
+    "parent-of:zophah_3104>bezer_492@72a118": {
+      "refs": ["1chr.7.36", "1chr.7.37"],
+      "note": "7.37 continues the list 'The sons of Zophah' (7.36), naming Bezer among them."
+    },
+    "parent-of:zophah_3104>hod_1538@fffa36": {
+      "refs": ["1chr.7.36", "1chr.7.37"],
+      "note": "7.37 continues the list 'The sons of Zophah' (7.36), naming Hod among them."
+    },
+    "parent-of:zophah_3104>shamma_2537@664138": {
+      "refs": ["1chr.7.36", "1chr.7.37"],
+      "note": "7.37 continues the list 'The sons of Zophah' (7.36), naming Shamma among them."
+    },
+    "parent-of:zophah_3104>shilshah_2679@10c825": {
+      "refs": ["1chr.7.36", "1chr.7.37"],
+      "note": "7.37 continues the list 'The sons of Zophah' (7.36), naming Shilshah among them."
+    },
+    "part-of:naaran_868>ephraim-territory_1292@213f17": {
+      "refs": ["1chr.7.28"],
+      "note": "7.28 lists Naaran among 'their possessions', but that covers Ephraim and Manasseh together (7.29). It does not separate Ephraim's share.",
+      "kind": "reading"
+    }
+  }
+}
