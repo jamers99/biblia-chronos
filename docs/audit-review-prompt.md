@@ -51,8 +51,10 @@ Rules:
 - **People share names.** Make sure the verse is about the same person, from
   context: whose son they are, the time, the place.
 - **Parents.** A literal "Y the son of X" (or "the sons of X; Y") is the text
-  stating X is Y's parent: kind "verse". Use "reading" only if the text gives
-  a reason to doubt it, such as another verse naming a different father.
+  stating X is Y's parent: kind "verse". So is "X knew his wife; and she bare
+  Y", or "X took two wives… and Adah bare Y" (Lamech is Jabal's father). Use
+  "reading" only if the text gives a reason to doubt it, such as another verse
+  naming a different father.
 - **Places.** "Within" or "the same place as" must be stated or plain from
   the text. Parallel lists spelling one name two ways are a "reading"; say so.
 - **Dates.** BC years come from an outside chronology. Cite the verse with the
