@@ -38,8 +38,9 @@ For EVERY fact key, decide one of these:
    Use a written entry when the match found nothing but the text supports the
    claim, when the matched verse is wrong or about a different person of the
    same name (give the right verse), or when the claim is a reading or wrong.
-3. **LEAVE OUT.** If you can't find support, don't include the key. List it in
-   your final report as "no support found".
+3. **NO VERSE.** If you can't find a verse that supports it, write an entry
+   with kind "unsupported", no refs, and a note saying what no verse says
+   (e.g. "No verse places Philip at Tyre.").
 
 Rules:
 
@@ -81,9 +82,8 @@ add no other fields, and edit no other file:
 ```
 
 Then, as your final answer, report:
-(a) counts: agreed, written entries by kind, left out;
-(b) every fact marked "wrong" or "reading", with a one-line reason;
-(c) every key you left out;
-(d) missing facts: things the passage clearly states about these people
+(a) counts: agreed, and written entries by kind;
+(b) every fact marked "wrong", "reading" or "unsupported", with a one-line reason;
+(c) missing facts: things the passage clearly states about these people
     that aren't in the fact list (a parent, a marriage, someone who takes
     part in a listed event), with the verse for each.

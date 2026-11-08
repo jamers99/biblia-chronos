@@ -1,10 +1,10 @@
 # Data Audit Plan: checking the data against Scripture
 
 > **Status (Nov 2026):** steps 1 and 2 are built. The text match supports
-> 3,455 of the 5,950 facts. Step 3's AI pass is done: 5,839 facts have an AI
-> verdict, of which 233 are flagged wrong and 2,181 are readings. For the other
-> 111 it found no support. None has had an editor's review yet; see "The first
-> full pass" below for what to look at first.
+> 3,455 of the 5,950 facts. Step 3's AI pass is done, and every fact has an AI
+> verdict: 233 are flagged wrong, 2,181 are readings, and 111 are marked "no
+> verse found". None has had an editor's review yet; see "The first full pass"
+> below for what to look at first.
 
 **Goal:** every fact the site shows points to the verse that supports it,
 and says plainly how that was checked: by an automatic text match, by an AI, or by a
@@ -288,7 +288,7 @@ ended with one batch of era dates.
 | AI wrote a verse | 1,430 |
 | AI called it a reading | 2,181 |
 | AI flagged it wrong | 233 |
-| No support found, after two passes | 111 |
+| No verse found, after two passes (`unsupported`) | 111 |
 
 Most readings are dates, which come from an outside chronology. Most of the
 rest are identifications the text doesn't make: a tribe inferred from
@@ -301,7 +301,7 @@ What the flags found, for the editor:
   also puts reigns from before Omri built Samaria (1 Kgs 16:24) in Samaria.
 - **Loose "visited" links.** Paul's companions are linked to every stop of a
   voyage, and the ports of ships' origins count as visits. About 65 have no
-  support at all; they're candidates for removal in `data/overrides/`.
+  verse at all. They stay in the data, marked "no verse found".
 - **Generation slips in genealogies.** Grandfathers and brothers are recorded
   as fathers (Hur and Caleb's sons in 1 Chr 2:50; Shimei for Obed-edom's sons
   in 1 Chr 26:4).
