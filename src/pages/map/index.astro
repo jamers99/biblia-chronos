@@ -49,11 +49,11 @@ const [x0, y1] = project({ lng: 28, lat: 27 })!
 const [x1, y0] = project({ lng: 48, lat: 38 })!
 ---
 
-<Page title="Map" description="The History of Israel on a map, era by era: its places, journeys, moments, and people." immersive>
+<Page title="Map" description="The story of Scripture on a map, era by era: its places, journeys, moments, and people." immersive>
   <!-- Start the basemap download now rather than after the island hydrates.
        crossorigin matches fetch()'s request mode, so it isn't downloaded twice. -->
   <link slot="head" rel="preload" as="fetch" crossorigin="anonymous" href={url("/map/basemap.svg")} />
-  <h1 class="sr-only">The History of Israel on a map</h1>
+  <h1 class="sr-only">The story of Scripture on a map</h1>
   <StoryMap
     client:load
     places={located}

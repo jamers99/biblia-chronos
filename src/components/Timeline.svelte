@@ -1,5 +1,5 @@
 <script lang="ts">
-  // The History of Israel timeline, full screen. Era names sit large in the
+  // The timeline, Creation to the early church, full screen. Era names sit large in the
   // background; events rise above a gold time axis and people's lives run
   // below it. Click anyone to light up their connections. An overview strip at
   // the bottom shows where you are in the whole story. Just under the axis,
@@ -41,6 +41,9 @@
   const TRACK_ROW = TRACK_LABEL + TRACK_BLOCK + 6
 
   const domain = $derived([periods[0].start, periods[periods.length - 1].end])
+  // A first visit opens on Abraham onward, where most of the story is; the
+  // eras before him are a pan (or a click on the overview strip) away.
+  const opening = $derived(periods.find((p) => p.id === "patriarchs")?.start ?? periods[0].start)
   const byId = $derived(new Map(items.map((i) => [i.id, i])))
   const maxWeight = $derived(Math.max(...items.map((i) => i.weight)))
 
@@ -238,7 +241,7 @@
   const density = $derived.by(() => {
     const bins = new Map<number, number>()
     for (const i of items) {
-      if (i.start < domain[0]) continue // people born before Abraham
+      if (i.start < domain[0]) continue // starts before the first era
       const b = Math.floor(sx(i.start) / 4) * 4
       bins.set(b, (bins.get(b) ?? 0) + 1)
     }
@@ -262,7 +265,7 @@
     addEventListener("drafts", onDrafts)
 
     behavior = zoom<SVGSVGElement, unknown>()
-      .scaleExtent([1, 400])
+      .scaleExtent([1, 800])
       // Sideways wheel (trackpads) pans instead (below); the strip handles its own drags.
       .filter(
         (e) =>
@@ -291,7 +294,7 @@
     else if (saved) {
       behavior.transform(select(svg), span(saved.span[0], saved.span[1]))
       selected = saved.selected ? lookup(saved.selected) : undefined
-    }
+    } else behavior.transform(select(svg), span(opening, domain[1]))
     const forget = view.onLeave(() => ({ span: x.domain(), selected: selected?.id }))
     // Show it once that view is drawn (two frames: past this update and its
     // layout), so nothing slides or fades into place on the way in.
@@ -405,7 +408,7 @@
     bind:this={svg}
     viewBox="0 0 {width} {height}"
     role="application"
-    aria-label="Timeline from Abraham to the early church. Arrow keys pan, plus and minus zoom, slash searches."
+    aria-label="Timeline from Creation to the early church. Arrow keys pan, plus and minus zoom, slash searches."
     onclick={(e) => {
       if (e.target === svg || (e.target as Element).classList.contains("band")) selected = undefined
     }}
@@ -630,7 +633,7 @@
         height="26"
         rx="4"
       />
-      <text class="strip-label" x={stripX} y={stripY + 36}>Abraham</text>
+      <text class="strip-label" x={stripX} y={stripY + 36}>Creation</text>
       <text class="strip-label" x={stripX + stripW} y={stripY + 36} text-anchor="end">Early church</text>
     </g>
 

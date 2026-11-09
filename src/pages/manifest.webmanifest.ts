@@ -8,7 +8,7 @@ export const GET = () =>
   Response.json({
     name: "Biblia Chronos",
     short_name: "Chronos",
-    description: "Explore the history of Israel, from Abraham to the early church, on an interactive timeline.",
+    description: "Explore the story of Scripture, from Creation to the early church, on an interactive timeline.",
     id: start,
     start_url: `${start}?app`, // so the app can reopen on the last view (see Page.astro)
     scope: start,
