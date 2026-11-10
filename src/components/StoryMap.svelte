@@ -1,5 +1,5 @@
 <script lang="ts">
-  // The story map: the History of Israel told era by era, on a map. Each
+  // The story map: the story of Scripture told era by era, on a map. Each
   // chapter flies to its era's places (key places glow and are named first),
   // draws its journey, and lists its key moments and people, which open as
   // panels (see Layers.astro). The overview shows every place, to explore.

@@ -103,6 +103,7 @@ const current = (href: string) => (isCurrent(href) ? "page" : undefined)
             {indexes.map(([label, href]) => <a href={url(href)} aria-current={current(href)}>{label}</a>)}
           </nav>
           <a href={url("/about/")} aria-current={current("/about/")}>About & sources</a>
+          <a href={url("/about/#citing-sources")}>Citing sources</a>
           <a href="https://github.com/jamers99/biblia-chronos" target="_blank" rel="noopener">Source code on GitHub</a>
           <hr />
           <ThemeToggle />
@@ -125,6 +126,7 @@ const current = (href: string) => (isCurrent(href) ? "page" : undefined)
           Data from <a href="https://github.com/robertrouse/theographic-bible-metadata" target="_blank" rel="noopener">Theographic Bible Metadata</a>
           (CC BY-SA 4.0), with descriptions from Easton's Bible Dictionary.{" "}
           <a href={url("/about/")}>Sources & credits</a>.
+          <a href={url("/about/#citing-sources")}>Check sources before citing</a>.
         </footer>
       )
     }

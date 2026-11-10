@@ -18,13 +18,28 @@ const repo = "https://github.com/jamers99/biblia-chronos"
     </p>
   </div>
 
+  <aside class="caution" id="citing-sources" aria-labelledby="citing-sources-title">
+    <h2 id="citing-sources-title">Citing sources</h2>
+    <p>
+      This site is a study aid, not an authority. Much of its data hasn't been checked by a person, and many dates are
+      disputed. Before you rely on or repeat something, look it up in Scripture and published scholarship, and cite
+      those. The <em>How we know</em> marker shows the verse behind a fact.
+    </p>
+  </aside>
+
   <h2 id="chronology">Dates and chronology</h2>
   <div class="prose">
     <p>
       Biblical chronology is contested. For now every date comes from one source, Theographic Bible Metadata, which
-      follows a single traditional chronology close to Archbishop Ussher's: Abraham is born around 1996 BC and the
-      Exodus falls in 1490 BC (the "early date"; many scholars prefer the 13th century BC). Dates for the divided
+      follows a single traditional chronology close to Archbishop Ussher's: Creation falls in 4003 BC, the flood in
+      2347 BC, Abraham is born around 1996 BC, and the Exodus falls in 1490 BC (the "early date"; many scholars prefer the 13th century BC). Dates for the divided
       kingdom's reigns also differ from widely used reconstructions such as Thiele's.
+    </p>
+    <p>
+      Before Abraham, the dates are worked out from the ages in the genealogies of Genesis 5 and 11, as the Hebrew
+      (Masoretic) text gives them. The Greek Septuagint and the Samaritan Pentateuch give different ages, which put
+      Creation and the flood centuries earlier, and many readers don't take these genealogies as a complete
+      chronology at all.
     </p>
     <p>
       We present these dates as the source gives them rather than reinterpreting them. Where scholars differ, the plan
@@ -92,6 +107,20 @@ const repo = "https://github.com/jamers99/biblia-chronos"
 </Page>
 
 <style>
+  .caution {
+    max-width: var(--measure);
+    margin: 2rem 0;
+    padding: 1rem 1.25rem;
+    border-left: 3px solid var(--accent);
+    background: var(--wash);
+    border-radius: 0 8px 8px 0;
+  }
+  .caution h2 {
+    margin-top: 0;
+  }
+  .caution p {
+    margin-bottom: 0;
+  }
   .eras {
     margin: 0;
   }

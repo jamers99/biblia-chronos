@@ -21,7 +21,9 @@ const layers: [string, string | undefined, string][] = how
   ? [
       ["Text match", how.match, "None found"],
       ["AI", how.ai, "Not yet checked"],
-      ["Editor", how.editor, "Not yet reviewed"],
+      // Shown only once an editor has read it: no editor has yet, and a row
+      // of "not yet reviewed" on every fact undersells the checks that ran.
+      ...(how.editor ? [["Editor", how.editor, ""] as [string, string, string]] : []),
     ]
   : []
 ---
