@@ -18,7 +18,6 @@ import { url } from "../lib/url.ts"
   <a class="rb-queue" href={url("/review/")}><span class="wide">Review queue</span><span class="narrow">Queue</span></a>
   <span class="rb-count" aria-live="polite"></span>
   <button type="button" class="pill rb-submit">Submit<span class="wide"> on GitHub</span></button>
-  <button type="button" class="pill rb-done" hidden>Sent: clear them</button>
   <button type="button" class="pill rb-clear">Clear</button>
 </div>
 
@@ -29,7 +28,7 @@ import { url } from "../lib/url.ts"
   const on = () => document.documentElement.dataset.review === "on"
 
   const bar = document.querySelector<HTMLElement>(".review-bar")!
-  const [count, submit, done, clear] = [".rb-count", ".rb-submit", ".rb-done", ".rb-clear"].map((s) => bar.querySelector<HTMLElement>(s)!)
+  const [count, submit, clear] = [".rb-count", ".rb-submit", ".rb-clear"].map((s) => bar.querySelector<HTMLButtonElement>(s)!)
 
   const LABELS: [Verdict, string][] = [
     ["right", "Right"],
@@ -69,7 +68,7 @@ import { url } from "../lib/url.ts"
     const n = Object.keys(pending).length
     bar.hidden = !on()
     count.textContent = n ? `${n} to submit` : "Nothing to submit yet"
-    ;(submit as HTMLButtonElement).disabled = (clear as HTMLButtonElement).disabled = n === 0
+    submit.disabled = clear.disabled = n === 0
   }
   function refresh() {
     pending = readPending()
@@ -86,7 +85,6 @@ import { url } from "../lib/url.ts"
     if (fit) {
       pending = next
       writePending(pending)
-      done.hidden = true
       showBar()
     }
     show(el)
@@ -117,19 +115,15 @@ import { url } from "../lib/url.ts"
     })
   })
 
-  submit.addEventListener("click", () => {
-    window.open(submissionUrl(pending), "_blank", "noopener")
-    done.hidden = false
-  })
-  const empty = () => {
-    writePending({})
-    done.hidden = true
-    refresh()
-  }
-  done.addEventListener("click", empty)
+  // Submitting keeps the verdicts here until they're cleared, in case the
+  // issue isn't sent after all.
+  submit.addEventListener("click", () => window.open(submissionUrl(pending), "_blank", "noopener"))
   clear.addEventListener("click", () => {
     const n = Object.keys(pending).length
-    if (n && confirm(`Clear ${n} unsubmitted verdict${n === 1 ? "" : "s"}?`)) empty()
+    if (!n || !confirm(`Clear ${n === 1 ? "this verdict and its note" : `these ${n} verdicts and their notes`}? Do this once you've submitted them.`)) return
+    writePending({})
+    for (const note of document.querySelectorAll<HTMLInputElement>("review-controls .rc-note")) note.value = ""
+    refresh()
   })
 
   // The menu's switch, and other tabs.
