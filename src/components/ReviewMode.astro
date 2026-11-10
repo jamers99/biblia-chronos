@@ -179,6 +179,8 @@
     refresh()
   })
   addEventListener("storage", (e) => e.key === STORE && refresh())
+  // The review queue renders as you filter; it asks for buttons on what's new.
+  addEventListener("review-attach", () => attach())
 
   attach()
   refresh()

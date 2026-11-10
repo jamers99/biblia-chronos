@@ -93,7 +93,7 @@
     "alias-of:bealoth_161>baalath-beer_138@6f9f79": {"refs":["josh.15.24"],"note":"Bealoth is a Judah town (15.24). Identity with Baalath-beer is an outside identification; the text does not name Baalath-beer.","kind":"reading"},
     "alias-of:eshtemoh_413>eshtemoa_412@a68b7c": {"refs":["josh.15.50"],"note":"Eshtemoh is a Judah town (15.50). Eshtemoa is the same name in another spelling; that match is from outside the text.","kind":"reading"},
     "alias-of:gederoth_453>gederah_452@db9004": {"refs":["josh.15.36","josh.15.41"],"note":"Parallel lists: Gederah (15.36) and Gederoth (15.41) spell one name two ways. Same place is an outside identification.","kind":"reading"},
-    "alias-of:gederothaim_454>gederah_452@f042c7": {"refs":["josh.15.36"],"note":"15.36 counts Gederah and Gederothaim as two separate towns among fourteen cities, not one place.","kind":"wrong"},
+    "alias-of:gederothaim_454>gederah_452@f042c7": {"refs":["josh.15.36"],"note":"15.36 counts Gederah and Gederothaim as two separate towns among fourteen cities, not one place.","kind":"wrong","severity":"low"},
     "alias-of:hazor_547>kerioth-hezron_684@9b8e2e": {"refs":["josh.15.25"],"note":"15.25: \"Hezron, which is Hazor\". The KJV lists Kerioth and Hezron separately; one town Kerioth-hezron rests on outside sources.","kind":"reading"},
     "alias-of:kiriath-baal_699>kiriath-jearim_701@cc651f": {"refs":["josh.15.60"],"note":"15.60: \"Kirjathbaal, which is Kirjathjearim\"."},
     "alias-of:kiriath-sannah_702>debir_325@5322b8": {"refs":["josh.15.49"],"note":"15.49: \"Kirjathsannah, which is Debir\"."},

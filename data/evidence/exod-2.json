@@ -27,7 +27,7 @@
     "alias-of:ramoth_983>ramoth-gilead_984@6bf3c4": {"refs":["deut.4.43"],"note":"Deut 4:43 'Ramoth in Gilead' names the city the entry calls Ramoth-gilead."},
     "alias-of:river_1010>euphrates_421@a70150": {"refs":["deut.1.7","deut.11.24"],"note":"Deut 1:7 'the great river, the river Euphrates'; 11:24 'from the river, the river Euphrates'."},
     "alias-of:river_of_arnon_1225>arnon_92@6d29cb": {"refs":["deut.2.24","deut.3.8"],"note":"Text names the river Arnon (2:24) and the river of Arnon (3:8). Calling it a valley comes from outside Scripture.","kind":"reading"},
-    "alias-of:sea_of_the_philistines_1036>philistia_943@e1893c": {"refs":["exod.23.31","exod.13.17"],"note":"Exod 23:31 uses the sea of the Philistines as a boundary. Exod 13:17 names the land of the Philistines, a separate place.","kind":"wrong"},
+    "alias-of:sea_of_the_philistines_1036>philistia_943@e1893c": {"refs":["exod.23.31","exod.13.17"],"note":"Exod 23:31 uses the sea of the Philistines as a boundary. Exod 13:17 names the land of the Philistines, a separate place.","kind":"wrong","severity":"medium"},
     "alias-of:seir_1042>mount_seir_852@71beb7": {"refs":["deut.1.2","deut.2.12"],"note":"Deut 1:2 'mount Seir'; 2:12 'dwelt in Seir'. Same hill country."},
     "alias-of:sinai_1098>mount_sinai_855@d29aec": {"refs":["exod.19.2","exod.19.11"],"note":"Exod 19:2 'the desert of Sinai' and 19:11 'mount Sinai' name the same place."},
     "alias-of:sirion_1101>mount_hermon_841@f99c34": {"refs":["deut.3.9","deut.4.48"],"note":"Deut 3:9 says Hermon is called Sirion; 4:48 'mount Sion, which is Hermon'."},

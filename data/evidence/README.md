@@ -61,6 +61,10 @@ sitting. A fact lives in exactly one batch.
     `data/overrides/`), or `unsupported` (no verse found for it). An
     unsupported fact stays in the data, and the site marks it "no verse
     found".
+  - `severity`: required on `wrong` and `unsupported`, and only there: `high`,
+    `medium`, or `low`, by how much it matters to a reader if the data stays as
+    it is (the scale is in `docs/audit-review-prompt.md`). The review queue
+    puts the most severe first.
 - **`editor`**: set when a person reviews the batch.
   - The editor reads every written entry, and spot-checks `agreed` at the
     `sampled` rate.
@@ -92,7 +96,11 @@ like everything here, one per line:
 - A fact has one verdict. A new one replaces the old.
 
 Nobody edits it by hand. Verdicts come from **review mode** in the app (menu →
-Review mode, or open `/review/`): a reviewer marks facts Right, Wrong, or Not
+Review mode, or open `/review/`). The queue there lists what needs a person,
+most severe first, and filters by status, severity, kind of fact, book, or a
+search, grouped by severity, kind, book, or the person, place or event it's
+about; the filters stay in the link, so a view can be shared. A reviewer marks
+facts Right, Wrong, or Not
 sure, with an optional note, and the app keeps them in the browser until they're
 submitted together as a pre-filled GitHub issue (label `review`). A submission
 must fit in one link, so the app stops taking verdicts at about 100 (about 50 with notes) and asks for

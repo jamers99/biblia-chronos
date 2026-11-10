@@ -113,6 +113,6 @@
     "participated-in:nehemiah_2172>nehemiah-s-second-term@863deb": {"refs":["neh.13.7","neh.13.8"],"note":"He comes to Jerusalem (13:7) and acts there: he casts out Tobiah's goods and reforms the chambers (13:8-9)."},
     "participated-in:sanballat_2470>nehemiah-rebuilds-the-walls@1f5a2b": {"refs":["neh.2.19","neh.4.1","neh.4.8"],"note":"As an opponent: he mocks the builders (2:19; 4:1) and conspires with others to fight and hinder (4:8)."},
     "participated-in:tobiah_2872>nehemiah-rebuilds-the-walls@9897ec": {"refs":["neh.4.3","neh.4.7","neh.4.8"],"note":"As an opponent: he mocks the wall (4:3) and conspires with the others to fight and hinder (4:7-8)."},
-    "participated-in:tobiah_2872>nehemiah-s-second-term@77fd8e": {"refs":["neh.13.4","neh.13.8"],"note":"Text: Tobiah acts nowhere in 13:4-9. Eliashib gives him a chamber (13:4-5) and Nehemiah casts out his goods (13:8).","kind":"wrong"}
+    "participated-in:tobiah_2872>nehemiah-s-second-term@77fd8e": {"refs":["neh.13.4","neh.13.8"],"note":"Text: Tobiah acts nowhere in 13:4-9. Eliashib gives him a chamber (13:4-5) and Nehemiah casts out his goods (13:8).","kind":"wrong","severity":"low"}
   }
 }

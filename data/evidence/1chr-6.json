@@ -69,7 +69,7 @@
     "partner-of:maachah_1843>machir_1877@781dcb"
   ],
   "facts": {
-    "alias-of:beth-horon_734>upper_beth-horon_1188@6ff82e": {"refs":["1chr.7.24"],"note":"Text names two places, 'Bethhoron the nether, and the upper'. The combined Lower-and-Upper place is not the same as its upper part.","kind":"wrong"},
+    "alias-of:beth-horon_734>upper_beth-horon_1188@6ff82e": {"refs":["1chr.7.24"],"note":"Text names two places, 'Bethhoron the nether, and the upper'. The combined Lower-and-Upper place is not the same as its upper part.","kind":"wrong","severity":"medium"},
     "member-of:abiah_17>tribe-of-benjamin@ce8cad": {"refs":["1chr.7.6","1chr.7.8"],"note":"Son of Becher (7.8), and Becher is a son of Benjamin (7.6)."},
     "member-of:ahi_125>tribe-of-asher@66d41a": {"refs":["1chr.7.34","1chr.7.40"],"note":"Son of Shamer (7.34). Verse 7.40 says all these listed in Asher's genealogy were children of Asher."},
     "member-of:ahian_130>tribe-of-joseph@b598a9": {"refs":["1chr.7.19","num.26.32","josh.17.2"],"note":"Son of Shemida (7.19). Shemida's family is Manasseh's (Num 26:32; Josh 17:2), and Manasseh is Joseph's son (Josh 17:2). Those links lie outside this passage.","kind":"reading"},

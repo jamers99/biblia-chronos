@@ -61,7 +61,7 @@
     "member-of:mattithiah_1974>tribe-of-levi@a190c3": {"refs":["1chr.9.31"],"note":"9.31 calls Mattithiah one of the Levites, firstborn of Shallum the Korahite."},
     "member-of:meshelemiah_2013>tribe-of-levi@0b82ae": {"refs":["1chr.9.18","1chr.9.21"],"note":"9.21 has Zechariah son of Meshelemiah as a porter, and 9.18 places porters among the children of Levi. Meshelemiah's own tribe is not stated.","kind":"reading"},
     "member-of:shallum_2520>tribe-of-levi@5b934b": {"refs":["1chr.9.17","1chr.9.18"],"note":"9.17 names Shallum as chief porter; 9.18 says the porters were in the companies of the children of Levi."},
-    "parent-of:azareel_84>maasiai_1870@bec03f": {"refs":["1chr.9.12"],"note":"9.12 makes Maasiai the son of Adiel, son of Jahzerah. Azareel is not named in the verse.","kind":"wrong"},
+    "parent-of:azareel_84>maasiai_1870@bec03f": {"refs":["1chr.9.12"],"note":"9.12 makes Maasiai the son of Adiel, son of Jahzerah. Azareel is not named in the verse.","kind":"wrong","severity":"high"},
     "parent-of:azmaveth_557>jeziel_1608@7c09a2": {"refs":["1chr.12.3"],"note":"12.3 names Jeziel and Pelet as the sons of Azmaveth."},
     "parent-of:elnaam_1176>jeribai_861@4edfa6": {"refs":["1chr.11.46"],"note":"11.46 names Jeribai and Joshaviah as the sons of Elnaam."},
     "parent-of:hothan_1563>shama_2530@2adea7": {"refs":["1chr.11.44"],"note":"11.44 names Shama and Jehiel as the sons of Hothan the Aroerite."},

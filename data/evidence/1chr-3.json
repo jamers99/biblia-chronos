@@ -46,7 +46,7 @@
     "parent-of:jehoiachin_791>nedabiah_2170@20f1e2": {"refs":["1chr.3.17","1chr.3.18"],"note":"Named among Jeconiah's sons (3:17-18). Jeconiah as Jehoiachin is an outside identification.","kind":"reading"},
     "parent-of:jehoiachin_791>pedaiah_2293@4ef82b": {"refs":["1chr.3.17","1chr.3.18"],"note":"Named among Jeconiah's sons (3:17-18). Jeconiah as Jehoiachin is an outside identification.","kind":"reading"},
     "parent-of:jehoiachin_791>shenazar_2655@1b297f": {"refs":["1chr.3.17","1chr.3.18"],"note":"Named among Jeconiah's sons (3:17-18). Jeconiah as Jehoiachin is an outside identification.","kind":"reading"},
-    "parent-of:jehoiachin_791>zedekiah_3030@dcbb38": {"refs":["1chr.3.16"],"note":"3:16 makes Zedekiah a son of Jehoiakim ('the sons of Jehoiakim: Jeconiah his son, Zedekiah his son'), not of Jeconiah.","kind":"wrong"},
+    "parent-of:jehoiachin_791>zedekiah_3030@dcbb38": {"refs":["1chr.3.16"],"note":"3:16 makes Zedekiah a son of Jehoiakim ('the sons of Jehoiakim: Jeconiah his son, Zedekiah his son'), not of Jeconiah.","kind":"wrong","severity":"high"},
     "parent-of:josiah_1730>johanan_1667@754cbe": {"refs":["1chr.3.15"],"note":"Johanan is the firstborn son of Josiah."},
     "parent-of:zerubbabel_3054>berechiah_471@305bbc": {"refs":["1chr.3.19","1chr.3.20"],"note":"3:20 continues Zerubbabel's list of five sons with no father named; read as his sons.","kind":"reading"},
     "parent-of:zerubbabel_3054>hasadiah_1426@ed82d6": {"refs":["1chr.3.19","1chr.3.20"],"note":"3:20 continues Zerubbabel's list of five sons with no father named; read as his sons.","kind":"reading"},
@@ -96,6 +96,6 @@
     "member-of:zerubbabel_3054>tribe-of-judah@610f36": {"refs":["1chr.2.3","1chr.2.10","1chr.2.12","1chr.2.15","1chr.3.10","1chr.3.17","1chr.3.19"],"note":"Descent from Judah via David and Solomon's line (1 Chr 2:3-15; 3:10-19); the tribe label is not stated here.","kind":"reading"},
     "member-of:elpalet_1148>tribe-of-judah@6ddb91": {"refs":["1chr.2.3","1chr.2.10","1chr.2.12","1chr.2.15","1chr.3.1","1chr.14.5"],"note":"Son of David (14:5; 3:6 spells him Eliphelet). Descent from Judah via David (1 Chr 2:3-15) is worked out, not stated.","kind":"reading"},
     "member-of:nogah_2213>tribe-of-judah@e2df5b": {"refs":["1chr.2.3","1chr.2.10","1chr.2.12","1chr.2.15","1chr.3.1","1chr.3.7"],"note":"Son of David (3:7; 14:6). Descent from Judah via David (1 Chr 2:3-15) is worked out, not stated.","kind":"reading"},
-    "member-of:pedaiah_2293>genealogy-of-jesus@9ba824": {"refs":["matt.1.12","luke.3.27"],"note":"Matthew 1:12 and Luke 3:27 name Salathiel, not Pedaiah (1 Chr 3:19), as Zorobabel's father; Pedaiah is in neither genealogy.","kind":"wrong"}
+    "member-of:pedaiah_2293>genealogy-of-jesus@9ba824": {"refs":["matt.1.12","luke.3.27"],"note":"Matthew 1:12 and Luke 3:27 name Salathiel, not Pedaiah (1 Chr 3:19), as Zorobabel's father; Pedaiah is in neither genealogy.","kind":"wrong","severity":"high"}
   }
 }

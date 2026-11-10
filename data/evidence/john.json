@@ -58,7 +58,7 @@
     "occurred-at:bethesda-pool-healing>bethesda_205@781c75": {"refs":["john.5.2","john.5.7"],"note":"The pool at Jerusalem called Bethesda (5:2); the man lies by the pool when healed (5:7-9)."},
     "occurred-at:bread-of-life-sermon>capernaum_274@e668d6": {"refs":["john.6.59"],"note":"'These things said he in the synagogue, as he taught in Capernaum.'"},
     "occurred-at:chief-priests-conspire-against-jesus>jerusalem_636@0df148": {"refs":["john.11.55","john.11.56"],"note":"The council's room is not named. Jerusalem comes from the chief priests and 'the temple' (11:56), not a stated location.","kind":"reading"},
-    "occurred-at:feast-of-tabernacles>galilee_433@0e712b": {"refs":["john.7.14","john.7.25"],"note":"Jesus walked in Galilee before the feast (7:1), then went up and taught in the temple at Jerusalem (7:14, 7:25).","kind":"wrong"},
+    "occurred-at:feast-of-tabernacles>galilee_433@0e712b": {"refs":["john.7.14","john.7.25"],"note":"Jesus walked in Galilee before the feast (7:1), then went up and taught in the temple at Jerusalem (7:14, 7:25).","kind":"wrong","severity":"medium"},
     "occurred-at:jesus-and-nicodemus>jerusalem_636@74ec63": {"refs":["john.2.23","john.3.2"],"note":"Jesus was in Jerusalem at the Passover (2:23); the night visit (3:2) states no other place.","kind":"reading"},
     "occurred-at:jesus-leaves-judea-toward-galilee>judea_657@874e4e": {"refs":["john.4.3"],"note":"'He left Judaea, and departed again into Galilee.'"},
     "occurred-at:jesus-walks-on-water>sea_of_galilee_1032@2a5e01": {"refs":["john.6.1","john.6.19"],"note":"'the sea of Galilee, which is the sea of Tiberias' (6:1); Jesus walks on the sea (6:19)."},

@@ -178,6 +178,9 @@ export const EvidenceBatch = z
             note: z.string().optional(),
             // default "verse"; "unsupported": no verse found for it, though the record keeps it
             kind: z.enum(["verse", "reading", "wrong", "unsupported"]).optional(),
+            // For "wrong" and "unsupported": how much it matters to a reader
+            // if the data is left as it is (docs/audit-review-prompt.md).
+            severity: z.enum(["high", "medium", "low"]).optional(),
           })
           .strict(),
       )

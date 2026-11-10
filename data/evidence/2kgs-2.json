@@ -76,7 +76,7 @@
     "date:reign-of-pekahiah@f51349": {"refs":["2kgs.15.23"],"note":"Pekahiah began in Azariah's fiftieth year and reigned two years. The absolute years depend on outside dating.","kind":"reading"},
     "date:reign-of-shallum@f7f946": {"refs":["2kgs.15.13"],"note":"Shallum began in Uzziah's 39th year and reigned a full month. The absolute years depend on outside dating.","kind":"reading"},
     "date:reign-of-uzziah@f6d4bc": {"refs":["2kgs.15.1","2kgs.15.2"],"note":"Azariah (Uzziah) began in Jeroboam's 27th year and reigned fifty-two years. The absolute years depend on outside dating.","kind":"reading"},
-    "date:reign-of-zachariah@fb12c3": {"refs":["2kgs.15.8"],"note":"Text says Zachariah began in Azariah's 38th year and reigned six months. The -783 start is not supported by the text.","kind":"wrong"},
+    "date:reign-of-zachariah@fb12c3": {"refs":["2kgs.15.8"],"note":"Text says Zachariah began in Azariah's 38th year and reigned six months. The -783 start is not supported by the text.","kind":"wrong","severity":"high"},
     "death:ahaz_118@da4de2": {"refs":["2kgs.16.2","2kgs.16.20"],"note":"Ahaz reigned sixteen years (16.2) and slept with his fathers (16.20). The year depends on dating outside Scripture.","kind":"reading"},
     "death:jotham_1735@71edf1": {"refs":["2kgs.15.33","2kgs.15.38"],"note":"Jotham reigned sixteen years (15.33) and slept with his fathers (15.38). The year depends on dating outside Scripture.","kind":"reading"},
     "death:uzziah_375@0726ec": {"refs":["2kgs.15.2","2kgs.15.7"],"note":"Uzziah reigned fifty-two years (15.2) and slept with his fathers (15.7). The year depends on dating outside Scripture.","kind":"reading"},

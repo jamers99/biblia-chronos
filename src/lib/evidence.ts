@@ -203,7 +203,11 @@ export function explain(ev: FactEvidence, short: (ref: string) => string) {
   const rule = ev.match && (RULES[ev.match.rule] ?? ev.match.rule)
   const prefix = {
     reading: "A reading: ",
-    wrong: corrected ? "Corrected: " : review ? "" : "Flagged as wrong, for an editor to check: ",
+    wrong: corrected
+      ? "Corrected: "
+      : review
+        ? ""
+        : `Flagged as wrong${ev.entry?.severity ? ` (${ev.entry.severity} severity)` : ""}, for an editor to check: `,
     confirmed: "The AI said: ",
   }
   const { editor } = ev

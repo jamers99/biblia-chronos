@@ -101,7 +101,7 @@
     "parent-of:benjamin_463>ard_293@f219b5": {"refs":["gen.46.21","num.26.40"],"note":"Gen 46:21 lists Ard among Benjamin's sons, but Num 26:40 makes him a son of Bela.","kind":"reading"},
     "parent-of:benjamin_463>bela_436@510e38": {"refs":["gen.46.21","1chr.8.1"],"note":"Gen 46:21 spells him Belah among Benjamin's sons. 1 Chr 8:1 names Bela the firstborn. Same man assumed.","kind":"reading"},
     "parent-of:benjamin_463>gera_1298@64b40c": {"refs":["gen.46.21"],"note":"Gen 46:21 lists Gera among Benjamin's sons. 1 Chr 8:3 lists a Gera under Bela, so this may be another man.","kind":"reading"},
-    "parent-of:benjamin_463>huram_1569@089cbb": {"refs":["1chr.8.3","1chr.8.5"],"note":"Huram is not in Gen 46:21. 1 Chr 8:3-5 lists him among the sons of Bela, not Benjamin.","kind":"wrong"},
+    "parent-of:benjamin_463>huram_1569@089cbb": {"refs":["1chr.8.3","1chr.8.5"],"note":"Huram is not in Gen 46:21. 1 Chr 8:3-5 lists him among the sons of Bela, not Benjamin.","kind":"wrong","severity":"high"},
     "parent-of:benjamin_463>nohah_2120@162ff8": {"refs":["1chr.8.2"],"note":"1 Chr 8:2 names Nohah the fourth son of Benjamin. Gen 46:21 does not name him."},
     "parent-of:benjamin_463>rapha_2447@1ab2f5": {"refs":["1chr.8.2"],"note":"1 Chr 8:2 names Rapha the fifth son of Benjamin. Gen 46:21 does not name him."},
     "parent-of:benjamin_463>shupham_2115@01a113": {"refs":["gen.46.21","num.26.39"],"note":"Num 26:39 lists Shupham among Benjamin's families. Gen 46:21 spells the name Muppim. Same man assumed.","kind":"reading"},
@@ -113,7 +113,7 @@
     "parent-of:issachar_645>puah_2355@8491d3": {"refs":["gen.46.13","num.26.23"],"note":"Gen 46:13 spells him Phuvah among Issachar's sons. Num 26:23 has Pua. Same man assumed.","kind":"reading"},
     "parent-of:reuben_2429>pallu_2325@bcdeed": {"refs":["gen.46.9"],"note":"Gen 46:9 spells him Phallu among Reuben's sons. Same man assumed.","kind":"reading"},
     "parent-of:simeon_2741>zerah_3102@7a4792": {"refs":["gen.46.10","num.26.13"],"note":"Gen 46:10 names Zohar among Simeon's sons. Num 26:13 names Zerah. Same man assumed.","kind":"reading"},
-    "date:lifetime-of-job@3dac2e": {"refs":["job.42.16"],"note":"Job 42:16 says Job lived 140 years after his trial, so his life exceeded 140 years. The dated span is only 140 years.","kind":"wrong"},
+    "date:lifetime-of-job@3dac2e": {"refs":["job.42.16"],"note":"Job 42:16 says Job lived 140 years after his trial, so his life exceeded 140 years. The dated span is only 140 years.","kind":"wrong","severity":"high"},
     "participated-in:job_1639>lifetime-of-job@58533a": {"refs":["job.42.16"],"note":"Job 42:16 says Job lived on after his trial and saw four generations."}
   }
 }

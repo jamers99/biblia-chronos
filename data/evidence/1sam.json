@@ -27,8 +27,8 @@
   ],
   "facts": {
     "alias-of:jabesh_610>jabesh-gilead_611@c1129d": {"refs":["1sam.31.11","1sam.31.12"],"note":"The men of Jabeshgilead take Saul's body 'to Jabesh' and burn it there (31:11-12), which reads as their own town."},
-    "alias-of:ramah_975>mizpah_811@e398f7": {"refs":["1sam.7.16","1sam.7.17"],"note":"The text lists Mizpeh and Ramah as separate: Samuel judged at Bethel, Gilgal and Mizpeh, then returned to Ramah.","kind":"wrong"},
-    "alias-of:ramathaim-zophim_977>mizpah_811@f241e2": {"refs":["1sam.1.1","1sam.1.19","1sam.7.16","1sam.7.17"],"note":"Ramathaimzophim is the Ramah of Elkanah and Samuel (1:1, 1:19), which 7:16-17 separates from Mizpeh.","kind":"wrong"},
+    "alias-of:ramah_975>mizpah_811@e398f7": {"refs":["1sam.7.16","1sam.7.17"],"note":"The text lists Mizpeh and Ramah as separate: Samuel judged at Bethel, Gilgal and Mizpeh, then returned to Ramah.","kind":"wrong","severity":"medium"},
+    "alias-of:ramathaim-zophim_977>mizpah_811@f241e2": {"refs":["1sam.1.1","1sam.1.19","1sam.7.16","1sam.7.17"],"note":"Ramathaimzophim is the Ramah of Elkanah and Samuel (1:1, 1:19), which 7:16-17 separates from Mizpeh.","kind":"wrong","severity":"medium"},
     "birth:samuel_2469@f98990": {"refs":["1sam.1.19","1sam.1.20"],"note":"Samuel's birth follows Hannah's conception (1:19-20); no year is given. The BC year depends on dating outside Scripture.","kind":"reading"},
     "date:birth-of-saul@ca622a": {"refs":["1sam.9.1","1sam.9.2"],"note":"Saul is introduced as Kish's son (9:1-2); no birth date is given. The year depends on dating outside Scripture.","kind":"reading"},
     "date:david-kills-goliath@bd9229": {"refs":["1sam.17.16","1sam.17.50"],"note":"The Philistine challenges for forty days (17:16) before David slays Goliath (17:50); no year is given. The year depends on outside dating.","kind":"reading"},

@@ -82,7 +82,7 @@ Concretely: on a desktop everything should feel smooth and immediate, with no vi
 | Pages for every person, place, event, and group | `src/pages/` |
 | Site bar, menu, and settings (theme, draft records, review mode) | `src/layouts/Page.astro` |
 | Review mode: verdict buttons, the submit bar, the issue link | `src/components/ReviewMode.astro`, `src/lib/review.ts` |
-| The review queue | `src/pages/review/`, `src/lib/data/review-queue.ts` |
+| The review queue: filters, groups, most severe first | `src/pages/review/`, `src/components/ReviewQueue.svelte`, `src/lib/review-filter.ts`, `src/lib/data/review-queue.ts` |
 | Site search: index + ranking / `/search.json` / box | `src/lib/search.ts` / `src/pages/search.json.ts` / `src/components/SiteSearch.astro` |
 | Views remember where you were (on this device), and the app reopens on the last one | `src/lib/remember.ts`, `src/layouts/Page.astro` |
 | Hand-authored eras | `data/overrides/periods.json` |

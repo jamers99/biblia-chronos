@@ -267,8 +267,9 @@ drafts, so drafts are where most of this work is.
    decides which person is meant. It also reports what's missing: events,
    links, and lifetime facts the text states, never a guessed lifespan.
 2. **Editor pass.** In the app's review mode (`/review/`), reviewers go
-   through the queue, flagged facts first, then "no verse found", then
-   readings by kind, and submit their verdicts as a GitHub issue. Labeling it
+   through the queue, most severe first (each flag and "no verse found" carries
+   the AI's `severity`; the 344 from the first pass were rated afterwards, by
+   Haiku with the same scale), and submit their verdicts as a GitHub issue. Labeling it
    `apply` turns it into a pull request against `data/reviews.json` (see
    [data/evidence/README.md](../data/evidence/README.md)). A batch can merge
    with only the AI layer. The site then says exactly that.

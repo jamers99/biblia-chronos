@@ -1,28 +1,21 @@
-// The review queue (src/pages/review/): the facts that most need a person, in
-// the order to look at them. Facts the AI flagged as wrong come first, then
-// those it found no verse for, then its readings (interpretations the text
-// doesn't state), each by kind of fact, so like is reviewed with like. A fact
-// an editor has already given a verdict on (data/reviews.json) leaves the
-// queue. Build time only.
+// The review queue (src/pages/review/): every fact that needs a person, as one
+// flat list the page filters, groups and sorts in the browser (see
+// src/lib/review-filter.ts). That's the facts the AI flagged as wrong, those it
+// found no verse for, and its readings (interpretations the text doesn't state
+// outright). A fact an editor has already given a verdict on
+// (data/reviews.json) leaves the queue. Build time only; served as
+// /review/queue.json.
 
 import { allEvidence, books, kingdoms, periods, record } from "./load.ts"
 import { explain, factId, type FactEvidence, type FactKind } from "../evidence.ts"
-import { verse } from "../scripture.ts"
+import { parseVerse, verse } from "../scripture.ts"
 import { entityUrl } from "../url.ts"
 import { formatEstimate, label } from "../format.ts"
+import type { QueueData, QueueItem, Part, Status } from "../review-filter.ts"
 import type { Person } from "./schema.ts"
 
-export type Part = string | { text: string; href?: string }
-export type QueueItem = {
-  key: string
-  kind: FactKind
-  claim: Part[]
-  note?: string
-  refs: { long: string; url: string }[]
-}
-
 // Kinds of fact, in the order the queue lists them, with a heading each.
-export const KINDS: [FactKind, string][] = [
+const KINDS: [FactKind, string][] = [
   ["parent-of", "Parents"],
   ["partner-of", "Marriages"],
   ["member-of", "Tribes and groups"],
@@ -41,10 +34,13 @@ export const KINDS: [FactKind, string][] = [
   ["lede", "Era summaries"],
 ]
 
+const nameOf = (id: string) => {
+  const e = record(id)
+  return e ? label(e) : (periods.find((p) => p.id === id)?.name ?? kingdoms.find((k) => k.id === id)?.name ?? id)
+}
 function name(id: string): Part {
   const e = record(id)
-  if (e) return { text: label(e), href: entityUrl(e) }
-  return { text: periods.find((p) => p.id === id)?.name ?? kingdoms.find((k) => k.id === id)?.name ?? id }
+  return e ? { text: label(e), href: entityUrl(e) } : { text: nameOf(id) }
 }
 
 // The fact as a sentence, with its records linked.
@@ -56,7 +52,7 @@ function claim(id: string, kind: FactKind): Part[] {
     const kingdom = kingdoms.find((x) => x.id === k)
     return { kingdom, reign: kingdom?.reigns.find((r) => r.event === event), event }
   }
-  const dated = (rid: string) => record(rid) ?? periods.find((p) => p.id === rid)
+  const dated = (rid: string) => (record(rid) ?? periods.find((p) => p.id === rid)) as { date?: Person["birth"] } | undefined
   switch (kind) {
     case "parent-of": return [name(a), " is a parent of ", name(b)]
     case "partner-of": return [name(a), " and ", name(b), " were married"]
@@ -68,7 +64,7 @@ function claim(id: string, kind: FactKind): Part[] {
     case "part-of": return [name(a), " is within ", name(b)]
     case "alias-of": return [name(a), " is another name for ", name(b)]
     case "near": return [name(a), " is near ", name(b)]
-    case "date": return [name(body), `: ${formatEstimate((dated(body) as { date?: Person["birth"] })?.date)}`]
+    case "date": return [name(body), `: ${formatEstimate(dated(body)?.date)}`]
     case "birth": return [name(body), ` was born ${formatEstimate((record(body) as Person)?.birth)}`]
     case "death": return [name(body), ` died ${formatEstimate((record(body) as Person)?.death)}`]
     case "house": { const r = reign(); return [name(r.event), ` belongs to the ${r.reign?.house ?? "?"} in ${r.kingdom?.name ?? "?"}`] }
@@ -77,53 +73,53 @@ function claim(id: string, kind: FactKind): Part[] {
   }
 }
 
-const item = (ev: FactEvidence): QueueItem => {
-  const id = factId(ev.key)
-  const kind = id.slice(0, id.indexOf(":")) as FactKind
-  const how = explain(ev, (r) => r)
-  return {
-    key: ev.key,
-    kind,
-    claim: claim(id, kind),
-    note: ev.entry?.note,
-    refs: how.refs.map((r) => verse(r, books)).filter((v) => v !== undefined),
+// The book a fact is told in: its first verse, else the first verse of the
+// record it's about.
+function bookOf(refs: string[], records: string[]): string | undefined {
+  const fromRef = refs.map(parseVerse).find(Boolean)?.book
+  if (fromRef) return fromRef
+  for (const id of records) {
+    const refs = (record(id) as { scriptureRefs?: { book: string }[] } | undefined)?.scriptureRefs
+    if (refs?.length) return refs[0].book
   }
 }
 
-export type Queue = { slug: string; title: string; about: string; items: QueueItem[] }
+const STATUS: Partial<Record<string, Status>> = { wrong: "flagged", unsupported: "no-verse", reading: "reading" }
 
-let built: { queues: Queue[]; reviewed: number } | undefined
-export function reviewQueues() {
+function item(ev: FactEvidence, status: Status): QueueItem {
+  const id = factId(ev.key)
+  const kind = id.slice(0, id.indexOf(":")) as FactKind
+  const how = explain(ev, (r) => r)
+  // The record the fact is about: the person, the event, or the place first named.
+  const subject = ev.records[0]
+  return {
+    key: ev.key,
+    status,
+    ...(ev.entry?.severity ? { severity: ev.entry.severity } : {}),
+    kind,
+    claim: claim(id, kind),
+    ...(ev.entry?.note ? { note: ev.entry.note } : {}),
+    refs: how.refs.map((r) => verse(r, books)).filter((v) => v !== undefined).map((v) => ({ label: v.long, url: v.url })),
+    ...(bookOf(how.refs, ev.records) ? { book: bookOf(how.refs, ev.records) } : {}),
+    subject: { id: subject, name: nameOf(subject) },
+  }
+}
+
+let built: QueueData | undefined
+export function reviewQueue(): QueueData {
   if (built) return built
   const evs = [...allEvidence().values()]
-  const open = evs.filter((ev) => !ev.review)
-  const state = (ev: FactEvidence) => (ev.entry?.kind ?? "verse")
-  const order = new Map(KINDS.map(([k], i) => [k, i]))
-  const sorted = (xs: FactEvidence[]) =>
-    xs.map(item).sort((x, y) => order.get(x.kind)! - order.get(y.kind)! || (x.key < y.key ? -1 : 1))
-  const readings = open.filter((ev) => state(ev) === "reading")
+  const items: QueueItem[] = []
+  for (const ev of evs) {
+    const status = !ev.review && STATUS[ev.entry?.kind ?? "verse"]
+    if (status) items.push(item(ev, status))
+  }
+  const used = new Set(items.map((i) => i.book))
   built = {
-    reviewed: evs.length - open.length,
-    queues: [
-      {
-        slug: "flagged",
-        title: "Flagged by the AI",
-        about: "The AI read the passage and thinks the data is wrong. Its note says why.",
-        items: sorted(open.filter((ev) => state(ev) === "wrong")),
-      },
-      {
-        slug: "no-verse",
-        title: "No verse found",
-        about: "Two AI passes found no verse that says this. Is there one, or should it go?",
-        items: sorted(open.filter((ev) => state(ev) === "unsupported")),
-      },
-      ...KINDS.map(([kind, title]) => ({
-        slug: `readings-${kind}`,
-        title: `Readings: ${title.toLowerCase()}`,
-        about: "Probably right, but resting on something the text doesn't say outright. The AI's note says what.",
-        items: sorted(readings.filter((ev) => factId(ev.key).startsWith(`${kind}:`))),
-      })).filter((q) => q.items.length > 0),
-    ],
+    items,
+    kinds: KINDS.filter(([k]) => items.some((i) => i.kind === k)),
+    books: [...books].sort((a, b) => a.order - b.order).filter((b) => used.has(b.id)).map((b) => [b.id, b.name]),
+    reviewed: evs.filter((ev) => ev.review).length,
   }
   return built
 }

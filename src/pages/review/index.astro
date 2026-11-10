@@ -1,81 +1,33 @@
 ---
-// The review queue's front page: what review mode is, how a review reaches the
-// data, and the queues, flagged facts first (see src/lib/data/review-queue.ts).
+// The review queue: what review mode is, how a review reaches the data, and
+// the facts that need a person, filtered and grouped in the browser
+// (ReviewQueue.svelte, src/lib/review-filter.ts).
 import Page from "../../layouts/Page.astro"
 import ReviewOn from "../../components/ReviewOn.astro"
-import { reviewQueues } from "../../lib/data/review-queue.ts"
+import ReviewQueue from "../../components/ReviewQueue.svelte"
 import { url } from "../../lib/url.ts"
-
-const { queues, reviewed } = reviewQueues()
-const [main, readings] = [queues.filter((q) => !q.slug.startsWith("readings-")), queues.filter((q) => q.slug.startsWith("readings-"))]
 ---
 
-<Page title="Review" description="Check the site's facts against Scripture, starting with the ones the AI flagged.">
+<Page title="Review" description="Check the site's facts against Scripture, starting with the ones the AI flagged as most serious.">
   <ReviewOn />
   <h1>Review</h1>
   <div class="prose">
     <p>
-      Every fact here was checked by an AI against the King James text. These are the ones that most need a person.
-      For each, read the verse, then say whether the site has it right. Your verdicts stay in this browser until you
-      submit them, all at once, as a GitHub issue (you'll need a GitHub account). An editor reads each submission
-      before it changes anything.
+      The facts an AI questioned, most serious first. Read the verse, then say whether the site has it right. Your
+      verdicts stay in this browser until you submit them together as a GitHub issue, and an editor reads each one
+      before anything changes.
     </p>
-    <p>
-      Review mode is on: every fact's <em>How we know</em> marker, on any page, now has the same buttons. Turn it off in
-      the menu. To suggest something in your own words instead, use <em>Report a problem</em>.
+    <p class="aside">
+      Review mode is on, so every <em>How we know</em> marker on the site has these buttons too (turn it off in the
+      menu). Rather say it in your own words? Use <em>Report a problem</em>.
     </p>
   </div>
-
-  <h2>Start here</h2>
-  <ul class="queues">
-    {
-      main.map((q) => (
-        <li>
-          <a href={url(`/review/${q.slug}/`)}>{q.title}</a> <span class="n">{q.items.length}</span>
-          <p>{q.about}</p>
-        </li>
-      ))
-    }
-  </ul>
-
-  <h2>Readings</h2>
-  <p class="muted">{readings[0]?.about}</p>
-  <ul class="queues compact">
-    {
-      readings.map((q) => (
-        <li>
-          <a href={url(`/review/${q.slug}/`)}>{q.title.replace("Readings: ", "")}</a> <span class="n">{q.items.length}</span>
-        </li>
-      ))
-    }
-  </ul>
-  {reviewed > 0 && <p class="muted">{reviewed.toLocaleString()} facts already have an editor's verdict and are out of the queue.</p>}
+  <ReviewQueue client:load src={url("/review/queue.json")} />
 </Page>
 
 <style>
-  .queues {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 2rem;
-  }
-  .queues li {
-    margin: 0 0 1rem;
-  }
-  .queues p {
-    margin: 0.2rem 0 0;
+  .aside {
+    font-size: 0.9rem;
     color: var(--ink-2);
-  }
-  .queues.compact {
-    columns: 2 14rem;
-  }
-  .queues.compact li {
-    margin: 0 0 0.4rem;
-  }
-  .n {
-    font-size: 0.8rem;
-    color: var(--ink-3);
-  }
-  .muted {
-    color: var(--ink-3);
   }
 </style>
