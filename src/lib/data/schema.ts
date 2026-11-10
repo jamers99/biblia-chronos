@@ -6,6 +6,7 @@
 // docs/data-pipeline-spec.md for the reasoning and the upstream mapping.
 
 import { z } from "zod"
+import { NOTE_MAX, VERDICTS } from "../review.ts"
 
 // --- Shared conventions -----------------------------------------------------
 
@@ -178,12 +179,29 @@ export const EvidenceBatch = z
             note: z.string().optional(),
             // default "verse"; "unsupported": no verse found for it, though the record keeps it
             kind: z.enum(["verse", "reading", "wrong", "unsupported"]).optional(),
+            // For "wrong" and "unsupported": how much it matters to a reader
+            // if the data is left as it is (docs/audit-review-prompt.md).
+            severity: z.enum(["high", "medium", "low"]).optional(),
           })
           .strict(),
       )
       .optional(),
   })
   .strict()
+
+// An editor's verdict on one fact, data/reviews.json (see data/evidence/README.md),
+// keyed `id@hash` like the batches. Written by `npm run review:apply` from a
+// review submitted on GitHub; whoever submitted it is `by`.
+export const Review = z
+  .object({
+    verdict: z.enum(VERDICTS), // is the fact as the data has it right?
+    by: z.string(), // GitHub login
+    on: Day,
+    issue: z.number().int().positive().optional(), // the GitHub issue it came from
+    note: z.string().max(NOTE_MAX).optional(),
+  })
+  .strict()
+export const Reviews = z.record(Review)
 
 // --- Derived TypeScript types ----------------------------------------------
 
@@ -203,3 +221,5 @@ export type Source = z.infer<typeof Source>
 export type EdgeType = z.infer<typeof EdgeType>
 export type Edge = z.infer<typeof Edge>
 export type EvidenceBatch = z.infer<typeof EvidenceBatch>
+export type Review = z.infer<typeof Review>
+export type Reviews = z.infer<typeof Reviews>

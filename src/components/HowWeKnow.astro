@@ -6,6 +6,7 @@
 import { books, evidenceFor, source } from "../lib/data/load.ts"
 import { explain, hash } from "../lib/evidence.ts"
 import { verse } from "../lib/scripture.ts"
+import { REPORT } from "../lib/review.ts"
 
 interface Props {
   fact: string // fact id, e.g. "parent-of:abraham_58>isaac_616"
@@ -21,8 +22,8 @@ const layers: [string, string | undefined, string][] = how
   ? [
       ["Text match", how.match, "None found"],
       ["AI", how.ai, "Not yet checked"],
-      // Shown only once an editor has read it: no editor has yet, and a row
-      // of "not yet reviewed" on every fact undersells the checks that ran.
+      // Shown only once an editor has read it: a row of "not yet reviewed" on
+      // every fact would undersell the checks that ran.
       ...(how.editor ? [["Editor", how.editor, ""] as [string, string, string]] : []),
     ]
   : []
@@ -49,6 +50,7 @@ const layers: [string, string | undefined, string][] = how
           </p>
         )}
         {how.note && <p class="how-note">{how.note}</p>}
+        {how.reviewNote && <p class="how-note">{how.reviewNote}</p>}
         {sources.length > 0 && <p class="how-note">Outside Scripture: {sources.map((s) => s.title).join(", ")}</p>}
         <dl>
           {layers.map(([layer, line, none]) => (
@@ -58,6 +60,10 @@ const layers: [string, string | undefined, string][] = how
             </>
           ))}
         </dl>
+        <review-controls data-key={ev!.key} />
+        <p class="how-report">
+          <a class="report" href={REPORT} data-fact={ev!.key} target="_blank" rel="noopener">Report a problem</a>
+        </p>
       </div>
     </>
   )
@@ -86,6 +92,10 @@ const layers: [string, string | undefined, string][] = how
   }
   .how.reading {
     font-style: italic;
+  }
+  .how.confirmed {
+    color: var(--ink-2);
+    border-color: var(--gold);
   }
   .how.wrong,
   .how.unsupported {
@@ -127,6 +137,13 @@ const layers: [string, string | undefined, string][] = how
     margin: 0;
   }
   .muted {
+    color: var(--ink-3);
+  }
+  .how-report {
+    margin: 0.75rem 0 0;
+    font-size: 0.8rem;
+  }
+  .how-report a {
     color: var(--ink-3);
   }
 </style>

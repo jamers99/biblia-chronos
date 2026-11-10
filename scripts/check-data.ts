@@ -22,6 +22,7 @@ import {
   Edge,
   Source,
   EvidenceBatch,
+  Reviews,
   type EdgeType,
   type DateEstimate,
 } from "../src/lib/data/schema.ts"
@@ -265,10 +266,23 @@ for (const file of batchFiles.sort()) {
     if ((entry.kind === undefined || entry.kind === "verse" || entry.kind === "reading") && !entry.refs?.length && !entry.sources?.length)
       err(`${where}: ${key} has no verse or source; a "${entry.kind ?? "verse"}" entry needs one`)
     if (entry.kind === "reading" && !entry.note) err(`${where}: ${key} is a reading, so it needs a note saying which and why`)
+    const flagged = entry.kind === "wrong" || entry.kind === "unsupported"
+    if (flagged && !entry.severity) err(`${where}: ${key} is "${entry.kind}", so it needs a severity (high, medium, or low)`)
+    if (!flagged && entry.severity) err(`${where}: ${key} has a severity, but only "wrong" and "unsupported" entries take one`)
     for (const ref of entry.refs ?? []) checkVerse(`${where} ${key}`, ref)
     for (const src of entry.sources ?? []) if (!sourceIds.has(src)) err(`${where}: ${key} cites unknown source "${src}"`)
   }
 }
+
+// Editors' verdicts (data/reviews.json, from review mode): stale or gone like
+// any review. A "wrong" verdict is a fix waiting to be made in the overrides.
+const reviews = Reviews.safeParse(readJson("data/reviews.json"))
+if (!reviews.success) for (const issue of reviews.error.issues.slice(0, 5)) err(`reviews.json ${issue.path.join(".")}: ${issue.message}`)
+else
+  for (const [key, review] of Object.entries(reviews.data)) {
+    if (!factKeys.has(key)) warn(`reviews.json: ${key} — ${staleOrGone(key)}`)
+    else if (review.verdict === "wrong") warn(`reviews.json: ${key} was judged wrong by ${review.by}${review.issue ? ` (#${review.issue})` : ""}; fix it in data/overrides/`)
+  }
 
 // --- 8. Orphans (warning only) ----------------------------------------------
 

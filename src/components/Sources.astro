@@ -4,6 +4,7 @@
 // facts by layer, kept apart so an AI check never counts as a person's
 // (docs/data-audit-plan.md).
 import { source, tallyOf } from "../lib/data/load.ts"
+import { REPORT } from "../lib/review.ts"
 
 interface Props {
   record: { id: string; source: string; description?: string }
@@ -38,6 +39,9 @@ const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? "" : "s"}`
       </p>
     )
   }
+  <p class="report">
+    Something wrong or missing? <a class="report" href={REPORT} data-title={`Problem on the page for ${record.id}`} target="_blank" rel="noopener">Report a problem</a> in your own words.
+  </p>
 </section>
 
 <style>
@@ -60,7 +64,8 @@ const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? "" : "s"}`
   a {
     color: inherit;
   }
-  .tally {
+  .tally,
+  .report {
     margin: 0.5rem 0 0;
   }
 </style>

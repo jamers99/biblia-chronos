@@ -73,7 +73,7 @@
     "date:water-covers-the-earth@440af1": {"refs":["gen.7.11","gen.7.19"],"note":"Gen 7:11 dates the start in year 600; Gen 7:19 says the waters covered the earth. The BC year depends on outside dating.","kind":"reading"},
     "death:noah_2210@e56e02": {"refs":["gen.9.28","gen.9.29"],"note":"Gen 9:29 says Noah died at 950 years; Gen 9:28 gives 350 years after the flood. The BC year depends on outside dating.","kind":"reading"},
     "occurred-at:leaving-the-ark>ararat_86@e20428": {"refs":["gen.8.4","gen.8.18"],"note":"Gen 8:4: the ark rested on the mountains of Ararat. Gen 8:18: Noah went forth out of the ark."},
-    "occurred-at:nimrod-s-kingdom-begins>assyria_111@790381": {"refs":["gen.10.10"],"note":"Gen 10:10 places the beginning of his kingdom in Babel, Erech, Accad and Calneh, in Shinar. Assyria is not named there.","kind":"wrong"},
+    "occurred-at:nimrod-s-kingdom-begins>assyria_111@790381": {"refs":["gen.10.10"],"note":"Gen 10:10 places the beginning of his kingdom in Babel, Erech, Accad and Calneh, in Shinar. Assyria is not named there.","kind":"wrong","severity":"medium"},
     "parent-of:aram_285>gether_1308@412daf": {"refs":["gen.10.23"],"note":"Gen 10:23: the children of Aram; Uz, and Hul, and Gether, and Mash."},
     "parent-of:aram_285>hul_1566@6181c1": {"refs":["gen.10.23"],"note":"Gen 10:23: the children of Aram; Uz, and Hul, and Gether, and Mash."},
     "parent-of:aram_285>mash_1944@379292": {"refs":["gen.10.23"],"note":"Gen 10:23: the children of Aram; Uz, and Hul, and Gether, and Mash."},

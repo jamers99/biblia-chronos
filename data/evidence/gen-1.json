@@ -45,7 +45,7 @@
     "parent-of:eve_1231>abel_13@604f97": {"refs":["gen.4.2"],"note":"Gen 4:2: she again bare his brother Abel."},
     "parent-of:eve_1231>cain_533@9fce90": {"refs":["gen.4.1"],"note":"Gen 4:1: Eve conceived and bare Cain."},
     "parent-of:eve_1231>seth_2504@4c4369": {"refs":["gen.4.25"],"note":"Gen 4:25: Adam knew his wife again, and she bare a son, called Seth."},
-    "parent-of:god_1324>eve_1231@3453a8": {"refs":["gen.2.22"],"kind":"wrong","note":"Gen 2:22 says God made Eve from Adam's rib and brought her to Adam. Eve came from Adam, not from God as a parent."},
+    "parent-of:god_1324>eve_1231@3453a8": {"refs":["gen.2.22"],"kind":"wrong","note":"Gen 2:22 says God made Eve from Adam's rib and brought her to Adam. Eve came from Adam, not from God as a parent.","severity":"high"},
     "parent-of:lamech_1808>jabal_673@aa17cd": {"refs":["gen.4.19","gen.4.20"],"note":"Gen 4:19-20: Lamech took Adah, who bare Jabal. Lamech as the father is inferred, not stated.","kind":"reading"},
     "parent-of:lamech_1808>jubal_1748@4f7671": {"refs":["gen.4.19","gen.4.21"],"note":"Gen 4:19, 4:21: Lamech took Adah, and Jubal is Jabal's brother. Lamech as the father is inferred, not stated.","kind":"reading"},
     "parent-of:lamech_1808>naamah_2118@af50fc": {"refs":["gen.4.19","gen.4.22"],"note":"Gen 4:19, 4:22: Lamech took Zillah, and Naamah is Tubalcain's sister. Lamech as the father is inferred, not stated.","kind":"reading"},
@@ -64,7 +64,7 @@
     "participated-in:jesus_905>creation-of-all-things@698303": {"refs":["gen.1.1"],"note":"Gen 1:1 names God alone as creator. Jesus' role in creation comes from outside Genesis 1-4, so this is a reading.","kind":"reading"},
     "participated-in:seth_2504>birth-of-enos@445289": {"refs":["gen.4.26"],"note":"Gen 4:26: to Seth there was born a son, and he called his name Enos."},
     "visited:adam_78>eden_354@d2f821": {"refs":["gen.2.8","gen.2.15","gen.3.8"],"note":"Gen 2:8 and 2:15: God planted the garden in Eden and put the man in it. Gen 3:8: Adam hid among the trees of that garden."},
-    "visited:cain_533>eden_354@8291c9": {"refs":["gen.4.16"],"kind":"wrong","note":"Gen 4:16 says Cain dwelt in the land of Nod, on the east of Eden. He was east of Eden, not in it."},
+    "visited:cain_533>eden_354@8291c9": {"refs":["gen.4.16"],"kind":"wrong","note":"Gen 4:16 says Cain dwelt in the land of Nod, on the east of Eden. He was east of Eden, not in it.","severity":"low"},
     "visited:eve_1231>eden_354@a9492c": {"refs":["gen.3.8","gen.2.8"],"note":"Gen 3:8: Adam and his wife hid themselves amongst the trees of the garden, which Gen 2:8 places in Eden."}
   }
 }

@@ -1,0 +1,39 @@
+---
+// The review queue: what review mode is, how a review reaches the data, and
+// the facts that need a person, filtered and grouped in the browser
+// (ReviewQueue.svelte, src/lib/review-filter.ts).
+import Page from "../../layouts/Page.astro"
+import ReviewQueue from "../../components/ReviewQueue.svelte"
+import { url } from "../../lib/url.ts"
+---
+
+<Page title="Review" description="Check the site's facts against Scripture, starting with the ones the AI flagged as most serious.">
+  <script is:inline slot="head">
+    // Opening the queue turns review mode on (ReviewMode.astro); this runs
+    // before the page is drawn, so the menu and the bar start that way.
+    document.documentElement.dataset.review = "on"
+    try {
+      localStorage.setItem("review", "on")
+    } catch {}
+  </script>
+  <h1>Review</h1>
+  <div class="prose">
+    <p>
+      The facts an AI questioned, most serious first. Read the verse, then say whether the site has it right. Your
+      verdicts stay in this browser until you submit them together as a GitHub issue, and an editor reads each one
+      before anything changes.
+    </p>
+    <p class="aside">
+      Review mode is on, so every <em>How we know</em> marker on the site has these buttons too (turn it off in the
+      menu). Rather say it in your own words? Use <em>Report a problem</em>.
+    </p>
+  </div>
+  <ReviewQueue client:load src={url("/review/queue.json")} />
+</Page>
+
+<style>
+  .aside {
+    font-size: 0.9rem;
+    color: var(--ink-2);
+  }
+</style>

@@ -56,7 +56,7 @@
     "member-of:zichri_3065>tribe-of-levi@9cba71": {"refs":["exod.6.16","exod.6.18","exod.6.21"],"note":"Son of Izhar (6:21); Izhar is a son of Kohath (6:18), and Kohath of Levi (6:16)."},
     "member-of:zithri_3096>tribe-of-levi@423ca9": {"refs":["exod.6.16","exod.6.18","exod.6.22"],"note":"Son of Uzziel (6:22); Uzziel is a son of Kohath (6:18), and Kohath of Levi (6:16)."},
     "occurred-at:birth-of-moses>egypt_362@900a5c": {"refs":["exod.1.22","exod.2.2"],"note":"Pharaoh's decree over his people (1:22) sets the scene in Egypt; the son is born and hidden by the river (2:2-3)."},
-    "occurred-at:lifetime-of-moses>egypt_362@763061": {"refs":["exod.2.15","exod.3.1","exod.4.20"],"note":"Moses' life is not in one place: he fled to Midian (2:15), was at Horeb (3:1), and returned to Egypt (4:20).","kind":"wrong"},
+    "occurred-at:lifetime-of-moses>egypt_362@763061": {"refs":["exod.2.15","exod.3.1","exod.4.20"],"note":"Moses' life is not in one place: he fled to Midian (2:15), was at Horeb (3:1), and returned to Egypt (4:20).","kind":"wrong","severity":"medium"},
     "participated-in:aaron_1>exodus-from-egypt@7e35aa": {"refs":["exod.12.31","num.33.1"],"note":"Pharaoh summons Moses and Aaron to go (12:31); Israel went out under the hand of Moses and Aaron (Num 33:1)."},
     "participated-in:amram_242>birth-of-moses@c20a36": {"refs":["exod.2.1","exod.2.2","exod.6.20"],"note":"Father by 6:20; 2:1-2 names only an unnamed man who took a Levite wife, so his part in the birth is inferred.","kind":"reading"},
     "participated-in:jochebed_1645>birth-of-moses@c3f9df": {"refs":["exod.2.2","exod.6.20"],"note":"The woman who conceived and bore a son (2:2) is the one who bare Aaron and Moses (6:20)."},

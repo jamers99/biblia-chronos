@@ -18,7 +18,7 @@ and decide what to trust.
 |---|---|---|
 | **Text match** | The text supports the fact: a verse states the relationship in a recognised pattern, e.g. Gen 25:19, "Isaac, Abraham's son" | One generated file |
 | **AI** | Haiku read the passage and agreed, or flagged it with a note | Per batch |
-| **Editor** | A person read it | Per batch |
+| **Editor** | A person read it and gave a verdict | `data/reviews.json`, from the app's review mode |
 
 To keep this from turning into a sea of rows: the text match is one
 generated file, an AI "agree" is one line in a list, and only facts that
@@ -266,9 +266,13 @@ drafts, so drafts are where most of this work is.
    text. For each fact, it agrees or writes an entry. For each namesake, it
    decides which person is meant. It also reports what's missing: events,
    links, and lifetime facts the text states, never a guessed lifespan.
-2. **Editor pass.** You read every written entry and sample the agreed
-   list. A PR can merge with only the AI layer. The site then says exactly
-   that.
+2. **Editor pass.** In the app's review mode (`/review/`), reviewers go
+   through the queue, most severe first (each flag and "no verse found" carries
+   the AI's `severity`; the 344 from the first pass were rated afterwards, by
+   Haiku with the same scale), and submit their verdicts as a GitHub issue. Labeling it
+   `apply` turns it into a pull request against `data/reviews.json` (see
+   [data/evidence/README.md](../data/evidence/README.md)). A batch can merge
+   with only the AI layer. The site then says exactly that.
 3. **Fixes.** Corrections and missing facts go in `data/overrides/`. Mark
    errors that come from Theographic with `"upstream": true`, so they can be
    listed if you want to send them. We don't file anything.

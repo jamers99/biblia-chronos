@@ -149,9 +149,9 @@
     "parent-of:hezron_1520>ashur_342@101092": {"refs":["1chr.2.24"],"note":"'Abiah Hezron's wife bare him Ashur' (2:24)."},
     "parent-of:hezron_1520>jerahmeel_843@2fafa4": {"refs":["1chr.2.9","1chr.2.25"],"note":"Jerahmeel is among 'the sons also of Hezron' (2:9) and is 'the firstborn of Hezron' (2:25)."},
     "parent-of:hezron_1520>segub_2484@6783eb": {"refs":["1chr.2.21"],"note":"Hezron went in to the daughter of Machir, 'and she bare him Segub' (2:21)."},
-    "parent-of:hur_1571>hareph_1412@c0426a": {"refs":["1chr.2.50","1chr.2.51"],"note":"2:50-51 list Hareph among the sons of 'Caleb the son of Hur', so Hur is grandfather, not father.","kind":"wrong"},
-    "parent-of:hur_1571>salma_2462@b2cc87": {"refs":["1chr.2.50","1chr.2.51"],"note":"2:50-51 list Salma among the sons of 'Caleb the son of Hur', so Hur is grandfather, not father.","kind":"wrong"},
-    "parent-of:hur_1571>shobal_2720@a7fa2c": {"refs":["1chr.2.50"],"note":"2:50 lists Shobal among the sons of 'Caleb the son of Hur', so Hur is grandfather, not father.","kind":"wrong"},
+    "parent-of:hur_1571>hareph_1412@c0426a": {"refs":["1chr.2.50","1chr.2.51"],"note":"2:50-51 list Hareph among the sons of 'Caleb the son of Hur', so Hur is grandfather, not father.","kind":"wrong","severity":"high"},
+    "parent-of:hur_1571>salma_2462@b2cc87": {"refs":["1chr.2.50","1chr.2.51"],"note":"2:50-51 list Salma among the sons of 'Caleb the son of Hur', so Hur is grandfather, not father.","kind":"wrong","severity":"high"},
+    "parent-of:hur_1571>shobal_2720@a7fa2c": {"refs":["1chr.2.50"],"note":"2:50 lists Shobal among the sons of 'Caleb the son of Hur', so Hur is grandfather, not father.","kind":"wrong","severity":"high"},
     "parent-of:israel_682>issachar_645@e14a2b": {"refs":["1chr.2.1"],"note":"2:1 says 'the sons of Israel'. Israel as Jacob is an identification from outside this passage.","kind":"reading"},
     "parent-of:israel_682>judah_1751@af0dab": {"refs":["1chr.2.1"],"note":"2:1 says 'the sons of Israel'. Israel as Jacob is an identification from outside this passage.","kind":"reading"},
     "parent-of:israel_682>levi_1820@7c4ad3": {"refs":["1chr.2.1"],"note":"2:1 says 'the sons of Israel'. Israel as Jacob is an identification from outside this passage.","kind":"reading"},
@@ -173,7 +173,7 @@
     "parent-of:maachah_1842>shaaph_2507@6bca28": {"refs":["1chr.2.48","1chr.2.49"],"note":"Maachah, Caleb's concubine, 'bare also Shaaph' (2:48-49)."},
     "parent-of:maachah_1842>sheva_2675@9015d6": {"refs":["1chr.2.48","1chr.2.49"],"note":"Maachah, Caleb's concubine, 'bare also' Sheva (2:48-49)."},
     "parent-of:machir_1877>daughter_of_machir_986@ca6fe6": {"refs":["1chr.2.21"],"note":"'The daughter of Machir the father of Gilead' (2:21)."},
-    "parent-of:mesha_2010>hebron_1476@60a589": {"refs":["1chr.2.42"],"note":"2:42 names Mareshah as the father of Hebron; Mesha is the father of Ziph.","kind":"wrong"},
+    "parent-of:mesha_2010>hebron_1476@60a589": {"refs":["1chr.2.42"],"note":"2:42 names Mareshah as the father of Hebron; Mesha is the father of Ziph.","kind":"wrong","severity":"high"},
     "parent-of:ram_2392>eker_1041@60aeef": {"refs":["1chr.2.27"],"note":"'The sons of Ram the firstborn of Jerahmeel were, Maaz, and Jamin, and Eker' (2:27)."},
     "parent-of:ram_2392>jamin_721@f46dcc": {"refs":["1chr.2.27"],"note":"'The sons of Ram the firstborn of Jerahmeel were, Maaz, and Jamin, and Eker' (2:27)."},
     "parent-of:ram_2392>maaz_1872@34011e": {"refs":["1chr.2.27"],"note":"'The sons of Ram the firstborn of Jerahmeel were, Maaz, and Jamin, and Eker' (2:27)."},
@@ -182,9 +182,9 @@
     "parent-of:tamar_2821>zerah_2984@378abb": {"refs":["1chr.2.4"],"note":"Tamar, Judah's daughter in law, 'bare him Pharez and Zerah' (2:4)."},
     "partner-of:abihail_29>abishur_53@b6ccdf": {"refs":["1chr.2.29"],"note":"'The name of the wife of Abishur was Abihail' (2:29)."},
     "partner-of:atarah_354>jerahmeel_843@be2c46": {"refs":["1chr.2.26"],"note":"'Jerahmeel had also another wife, whose name was Atarah' (2:26)."},
-    "partner-of:caleb_538>ephah_1198@a62486": {"refs":["1chr.2.46"],"note":"2:46 calls Ephah Caleb's concubine, not his wife.","kind":"wrong"},
+    "partner-of:caleb_538>ephah_1198@a62486": {"refs":["1chr.2.46"],"note":"2:46 calls Ephah Caleb's concubine, not his wife.","kind":"wrong","severity":"medium"},
     "partner-of:caleb_538>ephratah_1207@1a8c7c": {"refs":["1chr.2.18","1chr.2.19"],"note":"2:19 says Caleb 'took unto him Ephrath', implying marriage; 'Ephratah' is the spelling in 2:50.","kind":"reading"},
     "partner-of:caleb_538>jerioth_871@4b22cf": {"refs":["1chr.2.18"],"note":"2:18 gives Jerioth as mother of Caleb's children but never calls her his wife; marriage is inferred.","kind":"reading"},
-    "partner-of:caleb_538>maachah_1842@f5bb0e": {"refs":["1chr.2.48"],"note":"2:48 calls Maachah Caleb's concubine, not his wife.","kind":"wrong"}
+    "partner-of:caleb_538>maachah_1842@f5bb0e": {"refs":["1chr.2.48"],"note":"2:48 calls Maachah Caleb's concubine, not his wife.","kind":"wrong","severity":"medium"}
   }
 }

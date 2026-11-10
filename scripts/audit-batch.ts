@@ -16,7 +16,7 @@
 import { existsSync, mkdirSync, readdirSync, writeFileSync } from "node:fs"
 import { join } from "node:path"
 import type { EvidenceBatch, Person } from "../src/lib/data/schema.ts"
-import { enumerateFacts, factId, type Fact, type MatchEvidence } from "../src/lib/evidence.ts"
+import { describe, enumerateFacts, factId, type Fact, type MatchEvidence } from "../src/lib/evidence.ts"
 import { RULES } from "../src/lib/scan.ts"
 import { verseKey } from "../src/lib/scripture.ts"
 import { loadData, loadVerses, readJson, root } from "./data.ts"
@@ -87,38 +87,17 @@ const gone = [...ownKey].filter(([id]) => !facts.some((f) => f.id === id)).map((
 
 // --- The batch file -------------------------------------------------------------
 
-// A fact as a sentence a reviewer can check.
-const reign = (body: string) => {
-  const [kingdomId, event] = body.split("/")
-  const k = kingdoms.find((k) => k.id === kingdomId)!
-  return { k, r: k.reigns.find((r) => r.event === event)! }
+// A fact as a sentence a reviewer can check (see describe in src/lib/evidence.ts).
+const years = "(years are astronomical: a negative year is BC, one off, so -478 is 479 BC and 30 is AD 30)"
+function when(id: string, kind: "date" | "birth" | "death") {
+  if (kind !== "date") return `${JSON.stringify((records.get(id) as Person)[kind])} ${years}`
+  const r = [...events, ...places, ...periods].find((r) => r.id === id)!
+  return `${JSON.stringify(r.date)} ${years}${r.description ? `; its description says: "${r.description}"` : ""}`
 }
-function describe(f: Fact): string {
-  const body = f.id.slice(f.id.indexOf(":") + 1)
-  const [a, b] = body.split(">")
-  const years = "(years are astronomical: a negative year is BC, one off, so -478 is 479 BC and 30 is AD 30)"
-  switch (f.kind) {
-    case "parent-of": return `${nameOf(a)} is a parent of ${nameOf(b)}`
-    case "partner-of": return `${nameOf(a)} and ${nameOf(b)} were married`
-    case "member-of": return `${nameOf(a)} belongs to the group ${nameOf(b)}`
-    case "participated-in": return `${nameOf(a)} took part in the event ${nameOf(b)}`
-    case "occurred-at": return `the event ${nameOf(a)} happened at ${nameOf(b)}`
-    case "visited": return `${nameOf(a)} was at (visited) ${nameOf(b)}`
-    case "died-at": return `${nameOf(a)} died at ${nameOf(b)}`
-    case "alias-of": return `the place ${nameOf(a)} is the same place as ${nameOf(b)}`
-    case "part-of": return `the place ${nameOf(a)} is within ${nameOf(b)}`
-    case "near": return `the place ${nameOf(a)} is near ${nameOf(b)}`
-    case "date": {
-      const r = [...events, ...places, ...periods].find((r) => r.id === body)!
-      return `${nameOf(body)} is dated ${JSON.stringify(r.date)} ${years}${r.description ? `; its description says: "${r.description}"` : ""}`
-    }
-    case "birth": return `${nameOf(body)} was born in ${JSON.stringify((records.get(body) as Person).birth)} ${years}`
-    case "death": return `${nameOf(body)} died in ${JSON.stringify((records.get(body) as Person).death)} ${years}`
-    case "house": { const { k, r } = reign(body); return `in ${k.name}, the reign ${nameOf(r.event)} belongs to the ruling house "${r.house}"` }
-    case "note": { const { k, r } = reign(body); return `the note on ${nameOf(r.event)} in ${k.name}: "${r.note}"` }
-    case "lede": return `the summary of the era ${nameOf(body)}: "${periods.find((p) => p.id === body)!.lede}"`
-  }
-}
+const sentence = (f: Fact) =>
+  describe(f, { kingdoms, periods }, when)
+    .map((p) => (typeof p === "string" ? p : nameOf(p.id)))
+    .join("")
 
 function matchSays(f: Fact) {
   const [ref, rule] = matches.facts[f.key] ?? []
@@ -162,7 +141,7 @@ const lines = [
   "",
   "Each line: the key (copy it exactly), the claim, and what the automatic text match found.",
   "",
-  ...chosen.map((f) => `- \`${f.key}\` — ${describe(f)}. ${matchSays(f)}.${previously(f)}`),
+  ...chosen.map((f) => `- \`${f.key}\` — ${sentence(f)}. ${matchSays(f)}.${previously(f)}`),
   "",
   "## Text (KJV)",
   "",

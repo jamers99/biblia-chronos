@@ -63,6 +63,7 @@ test("collectEvidence layers the text match, the AI, and the editor, and ignores
     refs: ["gen.25.19"],
     label: "GEN.25.19",
     note: undefined,
+    reviewNote: undefined,
     match: "The verse calls one the other's son or daughter",
     ai: "Agreed (haiku, Nov 2026)",
     editor: "Batch spot-checked by ed (10%), Nov 2026",
@@ -74,4 +75,36 @@ test("collectEvidence layers the text match, the AI, and the editor, and ignores
   assert.equal(date.editor, "Read by ed, Nov 2026")
   const partners = explain(evs.get("partner-of:abraham>sarah")!, short)
   assert.deepEqual([partners.label, partners.note, partners.ai], ["no verse found", "No verse says they married.", "Flagged (haiku, Nov 2026)"])
+})
+
+test("an editor's verdict wins over the AI's, and stale verdicts are ignored", () => {
+  const facts = enumerateFacts(data)
+  const key = (id: string) => facts.find((f) => f.id === id)!.key
+  const batch = {
+    passage: "gen",
+    ai: { model: "haiku", on: "2026-11-10" },
+    facts: {
+      [key("parent-of:abraham>isaac")]: { refs: ["gen.25.19"], note: "Abraham is the grandfather here.", kind: "wrong" as const },
+      [key("partner-of:abraham>sarah")]: { note: "No verse says they married.", kind: "unsupported" as const },
+      [key("date:e")]: { refs: ["esth.2.16"], note: "seventh year", kind: "reading" as const },
+    },
+  }
+  const evs = collectEvidence(facts, undefined, [batch], {
+    [key("parent-of:abraham>isaac")]: { verdict: "right", by: "ed", on: "2026-11-12", note: "Gen 25:19 says son." },
+    [key("partner-of:abraham>sarah")]: { verdict: "wrong", by: "ed", on: "2026-11-12" },
+    [key("date:e")]: { verdict: "unsure", by: "ed", on: "2026-11-12" },
+    "note:k/e@000000": { verdict: "wrong", by: "ed", on: "2026-11-12" }, // stale: ignored
+  })
+  const short = (ref: string) => ref
+  const parent = explain(evs.get("parent-of:abraham>isaac")!, short)
+  assert.deepEqual([parent.state, parent.label, parent.refs], ["confirmed", "confirmed", []])
+  assert.equal(parent.note, "The AI said: Abraham is the grandfather here.")
+  assert.equal(parent.reviewNote, "ed: Gen 25:19 says son.")
+  assert.equal(parent.editor, "Confirmed by ed, Nov 2026")
+  const partners = explain(evs.get("partner-of:abraham>sarah")!, short)
+  assert.deepEqual([partners.state, partners.label, partners.editor], ["wrong", "wrong", "Judged wrong by ed, Nov 2026"])
+  const date = explain(evs.get("date:e")!, short)
+  assert.deepEqual([date.state, date.editor], ["reading", "Not sure by ed, Nov 2026"])
+  assert.equal(evs.get("note:k/e")!.review, undefined)
+  assert.equal(tally([...evs.values()]).editor, 3)
 })

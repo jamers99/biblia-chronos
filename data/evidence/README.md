@@ -12,7 +12,7 @@ There are three layers, and the site shows each one separately:
 |---|---|---|
 | **Text match** | `matches.json` | `npm run audit:scan`. Never hand-edit it |
 | **AI** | `<batch>.json`, with `ai` set | an AI reviewer, from `npm run audit:batch` |
-| **Editor** | the same file, with `editor` set | a person, in the PR |
+| **Editor** | `../reviews.json`, one verdict per fact (or a batch's `editor`) | a person, in the app's review mode |
 
 ## matches.json
 
@@ -61,6 +61,10 @@ sitting. A fact lives in exactly one batch.
     `data/overrides/`), or `unsupported` (no verse found for it). An
     unsupported fact stays in the data, and the site marks it "no verse
     found".
+  - `severity`: required on `wrong` and `unsupported`, and only there: `high`,
+    `medium`, or `low`, by how much it matters to a reader if the data stays as
+    it is (the scale is in `docs/audit-review-prompt.md`). The review queue
+    puts the most severe first.
 - **`editor`**: set when a person reviews the batch.
   - The editor reads every written entry, and spot-checks `agreed` at the
     `sampled` rate.
@@ -71,6 +75,51 @@ sitting. A fact lives in exactly one batch.
 `npm run check:data` warns when a review points at a fact that's gone or has
 changed since it was reviewed, and fails on a malformed file, an unknown book or
 chapter, or a fact reviewed in two batches.
+
+## reviews.json: editors' verdicts
+
+`data/reviews.json` holds a person's verdict on single facts, keyed `id@hash`
+like everything here, one per line:
+
+```jsonc
+{
+  "parent-of:abihail_32>heber_1428@3f9a1c": {"verdict":"wrong","by":"jamers99","on":"2026-11-12","issue":42,"note":"1 Chr 5:13 calls Heber one of their brethren"}
+}
+```
+
+- **`verdict`**: is the fact right as the site shows it? `right`, `wrong`, or
+  `unsure`. It wins over the AI's: `right` turns a flag (or "no verse found")
+  into "confirmed", and `wrong` marks the fact wrong until it's fixed in
+  `data/overrides/` (`check:data` lists each one). `unsure` changes nothing but
+  is recorded.
+- **`by`**: the GitHub account that submitted it. **`issue`**: where.
+- A fact has one verdict. A new one replaces the old.
+
+Nobody edits it by hand. Verdicts come from **review mode** in the app (menu →
+Review mode, or open `/review/`). The queue there lists what needs a person,
+most severe first, and filters by status, severity, kind of fact, book, or a
+search, grouped by severity, kind, book, or the person, place or event it's
+about; the filters stay in the link, so a view can be shared. A reviewer marks
+facts Right, Wrong, or Not
+sure, with an optional note, and the app keeps them in the browser until they're
+submitted together as a pre-filled GitHub issue (label `review`). A submission
+must fit in one link, so the app stops taking verdicts at about 100 (about 50 with notes) and asks for
+a submit first.
+
+To apply a submission:
+
+- **The workflow:** add the `apply` label to the issue (only the repository
+  owner's label counts). `.github/workflows/review-apply.yml` runs the script
+  below and opens a pull request, or says on the issue why nothing applied.
+- **By hand, or by an agent:** save the issue's body to a file and run
+  `npm run review:apply -- --by <login> --on <date> --issue <n> --body-file body.md`.
+
+The script only reads the issue's ```` ```review ```` block. A verdict on a fact
+whose data has changed since, or that's gone, is skipped and listed, never
+moved onto data the reviewer didn't see.
+
+Plain-text reports (a "Report a problem" link on every fact and page, label
+`report`) aren't parsed: someone reads them and makes the change.
 
 ## When the data changes
 
@@ -102,4 +151,5 @@ person.
    or any it looks up with `npm run verse -- <keys>` (e.g. `2kgs.25.8-10`).
 3. Missing facts it finds (a marriage, someone at an event) go into
    `data/overrides/`, then back through steps 1–2.
-4. An editor reviews the PR and sets `editor`.
+4. An editor reviews the PR. Verdicts on single facts come in through review
+   mode (see reviews.json above).

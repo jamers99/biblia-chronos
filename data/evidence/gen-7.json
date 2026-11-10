@@ -53,7 +53,7 @@
     "member-of:reuben_2429>tribe-of-reuben@3c1b21": {"refs":["gen.29.32"],"kind":"reading","note":"Son of Jacob (29:32). Membership in the tribe comes from later books, outside this passage."},
     "member-of:simeon_2741>tribe-of-simeon@282c76": {"refs":["gen.29.33"],"kind":"reading","note":"Son of Jacob (29:33). Membership in the tribe comes from later books, outside this passage."},
     "member-of:zebulun_3002>tribe-of-zebulun@eadf9d": {"refs":["gen.30.20"],"kind":"reading","note":"Son of Jacob (30:20). Membership in the tribe comes from later books, outside this passage."},
-    "occurred-at:birth-of-joseph>egypt_362@363b86": {"refs":["gen.30.25","gen.31.18"],"kind":"wrong","note":"Joseph is born in Laban's household before Jacob leaves Padanaram (30:25; 31:18). Egypt is where he dies (50:26)."},
+    "occurred-at:birth-of-joseph>egypt_362@363b86": {"refs":["gen.30.25","gen.31.18"],"kind":"wrong","note":"Joseph is born in Laban's household before Jacob leaves Padanaram (30:25; 31:18). Egypt is where he dies (50:26).","severity":"medium"},
     "parent-of:israel_682>dinah_1012@0514bf": {"refs":["gen.34.1"],"note":"Dinah is the daughter Leah 'bare unto Jacob' (34:1)."},
     "parent-of:israel_682>naphtali_2149@331917": {"refs":["gen.30.7","gen.30.8"],"note":"Bilhah 'bare Jacob a second son' (30:7); Rachel names him Naphtali (30:8)."},
     "parent-of:laban_1803>leah_1813@78cec7": {"refs":["gen.29.16"],"note":"'Laban had two daughters: the name of the elder was Leah' (29:16)."},

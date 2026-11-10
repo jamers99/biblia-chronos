@@ -8,7 +8,9 @@ import "../styles/global.css"
 import ThemeToggle from "../components/ThemeToggle.astro"
 import Layers from "../components/Layers.astro"
 import SiteSearch from "../components/SiteSearch.astro"
+import ReviewMode from "../components/ReviewMode.astro"
 import { url } from "../lib/url.ts"
+import { REPORT, REPO } from "../lib/review.ts"
 
 interface Props {
   title: string
@@ -60,6 +62,9 @@ const current = (href: string) => (isCurrent(href) ? "page" : undefined)
       applyTheme(localStorage.getItem("theme") ?? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"))
       // Draft records are shown unless hidden from the menu.
       document.documentElement.dataset.drafts = localStorage.getItem("drafts") ?? "shown"
+      // Review mode (ReviewMode.astro) is off unless turned on, from the menu
+      // or by opening the review queue.
+      document.documentElement.dataset.review = localStorage.getItem("review") ?? "off"
     </script>
     {
       immersive && (
@@ -104,13 +109,19 @@ const current = (href: string) => (isCurrent(href) ? "page" : undefined)
           </nav>
           <a href={url("/about/")} aria-current={current("/about/")}>About & sources</a>
           <a href={url("/about/#citing-sources")}>Citing sources</a>
-          <a href="https://github.com/jamers99/biblia-chronos" target="_blank" rel="noopener">Source code on GitHub</a>
+          <a class="report" href={REPORT} target="_blank" rel="noopener">Report a problem</a>
+          <a href={REPO} target="_blank" rel="noopener">Source code on GitHub</a>
           <hr />
           <ThemeToggle />
           <label class="row">
             <input type="checkbox" class="drafts-toggle" checked />
             Show draft records
           </label>
+          <label class="row">
+            <input type="checkbox" class="review-toggle" />
+            Review mode
+          </label>
+          <a href={url("/review/")} class="review-link" aria-current={current("/review/")}>Review queue</a>
           <p>
             Data: <a href="https://github.com/robertrouse/theographic-bible-metadata" target="_blank" rel="noopener">Theographic</a> (CC BY-SA 4.0)
           </p>
@@ -131,10 +142,12 @@ const current = (href: string) => (isCurrent(href) ? "page" : undefined)
       )
     }
     <Layers />
+    <ReviewMode />
     <script>
       // Offline support for the installed app. Production only: in dev it
       // would serve stale pages.
       import { url } from "../lib/url.ts"
+      import { reportUrl } from "../lib/review.ts"
       if (import.meta.env.PROD && "serviceWorker" in navigator) navigator.serviceWorker.register(url("/sw.js"))
 
       // The menu closes on a click outside it, on Esc, and once you pick
@@ -151,15 +164,33 @@ const current = (href: string) => (isCurrent(href) ? "page" : undefined)
         menu.querySelector("summary")!.focus()
       })
 
-      // Draft records: a site-wide setting, remembered. Islands that show
-      // records (the timeline) listen for the "drafts" event.
-      const drafts = menu.querySelector<HTMLInputElement>(".drafts-toggle")!
-      drafts.checked = document.documentElement.dataset.drafts !== "hidden"
-      drafts.addEventListener("change", () => {
-        const value = drafts.checked ? "shown" : "hidden"
-        document.documentElement.dataset.drafts = value
-        localStorage.setItem("drafts", value)
-        dispatchEvent(new CustomEvent("drafts", { detail: drafts.checked }))
+      // The menu's settings, site-wide and remembered: draft records (the
+      // timeline listens for "drafts") and review mode (ReviewMode.astro
+      // listens for "review"). Each is a checkbox, a data attribute on <html>,
+      // and its two values.
+      for (const [name, yes, no] of [
+        ["drafts", "shown", "hidden"],
+        ["review", "on", "off"],
+      ] as const) {
+        const box = menu.querySelector<HTMLInputElement>(`.${name}-toggle`)!
+        box.checked = document.documentElement.dataset[name] === yes
+        box.addEventListener("change", () => {
+          document.documentElement.dataset[name] = box.checked ? yes : no
+          try {
+            localStorage.setItem(name, box.checked ? yes : no)
+          } catch {}
+          dispatchEvent(new CustomEvent(name, { detail: box.checked }))
+        })
+      }
+
+      // "Report a problem" links fill in the page (the panel's, if it's in
+      // one) and the fact when clicked; until then they're the bare template.
+      document.addEventListener("click", (e) => {
+        const a = (e.target as Element).closest<HTMLAnchorElement>("a.report")
+        if (!a) return
+        const page = new URL(a.closest<HTMLElement>(".layer")?.dataset.href ?? location.pathname, location.origin).href
+        const fact = a.dataset.fact
+        a.href = reportUrl({ title: a.dataset.title ?? (fact ? `Problem with ${fact.slice(0, fact.lastIndexOf("@"))}` : "Problem: "), page, fact })
       })
     </script>
   </body>
@@ -295,6 +326,10 @@ const current = (href: string) => (isCurrent(href) ? "page" : undefined)
   .sheet .menu-indexes a:hover,
   .sheet :global(.row:hover) {
     background: var(--wash);
+  }
+  /* The queue's link shows only while review mode is on. */
+  :global(html:not([data-review="on"])) .review-link {
+    display: none;
   }
   .sheet a[aria-current="page"] {
     font-weight: 600;

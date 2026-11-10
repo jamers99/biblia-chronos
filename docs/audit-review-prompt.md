@@ -42,6 +42,27 @@ For EVERY fact key, decide one of these:
    with kind "unsupported", no refs, and a note saying what no verse says
    (e.g. "No verse places Philip at Tyre.").
 
+Every "wrong" and "unsupported" entry also gets a **"severity"**: how much it
+matters to a reader if the data stays as it is, judged by what they'd come away
+believing:
+
+- **"high"**: it misleads about who someone is or what happened, in a way a
+  reader would likely repeat. A wrong parent, child or spouse; two people
+  merged into one record, or one person split in two; someone shown acting in
+  an event they weren't part of, where it changes the story; a date, age or
+  length of life clearly against the text. For "unsupported": the claim, if
+  false, adds something significant to Scripture's account.
+- **"medium"**: a real error in a detail that doesn't change the story. An
+  event placed at the wrong place, or at every stop of a journey; a person
+  linked to a place they didn't go; a place within the wrong region; the wrong
+  tribe or group; two different places treated as one.
+- **"low"**: a technicality or near miss most readers wouldn't notice. A ship's
+  port of origin or a place passed by counted as a visit; a spelling variant or
+  nearby place treated as the same; off by about a year from a counting
+  convention.
+
+When torn between two levels, pick the lower one. Other kinds take no severity.
+
 Rules:
 
 - **Read the scene as a whole.** When nearby verses plainly set the place
@@ -70,20 +91,25 @@ Rules:
 
 Write the result to /home/user/biblia-chronos/data/evidence/`<name>`.json, in
 exactly this shape (valid JSON, no comments). Omit "kind" when it is "verse",
-add no other fields, and edit no other file:
+give "severity" only with "wrong" and "unsupported", add no other fields, and
+edit no other file:
 
 ```json
 {
   "passage": "<passage>",
   "ai": { "model": "haiku", "on": "<today, YYYY-MM-DD>" },
   "agreed": ["...keys..."],
-  "facts": { "<key>": { "refs": ["gen.25.19"], "note": "...", "kind": "reading" } }
+  "facts": {
+    "<key>": { "refs": ["gen.25.19"], "note": "...", "kind": "reading" },
+    "<key>": { "refs": ["acts.16.8"], "note": "...", "kind": "wrong", "severity": "medium" }
+  }
 }
 ```
 
 Then, as your final answer, report:
 (a) counts: agreed, and written entries by kind;
-(b) every fact marked "wrong", "reading" or "unsupported", with a one-line reason;
+(b) every fact marked "wrong", "reading" or "unsupported", with a one-line reason
+    (and the severity, for "wrong" and "unsupported");
 (c) missing facts: things the passage clearly states about these people
     that aren't in the fact list (a parent, a marriage, someone who takes
     part in a listed event), with the verse for each.

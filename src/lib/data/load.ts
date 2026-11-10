@@ -3,7 +3,7 @@
 // data/seed/ directly — none of this ships to the browser. Islands get the
 // small slices they need as props.
 
-import type { Person, Place, Event, PeopleGroup, Period, Kingdom, Book, Edge, EvidenceBatch, Source } from "./schema.ts"
+import type { Person, Place, Event, PeopleGroup, Period, Kingdom, Book, Edge, EvidenceBatch, Reviews, Source } from "./schema.ts"
 import { mergeEntities, mergeEdges } from "./merge.ts"
 import { createGraph } from "./graph.ts"
 import { kingdomTrack } from "../kingdoms.ts"
@@ -17,6 +17,7 @@ import peopleGroupsData from "../../../data/seed/peopleGroups.json"
 import booksData from "../../../data/seed/books.json"
 import edgesData from "../../../data/seed/edges.json"
 import sourcesData from "../../../data/sources.json"
+import reviewsData from "../../../data/reviews.json"
 
 // Hand-authored corrections layered on top of seed (overrides win, by id).
 // The directory may be empty or absent — the glob simply yields nothing then.
@@ -57,6 +58,9 @@ const sourceById = new Map(sources.map((s) => [s.id, s]))
 
 export const source = (id: string): Source | undefined => sourceById.get(id)
 
+// One record by id, of any kind.
+export const record = (id: string): Entity | undefined => byId.get(id)
+
 // Resolve ids to records of one kind, dropping any that don't resolve.
 export function resolve<K extends Entity["kind"]>(ids: string[], kind: K) {
   return ids
@@ -82,10 +86,14 @@ const evidence = collectEvidence(
   enumerateFacts({ people, places, events, edges, periods, kingdoms }),
   Object.entries(evidenceFiles).find(([path]) => isMatches(path))?.[1] as MatchEvidence | undefined,
   Object.entries(evidenceFiles).filter(([path]) => !isMatches(path)).map(([, batch]) => batch as EvidenceBatch),
+  reviewsData as Reviews, // editors' verdicts, from review mode (data/reviews.json)
 )
 const evidenceByRecord = new Map<string, FactEvidence[]>()
 for (const ev of evidence.values())
   for (const r of ev.records) evidenceByRecord.set(r, [...(evidenceByRecord.get(r) ?? []), ev])
+
+// Every fact and what's known about it, for the review queue.
+export const allEvidence = () => evidence
 
 // What's known about one fact, by id ("parent-of:abraham_58>isaac_616").
 export const evidenceFor = (factId: string): FactEvidence | undefined => evidence.get(factId)

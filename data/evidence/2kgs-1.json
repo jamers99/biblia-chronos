@@ -67,7 +67,7 @@
     "parent-of:jezebel_1605>joram_804@a2f299": {"refs":["2kgs.9.22"],"note":"Jehu tells Joram 'thy mother Jezebel' (9.22)."},
     "parent-of:rechab_2403>jonadab_799@0053a1": {"refs":["2kgs.10.15"],"note":"'Jehonadab the son of Rechab' (10.15). The spelling Jonadab is a reading.","kind":"reading"},
     "parent-of:shimeath_2683>zabad_1746@85f03d": {"refs":["2kgs.12.21"],"note":"12.21 names Jozachar, son of Shimeath. The name Zabad is from outside this passage.","kind":"reading"},
-    "parent-of:shimrith_2724>jehozabad_812@6735b8": {"refs":["2kgs.12.21"],"note":"12.21 says Jehozabad is 'the son of Shomer'. Shimrith is not named as his parent here.","kind":"wrong"},
+    "parent-of:shimrith_2724>jehozabad_812@6735b8": {"refs":["2kgs.12.21"],"note":"12.21 says Jehozabad is 'the son of Shomer'. Shimrith is not named as his parent here.","kind":"wrong","severity":"high"},
     "part-of:sur_1117>jerusalem_636@e15ae9": {"refs":["2kgs.11.6"],"note":"The gate of Sur is one of the guard posts for the king's house and the LORD's house (11.5-7). Jerusalem is not named in the text.","kind":"reading"},
     "participated-in:athaliah_359>reign-of-athaliah@b48f31": {"refs":["2kgs.11.3"],"note":"Athaliah did reign over the land (11.3). The matched 11.1 shows her killing the royal seed, not her reign."},
     "participated-in:elisha_1153>prophecies-of-elisha@6f1d73": {"refs":["2kgs.3.16"],"note":"Elisha speaks 'Thus saith the LORD' to the kings (3.16). The matched 2.15 does not show a prophecy."},
