@@ -12,6 +12,7 @@
 
 <script>
   import { entityPath } from "../lib/url.ts"
+  import "../lib/how-popover.ts" // "How we know" popups, in the page and in panels
 
   // Pages as HTML text (cheaper to keep than parsed documents)
   const pages = new Map<string, Promise<string>>()
