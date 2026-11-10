@@ -12,7 +12,7 @@
 // The fact's key (id@hash) ties the verdict to the data the reviewer saw. The
 // rest of the body is for people and is ignored.
 
-export const REPO = "jamers99/biblia-chronos"
+export const REPO = "https://github.com/jamers99/biblia-chronos"
 export const VERDICTS = ["right", "wrong", "unsure"] as const
 export type Verdict = (typeof VERDICTS)[number]
 export type Pending = Record<string, { verdict: Verdict; note?: string }>
@@ -24,10 +24,26 @@ export const URL_MAX = 7000
 
 const KEY = /^[a-z-]+:[^\s@`]+@[0-9a-f]{6}$/
 const newIssue = (params: Record<string, string>) =>
-  `https://github.com/${REPO}/issues/new?${new URLSearchParams(params).toString().replace(/\+/g, "%20")}`
+  `${REPO}/issues/new?${new URLSearchParams(params).toString().replace(/\+/g, "%20")}`
+
+// Verdicts waiting to be submitted, kept in this browser.
+const PENDING = "review-pending"
+export function readPending(): Pending {
+  try {
+    return JSON.parse(localStorage.getItem(PENDING) ?? "{}")
+  } catch {
+    return {}
+  }
+}
+export function writePending(p: Pending) {
+  try {
+    localStorage.setItem(PENDING, JSON.stringify(p))
+  } catch {}
+}
+export const isPendingKey = (key: string | null) => key === PENDING
 
 // One line of a note: no line breaks or backticks, which would end the block.
-export const cleanNote = (note: string) => note.replace(/[\r\n`]+/g, " ").replace(/\s+/g, " ").trim().slice(0, NOTE_MAX)
+const cleanNote = (note: string) => note.replace(/[\r\n`]+/g, " ").replace(/\s+/g, " ").trim().slice(0, NOTE_MAX)
 
 export function submissionBody(pending: Pending): string {
   const lines = Object.entries(pending)
@@ -51,7 +67,7 @@ export function submissionUrl(pending: Pending): string {
 // Whether a submission still fits in one link.
 export const fits = (pending: Pending) => submissionUrl(pending).length <= URL_MAX
 
-export type Parsed = { reviews: { key: string; verdict: Verdict; note?: string }[]; errors: string[] }
+type Parsed = { reviews: { key: string; verdict: Verdict; note?: string }[]; errors: string[] }
 
 export function parseSubmission(body: string): Parsed {
   const out: Parsed = { reviews: [], errors: [] }
@@ -75,6 +91,9 @@ export function parseSubmission(body: string): Parsed {
 }
 
 // "Report a problem": a plain issue, described in the reporter's own words.
+// Links start as the bare template, and get the page and fact filled in when
+// clicked (Page.astro), so pages don't carry a long link per fact.
+export const REPORT = newIssue({ template: "report.md" })
 export function reportUrl(about: { title: string; page?: string; fact?: string }): string {
   const body = [
     ...(about.page ? [`Page: ${about.page}`] : []),

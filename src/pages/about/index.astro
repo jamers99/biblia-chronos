@@ -3,9 +3,10 @@ import Page from "../../layouts/Page.astro"
 import { people, periods, sources } from "../../lib/data/load.ts"
 import { formatEstimate } from "../../lib/format.ts"
 import { url } from "../../lib/url.ts"
+import { REPO } from "../../lib/review.ts"
 
 const drafts = people.filter((p) => p.status === "draft").length
-const repo = "https://github.com/jamers99/biblia-chronos"
+
 ---
 
 <Page title="About" description="What Biblia Chronos is, where its data comes from, and how its dates work.">
@@ -104,7 +105,7 @@ const repo = "https://github.com/jamers99/biblia-chronos"
     <p>
       Found a wrong date, a misplaced city, or a missing link between people? Corrections live as small files in the
       repository's <code>data/overrides/</code> folder, so a fix is an ordinary pull request. See the
-      <a href={repo}>project on GitHub</a>.
+      <a href={REPO}>project on GitHub</a>.
     </p>
     <p><a href={url("/")}>Back to the timeline →</a></p>
   </div>

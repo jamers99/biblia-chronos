@@ -4,7 +4,7 @@
 // facts by layer, kept apart so an AI check never counts as a person's
 // (docs/data-audit-plan.md).
 import { source, tallyOf } from "../lib/data/load.ts"
-import { reportUrl } from "../lib/review.ts"
+import { REPORT } from "../lib/review.ts"
 
 interface Props {
   record: { id: string; source: string; description?: string }
@@ -13,8 +13,6 @@ const { record } = Astro.props
 const s = source(record.source)
 const eastons = record.description && record.source === "theographic" ? source("eastons") : undefined
 const t = tallyOf(record.id)
-const page = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.pathname
-const report = reportUrl({ title: `Problem on the page for ${record.id}`, page })
 const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? "" : "s"}`
 ---
 
@@ -42,7 +40,7 @@ const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? "" : "s"}`
     )
   }
   <p class="report">
-    Something wrong or missing? <a href={report} target="_blank" rel="noopener">Report a problem</a> in your own words.
+    Something wrong or missing? <a class="report" href={REPORT} data-title={`Problem on the page for ${record.id}`} target="_blank" rel="noopener">Report a problem</a> in your own words.
   </p>
 </section>
 

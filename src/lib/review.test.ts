@@ -26,7 +26,7 @@ test("parsing ignores text around the block and reports bad lines", () => {
 
 test("links go to the repository's templates and stay under the length limit", () => {
   const link = new URL(submissionUrl(pending))
-  assert.equal(link.pathname, "/jamers99/biblia-chronos/issues/new")
+  assert.equal(link.href.split("?")[0], "https://github.com/jamers99/biblia-chronos/issues/new")
   assert.equal(link.searchParams.get("template"), "review.md")
   assert.equal(link.searchParams.get("title"), "Review: 2 facts")
   assert.ok(fits(pending))

@@ -1,9 +1,10 @@
 <script lang="ts">
   // The review queue: every fact that needs a person (/review/queue.json),
   // filtered, grouped, and most severe first (src/lib/review-filter.ts). The
-  // filters live in the query string, so a view can be shared. Each fact gets
-  // an empty .review-slot that ReviewMode.astro fills with its verdict buttons.
-  import { onMount, tick } from "svelte"
+  // filters live in the query string, so a view can be shared. Each fact holds
+  // a <review-controls> element (ReviewMode.astro) for its verdict buttons.
+  import { onMount } from "svelte"
+  import { readPending } from "../lib/review.ts"
   import {
     DEFAULTS,
     GROUPS,
@@ -27,15 +28,9 @@
   let failed = $state(false)
   let f = $state<Filters>({ ...DEFAULTS })
   let pending = $state(new Set<string>())
-  let shown = $state<Record<string, number>>({})
-
-  const readPending = () => {
-    try {
-      return new Set(Object.keys(JSON.parse(localStorage.getItem("review-pending") ?? "{}")))
-    } catch {
-      return new Set<string>()
-    }
-  }
+  let shown = $state<Record<string, number>>({}) // facts shown per group, past the first PAGE
+  let opened = $state<Record<string, boolean>>({}) // groups opened or closed by hand
+  const marked = () => new Set(Object.keys(readPending()))
 
   const visible = $derived(data ? filterItems(data.items, f, pending) : [])
   const counts = $derived(data ? facets(data.items, f, pending) : undefined)
@@ -51,20 +46,13 @@
   function update(change: Partial<Filters>) {
     f = { ...f, ...change }
     shown = {}
-    pending = readPending()
+    pending = marked()
     history.replaceState(history.state, "", location.pathname + toQuery(f) + location.hash)
   }
 
-  // New items on screen need their buttons.
-  $effect(() => {
-    void groups
-    void shown
-    tick().then(() => dispatchEvent(new CustomEvent("review-attach")))
-  })
-
   onMount(() => {
     f = fromQuery(location.search)
-    pending = readPending()
+    pending = marked()
     fetch(src)
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(r.statusText))))
       .then((d: QueueData) => (data = d))
@@ -83,7 +71,7 @@
       {#each STATUSES as [s, label]}
         <button
           type="button"
-          class="chip"
+          class="pill chip"
           aria-pressed={f.status.includes(s)}
           onclick={() => update({ status: toggle<Status>(f.status, s) })}>{label} <span class="n">{counts?.status.get(s) ?? 0}</span></button
         >
@@ -94,7 +82,7 @@
       {#each SEVERITIES as [s, label]}
         <button
           type="button"
-          class="chip sev-{s}"
+          class="pill chip"
           aria-pressed={f.severity.includes(s)}
           onclick={() => update({ severity: toggle<Severity>(f.severity, s) })}>{label} <span class="n">{counts?.severity.get(s) ?? 0}</span></button
         >
@@ -103,7 +91,7 @@
     <div class="row">
       <label>
         <span>Kind</span>
-        <select value={f.kind} onchange={(e) => update({ kind: e.currentTarget.value })}>
+        <select class="field" value={f.kind} onchange={(e) => update({ kind: e.currentTarget.value })}>
           <option value="">All kinds</option>
           {#each data.kinds as [k, label]}
             <option value={k} disabled={!counts?.kind.get(k)}>{label} ({counts?.kind.get(k) ?? 0})</option>
@@ -112,7 +100,7 @@
       </label>
       <label>
         <span>Book</span>
-        <select value={f.book} onchange={(e) => update({ book: e.currentTarget.value })}>
+        <select class="field" value={f.book} onchange={(e) => update({ book: e.currentTarget.value })}>
           <option value="">All books</option>
           {#each data.books as [b, label]}
             <option value={b} disabled={!counts?.book.get(b)}>{label} ({counts?.book.get(b) ?? 0})</option>
@@ -121,7 +109,7 @@
       </label>
       <label>
         <span>Group by</span>
-        <select value={f.group} onchange={(e) => update({ group: e.currentTarget.value as Filters["group"] })}>
+        <select class="field" value={f.group} onchange={(e) => update({ group: e.currentTarget.value as Filters["group"] })}>
           {#each GROUPS as [g, label]}
             <option value={g}>{label}</option>
           {/each}
@@ -131,7 +119,7 @@
     <div class="row">
       <label class="search">
         <span>Search</span>
-        <input type="search" value={f.q} placeholder="A name, a verse, a word in the note" oninput={(e) => update({ q: e.currentTarget.value })} />
+        <input type="search" class="field" value={f.q} placeholder="A name, a verse, a word in the note" oninput={(e) => update({ q: e.currentTarget.value })} />
       </label>
       <label class="check">
         <input type="checkbox" checked={f.hide} onchange={(e) => update({ hide: e.currentTarget.checked })} />
@@ -144,17 +132,19 @@
     </p>
   </form>
 
-  <!-- The first few groups start open; the rest wait to be opened. -->
+  <!-- The first few groups start open; the rest, and their facts, wait to be opened. -->
   {#each groups as g, gi (g.id)}
-    <details class="group" open={gi < 3}>
+    {@const open = !g.title || (opened[g.id] ?? gi < 3)}
+    <details class="group" {open} ontoggle={(e) => (opened = { ...opened, [g.id]: e.currentTarget.open })}>
       {#if g.title}
         <summary><h2>{g.title} <span class="n">{g.items.length}</span></h2></summary>
       {/if}
+      {#if open}
       <ol class="queue">
         {#each g.items.slice(0, shown[g.id] ?? PAGE) as it (it.key)}
           <li class="queue-item">
             <p class="tags">
-              {#if it.severity}<span class="tag sev-{it.severity}">{it.severity}</span>{/if}
+              {#if it.severity}<span class="tag sev-{it.severity}">{SEVERITIES.find(([s]) => s === it.severity)?.[1]}</span>{/if}
               <span class="tag">{STATUSES.find(([s]) => s === it.status)?.[1]}</span>
               {#if f.group !== "kind"}<span class="tag">{kindName.get(it.kind)}</span>{/if}
             </p>
@@ -167,12 +157,13 @@
               </p>
             {/if}
             {#if it.note}<p class="note">AI: {it.note}</p>{/if}
-            <div class="review-slot" data-key={it.key}></div>
+            <review-controls data-key={it.key}></review-controls>
           </li>
         {/each}
       </ol>
-      {#if g.items.length > (shown[g.id] ?? PAGE)}
-        <button type="button" class="more" onclick={() => (shown = { ...shown, [g.id]: (shown[g.id] ?? PAGE) + PAGE * 4 })}>
+      {/if}
+      {#if open && g.items.length > (shown[g.id] ?? PAGE)}
+        <button type="button" class="pill more" onclick={() => (shown = { ...shown, [g.id]: (shown[g.id] ?? PAGE) + PAGE * 4 })}>
           Show more ({(g.items.length - (shown[g.id] ?? PAGE)).toLocaleString()} left)
         </button>
       {/if}
@@ -215,15 +206,6 @@
     margin-right: 0.3rem;
     color: var(--ink-3);
   }
-  .chip {
-    font: inherit;
-    padding: 0.3rem 0.75rem;
-    border: 1px solid var(--rule);
-    border-radius: 999px;
-    background: var(--paper);
-    color: var(--ink);
-    cursor: pointer;
-  }
   .chip[aria-pressed="true"] {
     background: var(--ink);
     border-color: var(--ink);
@@ -246,16 +228,8 @@
   .row label > span {
     min-width: 0;
   }
-  select,
-  input[type="search"] {
-    font: inherit;
-    font-size: 16px; /* no zoom on focus in iOS */
+  .field {
     max-width: 100%;
-    padding: 0.3rem 0.5rem;
-    color: var(--ink);
-    background: var(--paper);
-    border: 1px solid var(--rule);
-    border-radius: 8px;
   }
   .search {
     flex: 1 1 16rem;
@@ -323,15 +297,10 @@
     border-color: var(--accent);
     background: var(--accent);
     color: var(--paper);
-    text-transform: capitalize;
   }
   .tag.sev-medium {
     border-color: var(--accent);
     color: var(--accent);
-    text-transform: capitalize;
-  }
-  .tag.sev-low {
-    text-transform: capitalize;
   }
   .claim {
     font-weight: 600;
@@ -343,16 +312,6 @@
   }
   .more {
     margin-top: 0.75rem;
-    font: inherit;
-    padding: 0.4rem 0.9rem;
-    border: 1px solid var(--rule);
-    border-radius: 999px;
-    background: var(--surface);
-    color: var(--ink);
-    cursor: pointer;
-  }
-  .muted {
-    color: var(--ink-3);
   }
   /* Phones: each label above its options. */
   @media (max-width: 560px) {
@@ -375,8 +334,7 @@
       flex: 1 1 8rem;
       min-width: 0;
     }
-    .row select,
-    .row input[type="search"] {
+    .row .field {
       width: 100%;
       min-width: 0;
     }

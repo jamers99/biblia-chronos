@@ -11,13 +11,13 @@
 // verdict on a fact replaces an earlier one. Prints a Markdown summary (the
 // workflow uses it as the pull request's body); exits 1 if nothing applied.
 
-import { existsSync, readFileSync, writeFileSync } from "node:fs"
+import { readFileSync, writeFileSync } from "node:fs"
 import { join } from "node:path"
 import { parseArgs } from "node:util"
 import { Reviews, type Review } from "../src/lib/data/schema.ts"
 import { enumerateFacts, factId } from "../src/lib/evidence.ts"
 import { parseSubmission } from "../src/lib/review.ts"
-import { loadData, root } from "./data.ts"
+import { loadData, readJson, root } from "./data.ts"
 
 const { values } = parseArgs({
   options: { by: { type: "string" }, on: { type: "string" }, issue: { type: "string" }, "body-file": { type: "string" } },
@@ -36,8 +36,7 @@ const body = values["body-file"] ? readFileSync(values["body-file"], "utf8") : r
 
 const data = loadData()
 const current = new Map(enumerateFacts(data).map((f) => [f.id, f.key]))
-const path = join(root, "data", "reviews.json")
-const reviews = Reviews.parse(existsSync(path) ? JSON.parse(readFileSync(path, "utf8")) : {})
+const reviews = Reviews.parse(readJson("data/reviews.json"))
 
 const { reviews: submitted, errors } = parseSubmission(body)
 const applied: string[] = []
@@ -55,11 +54,10 @@ for (const { key, verdict, note } of submitted) {
   applied.push(`${verdict} \`${key}\`${note ? `: ${note}` : ""}`)
 }
 
+// One verdict per line, so the file's diff stays short.
 if (applied.length) {
-  const lines = Object.keys(reviews)
-    .sort()
-    .map((k) => `  ${JSON.stringify(k)}: ${JSON.stringify(reviews[k])}`)
-  writeFileSync(path, lines.length ? `{\n${lines.join(",\n")}\n}\n` : "{}\n")
+  const lines = Object.keys(reviews).sort().map((k) => `  ${JSON.stringify(k)}: ${JSON.stringify(reviews[k])}`)
+  writeFileSync(join(root, "data", "reviews.json"), `{\n${lines.join(",\n")}\n}\n`)
 }
 
 const list = (items: string[]) => items.map((s) => `- ${s}`)

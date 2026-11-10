@@ -6,7 +6,7 @@
 import { books, evidenceFor, source } from "../lib/data/load.ts"
 import { explain, hash } from "../lib/evidence.ts"
 import { verse } from "../lib/scripture.ts"
-import { reportUrl } from "../lib/review.ts"
+import { REPORT } from "../lib/review.ts"
 
 interface Props {
   fact: string // fact id, e.g. "parent-of:abraham_58>isaac_616"
@@ -18,8 +18,6 @@ const how = ev && explain(ev, (ref) => verse(ref, books)?.short ?? ref)
 const cited = (how?.refs ?? []).map((r) => verse(r, books)).filter((v) => v !== undefined)
 const sources = (ev?.entry?.sources ?? []).map(source).filter((s) => s !== undefined)
 const id = `how-${context}-${hash(fact)}`
-const page = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.pathname
-const report = ev && reportUrl({ title: `Problem with ${fact}`, page, fact: ev.key })
 const layers: [string, string | undefined, string][] = how
   ? [
       ["Text match", how.match, "None found"],
@@ -37,7 +35,7 @@ const layers: [string, string | undefined, string][] = how
       <button type="button" class:list={["how", how.state]} popovertarget={id} aria-label={`How we know: ${how.label}`}>
         {how.label}
       </button>
-      <div id={id} popover class="how-pop" data-key={ev!.key}>
+      <div id={id} popover class="how-pop">
         <p class="how-title">How we know</p>
         {cited.length > 0 && (
           <p class="how-refs">
@@ -62,9 +60,9 @@ const layers: [string, string | undefined, string][] = how
             </>
           ))}
         </dl>
-        {/* Review mode (ReviewMode.astro) adds its verdict buttons here. */}
+        <review-controls data-key={ev!.key} />
         <p class="how-report">
-          <a href={report} target="_blank" rel="noopener">Report a problem</a>
+          <a class="report" href={REPORT} data-fact={ev!.key} target="_blank" rel="noopener">Report a problem</a>
         </p>
       </div>
     </>

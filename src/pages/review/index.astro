@@ -3,13 +3,19 @@
 // the facts that need a person, filtered and grouped in the browser
 // (ReviewQueue.svelte, src/lib/review-filter.ts).
 import Page from "../../layouts/Page.astro"
-import ReviewOn from "../../components/ReviewOn.astro"
 import ReviewQueue from "../../components/ReviewQueue.svelte"
 import { url } from "../../lib/url.ts"
 ---
 
 <Page title="Review" description="Check the site's facts against Scripture, starting with the ones the AI flagged as most serious.">
-  <ReviewOn />
+  <script is:inline slot="head">
+    // Opening the queue turns review mode on (ReviewMode.astro); this runs
+    // before the page is drawn, so the menu and the bar start that way.
+    document.documentElement.dataset.review = "on"
+    try {
+      localStorage.setItem("review", "on")
+    } catch {}
+  </script>
   <h1>Review</h1>
   <div class="prose">
     <p>

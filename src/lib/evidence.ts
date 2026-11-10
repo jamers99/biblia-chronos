@@ -98,6 +98,45 @@ export function enumerateFacts(d: Data): Fact[] {
 
 export const factId = (key: string) => key.slice(0, key.lastIndexOf("@"))
 
+// --- A fact in words ----------------------------------------------------------
+
+// A fact as a sentence a reviewer can check, for the AI's batch file
+// (scripts/audit-batch.ts) and the review queue. Each record it names is left
+// as { id } for the caller to render, and `when` gives a date's words.
+export type Phrase = (string | { id: string })[]
+export type DateKind = "date" | "birth" | "death"
+export function describe(
+  f: Pick<Fact, "id" | "kind">,
+  d: { kingdoms: Pick<Kingdom, "id" | "name" | "reigns">[]; periods: Pick<Period, "id" | "lede">[] },
+  when: (id: string, kind: DateKind) => string,
+): Phrase {
+  const body = f.id.slice(f.id.indexOf(":") + 1)
+  const [a, b] = body.split(">").map((id) => ({ id }))
+  const reign = () => {
+    const [kingdom, event] = body.split("/")
+    const k = d.kingdoms.find((k) => k.id === kingdom)!
+    return { k, r: k.reigns.find((r) => r.event === event)! }
+  }
+  switch (f.kind) {
+    case "parent-of": return [a, " is a parent of ", b]
+    case "partner-of": return [a, " and ", b, " were married"]
+    case "member-of": return [a, " belongs to the group ", b]
+    case "participated-in": return [a, " took part in the event ", b]
+    case "occurred-at": return ["the event ", a, " happened at ", b]
+    case "visited": return [a, " was at (visited) ", b]
+    case "died-at": return [a, " died at ", b]
+    case "alias-of": return ["the place ", a, " is the same place as ", b]
+    case "part-of": return ["the place ", a, " is within ", b]
+    case "near": return ["the place ", a, " is near ", b]
+    case "date": return [{ id: body }, ` is dated ${when(body, "date")}`]
+    case "birth": return [{ id: body }, ` was born in ${when(body, "birth")}`]
+    case "death": return [{ id: body }, ` died in ${when(body, "death")}`]
+    case "house": { const { k, r } = reign(); return [`in ${k.name}, the reign `, { id: r.event }, ` belongs to the ruling house "${r.house}"`] }
+    case "note": { const { k, r } = reign(); return ["the note on ", { id: r.event }, ` in ${k.name}: "${r.note}"`] }
+    case "lede": return ["the summary of the era ", { id: body }, `: "${d.periods.find((p) => p.id === body)!.lede}"`]
+  }
+}
+
 // --- Evidence ----------------------------------------------------------------
 
 // The text match: what the scan found for each fact, the verse and the rule
@@ -111,6 +150,7 @@ export type MatchEvidence = {
 // Everything known about one fact, for the page that shows it.
 export type FactEvidence = {
   key: string
+  kind: FactKind
   records: string[] // the records whose pages show the fact
   match?: { ref: string | null; rule: string }
   ai?: { model: string; on: string; agreed: boolean }
@@ -123,7 +163,7 @@ export function collectEvidence(facts: Fact[], matches: MatchEvidence | undefine
   const byId = new Map<string, FactEvidence>()
   for (const f of facts) {
     const s = matches?.facts[f.key]
-    byId.set(f.id, { key: f.key, records: f.records, ...(s && s.length ? { match: { ref: s[0], rule: s[1] } } : {}) })
+    byId.set(f.id, { key: f.key, kind: f.kind, records: f.records, ...(s && s.length ? { match: { ref: s[0], rule: s[1] } } : {}) })
   }
   for (const b of batches) {
     const touch = (key: string, agreed: boolean, entry?: FactEvidence["entry"]) => {

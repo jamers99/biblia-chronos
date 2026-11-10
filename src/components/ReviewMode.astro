@@ -1,48 +1,35 @@
 ---
 // Review mode: verdicts on facts, kept in this browser until they're sent as
 // one pre-filled GitHub issue (see src/lib/review.ts). Turned on from the menu,
-// or by opening the review queue (/review/). While it's on, every "how we
-// know" popover and every item in the queue gets Right / Wrong / Not sure
-// buttons and a note, built here, so pages carry no extra markup when it's off.
-// It works in panels too: everything is delegated from the document.
+// or by opening the review queue (/review/).
+//
+// Anywhere a fact can be reviewed (a "how we know" popover, an item in the
+// queue) holds a <review-controls data-key="id@hash"> element, which draws its
+// own Right / Wrong / Not sure buttons and note. CSS shows them only while
+// review mode is on. Clicks are delegated from the document, so it works in
+// panels and in the queue's island alike.
 //
 // A submission has to fit in one link, so once the pending verdicts would make
 // it too long, the next one is turned away with a prompt to submit first.
+import { url } from "../lib/url.ts"
 ---
 
 <div class="review-bar" hidden>
-  <a class="rb-queue" href="/review/"><span class="wide">Review queue</span><span class="narrow">Queue</span></a>
+  <a class="rb-queue" href={url("/review/")}><span class="wide">Review queue</span><span class="narrow">Queue</span></a>
   <span class="rb-count" aria-live="polite"></span>
-  <button type="button" class="rb-submit">Submit<span class="wide"> on GitHub</span></button>
-  <button type="button" class="rb-done" hidden>Sent: clear them</button>
-  <button type="button" class="rb-clear">Clear</button>
+  <button type="button" class="pill rb-submit">Submit<span class="wide"> on GitHub</span></button>
+  <button type="button" class="pill rb-done" hidden>Sent: clear them</button>
+  <button type="button" class="pill rb-clear">Clear</button>
 </div>
 
 <script>
-  import { NOTE_MAX, fits, submissionUrl, type Pending, type Verdict } from "../lib/review.ts"
-  import { url } from "../lib/url.ts"
+  import { NOTE_MAX, fits, isPendingKey, readPending, submissionUrl, writePending, type Verdict } from "../lib/review.ts"
 
-  const STORE = "review-pending"
-  const read = (): Pending => {
-    try {
-      return JSON.parse(localStorage.getItem(STORE) ?? "{}")
-    } catch {
-      return {}
-    }
-  }
-  const write = (p: Pending) => {
-    try {
-      localStorage.setItem(STORE, JSON.stringify(p))
-    } catch {}
-  }
+  let pending = readPending()
   const on = () => document.documentElement.dataset.review === "on"
 
   const bar = document.querySelector<HTMLElement>(".review-bar")!
-  bar.querySelector<HTMLAnchorElement>(".rb-queue")!.href = url("/review/")
-  const count = bar.querySelector<HTMLElement>(".rb-count")!
-  const submit = bar.querySelector<HTMLButtonElement>(".rb-submit")!
-  const done = bar.querySelector<HTMLButtonElement>(".rb-done")!
-  const clear = bar.querySelector<HTMLButtonElement>(".rb-clear")!
+  const [count, submit, done, clear] = [".rb-count", ".rb-submit", ".rb-done", ".rb-clear"].map((s) => bar.querySelector<HTMLElement>(s)!)
 
   const LABELS: [Verdict, string][] = [
     ["right", "Right"],
@@ -50,77 +37,65 @@
     ["unsure", "Not sure"],
   ]
 
-  // The buttons and note for one fact, inside a popover or a queue item.
-  function controls(key: string) {
-    const el = document.createElement("div")
-    el.className = "review-controls"
-    el.dataset.key = key
-    el.innerHTML = `
-      <p class="rc-q">Is this right as the site shows it?</p>
-      <div class="rc-buttons" role="group" aria-label="Your verdict">
-        ${LABELS.map(([v, l]) => `<button type="button" data-verdict="${v}" aria-pressed="false">${l}</button>`).join("")}
-      </div>
-      <input type="text" class="rc-note" maxlength="${NOTE_MAX}" placeholder="Why? A verse helps (optional)" aria-label="Note" />
-      <p class="rc-msg" aria-live="polite"></p>`
-    return el
-  }
-
-  function show(el: HTMLElement, pending = read()) {
+  // Shows one fact's pending verdict, if any. A note typed before choosing a
+  // verdict stays in the field until a button takes it.
+  function show(el: HTMLElement) {
     const mine = pending[el.dataset.key!]
     for (const b of el.querySelectorAll<HTMLButtonElement>("[data-verdict]"))
       b.setAttribute("aria-pressed", String(mine?.verdict === b.dataset.verdict))
     const note = el.querySelector<HTMLInputElement>(".rc-note")!
-    // A note typed before any verdict stays put until a button takes it.
     if (mine && document.activeElement !== note) note.value = mine.note ?? ""
     el.closest(".queue-item")?.classList.toggle("pending", !!mine)
   }
 
-  // Popovers and queue items get their controls when review mode is on.
-  function attach(root: ParentNode = document) {
-    if (!on()) return
-    const slots = root.querySelectorAll<HTMLElement>(".how-pop[data-key], .review-slot[data-key]")
-    const pending = read()
-    for (const slot of slots) {
-      let el = slot.querySelector<HTMLElement>(":scope > .review-controls")
-      if (!el) {
-        el = controls(slot.dataset.key!)
-        const report = slot.querySelector(":scope > .how-report")
-        if (report) report.before(el)
-        else slot.append(el)
+  customElements.define(
+    "review-controls",
+    class extends HTMLElement {
+      connectedCallback() {
+        if (!this.firstChild)
+          this.innerHTML = `
+            <p class="rc-q">Is this right as the site shows it?</p>
+            <div class="rc-buttons" role="group" aria-label="Your verdict">
+              ${LABELS.map(([v, l]) => `<button type="button" class="pill" data-verdict="${v}" aria-pressed="false">${l}</button>`).join("")}
+            </div>
+            <input type="text" class="field rc-note" maxlength="${NOTE_MAX}" placeholder="Why? A verse helps (optional)" aria-label="Note" />
+            <p class="rc-msg" aria-live="polite"></p>`
+        show(this)
       }
-      show(el, pending)
-    }
-  }
+    },
+  )
 
-  function refresh() {
-    const pending = read()
+  function showBar() {
     const n = Object.keys(pending).length
     bar.hidden = !on()
     count.textContent = n ? `${n} to submit` : "Nothing to submit yet"
-    submit.disabled = clear.disabled = n === 0
-    for (const el of document.querySelectorAll<HTMLElement>(".review-controls")) show(el, pending)
+    ;(submit as HTMLButtonElement).disabled = (clear as HTMLButtonElement).disabled = n === 0
+  }
+  function refresh() {
+    pending = readPending()
+    showBar()
+    for (const el of document.querySelectorAll<HTMLElement>("review-controls")) show(el)
   }
 
   // Changes one fact's verdict, unless the submission would no longer fit.
-  function set(el: HTMLElement, change: (p: Pending) => void) {
-    const pending = read()
-    change(pending)
-    const msg = el.querySelector<HTMLElement>(".rc-msg")!
-    if (!fits(pending)) {
-      msg.textContent = "That's all one submission can hold. Submit these first, then carry on."
-      show(el)
-      return
+  function set(el: HTMLElement, change: (p: typeof pending) => void) {
+    const next = structuredClone(pending)
+    change(next)
+    const fit = fits(next)
+    el.querySelector(".rc-msg")!.textContent = fit ? "" : "That's all one submission can hold. Submit these first, then carry on."
+    if (fit) {
+      pending = next
+      writePending(pending)
+      done.hidden = true
+      showBar()
     }
-    msg.textContent = ""
-    write(pending)
-    done.hidden = true
-    refresh()
+    show(el)
   }
 
   document.addEventListener("click", (e) => {
-    const button = (e.target as Element).closest<HTMLButtonElement>(".review-controls [data-verdict]")
+    const button = (e.target as Element).closest<HTMLButtonElement>("review-controls [data-verdict]")
     if (!button) return
-    const el = button.closest<HTMLElement>(".review-controls")!
+    const el = button.closest<HTMLElement>("review-controls")!
     const key = el.dataset.key!
     const verdict = button.dataset.verdict as Verdict
     const note = el.querySelector<HTMLInputElement>(".rc-note")!.value.trim()
@@ -130,63 +105,65 @@
     })
   })
 
-  // A note is kept with its verdict. Typed before choosing one, it waits in
-  // the field until a button is pressed.
+  // A note is kept with its verdict, once there is one.
   document.addEventListener("change", (e) => {
-    const input = (e.target as Element).closest<HTMLInputElement>(".review-controls .rc-note")
-    if (!input) return
-    const el = input.closest<HTMLElement>(".review-controls")!
-    const key = el.dataset.key!
+    const input = (e.target as Element).closest<HTMLInputElement>("review-controls .rc-note")
+    const el = input?.closest<HTMLElement>("review-controls")
+    if (!input || !el || !pending[el.dataset.key!]) return
     const note = input.value.trim()
-    if (!read()[key]) return
     set(el, (p) => {
-      if (note) p[key].note = note
-      else delete p[key].note
+      if (note) p[el.dataset.key!].note = note
+      else delete p[el.dataset.key!].note
     })
   })
 
-  // Popovers open in pages and panels alike; fill each as it opens.
-  document.addEventListener(
-    "toggle",
-    (e) => {
-      const pop = e.target as HTMLElement
-      if (pop.matches?.(".how-pop[data-key]") && (e as ToggleEvent).newState === "open") attach(pop.parentNode!)
-    },
-    true,
-  )
-
   submit.addEventListener("click", () => {
-    window.open(submissionUrl(read()), "_blank", "noopener")
+    window.open(submissionUrl(pending), "_blank", "noopener")
     done.hidden = false
   })
-  done.addEventListener("click", () => {
-    write({})
+  const empty = () => {
+    writePending({})
     done.hidden = true
     refresh()
-  })
+  }
+  done.addEventListener("click", empty)
   clear.addEventListener("click", () => {
-    const n = Object.keys(read()).length
-    if (n && confirm(`Clear ${n} unsubmitted verdict${n === 1 ? "" : "s"}?`)) {
-      write({})
-      refresh()
-    }
+    const n = Object.keys(pending).length
+    if (n && confirm(`Clear ${n} unsubmitted verdict${n === 1 ? "" : "s"}?`)) empty()
   })
 
-  // The menu's switch, and other tabs, change the mode or the pending list.
-  addEventListener("review", () => {
-    if (!on()) for (const el of document.querySelectorAll(".review-controls")) el.remove()
-    attach()
-    refresh()
-  })
-  addEventListener("storage", (e) => e.key === STORE && refresh())
-  // The review queue renders as you filter; it asks for buttons on what's new.
-  addEventListener("review-attach", () => attach())
+  // The menu's switch, and other tabs.
+  addEventListener("review", showBar)
+  addEventListener("storage", (e) => isPendingKey(e.key) && refresh())
 
-  attach()
-  refresh()
+  showBar()
 </script>
 
 <style is:global>
+  /* Shared by review mode and the queue: a round button, and a text field. */
+  .pill {
+    font: inherit;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    background: var(--paper);
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .pill:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+  .field {
+    font: inherit;
+    font-size: 16px; /* no zoom on focus in iOS */
+    padding: 0.35rem 0.55rem;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+  }
+
   .review-bar {
     position: fixed;
     z-index: 45;
@@ -205,6 +182,10 @@
     box-shadow: 0 10px 30px rgb(40 30 15 / 0.18);
     font: 0.85rem/1.2 var(--sans);
     color: var(--ink-2);
+  }
+  .review-bar[hidden],
+  .review-bar .narrow {
+    display: none;
   }
   /* Phones: one row across the bottom, with shorter labels. */
   @media (max-width: 560px) {
@@ -226,46 +207,31 @@
       display: inline;
     }
   }
-  .review-bar .narrow {
-    display: none;
-  }
   /* Room at the end of a page, so the bar never hides the last fact. */
   html[data-review="on"] main.column {
     padding-bottom: 7rem;
   }
-  .review-bar[hidden] {
-    display: none;
-  }
   .review-bar a {
     color: var(--ink);
     font-weight: 600;
-  }
-  .review-bar button,
-  .review-controls button {
-    font: inherit;
-    padding: 0.3rem 0.7rem;
-    border: 1px solid var(--rule);
-    border-radius: 999px;
-    background: var(--paper);
-    color: var(--ink);
-    cursor: pointer;
   }
   .review-bar .rb-submit {
     background: var(--gold);
     border-color: var(--gold);
     color: var(--paper);
   }
-  .review-bar button:disabled {
-    opacity: 0.5;
-    cursor: default;
-  }
-  .review-controls {
+
+  review-controls {
+    display: block;
     margin-top: 0.75rem;
     padding-top: 0.65rem;
     border-top: 1px solid var(--rule);
     font: 0.85rem/1.4 var(--sans);
   }
-  .review-controls .rc-q {
+  html:not([data-review="on"]) review-controls {
+    display: none;
+  }
+  .rc-q {
     margin: 0 0 0.4rem;
     font-weight: 600;
   }
@@ -274,32 +240,24 @@
     flex-wrap: wrap;
     gap: 0.35rem;
   }
-  .review-controls [aria-pressed="true"][data-verdict="right"] {
-    background: var(--gold);
-    border-color: var(--gold);
+  review-controls [aria-pressed="true"] {
+    background: var(--verdict);
+    border-color: var(--verdict);
     color: var(--paper);
   }
-  .review-controls [aria-pressed="true"][data-verdict="wrong"] {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: var(--paper);
+  [data-verdict="right"] {
+    --verdict: var(--gold);
   }
-  .review-controls [aria-pressed="true"][data-verdict="unsure"] {
-    background: var(--ink-3);
-    border-color: var(--ink-3);
-    color: var(--paper);
+  [data-verdict="wrong"] {
+    --verdict: var(--accent);
+  }
+  [data-verdict="unsure"] {
+    --verdict: var(--ink-3);
   }
   .rc-note {
     box-sizing: border-box;
     width: 100%;
     margin-top: 0.45rem;
-    padding: 0.4rem 0.55rem;
-    font: inherit;
-    font-size: 16px; /* no zoom on focus in iOS */
-    color: var(--ink);
-    background: var(--paper);
-    border: 1px solid var(--rule);
-    border-radius: 8px;
   }
   .rc-msg {
     margin: 0.35rem 0 0;

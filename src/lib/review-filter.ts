@@ -1,14 +1,16 @@
 // The review queue's filters, groups and order (ReviewQueue.svelte), kept
 // pure so they're tested. The queue's data comes from
-// src/lib/data/review-queue.ts as /review/queue.json.
+// src/lib/data/review-queue.ts as /review/queue.json, already in order.
 
-export type Status = "flagged" | "no-verse" | "reading"
-export type Severity = "high" | "medium" | "low"
+import type { EvidenceBatch } from "./data/schema.ts"
+
+export type Status = "wrong" | "unsupported" | "reading" // a fact's state (src/lib/evidence.ts)
+export type Severity = NonNullable<NonNullable<EvidenceBatch["facts"]>[string]["severity"]>
 export type Part = string | { text: string; href?: string }
 export type QueueItem = {
   key: string // id@hash
   status: Status
-  severity?: Severity // for "flagged" and "no-verse"
+  severity?: Severity // for "wrong" and "unsupported"
   kind: string // parent-of, date, …
   claim: Part[]
   note?: string // the AI's
@@ -24,8 +26,8 @@ export type QueueData = {
 }
 
 export const STATUSES: [Status, string][] = [
-  ["flagged", "Flagged as wrong"],
-  ["no-verse", "No verse found"],
+  ["wrong", "Flagged as wrong"],
+  ["unsupported", "No verse found"],
   ["reading", "Readings"],
 ]
 export const SEVERITIES: [Severity, string][] = [
@@ -51,93 +53,96 @@ export type Filters = {
   group: Group
   hide: boolean // hide facts with a verdict waiting to be submitted
 }
-export const DEFAULTS: Filters = { status: ["flagged"], severity: [], kind: "", book: "", q: "", group: "severity", hide: false }
+export const DEFAULTS: Filters = { status: ["wrong"], severity: [], kind: "", book: "", q: "", group: "severity", hide: false }
 
-const textOf = (i: QueueItem) =>
-  [...i.claim.map((p) => (typeof p === "string" ? p : p.text)), i.note ?? "", ...i.refs.map((r) => r.label), i.subject.name]
-    .join(" ")
-    .toLowerCase()
-
-type Facet = keyof Pick<Filters, "status" | "severity" | "kind" | "book">
-// Whether an item passes every filter but `skip` (to count a facet's options).
-function passes(i: QueueItem, f: Filters, pending: Set<string>, skip?: Facet) {
-  if (skip !== "status" && !f.status.includes(i.status)) return false
-  if (skip !== "severity" && f.severity.length && !(i.severity && f.severity.includes(i.severity))) return false
-  if (skip !== "kind" && f.kind && i.kind !== f.kind) return false
-  if (skip !== "book" && f.book && i.book !== f.book) return false
-  if (f.hide && pending.has(i.key)) return false
-  if (f.q) {
-    const text = textOf(i)
-    if (!f.q.toLowerCase().split(/\s+/).filter(Boolean).every((w) => text.includes(w))) return false
-  }
-  return true
+// What a search looks through, worked out once per item.
+const texts = new WeakMap<QueueItem, string>()
+const textOf = (i: QueueItem) => {
+  let t = texts.get(i)
+  if (t === undefined)
+    texts.set(i, (t = [...i.claim.map((p) => (typeof p === "string" ? p : p.text)), i.note, ...i.refs.map((r) => r.label)].join(" ").toLowerCase()))
+  return t
 }
 
-export const filterItems = (items: QueueItem[], f: Filters, pending = new Set<string>()) =>
-  items.filter((i) => passes(i, f, pending))
+type Facet = "status" | "severity" | "kind" | "book"
+// The facets an item fails, and whether it fails anything else.
+function fails(i: QueueItem, f: Filters, words: string[], pending: Set<string>) {
+  const out: Facet[] = []
+  if (!f.status.includes(i.status)) out.push("status")
+  if (f.severity.length && !(i.severity && f.severity.includes(i.severity))) out.push("severity")
+  if (f.kind && i.kind !== f.kind) out.push("kind")
+  if (f.book && i.book !== f.book) out.push("book")
+  const other = (f.hide && pending.has(i.key)) || !words.every((w) => textOf(i).includes(w))
+  return { out, other }
+}
+const wordsOf = (q: string) => q.toLowerCase().split(/\s+/).filter(Boolean)
 
-// How many items each option of a facet would show, given the other filters.
+export function filterItems(items: QueueItem[], f: Filters, pending = new Set<string>()) {
+  const words = wordsOf(f.q)
+  return items.filter((i) => {
+    const { out, other } = fails(i, f, words, pending)
+    return !out.length && !other
+  })
+}
+
+// How many items each option of a facet would show, given the other filters:
+// an item counts toward a facet if it fails nothing else.
 export function facets(items: QueueItem[], f: Filters, pending = new Set<string>()) {
-  const count = (facet: Facet, value: (i: QueueItem) => string | undefined) => {
-    const out = new Map<string, number>()
-    for (const i of items) {
-      const v = value(i)
-      if (v !== undefined && passes(i, f, pending, facet)) out.set(v, (out.get(v) ?? 0) + 1)
+  const words = wordsOf(f.q)
+  const counts = { status: new Map<string, number>(), severity: new Map<string, number>(), kind: new Map<string, number>(), book: new Map<string, number>() }
+  for (const i of items) {
+    const { out, other } = fails(i, f, words, pending)
+    if (other || out.length > 1) continue
+    for (const facet of ["status", "severity", "kind", "book"] as const) {
+      const v = i[facet]
+      if (v !== undefined && (!out.length || out[0] === facet)) counts[facet].set(v, (counts[facet].get(v) ?? 0) + 1)
     }
-    return out
   }
-  return {
-    status: count("status", (i) => i.status),
-    severity: count("severity", (i) => i.severity),
-    kind: count("kind", (i) => i.kind),
-    book: count("book", (i) => i.book),
-  }
+  return counts
 }
-
-const SEVERITY_RANK: Record<string, number> = { high: 0, medium: 1, low: 2 }
-const STATUS_RANK: Record<Status, number> = { flagged: 0, "no-verse": 1, reading: 2 }
 
 // Most severe first; then flags before readings, then in Bible order, by kind.
 export function order(data: Pick<QueueData, "kinds" | "books">) {
-  const book = new Map(data.books.map(([id], n) => [id, n]))
-  const kind = new Map(data.kinds.map(([k], n) => [k, n]))
-  const at = (m: Map<string, number>, k?: string) => (k !== undefined && m.has(k) ? m.get(k)! : m.size)
+  const rank = (list: readonly (readonly [string, string])[]) => {
+    const at = new Map(list.map(([v], n) => [v, n]))
+    return (v?: string) => at.get(v ?? "") ?? list.length
+  }
+  const [severity, status, book, kind] = [rank(SEVERITIES), rank(STATUSES), rank(data.books), rank(data.kinds)]
   return (a: QueueItem, b: QueueItem) =>
-    (SEVERITY_RANK[a.severity ?? ""] ?? 3) - (SEVERITY_RANK[b.severity ?? ""] ?? 3) ||
-    STATUS_RANK[a.status] - STATUS_RANK[b.status] ||
-    at(book, a.book) - at(book, b.book) ||
-    at(kind, a.kind) - at(kind, b.kind) ||
+    severity(a.severity) - severity(b.severity) ||
+    status(a.status) - status(b.status) ||
+    book(a.book) - book(b.book) ||
+    kind(a.kind) - kind(b.kind) ||
     (a.key < b.key ? -1 : a.key > b.key ? 1 : 0)
 }
 
 export type ItemGroup = { id: string; title: string; items: QueueItem[] }
 
+// Groups of items, which arrive in order (see `order`). Groups follow their
+// first item, so severity, kind and book keep their own order; people and
+// places go biggest first.
 export function groupItems(items: QueueItem[], group: Group, data: Pick<QueueData, "kinds" | "books">): ItemGroup[] {
-  const sorted = [...items].sort(order(data))
-  if (group === "none") return [{ id: "all", title: "", items: sorted }]
+  if (group === "none") return [{ id: "all", title: "", items }]
   const keyOf: Record<Exclude<Group, "none">, (i: QueueItem) => string> = {
-    severity: (i) => i.severity ?? (i.status === "reading" ? "reading" : "unrated"),
+    severity: (i) => i.severity ?? i.status,
     kind: (i) => i.kind,
     book: (i) => i.book ?? "",
     subject: (i) => i.subject.id,
   }
   const titles = new Map<string, string>([
-    ...SEVERITIES.map(([s, t]) => [s, `${t} severity`] as [string, string]),
-    ["reading", "Readings"],
-    ["unrated", "Not rated"],
+    ...SEVERITIES.map(([s, t]): [string, string] => [s, `${t} severity`]),
+    ...STATUSES,
     ...data.kinds,
     ...data.books,
     ["", "Book unknown"],
   ])
   const groups = new Map<string, ItemGroup>()
-  for (const i of sorted) {
+  for (const i of items) {
     const id = keyOf[group](i)
     if (!groups.has(id)) groups.set(id, { id, title: group === "subject" ? i.subject.name : (titles.get(id) ?? id), items: [] })
     groups.get(id)!.items.push(i)
   }
   const list = [...groups.values()]
-  // Groups follow their first item (so severity, kind and book keep their own
-  // order), except people and places: the biggest first.
   return group === "subject" ? list.sort((a, b) => b.items.length - a.items.length || a.title.localeCompare(b.title)) : list
 }
 
@@ -159,18 +164,16 @@ export function fromQuery(search: string): Filters {
   const p = new URLSearchParams(search)
   const list = <T extends string>(name: string, allowed: readonly (readonly [T, string])[], fallback: T[]) => {
     const raw = p.get(name)
-    if (raw === null) return fallback
-    const ok = new Set(allowed.map(([v]) => v))
-    return raw.split(",").filter((v): v is T => ok.has(v as T))
+    return raw === null ? fallback : raw.split(",").filter((v): v is T => allowed.some(([a]) => a === v))
   }
-  const group = p.get("group")
+  const group = GROUPS.find(([g]) => g === p.get("group"))?.[0]
   return {
     status: list("status", STATUSES, DEFAULTS.status),
     severity: list("severity", SEVERITIES, []),
     kind: p.get("kind") ?? "",
     book: p.get("book") ?? "",
     q: p.get("q") ?? "",
-    group: GROUPS.some(([g]) => g === group) ? (group as Group) : DEFAULTS.group,
+    group: group ?? DEFAULTS.group,
     hide: p.get("hide") === "1",
   }
 }

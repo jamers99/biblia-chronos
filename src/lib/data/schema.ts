@@ -6,6 +6,7 @@
 // docs/data-pipeline-spec.md for the reasoning and the upstream mapping.
 
 import { z } from "zod"
+import { NOTE_MAX, VERDICTS } from "../review.ts"
 
 // --- Shared conventions -----------------------------------------------------
 
@@ -193,11 +194,11 @@ export const EvidenceBatch = z
 // review submitted on GitHub; whoever submitted it is `by`.
 export const Review = z
   .object({
-    verdict: z.enum(["right", "wrong", "unsure"]), // is the fact as the data has it right?
+    verdict: z.enum(VERDICTS), // is the fact as the data has it right?
     by: z.string(), // GitHub login
     on: Day,
     issue: z.number().int().positive().optional(), // the GitHub issue it came from
-    note: z.string().max(300).optional(),
+    note: z.string().max(NOTE_MAX).optional(),
   })
   .strict()
 export const Reviews = z.record(Review)
