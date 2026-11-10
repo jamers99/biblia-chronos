@@ -63,6 +63,44 @@ const layers: [string, string | undefined, string][] = how
   )
 }
 
+<script>
+  // A native popover opens centred on the whole screen, which is far from the
+  // marker on a big monitor. Place it by the marker instead: under it, and, in a
+  // side panel, centred on that panel. Panels are added later, so this listens
+  // on the document (toggle doesn't bubble, hence capture).
+  document.addEventListener(
+    "beforetoggle",
+    (e) => {
+      const ev = e as ToggleEvent
+      const pop = e.target as HTMLElement
+      if (ev.newState !== "open" || !pop.classList?.contains("how-pop")) return
+      const btn = document.querySelector<HTMLElement>(`[popovertarget="${pop.id}"]`)
+      if (!btn) return
+      const place = () => {
+        const b = btn.getBoundingClientRect()
+        const frame = btn.closest(".layer")?.getBoundingClientRect()
+        const w = pop.offsetWidth
+        const h = pop.offsetHeight
+        const gap = 8
+        const centre = frame ? frame.left + frame.width / 2 : b.left + b.width / 2
+        const left = Math.min(Math.max(centre - w / 2, gap), innerWidth - w - gap)
+        // Below the marker, or above it if there's no room
+        const below = b.bottom + gap
+        const top = below + h <= innerHeight - gap ? below : Math.max(gap, b.top - gap - h)
+        pop.style.inset = "auto"
+        pop.style.margin = "0"
+        pop.style.left = `${left}px`
+        pop.style.top = `${top}px`
+        pop.style.visibility = ""
+      }
+      // The popover has no size until it is shown
+      pop.style.visibility = "hidden"
+      requestAnimationFrame(place)
+    },
+    true,
+  )
+</script>
+
 <style>
   .how {
     font: 0.72rem/1 var(--sans);
@@ -104,7 +142,7 @@ const layers: [string, string | undefined, string][] = how
     line-height: 1.5;
   }
   .how-pop::backdrop {
-    background: rgb(0 0 0 / 0.12);
+    background: transparent;
   }
   .how-title {
     margin: 0 0 0.5rem;
