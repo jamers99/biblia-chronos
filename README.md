@@ -11,14 +11,14 @@
 * **Kings of Israel and Judah.** Every reign in order of succession, grouped by dynasty, with co-regencies and rival claimants noted.
 * **People, places, and events.** A page for each, with family and descendants, related records, and the Scripture behind them. Pages open as a panel over whatever you're looking at.
 * **Search.** Everything is searchable from any page.
-* **How we know.** Each fact shows the verse that supports it, and whether it was matched in the text, reviewed by AI, or checked by an editor.
+* **How we know.** Each fact shows the verse that supports it, and how it was checked against the text.
 * **Works offline** as an installable app, in light and dark themes.
 
 The eras run from Creation to the Flood, the Flood and the nations, the patriarchs, Israel in Egypt, the Exodus, the judges, the united and divided kingdoms, exile and return, the life of Christ, and the early church.
 
 ## Dates
 
-Dates follow a single traditional chronology (close to Ussher's) from the Theographic dataset, and are shown as the source gives them. Before Abraham they come from the ages in Genesis 5 and 11, which other textual traditions give differently. Showing scholarly alternatives side by side, each with its citation, is planned. Ideas and requests are welcome: [open an issue](https://github.com/jamers99/biblia-chronos/issues).
+Biblia Chronos is a study aid, not an authority: before citing a date, family link, or location, look it up in Scripture and published scholarship, and cite those. Dates follow a single traditional chronology (close to Ussher's) from the Theographic dataset, and are shown as the source gives them. Before Abraham they come from the ages in Genesis 5 and 11, which other textual traditions give differently. Showing scholarly alternatives side by side, each with its citation, is planned. Ideas and requests are welcome: [open an issue](https://github.com/jamers99/biblia-chronos/issues).
 
 ## Data & sources
 

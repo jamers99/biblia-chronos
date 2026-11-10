@@ -18,6 +18,20 @@ const repo = "https://github.com/jamers99/biblia-chronos"
     </p>
   </div>
 
+  <aside class="caution" id="before-you-cite" aria-labelledby="before-you-cite-title">
+    <h2 id="before-you-cite-title">Before you cite anything here</h2>
+    <p>
+      Biblia Chronos is a study aid for seeing how things fit together, not an authority to rely on. Its data is
+      compiled from an open dataset, and much of it hasn't been verified by a person. Dates in particular are one
+      reconstruction among several, and many are disputed.
+    </p>
+    <p>
+      Before you rely on a date, a family link, or a location, or repeat it in teaching or writing, look it up in
+      Scripture and in published scholarship, and cite those rather than this site. The <em>How we know</em> marker
+      beside a fact shows the verse behind it, which is a good place to start.
+    </p>
+  </aside>
+
   <h2 id="chronology">Dates and chronology</h2>
   <div class="prose">
     <p>
@@ -98,6 +112,20 @@ const repo = "https://github.com/jamers99/biblia-chronos"
 </Page>
 
 <style>
+  .caution {
+    max-width: var(--measure);
+    margin: 2rem 0;
+    padding: 1rem 1.25rem;
+    border-left: 3px solid var(--accent);
+    background: var(--wash);
+    border-radius: 0 8px 8px 0;
+  }
+  .caution h2 {
+    margin-top: 0;
+  }
+  .caution p:last-child {
+    margin-bottom: 0;
+  }
   .eras {
     margin: 0;
   }

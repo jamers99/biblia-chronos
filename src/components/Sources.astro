@@ -32,7 +32,8 @@ const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? "" : "s"}`
   {
     t.facts > 0 && (
       <p class="tally">
-        {plural(t.facts, "fact")}: {t.matched} matched in the text · {t.ai} checked by AI · {t.editor} read by an editor
+        {plural(t.facts, "fact")}: {t.matched} matched in the text · {t.ai} checked by AI
+        {t.editor > 0 && ` · ${t.editor} read by an editor`}
         {t.unchecked > 0 && ` · ${t.unchecked} unchecked`}
       </p>
     )
