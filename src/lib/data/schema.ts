@@ -185,6 +185,20 @@ export const EvidenceBatch = z
   })
   .strict()
 
+// An editor's verdict on one fact, data/reviews.json (see data/evidence/README.md),
+// keyed `id@hash` like the batches. Written by `npm run review:apply` from a
+// review submitted on GitHub; whoever submitted it is `by`.
+export const Review = z
+  .object({
+    verdict: z.enum(["right", "wrong", "unsure"]), // is the fact as the data has it right?
+    by: z.string(), // GitHub login
+    on: Day,
+    issue: z.number().int().positive().optional(), // the GitHub issue it came from
+    note: z.string().max(300).optional(),
+  })
+  .strict()
+export const Reviews = z.record(Review)
+
 // --- Derived TypeScript types ----------------------------------------------
 
 export type Year = z.infer<typeof Year>
@@ -203,3 +217,5 @@ export type Source = z.infer<typeof Source>
 export type EdgeType = z.infer<typeof EdgeType>
 export type Edge = z.infer<typeof Edge>
 export type EvidenceBatch = z.infer<typeof EvidenceBatch>
+export type Review = z.infer<typeof Review>
+export type Reviews = z.infer<typeof Reviews>

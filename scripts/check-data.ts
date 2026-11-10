@@ -22,6 +22,7 @@ import {
   Edge,
   Source,
   EvidenceBatch,
+  Reviews,
   type EdgeType,
   type DateEstimate,
 } from "../src/lib/data/schema.ts"
@@ -268,6 +269,19 @@ for (const file of batchFiles.sort()) {
     for (const ref of entry.refs ?? []) checkVerse(`${where} ${key}`, ref)
     for (const src of entry.sources ?? []) if (!sourceIds.has(src)) err(`${where}: ${key} cites unknown source "${src}"`)
   }
+}
+
+// Editors' verdicts (data/reviews.json, from review mode): stale or gone like
+// any review. A "wrong" verdict is a fix waiting to be made in the overrides.
+const reviewsPath = join(root, "data", "reviews.json")
+if (existsSync(reviewsPath)) {
+  const parsed = Reviews.safeParse(readJson("data/reviews.json"))
+  if (!parsed.success) for (const issue of parsed.error.issues.slice(0, 5)) err(`reviews.json ${issue.path.join(".")}: ${issue.message}`)
+  else
+    for (const [key, review] of Object.entries(parsed.data)) {
+      if (!factKeys.has(key)) warn(`reviews.json: ${key} — ${staleOrGone(key)}`)
+      else if (review.verdict === "wrong") warn(`reviews.json: ${key} was judged wrong by ${review.by}${review.issue ? ` (#${review.issue})` : ""}; fix it in data/overrides/`)
+    }
 }
 
 // --- 8. Orphans (warning only) ----------------------------------------------

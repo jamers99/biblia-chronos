@@ -6,6 +6,7 @@
 import { books, evidenceFor, source } from "../lib/data/load.ts"
 import { explain, hash } from "../lib/evidence.ts"
 import { verse } from "../lib/scripture.ts"
+import { reportUrl } from "../lib/review.ts"
 
 interface Props {
   fact: string // fact id, e.g. "parent-of:abraham_58>isaac_616"
@@ -17,12 +18,14 @@ const how = ev && explain(ev, (ref) => verse(ref, books)?.short ?? ref)
 const cited = (how?.refs ?? []).map((r) => verse(r, books)).filter((v) => v !== undefined)
 const sources = (ev?.entry?.sources ?? []).map(source).filter((s) => s !== undefined)
 const id = `how-${context}-${hash(fact)}`
+const page = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.pathname
+const report = ev && reportUrl({ title: `Problem with ${fact}`, page, fact: ev.key })
 const layers: [string, string | undefined, string][] = how
   ? [
       ["Text match", how.match, "None found"],
       ["AI", how.ai, "Not yet checked"],
-      // Shown only once an editor has read it: no editor has yet, and a row
-      // of "not yet reviewed" on every fact undersells the checks that ran.
+      // Shown only once an editor has read it: a row of "not yet reviewed" on
+      // every fact would undersell the checks that ran.
       ...(how.editor ? [["Editor", how.editor, ""] as [string, string, string]] : []),
     ]
   : []
@@ -34,7 +37,7 @@ const layers: [string, string | undefined, string][] = how
       <button type="button" class:list={["how", how.state]} popovertarget={id} aria-label={`How we know: ${how.label}`}>
         {how.label}
       </button>
-      <div id={id} popover class="how-pop">
+      <div id={id} popover class="how-pop" data-key={ev!.key}>
         <p class="how-title">How we know</p>
         {cited.length > 0 && (
           <p class="how-refs">
@@ -49,6 +52,7 @@ const layers: [string, string | undefined, string][] = how
           </p>
         )}
         {how.note && <p class="how-note">{how.note}</p>}
+        {how.reviewNote && <p class="how-note">{how.reviewNote}</p>}
         {sources.length > 0 && <p class="how-note">Outside Scripture: {sources.map((s) => s.title).join(", ")}</p>}
         <dl>
           {layers.map(([layer, line, none]) => (
@@ -58,6 +62,10 @@ const layers: [string, string | undefined, string][] = how
             </>
           ))}
         </dl>
+        {/* Review mode (ReviewMode.astro) adds its verdict buttons here. */}
+        <p class="how-report">
+          <a href={report} target="_blank" rel="noopener">Report a problem</a>
+        </p>
       </div>
     </>
   )
@@ -86,6 +94,10 @@ const layers: [string, string | undefined, string][] = how
   }
   .how.reading {
     font-style: italic;
+  }
+  .how.confirmed {
+    color: var(--ink-2);
+    border-color: var(--gold);
   }
   .how.wrong,
   .how.unsupported {
@@ -127,6 +139,13 @@ const layers: [string, string | undefined, string][] = how
     margin: 0;
   }
   .muted {
+    color: var(--ink-3);
+  }
+  .how-report {
+    margin: 0.75rem 0 0;
+    font-size: 0.8rem;
+  }
+  .how-report a {
     color: var(--ink-3);
   }
 </style>

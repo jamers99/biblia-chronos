@@ -1,9 +1,9 @@
 // The facts the site shows, as stable ids we can attach evidence to, and the
 // evidence layers on top: the text match (data/evidence/matches.json), and AI
-// and editor reviews (data/evidence/<batch>.json). See
+// reviews (data/evidence/<batch>.json), and editors' verdicts (data/reviews.json). See
 // docs/data-audit-plan.md. Pure: shared by the scan, the checker, and the build.
 
-import type { DateEstimate, Edge, EvidenceBatch, Kingdom, Period, Person } from "./data/schema.ts"
+import type { DateEstimate, Edge, EvidenceBatch, Kingdom, Period, Person, Review, Reviews } from "./data/schema.ts"
 import { RULES } from "./scan.ts"
 
 // --- Fact ids ---------------------------------------------------------------
@@ -116,9 +116,10 @@ export type FactEvidence = {
   ai?: { model: string; on: string; agreed: boolean }
   editor?: { by: string; on: string; read: boolean; sampled?: number }
   entry?: NonNullable<EvidenceBatch["facts"]>[string]
+  review?: Review // an editor's verdict on this fact itself
 }
 
-export function collectEvidence(facts: Fact[], matches: MatchEvidence | undefined, batches: EvidenceBatch[]) {
+export function collectEvidence(facts: Fact[], matches: MatchEvidence | undefined, batches: EvidenceBatch[], reviews: Reviews = {}) {
   const byId = new Map<string, FactEvidence>()
   for (const f of facts) {
     const s = matches?.facts[f.key]
@@ -138,16 +139,34 @@ export function collectEvidence(facts: Fact[], matches: MatchEvidence | undefine
     for (const key of b.agreed ?? []) touch(key, true)
     for (const [key, entry] of Object.entries(b.facts ?? {})) touch(key, entry.kind !== "wrong" && entry.kind !== "unsupported", entry)
   }
+  // An editor's own verdict on a fact is a read, whatever the batch says.
+  for (const [key, review] of Object.entries(reviews)) {
+    const ev = byId.get(factId(key))
+    if (!ev || ev.key !== key) continue // stale or unknown: the checker reports it
+    ev.review = review
+    ev.editor = { by: review.by, on: review.on, read: true }
+  }
   return byId
 }
 
 // --- For display ------------------------------------------------------------------
 
-export type FactState = "verse" | "derived" | "reading" | "wrong" | "unsupported" | "unchecked"
+export type FactState = "verse" | "derived" | "reading" | "wrong" | "unsupported" | "unchecked" | "confirmed"
 
 // Where a fact stands, and the verses that support it: a reviewer's own refs
-// first, else the text match.
+// first, else the text match. An editor's verdict wins over the AI's: "wrong"
+// marks it wrong, and "right" clears a flag (or "no verse found", or
+// "unchecked") to "confirmed". "unsure" changes nothing.
 export function factStatus(ev: FactEvidence | undefined): { state: FactState; refs: string[] } {
+  const base = aiStatus(ev)
+  const verdict = ev?.review?.verdict
+  if (verdict === "wrong") return { state: "wrong", refs: base.refs }
+  if (verdict === "right" && (base.state === "wrong" || base.state === "unsupported" || base.state === "unchecked"))
+    return { state: "confirmed", refs: base.state === "wrong" ? [] : base.refs }
+  return base
+}
+
+function aiStatus(ev: FactEvidence | undefined): { state: FactState; refs: string[] } {
   const entry = ev?.entry
   if (entry?.kind === "unsupported") return { state: "unsupported", refs: [] }
   const refs = entry?.refs?.length ? entry.refs : ev?.match?.ref ? [ev.match.ref] : []
@@ -175,11 +194,18 @@ export function tally(evs: (FactEvidence | undefined)[]) {
 // looked yet). `short` labels a verse ("Gen 21:3").
 export function explain(ev: FactEvidence, short: (ref: string) => string) {
   const { state, refs } = factStatus(ev)
-  const corrected = state === "wrong" && ev.editor?.read
+  const { review } = ev
+  // A batch an editor read whose "wrong" stands was fixed in the overrides. A
+  // verdict of "wrong" on the fact itself is still waiting for that fix.
+  const corrected = state === "wrong" && ev.editor?.read && !review
   const month = (day: string) =>
     new Date(`${day}T00:00:00Z`).toLocaleDateString("en-US", { month: "short", year: "numeric", timeZone: "UTC" })
   const rule = ev.match && (RULES[ev.match.rule] ?? ev.match.rule)
-  const prefix = { reading: "A reading: ", wrong: corrected ? "Corrected: " : "Flagged as wrong, for an editor to check: " }
+  const prefix = {
+    reading: "A reading: ",
+    wrong: corrected ? "Corrected: " : review ? "" : "Flagged as wrong, for an editor to check: ",
+    confirmed: "The AI said: ",
+  }
   const { editor } = ev
   return {
     state,
@@ -188,15 +214,18 @@ export function explain(ev: FactEvidence, short: (ref: string) => string) {
       verse: refs.length ? short(refs[0]) : "verse",
       derived: "worked out",
       reading: "a reading",
-      wrong: corrected ? "corrected" : "flagged",
+      wrong: corrected ? "corrected" : review ? "wrong" : "flagged",
       unsupported: "no verse found",
       unchecked: "unchecked",
+      confirmed: "confirmed",
     }[state],
     note: ev.entry?.note && `${prefix[state as keyof typeof prefix] ?? ""}${ev.entry.note}`,
+    reviewNote: review?.note && `${review.by}: ${review.note}`,
     match: rule && rule[0].toUpperCase() + rule.slice(1),
     ai: ev.ai && `${ev.ai.agreed ? "Agreed" : "Flagged"} (${ev.ai.model}, ${month(ev.ai.on)})`,
-    editor:
-      editor &&
+    editor: review
+      ? `${{ right: "Confirmed", wrong: "Judged wrong", unsure: "Not sure" }[review.verdict]} by ${review.by}, ${month(review.on)}`
+      : editor &&
       (editor.read
         ? `Read by ${editor.by}, ${month(editor.on)}`
         : `Batch spot-checked by ${editor.by}${editor.sampled ? ` (${Math.round(editor.sampled * 100)}%)` : ""}, ${month(editor.on)}`),

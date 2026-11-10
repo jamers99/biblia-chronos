@@ -1,0 +1,309 @@
+---
+// Review mode: verdicts on facts, kept in this browser until they're sent as
+// one pre-filled GitHub issue (see src/lib/review.ts). Turned on from the menu,
+// or by opening the review queue (/review/). While it's on, every "how we
+// know" popover and every item in the queue gets Right / Wrong / Not sure
+// buttons and a note, built here, so pages carry no extra markup when it's off.
+// It works in panels too: everything is delegated from the document.
+//
+// A submission has to fit in one link, so once the pending verdicts would make
+// it too long, the next one is turned away with a prompt to submit first.
+---
+
+<div class="review-bar" hidden>
+  <a class="rb-queue" href="/review/"><span class="wide">Review queue</span><span class="narrow">Queue</span></a>
+  <span class="rb-count" aria-live="polite"></span>
+  <button type="button" class="rb-submit">Submit<span class="wide"> on GitHub</span></button>
+  <button type="button" class="rb-done" hidden>Sent: clear them</button>
+  <button type="button" class="rb-clear">Clear</button>
+</div>
+
+<script>
+  import { NOTE_MAX, fits, submissionUrl, type Pending, type Verdict } from "../lib/review.ts"
+  import { url } from "../lib/url.ts"
+
+  const STORE = "review-pending"
+  const read = (): Pending => {
+    try {
+      return JSON.parse(localStorage.getItem(STORE) ?? "{}")
+    } catch {
+      return {}
+    }
+  }
+  const write = (p: Pending) => {
+    try {
+      localStorage.setItem(STORE, JSON.stringify(p))
+    } catch {}
+  }
+  const on = () => document.documentElement.dataset.review === "on"
+
+  const bar = document.querySelector<HTMLElement>(".review-bar")!
+  bar.querySelector<HTMLAnchorElement>(".rb-queue")!.href = url("/review/")
+  const count = bar.querySelector<HTMLElement>(".rb-count")!
+  const submit = bar.querySelector<HTMLButtonElement>(".rb-submit")!
+  const done = bar.querySelector<HTMLButtonElement>(".rb-done")!
+  const clear = bar.querySelector<HTMLButtonElement>(".rb-clear")!
+
+  const LABELS: [Verdict, string][] = [
+    ["right", "Right"],
+    ["wrong", "Wrong"],
+    ["unsure", "Not sure"],
+  ]
+
+  // The buttons and note for one fact, inside a popover or a queue item.
+  function controls(key: string) {
+    const el = document.createElement("div")
+    el.className = "review-controls"
+    el.dataset.key = key
+    el.innerHTML = `
+      <p class="rc-q">Is this right as the site shows it?</p>
+      <div class="rc-buttons" role="group" aria-label="Your verdict">
+        ${LABELS.map(([v, l]) => `<button type="button" data-verdict="${v}" aria-pressed="false">${l}</button>`).join("")}
+      </div>
+      <input type="text" class="rc-note" maxlength="${NOTE_MAX}" placeholder="Why? A verse helps (optional)" aria-label="Note" />
+      <p class="rc-msg" aria-live="polite"></p>`
+    return el
+  }
+
+  function show(el: HTMLElement, pending = read()) {
+    const mine = pending[el.dataset.key!]
+    for (const b of el.querySelectorAll<HTMLButtonElement>("[data-verdict]"))
+      b.setAttribute("aria-pressed", String(mine?.verdict === b.dataset.verdict))
+    const note = el.querySelector<HTMLInputElement>(".rc-note")!
+    // A note typed before any verdict stays put until a button takes it.
+    if (mine && document.activeElement !== note) note.value = mine.note ?? ""
+    el.closest(".queue-item")?.classList.toggle("pending", !!mine)
+  }
+
+  // Popovers and queue items get their controls when review mode is on.
+  function attach(root: ParentNode = document) {
+    if (!on()) return
+    const slots = root.querySelectorAll<HTMLElement>(".how-pop[data-key], .review-slot[data-key]")
+    const pending = read()
+    for (const slot of slots) {
+      let el = slot.querySelector<HTMLElement>(":scope > .review-controls")
+      if (!el) {
+        el = controls(slot.dataset.key!)
+        const report = slot.querySelector(":scope > .how-report")
+        if (report) report.before(el)
+        else slot.append(el)
+      }
+      show(el, pending)
+    }
+  }
+
+  function refresh() {
+    const pending = read()
+    const n = Object.keys(pending).length
+    bar.hidden = !on()
+    count.textContent = n ? `${n} to submit` : "Nothing to submit yet"
+    submit.disabled = clear.disabled = n === 0
+    for (const el of document.querySelectorAll<HTMLElement>(".review-controls")) show(el, pending)
+  }
+
+  // Changes one fact's verdict, unless the submission would no longer fit.
+  function set(el: HTMLElement, change: (p: Pending) => void) {
+    const pending = read()
+    change(pending)
+    const msg = el.querySelector<HTMLElement>(".rc-msg")!
+    if (!fits(pending)) {
+      msg.textContent = "That's all one submission can hold. Submit these first, then carry on."
+      show(el)
+      return
+    }
+    msg.textContent = ""
+    write(pending)
+    done.hidden = true
+    refresh()
+  }
+
+  document.addEventListener("click", (e) => {
+    const button = (e.target as Element).closest<HTMLButtonElement>(".review-controls [data-verdict]")
+    if (!button) return
+    const el = button.closest<HTMLElement>(".review-controls")!
+    const key = el.dataset.key!
+    const verdict = button.dataset.verdict as Verdict
+    const note = el.querySelector<HTMLInputElement>(".rc-note")!.value.trim()
+    set(el, (p) => {
+      if (p[key]?.verdict === verdict) delete p[key] // a second click takes it back
+      else p[key] = { verdict, ...(note ? { note } : {}) }
+    })
+  })
+
+  // A note is kept with its verdict. Typed before choosing one, it waits in
+  // the field until a button is pressed.
+  document.addEventListener("change", (e) => {
+    const input = (e.target as Element).closest<HTMLInputElement>(".review-controls .rc-note")
+    if (!input) return
+    const el = input.closest<HTMLElement>(".review-controls")!
+    const key = el.dataset.key!
+    const note = input.value.trim()
+    if (!read()[key]) return
+    set(el, (p) => {
+      if (note) p[key].note = note
+      else delete p[key].note
+    })
+  })
+
+  // Popovers open in pages and panels alike; fill each as it opens.
+  document.addEventListener(
+    "toggle",
+    (e) => {
+      const pop = e.target as HTMLElement
+      if (pop.matches?.(".how-pop[data-key]") && (e as ToggleEvent).newState === "open") attach(pop.parentNode!)
+    },
+    true,
+  )
+
+  submit.addEventListener("click", () => {
+    window.open(submissionUrl(read()), "_blank", "noopener")
+    done.hidden = false
+  })
+  done.addEventListener("click", () => {
+    write({})
+    done.hidden = true
+    refresh()
+  })
+  clear.addEventListener("click", () => {
+    const n = Object.keys(read()).length
+    if (n && confirm(`Clear ${n} unsubmitted verdict${n === 1 ? "" : "s"}?`)) {
+      write({})
+      refresh()
+    }
+  })
+
+  // The menu's switch, and other tabs, change the mode or the pending list.
+  addEventListener("review", () => {
+    if (!on()) for (const el of document.querySelectorAll(".review-controls")) el.remove()
+    attach()
+    refresh()
+  })
+  addEventListener("storage", (e) => e.key === STORE && refresh())
+
+  attach()
+  refresh()
+</script>
+
+<style is:global>
+  .review-bar {
+    position: fixed;
+    z-index: 45;
+    left: 50%;
+    bottom: calc(1rem + env(safe-area-inset-bottom));
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    white-space: nowrap;
+    max-width: calc(100vw - 2rem);
+    padding: 0.45rem 0.6rem 0.45rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--gold);
+    border-radius: 999px;
+    box-shadow: 0 10px 30px rgb(40 30 15 / 0.18);
+    font: 0.85rem/1.2 var(--sans);
+    color: var(--ink-2);
+  }
+  /* Phones: one row across the bottom, with shorter labels. */
+  @media (max-width: 560px) {
+    .review-bar {
+      left: max(1rem, env(safe-area-inset-left));
+      right: max(1rem, env(safe-area-inset-right));
+      transform: none;
+      max-width: none;
+      gap: 0.5rem;
+      border-radius: 14px;
+    }
+    .review-bar .rb-count {
+      flex: 1;
+    }
+    .review-bar .wide {
+      display: none;
+    }
+    .review-bar .rb-queue .narrow {
+      display: inline;
+    }
+  }
+  .review-bar .narrow {
+    display: none;
+  }
+  /* Room at the end of a page, so the bar never hides the last fact. */
+  html[data-review="on"] main.column {
+    padding-bottom: 7rem;
+  }
+  .review-bar[hidden] {
+    display: none;
+  }
+  .review-bar a {
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .review-bar button,
+  .review-controls button {
+    font: inherit;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    background: var(--paper);
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .review-bar .rb-submit {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--paper);
+  }
+  .review-bar button:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+  .review-controls {
+    margin-top: 0.75rem;
+    padding-top: 0.65rem;
+    border-top: 1px solid var(--rule);
+    font: 0.85rem/1.4 var(--sans);
+  }
+  .review-controls .rc-q {
+    margin: 0 0 0.4rem;
+    font-weight: 600;
+  }
+  .rc-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+  .review-controls [aria-pressed="true"][data-verdict="right"] {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--paper);
+  }
+  .review-controls [aria-pressed="true"][data-verdict="wrong"] {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--paper);
+  }
+  .review-controls [aria-pressed="true"][data-verdict="unsure"] {
+    background: var(--ink-3);
+    border-color: var(--ink-3);
+    color: var(--paper);
+  }
+  .rc-note {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 0.45rem;
+    padding: 0.4rem 0.55rem;
+    font: inherit;
+    font-size: 16px; /* no zoom on focus in iOS */
+    color: var(--ink);
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+  }
+  .rc-msg {
+    margin: 0.35rem 0 0;
+    color: var(--accent);
+  }
+  .rc-msg:empty {
+    display: none;
+  }
+</style>

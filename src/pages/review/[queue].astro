@@ -1,0 +1,95 @@
+---
+// One review queue: its facts, grouped by kind, each with the AI's note, the
+// verses, and (from ReviewMode.astro) the verdict buttons.
+import Page from "../../layouts/Page.astro"
+import ReviewOn from "../../components/ReviewOn.astro"
+import { KINDS, reviewQueues, type Queue } from "../../lib/data/review-queue.ts"
+import { url } from "../../lib/url.ts"
+
+export function getStaticPaths() {
+  return reviewQueues().queues.map((queue) => ({ params: { queue: queue.slug }, props: { queue } }))
+}
+const { queue } = Astro.props as { queue: Queue }
+const groups = KINDS.map(([kind, title]) => ({ title, items: queue.items.filter((i) => i.kind === kind) })).filter((g) => g.items.length)
+---
+
+<Page title={`Review: ${queue.title}`} description={queue.about}>
+  <ReviewOn />
+  <p class="back"><a href={url("/review/")}>← Review</a></p>
+  <h1>{queue.title}</h1>
+  <p class="about">{queue.about} {queue.items.length.toLocaleString()} facts.</p>
+  {
+    groups.map((g) => (
+      <section>
+        {groups.length > 1 && (
+          <h2>
+            {g.title} <span class="n">{g.items.length}</span>
+          </h2>
+        )}
+        <ol class="queue">
+          {g.items.map((it) => (
+            <li class="queue-item">
+              <div class="review-slot" data-key={it.key}>
+                <p class="claim">
+                  {it.claim.map((p) => (typeof p === "string" ? p : p.href ? <a href={p.href}>{p.text}</a> : p.text))}
+                </p>
+                {it.refs.length > 0 && (
+                  <p class="refs">
+                    {it.refs.map((v, i) => (
+                      <>
+                        {i > 0 && " · "}
+                        <a href={v.url} target="_blank" rel="noopener">{v.long}</a>
+                      </>
+                    ))}
+                  </p>
+                )}
+                {it.note && <p class="note">AI: {it.note}</p>}
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+    ))
+  }
+</Page>
+
+<style>
+  .back {
+    margin: 0 0 0.5rem;
+    font-size: 0.85rem;
+  }
+  .about {
+    color: var(--ink-2);
+  }
+  .n {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--ink-3);
+  }
+  .queue {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+  }
+  .queue-item {
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .queue-item p {
+    margin: 0 0 0.3rem;
+  }
+  .claim {
+    font-weight: 600;
+  }
+  .refs,
+  .note {
+    font-size: 0.9rem;
+    color: var(--ink-2);
+  }
+  /* Verdicts waiting to be submitted fade, so the eye finds what's left. */
+  .queue-item:global(.pending) .claim,
+  .queue-item:global(.pending) .refs,
+  .queue-item:global(.pending) .note {
+    opacity: 0.55;
+  }
+</style>

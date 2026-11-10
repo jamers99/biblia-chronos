@@ -1,0 +1,65 @@
+name: Apply a review
+
+# When the repository owner adds the "apply" label to a review issue (one sent
+# from the app's review mode), this writes its verdicts into data/reviews.json
+# with `npm run review:apply` and opens a pull request. Nothing merges on its
+# own: the pull request is the editor's last look. If nothing could be applied,
+# it says why on the issue instead.
+#
+# Needs Settings → Actions → General → "Allow GitHub Actions to create and
+# approve pull requests". A pull request this workflow opens doesn't start CI
+# by itself (GitHub's rule for its own token); this job runs check:data first.
+
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  apply:
+    if: github.event.label.name == 'apply' && github.event.sender.login == github.repository_owner
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      ISSUE: ${{ github.event.issue.number }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      # The issue's text is untrusted: it reaches the script as a file, never
+      # as part of a command.
+      - name: Apply the verdicts
+        env:
+          BODY: ${{ github.event.issue.body }}
+          AUTHOR: ${{ github.event.issue.user.login }}
+          CREATED: ${{ github.event.issue.created_at }}
+        run: |
+          printf '%s' "$BODY" > "$RUNNER_TEMP/body.md"
+          npm run -s review:apply -- --by "$AUTHOR" --on "${CREATED:0:10}" --issue "$ISSUE" \
+            --body-file "$RUNNER_TEMP/body.md" > "$RUNNER_TEMP/summary.md"
+      - name: Check the data
+        run: npm run check:data
+      - name: Open a pull request
+        run: |
+          branch="review/issue-$ISSUE"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$branch"
+          git add data/reviews.json
+          git commit -m "Apply the review in #$ISSUE"
+          git push --force -u origin "$branch"
+          printf '\n\nCloses #%s\n' "$ISSUE" >> "$RUNNER_TEMP/summary.md"
+          gh pr create --head "$branch" --title "Apply the review in #$ISSUE" --body-file "$RUNNER_TEMP/summary.md" \
+            || gh pr edit "$branch" --body-file "$RUNNER_TEMP/summary.md"
+      - name: Say why on the issue
+        if: failure()
+        run: |
+          test -s "$RUNNER_TEMP/summary.md" || echo "The review couldn't be applied; see the workflow run." > "$RUNNER_TEMP/summary.md"
+          gh issue comment "$ISSUE" --body-file "$RUNNER_TEMP/summary.md"

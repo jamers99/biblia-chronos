@@ -8,7 +8,9 @@ import "../styles/global.css"
 import ThemeToggle from "../components/ThemeToggle.astro"
 import Layers from "../components/Layers.astro"
 import SiteSearch from "../components/SiteSearch.astro"
+import ReviewMode from "../components/ReviewMode.astro"
 import { url } from "../lib/url.ts"
+import { reportUrl } from "../lib/review.ts"
 
 interface Props {
   title: string
@@ -16,6 +18,7 @@ interface Props {
   immersive?: boolean
 }
 const { title, description, immersive = false } = Astro.props
+const report = reportUrl({ title: "Problem: " })
 const path = Astro.url.pathname
 
 const views = [
@@ -60,6 +63,9 @@ const current = (href: string) => (isCurrent(href) ? "page" : undefined)
       applyTheme(localStorage.getItem("theme") ?? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"))
       // Draft records are shown unless hidden from the menu.
       document.documentElement.dataset.drafts = localStorage.getItem("drafts") ?? "shown"
+      // Review mode (ReviewMode.astro) is off unless turned on, from the menu
+      // or by opening the review queue.
+      document.documentElement.dataset.review = localStorage.getItem("review") ?? "off"
     </script>
     {
       immersive && (
@@ -104,6 +110,7 @@ const current = (href: string) => (isCurrent(href) ? "page" : undefined)
           </nav>
           <a href={url("/about/")} aria-current={current("/about/")}>About & sources</a>
           <a href={url("/about/#citing-sources")}>Citing sources</a>
+          <a href={report} target="_blank" rel="noopener">Report a problem</a>
           <a href="https://github.com/jamers99/biblia-chronos" target="_blank" rel="noopener">Source code on GitHub</a>
           <hr />
           <ThemeToggle />
@@ -111,6 +118,11 @@ const current = (href: string) => (isCurrent(href) ? "page" : undefined)
             <input type="checkbox" class="drafts-toggle" checked />
             Show draft records
           </label>
+          <label class="row">
+            <input type="checkbox" class="review-toggle" />
+            Review mode
+          </label>
+          <a href={url("/review/")} class="review-link" aria-current={current("/review/")}>Review queue</a>
           <p>
             Data: <a href="https://github.com/robertrouse/theographic-bible-metadata" target="_blank" rel="noopener">Theographic</a> (CC BY-SA 4.0)
           </p>
@@ -131,6 +143,7 @@ const current = (href: string) => (isCurrent(href) ? "page" : undefined)
       )
     }
     <Layers />
+    <ReviewMode />
     <script>
       // Offline support for the installed app. Production only: in dev it
       // would serve stale pages.
@@ -160,6 +173,19 @@ const current = (href: string) => (isCurrent(href) ? "page" : undefined)
         document.documentElement.dataset.drafts = value
         localStorage.setItem("drafts", value)
         dispatchEvent(new CustomEvent("drafts", { detail: drafts.checked }))
+      })
+
+      // Review mode: also a remembered setting. ReviewMode.astro listens for
+      // the "review" event.
+      const review = menu.querySelector<HTMLInputElement>(".review-toggle")!
+      review.checked = document.documentElement.dataset.review === "on"
+      review.addEventListener("change", () => {
+        const value = review.checked ? "on" : "off"
+        document.documentElement.dataset.review = value
+        try {
+          localStorage.setItem("review", value)
+        } catch {}
+        dispatchEvent(new CustomEvent("review", { detail: review.checked }))
       })
     </script>
   </body>
@@ -295,6 +321,10 @@ const current = (href: string) => (isCurrent(href) ? "page" : undefined)
   .sheet .menu-indexes a:hover,
   .sheet :global(.row:hover) {
     background: var(--wash);
+  }
+  /* The queue's link shows only while review mode is on. */
+  :global(html:not([data-review="on"])) .review-link {
+    display: none;
   }
   .sheet a[aria-current="page"] {
     font-weight: 600;
