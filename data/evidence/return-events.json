@@ -28,7 +28,10 @@
     "participated-in:geshem_1307>nehemiah-arrives-at-jerusalem@4081aa",
     "participated-in:haggai_1349>second-temple-dedicated@c65c81",
     "participated-in:tatnai_2831>temple-work-resumes@bfe19c",
-    "participated-in:zechariah_3016>second-temple-dedicated@09730c"
+    "participated-in:zechariah_3016>second-temple-dedicated@09730c",
+    "occurred-at:exiles-return-with-zerubbabel>babylon_151@0f1b4f",
+    "occurred-at:ezra-leads-exiles-to-jerusalem>ahava_34@1d91a3",
+    "occurred-at:ezra-leads-exiles-to-jerusalem>babylon_151@970a2a"
   ],
   "facts": {
     "date:artaxerxes-sends-nehemiah-to-jerusalem@7a4e9e": {"refs":["neh.2.1"],"note":"Neh 2:1 gives only Artaxerxes' twentieth year, in Nisan. The BC year depends on dating outside Scripture.","kind":"reading"},
@@ -48,12 +51,8 @@
     "date:temple-work-resumes@9ebaf0": {"refs":["hag.1.1","hag.1.15"],"note":"Haggai 1:1 and 1:15 date the restart to Darius's second year, sixth month. Ezra 5:1-2 gives no year. The BC year depends on outside dating.","kind":"reading"},
     "occurred-at:artaxerxes-sends-nehemiah-to-jerusalem>susa_1118@0c6fc4": {"refs":["neh.1.1","neh.2.1"],"note":"Neh 1:1 places Nehemiah at Shushan the palace; the sending in 2:1-8 follows in the king's court, the same scene."},
     "occurred-at:exiles-put-away-their-foreign-wives>jerusalem_636@f7dfb7": {"refs":["ezra.10.9"],"note":"Ezra 10:9 gathers the men unto Jerusalem, sitting in the street of the house of God. The matched verse, 9:9, names no place for this event."},
-    "occurred-at:exiles-return-with-zerubbabel>babylon_151@0f1b4f": {"refs":["ezra.1.11"],"note":"Ezra 1:11: they were brought up from Babylon unto Jerusalem. Babylon is only the starting point; the return ends at Jerusalem.","kind":"wrong","severity":"low"},
     "occurred-at:exiles-return-with-zerubbabel>jerusalem_636@d0d80a": {"refs":["ezra.1.11","ezra.2.1"],"note":"Ezra 1:11 brings them up unto Jerusalem; 2:1 says they came again unto Jerusalem and Judah. The matched 1:5 only states their aim."},
-    "occurred-at:ezra-leads-exiles-to-jerusalem>ahava_34@1d91a3": {"refs":["ezra.8.15","ezra.8.32"],"note":"Ahava was one camp on the way, where Ezra gathered them and fasted. The journey began at Babylon and ended at Jerusalem (8:32).","kind":"wrong","severity":"low"},
-    "occurred-at:ezra-leads-exiles-to-jerusalem>babylon_151@970a2a": {"refs":["ezra.7.6","ezra.7.9"],"note":"Ezra 7:6 and 7:9: he went up from Babylon, where the journey began. Babylon is the point of departure; the leading ends at Jerusalem.","kind":"wrong","severity":"low"},
     "occurred-at:nehemiah-goes-back-to-artaxerxes>babylon_151@4fd7c3": {"refs":["neh.13.6"],"note":"Neh 13:6 calls Artaxerxes 'king of Babylon' but does not name where the audience took place. Nehemiah served at Shushan (1:1), so Babylon rests on the title.","kind":"reading"},
-    "occurred-at:nehemiah-goes-back-to-artaxerxes>jerusalem_636@d5e63d": {"refs":["neh.13.6","neh.13.7"],"note":"Neh 13:6 has Nehemiah come unto the king; 13:7 has him come to Jerusalem only afterward. The audience was not at Jerusalem.","kind":"wrong","severity":"medium"},
     "occurred-at:nehemiah-mourns-for-jerusalem>susa_1118@55f898": {"refs":["neh.1.1","neh.1.4"],"note":"Neh 1:1 places Nehemiah in Shushan the palace; 1:4 has him sit down, weep and mourn after Hanani's report."},
     "occurred-at:reign-of-artaxerxes>susa_1118@b21fbd": {"refs":["neh.1.1","neh.2.1"],"note":"A reign has no single location. Neh 1:1 and 2:1 place Artaxerxes' court at Shushan in his twentieth year; no verse places the whole reign there.","kind":"reading"},
     "occurred-at:temple-work-is-stopped>jerusalem_636@bc8383": {"refs":["ezra.4.23","ezra.4.24"],"note":"Ezra 4:23: the enemies went up in haste to Jerusalem and made the Jews cease by force; 4:24: the work of the house at Jerusalem ceased."},
@@ -75,6 +74,7 @@
     "participated-in:darius_978>second-temple-dedicated@868eb5": {"refs":["ezra.6.12","ezra.6.14","ezra.6.16"],"note":"Darius's decree (6:12) is earlier and he is only named as an authority in 6:14. The dedication (6:16-22) does not show him acting.","kind":"wrong","severity":"low"},
     "participated-in:darius_978>temple-work-resumes@cbaffc": {"refs":["ezra.6.1","ezra.6.12"],"note":"Darius makes the decree and orders the records searched (6:1). That falls inside this event's range (5:1-6:12).","kind":"verse"},
     "participated-in:sanballat_2470>nehemiah-arrives-at-jerusalem@5ba8b0": {"refs":["neh.2.19"],"note":"Sanballat laughs at the building plan and despises the builders (2:19), inside this event's range (2:9-20).","kind":"verse"},
-    "participated-in:tobiah_2872>nehemiah-arrives-at-jerusalem@410bd7": {"refs":["neh.2.19"],"note":"Tobiah laughs at the plan and despises the builders (2:19), inside this event's range (2:9-20). Verse 2:10 shows only his grief.","kind":"verse"}
+    "participated-in:tobiah_2872>nehemiah-arrives-at-jerusalem@410bd7": {"refs":["neh.2.19"],"note":"Tobiah laughs at the plan and despises the builders (2:19), inside this event's range (2:9-20). Verse 2:10 shows only his grief.","kind":"verse"},
+    "occurred-at:nehemiah-goes-back-to-artaxerxes>jerusalem_636@d5e63d": {"refs":["neh.13.6","neh.13.7"],"note":"He was not at Jerusalem when he went to the king (13:6). He came to Jerusalem only afterward (13:7).","kind":"wrong","severity":"medium"}
   }
 }

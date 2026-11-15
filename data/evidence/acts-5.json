@@ -65,11 +65,9 @@
     "occurred-at:first-missionary-journey>antioch_69@36b690": {"refs":["acts.13.14"],"note":"The automatic match cited 13.1, which is Antioch in Syria. 13:14 says they came to Antioch in Pisidia during the journey."},
     "occurred-at:first-missionary-journey>seleucia_1045@f4d27d": {"refs":["acts.13.4"],"note":"They departed unto Seleucia to sail for Cyprus. Seleucia is the starting port of the trip, not a stop the journey is described at.","kind":"reading"},
     "occurred-at:mission-to-antioch-in-pisidia>iconium_590@23c9d4": {"refs":["acts.13.50","acts.13.51"],"note":"They were expelled from Antioch, then went on to Iconium. That is a later stop on the route, not the place where this mission happened.","kind":"reading"},
-    "occurred-at:mission-to-antioch-in-pisidia>jerusalem_636@0c29f2": {"refs":["acts.13.13","acts.13.14"],"note":"13:13 says only John returned to Jerusalem. Paul and his company went on to Antioch in Pisidia (13:14).","kind":"wrong","severity":"medium"},
     "occurred-at:mission-to-antioch-in-pisidia>pamphylia_918@b34b28": {"refs":["acts.13.13","acts.13.14"],"note":"Pamphylia (Perga) is a stop before Antioch in Pisidia (13:13-14), on the route, not where the mission was held.","kind":"reading"},
     "occurred-at:mission-to-antioch-in-pisidia>paphos_919@7e4dc2": {"refs":["acts.13.13","acts.13.14"],"note":"Paphos is left before the journey to Antioch in Pisidia (13:13-14). It is a stop on the route, not the mission site.","kind":"reading"},
     "occurred-at:mission-to-antioch-in-pisidia>perga_936@0e96fb": {"refs":["acts.13.13","acts.13.14"],"note":"Perga is reached before Antioch in Pisidia (13:13-14). It is a stop on the route, not the mission site.","kind":"reading"},
-    "occurred-at:paul-and-barnabas-part-ways>cyprus_316@5c9a5f": {"refs":["acts.15.35","acts.15.39"],"note":"They were in Antioch (15:35) when the contention arose. Barnabas sailed to Cyprus only after they separated (15:39).","kind":"wrong","severity":"medium"},
     "occurred-at:return-to-antioch-in-syria>antioch_69@a4d329": {"refs":["acts.14.21"],"note":"14:21 lists Antioch among the cities revisited on the way back. Antioch in Pisidia is on the return route, not the Syrian return point.","kind":"reading"},
     "occurred-at:return-to-antioch-in-syria>attalia_120@ae9322": {"refs":["acts.14.25","acts.14.26"],"note":"They went down to Attalia on the return, then sailed to Antioch (14:25-26). A stop on the route, not the Syrian Antioch.","kind":"reading"},
     "occurred-at:return-to-antioch-in-syria>iconium_590@650a3d": {"refs":["acts.14.21"],"note":"On the way back they returned to Iconium (14:21). A stop on the route before Antioch, not the place of the return.","kind":"reading"},
@@ -109,6 +107,8 @@
     "visited:silas_2740>jerusalem_636@3f4cc9": {"refs":["acts.15.4","acts.15.22"],"note":"15:22: the apostles and elders send Judas and Silas from their own company. Jerusalem is not named in 15:22.","kind":"reading"},
     "visited:silas_2740>syria_1122@25b9d5": {"refs":["acts.15.40","acts.15.41"],"note":"Silas is with Paul from 15:40. 15:41 says Paul went through Syria. Silas is not named in 15:41.","kind":"reading"},
     "visited:simeon_2744>antioch_68@9fddfd": {"refs":["acts.13.1"],"note":"13:1: Simeon that was called Niger was among the prophets and teachers in the church at Antioch."},
-    "participated-in:mark_1679>second-missionary-journey@f27556": {"refs":["acts.15.37","acts.15.39"],"note":"Barnabas takes Mark and sails with him to Cyprus (15:37-39), inside this event's range. Mark does not go with Paul (15:40).","kind":"verse"}
+    "participated-in:mark_1679>second-missionary-journey@f27556": {"refs":["acts.15.37","acts.15.39"],"note":"Barnabas takes Mark and sails with him to Cyprus (15:37-39), inside this event's range. Mark does not go with Paul (15:40).","kind":"verse"},
+    "occurred-at:mission-to-antioch-in-pisidia>jerusalem_636@0c29f2": {"refs":["acts.13.13","acts.13.14"],"note":"John returned to Jerusalem (13:13). Paul and his company went on to Antioch in Pisidia (13:14).","kind":"wrong","severity":"medium"},
+    "occurred-at:paul-and-barnabas-part-ways>cyprus_316@5c9a5f": {"refs":["acts.15.35","acts.15.39"],"note":"They continued in Antioch (15:35) and parted there. Barnabas sailed to Cyprus only afterward (15:39).","kind":"wrong","severity":"medium"}
   }
 }

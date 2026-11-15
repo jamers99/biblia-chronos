@@ -21,7 +21,6 @@
     "occurred-at:haman-is-hanged>susa_1118@a6ab24": {"refs":["esth.7.7","esth.3.15"],"note":"The banquet and palace garden are the palace, named as Shushan in 3.15. Shushan is identified with Susa from outside the text.","kind":"reading"},
     "occurred-at:haman-plots-to-destroy-the-jews>susa_1118@de0d60": {"refs":["esth.3.15"],"note":"The decree is given in Shushan the palace, where the king and Haman sit down. Shushan is identified with Susa from outside the text.","kind":"reading"},
     "occurred-at:reign-of-darius-ahasuerus>susa_1118@4815a7": {"refs":["esth.1.1","esth.1.2"],"note":"The text puts the king's throne at Shushan (1.2), but his reign covered 127 provinces (1.1). Shushan is identified with Susa, and Darius with Ahasuerus, from outside the text.","kind":"reading"},
-    "occurred-at:the-jews-defeat-their-enemies>susa_1118@0b04d5": {"refs":["esth.9.2","esth.9.16"],"note":"The Jews struck in all the provinces, not only Shushan, where 800 died (9.6, 9.15).","kind":"wrong","severity":"medium"},
     "participated-in:ahasuerus_117>ahasuerus-feasts-and-vashti-is-deposed@598870": {"refs":["esth.1.3","esth.1.21"],"note":"He makes the feast (1.3) and approves the decree (1.21). The matched verse 1.1 only names his reign."},
     "participated-in:ahasuerus_117>ahasuerus-honors-mordecai@c19c37": {"refs":["esth.6.1","esth.6.10"],"note":"He commands the chronicles read (6.1) and orders the honour for Mordecai (6.10). The matched verse 6.2 does not show him acting."},
     "participated-in:ahasuerus_117>esther-is-made-queen@039bcf": {"refs":["esth.2.4","esth.2.17"],"note":"He approves the maiden to be queen (2.4) and sets the crown on Esther's head (2.17). The matched verse 2.1 concerns Vashti."},
@@ -39,6 +38,7 @@
     "participated-in:mordecai_2107>ahasuerus-honors-mordecai@5d3ac8": {"refs":["esth.6.3","esth.6.11"],"note":"The king asks what honour Mordecai received (6.3), and Haman leads him through the city (6.11). The matched verse 6.2 is about his earlier report."},
     "participated-in:mordecai_2107>esther-is-made-queen@ecadfa": {"refs":["esth.2.7","esth.2.11"],"note":"Mordecai raised Esther and watched over her (2.7, 2.11), but no verse has him take part in her choosing as queen.","kind":"reading"},
     "participated-in:mordecai_2107>haman-is-hanged@4ccaeb": {"refs":["esth.8.1","esth.8.2"],"note":"Within the event (7:1–8:2), Mordecai comes before the king and receives Haman's ring and house (8:1-2). He has no part in the hanging itself.","kind":"reading"},
-    "participated-in:mordecai_2107>the-jews-defeat-their-enemies@bd698b": {"refs":["esth.8.9","esth.9.3"],"note":"The decree is written as Mordecai commanded (8.9), and the fear of him helps the Jews (9.3). The matched verse 8.7 names him only as one addressed."}
+    "participated-in:mordecai_2107>the-jews-defeat-their-enemies@bd698b": {"refs":["esth.8.9","esth.9.3"],"note":"The decree is written as Mordecai commanded (8.9), and the fear of him helps the Jews (9.3). The matched verse 8.7 names him only as one addressed."},
+    "occurred-at:the-jews-defeat-their-enemies>susa_1118@0b04d5": {"refs":["esth.9.6","esth.9.15"],"note":"Jews slew 500 men in Shushan the palace (9:6) and 300 more there on the 14th (9:15). Shushan is taken as Susa, an identification from outside the text.","kind":"reading"}
   }
 }

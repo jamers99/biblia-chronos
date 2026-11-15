@@ -26,7 +26,6 @@
     "near:golgotha_487>jerusalem_636@9931b8": {"refs":["mark.15.22","mark.15.41"],"note":"15:22 names Golgotha; 15:41 has the women coming up with him to Jerusalem. No distance is given, so 'near' is a reading.","kind":"reading"},
     "occurred-at:3rd-tour-of-galilee>galilee_433@5b3690": {"refs":["mark.1.39"],"note":"1:39 has him preaching throughout all Galilee. The text does not number a 'third tour', so linking the event to this passage is a reading.","kind":"reading"},
     "occurred-at:fasting-question>capernaum_274@7e66da": {"refs":["mark.2.1","mark.2.15"],"note":"2:1 places him in Capernaum and 2:15 has a meal 'in his house'. The fasting question names no place, so Capernaum is a reading.","kind":"reading"},
-    "occurred-at:healing-a-crowd-near-sea-of-galilee>decapolis_328@25ca67": {"refs":["mark.7.31"],"note":"7:31 says he passed through the coasts of Decapolis on his way to the sea of Galilee. The healing comes after, at the sea, not in Decapolis.","kind":"wrong","severity":"low"},
     "occurred-at:healing-multitudes>galilee_433@0249d8": {"refs":["mark.3.7"],"note":"3:7 has him withdraw 'to the sea' with crowds from many regions. Galilee is a reading; the verse does not name the place of healing.","kind":"reading"},
     "occurred-at:healing-the-leper>galilee_433@ecf983": {"refs":["mark.1.39"],"note":"1:39 has him preaching throughout all Galilee, and 1:40 continues the scene with the leper coming to him."},
     "occurred-at:jesus-calls-matthew>capernaum_274@cf5bcf": {"refs":["mark.2.1","mark.2.14"],"note":"The call is by the sea (2:13-14) with no town named; Capernaum is inferred from 2:1. Mark names the caller Levi, not Matthew.","kind":"reading"},
@@ -42,6 +41,7 @@
     "visited:matthew_1971>jerusalem_636@29ce74": {"refs":["mark.3.18","mark.10.32","mark.11.11"],"note":"Matthew is named among the twelve (3:18). The twelve go up to Jerusalem with Jesus (10:32) and leave it with him (11:11)."},
     "visited:simon_2746>jerusalem_636@0b3b16": {"refs":["mark.3.18","mark.10.32","mark.11.11"],"note":"3:18 names 'Simon the Canaanite' among the twelve; the Zelotes name is from outside Mark. The twelve go up to Jerusalem (10:32) and leave it with him (11:11).","kind":"reading"},
     "visited:thomas_2851>jerusalem_636@264ddc": {"refs":["mark.3.18","mark.10.32","mark.11.11"],"note":"Thomas is named among the twelve (3:18). The twelve go up to Jerusalem with Jesus (10:32) and leave it with him (11:11)."},
-    "participated-in:salome_2464>crucifixion-and-burial@7461cf": {"refs":["mark.15.40","mark.15.47"],"note":"15:40 says Salome was looking on from afar. She acts in neither the crucifixion nor the burial; 15:47 names only Mary Magdalene and Mary.","kind":"wrong","severity":"low"}
+    "participated-in:salome_2464>crucifixion-and-burial@7461cf": {"refs":["mark.15.40","mark.15.47"],"note":"15:40 says Salome was looking on from afar. She acts in neither the crucifixion nor the burial; 15:47 names only Mary Magdalene and Mary.","kind":"wrong","severity":"low"},
+    "occurred-at:healing-a-crowd-near-sea-of-galilee>decapolis_328@25ca67": {"refs":["mark.7.31"],"note":"He passes through the coasts of Decapolis on his way to the sea of Galilee (7:31). The healing is by the sea, not in Decapolis.","kind":"wrong","severity":"low"}
   }
 }

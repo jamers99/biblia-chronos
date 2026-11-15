@@ -27,7 +27,8 @@
     "occurred-at:healing-blind-bartimaeus>jericho_634@365c17",
     "occurred-at:olivet-discourse>mount_of_olives_861@09905f",
     "occurred-at:prayer-and-betrayal-in-gethsemane>gethsemane_462@7bdd6f",
-    "occurred-at:second-foretelling-of-death-and-resurrection>galilee_433@3781fd"
+    "occurred-at:second-foretelling-of-death-and-resurrection>galilee_433@3781fd",
+    "occurred-at:bearing-cross-to-golgotha>golgotha_487@391ebe"
   ],
   "facts": {
     "alias-of:place_954>golgotha_487@33a83b": {"refs":["matt.27.33"],"note":"Matthew explains that Golgotha is 'a place of a skull' (27.33)."},
@@ -56,7 +57,6 @@
     "date:the-transfiguration@2c186f": {"refs":["matt.17.1"],"note":"Dated only as 'after six days' (17.1), from an unstated starting point. No year is given. The year 29 (AD) depends on outside chronology.","kind":"reading"},
     "date:triumphal-entry@22ede5": {"refs":["matt.21.1","matt.26.2"],"note":"Set as they drew near Jerusalem (21.1), days before Passover (26.2). No year is given. The year 30 (AD) depends on outside chronology.","kind":"reading"},
     "near:gethsemane_462>jerusalem_636@534bea": {"refs":["matt.21.1","matt.26.30","matt.26.36"],"note":"Gethsemane is reached from the Mount of Olives (26.30, 26.36), which they reached as they drew near Jerusalem (21.1). Distance is not stated.","kind":"reading"},
-    "occurred-at:bearing-cross-to-golgotha>golgotha_487@391ebe": {"refs":["matt.27.32","matt.27.33"],"note":"Simon is made to carry the cross as they came out (27.32). Only after that do they come to Golgotha (27.33).","kind":"wrong","severity":"low"},
     "occurred-at:crucifixion-and-burial>golgotha_487@f26a61": {"refs":["matt.27.33","matt.27.35","matt.27.60"],"note":"The crucifixion is at Golgotha (27.33, 27.35). The text does not place Joseph's tomb (27.60) at Golgotha.","kind":"reading"},
     "occurred-at:debates-in-the-temple>jerusalem_636@8c6f5f": {"refs":["matt.21.10","matt.21.23"],"note":"Jesus came into Jerusalem, then into the temple, where the chief priests questioned him (21.10, 21.23)."},
     "occurred-at:holy-week>jerusalem_636@29a3a4": {"refs":["matt.21.10","matt.21.17","matt.24.3"],"note":"Entry and temple teaching are in Jerusalem (21.10), but the week also includes Bethany (21.17) and the Mount of Olives (24.3).","kind":"reading"},

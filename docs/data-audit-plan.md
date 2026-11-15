@@ -2,7 +2,7 @@
 
 > **Status (Nov 2026):** steps 1 and 2 are built. The text match supports
 > 3,560 of the 6,114 facts. Step 3's AI pass is done, and every fact has an AI
-> verdict: 247 are flagged wrong, 2,237 are readings, and 111 are marked "no
+> verdict: 212 are flagged wrong, 2,241 are readings, and 113 are marked "no
 > verse found". None has had an editor's review yet; see "The first full pass"
 > and "The Nov 14 re-import" below for what to look at first.
 
@@ -404,7 +404,11 @@ Lessons from the first pass:
   call that was overruled had the same cause: Haiku judged a person against
   the event's title (Daniel takes no part in "Fall of Babylon") rather than
   its verses (Dan 5, where he reads the writing). The prompt now says so, and
-  each event fact gives the event's verses.
+  each event fact gives the event's verses. Re-checking the 114 earlier
+  "wrong" flags on event facts with it (`--flagged participated-in` and
+  `occurred-at`) cleared 35: 19 people who act within the event, and 16
+  places where a journey stops or the event happens. 79 stay wrong, and 2
+  became "no verse found".
 - **Its missing-fact reports are mostly already in the data,** filed in
   another batch (Adam is Seth's father at Luke 3:38). Check them against the
   whole dataset before adding any.

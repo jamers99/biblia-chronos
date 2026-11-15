@@ -92,8 +92,6 @@
     "member-of:manasseh_1930>tribe-of-judah@eb5197": {"refs":["matt.1.2","matt.1.3","matt.1.4","matt.1.5","matt.1.6","matt.1.7","matt.1.8","matt.1.9","matt.1.10","1chr.3.13"],"note":"Son of Hezekiah in Judah's line (Matt 1:2-10; 1 Chr 3:13). The tribe label is an outside reading.","kind":"reading"},
     "member-of:seraiah_2494>tribe-of-levi@bd2019": {"refs":["2kgs.25.18"],"note":"Called the chief priest (25:18). Levi descent is outside this passage.","kind":"reading"},
     "member-of:zedekiah_1950>tribe-of-judah@5fc18f": {"refs":["matt.1.2","matt.1.3","matt.1.4","matt.1.5","matt.1.6","matt.1.7","matt.1.8","matt.1.9","matt.1.10","1chr.3.15","2kgs.24.17"],"note":"Son of Josiah (1 Chr 3:15; 2 Kgs 24:17 'his father's brother'), in Judah's line (Matt 1:2-10). The tribe label is an outside reading.","kind":"reading"},
-    "occurred-at:death-of-amon>uzza_1192@c3fa2e": {"refs":["2kgs.21.23","2kgs.21.26"],"note":"He was slain in his own house (21:23). Uzza is where he was buried (21:26), not where he died.","kind":"wrong","severity":"medium"},
-    "occurred-at:death-of-manasseh>uzza_1192@f3370d": {"refs":["2kgs.21.18"],"note":"21:18 gives his burial place, the garden of Uzza. It does not say where he died.","kind":"wrong","severity":"medium"},
     "parent-of:hasrah_1414>tikvah_2855@bd95af": {"refs":["2kgs.22.14","2chr.34.22"],"note":"22:14 says Tikvah is the son of Harhas; 2 Chr 34:22 spells it Hasrah. That the two spellings name one man is a reading.","kind":"reading"},
     "parent-of:hephzi-bah_1499>manasseh_1930@1e2414": {"refs":["2kgs.21.1"],"note":"21:1 names his mother Hephzibah, the same name spelled without the hyphen.","kind":"reading"},
     "parent-of:kareah_919>johanan_1666@bd9bbb": {"refs":["2kgs.25.23"],"note":"25:23 names Johanan the son of Careah. The key spells it Kareah; same name, different spelling.","kind":"reading"},
@@ -110,6 +108,8 @@
     "partner-of:huldah_1567>shallum_2515@d5041b": {"refs":["2kgs.22.14"],"note":"Huldah the prophetess is named as the wife of Shallum the son of Tikvah."},
     "partner-of:jehoiakim_1085>nehushta_2174@3e151b": {"refs":["2kgs.24.6","2kgs.24.8"],"note":"Nehushta is Jehoiachin's mother (24:8), and Jehoiachin is Jehoiakim's son (24:6). The marriage is inferred, not stated.","kind":"reading"},
     "partner-of:josiah_1730>zebudah_3000@e22ce5": {"refs":["2kgs.23.34","2kgs.23.36"],"note":"Zebudah is Jehoiakim's mother (23:36), and Jehoiakim is Josiah's son (23:34). The marriage is inferred, not stated.","kind":"reading"},
-    "partner-of:manasseh_1930>meshullemeth_2040@338929": {"refs":["2kgs.21.18","2kgs.21.19"],"note":"Meshullemeth is Amon's mother (21:19), and Amon is Manasseh's son (21:18). The marriage is inferred, not stated.","kind":"reading"}
+    "partner-of:manasseh_1930>meshullemeth_2040@338929": {"refs":["2kgs.21.18","2kgs.21.19"],"note":"Meshullemeth is Amon's mother (21:19), and Amon is Manasseh's son (21:18). The marriage is inferred, not stated.","kind":"reading"},
+    "occurred-at:death-of-amon>uzza_1192@c3fa2e": {"refs":["2kgs.21.23","2kgs.21.26"],"note":"He was slain in his own house (21:23). Uzza is named only as the garden where he was buried (21:26).","kind":"wrong","severity":"low"},
+    "occurred-at:death-of-manasseh>uzza_1192@f3370d": {"note":"No verse says where Manasseh died. Verse 21:18 gives only his burial in the garden of Uzza.","kind":"unsupported","severity":"low"}
   }
 }
