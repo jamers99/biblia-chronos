@@ -1,11 +1,10 @@
 ---
 import Page from "../../layouts/Page.astro"
-import { people, periods, sources } from "../../lib/data/load.ts"
+import { periods, sources } from "../../lib/data/load.ts"
 import { formatEstimate } from "../../lib/format.ts"
 import { url } from "../../lib/url.ts"
 import { REPO } from "../../lib/review.ts"
 
-const drafts = people.filter((p) => p.status === "draft").length
 
 ---
 
@@ -73,12 +72,6 @@ const drafts = people.filter((p) => p.status === "draft").length
       ))
     }
   </dl>
-
-  <h2 id="drafts">Draft records</h2>
-  <p class="prose">
-    The source data marks {drafts.toLocaleString()} of its {people.length.toLocaleString()} people as work in progress.
-    They're shown by default, marked "draft" and in grey; turn off <em>Show draft records</em> in the menu to hide them.
-  </p>
 
   <h2 id="sources">Sources and licenses</h2>
   <ul class="sources">

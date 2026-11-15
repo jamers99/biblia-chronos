@@ -49,8 +49,6 @@
 
   let width = $state(1200)
   let height = $state(800)
-  // Draft records follow the site setting in the menu (see Page.astro).
-  let showDrafts = $state(true)
   let transform = $state<ZoomTransform>(zoomIdentity)
   // Raw, not deeply reactive: these hold items from props, compared by identity.
   let selected = $state.raw<TimelineItem | TimelinePeriod>()
@@ -75,7 +73,6 @@
   const base = $derived(scaleLinear().domain(domain).range([0, width]))
   const x = $derived(transform.rescaleX(base))
   const ticks = $derived(x.ticks(Math.max(2, Math.floor(width / 130))).filter(Number.isInteger))
-  const shown = $derived(showDrafts ? items : items.filter((i) => !i.draft))
 
   const isItem = (s: TimelineItem | TimelinePeriod | undefined): s is TimelineItem => !!s && "kind" in s
   const focus = $derived(isItem(selected) ? selected : undefined)
@@ -110,7 +107,7 @@
     ),
   )
   const lanes = (kind: TimelineItem["kind"], maxLanes: number) =>
-    packLanes(shown.filter((i) => i.kind === kind && !onTrack.has(i.id)), priority, extent, maxLanes, 12).placed
+    packLanes(items.filter((i) => i.kind === kind && !onTrack.has(i.id)), priority, extent, maxLanes, 12).placed
   const eventLayout = $derived(lanes("event", eventLanes))
   const peopleLayout = $derived(lanes("person", peopleLanes))
   // World to screen is a shift by the pan, so culling is cheap.
@@ -260,9 +257,6 @@
     // bind:clientWidth, so the first view is laid out at the real size.
     width = root.clientWidth
     height = root.clientHeight
-    showDrafts = document.documentElement.dataset.drafts !== "hidden"
-    const onDrafts = (e: Event) => (showDrafts = (e as CustomEvent<boolean>).detail)
-    addEventListener("drafts", onDrafts)
 
     behavior = zoom<SVGSVGElement, unknown>()
       .scaleExtent([1, 800])
@@ -311,7 +305,6 @@
     return () => {
       cancelAnimationFrame(frame)
       svg.removeEventListener("wheel", onWheel)
-      removeEventListener("drafts", onDrafts)
       removeEventListener("search-pick", onPick)
       forget()
     }
@@ -562,7 +555,6 @@
             class="item {item.kind}"
             class:dim={dimmed(item.id)}
             class:focus={item === focus}
-            class:draft={item.draft}
             style="transform: translateY({y}px)"
             onclick={(e) => {
               e.stopPropagation()
@@ -653,7 +645,6 @@
       {#if isItem(selected)}
         <p class="kind">
           {selected.kind === "person" ? (selected.lifetime ? "Person" : "Person · lifespan unknown") : trackKind(selected.id)}
-          {#if selected.draft}<span class="badge">draft</span>{/if}
         </p>
         <h2>{selected.name}</h2>
         <p class="when">{when(selected)}{selected.eras ? ` · ${selected.eras}` : ""}</p>
@@ -778,9 +769,6 @@
   }
   .person text.strong {
     font: 600 14px var(--serif);
-  }
-  .item.draft text {
-    fill: var(--ink-3);
   }
   .item:hover text {
     fill: var(--ink);

@@ -207,7 +207,8 @@ A fact with no checks shows *unchecked*. A *reading* shows its note. Each
 record's Sources section (today it lists one source) merges with this: where
 the data came from, the text it was checked against (KJV), and a tally that
 keeps the layers apart: "14 facts: 12 supported by the text, 14 agreed by
-AI, 3 read by an editor". The tally replaces the "draft" badge.
+AI, 3 read by an editor". The tally took the place of the "draft" badge, which went when upstream
+dropped its status field (Nov 2026).
 
 ---
 
@@ -257,9 +258,7 @@ The scan, `matches.json`, the fact ids and hashes in `check:data`, the
 
 ### 3. AI and editor passes (one PR per batch)
 
-Published and editorial records first, then drafts, batch by batch. Most
-Bible-era people, including Esther, Mordecai, Ezra, and Nehemiah, are still
-drafts, so drafts are where most of this work is.
+Batch by batch, by passage.
 
 1. **AI pass.** Haiku reads the batch's passage text and every fact in it,
    including the ones the text match found. It can only cite verses from that

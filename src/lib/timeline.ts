@@ -15,7 +15,6 @@ export type TimelineItem = {
   // How much Scripture says about it (verse count). Busier items win lanes,
   // so zooming out keeps Abraham and the Exodus and drops minor figures.
   weight: number
-  draft: boolean
   lifetime: boolean // people: true = birth–death known; false = attested years only
   // Attested people only: the years they're seen in (dated events, a recorded
   // birth or death). Drawn as dots, so the span doesn't read as a lifetime.
@@ -64,7 +63,6 @@ export function timelineItems(
             id: record.id,
             ...span,
             weight: record.scriptureRefs?.length ?? 0,
-            draft: record.status === "draft",
             eras: periodsOverlapping(span, periods).map((p) => p.name).join(", "),
           },
         ]

@@ -10,8 +10,7 @@ const entry = (name: string, weight = 0, extra: Partial<SearchEntry> = {}): Sear
   weight,
   ...extra,
 })
-const names = (entries: SearchEntry[], q: string, keep?: (e: SearchEntry) => boolean) =>
-  search(prepare(entries), q, 8, keep).map((e) => e.name)
+const names = (entries: SearchEntry[], q: string) => search(prepare(entries), q, 8).map((e) => e.name)
 
 test("whole names, then starts of names, then starts of words, then anywhere", () => {
   const index = [entry("Death of David", 50), entry("Davidic Covenant", 20), entry("David", 1), entry("Ben-hadad", 99)]
@@ -35,9 +34,4 @@ test("case and accents don't matter; empty queries find nothing", () => {
   const index = [entry("Bethlehem")]
   assert.deepEqual(names(index, "  BETHLÉHEM "), ["Bethlehem"])
   assert.deepEqual(names(index, " "), [])
-})
-
-test("a filter drops records, e.g. drafts", () => {
-  const index = [entry("Abel", 1, { draft: true }), entry("Abel-meholah")]
-  assert.deepEqual(names(index, "abel", (e) => !e.draft), ["Abel-meholah"])
 })

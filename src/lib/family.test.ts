@@ -4,7 +4,7 @@ import { lineage } from "./family.ts"
 import type { Person } from "./data/schema.ts"
 
 const person = (id: string, gender: Person["gender"]): Person => ({
-  id, name: id, kind: "person", status: "published", source: "test", gender,
+  id, name: id, kind: "person", source: "test", gender,
 })
 const people = Object.fromEntries(
   [person("terah", "male"), person("abraham", "male"), person("sarah", "female"), person("isaac", "male"), person("hagar", "female"), person("ishmael", "male")].map((p) => [p.id, p]),

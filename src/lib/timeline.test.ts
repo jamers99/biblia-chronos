@@ -32,11 +32,11 @@ test("packLanes drops the lightest items when lanes run out", () => {
   assert.equal(hidden, 1)
 })
 
-const period: Period = { id: "p", name: "Era", kind: "period", status: "published", source: "t", date: { earliest: -100, latest: 0 } }
+const period: Period = { id: "p", name: "Era", kind: "period", source: "t", date: { earliest: -100, latest: 0 } }
 const event = (id: string, earliest: number, latest = earliest): Event => ({
-  id, name: id, kind: "event", status: "published", source: "t", date: { earliest, latest },
+  id, name: id, kind: "event", source: "t", date: { earliest, latest },
 })
-const person: Person = { id: "ezra", name: "Ezra", kind: "person", status: "draft", source: "t" }
+const person: Person = { id: "ezra", name: "Ezra", kind: "person", source: "t" }
 
 test("timelineItems keeps dated items in range and skips lifetime-of events", () => {
   const events = [event("in", -50), event("before", -500), event("lifetime-of-ezra", -60, -10)]
@@ -46,7 +46,6 @@ test("timelineItems keeps dated items in range and skips lifetime-of events", ()
     ["event", "in", -50, -50, "Era"],
     ["person", "ezra", -60, -10, "Era"],
   ])
-  assert.equal(items[1].draft, true)
   assert.equal(items[1].lifetime, false)
   assert.deepEqual(items[1].marks, [-60, -50])
   // connections keep only items that made it onto the timeline
@@ -54,7 +53,7 @@ test("timelineItems keeps dated items in range and skips lifetime-of events", ()
 })
 
 test("timelineItems leaves God off the people lanes", () => {
-  const god: Person = { id: "god_1324", name: "God", kind: "person", status: "published", source: "t" }
+  const god: Person = { id: "god_1324", name: "God", kind: "person", source: "t" }
   const items = timelineItems([god], [event("in", -50)], [period], () => [event("in", -50)])
   assert.deepEqual(items.map((i) => i.id), ["in"])
 })

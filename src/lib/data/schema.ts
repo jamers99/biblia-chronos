@@ -39,7 +39,6 @@ export const ScriptureRef = z.object({
 export const Base = z.object({
   id: z.string(),
   name: z.string(),
-  status: z.enum(["published", "draft"]).default("published"),
   source: z.string(),
   description: z.string().optional(),
   // Who wrote the description, when it isn't the record's own source: a key

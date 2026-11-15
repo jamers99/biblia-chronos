@@ -4,10 +4,10 @@ import { mapPlaces, mapStandIn } from "./map.ts"
 import type { EdgeType, Period, Place } from "./data/schema.ts"
 
 const place = (id: string, lng: number, featureType?: string): Place => ({
-  id, name: id, kind: "place", status: "published", source: "t", coordinates: { lat: 31, lng }, featureType,
+  id, name: id, kind: "place", source: "t", coordinates: { lat: 31, lng }, featureType,
 })
 const period = (id: string, earliest: number, latest: number): Period => ({
-  id, name: id, kind: "period", status: "published", source: "t", date: { earliest, latest },
+  id, name: id, kind: "period", source: "t", date: { earliest, latest },
 })
 
 test("mapPlaces projects places, drops unlocatable ones, and dates them by era", () => {

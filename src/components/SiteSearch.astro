@@ -61,10 +61,9 @@
   let results: SearchEntry[] = []
   let active = 0
 
-  const showDrafts = () => document.documentElement.dataset.drafts !== "hidden"
   async function update() {
     const query = input.value
-    const found = query.trim() ? search(await load(), query, 8, (e) => showDrafts() || !e.draft) : []
+    const found = query.trim() ? search(await load(), query, 8) : []
     if (input.value !== query) return // typed on meanwhile
     results = found
     active = 0
@@ -81,7 +80,6 @@
         li.innerHTML = `<span class="name"></span><small></small>`
         li.querySelector(".name")!.textContent = r.name
         li.querySelector("small")!.textContent = [KIND_LABEL[r.kind], r.hint].filter(Boolean).join(" · ")
-        if (r.draft) li.classList.add("draft")
         // Keep focus in the box while pressing (so it doesn't blur and close
         // the list mid-tap), and pick on click, so the tap ends here rather
         // than on whatever is under the list once it's gone.
@@ -255,9 +253,6 @@
   }
   .results :global(li[aria-selected="true"]) {
     background: var(--wash);
-  }
-  .results :global(li.draft .name) {
-    color: var(--ink-2);
   }
   .results :global(small) {
     flex: none;

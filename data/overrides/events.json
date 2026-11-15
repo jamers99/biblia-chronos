@@ -64,7 +64,6 @@
     "name": "Ezra Reads the Law",
     "kind": "event",
     "source": "editorial",
-    "status": "published",
     "description": "In the seventh month, once the wall is finished, Ezra reads the book of the law of Moses to the people gathered in Jerusalem, with Nehemiah the governor beside him. They weep, then keep the Feast of Booths (Nehemiah 8). Dated to the same year as the wall.",
     "date": { "earliest": -453, "latest": -453, "display": "454 BC" },
     "scriptureRefs": [
@@ -93,7 +92,6 @@
     "name": "Nehemiah's Second Term as Governor",
     "kind": "event",
     "source": "editorial",
-    "status": "published",
     "description": "After returning to Artaxerxes in the king's thirty-second year (Nehemiah 13:6), Nehemiah comes back to Jerusalem. He throws Tobiah out of the temple's storerooms and restores the tithes, the Sabbath, and the ban on foreign marriages (Nehemiah 13). This is the last dated event in the Old Testament: 442 BC on this timeline's chronology, about 432 BC in most others.",
     "date": { "earliest": -441, "latest": -441, "display": "c. 442 BC" },
     "scriptureRefs": [
@@ -130,7 +128,6 @@
     "name": "Dedication of the Wall of Jerusalem",
     "kind": "event",
     "source": "editorial",
-    "status": "published",
     "description": "With the wall finished, the Levites and singers are gathered to Jerusalem, and two great choirs go round on the wall in procession, one with Ezra the scribe at its head and the other with Nehemiah behind it, meeting at the house of God (Nehemiah 12:27–43). The text doesn't date it; it follows the wall's completion in Artaxerxes' twentieth year (Nehemiah 2:1; 6:15), so it's placed in the same year as the wall, 454 BC on this timeline's chronology.",
     "date": { "earliest": -453, "latest": -453, "display": "c. 454 BC" },
     "scriptureRefs": [

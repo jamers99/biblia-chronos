@@ -60,8 +60,6 @@ const current = (href: string) => (isCurrent(href) ? "page" : undefined)
         document.querySelector('meta[name="theme-color"]').content = theme === "dark" ? "#1d1b18" : "#f7f3ea"
       }
       applyTheme(localStorage.getItem("theme") ?? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"))
-      // Draft records are shown unless hidden from the menu.
-      document.documentElement.dataset.drafts = localStorage.getItem("drafts") ?? "shown"
       // Review mode (ReviewMode.astro) is off unless turned on, from the menu
       // or by opening the review queue.
       document.documentElement.dataset.review = localStorage.getItem("review") ?? "off"
@@ -114,10 +112,6 @@ const current = (href: string) => (isCurrent(href) ? "page" : undefined)
           <hr />
           <ThemeToggle />
           <label class="row">
-            <input type="checkbox" class="drafts-toggle" checked />
-            Show draft records
-          </label>
-          <label class="row">
             <input type="checkbox" class="review-toggle" />
             Review mode
           </label>
@@ -164,12 +158,10 @@ const current = (href: string) => (isCurrent(href) ? "page" : undefined)
         menu.querySelector("summary")!.focus()
       })
 
-      // The menu's settings, site-wide and remembered: draft records (the
-      // timeline listens for "drafts") and review mode (ReviewMode.astro
-      // listens for "review"). Each is a checkbox, a data attribute on <html>,
-      // and its two values.
+      // The menu's settings, site-wide and remembered: review mode
+      // (ReviewMode.astro listens for "review"). Each is a checkbox, a data
+      // attribute on <html>, and its two values.
       for (const [name, yes, no] of [
-        ["drafts", "shown", "hidden"],
         ["review", "on", "off"],
       ] as const) {
         const box = menu.querySelector<HTMLInputElement>(`.${name}-toggle`)!

@@ -4,13 +4,13 @@ import { personSpan, periodAt, periodsOverlapping, spanOf } from "./chronology.t
 import type { Event, Period, Person } from "./data/schema.ts"
 
 const person = (extra: Partial<Person>): Person => ({
-  id: "p", name: "P", kind: "person", status: "published", source: "t", ...extra,
+  id: "p", name: "P", kind: "person", source: "t", ...extra,
 })
 const event = (earliest: number, latest = earliest): Event => ({
-  id: `e${earliest}`, name: "E", kind: "event", status: "published", source: "t", date: { earliest, latest },
+  id: `e${earliest}`, name: "E", kind: "event", source: "t", date: { earliest, latest },
 })
 const period = (id: string, earliest: number, latest: number): Period => ({
-  id, name: id, kind: "period", status: "published", source: "t", date: { earliest, latest },
+  id, name: id, kind: "period", source: "t", date: { earliest, latest },
 })
 
 test("spanOf tolerates one-sided estimates", () => {

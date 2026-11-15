@@ -13,7 +13,6 @@ export type SearchEntry = {
   hint: string // what tells it apart in a list: its dates, or what kind of place
   also?: string[] // other names it goes by (a person's plain name, a place's alt and modern names)
   weight: number // how much Scripture says about it; busier records rank first
-  draft?: true
 }
 
 export function searchIndex(
@@ -21,7 +20,6 @@ export function searchIndex(
   eventsOf: (personId: string) => Event[],
 ): SearchEntry[] {
   const weight = (r: { scriptureRefs?: unknown[] }) => r.scriptureRefs?.length ?? 0
-  const draft = (r: { status: string }) => (r.status === "draft" ? { draft: true as const } : {})
   const also = (names: (string | undefined)[], name: string) => {
     const rest = [...new Set(names)].filter((n): n is string => !!n && n !== name)
     return rest.length ? { also: rest } : {}
@@ -37,7 +35,6 @@ export function searchIndex(
       hint: span(personSpan(p, eventsOf(p.id))),
       ...also([p.name], label(p)),
       weight: weight(p),
-      ...draft(p),
     })),
     ...data.places.map((p) => ({
       id: p.id,
@@ -46,7 +43,6 @@ export function searchIndex(
       hint: [p.featureSubType ?? p.featureType, p.modernName && `today ${p.modernName}`].filter(Boolean).join(" · "),
       ...also([...(p.altNames ?? []), p.modernName], p.name),
       weight: weight(p),
-      ...draft(p),
     })),
     ...data.events.map((e) => ({
       id: e.id,
@@ -54,9 +50,8 @@ export function searchIndex(
       name: e.name,
       hint: e.date ? formatEstimate(e.date) : "",
       weight: weight(e),
-      ...draft(e),
     })),
-    ...data.groups.map((g) => ({ id: g.id, kind: "peopleGroup" as const, name: g.name, hint: "", weight: weight(g), ...draft(g) })),
+    ...data.groups.map((g) => ({ id: g.id, kind: "peopleGroup" as const, name: g.name, hint: "", weight: weight(g) })),
   ]
 }
 
@@ -85,13 +80,13 @@ function score(name: string, q: string): number {
 
 // The best matches for a query: by how well they match (a record's own name
 // beats one it also goes by), then by weight.
-export function search(index: Prepared[], query: string, limit = 8, keep = (_: SearchEntry) => true): SearchEntry[] {
+export function search(index: Prepared[], query: string, limit = 8): SearchEntry[] {
   const q = fold(query)
   if (!q) return []
   const hits: { entry: SearchEntry; score: number }[] = []
   for (const p of index) {
     const s = Math.min(score(p.name, q), ...p.also.map((a) => score(a, q) + 0.5))
-    if (s < Infinity && keep(p.entry)) hits.push({ entry: p.entry, score: s })
+    if (s < Infinity) hits.push({ entry: p.entry, score: s })
   }
   return hits
     .sort((a, b) => a.score - b.score || b.entry.weight - a.entry.weight || a.entry.name.length - b.entry.name.length)

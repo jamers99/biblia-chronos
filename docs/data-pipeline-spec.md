@@ -66,8 +66,6 @@ All schemas live in `src/lib/data/schema.ts` as Zod, with types derived via
   and never appear in output.
 - `source` — a key into `sources.json` (e.g. `"theographic"`). Required on every
   entity and edge. Keeps provenance to one short string per record.
-- `status` — `"published" | "draft"`. Drafts stay in seed (so edges remain
-  valid); the build decides whether to ship them.
 - Years are numbers in astronomical (ISO 8601) numbering, the upstream
   convention: `0` is 1 BC, `-1573` is 1574 BC. Keep the numbers as-is and
   convert only for display. A few upstream event dates are full ISO dates
@@ -102,7 +100,6 @@ const ScriptureRef = z.object({
 const Base = z.object({
   id: z.string(),
   name: z.string(),
-  status: z.enum(["published", "draft"]).default("published"),
   source: z.string(),
   description: z.string().optional(),
   scriptureRefs: z.array(ScriptureRef).optional(),
@@ -286,7 +283,7 @@ lookup; drop + count any that don't resolve.
 2. Build per-type maps of rec-id → canonical id (assign/generate slugs first).
 3. Build the Book table and the verse rec-id → `ScriptureRef` map.
 4. Transform each entity: read `.fields`, map fields, parse dates, resolve
-   `scriptureRefs`. Keep drafts (`status: "draft"`).
+   `scriptureRefs`.
 5. Build edges from relationship fields; resolve endpoints; normalize symmetric
    edges; dedupe; drop + count danglers.
 6. Validate all output against the Zod schemas; abort on failure.
@@ -344,8 +341,10 @@ fail if that id is missing from `sources.json`.
 
 ## Settled decisions
 
-1. **Drafts in seed:** upstream `wip` records are imported as `status: "draft"`
-   so edges stay valid; the build decides per-visualization whether to show them.
+1. **No draft status:** upstream marked people `publish` or `wip` until its
+   Nov 2026 export, which dropped the field. Records are imported without a
+   status, and how far a fact has been checked is shown by the evidence layers
+   instead (docs/data-audit-plan.md).
 2. **Verses/chapters as entities:** not yet. We ship a Book table plus refs
    resolved to `{ book, chapter, verse }`. Full verse/chapter entities are
    deferred until a visualization needs them.

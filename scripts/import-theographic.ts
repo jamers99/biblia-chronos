@@ -235,23 +235,6 @@ function resolveScriptureRefs(verses: unknown): ScriptureRef[] | undefined {
   return refs
 }
 
-const mapStatus = (s: unknown): "published" | "draft" =>
-  s === "wip" ? "draft" : "published"
-
-// Upstream's export stopped carrying people's status (publish/wip) in Nov
-// 2026. When it's missing, keep what the last import had; a person new since
-// then starts as a draft, rather than every work-in-progress record
-// silently becoming published.
-const previousPersonStatus: Map<string, "published" | "draft"> = (() => {
-  try {
-    const rows: { id: string; status: "published" | "draft" }[] = JSON.parse(readFileSync(join(seedDir, "people.json"), "utf8"))
-    return new Map(rows.map((r) => [r.id, r.status]))
-  } catch {
-    return new Map() // first import
-  }
-})()
-const personStatus = (id: string, s: unknown) => (s === undefined ? (previousPersonStatus.get(id) ?? "draft") : mapStatus(s))
-
 // Set of canonical person ids, for fields that already carry our slugs rather
 // than Airtable rec-ids (e.g. places.hasBeenHere is a comma-joined string of
 // personLookups, not a linked-record array like the other relationship fields).
@@ -314,7 +297,6 @@ const people = rawPeople.map((r) => {
     kind: "person" as const,
     id,
     name: String(f.name ?? id),
-    status: personStatus(id, f.status),
     source: SOURCE,
     description: stripMarkup(f.dictText),
     displayTitle: f.displayTitle ? String(f.displayTitle) : undefined,
@@ -377,7 +359,6 @@ const places = rawPlaces.map((r) => {
     kind: "place" as const,
     id,
     name: String(f.esvName ?? f.kjvName ?? id),
-    status: mapStatus(f.status),
     source: SOURCE,
     description: stripMarkup(f.dictText),
     coordinates,
@@ -412,7 +393,6 @@ const events = rawEvents.map((r) => {
     kind: "event" as const,
     id,
     name: String(f.title ?? id),
-    status: "published" as const,
     source: SOURCE,
     date,
     scriptureRefs: resolveScriptureRefs(f.verses),
@@ -430,7 +410,6 @@ const peopleGroups = rawGroups.map((r) => {
     kind: "peopleGroup" as const,
     id,
     name: String(f.groupName ?? id),
-    status: "published" as const,
     source: SOURCE,
     scriptureRefs: resolveScriptureRefs(f.verses),
   }
