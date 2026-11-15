@@ -5,13 +5,17 @@
 //   npm run audit:batch -- esther esth.1-10            facts filed under Esther 1–10
 //   npm run audit:batch -- kingdoms --kind house,note  facts of those kinds
 //   npm run audit:batch -- esther --stale              esther.json's reviews the data has since changed under
+//   npm run audit:batch -- recheck --flagged occurred-at  every batch's "wrong" entries of those kinds, to re-check
 //
 // A fact is filed under its first supporting verse: the text match's verse if
 // it has one, else the first verse naming both its records (or one of them, in
 // a chapter naming the other), else the first verse of the record that tells
 // it (the child, the event, the town). Facts reviewed in another batch file
 // are left out, so each fact lives in one batch. A stale review comes with its
-// old verdict, to re-check and update in place.
+// old verdict, to re-check and update in place. A --flagged batch gathers
+// facts the AI marked wrong, from every batch, each with its old verdict and
+// home file; the reviewer writes audit/batches/<name>.json, and
+// `npm run audit:merge -- <name>` puts each new verdict back in its home file.
 
 import { existsSync, mkdirSync, readdirSync, writeFileSync } from "node:fs"
 import { join } from "node:path"
@@ -23,10 +27,10 @@ import { loadData, loadVerses, readJson, root } from "./data.ts"
 
 const [name, spec = "", kindList] = process.argv.slice(2)
 if (!name || !spec) {
-  console.error("usage: npm run audit:batch -- <name> <book.chapter-chapter>[,…] | --kind house,note,lede | --stale")
+  console.error("usage: npm run audit:batch -- <name> <book.chapter-chapter>[,…] | --kind house,note,lede | --stale | --flagged occurred-at,…")
   process.exit(1)
 }
-const mode = spec === "--kind" ? "kind" : spec === "--stale" ? "stale" : "passage"
+const mode = spec === "--kind" ? "kind" : spec === "--stale" ? "stale" : spec === "--flagged" ? "flagged" : "passage"
 
 const { people, places, events, peopleGroups, books, edges, periods, kingdoms } = loadData()
 const text = loadVerses(books)
@@ -47,6 +51,14 @@ const others = readdirSync(join(root, "data/evidence")).filter((f) => f.endsWith
 const reviewedElsewhere = new Set(others.flatMap((f) => keysOf(batchFile(f)).map(factId)))
 const own: EvidenceBatch = existsSync(join(root, `data/evidence/${name}.json`)) ? batchFile(`${name}.json`) : { passage: "" }
 const ownKey = new Map(keysOf(own).map((k) => [factId(k), k]))
+// For --flagged: every "wrong" entry, by key, with the file it lives in.
+const flagged = new Map(
+  others.flatMap((file) =>
+    Object.entries(batchFile(file).facts ?? {})
+      .filter(([, e]) => e.kind === "wrong")
+      .map(([key, entry]) => [key, { file, entry }] as const),
+  ),
+)
 
 // The record whose verses tell a fact: a parent link is told at the child,
 // a part in an event at the event; otherwise the record it's about.
@@ -78,6 +90,7 @@ const inPassage = (key: string) => {
 
 const chosen = facts.filter((f) => {
   if (mode === "stale") return ownKey.has(f.id) && ownKey.get(f.id) !== f.key
+  if (mode === "flagged") return flagged.has(f.key) && (!kindList || kindList.split(",").includes(f.kind))
   if (reviewedElsewhere.has(f.id)) return false
   if (mode === "kind") return kindList?.split(",").includes(f.kind)
   const h = home(f)
@@ -94,16 +107,36 @@ function when(id: string, kind: "date" | "birth" | "death") {
   const r = [...events, ...places, ...periods].find((r) => r.id === id)!
   return `${JSON.stringify(r.date)} ${years}${r.description ? `; its description says: "${r.description}"` : ""}`
 }
-const sentence = (f: Fact) =>
-  describe(f, { kingdoms, periods }, when)
+// An event fact is judged against the event's whole verse range
+// (docs/audit-review-prompt.md), so say what that range is.
+const eventOf = (f: Fact) => (f.kind === "participated-in" ? f.records[1] : f.kind === "occurred-at" ? f.records[0] : undefined)
+function span(keys: string[]) {
+  const runs: string[][] = []
+  for (const k of keys) {
+    const last = runs.at(-1)?.at(-1)
+    const next = last && chapterOf(last) === chapterOf(k) && Number(k.split(".")[2]) === Number(last.split(".")[2]) + 1
+    if (next) runs.at(-1)!.push(k)
+    else runs.push([k])
+  }
+  return runs.map((r) => (r.length === 1 ? r[0] : `${r[0]}-${r[r.length - 1].split(".")[2]}`)).join(", ")
+}
+const sentence = (f: Fact) => {
+  const text = describe(f, { kingdoms, periods }, when)
     .map((p) => (typeof p === "string" ? p : nameOf(p.id)))
     .join("")
+  const event = eventOf(f)
+  return event && refsOf(event).length ? `${text} (the event's verses: ${span(refsOf(event))})` : text
+}
 
 function matchSays(f: Fact) {
   const [ref, rule] = matches.facts[f.key] ?? []
   return rule ? `text match: ${ref ? `${ref} ` : ""}(${RULES[rule] ?? rule})` : "text match: none"
 }
 function previously(f: Fact) {
+  if (mode === "flagged") {
+    const { file, entry } = flagged.get(f.key)!
+    return ` Was reviewed in data/evidence/${file} as: wrong, ${(entry.refs ?? []).join(", ")} — "${entry.note}".`
+  }
   const old = mode === "stale" && ownKey.get(f.id)
   if (!old) return ""
   const entry = own.facts?.[old]
@@ -122,12 +155,17 @@ const verses = passages.length
         chosen.flatMap((f) => [
           ...f.records.flatMap((id) => [...opening(id), ...(periods.find((p) => p.id === id)?.moments ?? []).flatMap((m) => opening(m, 4))]),
           ...(mode === "stale" ? (own.facts?.[ownKey.get(f.id)!]?.refs ?? []) : []),
+          ...(mode === "flagged" ? [...(flagged.get(f.key)!.entry.refs ?? []), ...refsOf(eventOf(f) ?? "")] : []),
         ]),
       ),
     ].filter((k) => text.has(k))
 
 const intro =
-  mode === "stale"
+  mode === "flagged"
+    ? `Facts marked "wrong" in earlier reviews (kinds: ${kindList ?? "all"}): ${chosen.length}. ` +
+      "Re-check each against the rules, with its old verdict in mind. Write the new verdicts to " +
+      `audit/batches/${name}.json; \`npm run audit:merge -- ${name}\` then puts each one back in its home file.`
+    : mode === "stale"
     ? `Stale reviews in data/evidence/${name}.json: ${chosen.length} facts whose data changed since they were reviewed. ` +
       "Re-check each, then in that file replace the old key with the new one and update the entry (or move it between agreed and facts)."
     : `${mode === "kind" ? `Facts of kind ${kindList}` : `Passage: ${spec}`}. ${chosen.length} facts.`

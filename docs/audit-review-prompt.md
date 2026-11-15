@@ -74,6 +74,16 @@ Rules:
 - **"Took part in the event"** means the person acts in what happens, or is
   the one it happens to (born, healed, slain), not just that their name
   appears nearby.
+- **An event is its whole verse range.** Each event fact gives the event's
+  verses. Judge the fact against all of them, not the event's title or its
+  most famous moment. Someone who acts, or is acted on, anywhere in that
+  range took part: Daniel reads the writing in Dan 5, so he takes part in
+  "Fall of Babylon" (Dan 5:1-31), though not in Belshazzar's death. A place
+  where something in the range happens is a place it occurred at; for a
+  journey, that includes each stop where the text has them arrive, stay or
+  set out from. It does not include a place only named or passed: where a
+  ship came from, a coast sailed "over against", a home town mentioned in
+  passing.
 - **People share names.** Make sure the verse is about the same person, from
   context: whose son they are, the time, the place.
 - **Parents.** A literal "Y the son of X" (or "the sons of X; Y") is the text

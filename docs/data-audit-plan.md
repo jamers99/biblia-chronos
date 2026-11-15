@@ -341,8 +341,12 @@ What the flags found, for the editor:
 
 1. `npm run audit:batch -- <name> <passage>` writes `audit/batches/<name>.md`.
    A passage can list chapters (`gen.12-24` or `exod.12,exod.14`); aim for
-   under ~150 facts. `--kind date,lede` picks facts by kind instead, and
-   `--stale` gives a batch's reviews that the data has since changed under.
+   under ~150 facts. `--kind date,lede` picks facts by kind instead,
+   `--stale` gives a batch's reviews that the data has since changed under,
+   and `--flagged occurred-at,…` gathers every batch's "wrong" entries of
+   those kinds to re-check after a rule changes. A `--flagged` reviewer writes
+   `audit/batches/<name>.json`; `npm run audit:merge -- <name>` puts each
+   verdict back in the batch the fact lives in.
 2. Give a Haiku sub-agent the prompt in
    [audit-review-prompt.md](./audit-review-prompt.md), with the name and
    passage filled in. It writes `data/evidence/<name>.json`.
@@ -396,6 +400,11 @@ Lessons from the first pass:
 - **Spell out the kinds.** A reading is probably true but rests on something
   the text doesn't say. Wrong means the text says otherwise. Without the
   examples in the prompt, Haiku calls a contradiction a "reading".
+- **An event is its whole verse range.** After the re-import, every "wrong"
+  call that was overruled had the same cause: Haiku judged a person against
+  the event's title (Daniel takes no part in "Fall of Babylon") rather than
+  its verses (Dan 5, where he reads the writing). The prompt now says so, and
+  each event fact gives the event's verses.
 - **Its missing-fact reports are mostly already in the data,** filed in
   another batch (Adam is Seth's father at Luke 3:38). Check them against the
   whole dataset before adding any.
