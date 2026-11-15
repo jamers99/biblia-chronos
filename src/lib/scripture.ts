@@ -72,9 +72,9 @@ const USFM: Record<string, string> = {
   "2Tim": "2TI", Phlm: "PHM", Jas: "JAS", "1Pet": "1PE", "2Pet": "2PE", "1John": "1JN",
   "2John": "2JN", "3John": "3JN", Jude: "JUD",
 }
-export const usfm = (book: Book) => USFM[book.osis] ?? book.osis.slice(0, 3).toUpperCase()
+export const usfm = (book: Pick<Book, "osis">) => USFM[book.osis] ?? book.osis.slice(0, 3).toUpperCase()
 
-export function passageUrl(book: Book, run: VerseRun) {
+export function passageUrl(book: Pick<Book, "osis">, run: VerseRun) {
   const verses = run.start === run.end ? `${run.start}` : `${run.start}-${run.end}`
   const { id, code } = BIBLE_COM_VERSION
   return `https://www.bible.com/bible/${id}/${usfm(book)}.${run.chapter}.${verses}.${code}`
@@ -99,7 +99,7 @@ export function parseVerse(key: string): VerseRef | undefined {
 // One cited verse ("gen.25.19", as evidence cites them): a short label
 // ("Gen 25:19", "1 Kgs 16:15"), a long one ("Genesis 25:19"), and a link to
 // read it.
-export function verse(key: string, books: Book[]) {
+export function verse(key: string, books: Pick<Book, "id" | "name" | "osis">[]) {
   const ref = parseVerse(key)
   const book = ref && books.find((b) => b.id === ref.book)
   if (!ref || !book) return undefined

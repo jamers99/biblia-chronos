@@ -5,6 +5,7 @@
 import type { Entity } from "../lib/data/load.ts"
 import { tallyOf } from "../lib/data/load.ts"
 import { summarize } from "../lib/format.ts"
+import { url } from "../lib/url.ts"
 import HowWeKnow from "./HowWeKnow.astro"
 
 interface Props {
@@ -56,6 +57,7 @@ const checked = t.facts - t.unchecked
     )
   }
   {lede && <p class="lede">{lede}</p>}
+  <p class="connect"><a href={url(`/connections/?from=${entity.id}`)}>How is {entity.name} connected to…</a></p>
 </header>
 
 <style>
@@ -64,6 +66,10 @@ const checked = t.facts - t.unchecked
     color: var(--ink-2);
     max-width: var(--measure);
     margin: 1.25rem 0 0;
+  }
+  .connect {
+    margin: 1rem 0 0;
+    font-size: 0.85rem;
   }
   .subtitle {
     margin: -0.25rem 0 0;
