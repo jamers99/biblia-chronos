@@ -49,6 +49,10 @@ export const kingdoms = override("kingdoms.json") as Kingdom[]
 
 export const graph = createGraph(edges)
 
+// Whether a record has any link at all (so Connections can start from it).
+const withLinks = new Set(edges.flatMap((e) => [e.from, e.to]))
+export const hasLinks = (id: string) => withLinks.has(id)
+
 export type Entity = Person | Place | Event | PeopleGroup
 
 const byId = new Map<string, Entity>(

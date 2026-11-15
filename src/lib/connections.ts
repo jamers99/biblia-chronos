@@ -8,36 +8,42 @@
 // weighted: a family link is cheap, belonging to a group is dear, and passing
 // through a record costs more the more links it has. Groups, regions, God, and
 // the Holy Spirit are never passed through at all (they can still be either end).
+//
+// Places are timeless, so a chain could hop from Abraham at Hebron to David at
+// Hebron, nine centuries on. So stepping through something with no date of its
+// own (a place, someone undated) costs more the further apart in time the
+// records on either side of it are.
 
-import type { Book, Edge, EdgeType, PeopleGroup, Person, Place } from "./data/schema.ts"
+import type { Edge, EdgeType, PeopleGroup, Person, Place } from "./data/schema.ts"
 
 // --- The data (build time) ------------------------------------------------------
 
-// A link as stored: from, to, type, and the verse that supports it, if one does.
-export type Link = [from: string, to: string, type: EdgeType, verse?: string]
+export type Link = [from: string, to: string, type: EdgeType]
 
 export type ConnectionsData = {
   links: Link[]
+  dates: Record<string, number> // a year for each dated person and event
   female: string[] // for "mother of" rather than "father of"
   closed: string[] // records a chain never passes through
-  books: { id: string; name: string; osis: string }[] // to cite the verses
 }
 
 // People too bound up with everyone to make a chain mean anything.
 const EVERYWHERE = ["god_1324", "holy_spirit_7400"]
 
 export function connectionsData(
-  d: { edges: Edge[]; people: Person[]; places: Place[]; groups: PeopleGroup[]; books: Book[] },
-  verseOf: (e: Edge) => string | undefined,
+  d: { edges: Edge[]; people: Person[]; places: Place[]; groups: PeopleGroup[] },
+  dateOf: (id: string) => number | undefined,
 ): ConnectionsData {
+  const dates: Record<string, number> = {}
+  for (const id of new Set(d.edges.flatMap((e) => [e.from, e.to]))) {
+    const year = dateOf(id)
+    if (year !== undefined) dates[id] = year
+  }
   return {
-    links: d.edges.map((e) => {
-      const verse = verseOf(e)
-      return verse ? [e.from, e.to, e.type, verse] : [e.from, e.to, e.type]
-    }),
+    links: d.edges.map((e) => [e.from, e.to, e.type]),
+    dates,
     female: d.people.filter((p) => p.gender === "female").map((p) => p.id),
     closed: [...d.groups.map((g) => g.id), ...d.places.filter((p) => p.featureType === "Region").map((p) => p.id), ...EVERYWHERE],
-    books: d.books.map(({ id, name, osis }) => ({ id, name, osis })),
   }
 }
 
@@ -58,21 +64,28 @@ const COST: Record<EdgeType, number> = {
   "alias-of": 0.1, // the same place under another name: barely a step
 }
 const FAMILY = new Set<EdgeType>(["parent-of", "partner-of", "sibling-of", "half-sibling-of"])
+// Years apart, across something undated, that cost as much as one more step.
+const YEARS_PER_STEP = 50
 
 // One step of a chain: a record, and how it's linked to the one before (none for
 // the first). `forward` is whether the link was stored from the one before.
-export type Step = { id: string; type?: EdgeType; forward?: boolean; verse?: string }
+export type Step = { id: string; type?: EdgeType; forward?: boolean }
 
-type Arc = { to: string; type: EdgeType; forward: boolean; verse?: string }
+// A chain to show, and what it is: the closest, the closest through family
+// alone, or another way round.
+export type Route = { kind: "closest" | "family" | "other"; steps: Step[] }
+
+type Arc = { to: string; type: EdgeType; forward: boolean }
 
 export function createRouter(data: ConnectionsData) {
   const arcs = new Map<string, Arc[]>()
   const add = (id: string, arc: Arc) => arcs.get(id)?.push(arc) ?? arcs.set(id, [arc])
-  for (const [from, to, type, verse] of data.links) {
-    add(from, { to, type, forward: true, verse })
-    add(to, { to: from, type, forward: false, verse })
+  for (const [from, to, type] of data.links) {
+    add(from, { to, type, forward: true })
+    add(to, { to: from, type, forward: false })
   }
   const closed = new Set(data.closed)
+  const dates = new Map(Object.entries(data.dates))
   const toll = (id: string) => Math.log2((arcs.get(id)?.length ?? 0) + 1)
 
   // The cheapest chain from one record to another, or undefined if there's none.
@@ -81,18 +94,25 @@ export function createRouter(data: ConnectionsData) {
     if (from === to || !arcs.has(from) || !arcs.has(to)) return
     const cost = new Map([[from, 0]])
     const prev = new Map<string, [string, Arc]>()
+    // The year of the last dated record on the way to each record (its own, if
+    // it has one), to price the step out of an undated one.
+    const when = new Map([[from, dates.get(from)]])
     const heap = new Heap()
     heap.push(0, from)
     for (let next = heap.pop(); next; next = heap.pop()) {
       const [c, id] = next
       if (id === to) break
       if (c > cost.get(id)! || (id !== from && (closed.has(id) || avoid.has(id)))) continue
+      const before = when.get(id)
       for (const arc of arcs.get(id)!) {
         if (family && !FAMILY.has(arc.type)) continue
-        const nc = c + COST[arc.type] + (arc.to === to ? 0 : toll(arc.to))
+        const year = dates.get(arc.to)
+        const gap = !dates.has(id) && before !== undefined && year !== undefined ? Math.abs(year - before) : 0
+        const nc = c + COST[arc.type] + (arc.to === to ? 0 : toll(arc.to)) + gap / YEARS_PER_STEP
         if (nc < (cost.get(arc.to) ?? Infinity)) {
           cost.set(arc.to, nc)
           prev.set(arc.to, [id, arc])
+          when.set(arc.to, year ?? before)
           heap.push(nc, arc.to)
         }
       }
@@ -100,21 +120,27 @@ export function createRouter(data: ConnectionsData) {
     if (!prev.has(to)) return
     const steps: Step[] = []
     for (let id = to; id !== from; ) {
-      const [back, { type, forward, verse }] = prev.get(id)!
-      steps.unshift({ id, type, forward, verse })
+      const [back, { type, forward }] = prev.get(id)!
+      steps.unshift({ id, type, forward })
       id = back
     }
     return [{ id: from }, ...steps]
   }
 
-  // The best chain, and a second through none of the same records, if there's
-  // one about as short (a long detour isn't another way, just a worse one).
-  function routes(from: string, to: string, family = false): Step[][] {
-    const best = route(from, to, { family })
+  // The closest chain; then the family line, if the closest isn't one already;
+  // or else another way through none of the same records, if there's one about
+  // as short (a long detour isn't another way, just a worse one).
+  function routes(from: string, to: string): Route[] {
+    const best = route(from, to)
     if (!best) return []
+    const found: Route[] = [{ kind: "closest", steps: best }]
+    if (best.some((s) => s.type && !FAMILY.has(s.type))) {
+      const line = route(from, to, { family: true })
+      if (line) return [...found, { kind: "family", steps: line }]
+    }
     const between = new Set(best.slice(1, -1).map((s) => s.id))
-    const other = between.size ? route(from, to, { family, avoid: between }) : undefined
-    return other && other.length <= best.length + 2 ? [best, other] : [best]
+    const other = between.size ? route(from, to, { avoid: between }) : undefined
+    return other && other.length <= best.length + 2 ? [...found, { kind: "other", steps: other }] : found
   }
 
   return { routes, linked: (id: string) => arcs.has(id) }

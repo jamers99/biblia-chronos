@@ -29,10 +29,6 @@ import Page from "../../layouts/Page.astro"
         </div>
       ))
     }
-    <label class="family">
-      <input type="checkbox" name="family" />
-      Family only
-    </label>
   </form>
 
   <div class="found" aria-live="polite"></div>
@@ -40,8 +36,7 @@ import Page from "../../layouts/Page.astro"
 
 <script>
   import { prepare, search, KIND_LABEL, type Prepared, type SearchEntry } from "../../lib/search.ts"
-  import { createRouter, linkLabel, type ConnectionsData, type Step } from "../../lib/connections.ts"
-  import { verse } from "../../lib/scripture.ts"
+  import { createRouter, linkLabel, type ConnectionsData, type Route, type Step } from "../../lib/connections.ts"
   import { entityUrl, url } from "../../lib/url.ts"
   import { REPORT } from "../../lib/review.ts"
 
@@ -50,7 +45,6 @@ import Page from "../../layouts/Page.astro"
 
   const form = document.querySelector<HTMLFormElement>("form.ends")!
   const found = document.querySelector<HTMLElement>(".found")!
-  const family = form.querySelector<HTMLInputElement>('[name="family"]')!
   const chosen: Record<"from" | "to", string | undefined> = { from: undefined, to: undefined }
 
   ready.then(([entries, data]) => {
@@ -70,8 +64,6 @@ import Page from "../../layouts/Page.astro"
       const entry = byId.get(params.get(end.name) ?? "")
       if (entry) end.set(entry)
     }
-    family.checked = params.has("family")
-    family.addEventListener("change", show)
     show()
     if (chosen.from && !chosen.to) ends[1].focus()
 
@@ -80,21 +72,19 @@ import Page from "../../layouts/Page.astro"
       const params = new URLSearchParams()
       if (from) params.set("from", from)
       if (to) params.set("to", to)
-      if (family.checked) params.set("family", "")
-      const query = params.toString().replace(/=(&|$)/g, "$1")
+      const query = params.toString()
       history.replaceState(history.state, "", query ? `?${query}` : location.pathname)
 
       if (!from || !to) return found.replaceChildren()
       if (from === to) return say("Pick two different records.")
       const unlinked = [from, to].filter((id) => !router.linked(id))
       if (unlinked.length) return say(`${unlinked.map((id) => byId.get(id)!.name).join(" and ")} ${unlinked.length > 1 ? "have" : "has"} no recorded links yet.`, true)
-      const routes = router.routes(from, to, family.checked)
-      if (!routes.length)
-        return say(`No connection found${family.checked ? " through family. Try without “Family only”" : ""}.`, true)
+      const routes = router.routes(from, to)
+      if (!routes.length) return say("No connection found.", true)
       found.replaceChildren(
-        ...routes.flatMap((steps, i) => [
+        ...routes.flatMap(({ kind, steps }) => [
           Object.assign(document.createElement("h2"), {
-            textContent: `${i ? "Another way" : "The closest link"}: ${steps.length - 1} ${steps.length === 2 ? "step" : "steps"}`,
+            textContent: `${HEADING[kind]}: ${steps.length - 1} ${steps.length === 2 ? "step" : "steps"}`,
           }),
           chain(steps),
         ]),
@@ -113,7 +103,8 @@ import Page from "../../layouts/Page.astro"
       found.replaceChildren(p)
     }
 
-    // Each record, with how it links to the one before: "mother of · Ruth 4:13".
+    // Each record, with how it links to the one before ("mother of"). A long
+    // chain (a family line from Adam) shows its ends, and the rest on request.
     function chain(steps: Step[]) {
       const ol = Object.assign(document.createElement("ol"), { className: "chain" })
       steps.forEach((step, i) => {
@@ -124,11 +115,6 @@ import Page from "../../layouts/Page.astro"
             className: "via",
             textContent: linkLabel(step.type, step.forward!, female.has(steps[i - 1].id)),
           })
-          const cite = step.verse && verse(step.verse, data.books)
-          if (cite) {
-            via.append(" · ")
-            via.append(Object.assign(document.createElement("a"), { href: cite.url, target: "_blank", rel: "noopener", textContent: cite.short, title: cite.long }))
-          }
           li.append(via)
         }
         const name = entry && entry.kind !== "period"
@@ -139,11 +125,27 @@ import Page from "../../layouts/Page.astro"
           textContent: entry ? [KIND_LABEL[entry.kind], entry.hint].filter(Boolean).join(" · ") : "",
         })
         li.append(name, " ", hint)
+        li.hidden = steps.length > LONG && i >= SHOWN && i < steps.length - SHOWN
         ol.append(li)
       })
+      const rest = steps.length - 2 * SHOWN
+      if (steps.length > LONG) {
+        const more = Object.assign(document.createElement("button"), { type: "button", className: "more", textContent: `Show ${rest} more` })
+        more.addEventListener("click", () => {
+          for (const li of ol.querySelectorAll("li")) li.hidden = false
+          more.parentElement!.remove()
+        })
+        const li = document.createElement("li")
+        li.append(more)
+        ol.children[SHOWN].before(li)
+      }
       return ol
     }
   })
+  const HEADING: Record<Route["kind"], string> = { closest: "The closest link", family: "Through family", other: "Another way" }
+  const LONG = 14 // records in a chain before its middle is folded away
+  const SHOWN = 5 // records shown at each end of a long chain
+
   ready.catch(() => (found.innerHTML = `<p class="muted">Couldn't load the links. Check your connection and reload.</p>`))
 
   // One end: a box that suggests records as you type. Choosing one fills it;
@@ -245,15 +247,6 @@ import Page from "../../layouts/Page.astro"
     outline: none;
     border-color: var(--gold);
   }
-  .family {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    padding: 0.5rem 0;
-    font-size: 0.9rem;
-    color: var(--ink-2);
-    cursor: pointer;
-  }
 
   /* rows are made by the script, so they carry no scoping attribute: :global */
   .results {
@@ -325,6 +318,17 @@ import Page from "../../layouts/Page.astro"
   .found :global(.via a) {
     font-style: normal;
     color: var(--ink-3);
+  }
+  .found :global(.more) {
+    margin: 0.3rem 0 0.3rem 0.6rem;
+    padding: 0.35rem 1rem;
+    border: 0;
+    border-left: 2px dashed var(--gold);
+    background: none;
+    font: inherit;
+    font-size: 0.85rem;
+    color: var(--accent);
+    cursor: pointer;
   }
   .found :global(.name) {
     font: 1.15rem/1.4 var(--serif);

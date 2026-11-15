@@ -1,8 +1,11 @@
 ---
 // Labelled rows of related records ("Parents: Amram, Jochebed"). Rows with
 // nothing in them are left out. A row's optional third element names the
-// fact behind each link, so it gets its "how we know" marker.
+// fact behind each link, so it gets its "how we know" marker. Ends with a way
+// into Connections, to trace the record's links further.
 import type { Entity } from "../lib/data/load.ts"
+import { hasLinks, record } from "../lib/data/load.ts"
+import { url } from "../lib/url.ts"
 import EntityLinks from "./EntityLinks.astro"
 
 type FactOf = (e: Entity) => string | undefined
@@ -11,6 +14,8 @@ interface Props {
   context?: string // the page's record id
 }
 const rows = Astro.props.rows.filter(([, items]) => items.length > 0)
+const { context } = Astro.props
+const name = context && hasLinks(context) ? record(context)?.name : undefined
 ---
 
 {
@@ -25,6 +30,13 @@ const rows = Astro.props.rows.filter(([, items]) => items.length > 0)
         </>
       ))}
     </dl>
+  )
+}
+{
+  name && (
+    <p class="connect">
+      <a href={url(`/connections/?from=${context}`)}>Trace a connection from {name} →</a>
+    </p>
   )
 }
 
@@ -42,6 +54,13 @@ const rows = Astro.props.rows.filter(([, items]) => items.length > 0)
   }
   dd {
     margin: 0;
+  }
+  .connect {
+    margin: 1rem 0 0;
+    font-size: 0.85rem;
+  }
+  .connect a {
+    color: var(--ink-3);
   }
   @media (max-width: 520px) {
     .relations {
