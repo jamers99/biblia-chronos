@@ -1,0 +1,13 @@
+{
+  "passage": "gen.1-11",
+  "ai": {"model":"haiku","on":"2026-11-15"},
+  "agreed": [
+    "died-at:miriam_2087>kadesh_661@e1f900"
+  ],
+  "facts": {
+    "date:before-the-flood@186f44": {"refs":["gen.1.1","gen.5.32","gen.7.6","gen.7.11"],"note":"Timing is the sum of Genesis ages (5.32, 7.6, 7.11); the BC years rest on outside chronology (Ussher), not the text.","kind":"reading"},
+    "date:flood-and-nations@525875": {"refs":["gen.11.10","gen.11.26"],"note":"Gen 11.10 puts Arphaxad two years after the flood; 11.26 has Terah 70 when he begets Abram. The BC years depend on outside dating (Ussher-style), not the text.","kind":"reading"},
+    "lede:before-the-flood@9beb2b": {"refs":["gen.1.1","gen.2.8","gen.2.22","gen.3.2","gen.3.6","gen.3.23","gen.3.24","gen.4.8","gen.6.1","gen.6.7","gen.6.11","gen.6.13"],"note":"Gen 1.1, 2.8, 3.6 and 3.23 support creation, Eden, sin and exile; 6.7 and 6.13 the flood. The children-filling-earth-with-violence step is inferred from 6.1 and 6.11.","kind":"reading"},
+    "lede:flood-and-nations@814175": {"refs":["gen.7.7","gen.8.1","gen.8.18","gen.9.11","gen.9.15","gen.10.32","gen.11.8","gen.11.9"],"note":"Verses state Noah's family entering and leaving the ark, God remembering Noah, the no-more-flood covenant, nations divided after the flood, and the scattering at Babel."}
+  }
+}

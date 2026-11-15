@@ -1,10 +1,10 @@
 # Data Audit Plan: checking the data against Scripture
 
 > **Status (Nov 2026):** steps 1 and 2 are built. The text match supports
-> 3,455 of the 5,950 facts. Step 3's AI pass is done, and every fact has an AI
-> verdict: 233 are flagged wrong, 2,181 are readings, and 111 are marked "no
+> 3,560 of the 6,114 facts. Step 3's AI pass is done, and every fact has an AI
+> verdict: 247 are flagged wrong, 2,237 are readings, and 111 are marked "no
 > verse found". None has had an editor's review yet; see "The first full pass"
-> below for what to look at first.
+> and "The Nov 14 re-import" below for what to look at first.
 
 **Goal:** every fact the site shows points to the verse that supports it,
 and says plainly how that was checked: by an automatic text match, by an AI, or by a
@@ -331,6 +331,39 @@ What the flags found, for the editor:
    `npm run check:data`, spot-check that the cited verses name the people
    involved, and read every "wrong" entry.
 4. Commit it. The editor's review happens in the PR.
+
+## The Nov 14 re-import
+
+Theographic was re-imported at `3d8aa2e` (Nov 14, 2026). Upstream fixed
+eleven misspelt event names and merged the two Mount of Olives records; the
+reviews moved to the new ids. It also fixed Jacob's lifetime, which the first
+pass had flagged (it now ends at 147 years, Gen 47:28), and moved five other
+dates, which were re-checked.
+
+Upstream added 40 events for the exile and return. Seven duplicated events we
+had added by hand, on another chronology: Theographic takes Esther's Ahasuerus
+to be Darius I, so Esther is queen in 515 BC (479 BC if he is Xerxes I), and
+Ezra and Nehemiah come nine years earlier than in most accounts. We adopted
+upstream's events and kept our descriptions, which give both dates, and kept
+our three events upstream lacks (Ezra reads the Law, the wall's dedication,
+Nehemiah's second term), re-dated to fit.
+
+Five batches covered the 209 new or changed facts: `exile-events`,
+`return-events`, `esther-events`, `early-periods`, and the nine stale dates in
+place. They flagged 18 as wrong, none high: mostly a journey's starting point
+or a passing name counted as an event's place or a part in it. Four of
+Haiku's "wrong" calls were changed to readings, because the person acts in
+the event's own verses.
+
+For the editor:
+
+- **Split people.** `eliashib_1099` (Neh 3:1) and `eliashib_1101` (Neh 13:4)
+  both look like the high priest `eliashib_1100`. `artaxerxes_313` (Ezra 4:7)
+  may be `artaxerxes_314`.
+- **Zerubbabel's father** is recorded as Pedaiah (1 Chr 3:19), not Shealtiel
+  (Ezra 3:2; Hag 1:1).
+- **Zedekiah** is Jehoiachin's uncle in 2 Kgs 24:17 and his brother in
+  2 Chr 36:10.
 
 Lessons from the first pass:
 
