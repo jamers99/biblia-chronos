@@ -125,7 +125,7 @@
     "name": "Assyrian & Babylonian Exiles",
     "source": "editorial",
     "date": { "earliest": -720, "latest": -535 },
-    "description": "Assyria carries Israel into exile; Judah survives until Babylon destroys Jerusalem and the temple, then lives in exile in Babylon (2 Kings 18–25, Jeremiah, Ezekiel, Daniel). Ends with Cyrus's decree allowing the return (Ezra 1), which Theographic doesn't date: 536 BC follows the Ussher-style chronology the rest of the data uses; most modern scholars date it 538 BC.",
+    "description": "Assyria carries Israel into exile; Judah survives until Babylon destroys Jerusalem and the temple, then lives in exile in Babylon (2 Kings 18–25, Jeremiah, Ezekiel, Daniel). Ends with Cyrus's decree allowing the return (Ezra 1), which Theographic dates to 536 BC; most modern scholars date it 538 BC.",
     "lede": "Babylon destroys Jerusalem and its temple and carries Judah into exile. Far from home, Daniel and Ezekiel keep faith and look for the day God will bring them back.",
     "places": ["jerusalem_636", "babylon_151", "riblah_1001", "chebar_283", "lachish_711", "nineveh_899", "assyria_111"],
     "journey": {
@@ -141,10 +141,10 @@
     "name": "Return from Exile",
     "source": "editorial",
     "date": { "earliest": -535, "latest": -430 },
-    "description": "Exiles return to Judah, rebuild the temple and Jerusalem's walls (Ezra, Nehemiah, Esther, Haggai, Zechariah, Malachi). Ends with Nehemiah's second term as governor (Nehemiah 13), c. 432 BC, the last dated Old Testament event; Malachi prophesied around the same time.",
+    "description": "Exiles return to Judah, rebuild the temple and Jerusalem's walls (Ezra, Nehemiah, Esther, Haggai, Zechariah, Malachi). Ends with Nehemiah's second term as governor (Nehemiah 13), the last dated Old Testament event: c. 442 BC on Theographic's chronology, which takes Esther's Ahasuerus to be Darius I, and about 432 BC in most others. Malachi prophesied around the same time.",
     "lede": "Cyrus of Persia lets the exiles go home. They rebuild the temple, Ezra teaches them the law again, and under Nehemiah the walls of Jerusalem rise.",
     "places": ["jerusalem_636", "babylon_151", "susa_1118", "ecbatana_353", "persia_938", "samaria_1022"],
-    "moments": ["cyrus-decree-and-first-return", "second-temple-completed", "esther-saves-her-people", "ezra-returns-to-jerusalem", "nehemiah-rebuilds-the-walls", "prophecies-of-malachi"],
+    "moments": ["cyrus-decrees-the-rebuilding-of-the-temple", "second-temple-dedicated", "haman-is-hanged", "ezra-leads-exiles-to-jerusalem", "nehemiah-rebuilds-the-wall-of-jerusalem", "prophecies-of-malachi"],
     "people": ["cyrus_968", "zerubbabel_3054", "ezra_1245", "nehemiah_2172", "esther_1343", "haggai_1349"]
   },
   {

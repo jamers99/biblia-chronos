@@ -42,6 +42,9 @@ export const Base = z.object({
   status: z.enum(["published", "draft"]).default("published"),
   source: z.string(),
   description: z.string().optional(),
+  // Who wrote the description, when it isn't the record's own source: a key
+  // into sources.json, e.g. "editorial" on a Theographic event we describe.
+  descriptionSource: z.string().optional(),
   scriptureRefs: z.array(ScriptureRef).optional(),
 })
 

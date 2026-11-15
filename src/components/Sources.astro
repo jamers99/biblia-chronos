@@ -7,11 +7,13 @@ import { source, tallyOf } from "../lib/data/load.ts"
 import { REPORT } from "../lib/review.ts"
 
 interface Props {
-  record: { id: string; source: string; description?: string }
+  record: { id: string; source: string; description?: string; descriptionSource?: string }
 }
 const { record } = Astro.props
 const s = source(record.source)
-const eastons = record.description && record.source === "theographic" ? source("eastons") : undefined
+// Theographic's descriptions are Easton's; one we wrote names its own source.
+const describedBy = record.descriptionSource ? source(record.descriptionSource) : undefined
+const eastons = record.description && !describedBy && record.source === "theographic" ? source("eastons") : undefined
 const t = tallyOf(record.id)
 const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? "" : "s"}`
 ---
@@ -29,6 +31,7 @@ const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? "" : "s"}`
       )
     }
     {eastons && <li>Description: {eastons.title} (1897), via Theographic</li>}
+    {record.description && describedBy && <li>Description: written by {describedBy.title}</li>}
   </ul>
   {
     t.facts > 0 && (

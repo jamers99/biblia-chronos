@@ -90,8 +90,11 @@ const bookIds = new Set(books.map((b) => b.id))
 
 const allEntities = [...people, ...places, ...events, ...peopleGroups]
 const allRecords = [...allEntities, ...periods] // periods have no edges by design
-for (const e of allRecords)
+for (const e of allRecords) {
   if (!sourceIds.has(e.source)) err(`entity "${e.id}" references unknown source "${e.source}"`)
+  const by = "descriptionSource" in e ? e.descriptionSource : undefined
+  if (by && !sourceIds.has(by)) err(`entity "${e.id}" names unknown description source "${by}"`)
+}
 for (const e of edges)
   if (!sourceIds.has(e.source)) err(`edge ${e.from}->${e.to} references unknown source "${e.source}"`)
 
