@@ -35,18 +35,19 @@
     />
     <kbd aria-hidden="true">/</kbd>
     <button type="button" class="search-cancel">Cancel</button>
-    <ul id="site-search-results" class="results" role="listbox" aria-label="Results" hidden></ul>
+    <ul id="site-search-results" class="suggestions" role="listbox" aria-label="Results" hidden></ul>
   </div>
 </div>
 
 <script>
-  import { prepare, search, KIND_LABEL, type Prepared, type SearchEntry } from "../lib/search.ts"
+  import { prepare, search, type Prepared, type SearchEntry } from "../lib/search.ts"
+  import { combobox } from "../lib/combobox.ts"
   import { entityUrl, url } from "../lib/url.ts"
 
   const root = document.querySelector<HTMLElement>(".site-search")!
   const bar = root.closest("header")!
   const input = root.querySelector("input")!
-  const list = root.querySelector<HTMLUListElement>(".results")!
+  const list = root.querySelector<HTMLUListElement>(".suggestions")!
 
   // The index, once. A failed fetch is retried on the next focus.
   let index: Promise<Prepared[]> | undefined
@@ -58,61 +59,16 @@
     return index
   }
 
-  let results: SearchEntry[] = []
-  let active = 0
-
   const showDrafts = () => document.documentElement.dataset.drafts !== "hidden"
-  async function update() {
-    const query = input.value
-    const found = query.trim() ? search(await load(), query, 8, (e) => showDrafts() || !e.draft) : []
-    if (input.value !== query) return // typed on meanwhile
-    results = found
-    active = 0
-    render()
-  }
-
-  function render() {
-    list.replaceChildren(
-      ...results.map((r, i) => {
-        const li = document.createElement("li")
-        li.id = `site-search-${i}`
-        li.role = "option"
-        li.ariaSelected = String(i === active)
-        li.innerHTML = `<span class="name"></span><small></small>`
-        li.querySelector(".name")!.textContent = r.name
-        li.querySelector("small")!.textContent = [KIND_LABEL[r.kind], r.hint].filter(Boolean).join(" · ")
-        if (r.draft) li.classList.add("draft")
-        // Keep focus in the box while pressing (so it doesn't blur and close
-        // the list mid-tap), and pick on click, so the tap ends here rather
-        // than on whatever is under the list once it's gone.
-        li.addEventListener("pointerdown", (e) => e.preventDefault())
-        li.addEventListener("click", () => pick(r))
-        li.addEventListener("pointermove", () => highlight(i))
-        return li
-      }),
-    )
-    if (input.value.trim().length > 1 && !results.length) {
-      const li = Object.assign(document.createElement("li"), { className: "empty", textContent: "Nothing found" })
-      list.append(li)
-    }
-    const open = list.children.length > 0
-    list.hidden = !open
-    input.ariaExpanded = String(open)
-    if (results.length) input.setAttribute("aria-activedescendant", `site-search-${active}`)
-    else input.removeAttribute("aria-activedescendant")
-  }
-
-  function highlight(i: number) {
-    active = (i + results.length) % results.length
-    for (const [n, li] of [...list.children].entries()) li.ariaSelected = String(n === active)
-    input.setAttribute("aria-activedescendant", `site-search-${active}`)
-    list.children[active]?.scrollIntoView({ block: "nearest" })
-  }
+  const box = combobox(input, list, {
+    find: async (query) => search(await load(), query, 8, (e) => showDrafts() || !e.draft),
+    pick,
+    escape: close,
+  })
 
   function close() {
     input.value = ""
-    results = []
-    render()
+    box.clear()
     bar.classList.remove("searching")
     input.blur()
   }
@@ -127,27 +83,10 @@
   }
 
   root.addEventListener("pointerover", () => void load(), { once: true })
-  input.addEventListener("input", update)
-  input.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowDown" && results.length) highlight(active + 1)
-    else if (e.key === "ArrowUp" && results.length) highlight(active - 1)
-    else if (e.key === "Enter" && results[active]) pick(results[active])
-    else if (e.key === "Escape") close()
-    else return
-    e.preventDefault()
-  })
-  // Leaving the box puts the results away (the query stays, for coming back).
+  input.addEventListener("focus", () => void load())
+  // Leaving an empty box on a phone puts the search away.
   input.addEventListener("blur", () => {
-    list.hidden = true
-    input.ariaExpanded = "false"
     if (!input.value) bar.classList.remove("searching")
-  })
-  input.addEventListener("focus", () => {
-    void load()
-    if (list.children.length) {
-      list.hidden = false
-      input.ariaExpanded = "true"
-    }
   })
 
   // Phones: the button opens the search over the bar, Cancel puts it away.
@@ -219,20 +158,12 @@
     display: none;
   }
 
-  .results {
+  .suggestions {
     position: absolute;
     top: calc(100% + 0.5rem);
     right: 0;
     width: max(100%, 24rem);
     max-height: min(26rem, 70dvh);
-    overflow-y: auto;
-    list-style: none;
-    margin: 0;
-    padding: 0.3rem;
-    background: var(--surface);
-    border: 1px solid var(--rule);
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgb(40 30 15 / 0.15);
     animation: drop 0.15s ease-out;
   }
   @keyframes drop {
@@ -240,37 +171,6 @@
       opacity: 0;
       transform: translateY(-4px);
     }
-  }
-  /* rows are made by the script, so they carry no scoping attribute: :global */
-  .results :global(li) {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 0.75rem;
-    padding: 0.45rem 0.65rem;
-    border-radius: 7px;
-    font-size: 0.88rem;
-    color: var(--ink);
-    cursor: pointer;
-  }
-  .results :global(li[aria-selected="true"]) {
-    background: var(--wash);
-  }
-  .results :global(li.draft .name) {
-    color: var(--ink-2);
-  }
-  .results :global(small) {
-    flex: none;
-    max-width: 55%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    color: var(--ink-3);
-    font-size: 0.75rem;
-  }
-  .results :global(.empty) {
-    color: var(--ink-3);
-    cursor: default;
   }
 
   .search-open,
@@ -321,7 +221,7 @@
     input {
       font-size: 1rem; /* no zoom-on-focus in iOS Safari */
     }
-    .results {
+    .suggestions {
       left: 0;
       right: 0;
       width: auto;

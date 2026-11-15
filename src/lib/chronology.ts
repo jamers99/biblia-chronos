@@ -25,6 +25,10 @@ export function spanOf(d: DateEstimate | undefined): Span | undefined {
 //   across 900 years.
 // `marks` (attested years only): the years of the dated things the span was
 // built from, so a reader can see it's a few sightings, not a life.
+// God and the Holy Spirit have pages and events, but no lifespan: dated by
+// their events, they'd seem to live around AD 30.
+export const TIMELESS = new Set(["god_1324", "holy_spirit_7400"])
+
 export type PersonSpan = Span & { lifetime: boolean; marks?: number[] }
 
 const LIFETIME = 80

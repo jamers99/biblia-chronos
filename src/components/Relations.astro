@@ -4,7 +4,8 @@
 // fact behind each link, so it gets its "how we know" marker. Ends with a way
 // into Connections, to trace the record's links further.
 import type { Entity } from "../lib/data/load.ts"
-import { hasLinks, record } from "../lib/data/load.ts"
+import { graph, record } from "../lib/data/load.ts"
+import { label } from "../lib/format.ts"
 import { url } from "../lib/url.ts"
 import EntityLinks from "./EntityLinks.astro"
 
@@ -15,7 +16,8 @@ interface Props {
 }
 const rows = Astro.props.rows.filter(([, items]) => items.length > 0)
 const { context } = Astro.props
-const name = context && hasLinks(context) ? record(context)?.name : undefined
+const named = context && graph.has(context) ? record(context) : undefined
+const name = named && label(named)
 ---
 
 {
