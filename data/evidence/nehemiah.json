@@ -74,8 +74,8 @@
     "participated-in:nehemiah_2172>ezra-reads-the-law@ce7699"
   ],
   "facts": {
-    "date:ezra-reads-the-law@570463": {"refs":["neh.2.1","neh.6.15","neh.8.2"],"note":"Seventh month follows the wall's Elul finish (6:15) in the twentieth-year sequence (2:1). The BC year depends on dating Artaxerxes' reign outside Scripture.","kind":"reading"},
-    "date:nehemiah-s-second-term@94bd82": {"refs":["neh.13.6"],"note":"Nehemiah returns in the thirty-second year of Artaxerxes (13:6). The BC year depends on dating the king's reign outside Scripture.","kind":"reading"},
+    "date:ezra-reads-the-law@f9e315": {"refs":["neh.2.1","neh.6.15","neh.8.2"],"note":"Seventh month (8:2) follows the wall's Elul finish (6:15). The text gives no year; the 454 BC date depends on dating Artaxerxes' reign outside Scripture.","kind":"reading"},
+    "date:nehemiah-s-second-term@24e2d3": {"refs":["neh.13.6","neh.13.7"],"note":"Nehemiah goes to the king in Artaxerxes' thirty-second year, then comes to Jerusalem (13:6-7). The 442 BC year depends on dating the reign outside Scripture.","kind":"reading"},
     "member-of:eliashib_1100>tribe-of-levi@08ffe1": {"refs":["neh.3.1","neh.12.22","neh.12.23"],"note":"Named high priest (3:1), and his line is among the Levites' recorded fathers (12:22-23). Priests descending from Levi is inferred, not stated.","kind":"reading"},
     "member-of:jaddua_687>tribe-of-levi@a4fec4": {"refs":["neh.12.11","neh.12.22"],"note":"Listed among the Levites' recorded chief fathers in the days of Eliashib, Joiada, Johanan and Jaddua (12:22). Membership is inferred from that list.","kind":"reading"},
     "member-of:johanan_1698>tribe-of-levi@84ef28": {"refs":["neh.12.22","neh.12.23"],"note":"12:22 lists him among the Levites' chief fathers; 12:23 cites the sons of Levi up to his days. Levite membership is inferred, not stated.","kind":"reading"},

@@ -65,7 +65,7 @@
     "date:god-instructs-noah-to-build-the-ark@8d7154": {"refs":["gen.6.13"],"note":"Gen 6:13-14 gives no date and places the command before the flood. The BC year depends on outside dating.","kind":"reading"},
     "date:god-makes-a-covenant-with-noah@14ed76": {"refs":["gen.8.13","gen.9.9"],"note":"Gen 8:13 has the flood dried in year 601; Gen 9:9 gives the covenant with no date. The BC year depends on outside dating.","kind":"reading"},
     "date:leaving-the-ark@14ed76": {"refs":["gen.8.13","gen.8.14"],"note":"Gen 8:13-14: year 601, and the earth dried by the 27th day of the second month. The BC year depends on outside dating.","kind":"reading"},
-    "date:nimrod-s-kingdom-begins@921b14": {"refs":["gen.10.10"],"note":"Gen 10:10 gives no date for the beginning of Nimrod's kingdom. The BC year depends on outside dating.","kind":"reading"},
+    "date:nimrod-s-kingdom-begins@f351f2": {"refs":["gen.10.10"],"note":"Gen 10:10 names the beginning of Nimrod's kingdom (Babel, Erech, Accad, Calneh) but gives no date. The 2182 BC year depends on outside dating.","kind":"reading"},
     "date:noah-gets-drunk-and-canaan-is-cursed@5f5f58": {"refs":["gen.9.20","gen.9.28"],"note":"Gen 9:20-25 gives no date; it falls after the flood (9:28 counts 350 years after it). The BC year depends on outside dating.","kind":"reading"},
     "date:the-flood-subsides@14ed76": {"refs":["gen.8.13"],"note":"Gen 8:13: the waters were dried up in year 601, first month, first day. The BC year depends on outside dating.","kind":"reading"},
     "date:the-great-flood@84a488": {"refs":["gen.7.11","gen.8.13"],"note":"Gen 7:11 starts the flood in year 600, second month, seventeenth day; Gen 8:13 ends it in year 601. The BC year depends on outside dating.","kind":"reading"},

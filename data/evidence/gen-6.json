@@ -27,7 +27,7 @@
     "date:death-of-abraham@ce0d91": {"refs":["gen.25.7","gen.25.8"],"note":"Abraham lived 175 years, then died. The text gives no BC year; -1820 depends on dating outside Scripture.","kind":"reading"},
     "date:death-of-ishmael@60d5db": {"refs":["gen.25.17"],"note":"Ishmael lived 137 years, then died. The text gives no BC year; -1772 depends on dating outside Scripture.","kind":"reading"},
     "date:isaac-marries-rebekah@a82ffe": {"refs":["gen.25.20"],"note":"Isaac was forty when he took Rebekah to wife. Biblical timing only; the BC year -1855 depends on dating outside Scripture.","kind":"reading"},
-    "date:lifetime-of-jacob@519daf": {"refs":["gen.47.28","gen.25.26"],"note":"Gen 47.28 says Jacob's whole life was 147 years. Born -1835 plus 147 ends about -1688, not -1655.","kind":"wrong","severity":"high"},
+    "date:lifetime-of-jacob@fb1652": {"refs":["gen.47.28","gen.25.26"],"note":"Jacob lived 147 years (47:28), so -1835 to -1688 fits his life. Born when Isaac was sixty (25:26). The BC years depend on outside dating.","kind":"reading"},
     "death:israel_682@72a729": {"refs":["gen.49.33","gen.47.28"],"note":"Jacob yielded up the ghost (49.33) at 147 years (47.28). The BC year -1688 depends on dating outside Scripture.","kind":"reading"},
     "died-at:isaac_616>mamre_762@b72515": {"refs":["gen.35.27","gen.35.29"],"note":"Jacob came to Isaac at Mamre (35.27); Isaac then died (35.29), with no move stated. Gen 25.9 is about Abraham."},
     "near:esek_409>gerar_459@149389": {"refs":["gen.26.17","gen.26.20"],"note":"Esek was a well in the valley of Gerar, disputed by Gerar's herdmen. The word 'near' is inferred, not stated.","kind":"reading"},

@@ -62,7 +62,7 @@
     "date:prophecies-of-isaiah@d1ac1e": {"refs":["isa.1.1"],"note":"Dated by the reigns of Uzziah, Jotham, Ahaz and Hezekiah (isa.1.1). The BC years depend on outside chronology.","kind":"reading"},
     "date:prophecies-of-joel@59d8a1": {"refs":["joel.1.1"],"note":"Joel 1:1 gives no king or year. The BC date depends on outside dating.","kind":"reading"},
     "date:prophecies-of-jonah@3a5d08": {"refs":["jonah.1.1"],"note":"Jonah 1:1 gives no king or year. The BC date depends on outside dating.","kind":"reading"},
-    "date:prophecies-of-malachi@04bd53": {"refs":["mal.1.1"],"note":"Malachi 1:1 gives no king or year. The BC date depends on outside dating.","kind":"reading"},
+    "date:prophecies-of-malachi@67992b": {"refs":["mal.1.1"],"note":"Malachi 1:1 gives no king or year. The 441-440 BC range depends on outside dating.","kind":"reading"},
     "date:prophecies-of-micah@cc8c46": {"refs":["mic.1.1"],"note":"Dated by the reigns of Jotham, Ahaz and Hezekiah (mic.1.1). The BC years depend on outside chronology.","kind":"reading"},
     "date:prophecies-of-nahum@68c337": {"refs":["nah.1.1"],"note":"Nahum 1:1 gives no king or year; the oracle concerns Nineveh. The BC dates depend on outside dating.","kind":"reading"},
     "date:prophecies-of-obadiah@0305a2": {"refs":["obad.1.1","obad.1.11"],"note":"Obadiah 1:1 gives no year. Verse 1:11 describes the capture of Jerusalem. The BC years depend on outside dating.","kind":"reading"},
