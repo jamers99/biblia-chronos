@@ -350,7 +350,7 @@ Nehemiah's second term), re-dated to fit.
 
 Five batches covered the 209 new or changed facts: `exile-events`,
 `return-events`, `esther-events`, `early-periods`, and the nine stale dates in
-place. They flagged 18 as wrong, none high: mostly a journey's starting point
+place. They flagged 17 as wrong, none high: mostly a journey's starting point
 or a passing name counted as an event's place or a part in it. Four of
 Haiku's "wrong" calls were changed to readings, because the person acts in
 the event's own verses.
