@@ -1280,6 +1280,212 @@
     }
   },
   {
+    "id": "ahasuerus-feasts-and-vashti-is-deposed",
+    "name": "Ahasuerus feasts and Vashti is deposed",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "esth",
+        "chapter": 1,
+        "verse": 1
+      },
+      {
+        "book": "esth",
+        "chapter": 1,
+        "verse": 2
+      },
+      {
+        "book": "esth",
+        "chapter": 1,
+        "verse": 3
+      },
+      {
+        "book": "esth",
+        "chapter": 1,
+        "verse": 4
+      },
+      {
+        "book": "esth",
+        "chapter": 1,
+        "verse": 5
+      },
+      {
+        "book": "esth",
+        "chapter": 1,
+        "verse": 6
+      },
+      {
+        "book": "esth",
+        "chapter": 1,
+        "verse": 7
+      },
+      {
+        "book": "esth",
+        "chapter": 1,
+        "verse": 8
+      },
+      {
+        "book": "esth",
+        "chapter": 1,
+        "verse": 9
+      },
+      {
+        "book": "esth",
+        "chapter": 1,
+        "verse": 10
+      },
+      {
+        "book": "esth",
+        "chapter": 1,
+        "verse": 11
+      },
+      {
+        "book": "esth",
+        "chapter": 1,
+        "verse": 12
+      },
+      {
+        "book": "esth",
+        "chapter": 1,
+        "verse": 13
+      },
+      {
+        "book": "esth",
+        "chapter": 1,
+        "verse": 14
+      },
+      {
+        "book": "esth",
+        "chapter": 1,
+        "verse": 15
+      },
+      {
+        "book": "esth",
+        "chapter": 1,
+        "verse": 16
+      },
+      {
+        "book": "esth",
+        "chapter": 1,
+        "verse": 17
+      },
+      {
+        "book": "esth",
+        "chapter": 1,
+        "verse": 18
+      },
+      {
+        "book": "esth",
+        "chapter": 1,
+        "verse": 19
+      },
+      {
+        "book": "esth",
+        "chapter": 1,
+        "verse": 20
+      },
+      {
+        "book": "esth",
+        "chapter": 1,
+        "verse": 21
+      },
+      {
+        "book": "esth",
+        "chapter": 1,
+        "verse": 22
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -518,
+      "latest": -518
+    }
+  },
+  {
+    "id": "ahasuerus-honors-mordecai",
+    "name": "Ahasuerus honors Mordecai",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "esth",
+        "chapter": 6,
+        "verse": 1
+      },
+      {
+        "book": "esth",
+        "chapter": 6,
+        "verse": 2
+      },
+      {
+        "book": "esth",
+        "chapter": 6,
+        "verse": 3
+      },
+      {
+        "book": "esth",
+        "chapter": 6,
+        "verse": 4
+      },
+      {
+        "book": "esth",
+        "chapter": 6,
+        "verse": 5
+      },
+      {
+        "book": "esth",
+        "chapter": 6,
+        "verse": 6
+      },
+      {
+        "book": "esth",
+        "chapter": 6,
+        "verse": 7
+      },
+      {
+        "book": "esth",
+        "chapter": 6,
+        "verse": 8
+      },
+      {
+        "book": "esth",
+        "chapter": 6,
+        "verse": 9
+      },
+      {
+        "book": "esth",
+        "chapter": 6,
+        "verse": 10
+      },
+      {
+        "book": "esth",
+        "chapter": 6,
+        "verse": 11
+      },
+      {
+        "book": "esth",
+        "chapter": 6,
+        "verse": 12
+      },
+      {
+        "book": "esth",
+        "chapter": 6,
+        "verse": 13
+      },
+      {
+        "book": "esth",
+        "chapter": 6,
+        "verse": 14
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -509,
+      "latest": -509
+    }
+  },
+  {
     "id": "an-angel-rescues-peter-from-prison",
     "name": "An angel rescues Peter from prison",
     "status": "published",
@@ -1783,6 +1989,102 @@
     "date": {
       "earliest": 30,
       "latest": 30
+    }
+  },
+  {
+    "id": "artaxerxes-sends-nehemiah-to-jerusalem",
+    "name": "Artaxerxes sends Nehemiah to Jerusalem",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "neh",
+        "chapter": 2,
+        "verse": 1
+      },
+      {
+        "book": "neh",
+        "chapter": 2,
+        "verse": 2
+      },
+      {
+        "book": "neh",
+        "chapter": 2,
+        "verse": 3
+      },
+      {
+        "book": "neh",
+        "chapter": 2,
+        "verse": 4
+      },
+      {
+        "book": "neh",
+        "chapter": 2,
+        "verse": 5
+      },
+      {
+        "book": "neh",
+        "chapter": 2,
+        "verse": 6
+      },
+      {
+        "book": "neh",
+        "chapter": 2,
+        "verse": 7
+      },
+      {
+        "book": "neh",
+        "chapter": 2,
+        "verse": 8
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -453,
+      "latest": -453
+    }
+  },
+  {
+    "id": "babylonian-captivity",
+    "name": "Babylonian Captivity",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "2chr",
+        "chapter": 36,
+        "verse": 20
+      },
+      {
+        "book": "2chr",
+        "chapter": 36,
+        "verse": 21
+      },
+      {
+        "book": "jer",
+        "chapter": 25,
+        "verse": 11
+      },
+      {
+        "book": "jer",
+        "chapter": 25,
+        "verse": 12
+      },
+      {
+        "book": "jer",
+        "chapter": 29,
+        "verse": 10
+      },
+      {
+        "book": "dan",
+        "chapter": 9,
+        "verse": 2
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -605,
+      "latest": -535
     }
   },
   {
@@ -4567,6 +4869,87 @@
     }
   },
   {
+    "id": "chaldean-raiders-take-captives-from-judah",
+    "name": "Chaldean raiders take captives from Judah",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "2kgs",
+        "chapter": 24,
+        "verse": 2
+      },
+      {
+        "book": "jer",
+        "chapter": 52,
+        "verse": 28
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -597,
+      "latest": -597
+    }
+  },
+  {
+    "id": "chaldeans-withdraw-from-jerusalem",
+    "name": "Chaldeans withdraw from Jerusalem",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "jer",
+        "chapter": 34,
+        "verse": 21
+      },
+      {
+        "book": "jer",
+        "chapter": 34,
+        "verse": 22
+      },
+      {
+        "book": "jer",
+        "chapter": 37,
+        "verse": 5
+      },
+      {
+        "book": "jer",
+        "chapter": 37,
+        "verse": 6
+      },
+      {
+        "book": "jer",
+        "chapter": 37,
+        "verse": 7
+      },
+      {
+        "book": "jer",
+        "chapter": 37,
+        "verse": 8
+      },
+      {
+        "book": "jer",
+        "chapter": 37,
+        "verse": 9
+      },
+      {
+        "book": "jer",
+        "chapter": 37,
+        "verse": 10
+      },
+      {
+        "book": "jer",
+        "chapter": 37,
+        "verse": 11
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -587,
+      "latest": -587
+    }
+  },
+  {
     "id": "chief-priests-conspire-against-jesus",
     "name": "Chief Priests Conspire Against Jesus",
     "status": "published",
@@ -5405,7 +5788,330 @@
     "kind": "event",
     "date": {
       "earliest": -1011,
-      "latest": -1004
+      "latest": -1011
+    }
+  },
+  {
+    "id": "construction-of-the-second-temple",
+    "name": "Construction of the Second Temple",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "ezra",
+        "chapter": 3,
+        "verse": 8
+      },
+      {
+        "book": "ezra",
+        "chapter": 3,
+        "verse": 9
+      },
+      {
+        "book": "ezra",
+        "chapter": 3,
+        "verse": 10
+      },
+      {
+        "book": "ezra",
+        "chapter": 3,
+        "verse": 11
+      },
+      {
+        "book": "ezra",
+        "chapter": 3,
+        "verse": 12
+      },
+      {
+        "book": "ezra",
+        "chapter": 3,
+        "verse": 13
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 1
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 2
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 3
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 4
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 5
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 6
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 7
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 8
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 9
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 10
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 11
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 12
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 13
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 14
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 15
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 16
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 17
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 18
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 19
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 20
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 21
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 22
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 23
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 24
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 1
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 2
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 3
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 4
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 5
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 6
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 7
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 8
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 9
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 10
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 11
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 12
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 13
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 14
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 15
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 16
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 17
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 1
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 2
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 3
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 4
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 5
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 6
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 7
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 8
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 9
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 10
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 11
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 12
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 13
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 14
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 15
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -534,
+      "latest": -515
     }
   },
   {
@@ -6757,6 +7463,307 @@
     }
   },
   {
+    "id": "cyrus-decrees-the-rebuilding-of-the-temple",
+    "name": "Cyrus decrees the rebuilding of the Temple",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "2chr",
+        "chapter": 36,
+        "verse": 22
+      },
+      {
+        "book": "2chr",
+        "chapter": 36,
+        "verse": 23
+      },
+      {
+        "book": "ezra",
+        "chapter": 1,
+        "verse": 1
+      },
+      {
+        "book": "ezra",
+        "chapter": 1,
+        "verse": 2
+      },
+      {
+        "book": "ezra",
+        "chapter": 1,
+        "verse": 3
+      },
+      {
+        "book": "ezra",
+        "chapter": 1,
+        "verse": 4
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -535,
+      "latest": -535
+    }
+  },
+  {
+    "id": "daniel-interprets-nebuchadnezzar-s-dream",
+    "name": "Daniel interprets Nebuchadnezzar's dream",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 1
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 2
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 3
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 4
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 5
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 6
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 7
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 8
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 9
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 10
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 11
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 12
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 13
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 14
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 15
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 16
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 17
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 18
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 19
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 20
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 21
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 22
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 23
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 24
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 25
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 26
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 27
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 28
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 29
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 30
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 31
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 32
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 33
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 34
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 35
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 36
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 37
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 38
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 39
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 40
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 41
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 42
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 43
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 44
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 45
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 46
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 47
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 48
+      },
+      {
+        "book": "dan",
+        "chapter": 2,
+        "verse": 49
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -603,
+      "latest": -603
+    }
+  },
+  {
     "id": "david-kills-goliath",
     "name": "David Kills Goliath",
     "status": "published",
@@ -7429,24 +8436,6 @@
     }
   },
   {
-    "id": "death-of-jehoahash",
-    "name": "Death of Jehoahash",
-    "status": "published",
-    "source": "theographic",
-    "scriptureRefs": [
-      {
-        "book": "2kgs",
-        "chapter": 13,
-        "verse": 13
-      }
-    ],
-    "kind": "event",
-    "date": {
-      "earliest": -824,
-      "latest": -824
-    }
-  },
-  {
     "id": "death-of-jehoahaz",
     "name": "Death of Jehoahaz",
     "status": "published",
@@ -7462,6 +8451,24 @@
     "date": {
       "earliest": -839,
       "latest": -839
+    }
+  },
+  {
+    "id": "death-of-jehoash",
+    "name": "Death of Jehoash",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "2kgs",
+        "chapter": 13,
+        "verse": 13
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -824,
+      "latest": -824
     }
   },
   {
@@ -7825,8 +8832,8 @@
     ],
     "kind": "event",
     "date": {
-      "earliest": -1451,
-      "latest": -1451
+      "earliest": -1450,
+      "latest": -1450
     }
   },
   {
@@ -10628,8 +11635,8 @@
     }
   },
   {
-    "id": "discourse-with-pharisees-and-saducees",
-    "name": "Discourse with Pharisees and Saducees",
+    "id": "discourse-with-pharisees-and-sadducees",
+    "name": "Discourse with Pharisees and Sadducees",
     "status": "published",
     "source": "theographic",
     "scriptureRefs": [
@@ -11118,6 +12125,119 @@
     }
   },
   {
+    "id": "esther-is-made-queen",
+    "name": "Esther is made queen",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "esth",
+        "chapter": 2,
+        "verse": 1
+      },
+      {
+        "book": "esth",
+        "chapter": 2,
+        "verse": 2
+      },
+      {
+        "book": "esth",
+        "chapter": 2,
+        "verse": 3
+      },
+      {
+        "book": "esth",
+        "chapter": 2,
+        "verse": 4
+      },
+      {
+        "book": "esth",
+        "chapter": 2,
+        "verse": 5
+      },
+      {
+        "book": "esth",
+        "chapter": 2,
+        "verse": 6
+      },
+      {
+        "book": "esth",
+        "chapter": 2,
+        "verse": 7
+      },
+      {
+        "book": "esth",
+        "chapter": 2,
+        "verse": 8
+      },
+      {
+        "book": "esth",
+        "chapter": 2,
+        "verse": 9
+      },
+      {
+        "book": "esth",
+        "chapter": 2,
+        "verse": 10
+      },
+      {
+        "book": "esth",
+        "chapter": 2,
+        "verse": 11
+      },
+      {
+        "book": "esth",
+        "chapter": 2,
+        "verse": 12
+      },
+      {
+        "book": "esth",
+        "chapter": 2,
+        "verse": 13
+      },
+      {
+        "book": "esth",
+        "chapter": 2,
+        "verse": 14
+      },
+      {
+        "book": "esth",
+        "chapter": 2,
+        "verse": 15
+      },
+      {
+        "book": "esth",
+        "chapter": 2,
+        "verse": 16
+      },
+      {
+        "book": "esth",
+        "chapter": 2,
+        "verse": 17
+      },
+      {
+        "book": "esth",
+        "chapter": 2,
+        "verse": 18
+      },
+      {
+        "book": "esth",
+        "chapter": 2,
+        "verse": 19
+      },
+      {
+        "book": "esth",
+        "chapter": 2,
+        "verse": 20
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -514,
+      "latest": -514
+    }
+  },
+  {
     "id": "eutychus-revived",
     "name": "Eutychus revived",
     "status": "published",
@@ -11158,6 +12278,712 @@
     "date": {
       "earliest": 54,
       "latest": 54
+    }
+  },
+  {
+    "id": "exiles-put-away-their-foreign-wives",
+    "name": "Exiles put away their foreign wives",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "ezra",
+        "chapter": 9,
+        "verse": 1
+      },
+      {
+        "book": "ezra",
+        "chapter": 9,
+        "verse": 2
+      },
+      {
+        "book": "ezra",
+        "chapter": 9,
+        "verse": 3
+      },
+      {
+        "book": "ezra",
+        "chapter": 9,
+        "verse": 4
+      },
+      {
+        "book": "ezra",
+        "chapter": 9,
+        "verse": 5
+      },
+      {
+        "book": "ezra",
+        "chapter": 9,
+        "verse": 6
+      },
+      {
+        "book": "ezra",
+        "chapter": 9,
+        "verse": 7
+      },
+      {
+        "book": "ezra",
+        "chapter": 9,
+        "verse": 8
+      },
+      {
+        "book": "ezra",
+        "chapter": 9,
+        "verse": 9
+      },
+      {
+        "book": "ezra",
+        "chapter": 9,
+        "verse": 10
+      },
+      {
+        "book": "ezra",
+        "chapter": 9,
+        "verse": 11
+      },
+      {
+        "book": "ezra",
+        "chapter": 9,
+        "verse": 12
+      },
+      {
+        "book": "ezra",
+        "chapter": 9,
+        "verse": 13
+      },
+      {
+        "book": "ezra",
+        "chapter": 9,
+        "verse": 14
+      },
+      {
+        "book": "ezra",
+        "chapter": 9,
+        "verse": 15
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 1
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 2
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 3
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 4
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 5
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 6
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 7
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 8
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 9
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 10
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 11
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 12
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 13
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 14
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 15
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 16
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 17
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 18
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 19
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 20
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 21
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 22
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 23
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 24
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 25
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 26
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 27
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 28
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 29
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 30
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 31
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 32
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 33
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 34
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 35
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 36
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 37
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 38
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 39
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 40
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 41
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 42
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 43
+      },
+      {
+        "book": "ezra",
+        "chapter": 10,
+        "verse": 44
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -466,
+      "latest": -466
+    }
+  },
+  {
+    "id": "exiles-return-with-zerubbabel",
+    "name": "Exiles return with Zerubbabel",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "ezra",
+        "chapter": 1,
+        "verse": 5
+      },
+      {
+        "book": "ezra",
+        "chapter": 1,
+        "verse": 6
+      },
+      {
+        "book": "ezra",
+        "chapter": 1,
+        "verse": 7
+      },
+      {
+        "book": "ezra",
+        "chapter": 1,
+        "verse": 8
+      },
+      {
+        "book": "ezra",
+        "chapter": 1,
+        "verse": 9
+      },
+      {
+        "book": "ezra",
+        "chapter": 1,
+        "verse": 10
+      },
+      {
+        "book": "ezra",
+        "chapter": 1,
+        "verse": 11
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 1
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 2
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 3
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 4
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 5
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 6
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 7
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 8
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 9
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 10
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 11
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 12
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 13
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 14
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 15
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 16
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 17
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 18
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 19
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 20
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 21
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 22
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 23
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 24
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 25
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 26
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 27
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 28
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 29
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 30
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 31
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 32
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 33
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 34
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 35
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 36
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 37
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 38
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 39
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 40
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 41
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 42
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 43
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 44
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 45
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 46
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 47
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 48
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 49
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 50
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 51
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 52
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 53
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 54
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 55
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 56
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 57
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 58
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 59
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 60
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 61
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 62
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 63
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 64
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 65
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 66
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 67
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 68
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 69
+      },
+      {
+        "book": "ezra",
+        "chapter": 2,
+        "verse": 70
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -535,
+      "latest": -535
     }
   },
   {
@@ -12289,6 +14115,715 @@
     }
   },
   {
+    "id": "ezra-leads-exiles-to-jerusalem",
+    "name": "Ezra leads exiles to Jerusalem",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "ezra",
+        "chapter": 7,
+        "verse": 1
+      },
+      {
+        "book": "ezra",
+        "chapter": 7,
+        "verse": 2
+      },
+      {
+        "book": "ezra",
+        "chapter": 7,
+        "verse": 3
+      },
+      {
+        "book": "ezra",
+        "chapter": 7,
+        "verse": 4
+      },
+      {
+        "book": "ezra",
+        "chapter": 7,
+        "verse": 5
+      },
+      {
+        "book": "ezra",
+        "chapter": 7,
+        "verse": 6
+      },
+      {
+        "book": "ezra",
+        "chapter": 7,
+        "verse": 7
+      },
+      {
+        "book": "ezra",
+        "chapter": 7,
+        "verse": 8
+      },
+      {
+        "book": "ezra",
+        "chapter": 7,
+        "verse": 9
+      },
+      {
+        "book": "ezra",
+        "chapter": 7,
+        "verse": 10
+      },
+      {
+        "book": "ezra",
+        "chapter": 7,
+        "verse": 11
+      },
+      {
+        "book": "ezra",
+        "chapter": 7,
+        "verse": 12
+      },
+      {
+        "book": "ezra",
+        "chapter": 7,
+        "verse": 13
+      },
+      {
+        "book": "ezra",
+        "chapter": 7,
+        "verse": 14
+      },
+      {
+        "book": "ezra",
+        "chapter": 7,
+        "verse": 15
+      },
+      {
+        "book": "ezra",
+        "chapter": 7,
+        "verse": 16
+      },
+      {
+        "book": "ezra",
+        "chapter": 7,
+        "verse": 17
+      },
+      {
+        "book": "ezra",
+        "chapter": 7,
+        "verse": 18
+      },
+      {
+        "book": "ezra",
+        "chapter": 7,
+        "verse": 19
+      },
+      {
+        "book": "ezra",
+        "chapter": 7,
+        "verse": 20
+      },
+      {
+        "book": "ezra",
+        "chapter": 7,
+        "verse": 21
+      },
+      {
+        "book": "ezra",
+        "chapter": 7,
+        "verse": 22
+      },
+      {
+        "book": "ezra",
+        "chapter": 7,
+        "verse": 23
+      },
+      {
+        "book": "ezra",
+        "chapter": 7,
+        "verse": 24
+      },
+      {
+        "book": "ezra",
+        "chapter": 7,
+        "verse": 25
+      },
+      {
+        "book": "ezra",
+        "chapter": 7,
+        "verse": 26
+      },
+      {
+        "book": "ezra",
+        "chapter": 7,
+        "verse": 27
+      },
+      {
+        "book": "ezra",
+        "chapter": 7,
+        "verse": 28
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 1
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 2
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 3
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 4
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 5
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 6
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 7
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 8
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 9
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 10
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 11
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 12
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 13
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 14
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 15
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 16
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 17
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 18
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 19
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 20
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 21
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 22
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 23
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 24
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 25
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 26
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 27
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 28
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 29
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 30
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 31
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 32
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 33
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 34
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 35
+      },
+      {
+        "book": "ezra",
+        "chapter": 8,
+        "verse": 36
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -466,
+      "latest": -466
+    }
+  },
+  {
+    "id": "fall-of-babylon",
+    "name": "Fall of Babylon",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "dan",
+        "chapter": 5,
+        "verse": 1
+      },
+      {
+        "book": "dan",
+        "chapter": 5,
+        "verse": 2
+      },
+      {
+        "book": "dan",
+        "chapter": 5,
+        "verse": 3
+      },
+      {
+        "book": "dan",
+        "chapter": 5,
+        "verse": 4
+      },
+      {
+        "book": "dan",
+        "chapter": 5,
+        "verse": 5
+      },
+      {
+        "book": "dan",
+        "chapter": 5,
+        "verse": 6
+      },
+      {
+        "book": "dan",
+        "chapter": 5,
+        "verse": 7
+      },
+      {
+        "book": "dan",
+        "chapter": 5,
+        "verse": 8
+      },
+      {
+        "book": "dan",
+        "chapter": 5,
+        "verse": 9
+      },
+      {
+        "book": "dan",
+        "chapter": 5,
+        "verse": 10
+      },
+      {
+        "book": "dan",
+        "chapter": 5,
+        "verse": 11
+      },
+      {
+        "book": "dan",
+        "chapter": 5,
+        "verse": 12
+      },
+      {
+        "book": "dan",
+        "chapter": 5,
+        "verse": 13
+      },
+      {
+        "book": "dan",
+        "chapter": 5,
+        "verse": 14
+      },
+      {
+        "book": "dan",
+        "chapter": 5,
+        "verse": 15
+      },
+      {
+        "book": "dan",
+        "chapter": 5,
+        "verse": 16
+      },
+      {
+        "book": "dan",
+        "chapter": 5,
+        "verse": 17
+      },
+      {
+        "book": "dan",
+        "chapter": 5,
+        "verse": 18
+      },
+      {
+        "book": "dan",
+        "chapter": 5,
+        "verse": 19
+      },
+      {
+        "book": "dan",
+        "chapter": 5,
+        "verse": 20
+      },
+      {
+        "book": "dan",
+        "chapter": 5,
+        "verse": 21
+      },
+      {
+        "book": "dan",
+        "chapter": 5,
+        "verse": 22
+      },
+      {
+        "book": "dan",
+        "chapter": 5,
+        "verse": 23
+      },
+      {
+        "book": "dan",
+        "chapter": 5,
+        "verse": 24
+      },
+      {
+        "book": "dan",
+        "chapter": 5,
+        "verse": 25
+      },
+      {
+        "book": "dan",
+        "chapter": 5,
+        "verse": 26
+      },
+      {
+        "book": "dan",
+        "chapter": 5,
+        "verse": 27
+      },
+      {
+        "book": "dan",
+        "chapter": 5,
+        "verse": 28
+      },
+      {
+        "book": "dan",
+        "chapter": 5,
+        "verse": 29
+      },
+      {
+        "book": "dan",
+        "chapter": 5,
+        "verse": 30
+      },
+      {
+        "book": "dan",
+        "chapter": 5,
+        "verse": 31
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -538,
+      "latest": -538
+    }
+  },
+  {
+    "id": "fall-of-jerusalem",
+    "name": "Fall of Jerusalem",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "2kgs",
+        "chapter": 25,
+        "verse": 3
+      },
+      {
+        "book": "2kgs",
+        "chapter": 25,
+        "verse": 4
+      },
+      {
+        "book": "2kgs",
+        "chapter": 25,
+        "verse": 5
+      },
+      {
+        "book": "2kgs",
+        "chapter": 25,
+        "verse": 6
+      },
+      {
+        "book": "2kgs",
+        "chapter": 25,
+        "verse": 7
+      },
+      {
+        "book": "2kgs",
+        "chapter": 25,
+        "verse": 8
+      },
+      {
+        "book": "2kgs",
+        "chapter": 25,
+        "verse": 9
+      },
+      {
+        "book": "2kgs",
+        "chapter": 25,
+        "verse": 10
+      },
+      {
+        "book": "2kgs",
+        "chapter": 25,
+        "verse": 13
+      },
+      {
+        "book": "2kgs",
+        "chapter": 25,
+        "verse": 14
+      },
+      {
+        "book": "2kgs",
+        "chapter": 25,
+        "verse": 15
+      },
+      {
+        "book": "2kgs",
+        "chapter": 25,
+        "verse": 16
+      },
+      {
+        "book": "2kgs",
+        "chapter": 25,
+        "verse": 17
+      },
+      {
+        "book": "2chr",
+        "chapter": 36,
+        "verse": 17
+      },
+      {
+        "book": "2chr",
+        "chapter": 36,
+        "verse": 18
+      },
+      {
+        "book": "2chr",
+        "chapter": 36,
+        "verse": 19
+      },
+      {
+        "book": "jer",
+        "chapter": 39,
+        "verse": 2
+      },
+      {
+        "book": "jer",
+        "chapter": 39,
+        "verse": 3
+      },
+      {
+        "book": "jer",
+        "chapter": 39,
+        "verse": 4
+      },
+      {
+        "book": "jer",
+        "chapter": 39,
+        "verse": 5
+      },
+      {
+        "book": "jer",
+        "chapter": 39,
+        "verse": 6
+      },
+      {
+        "book": "jer",
+        "chapter": 39,
+        "verse": 7
+      },
+      {
+        "book": "jer",
+        "chapter": 39,
+        "verse": 8
+      },
+      {
+        "book": "jer",
+        "chapter": 52,
+        "verse": 6
+      },
+      {
+        "book": "jer",
+        "chapter": 52,
+        "verse": 7
+      },
+      {
+        "book": "jer",
+        "chapter": 52,
+        "verse": 8
+      },
+      {
+        "book": "jer",
+        "chapter": 52,
+        "verse": 9
+      },
+      {
+        "book": "jer",
+        "chapter": 52,
+        "verse": 10
+      },
+      {
+        "book": "jer",
+        "chapter": 52,
+        "verse": 11
+      },
+      {
+        "book": "jer",
+        "chapter": 52,
+        "verse": 12
+      },
+      {
+        "book": "jer",
+        "chapter": 52,
+        "verse": 13
+      },
+      {
+        "book": "jer",
+        "chapter": 52,
+        "verse": 14
+      },
+      {
+        "book": "jer",
+        "chapter": 52,
+        "verse": 17
+      },
+      {
+        "book": "jer",
+        "chapter": 52,
+        "verse": 18
+      },
+      {
+        "book": "jer",
+        "chapter": 52,
+        "verse": 19
+      },
+      {
+        "book": "jer",
+        "chapter": 52,
+        "verse": 20
+      },
+      {
+        "book": "jer",
+        "chapter": 52,
+        "verse": 21
+      },
+      {
+        "book": "jer",
+        "chapter": 52,
+        "verse": 22
+      },
+      {
+        "book": "jer",
+        "chapter": 52,
+        "verse": 23
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -585,
+      "latest": -585
+    }
+  },
+  {
     "id": "fasting-question",
     "name": "Fasting Question",
     "status": "published",
@@ -13099,6 +15634,44 @@
     "date": {
       "earliest": 30,
       "latest": 30
+    }
+  },
+  {
+    "id": "first-deportation-to-babylon",
+    "name": "First deportation to Babylon",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "dan",
+        "chapter": 1,
+        "verse": 3
+      },
+      {
+        "book": "dan",
+        "chapter": 1,
+        "verse": 4
+      },
+      {
+        "book": "dan",
+        "chapter": 1,
+        "verse": 5
+      },
+      {
+        "book": "dan",
+        "chapter": 1,
+        "verse": 6
+      },
+      {
+        "book": "dan",
+        "chapter": 1,
+        "verse": 7
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -605,
+      "latest": -605
     }
   },
   {
@@ -14203,8 +16776,8 @@
     }
   },
   {
-    "id": "gamaliel-advises-the-counsel-and-apostles-freed",
-    "name": "Gamaliel advises the counsel and Apostles freed",
+    "id": "gamaliel-advises-the-council-and-apostles-freed",
+    "name": "Gamaliel advises the council and Apostles freed",
     "status": "published",
     "source": "theographic",
     "scriptureRefs": [
@@ -14653,6 +17226,252 @@
     "date": {
       "earliest": 29,
       "latest": 29
+    }
+  },
+  {
+    "id": "haman-is-hanged",
+    "name": "Haman is hanged",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "esth",
+        "chapter": 7,
+        "verse": 1
+      },
+      {
+        "book": "esth",
+        "chapter": 7,
+        "verse": 2
+      },
+      {
+        "book": "esth",
+        "chapter": 7,
+        "verse": 3
+      },
+      {
+        "book": "esth",
+        "chapter": 7,
+        "verse": 4
+      },
+      {
+        "book": "esth",
+        "chapter": 7,
+        "verse": 5
+      },
+      {
+        "book": "esth",
+        "chapter": 7,
+        "verse": 6
+      },
+      {
+        "book": "esth",
+        "chapter": 7,
+        "verse": 7
+      },
+      {
+        "book": "esth",
+        "chapter": 7,
+        "verse": 8
+      },
+      {
+        "book": "esth",
+        "chapter": 7,
+        "verse": 9
+      },
+      {
+        "book": "esth",
+        "chapter": 7,
+        "verse": 10
+      },
+      {
+        "book": "esth",
+        "chapter": 8,
+        "verse": 1
+      },
+      {
+        "book": "esth",
+        "chapter": 8,
+        "verse": 2
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -509,
+      "latest": -509
+    }
+  },
+  {
+    "id": "haman-plots-to-destroy-the-jews",
+    "name": "Haman plots to destroy the Jews",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "esth",
+        "chapter": 3,
+        "verse": 1
+      },
+      {
+        "book": "esth",
+        "chapter": 3,
+        "verse": 2
+      },
+      {
+        "book": "esth",
+        "chapter": 3,
+        "verse": 3
+      },
+      {
+        "book": "esth",
+        "chapter": 3,
+        "verse": 4
+      },
+      {
+        "book": "esth",
+        "chapter": 3,
+        "verse": 5
+      },
+      {
+        "book": "esth",
+        "chapter": 3,
+        "verse": 6
+      },
+      {
+        "book": "esth",
+        "chapter": 3,
+        "verse": 7
+      },
+      {
+        "book": "esth",
+        "chapter": 3,
+        "verse": 8
+      },
+      {
+        "book": "esth",
+        "chapter": 3,
+        "verse": 9
+      },
+      {
+        "book": "esth",
+        "chapter": 3,
+        "verse": 10
+      },
+      {
+        "book": "esth",
+        "chapter": 3,
+        "verse": 11
+      },
+      {
+        "book": "esth",
+        "chapter": 3,
+        "verse": 12
+      },
+      {
+        "book": "esth",
+        "chapter": 3,
+        "verse": 13
+      },
+      {
+        "book": "esth",
+        "chapter": 3,
+        "verse": 14
+      },
+      {
+        "book": "esth",
+        "chapter": 3,
+        "verse": 15
+      },
+      {
+        "book": "esth",
+        "chapter": 4,
+        "verse": 1
+      },
+      {
+        "book": "esth",
+        "chapter": 4,
+        "verse": 2
+      },
+      {
+        "book": "esth",
+        "chapter": 4,
+        "verse": 3
+      },
+      {
+        "book": "esth",
+        "chapter": 4,
+        "verse": 4
+      },
+      {
+        "book": "esth",
+        "chapter": 4,
+        "verse": 5
+      },
+      {
+        "book": "esth",
+        "chapter": 4,
+        "verse": 6
+      },
+      {
+        "book": "esth",
+        "chapter": 4,
+        "verse": 7
+      },
+      {
+        "book": "esth",
+        "chapter": 4,
+        "verse": 8
+      },
+      {
+        "book": "esth",
+        "chapter": 4,
+        "verse": 9
+      },
+      {
+        "book": "esth",
+        "chapter": 4,
+        "verse": 10
+      },
+      {
+        "book": "esth",
+        "chapter": 4,
+        "verse": 11
+      },
+      {
+        "book": "esth",
+        "chapter": 4,
+        "verse": 12
+      },
+      {
+        "book": "esth",
+        "chapter": 4,
+        "verse": 13
+      },
+      {
+        "book": "esth",
+        "chapter": 4,
+        "verse": 14
+      },
+      {
+        "book": "esth",
+        "chapter": 4,
+        "verse": 15
+      },
+      {
+        "book": "esth",
+        "chapter": 4,
+        "verse": 16
+      },
+      {
+        "book": "esth",
+        "chapter": 4,
+        "verse": 17
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -509,
+      "latest": -509
     }
   },
   {
@@ -21860,6 +24679,97 @@
     }
   },
   {
+    "id": "jeconiah-released-from-prison",
+    "name": "Jeconiah released from prison",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "2kgs",
+        "chapter": 25,
+        "verse": 27
+      },
+      {
+        "book": "2kgs",
+        "chapter": 25,
+        "verse": 28
+      },
+      {
+        "book": "2kgs",
+        "chapter": 25,
+        "verse": 29
+      },
+      {
+        "book": "2kgs",
+        "chapter": 25,
+        "verse": 30
+      },
+      {
+        "book": "jer",
+        "chapter": 52,
+        "verse": 31
+      },
+      {
+        "book": "jer",
+        "chapter": 52,
+        "verse": 32
+      },
+      {
+        "book": "jer",
+        "chapter": 52,
+        "verse": 33
+      },
+      {
+        "book": "jer",
+        "chapter": 52,
+        "verse": 34
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -560,
+      "latest": -560
+    }
+  },
+  {
+    "id": "jehoiakim-becomes-nebuchadnezzar-s-servant",
+    "name": "Jehoiakim becomes Nebuchadnezzar's servant",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "2kgs",
+        "chapter": 24,
+        "verse": 1
+      },
+      {
+        "book": "2chr",
+        "chapter": 36,
+        "verse": 6
+      },
+      {
+        "book": "2chr",
+        "chapter": 36,
+        "verse": 7
+      },
+      {
+        "book": "dan",
+        "chapter": 1,
+        "verse": 1
+      },
+      {
+        "book": "dan",
+        "chapter": 1,
+        "verse": 2
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -605,
+      "latest": -605
+    }
+  },
+  {
     "id": "jerusalem-council",
     "name": "Jerusalem Council",
     "status": "published",
@@ -22456,8 +25366,8 @@
     }
   },
   {
-    "id": "jesus-circumsized",
-    "name": "Jesus Circumsized",
+    "id": "jesus-circumcised",
+    "name": "Jesus Circumcised",
     "status": "published",
     "source": "theographic",
     "scriptureRefs": [
@@ -32033,8 +34943,8 @@
     }
   },
   {
-    "id": "lazarus-raised-form-the-dead",
-    "name": "Lazarus Raised form the Dead",
+    "id": "lazarus-raised-from-the-dead",
+    "name": "Lazarus Raised from the Dead",
     "status": "published",
     "source": "theographic",
     "scriptureRefs": [
@@ -32390,8 +35300,8 @@
     ],
     "kind": "event",
     "date": {
-      "earliest": -1996,
-      "latest": -1821
+      "earliest": -1995,
+      "latest": -1820
     }
   },
   {
@@ -32638,7 +35548,7 @@
     "kind": "event",
     "date": {
       "earliest": -1835,
-      "latest": -1655
+      "latest": -1688
     }
   },
   {
@@ -34446,6 +37356,832 @@
     }
   },
   {
+    "id": "nebuchadnezzar-besieges-jerusalem",
+    "name": "Nebuchadnezzar besieges Jerusalem",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "2kgs",
+        "chapter": 25,
+        "verse": 1
+      },
+      {
+        "book": "2kgs",
+        "chapter": 25,
+        "verse": 2
+      },
+      {
+        "book": "jer",
+        "chapter": 39,
+        "verse": 1
+      },
+      {
+        "book": "jer",
+        "chapter": 52,
+        "verse": 4
+      },
+      {
+        "book": "jer",
+        "chapter": 52,
+        "verse": 5
+      },
+      {
+        "book": "ezek",
+        "chapter": 24,
+        "verse": 1
+      },
+      {
+        "book": "ezek",
+        "chapter": 24,
+        "verse": 2
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -587,
+      "latest": -587
+    }
+  },
+  {
+    "id": "nebuchadnezzar-defeats-pharaoh-nechoh-at-carchemish",
+    "name": "Nebuchadnezzar defeats Pharaoh-nechoh at Carchemish",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "2kgs",
+        "chapter": 24,
+        "verse": 7
+      },
+      {
+        "book": "jer",
+        "chapter": 46,
+        "verse": 2
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -604,
+      "latest": -604
+    }
+  },
+  {
+    "id": "nebuzar-adan-carries-away-745-jews",
+    "name": "Nebuzar-adan carries away 745 Jews",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "jer",
+        "chapter": 52,
+        "verse": 30
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -581,
+      "latest": -581
+    }
+  },
+  {
+    "id": "nehemiah-arrives-at-jerusalem",
+    "name": "Nehemiah arrives at Jerusalem",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "neh",
+        "chapter": 2,
+        "verse": 9
+      },
+      {
+        "book": "neh",
+        "chapter": 2,
+        "verse": 10
+      },
+      {
+        "book": "neh",
+        "chapter": 2,
+        "verse": 11
+      },
+      {
+        "book": "neh",
+        "chapter": 2,
+        "verse": 12
+      },
+      {
+        "book": "neh",
+        "chapter": 2,
+        "verse": 13
+      },
+      {
+        "book": "neh",
+        "chapter": 2,
+        "verse": 14
+      },
+      {
+        "book": "neh",
+        "chapter": 2,
+        "verse": 15
+      },
+      {
+        "book": "neh",
+        "chapter": 2,
+        "verse": 16
+      },
+      {
+        "book": "neh",
+        "chapter": 2,
+        "verse": 17
+      },
+      {
+        "book": "neh",
+        "chapter": 2,
+        "verse": 18
+      },
+      {
+        "book": "neh",
+        "chapter": 2,
+        "verse": 19
+      },
+      {
+        "book": "neh",
+        "chapter": 2,
+        "verse": 20
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -453,
+      "latest": -453
+    }
+  },
+  {
+    "id": "nehemiah-goes-back-to-artaxerxes",
+    "name": "Nehemiah goes back to Artaxerxes",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "neh",
+        "chapter": 13,
+        "verse": 4
+      },
+      {
+        "book": "neh",
+        "chapter": 13,
+        "verse": 5
+      },
+      {
+        "book": "neh",
+        "chapter": 13,
+        "verse": 6
+      },
+      {
+        "book": "neh",
+        "chapter": 13,
+        "verse": 7
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -441,
+      "latest": -441
+    }
+  },
+  {
+    "id": "nehemiah-mourns-for-jerusalem",
+    "name": "Nehemiah mourns for Jerusalem",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "neh",
+        "chapter": 1,
+        "verse": 1
+      },
+      {
+        "book": "neh",
+        "chapter": 1,
+        "verse": 2
+      },
+      {
+        "book": "neh",
+        "chapter": 1,
+        "verse": 3
+      },
+      {
+        "book": "neh",
+        "chapter": 1,
+        "verse": 4
+      },
+      {
+        "book": "neh",
+        "chapter": 1,
+        "verse": 5
+      },
+      {
+        "book": "neh",
+        "chapter": 1,
+        "verse": 6
+      },
+      {
+        "book": "neh",
+        "chapter": 1,
+        "verse": 7
+      },
+      {
+        "book": "neh",
+        "chapter": 1,
+        "verse": 8
+      },
+      {
+        "book": "neh",
+        "chapter": 1,
+        "verse": 9
+      },
+      {
+        "book": "neh",
+        "chapter": 1,
+        "verse": 10
+      },
+      {
+        "book": "neh",
+        "chapter": 1,
+        "verse": 11
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -454,
+      "latest": -454
+    }
+  },
+  {
+    "id": "nehemiah-rebuilds-the-wall-of-jerusalem",
+    "name": "Nehemiah rebuilds the wall of Jerusalem",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 1
+      },
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 2
+      },
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 3
+      },
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 4
+      },
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 5
+      },
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 6
+      },
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 7
+      },
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 8
+      },
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 9
+      },
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 10
+      },
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 11
+      },
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 12
+      },
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 13
+      },
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 14
+      },
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 15
+      },
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 16
+      },
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 17
+      },
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 18
+      },
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 19
+      },
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 20
+      },
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 21
+      },
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 22
+      },
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 23
+      },
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 24
+      },
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 25
+      },
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 26
+      },
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 27
+      },
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 28
+      },
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 29
+      },
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 30
+      },
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 31
+      },
+      {
+        "book": "neh",
+        "chapter": 3,
+        "verse": 32
+      },
+      {
+        "book": "neh",
+        "chapter": 4,
+        "verse": 1
+      },
+      {
+        "book": "neh",
+        "chapter": 4,
+        "verse": 2
+      },
+      {
+        "book": "neh",
+        "chapter": 4,
+        "verse": 3
+      },
+      {
+        "book": "neh",
+        "chapter": 4,
+        "verse": 4
+      },
+      {
+        "book": "neh",
+        "chapter": 4,
+        "verse": 5
+      },
+      {
+        "book": "neh",
+        "chapter": 4,
+        "verse": 6
+      },
+      {
+        "book": "neh",
+        "chapter": 4,
+        "verse": 7
+      },
+      {
+        "book": "neh",
+        "chapter": 4,
+        "verse": 8
+      },
+      {
+        "book": "neh",
+        "chapter": 4,
+        "verse": 9
+      },
+      {
+        "book": "neh",
+        "chapter": 4,
+        "verse": 10
+      },
+      {
+        "book": "neh",
+        "chapter": 4,
+        "verse": 11
+      },
+      {
+        "book": "neh",
+        "chapter": 4,
+        "verse": 12
+      },
+      {
+        "book": "neh",
+        "chapter": 4,
+        "verse": 13
+      },
+      {
+        "book": "neh",
+        "chapter": 4,
+        "verse": 14
+      },
+      {
+        "book": "neh",
+        "chapter": 4,
+        "verse": 15
+      },
+      {
+        "book": "neh",
+        "chapter": 4,
+        "verse": 16
+      },
+      {
+        "book": "neh",
+        "chapter": 4,
+        "verse": 17
+      },
+      {
+        "book": "neh",
+        "chapter": 4,
+        "verse": 18
+      },
+      {
+        "book": "neh",
+        "chapter": 4,
+        "verse": 19
+      },
+      {
+        "book": "neh",
+        "chapter": 4,
+        "verse": 20
+      },
+      {
+        "book": "neh",
+        "chapter": 4,
+        "verse": 21
+      },
+      {
+        "book": "neh",
+        "chapter": 4,
+        "verse": 22
+      },
+      {
+        "book": "neh",
+        "chapter": 4,
+        "verse": 23
+      },
+      {
+        "book": "neh",
+        "chapter": 5,
+        "verse": 1
+      },
+      {
+        "book": "neh",
+        "chapter": 5,
+        "verse": 2
+      },
+      {
+        "book": "neh",
+        "chapter": 5,
+        "verse": 3
+      },
+      {
+        "book": "neh",
+        "chapter": 5,
+        "verse": 4
+      },
+      {
+        "book": "neh",
+        "chapter": 5,
+        "verse": 5
+      },
+      {
+        "book": "neh",
+        "chapter": 5,
+        "verse": 6
+      },
+      {
+        "book": "neh",
+        "chapter": 5,
+        "verse": 7
+      },
+      {
+        "book": "neh",
+        "chapter": 5,
+        "verse": 8
+      },
+      {
+        "book": "neh",
+        "chapter": 5,
+        "verse": 9
+      },
+      {
+        "book": "neh",
+        "chapter": 5,
+        "verse": 10
+      },
+      {
+        "book": "neh",
+        "chapter": 5,
+        "verse": 11
+      },
+      {
+        "book": "neh",
+        "chapter": 5,
+        "verse": 12
+      },
+      {
+        "book": "neh",
+        "chapter": 5,
+        "verse": 13
+      },
+      {
+        "book": "neh",
+        "chapter": 5,
+        "verse": 14
+      },
+      {
+        "book": "neh",
+        "chapter": 5,
+        "verse": 15
+      },
+      {
+        "book": "neh",
+        "chapter": 5,
+        "verse": 16
+      },
+      {
+        "book": "neh",
+        "chapter": 5,
+        "verse": 17
+      },
+      {
+        "book": "neh",
+        "chapter": 5,
+        "verse": 18
+      },
+      {
+        "book": "neh",
+        "chapter": 5,
+        "verse": 19
+      },
+      {
+        "book": "neh",
+        "chapter": 6,
+        "verse": 1
+      },
+      {
+        "book": "neh",
+        "chapter": 6,
+        "verse": 2
+      },
+      {
+        "book": "neh",
+        "chapter": 6,
+        "verse": 3
+      },
+      {
+        "book": "neh",
+        "chapter": 6,
+        "verse": 4
+      },
+      {
+        "book": "neh",
+        "chapter": 6,
+        "verse": 5
+      },
+      {
+        "book": "neh",
+        "chapter": 6,
+        "verse": 6
+      },
+      {
+        "book": "neh",
+        "chapter": 6,
+        "verse": 7
+      },
+      {
+        "book": "neh",
+        "chapter": 6,
+        "verse": 8
+      },
+      {
+        "book": "neh",
+        "chapter": 6,
+        "verse": 9
+      },
+      {
+        "book": "neh",
+        "chapter": 6,
+        "verse": 10
+      },
+      {
+        "book": "neh",
+        "chapter": 6,
+        "verse": 11
+      },
+      {
+        "book": "neh",
+        "chapter": 6,
+        "verse": 12
+      },
+      {
+        "book": "neh",
+        "chapter": 6,
+        "verse": 13
+      },
+      {
+        "book": "neh",
+        "chapter": 6,
+        "verse": 14
+      },
+      {
+        "book": "neh",
+        "chapter": 6,
+        "verse": 15
+      },
+      {
+        "book": "neh",
+        "chapter": 6,
+        "verse": 16
+      },
+      {
+        "book": "neh",
+        "chapter": 6,
+        "verse": 17
+      },
+      {
+        "book": "neh",
+        "chapter": 6,
+        "verse": 18
+      },
+      {
+        "book": "neh",
+        "chapter": 6,
+        "verse": 19
+      },
+      {
+        "book": "neh",
+        "chapter": 12,
+        "verse": 27
+      },
+      {
+        "book": "neh",
+        "chapter": 12,
+        "verse": 28
+      },
+      {
+        "book": "neh",
+        "chapter": 12,
+        "verse": 29
+      },
+      {
+        "book": "neh",
+        "chapter": 12,
+        "verse": 30
+      },
+      {
+        "book": "neh",
+        "chapter": 12,
+        "verse": 31
+      },
+      {
+        "book": "neh",
+        "chapter": 12,
+        "verse": 32
+      },
+      {
+        "book": "neh",
+        "chapter": 12,
+        "verse": 33
+      },
+      {
+        "book": "neh",
+        "chapter": 12,
+        "verse": 34
+      },
+      {
+        "book": "neh",
+        "chapter": 12,
+        "verse": 35
+      },
+      {
+        "book": "neh",
+        "chapter": 12,
+        "verse": 36
+      },
+      {
+        "book": "neh",
+        "chapter": 12,
+        "verse": 37
+      },
+      {
+        "book": "neh",
+        "chapter": 12,
+        "verse": 38
+      },
+      {
+        "book": "neh",
+        "chapter": 12,
+        "verse": 39
+      },
+      {
+        "book": "neh",
+        "chapter": 12,
+        "verse": 40
+      },
+      {
+        "book": "neh",
+        "chapter": 12,
+        "verse": 41
+      },
+      {
+        "book": "neh",
+        "chapter": 12,
+        "verse": 42
+      },
+      {
+        "book": "neh",
+        "chapter": 12,
+        "verse": 43
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -453,
+      "latest": -453
+    }
+  },
+  {
     "id": "nimrod-s-kingdom-begins",
     "name": "Nimrod's kingdom begins",
     "status": "published",
@@ -34479,8 +38215,8 @@
     ],
     "kind": "event",
     "date": {
-      "earliest": -1821,
-      "latest": -1821
+      "earliest": -2181,
+      "latest": -2181
     }
   },
   {
@@ -65374,8 +69110,8 @@
     ],
     "kind": "event",
     "date": {
-      "earliest": -441,
-      "latest": -440
+      "earliest": -440,
+      "latest": -439
     }
   },
   {
@@ -68138,6 +71874,29 @@
     }
   },
   {
+    "id": "reign-of-artaxerxes",
+    "name": "Reign of Artaxerxes",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "ezra",
+        "chapter": 7,
+        "verse": 1
+      },
+      {
+        "book": "neh",
+        "chapter": 5,
+        "verse": 14
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -472,
+      "latest": -423
+    }
+  },
+  {
     "id": "reign-of-asa",
     "name": "Reign of Asa",
     "status": "published",
@@ -68304,6 +72063,34 @@
     "date": {
       "earliest": -952,
       "latest": -928
+    }
+  },
+  {
+    "id": "reign-of-darius-ahasuerus",
+    "name": "Reign of Darius (Ahasuerus)",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 24
+      },
+      {
+        "book": "esth",
+        "chapter": 1,
+        "verse": 1
+      },
+      {
+        "book": "esth",
+        "chapter": 1,
+        "verse": 2
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -520,
+      "latest": -485
     }
   },
   {
@@ -72330,6 +76117,44 @@
     }
   },
   {
+    "id": "reign-of-jehoahaz-shallum",
+    "name": "Reign of Jehoahaz (Shallum)",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "2kgs",
+        "chapter": 23,
+        "verse": 31
+      },
+      {
+        "book": "2kgs",
+        "chapter": 23,
+        "verse": 32
+      },
+      {
+        "book": "2kgs",
+        "chapter": 23,
+        "verse": 33
+      },
+      {
+        "book": "2kgs",
+        "chapter": 23,
+        "verse": 34
+      },
+      {
+        "book": "2kgs",
+        "chapter": 23,
+        "verse": 35
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -608,
+      "latest": -608
+    }
+  },
+  {
     "id": "reign-of-jehoash",
     "name": "Reign of Jehoash",
     "status": "published",
@@ -73419,44 +77244,6 @@
     }
   },
   {
-    "id": "reign-of-johoahaz-shallum",
-    "name": "Reign of Johoahaz (Shallum)",
-    "status": "published",
-    "source": "theographic",
-    "scriptureRefs": [
-      {
-        "book": "2kgs",
-        "chapter": 23,
-        "verse": 31
-      },
-      {
-        "book": "2kgs",
-        "chapter": 23,
-        "verse": 32
-      },
-      {
-        "book": "2kgs",
-        "chapter": 23,
-        "verse": 33
-      },
-      {
-        "book": "2kgs",
-        "chapter": 23,
-        "verse": 34
-      },
-      {
-        "book": "2kgs",
-        "chapter": 23,
-        "verse": 35
-      }
-    ],
-    "kind": "event",
-    "date": {
-      "earliest": -608,
-      "latest": -608
-    }
-  },
-  {
     "id": "reign-of-joram",
     "name": "Reign of Joram",
     "status": "published",
@@ -73977,6 +77764,29 @@
     "date": {
       "earliest": -953,
       "latest": -951
+    }
+  },
+  {
+    "id": "reign-of-nebuchadnezzar",
+    "name": "Reign of Nebuchadnezzar",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "jer",
+        "chapter": 25,
+        "verse": 1
+      },
+      {
+        "book": "jer",
+        "chapter": 32,
+        "verse": 1
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -604,
+      "latest": -561
     }
   },
   {
@@ -79819,6 +83629,24 @@
     }
   },
   {
+    "id": "return-from-exile",
+    "name": "Return from Exile",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "ezra",
+        "chapter": 1,
+        "verse": 1
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -535,
+      "latest": -439
+    }
+  },
+  {
     "id": "return-from-second-missionary-journey",
     "name": "Return from Second Missionary Journey",
     "status": "published",
@@ -80554,8 +84382,8 @@
     }
   },
   {
-    "id": "sampson-destroys-temple-of-dagon",
-    "name": "Sampson destroys Temple of Dagon",
+    "id": "samson-destroys-temple-of-dagon",
+    "name": "Samson destroys Temple of Dagon",
     "status": "published",
     "source": "theographic",
     "scriptureRefs": [
@@ -81537,6 +85365,59 @@
     }
   },
   {
+    "id": "second-deportation-to-babylon",
+    "name": "Second deportation to Babylon",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "2kgs",
+        "chapter": 24,
+        "verse": 10
+      },
+      {
+        "book": "2kgs",
+        "chapter": 24,
+        "verse": 11
+      },
+      {
+        "book": "2kgs",
+        "chapter": 24,
+        "verse": 12
+      },
+      {
+        "book": "2kgs",
+        "chapter": 24,
+        "verse": 13
+      },
+      {
+        "book": "2kgs",
+        "chapter": 24,
+        "verse": 14
+      },
+      {
+        "book": "2kgs",
+        "chapter": 24,
+        "verse": 15
+      },
+      {
+        "book": "2kgs",
+        "chapter": 24,
+        "verse": 16
+      },
+      {
+        "book": "2chr",
+        "chapter": 36,
+        "verse": 10
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -596,
+      "latest": -596
+    }
+  },
+  {
     "id": "second-foretelling-of-death-and-resurrection",
     "name": "Second Foretelling of Death and Resurrection",
     "status": "published",
@@ -82313,6 +86194,69 @@
     "date": {
       "earliest": 47,
       "latest": 47
+    }
+  },
+  {
+    "id": "second-temple-dedicated",
+    "name": "Second Temple dedicated",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 13
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 14
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 15
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 16
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 17
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 18
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 19
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 20
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 21
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 22
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -515,
+      "latest": -515
     }
   },
   {
@@ -86613,6 +90557,307 @@
     }
   },
   {
+    "id": "temple-work-is-stopped",
+    "name": "Temple work is stopped",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 1
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 2
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 3
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 4
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 5
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 6
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 7
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 8
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 9
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 10
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 11
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 12
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 13
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 14
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 15
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 16
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 17
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 18
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 19
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 20
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 21
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 22
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 23
+      },
+      {
+        "book": "ezra",
+        "chapter": 4,
+        "verse": 24
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -521,
+      "latest": -521
+    }
+  },
+  {
+    "id": "temple-work-resumes",
+    "name": "Temple work resumes",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 1
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 2
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 3
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 4
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 5
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 6
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 7
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 8
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 9
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 10
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 11
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 12
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 13
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 14
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 15
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 16
+      },
+      {
+        "book": "ezra",
+        "chapter": 5,
+        "verse": 17
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 1
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 2
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 3
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 4
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 5
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 6
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 7
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 8
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 9
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 10
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 11
+      },
+      {
+        "book": "ezra",
+        "chapter": 6,
+        "verse": 12
+      },
+      {
+        "book": "hag",
+        "chapter": 1,
+        "verse": 14
+      },
+      {
+        "book": "hag",
+        "chapter": 1,
+        "verse": 15
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -519,
+      "latest": -519
+    }
+  },
+  {
     "id": "temptations-of-jesus",
     "name": "Temptations of Jesus",
     "status": "published",
@@ -86979,8 +91224,8 @@
     }
   },
   {
-    "id": "the-annuciation",
-    "name": "The Annuciation",
+    "id": "the-annunciation",
+    "name": "The Annunciation",
     "status": "published",
     "source": "theographic",
     "scriptureRefs": [
@@ -87464,6 +91709,59 @@
     "date": {
       "earliest": -2346,
       "latest": -2346
+    }
+  },
+  {
+    "id": "the-glory-of-the-lord-leaves-the-temple",
+    "name": "The glory of the LORD leaves the Temple",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "ezek",
+        "chapter": 8,
+        "verse": 1
+      },
+      {
+        "book": "ezek",
+        "chapter": 8,
+        "verse": 2
+      },
+      {
+        "book": "ezek",
+        "chapter": 8,
+        "verse": 3
+      },
+      {
+        "book": "ezek",
+        "chapter": 8,
+        "verse": 4
+      },
+      {
+        "book": "ezek",
+        "chapter": 10,
+        "verse": 18
+      },
+      {
+        "book": "ezek",
+        "chapter": 10,
+        "verse": 19
+      },
+      {
+        "book": "ezek",
+        "chapter": 11,
+        "verse": 22
+      },
+      {
+        "book": "ezek",
+        "chapter": 11,
+        "verse": 23
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -591,
+      "latest": -591
     }
   },
   {
@@ -87959,6 +92257,269 @@
     "date": {
       "earliest": 30,
       "latest": 30
+    }
+  },
+  {
+    "id": "the-jews-defeat-their-enemies",
+    "name": "The Jews defeat their enemies",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "esth",
+        "chapter": 8,
+        "verse": 3
+      },
+      {
+        "book": "esth",
+        "chapter": 8,
+        "verse": 4
+      },
+      {
+        "book": "esth",
+        "chapter": 8,
+        "verse": 5
+      },
+      {
+        "book": "esth",
+        "chapter": 8,
+        "verse": 6
+      },
+      {
+        "book": "esth",
+        "chapter": 8,
+        "verse": 7
+      },
+      {
+        "book": "esth",
+        "chapter": 8,
+        "verse": 8
+      },
+      {
+        "book": "esth",
+        "chapter": 8,
+        "verse": 9
+      },
+      {
+        "book": "esth",
+        "chapter": 8,
+        "verse": 10
+      },
+      {
+        "book": "esth",
+        "chapter": 8,
+        "verse": 11
+      },
+      {
+        "book": "esth",
+        "chapter": 8,
+        "verse": 12
+      },
+      {
+        "book": "esth",
+        "chapter": 8,
+        "verse": 13
+      },
+      {
+        "book": "esth",
+        "chapter": 8,
+        "verse": 14
+      },
+      {
+        "book": "esth",
+        "chapter": 8,
+        "verse": 15
+      },
+      {
+        "book": "esth",
+        "chapter": 8,
+        "verse": 16
+      },
+      {
+        "book": "esth",
+        "chapter": 8,
+        "verse": 17
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 1
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 2
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 3
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 4
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 5
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 6
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 7
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 8
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 9
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 10
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 11
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 12
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 13
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 14
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 15
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 16
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 17
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 18
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 19
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 20
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 21
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 22
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 23
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 24
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 25
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 26
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 27
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 28
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 29
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 30
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 31
+      },
+      {
+        "book": "esth",
+        "chapter": 9,
+        "verse": 32
+      },
+      {
+        "book": "esth",
+        "chapter": 10,
+        "verse": 1
+      },
+      {
+        "book": "esth",
+        "chapter": 10,
+        "verse": 2
+      },
+      {
+        "book": "esth",
+        "chapter": 10,
+        "verse": 3
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -508,
+      "latest": -508
     }
   },
   {
@@ -88683,8 +93244,8 @@
     }
   },
   {
-    "id": "the-transfiguation",
-    "name": "The Transfiguation",
+    "id": "the-transfiguration",
+    "name": "The Transfiguration",
     "status": "published",
     "source": "theographic",
     "scriptureRefs": [
@@ -88863,6 +93424,94 @@
     "date": {
       "earliest": 29,
       "latest": 29
+    }
+  },
+  {
+    "id": "third-deportation-to-babylon",
+    "name": "Third deportation to Babylon",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "2kgs",
+        "chapter": 25,
+        "verse": 11
+      },
+      {
+        "book": "2kgs",
+        "chapter": 25,
+        "verse": 12
+      },
+      {
+        "book": "2kgs",
+        "chapter": 25,
+        "verse": 18
+      },
+      {
+        "book": "2kgs",
+        "chapter": 25,
+        "verse": 19
+      },
+      {
+        "book": "2kgs",
+        "chapter": 25,
+        "verse": 20
+      },
+      {
+        "book": "2kgs",
+        "chapter": 25,
+        "verse": 21
+      },
+      {
+        "book": "2chr",
+        "chapter": 36,
+        "verse": 20
+      },
+      {
+        "book": "jer",
+        "chapter": 39,
+        "verse": 9
+      },
+      {
+        "book": "jer",
+        "chapter": 39,
+        "verse": 10
+      },
+      {
+        "book": "jer",
+        "chapter": 52,
+        "verse": 15
+      },
+      {
+        "book": "jer",
+        "chapter": 52,
+        "verse": 16
+      },
+      {
+        "book": "jer",
+        "chapter": 52,
+        "verse": 24
+      },
+      {
+        "book": "jer",
+        "chapter": 52,
+        "verse": 25
+      },
+      {
+        "book": "jer",
+        "chapter": 52,
+        "verse": 26
+      },
+      {
+        "book": "jer",
+        "chapter": 52,
+        "verse": 27
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -585,
+      "latest": -585
     }
   },
   {
@@ -93547,8 +98196,8 @@
     }
   },
   {
-    "id": "zaccheus-converted-and-parable-of-the-pounds",
-    "name": "Zaccheus Converted and Parable of the Pounds",
+    "id": "zacchaeus-converted-and-parable-of-the-pounds",
+    "name": "Zacchaeus Converted and Parable of the Pounds",
     "status": "published",
     "source": "theographic",
     "scriptureRefs": [
@@ -93697,6 +98346,82 @@
     "date": {
       "earliest": 30,
       "latest": 30
+    }
+  },
+  {
+    "id": "zedekiah-goes-to-babylon",
+    "name": "Zedekiah goes to Babylon",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "jer",
+        "chapter": 51,
+        "verse": 59
+      },
+      {
+        "book": "jer",
+        "chapter": 51,
+        "verse": 60
+      },
+      {
+        "book": "jer",
+        "chapter": 51,
+        "verse": 61
+      },
+      {
+        "book": "jer",
+        "chapter": 51,
+        "verse": 62
+      },
+      {
+        "book": "jer",
+        "chapter": 51,
+        "verse": 63
+      },
+      {
+        "book": "jer",
+        "chapter": 51,
+        "verse": 64
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -592,
+      "latest": -592
+    }
+  },
+  {
+    "id": "zedekiah-rebels-against-nebuchadnezzar",
+    "name": "Zedekiah rebels against Nebuchadnezzar",
+    "status": "published",
+    "source": "theographic",
+    "scriptureRefs": [
+      {
+        "book": "2kgs",
+        "chapter": 24,
+        "verse": 20
+      },
+      {
+        "book": "2chr",
+        "chapter": 36,
+        "verse": 13
+      },
+      {
+        "book": "jer",
+        "chapter": 52,
+        "verse": 3
+      },
+      {
+        "book": "ezek",
+        "chapter": 17,
+        "verse": 15
+      }
+    ],
+    "kind": "event",
+    "date": {
+      "earliest": -588,
+      "latest": -588
     }
   }
 ]

@@ -14,8 +14,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 33.545097,
-      "lng": 36.224661
+      "lat": 33.514135,
+      "lng": 36.294504
     },
     "featureType": "Water",
     "featureSubType": "River",
@@ -380,8 +380,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.927583,
-      "lng": 35.081555
+      "lat": 32.921287,
+      "lng": 35.079835
     },
     "featureType": "City",
     "altNames": [
@@ -448,8 +448,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 37.5,
-      "lng": 22.5
+      "lat": 37.98333333333333,
+      "lng": 23.73333333333333
     },
     "featureType": "Region",
     "altNames": [
@@ -776,8 +776,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 39.504028,
-      "lng": 26.934551
+      "lat": 39.49864,
+      "lng": 26.936098
     },
     "featureType": "City",
     "altNames": [
@@ -908,8 +908,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.398936,
-      "lng": 35.54351
+      "lat": 32.388639,
+      "lng": 35.531839
     },
     "altNames": [
       "Aenon"
@@ -964,8 +964,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 33.02498036,
-      "lng": 35.44544658
+      "lat": 33.317803,
+      "lng": 35.243368
     },
     "altNames": [
       "Ahlab"
@@ -1136,8 +1136,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.9166759,
-      "lng": 35.2615767
+      "lat": 31.916676,
+      "lng": 35.261577
     },
     "featureType": "City",
     "altNames": [
@@ -1182,8 +1182,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.91697812,
-      "lng": 35.26122639
+      "lat": 31.916676,
+      "lng": 35.261577
     },
     "altNames": [
       "Aiath"
@@ -1203,8 +1203,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.91697812,
-      "lng": 35.26122639
+      "lat": 31.916676,
+      "lng": 35.261577
     },
     "altNames": [
       "Aija"
@@ -1439,8 +1439,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.195371,
-      "lng": 29.904133
+      "lat": 31.22784148,
+      "lng": 29.95692427
     },
     "featureType": "City",
     "altNames": [
@@ -1856,8 +1856,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.95522,
-      "lng": 35.94503
+      "lat": 31.95018855,
+      "lng": 35.92413136
     },
     "altNames": [
       "Ammon"
@@ -1878,8 +1878,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 40.818876,
-      "lng": 23.840418
+      "lat": 40.825811,
+      "lng": 23.841579
     },
     "featureType": "City",
     "altNames": [
@@ -2089,8 +2089,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.51723976,
-      "lng": 35.21632509
+      "lat": 32.520555,
+      "lng": 35.220671
     },
     "featureType": "City",
     "altNames": [
@@ -2221,13 +2221,12 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 36.200663,
-      "lng": 36.165318
+      "lat": 36.20233087,
+      "lng": 36.16238775
     },
     "featureType": "City",
     "altNames": [
-      "Antioch",
-      "Antioch (Syria)"
+      "Antioch"
     ]
   },
   {
@@ -2260,13 +2259,12 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 38.30466,
-      "lng": 31.19049
+      "lat": 38.305374,
+      "lng": 31.18987
     },
     "featureType": "City",
     "altNames": [
-      "Antioch",
-      "Antioch (Pisidia)"
+      "Antioch"
     ]
   },
   {
@@ -2284,8 +2282,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.10478,
-      "lng": 34.93078
+      "lat": 32.105237,
+      "lng": 34.930974
     },
     "featureType": "City",
     "altNames": [
@@ -2345,8 +2343,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.10471266,
-      "lng": 34.93197921
+      "lat": 32.105237,
+      "lng": 34.930974
     },
     "featureType": "City",
     "altNames": [
@@ -2400,8 +2398,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.10471266,
-      "lng": 34.93197921
+      "lat": 32.105237,
+      "lng": 34.930974
     },
     "altNames": [
       "Aphekah"
@@ -2467,8 +2465,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 41.46801,
-      "lng": 12.99372
+      "lat": 41.46639,
+      "lng": 12.9975
     },
     "featureType": "Landmark",
     "altNames": [
@@ -2560,8 +2558,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 35.136204,
-      "lng": 36.749488
+      "lat": 32.029676,
+      "lng": 35.520995
     },
     "altNames": [
       "Brook of the Arabah",
@@ -2738,8 +2736,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.28098171,
-      "lng": 35.12636584
+      "lat": 31.279912,
+      "lng": 35.125502
     },
     "featureType": "City",
     "altNames": [
@@ -2775,8 +2773,8 @@
     "description": "Aram of the two rivers, is Mesopotamia (as it is rendered in Gen. 24:10), the country enclosed between the Tigris on the east and the Euphrates on the west (Ps. 60, title); called also the “field of Aram” (Hos. 12:12, R.V.) i.e., the open country of Aram; in the Authorized Version, “country of Syria.” Padan-aram (q.v.) was a portion of this country.",
     "kind": "place",
     "coordinates": {
-      "lat": 35.1,
-      "lng": 42
+      "lat": 32.53650368616845,
+      "lng": 44.42088287373876
     },
     "featureType": "Region",
     "altNames": [
@@ -2791,8 +2789,8 @@
     "description": "(Ps. 60, title), probably the region between the Euphrates and the Orontes.",
     "kind": "place",
     "coordinates": {
-      "lat": 33.519299,
-      "lng": 36.31344999999999
+      "lat": 34.312571,
+      "lng": 36.925484
     },
     "featureType": "Region",
     "altNames": [
@@ -2894,8 +2892,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 37.958593,
-      "lng": 23.711133
+      "lat": 37.972372,
+      "lng": 23.723372
     },
     "featureType": "Landmark",
     "altNames": [
@@ -2965,8 +2963,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.777444,
-      "lng": 35.234935
+      "lat": 31.777189,
+      "lng": 35.234978
     },
     "featureType": "City",
     "altNames": [
@@ -3021,8 +3019,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.58418314,
-      "lng": 35.18229166
+      "lat": 32.583776,
+      "lng": 35.183731
     },
     "altNames": [
       "Armageddon"
@@ -3098,8 +3096,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.25,
-      "lng": 35.75
+      "lat": 31.4288,
+      "lng": 35.677009
     },
     "featureType": "Water",
     "featureSubType": "River",
@@ -3162,8 +3160,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.47151,
-      "lng": 35.821922
+      "lat": 31.4710953,
+      "lng": 35.82200332
     },
     "featureType": "City",
     "altNames": [
@@ -3281,8 +3279,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 36.47229,
-      "lng": 37.09471
+      "lat": 36.472582,
+      "lng": 37.09474
     },
     "featureType": "City",
     "altNames": [
@@ -3500,8 +3498,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.756038,
-      "lng": 34.656061
+      "lat": 31.755937,
+      "lng": 34.658057
     },
     "featureType": "City",
     "altNames": [
@@ -3516,8 +3514,8 @@
     "description": "Stronghold, a Philistine city (Josh. 15:47), about midway between Gaza and Joppa, and 3 miles from the Mediterranean. It was one of the chief seats of the worship of Dagon (1 Sam. 5:5). It belonged to the tribe of Judah (Josh. 15:47), but it never came into their actual possession. It was an important city, as it stood on the highroad from Egypt to Palestine, and hence was strongly fortified (2 Chr. 26:6; Isa. 20:1). Uzziah took it, but fifty years after his death it was taken by the Assyrians (B.C. 758). According to Sargon’s record, it was captured by him in B.C. 711. The only reference to it in the New Testament, where it is called Azotus, is in the account of Philip’s return from Gaza (Acts 8:40). It is now called Eshdud.",
     "kind": "place",
     "coordinates": {
-      "lat": 31.80299971,
-      "lng": 34.63511459
+      "lat": 31.755937,
+      "lng": 34.658057
     },
     "featureType": "City",
     "altNames": [
@@ -3706,8 +3704,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.66426,
-      "lng": 34.54732
+      "lat": 31.664797,
+      "lng": 34.550521
     },
     "featureType": "City",
     "altNames": [
@@ -3802,8 +3800,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.837408,
-      "lng": 36.029358
+      "lat": 32.83333333,
+      "lng": 36.01666667
     },
     "featureType": "City",
     "altNames": [
@@ -3932,8 +3930,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 39.64014749138555,
-      "lng": 31.03325453
+      "lat": 39.23,
+      "lng": 32.73
     },
     "featureType": "Region",
     "altNames": [
@@ -3998,8 +3996,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 39.490601,
-      "lng": 26.337061
+      "lat": 39.490135,
+      "lng": 26.336352
     },
     "featureType": "City",
     "altNames": [
@@ -4596,8 +4594,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 36.50969,
-      "lng": 43.2282
+      "lat": 36.35941,
+      "lng": 43.152887
     },
     "featureType": "Region",
     "altNames": [
@@ -4777,8 +4775,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 37.971687,
-      "lng": 23.726464
+      "lat": 37.971647,
+      "lng": 23.723955
     },
     "featureType": "City",
     "altNames": [
@@ -4822,8 +4820,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 36.8839,
-      "lng": 30.70541
+      "lat": 36.8808258,
+      "lng": 30.69456558
     },
     "featureType": "City",
     "altNames": [
@@ -4844,8 +4842,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.93053921,
-      "lng": 35.22103275
+      "lat": 31.928333,
+      "lng": 35.238333
     },
     "altNames": [
       "Aven"
@@ -5139,8 +5137,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.80299971,
-      "lng": 34.63511459
+      "lat": 31.755937,
+      "lng": 34.658057
     },
     "featureType": "City",
     "altNames": [
@@ -5488,8 +5486,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.771104,
-      "lng": 34.993812
+      "lat": 31.814238,
+      "lng": 35.102772
     },
     "featureType": "City",
     "altNames": [
@@ -5585,8 +5583,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.771104,
-      "lng": 34.993812
+      "lat": 31.814238,
+      "lng": 35.102772
     },
     "featureType": "City",
     "altNames": [
@@ -5613,8 +5611,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.53650369,
-      "lng": 44.42088287
+      "lat": 32.537297,
+      "lng": 44.424978
     },
     "featureType": "City",
     "altNames": [
@@ -6906,8 +6904,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.53617,
-      "lng": 44.42082
+      "lat": 32.537297,
+      "lng": 44.424978
     },
     "featureType": "City",
     "altNames": [
@@ -6953,8 +6951,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.5,
-      "lng": 44.5
+      "lat": 32.53650369,
+      "lng": 44.42088287
     },
     "featureType": "Region",
     "altNames": [
@@ -7445,8 +7443,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.162327,
-      "lng": 35.057114
+      "lat": 32.049953,
+      "lng": 35.733402
     },
     "featureType": "City",
     "altNames": [
@@ -7468,8 +7466,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 33.04846798541127,
-      "lng": 35.10220252805766
+      "lat": 32.049953,
+      "lng": 35.733402
     },
     "featureType": "City",
     "altNames": [
@@ -7592,8 +7590,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.90007449,
-      "lng": 35.21668801
+      "lat": 30.998062,
+      "lng": 35.498547
     },
     "featureType": "City",
     "altNames": [
@@ -7840,8 +7838,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.245,
-      "lng": 34.84068
+      "lat": 31.245164,
+      "lng": 34.840797
     },
     "featureType": "City",
     "altNames": [
@@ -7947,7 +7945,7 @@
   },
   {
     "id": "benjamin-territory_1293",
-    "name": "Benjamin (Territory)",
+    "name": "Benjamin",
     "status": "published",
     "source": "theographic",
     "scriptureRefs": [
@@ -8029,7 +8027,7 @@
     },
     "featureType": "Region",
     "altNames": [
-      "Benjamin (Territory)"
+      "Benjamin"
     ]
   },
   {
@@ -8088,8 +8086,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 40.524528,
-      "lng": 22.204993
+      "lat": 40.522127,
+      "lng": 22.201493
     },
     "featureType": "City",
     "altNames": [
@@ -8406,8 +8404,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.89571708,
-      "lng": 35.25309825
+      "lat": 31.928333,
+      "lng": 35.238333
     },
     "altNames": [
       "Beth-aven"
@@ -8470,8 +8468,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.83632115,
-      "lng": 35.55260017
+      "lat": 31.838763,
+      "lng": 35.547689
     },
     "featureType": "Landmark",
     "altNames": [
@@ -8890,8 +8888,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.879214,
-      "lng": 35.124123
+      "lat": 31.87892596,
+      "lng": 35.12356744
     },
     "featureType": "City",
     "altNames": [
@@ -8952,8 +8950,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.87892596,
-      "lng": 35.12356744
+      "lat": 31.85891795,
+      "lng": 35.12831317
     },
     "featureType": "City",
     "altNames": [
@@ -9305,8 +9303,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.50423846,
-      "lng": 35.50307739
+      "lat": 32.503698,
+      "lng": 35.503092
     },
     "altNames": [
       "Beth-shan"
@@ -9347,8 +9345,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.50423846,
-      "lng": 35.50307739
+      "lat": 32.503698,
+      "lng": 35.503092
     },
     "featureType": "City",
     "altNames": [
@@ -9450,8 +9448,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.73072,
-      "lng": 34.99293
+      "lat": 31.750602,
+      "lng": 34.974869
     },
     "featureType": "City",
     "altNames": [
@@ -9676,8 +9674,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.77078,
-      "lng": 35.26917
+      "lat": 31.773151,
+      "lng": 35.259589
     },
     "featureType": "City",
     "altNames": [
@@ -9699,8 +9697,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.83632115,
-      "lng": 35.55260017
+      "lat": 31.838763,
+      "lng": 35.547689
     },
     "altNames": [
       "Bethany"
@@ -10026,8 +10024,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.93053921,
-      "lng": 35.22103275
+      "lat": 31.928333,
+      "lng": 35.238333
     },
     "altNames": [
       "Bethel"
@@ -10254,8 +10252,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.70431,
-      "lng": 35.20746
+      "lat": 31.706999,
+      "lng": 35.203153
     },
     "featureType": "City",
     "altNames": [
@@ -10300,8 +10298,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.70536129,
-      "lng": 35.2102663
+      "lat": 31.706999,
+      "lng": 35.203153
     },
     "featureType": "City",
     "altNames": [
@@ -10386,8 +10384,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.91031,
-      "lng": 35.63067
+      "lat": 32.90784828,
+      "lng": 35.62697296
     },
     "featureType": "City",
     "altNames": [
@@ -10609,8 +10607,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 42.5,
-      "lng": 32.5
+      "lat": 40.905503,
+      "lng": 30.685778
     },
     "featureType": "Region",
     "altNames": [
@@ -10658,8 +10656,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.93053921,
-      "lng": 35.22103275
+      "lat": 31.928333,
+      "lng": 35.238333
     },
     "altNames": [
       "Bochim"
@@ -10779,8 +10777,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 30.7318,
-      "lng": 35.60983
+      "lat": 30.734691,
+      "lng": 35.60625
     },
     "featureType": "City",
     "altNames": [
@@ -10802,8 +10800,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.51613741,
-      "lng": 36.48829076
+      "lat": 30.734691,
+      "lng": 35.60625
     },
     "featureType": "City",
     "altNames": [
@@ -11084,8 +11082,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.4987775,
-      "lng": 34.8912663
+      "lat": 32.501839,
+      "lng": 34.892447
     },
     "featureType": "City",
     "altNames": [
@@ -11112,8 +11110,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 33.24805991,
-      "lng": 35.69463725
+      "lat": 33.247526,
+      "lng": 35.693461
     },
     "featureType": "City",
     "altNames": [
@@ -11140,8 +11138,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 36.142884,
-      "lng": 43.312178
+      "lat": 36.099975,
+      "lng": 43.331535
     },
     "featureType": "City",
     "altNames": [
@@ -11249,8 +11247,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.823887,
-      "lng": 35.302763
+      "lat": 32.74701518,
+      "lng": 35.33877162
     },
     "featureType": "City",
     "altNames": [
@@ -11768,8 +11766,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.88093,
-      "lng": 35.57543
+      "lat": 32.880887,
+      "lng": 35.575891
     },
     "featureType": "City",
     "altNames": [
@@ -11828,8 +11826,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 37.5,
-      "lng": 35.75
+      "lat": 36.731904,
+      "lng": 35.486302
     },
     "featureType": "Region",
     "altNames": [
@@ -11861,8 +11859,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 36.82928161,
-      "lng": 38.01576051
+      "lat": 36.829423,
+      "lng": 38.014921
     },
     "featureType": "City",
     "altNames": [
@@ -11989,8 +11987,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.422876,
-      "lng": 35.132952
+      "lat": 31.422917,
+      "lng": 35.132734
     },
     "featureType": "City",
     "altNames": [
@@ -12434,8 +12432,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.80677585520321,
-      "lng": 35.58936052679091
+      "lat": 32.80677586,
+      "lng": 35.58936053
     },
     "altNames": [
       "Chinnereth"
@@ -12461,8 +12459,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.80677585520321,
-      "lng": 35.58936052679091
+      "lat": 32.80677586,
+      "lng": 35.58936053
     },
     "featureType": "Region",
     "altNames": [
@@ -12556,8 +12554,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.90909169,
-      "lng": 35.55292324
+      "lat": 32.911391,
+      "lng": 35.56409
     },
     "featureType": "City",
     "altNames": [
@@ -12661,8 +12659,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 36.686188,
-      "lng": 27.37404
+      "lat": 36.68502256,
+      "lng": 27.37439432
     },
     "featureType": "City",
     "altNames": [
@@ -12684,8 +12682,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 37.78333333,
-      "lng": 29.25
+      "lat": 37.786795,
+      "lng": 29.259921
     },
     "featureType": "City",
     "altNames": [
@@ -12707,8 +12705,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 36.844,
-      "lng": 27.17
+      "lat": 36.80467006,
+      "lng": 27.08994041
     },
     "featureType": "Island",
     "altNames": [
@@ -12756,8 +12754,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 37.906045,
-      "lng": 22.878721
+      "lat": 37.905642,
+      "lng": 22.878614
     },
     "featureType": "City",
     "altNames": [
@@ -12863,8 +12861,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 35.23102579604995,
-      "lng": 24.85162918
+      "lat": 35.171239,
+      "lng": 25.007204
     },
     "featureType": "Island",
     "altNames": [
@@ -13028,8 +13026,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.733333,
-      "lng": 44.666667
+      "lat": 32.76071,
+      "lng": 44.611394
     },
     "altNames": [
       "Cuth"
@@ -13050,8 +13048,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.733333,
-      "lng": 44.666667
+      "lat": 32.76071,
+      "lng": 44.611394
     },
     "altNames": [
       "Cuthah"
@@ -13127,8 +13125,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 35.040883529816504,
-      "lng": 33.27533716
+      "lat": 35.018306,
+      "lng": 33.207693
     },
     "featureType": "Island",
     "altNames": [
@@ -13175,8 +13173,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.818736,
-      "lng": 21.856169
+      "lat": 32.820027,
+      "lng": 21.856539
     },
     "featureType": "City",
     "altNames": [
@@ -13747,8 +13745,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 33.24856,
-      "lng": 35.65252
+      "lat": 33.24865998,
+      "lng": 35.65248345
     },
     "featureType": "Region",
     "altNames": [
@@ -13954,8 +13952,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 26.612692,
-      "lng": 37.922841
+      "lat": 26.625139,
+      "lng": 37.919663
     },
     "altNames": [
       "Dedan"
@@ -13991,8 +13989,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 37.348569,
-      "lng": 33.361453
+      "lat": 37.349207,
+      "lng": 33.361779
     },
     "featureType": "City",
     "altNames": [
@@ -14014,8 +14012,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 30.108086,
-      "lng": 31.33822
+      "lat": 30.129404,
+      "lng": 31.307481
     },
     "altNames": [
       "City of Destruction",
@@ -14041,8 +14039,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.49684514,
-      "lng": 35.78284105
+      "lat": 31.499159,
+      "lng": 35.780512
     },
     "altNames": [
       "Dibon-gad"
@@ -14328,8 +14326,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.61323618,
-      "lng": 34.91889683
+      "lat": 32.617899,
+      "lng": 34.917116
     },
     "featureType": "City",
     "altNames": [
@@ -14356,8 +14354,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.42064338,
-      "lng": 35.1801983
+      "lat": 32.413528,
+      "lng": 35.239861
     },
     "altNames": [
       "Dothan"
@@ -14493,7 +14491,7 @@
   },
   {
     "id": "east-manasseh-half-tribe_1290",
-    "name": "East Manasseh (Half-Tribe)",
+    "name": "half tribe of Manasseh",
     "status": "published",
     "source": "theographic",
     "scriptureRefs": [
@@ -14575,7 +14573,7 @@
     },
     "featureType": "Region",
     "altNames": [
-      "East Manasseh (Half-Tribe)"
+      "half tribe of Manasseh"
     ]
   },
   {
@@ -14767,8 +14765,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 34.798311,
-      "lng": 48.514966
+      "lat": 34.805555,
+      "lng": 48.516406
     },
     "altNames": [
       "Ecbatana"
@@ -15312,8 +15310,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.25,
-      "lng": 34.75
+      "lat": 30.734691,
+      "lng": 35.60625
     },
     "featureType": "Region",
     "altNames": [
@@ -18389,8 +18387,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 26.4902014068366,
-      "lng": 29.88079617
+      "lat": 30.108086,
+      "lng": 31.33822
     },
     "featureType": "Region",
     "featureSubType": "Country",
@@ -18545,8 +18543,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.7776,
-      "lng": 34.85093
+      "lat": 31.780459,
+      "lng": 34.851016
     },
     "featureType": "City",
     "altNames": [
@@ -18568,8 +18566,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.93053920580005,
-      "lng": 35.22103274923676
+      "lat": 31.928333,
+      "lng": 35.238333
     },
     "altNames": [
       "El-bethel"
@@ -18698,8 +18696,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.5,
-      "lng": 49.5
+      "lat": 32.18919123705116,
+      "lng": 48.25788647687722
     },
     "featureType": "Region",
     "featureSubType": "Country",
@@ -18732,8 +18730,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 29.528502,
-      "lng": 35.005732
+      "lat": 29.530635,
+      "lng": 34.999966
     },
     "featureType": "City",
     "altNames": [
@@ -18775,8 +18773,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.813796,
-      "lng": 35.824275
+      "lat": 31.81565,
+      "lng": 35.833246
     },
     "altNames": [
       "Elealeh"
@@ -18953,8 +18951,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 29.528502,
-      "lng": 35.005732
+      "lat": 29.530635,
+      "lng": 34.999966
     },
     "altNames": [
       "Eloth"
@@ -19262,8 +19260,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 30.68771281,
-      "lng": 34.49479554
+      "lat": 30.643266,
+      "lng": 34.41375
     },
     "altNames": [
       "En-mishpat"
@@ -19283,8 +19281,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.370835,
-      "lng": 34.860665
+      "lat": 34.353071,
+      "lng": 36.385705
     },
     "altNames": [
       "En-rimmon"
@@ -19492,8 +19490,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.46017,
-      "lng": 35.38899
+      "lat": 31.46152536,
+      "lng": 35.39241108
     },
     "featureType": "City",
     "altNames": [
@@ -19638,8 +19636,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 37.941944,
-      "lng": 27.339722
+      "lat": 37.940164,
+      "lng": 27.342403
     },
     "featureType": "City",
     "altNames": [
@@ -19648,7 +19646,7 @@
   },
   {
     "id": "ephraim-territory_1292",
-    "name": "Ephraim (Territory)",
+    "name": "Ephraim",
     "status": "published",
     "source": "theographic",
     "scriptureRefs": [
@@ -19735,7 +19733,7 @@
     },
     "featureType": "Region",
     "altNames": [
-      "Ephraim (Territory)"
+      "Ephraim"
     ]
   },
   {
@@ -19752,8 +19750,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.95378956,
-      "lng": 35.29913578
+      "lat": 31.954665,
+      "lng": 35.299196
     },
     "altNames": [
       "Ephraim"
@@ -19783,8 +19781,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.70536129,
-      "lng": 35.2102663
+      "lat": 31.706999,
+      "lng": 35.203153
     },
     "altNames": [
       "Ephrath"
@@ -19852,8 +19850,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.95378956,
-      "lng": 35.29913578
+      "lat": 31.675746,
+      "lng": 35.042407
     },
     "altNames": [
       "Ephron"
@@ -19879,8 +19877,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.322222,
-      "lng": 45.636111
+      "lat": 31.323375,
+      "lng": 45.639052
     },
     "featureType": "City",
     "altNames": [
@@ -20043,8 +20041,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.373521,
-      "lng": 35.074552
+      "lat": 31.398679,
+      "lng": 35.064909
     },
     "featureType": "City",
     "altNames": [
@@ -20065,8 +20063,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.373521,
-      "lng": 35.074552
+      "lat": 31.398679,
+      "lng": 35.064909
     },
     "altNames": [
       "Eshtemoh"
@@ -20439,8 +20437,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 34.74942377777777,
-      "lng": 40.93640094
+      "lat": 35.090577,
+      "lng": 40.42778
     },
     "featureType": "Water",
     "featureSubType": "River",
@@ -20524,8 +20522,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 29.530676,
-      "lng": 34.999999
+      "lat": 29.75804308,
+      "lng": 35.03060174
     },
     "featureType": "City",
     "altNames": [
@@ -20892,8 +20890,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 37.5,
-      "lng": 32.5
+      "lat": 37.57813498250009,
+      "lng": 32.45318282875567
     },
     "featureType": "Region",
     "altNames": [
@@ -21819,8 +21817,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.6935295,
-      "lng": 34.84388289
+      "lat": 31.701981,
+      "lng": 34.8474
     },
     "featureType": "City",
     "altNames": [
@@ -21932,8 +21930,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.503959,
-      "lng": 34.46203
+      "lat": 31.52021,
+      "lng": 34.451719
     },
     "featureType": "City",
     "altNames": [
@@ -22042,8 +22040,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.84684773,
-      "lng": 35.18491238
+      "lat": 31.85787804,
+      "lng": 35.25975522
     },
     "altNames": [
       "Geba"
@@ -22074,8 +22072,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 34.11910361,
-      "lng": 35.64614196
+      "lat": 34.119249,
+      "lng": 35.646125
     },
     "featureType": "City",
     "altNames": [
@@ -22249,8 +22247,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.823337,
-      "lng": 34.777779
+      "lat": 31.63333,
+      "lng": 35.083333
     },
     "altNames": [
       "Gedor"
@@ -22366,8 +22364,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.38176,
-      "lng": 34.60698
+      "lat": 31.38186,
+      "lng": 34.60643
     },
     "featureType": "City",
     "altNames": [
@@ -22568,8 +22566,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.85958,
-      "lng": 34.92048
+      "lat": 31.859791,
+      "lng": 34.920993
     },
     "featureType": "City",
     "altNames": [
@@ -23116,8 +23114,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.84668,
-      "lng": 35.1852
+      "lat": 31.849056,
+      "lng": 35.184362
     },
     "featureType": "City",
     "altNames": [
@@ -23650,8 +23648,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.75,
-      "lng": 35.75
+      "lat": 32.042523,
+      "lng": 35.724241
     },
     "featureType": "Region",
     "altNames": [
@@ -23843,8 +23841,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.1547,
-      "lng": 34.95372
+      "lat": 31.86378328,
+      "lng": 35.51854651
     },
     "featureType": "City",
     "altNames": [
@@ -24020,8 +24018,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.87611111,
-      "lng": 34.9225
+      "lat": 31.859791,
+      "lng": 34.920993
     },
     "altNames": [
       "Gob"
@@ -24517,8 +24515,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 36.58019792933332,
-      "lng": 17.11536173
+      "lat": 33.24,
+      "lng": 33.47
     },
     "featureType": "Water",
     "altNames": [
@@ -24561,8 +24559,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 39.04697922405934,
-      "lng": 22.97947876
+      "lat": 37.95331433666365,
+      "lng": 27.36782511573013
     },
     "featureType": "Region",
     "featureSubType": "Country",
@@ -24773,8 +24771,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.963575,
-      "lng": 34.952536
+      "lat": 31.9635,
+      "lng": 34.9517
     },
     "altNames": [
       "Hadid"
@@ -24795,8 +24793,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 33.519299,
-      "lng": 36.31344999999999
+      "lat": 35.903968,
+      "lng": 36.798535
     },
     "featureType": "Region",
     "altNames": [
@@ -24996,8 +24994,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 35.136204,
-      "lng": 36.749488
+      "lat": 35.132975,
+      "lng": 36.748801
     },
     "altNames": [
       "Hamath-zobah"
@@ -25128,8 +25126,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 35.1359,
-      "lng": 36.7495
+      "lat": 35.132975,
+      "lng": 36.748801
     },
     "featureType": "City",
     "altNames": [
@@ -25156,8 +25154,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 33.125828,
-      "lng": 35.165
+      "lat": 32.760506,
+      "lng": 35.547652
     },
     "featureType": "City",
     "altNames": [
@@ -25184,8 +25182,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 33.125828,
-      "lng": 35.165
+      "lat": 32.760506,
+      "lng": 35.547652
     },
     "featureType": "City",
     "altNames": [
@@ -25207,8 +25205,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 33.125828,
-      "lng": 35.165
+      "lat": 32.760506,
+      "lng": 35.547652
     },
     "featureType": "City",
     "altNames": [
@@ -25252,8 +25250,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 29.085425,
-      "lng": 30.934402
+      "lat": 29.085505,
+      "lng": 30.934575
     },
     "featureType": "City",
     "altNames": [
@@ -25412,8 +25410,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 36.86,
-      "lng": 39.03139
+      "lat": 36.863594,
+      "lng": 39.03075
     },
     "featureType": "City",
     "altNames": [
@@ -25982,8 +25980,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 33.01746212803129,
-      "lng": 35.56813718
+      "lat": 33.019181,
+      "lng": 35.566769
     },
     "featureType": "City",
     "altNames": [
@@ -26377,8 +26375,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.524354,
-      "lng": 35.108539
+      "lat": 31.524813,
+      "lng": 35.102182
     },
     "featureType": "City",
     "altNames": [
@@ -26720,8 +26718,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 33.416111,
-      "lng": 35.8575
+      "lat": 33.41615982,
+      "lng": 35.85725618
     },
     "featureType": "Mountain",
     "altNames": [
@@ -26923,8 +26921,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.79819,
-      "lng": 35.80986
+      "lat": 31.800741,
+      "lng": 35.809014
     },
     "featureType": "City",
     "altNames": [
@@ -27019,8 +27017,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 37.924517,
-      "lng": 29.124525
+      "lat": 37.926925,
+      "lng": 29.127859
     },
     "featureType": "City",
     "altNames": [
@@ -27479,8 +27477,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 28.58771,
-      "lng": 33.921682
+      "lat": 28.539722,
+      "lng": 33.973333
     },
     "altNames": [
       "Horeb"
@@ -27733,8 +27731,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.955448,
-      "lng": 35.211971
+      "lat": 32.882153,
+      "lng": 35.496694
     },
     "featureType": "City",
     "altNames": [
@@ -27835,8 +27833,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 38.1910079,
-      "lng": 32.3745104
+      "lat": 37.872456,
+      "lng": 32.492295
     },
     "featureType": "City",
     "altNames": [
@@ -28056,8 +28054,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.75274836,
-      "lng": 34.97660913
+      "lat": 31.750602,
+      "lng": 34.974869
     },
     "altNames": [
       "Ir-shemesh"
@@ -28196,8 +28194,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 42.78740074008558,
-      "lng": 12.0810743
+      "lat": 41.9,
+      "lng": 12.48333333333333
     },
     "featureType": "Region",
     "altNames": [
@@ -28359,8 +28357,8 @@
     "source": "theographic",
     "kind": "place",
     "coordinates": {
-      "lat": 31.771104,
-      "lng": 34.993812
+      "lat": 31.814238,
+      "lng": 35.102772
     },
     "altNames": [
       "Jaar"
@@ -28896,8 +28894,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.70926894,
-      "lng": 34.96995387
+      "lat": 31.708615,
+      "lng": 34.975059
     },
     "featureType": "City",
     "altNames": [
@@ -29104,8 +29102,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.777444,
-      "lng": 35.234935
+      "lat": 31.777189,
+      "lng": 35.234978
     },
     "featureType": "City",
     "altNames": [
@@ -29127,8 +29125,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.777444,
-      "lng": 35.234935
+      "lat": 31.777189,
+      "lng": 35.234978
     },
     "altNames": [
       "Jebusite"
@@ -29498,8 +29496,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.8700465,
-      "lng": 35.443876
+      "lat": 31.871017,
+      "lng": 35.444142
     },
     "featureType": "City",
     "altNames": [
@@ -33309,8 +33307,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.776667,
-      "lng": 35.234167
+      "lat": 31.777189,
+      "lng": 35.234978
     },
     "featureType": "City",
     "altNames": [
@@ -33325,8 +33323,8 @@
     "description": "Called also Salem, Ariel, Jebus, the “city of God,” the “holy city;” by the modern Arabs el-Khuds, meaning “the holy;” once “the city of Judah” (2 Chr. 25:28). This name is in the original in the dual form, and means “possession of peace,” or “foundation of peace.” The dual form probably refers to the two mountains on which it was built, viz., Zion and Moriah; or, as some suppose, to the two parts of the city, the “upper” and the “lower city.” Jerusalem is a “mountain city enthroned on a mountain fastness” (comp. Ps. 68:15, 16; 87:1; 125:2; 76:1, 2; 122:3). It stands on the edge of one of the highest table-lands in Palestine, and is surrounded on the south-eastern, the southern, and the western sides by deep and precipitous ravines.\n\n It is first mentioned in Scripture under the name Salem (Gen. 14:18; comp. Ps. 76:2). When first mentioned under the name Jerusalem, Adonizedek was its king (Josh. 10:1). It is afterwards named among the cities of Benjamin (Judg. 19:10; 1 Chr. 11:4); but in the time of David it was divided between Benjamin and Judah. After the death of Joshua the city was taken and set on fire by the men of Judah (Judg. 1:1-8); but the Jebusites were not wholly driven out of it. The city is not again mentioned till we are told that David brought the head of Goliath thither (1 Sam. 17:54). David afterwards led his forces against the Jebusites still residing within its walls, and drove them out, fixing his own dwelling on Zion, which he called “the city of David” (2 Sam. 5:5-9; 1 Chr. 11:4-8). Here he built an altar to the Lord on the threshing-floor of Araunah the Jebusite (2 Sam. 24:15-25), and thither he brought up the ark of the covenant and placed it in the new tabernacle which he had prepared for it. Jerusalem now became the capital of the kingdom.\n\n After the death of David, Solomon built the temple, a house for the name of the Lord, on Mount Moriah (B.C. 1010). He also greatly strengthened and adorned the city, and it became the great centre of all the civil and religious affairs of the nation (Deut. 12:5; comp. 12:14; 14:23; 16:11-16; Ps. 122).\n\n After the disruption of the kingdom on the accession to the throne of Rehoboam, the son of Solomon, Jerusalem became the capital of the kingdom of the two tribes. It was subsequently often taken and retaken by the Egyptians, the Assyrians, and by the kings of Israel (2 Kings 14:13, 14; 18:15, 16; 23:33-35; 24:14; 2 Chr. 12:9; 26:9; 27:3, 4; 29:3; 32:30; 33:11), till finally, for the abounding iniquities of the nation, after a siege of three years, it was taken and utterly destroyed, its walls razed to the ground, and its temple and palaces consumed by fire, by Nebuchadnezzar, the king of Babylon (2 Kings 25; 2 Chr. 36; Jer. 39), B.C. 588. The desolation of the city and the land was completed by the retreat of the principal Jews into Egypt (Jer. 40-44), and by the final carrying captive into Babylon of all that still remained in the land (52:3), so that it was left without an inhabitant (B.C. 582). Compare the predictions, Deut. 28; Lev. 26:14-39.\n\n But the streets and walls of Jerusalem were again to be built, in troublous times (Dan. 9:16, 19, 25), after a captivity of seventy years. This restoration was begun B.C. 536, “in the first year of Cyrus” (Ezra 1:2, 3, 5-11). The Books of Ezra and Nehemiah contain the history of the re-building of the city and temple, and the restoration of the kingdom of the Jews, consisting of a portion of all the tribes. The kingdom thus constituted was for two centuries under the dominion of Persia, till B.C. 331; and thereafter, for about a century and a half, under the rulers of the Greek empire in Asia, till B.C. 167. For a century the Jews maintained their independence under native rulers, the Asmonean princes. At the close of this period they fell under the rule of Herod and of members of his family, but practically under Rome, till the time of the destruction of Jerusalem, A.D. 70. The city was then laid in ruins.\n\n The modern Jerusalem by-and-by began to be built over the immense beds of rubbish resulting from the overthrow of the ancient city; and whilst it occupies certainly the same site, there are no evidences that even the lines of its streets are now what they were in the ancient city. Till A.D. 131 the Jews who still lingered about Jerusalem quietly submitted to the Roman sway. But in that year the emperor (Hadrian), in order to hold them in subjection, rebuilt and fortified the city. The Jews, however, took possession of it, having risen under the leadership of one Bar-Chohaba (i.e., “the son of the star”) in revolt against the Romans. Some four years afterwards (A.D. 135), however, they were driven out of it with great slaughter, and the city was again destroyed; and over its ruins was built a Roman city called Aelia Capitolina, a name which it retained till it fell under the dominion of the Mohammedans, when it was called el-Khuds, i.e., “the holy.”\n\n In A.D. 326 Helena, mother of the emperor Constantine, made a pilgrimage to Jerusalem with the view of discovering the places mentioned in the life of our Lord. She caused a church to be built on what was then supposed to be the place of the nativity at Bethlehem. Constantine, animated by her example, searched for the holy sepulchre, and built over the supposed site a magnificent church, which was completed and dedicated A.D. 335. He relaxed the laws against the Jews till this time in force, and permitted them once a year to visit the city and wail over the desolation of “the holy and beautiful house.”\n\n In A.D. 614 the Persians, after defeating the Roman forces of the emperor Heraclius, took Jerusalem by storm, and retained it till A.D. 637, when it was taken by the Arabians under the Khalif Omar. It remained in their possession till it passed, in A.D. 960, under the dominion of the Fatimite khalifs of Egypt, and in A.D. 1073 under the Turcomans. In A.D. 1099 the crusader Godfrey of Bouillon took the city from the Moslems with great slaughter, and was elected king of Jerusalem. He converted the Mosque of Omar into a Christian cathedral. During the eighty-eight years which followed, many churches and convents were erected in the holy city. The Church of the Holy Sepulchre was rebuilt during this period, and it alone remains to this day. In A.D. 1187 the sultan Saladin wrested the city from the Christians. From that time to the present day, with few intervals, Jerusalem has remained in the hands of the Moslems. It has, however, during that period been again and again taken and retaken, demolished in great part and rebuilt, no city in the world having passed through so many vicissitudes.\n\n In the year 1850 the Greek and Latin monks residing in Jerusalem had a fierce dispute about the guardianship of what are called the “holy places.” In this dispute the emperor Nicholas of Russia sided with the Greeks, and Louis Napoleon, the emperor of the French, with the Latins. This led the Turkish authorities to settle the question in a way unsatisfactory to Russia. Out of this there sprang the Crimean War, which was protracted and sanguinary, but which had important consequences in the way of breaking down the barriers of Turkish exclusiveness.\n\n Modern Jerusalem “lies near the summit of a broad mountain-ridge, which extends without interruption from the plain of Esdraelon to a line drawn between the southern end of the Dead Sea and the southeastern corner of the Mediterranean.” This high, uneven table-land is everywhere from 20 to 25 geographical miles in breadth. It was anciently known as the mountains of Ephraim and Judah.\n\n “Jerusalem is a city of contrasts, and differs widely from Damascus, not merely because it is a stone town in mountains, whilst the latter is a mud city in a plain, but because while in Damascus Moslem religion and Oriental custom are unmixed with any foreign element, in Jerusalem every form of religion, every nationality of East and West, is represented at one time.”\n\n Jerusalem is first mentioned under that name in the Book of Joshua, and the Tell-el-Amarna collection of tablets includes six letters from its Amorite king to Egypt, recording the attack of the Abiri about B.C. 1480. The name is there spelt Uru-Salim (“city of peace”). Another monumental record in which the Holy City is named is that of Sennacherib’s attack in B.C. 702. The “camp of the Assyrians” was still shown about A.D. 70, on the flat ground to the north-west, included in the new quarter of the city.\n\n The city of David included both the upper city and Millo, and was surrounded by a wall built by David and Solomon, who appear to have restored the original Jebusite fortifications. The name Zion (or Sion) appears to have been, like Ariel (“the hearth of God”), a poetical term for Jerusalem, but in the Greek age was more specially used of the Temple hill. The priests’ quarter grew up on Ophel, south of the Temple, where also was Solomon’s Palace outside the original city of David. The walls of the city were extended by Jotham and Manasseh to include this suburb and the Temple (2 Chr. 27:3; 33:14).\n\n Jerusalem is now a town of some 50,000 inhabitants, with ancient mediaeval walls, partly on the old lines, but extending less far to the south. The traditional sites, as a rule, were first shown in the 4th and later centuries A.D., and have no authority. The results of excavation have, however, settled most of the disputed questions, the limits of the Temple area, and the course of the old walls having been traced.",
     "kind": "place",
     "coordinates": {
-      "lat": 31.777444,
-      "lng": 35.234935
+      "lat": 31.777189,
+      "lng": 35.234978
     },
     "altNames": [
       "Jerusalem's"
@@ -33487,8 +33485,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.502074,
-      "lng": 35.50196
+      "lat": 31.53577362133176,
+      "lng": 35.09409986578734
     },
     "featureType": "City",
     "altNames": [
@@ -33615,8 +33613,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.502074,
-      "lng": 35.50196
+      "lat": 32.558928,
+      "lng": 35.332945
     },
     "altNames": [
       "Jezreel"
@@ -33763,8 +33761,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.66454577,
-      "lng": 35.10891819
+      "lat": 32.664376,
+      "lng": 35.108936
     },
     "featureType": "City",
     "altNames": [
@@ -33806,8 +33804,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 30.32243571,
-      "lng": 35.45627947
+      "lat": 31.56485056116292,
+      "lng": 34.8467256730566
     },
     "altNames": [
       "Joktheel"
@@ -33893,8 +33891,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.053722,
-      "lng": 34.752119
+      "lat": 32.053079,
+      "lng": 34.74993
     },
     "featureType": "City",
     "altNames": [
@@ -34796,8 +34794,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 33.1864496,
-      "lng": 35.6191595
+      "lat": 32.309099,
+      "lng": 35.5599
     },
     "featureType": "Water",
     "featureSubType": "River",
@@ -34881,7 +34879,7 @@
   },
   {
     "id": "judah-southern_1281",
-    "name": "Judah (Southern)",
+    "name": "Judah",
     "status": "published",
     "source": "theographic",
     "scriptureRefs": [
@@ -34933,7 +34931,7 @@
     },
     "featureType": "Region",
     "altNames": [
-      "Judah (Southern)"
+      "Judah"
     ],
     "date": {
       "earliest": -974,
@@ -35491,8 +35489,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 30.64805,
-      "lng": 34.42261
+      "lat": 30.643266,
+      "lng": 34.41375
     },
     "altNames": [
       "Kadesh-barnea"
@@ -35583,8 +35581,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 30.64805,
-      "lng": 34.42261
+      "lat": 30.643266,
+      "lng": 34.41375
     },
     "altNames": [
       "Kadesh"
@@ -35605,8 +35603,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 34.558327,
-      "lng": 36.522943
+      "lat": 34.557075,
+      "lng": 36.519378
     },
     "altNames": [
       "Kadesh",
@@ -35964,8 +35962,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 33.11298357,
-      "lng": 35.53361334
+      "lat": 33.110714,
+      "lng": 35.530447
     },
     "altNames": [
       "Kedesh-naphtali"
@@ -36026,8 +36024,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 33.11312,
-      "lng": 35.52869
+      "lat": 33.110714,
+      "lng": 35.530447
     },
     "featureType": "City",
     "altNames": [
@@ -36048,8 +36046,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 30.68771281,
-      "lng": 34.49479554
+      "lat": 30.643266,
+      "lng": 34.41375
     },
     "altNames": [
       "Kedesh"
@@ -36218,8 +36216,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.756919,
-      "lng": 36.6164
+      "lat": 32.754205,
+      "lng": 36.618355
     },
     "featureType": "City",
     "altNames": [
@@ -36397,8 +36395,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.826142,
-      "lng": 34.775865
+      "lat": 31.772134,
+      "lng": 35.236596
     },
     "featureType": "Valley",
     "altNames": [
@@ -36542,8 +36540,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.524354,
-      "lng": 35.108539
+      "lat": 31.524813,
+      "lng": 35.102182
     },
     "altNames": [
       "Kiriath-arba"
@@ -36563,8 +36561,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.771104,
-      "lng": 34.993812
+      "lat": 31.814238,
+      "lng": 35.102772
     },
     "altNames": [
       "Kiriath-arim"
@@ -36589,8 +36587,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.771104,
-      "lng": 34.993812
+      "lat": 31.814238,
+      "lng": 35.102772
     },
     "altNames": [
       "Kiriath-baal"
@@ -36702,8 +36700,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.771104,
-      "lng": 34.993812
+      "lat": 31.814238,
+      "lng": 35.102772
     },
     "featureType": "City",
     "altNames": [
@@ -37146,8 +37144,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.56522,
-      "lng": 34.84907
+      "lat": 31.565521,
+      "lng": 34.84919
     },
     "featureType": "City",
     "altNames": [
@@ -37296,8 +37294,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 37.83692,
-      "lng": 29.10786
+      "lat": 37.835939,
+      "lng": 29.107389
     },
     "featureType": "City",
     "altNames": [
@@ -37319,8 +37317,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 34.93491734,
-      "lng": 24.80919899
+      "lat": 34.94083,
+      "lng": 24.818266
     },
     "featureType": "City",
     "altNames": [
@@ -37726,8 +37724,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 33.9215361440169,
-      "lng": 35.89897373
+      "lat": 33.752479,
+      "lng": 35.590804
     },
     "featureType": "Region",
     "altNames": [
@@ -37814,8 +37812,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 34.19744,
-      "lng": 36.34204
+      "lat": 35.132975,
+      "lng": 36.748801
     },
     "altNames": [
       "Lebo-hamath"
@@ -38058,8 +38056,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 28.91884175132798,
-      "lng": 26.5
+      "lat": 32.824979,
+      "lng": 21.858301
     },
     "featureType": "Region",
     "altNames": [
@@ -38154,8 +38152,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.777444,
-      "lng": 35.234935
+      "lat": 31.777189,
+      "lng": 35.234978
     },
     "altNames": [
       "City of the Lord",
@@ -38192,8 +38190,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.95138889,
-      "lng": 34.89527778
+      "lat": 32.824979,
+      "lng": 21.858301
     },
     "altNames": [
       "Lud"
@@ -38266,8 +38264,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.93053921,
-      "lng": 35.22103275
+      "lat": 31.928333,
+      "lng": 35.238333
     },
     "featureType": "City",
     "altNames": [
@@ -38311,8 +38309,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 37.5,
-      "lng": 32.75
+      "lat": 37.88353038890398,
+      "lng": 32.4942625657248
     },
     "featureType": "Region",
     "altNames": [
@@ -38334,8 +38332,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 36.513688333333334,
-      "lng": 29.1296185
+      "lat": 36.27471786927205,
+      "lng": 29.3186378339052
     },
     "featureType": "Region",
     "altNames": [
@@ -38367,8 +38365,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.950908,
-      "lng": 34.893068
+      "lat": 31.95138889,
+      "lng": 34.89527778
     },
     "featureType": "City",
     "altNames": [
@@ -38415,8 +38413,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 37.60196,
-      "lng": 32.33849
+      "lat": 37.588278,
+      "lng": 32.344473
     },
     "featureType": "City",
     "altNames": [
@@ -38640,8 +38638,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 40.73291797607738,
-      "lng": 22.9351994
+      "lat": 40.632155565205,
+      "lng": 22.9320868699276
     },
     "featureType": "Region",
     "altNames": [
@@ -38890,8 +38888,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 33.02498036,
-      "lng": 35.44544658
+      "lat": 33.317803,
+      "lng": 35.243368
     },
     "altNames": [
       "Mahalab"
@@ -39211,8 +39209,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.41666667,
-      "lng": 35.11666667
+      "lat": 31.409891,
+      "lng": 35.132746
     },
     "featureType": "City",
     "altNames": [
@@ -39621,8 +39619,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 34.5,
-      "lng": 46.5
+      "lat": 34.798311,
+      "lng": 48.514966
     },
     "featureType": "Region",
     "featureSubType": "Country",
@@ -39700,8 +39698,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.58505,
-      "lng": 35.18452
+      "lat": 32.583776,
+      "lng": 35.183731
     },
     "featureType": "City",
     "altNames": [
@@ -39723,8 +39721,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 35.87373581,
-      "lng": 14.44874427
+      "lat": 35.85282675,
+      "lng": 14.53243601
     },
     "featureType": "Island",
     "altNames": [
@@ -39782,8 +39780,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 29.849667,
-      "lng": 31.254278
+      "lat": 29.849491,
+      "lng": 31.255061
     },
     "featureType": "City",
     "altNames": [
@@ -39843,8 +39841,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.53650369,
-      "lng": 44.42088287
+      "lat": 32.537297,
+      "lng": 44.424978
     },
     "altNames": [
       "Merathaim"
@@ -40154,8 +40152,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.6935295,
-      "lng": 34.84388289
+      "lat": 31.701981,
+      "lng": 34.8474
     },
     "altNames": [
       "Metheg-ammah"
@@ -40181,8 +40179,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.87018434,
-      "lng": 35.27923582
+      "lat": 31.871273,
+      "lng": 35.27693
     },
     "featureType": "City",
     "altNames": [
@@ -40533,8 +40531,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 28.75,
-      "lng": 34.75
+      "lat": 28.932881,
+      "lng": 34.90832
     },
     "featureType": "Region",
     "altNames": [
@@ -40627,8 +40625,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 30.97269,
-      "lng": 32.44456
+      "lat": 30.967368,
+      "lng": 32.493003
     },
     "altNames": [
       "Migdol"
@@ -40686,8 +40684,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 37.5292362,
-      "lng": 27.2774885
+      "lat": 37.530464,
+      "lng": 27.278808
     },
     "featureType": "City",
     "altNames": [
@@ -40909,8 +40907,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 39.10772,
-      "lng": 26.55529
+      "lat": 39.110475,
+      "lng": 26.547048
     },
     "featureType": "City",
     "altNames": [
@@ -41969,8 +41967,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.499159,
-      "lng": 35.780512
+      "lat": 31.49684513710609,
+      "lng": 35.78284105296996
     },
     "featureType": "Region",
     "featureSubType": "Country",
@@ -42453,8 +42451,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.23293814,
-      "lng": 35.2730418
+      "lat": 32.233568,
+      "lng": 35.273353
     },
     "featureType": "Mountain",
     "altNames": [
@@ -42539,8 +42537,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.19956174,
-      "lng": 35.27285228
+      "lat": 32.200815,
+      "lng": 35.273255
     },
     "featureType": "Mountain",
     "altNames": [
@@ -42658,8 +42656,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.75274836,
-      "lng": 34.97660913
+      "lat": 32.19998298531073,
+      "lng": 35.63331303389634
     },
     "featureType": "Mountain",
     "altNames": [
@@ -42711,8 +42709,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 33.416111,
-      "lng": 35.8575
+      "lat": 33.41615982,
+      "lng": 35.85725618
     },
     "featureType": "Mountain",
     "altNames": [
@@ -42780,8 +42778,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 30.3273975,
-      "lng": 35.4464006
+      "lat": 30.317396,
+      "lng": 35.407152
     },
     "featureType": "Mountain",
     "altNames": [
@@ -42879,8 +42877,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 33.752479,
-      "lng": 35.590804
+      "lat": 34.3,
+      "lng": 36.116667
     },
     "featureType": "Mountain",
     "altNames": [
@@ -42979,30 +42977,6 @@
     ]
   },
   {
-    "id": "mount_of_olives_828",
-    "name": "Mount of Olives",
-    "status": "published",
-    "source": "theographic",
-    "description": "So called from the olive trees with which its sides are clothed, is a mountain ridge on the east of Jerusalem (1 Kings 11:7; Ezek. 11:23; Zech. 14:4), from which it is separated by the valley of Kidron. It is first mentioned in connection with David’s flight from Jerusalem through the rebellion of Absalom (2 Sam. 15:30), and is only once again mentioned in the Old Testament, in Zech. 14:4. It is, however, frequently alluded to (1 Kings 11:7; 2 Kings 23:13; Neh. 8:15; Ezek. 11:23).\n\n It is frequently mentioned in the New Testament (Matt. 21:1; 26:30, etc.). It now bears the name of Jebel et-Tur, i.e., “Mount of the Summit;” also sometimes called Jebel ez-Zeitun, i.e., “Mount of Olives.” It is about 200 feet above the level of the city. The road from Jerusalem to Bethany runs as of old over this mount. It was on this mount that Jesus stood when he wept over Jerusalem. “No name in Scripture,” says Dr. Porter, “calls up associations at once so sacred and so pleasing as that of Olivet. The ‘mount’ is so intimately connected with the private, the devotional life of the Saviour, that we read of it and look at it with feelings of deepest interest and affection. Here he often sat with his disciples, telling them of wondrous events yet to come, of the destruction of the Holy City; of the sufferings, the persecution, and the final triumph of his followers (Matt. 24). Here he gave them the beautiful parables of the ten virgins and the five talents (25); here he was wont to retire on each evening for meditation, and prayer, and rest of body, when weary and harassed by the labours and trials of the day (Luke 21:37); and here he came on the night of his betrayal to utter that wonderful prayer, ‘O my Father, if it be possible, let this cup pass from me: nevertheless not as I will, but as thou wilt’ (Matt. 26:39). And when the cup of God’s wrath had been drunk, and death and the grave conquered, he led his disciples out again over Olivet as far as to Bethany, and after a parting blessing ascended to heaven (Luke 24:50, 51; Acts 1:12).”\n\n This mount, or rather mountain range, has four summits or peaks: (1) the “Galilee” peak, so called from a tradition that the angels stood here when they spoke to the disciples (Acts 1:11); (2) the “Mount of Ascension,” the supposed site of that event, which was, however, somewhere probably nearer Bethany (Luke 24:51, 52); (3) the “Prophets,” from the catacombs on its side, called “the prophets’ tombs;” and (4) the “Mount of Corruption,” so called because of the “high places” erected there by Solomon for the idolatrous worship of his foreign wives (1 Kings 11:7; 2 Kings 23:13; Vulg., “Mount of Offence”).",
-    "scriptureRefs": [
-      {
-        "book": "zech",
-        "chapter": 14,
-        "verse": 4
-      }
-    ],
-    "kind": "place",
-    "coordinates": {
-      "lat": 31.77809503,
-      "lng": 35.24719761
-    },
-    "featureType": "Mountain",
-    "altNames": [
-      "Mount of Olives",
-      "mount of Olives"
-    ]
-  },
-  {
     "id": "mount_of_olives_861",
     "name": "Mount of Olives",
     "status": "published",
@@ -43052,6 +43026,16 @@
       {
         "book": "luke",
         "chapter": 19,
+        "verse": 29
+      },
+      {
+        "book": "luke",
+        "chapter": 19,
+        "verse": 37
+      },
+      {
+        "book": "luke",
+        "chapter": 21,
         "verse": 37
       },
       {
@@ -43063,6 +43047,11 @@
         "book": "john",
         "chapter": 8,
         "verse": 1
+      },
+      {
+        "book": "acts",
+        "chapter": 1,
+        "verse": 12
       }
     ],
     "kind": "place",
@@ -43360,8 +43349,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 28.58771,
-      "lng": 33.921682
+      "lat": 28.539722,
+      "lng": 33.973333
     },
     "featureType": "Mountain",
     "altNames": [
@@ -43417,8 +43406,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.6869564,
-      "lng": 35.39091304
+      "lat": 32.68711,
+      "lng": 35.389618
     },
     "featureType": "Mountain",
     "altNames": [
@@ -43589,8 +43578,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.776667,
-      "lng": 35.234167
+      "lat": 31.777444,
+      "lng": 35.234935
     },
     "featureType": "Mountain",
     "altNames": [
@@ -43613,8 +43602,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.802641,
-      "lng": 35.158376
+      "lat": 31.79224,
+      "lng": 35.167596
     },
     "featureType": "City",
     "altNames": [
@@ -43636,8 +43625,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 36.258393,
-      "lng": 29.985559
+      "lat": 36.258559,
+      "lng": 29.98545
     },
     "featureType": "City",
     "altNames": [
@@ -43664,8 +43653,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 40.25,
-      "lng": 27.75
+      "lat": 39.50664305923271,
+      "lng": 26.08059270470616
     },
     "featureType": "Region",
     "altNames": [
@@ -43710,8 +43699,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.949518,
-      "lng": 35.45873
+      "lat": 31.899811,
+      "lng": 35.423662
     },
     "featureType": "City",
     "altNames": [
@@ -43733,8 +43722,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.949518,
-      "lng": 35.45873
+      "lat": 31.899811,
+      "lng": 35.423662
     },
     "featureType": "City",
     "altNames": [
@@ -43892,8 +43881,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.61323618,
-      "lng": 34.91889683
+      "lat": 32.617899,
+      "lng": 34.917116
     },
     "altNames": [
       "Naphath-dor"
@@ -43956,8 +43945,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.61323618,
-      "lng": 34.91889683
+      "lat": 32.617899,
+      "lng": 34.917116
     },
     "altNames": [
       "Naphoth-dor"
@@ -44256,8 +44245,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 40.93504,
-      "lng": 24.415015
+      "lat": 40.934324,
+      "lng": 24.414039
     },
     "featureType": "City",
     "altNames": [
@@ -44353,8 +44342,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.7677176,
-      "lng": 35.7261818
+      "lat": 31.748024,
+      "lng": 35.743257
     },
     "altNames": [
       "Nebo"
@@ -44582,8 +44571,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 30.25,
-      "lng": 34.75
+      "lat": 30.3,
+      "lng": 34.2
     },
     "featureType": "Region",
     "altNames": [
@@ -44827,8 +44816,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 39.024033,
-      "lng": 20.73573
+      "lat": 39.0157,
+      "lng": 20.736003
     },
     "featureType": "City",
     "altNames": [
@@ -44995,8 +44984,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 19.211408766666665,
-      "lng": 30.56732963
+      "lat": 30.092632,
+      "lng": 31.230987
     },
     "featureType": "Water",
     "featureSubType": "River",
@@ -45071,8 +45060,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.53650368616845,
-      "lng": 44.42088287373876
+      "lat": 36.35941,
+      "lng": 43.152887
     },
     "altNames": [
       "Nimrod"
@@ -45178,8 +45167,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 36.34773,
-      "lng": 43.1609
+      "lat": 36.360762,
+      "lng": 43.159937
     },
     "featureType": "City",
     "altNames": [
@@ -45254,8 +45243,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.756919,
-      "lng": 36.6164
+      "lat": 32.754205,
+      "lng": 36.618355
     },
     "altNames": [
       "Nobah"
@@ -45338,8 +45327,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.756919,
-      "lng": 36.6164
+      "lat": 32.754205,
+      "lng": 36.618355
     },
     "featureType": "City",
     "altNames": [
@@ -45451,38 +45440,6 @@
     ]
   },
   {
-    "id": "olivet_907",
-    "name": "Olivet",
-    "status": "published",
-    "source": "theographic",
-    "scriptureRefs": [
-      {
-        "book": "luke",
-        "chapter": 19,
-        "verse": 29
-      },
-      {
-        "book": "luke",
-        "chapter": 21,
-        "verse": 37
-      },
-      {
-        "book": "acts",
-        "chapter": 1,
-        "verse": 12
-      }
-    ],
-    "kind": "place",
-    "coordinates": {
-      "lat": 31.77809503,
-      "lng": 35.24719761
-    },
-    "featureType": "Mountain",
-    "altNames": [
-      "Olivet"
-    ]
-  },
-  {
     "id": "on_908",
     "name": "On",
     "status": "published",
@@ -45555,8 +45512,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.02222222,
-      "lng": 34.86666667
+      "lat": 32.033584,
+      "lng": 34.864193
     },
     "featureType": "City",
     "altNames": [
@@ -45665,8 +45622,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 27.5,
-      "lng": 67.5
+      "lat": 22,
+      "lng": 77
     },
     "featureType": "Region",
     "altNames": [
@@ -45910,8 +45867,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 36.990721,
-      "lng": 30.98638
+      "lat": 37.00520811721595,
+      "lng": 30.90494591606115
     },
     "featureType": "Region",
     "altNames": [
@@ -45938,8 +45895,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 34.707147,
-      "lng": 32.573711
+      "lat": 34.757212,
+      "lng": 32.406593
     },
     "featureType": "City",
     "altNames": [
@@ -46019,8 +45976,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 28.717525,
-      "lng": 33.609633
+      "lat": 29.151667,
+      "lng": 33.541944
     },
     "altNames": [
       "Paran"
@@ -46104,8 +46061,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 36.26018,
-      "lng": 29.314279
+      "lat": 36.261795,
+      "lng": 29.314501
     },
     "featureType": "City",
     "altNames": [
@@ -46245,8 +46202,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.53650369,
-      "lng": 44.42088287
+      "lat": 32.537297,
+      "lng": 44.424978
     },
     "altNames": [
       "Pekod"
@@ -46272,8 +46229,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 28.838778,
-      "lng": 33.420573
+      "lat": 31.042627,
+      "lng": 32.547105
     },
     "altNames": [
       "Pelusium"
@@ -46450,8 +46407,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 36.961406,
-      "lng": 30.854274
+      "lat": 36.964466,
+      "lng": 30.853259
     },
     "featureType": "City",
     "altNames": [
@@ -46478,8 +46435,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 39.11894592,
-      "lng": 27.1651261
+      "lat": 39.1325,
+      "lng": 27.184167
     },
     "featureType": "City",
     "altNames": [
@@ -46696,8 +46653,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 35.19888577,
-      "lng": 24.08098202
+      "lat": 35.19919,
+      "lng": 24.07828
     },
     "featureType": "City",
     "altNames": [
@@ -46730,8 +46687,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 33.25,
-      "lng": 35.25
+      "lat": 33.56316734135746,
+      "lng": 35.36634649354799
     },
     "featureType": "Region",
     "altNames": [
@@ -46759,8 +46716,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 38.34904803,
-      "lng": 28.51946209
+      "lat": 38.350374,
+      "lng": 28.516621
     },
     "featureType": "City",
     "altNames": [
@@ -46797,8 +46754,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 41.01316,
-      "lng": 24.28409
+      "lat": 41.012651,
+      "lng": 24.284637
     },
     "featureType": "City",
     "altNames": [
@@ -46901,8 +46858,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 30.583333,
-      "lng": 31.5
+      "lat": 30.572382,
+      "lng": 31.511085
     },
     "altNames": [
       "Pi-beseth"
@@ -47082,8 +47039,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 37.25,
-      "lng": 30.75
+      "lat": 38.31643056393041,
+      "lng": 31.17948683048973
     },
     "featureType": "Region",
     "altNames": [
@@ -47264,8 +47221,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 40.5,
-      "lng": 36.5
+      "lat": 40.905222,
+      "lng": 37.799969
     },
     "featureType": "Region",
     "altNames": [
@@ -47358,8 +47315,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.920744,
-      "lng": 35.068626
+      "lat": 32.921287,
+      "lng": 35.079835
     },
     "featureType": "City",
     "altNames": [
@@ -47461,8 +47418,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 40.827957,
-      "lng": 14.121869
+      "lat": 40.825838,
+      "lng": 14.121742
     },
     "featureType": "City",
     "altNames": [
@@ -47508,8 +47465,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 30.59385132817632,
-      "lng": 32.18555803140015
+      "lat": 30.800762,
+      "lng": 31.834774
     },
     "altNames": [
       "Raamses"
@@ -47595,8 +47552,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.95522,
-      "lng": 35.94503
+      "lat": 31.95018855,
+      "lng": 35.92413136
     },
     "altNames": [
       "Rabbah"
@@ -47818,8 +47775,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.89964,
-      "lng": 35.20422
+      "lat": 31.89637864,
+      "lng": 35.20173069
     },
     "featureType": "City",
     "altNames": [
@@ -47947,8 +47904,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.040597,
-      "lng": 35.021578
+      "lat": 31.83273947,
+      "lng": 35.18016286
     },
     "featureType": "City",
     "altNames": [
@@ -48079,8 +48036,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 30.79937021,
-      "lng": 31.83421669
+      "lat": 30.800762,
+      "lng": 31.834774
     },
     "featureType": "City",
     "altNames": [
@@ -48450,8 +48407,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 19,
-      "lng": 39.5
+      "lat": 27.088473,
+      "lng": 34.771729
     },
     "featureType": "Water",
     "altNames": [
@@ -48681,8 +48638,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.80007552505443,
-      "lng": 35.93730130476259
+      "lat": 31.756332,
+      "lng": 35.223059
     },
     "altNames": [
       "Rephaim"
@@ -48850,8 +48807,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 35.95,
-      "lng": 39.016667
+      "lat": 35.628992,
+      "lng": 38.757581
     },
     "altNames": [
       "Rezeph"
@@ -48872,8 +48829,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 38.111146,
-      "lng": 15.649244
+      "lat": 38.109279,
+      "lng": 15.64393
     },
     "featureType": "City",
     "altNames": [
@@ -48895,8 +48852,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 36.41451,
-      "lng": 28.15629
+      "lat": 36.44192633,
+      "lng": 28.22672173
     },
     "featureType": "Island",
     "altNames": [
@@ -49250,8 +49207,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 34.74942377777777,
-      "lng": 40.93640094
+      "lat": 35.090577,
+      "lng": 40.42778
     },
     "featureType": "Water",
     "altNames": [
@@ -49461,8 +49418,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.41666666666668,
-      "lng": 35.1166666666667
+      "lat": 31.409891,
+      "lng": 35.132746
     },
     "altNames": [
       "Rock of Escape",
@@ -49574,8 +49531,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 41.89262,
-      "lng": 12.4843457
+      "lat": 41.9,
+      "lng": 12.48333333
     },
     "featureType": "City",
     "altNames": [
@@ -49640,8 +49597,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 35.17926,
-      "lng": 33.90294
+      "lat": 35.179581,
+      "lng": 33.902857
     },
     "featureType": "City",
     "altNames": [
@@ -49678,8 +49635,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.493941,
-      "lng": 36.710337
+      "lat": 32.491336,
+      "lng": 36.712059
     },
     "featureType": "City",
     "altNames": [
@@ -49716,8 +49673,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.777444,
-      "lng": 35.234935
+      "lat": 31.777189,
+      "lng": 35.234978
     },
     "featureType": "City",
     "altNames": [
@@ -49739,8 +49696,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.39933414,
-      "lng": 35.5264431
+      "lat": 32.399151,
+      "lng": 35.52708
     },
     "altNames": [
       "Salim"
@@ -49761,8 +49718,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 37.69636,
-      "lng": 21.56999
+      "lat": 35.316056,
+      "lng": 26.311348
     },
     "featureType": "City",
     "altNames": [
@@ -49848,8 +49805,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.577850349494952,
-      "lng": 35.52394311
+      "lat": 31.538593,
+      "lng": 35.482268
     },
     "featureType": "Water",
     "altNames": [
@@ -50437,8 +50394,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.331417,
-      "lng": 35.228586
+      "lat": 32.276445,
+      "lng": 35.190081
     },
     "featureType": "Region",
     "altNames": [
@@ -50453,8 +50410,8 @@
     "description": "A watch-mountain or a watch-tower. In the heart of the mountains of Israel, a few miles north-west of Shechem, stands the “hill of Shomeron,” a solitary mountain, a great “mamelon.” It is an oblong hill, with steep but not inaccessible sides, and a long flat top. Omri, the king of Israel, purchased this hill from Shemer its owner for two talents of silver, and built on its broad summit the city to which he gave the name of “Shomeron”, i.e., Samaria, as the new capital of his kingdom instead of Tirzah (1 Kings 16:24). As such it possessed many advantages. Here Omri resided during the last six years of his reign. As the result of an unsuccessful war with Syria, he appears to have been obliged to grant to the Syrians the right to “make streets in Samaria”, i.e., probably permission to the Syrian merchants to carry on their trade in the Israelite capital. This would imply the existence of a considerable Syrian population. “It was the only great city of Palestine created by the sovereign. All the others had been already consecrated by patriarchal tradition or previous possession. But Samaria was the choice of Omri alone. He, indeed, gave to the city which he had built the name of its former owner, but its especial connection with himself as its founder is proved by the designation which it seems Samaria bears in Assyrian inscriptions, Beth-khumri (‘the house or palace of Omri’).”, Stanley.\n\n Samaria was frequently besieged. In the days of Ahab, Benhadad II. came up against it with thirty-two vassal kings, but was defeated with a great slaughter (1 Kings 20:1-21). A second time, next year, he assailed it; but was again utterly routed, and was compelled to surrender to Ahab (20:28-34), whose army, as compared with that of Benhadad, was no more than “two little flocks of kids.”\n\n In the days of Jehoram this Benhadad again laid siege to Samaria, during which the city was reduced to the direst extremities. But just when success seemed to be within their reach, they suddenly broke up the seige, alarmed by a mysterious noise of chariots and horses and a great army, and fled, leaving their camp with all its contents behind them. The famishing inhabitants of the city were soon relieved with the abundance of the spoil of the Syrian camp; and it came to pass, according to the word of Elisha, that “a measure of fine flour was sold for a shekel, and two measures of barely for a shekel, in the gates of Samaria” (2 Kings 7:1-20).\n\n Shalmaneser invaded Israel in the days of Hoshea, and reduced it to vassalage. He laid siege to Samaria (B.C. 723), which held out for three years, and was at length captured by Sargon, who completed the conquest Shalmaneser had begun (2 Kings 18:9-12; 17:3), and removed vast numbers of the tribes into captivity.\n\n This city, after passing through various vicissitudes, was given by the emperor Augustus to Herod the Great, who rebuilt it, and called it Sebaste (Gr. form of Augustus) in honour of the emperor. In the New Testament the only mention of it is in Acts 8:5-14, where it is recorded that Philip went down to the city of Samaria and preached there.\n\n It is now represented by the hamlet of Sebustieh, containing about three hundred inhabitants. The ruins of the ancient town are all scattered over the hill, down the sides of which they have rolled. The shafts of about one hundred of what must have been grand Corinthian columns are still standing, and attract much attention, although nothing definite is known regarding them. (Comp. Micah 1:6.)\n\n In the time of Christ, Western Palestine was divided into three provinces, Judea, Samaria, and Galilee. Samaria occupied the centre of Palestine (John 4:4). It is called in the Talmud the “land of the Cuthim,” and is not regarded as a part of the Holy Land at all.\n\n It may be noticed that the distance between Samaria and Jerusalem, the respective capitals of the two kingdoms, is only 35 miles in a direct line.",
     "kind": "place",
     "coordinates": {
-      "lat": 32.280231,
-      "lng": 35.197929
+      "lat": 32.276445,
+      "lng": 35.190081
     },
     "altNames": [
       "Samaria's"
@@ -50475,8 +50432,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 37.73,
-      "lng": 26.97616
+      "lat": 37.715172,
+      "lng": 26.934167
     },
     "featureType": "Island",
     "altNames": [
@@ -50498,8 +50455,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 40.5009431,
-      "lng": 25.5302283
+      "lat": 40.452314,
+      "lng": 25.576238
     },
     "featureType": "Island",
     "altNames": [
@@ -50554,8 +50511,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 38.4768269,
-      "lng": 28.11413119
+      "lat": 38.488314,
+      "lng": 28.040286
     },
     "featureType": "City",
     "altNames": [
@@ -50656,8 +50613,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.80677586,
-      "lng": 35.58936053
+      "lat": 32.813805,
+      "lng": 35.590564
     },
     "featureType": "Water",
     "altNames": [
@@ -50679,8 +50636,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.80677586,
-      "lng": 35.58936053
+      "lat": 32.813805,
+      "lng": 35.590564
     },
     "featureType": "Water",
     "altNames": [
@@ -50723,7 +50680,7 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.8138046,
+      "lat": 32.813805,
       "lng": 35.590564
     },
     "featureType": "Water",
@@ -50769,8 +50726,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 33.24,
-      "lng": 33.47
+      "lat": 33.56316734135746,
+      "lng": 35.36634649354799
     },
     "featureType": "Water",
     "altNames": [
@@ -50825,8 +50782,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.80677586,
-      "lng": 35.58936053
+      "lat": 32.813805,
+      "lng": 35.590564
     },
     "featureType": "Water",
     "altNames": [
@@ -51191,8 +51148,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 36.11705,
-      "lng": 35.93815
+      "lat": 36.121265,
+      "lng": 35.928596
     },
     "featureType": "City",
     "altNames": [
@@ -51487,8 +51444,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.282222,
-      "lng": 34.4825
+      "lat": 31.7001,
+      "lng": 34.89532
     },
     "featureType": "City",
     "altNames": [
@@ -52034,8 +51991,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.22111,
-      "lng": 35.25444
+      "lat": 32.213528,
+      "lng": 35.282111
     },
     "featureType": "City",
     "altNames": [
@@ -52066,8 +52023,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.21369123124062,
-      "lng": 35.2817986718367
+      "lat": 32.213528,
+      "lng": 35.282111
     },
     "altNames": [
       "Tower of Shechem",
@@ -52225,8 +52182,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.75,
-      "lng": 34.75
+      "lat": 31.77761410537458,
+      "lng": 34.85214575880509
     },
     "featureType": "Region",
     "altNames": [
@@ -52247,8 +52204,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.24495217,
-      "lng": 34.84088858
+      "lat": 31.245164,
+      "lng": 34.840797
     },
     "altNames": [
       "Shibah"
@@ -52532,8 +52489,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.05617,
-      "lng": 35.28988
+      "lat": 32.05570051,
+      "lng": 35.2895287
     },
     "featureType": "City",
     "altNames": [
@@ -52555,8 +52512,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.70528896,
-      "lng": 35.21333286
+      "lat": 32.701249,
+      "lng": 35.219912
     },
     "altNames": [
       "Shimron-meron"
@@ -52582,8 +52539,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.70528896,
-      "lng": 35.21333286
+      "lat": 32.701249,
+      "lng": 35.219912
     },
     "featureType": "City",
     "altNames": [
@@ -53057,8 +53014,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 33.560243,
-      "lng": 35.371208
+      "lat": 33.561947,
+      "lng": 35.37279
     },
     "featureType": "City",
     "altNames": [
@@ -53079,12 +53036,12 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 33.560243,
-      "lng": 35.371208
+      "lat": 33.561947,
+      "lng": 35.37279
     },
     "altNames": [
       "Sidon the Great",
-      "Sidon (the great)"
+      "great Zidon"
     ]
   },
   {
@@ -53101,12 +53058,12 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 33.560243,
-      "lng": 35.371208
+      "lat": 33.561947,
+      "lng": 35.37279
     },
     "altNames": [
       "Great Sidon",
-      "Sidon (Zidon)"
+      "Zidon"
     ]
   },
   {
@@ -53302,8 +53259,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 29.5,
-      "lng": 34
+      "lat": 28.539722,
+      "lng": 33.973333
     },
     "featureType": "Region",
     "altNames": [
@@ -53451,8 +53408,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 38.45196038,
-      "lng": 27.16192105
+      "lat": 38.417196,
+      "lng": 27.141387
     },
     "featureType": "City",
     "altNames": [
@@ -53473,8 +53430,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.68123465,
-      "lng": 34.97639818
+      "lat": 31.682491,
+      "lng": 34.973815
     },
     "altNames": [
       "Soco"
@@ -53494,8 +53451,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.68123465,
-      "lng": 34.97639818
+      "lat": 31.682491,
+      "lng": 34.973815
     },
     "altNames": [
       "Socoh"
@@ -53827,8 +53784,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 64.14620971568705,
-      "lng": -19.17522938
+      "lat": 30.3,
+      "lng": 34.2
     },
     "altNames": [
       "South"
@@ -53946,8 +53903,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.19571,
-      "lng": 35.62161
+      "lat": 32.19998299,
+      "lng": 35.63331303
     },
     "featureType": "City",
     "altNames": [
@@ -54166,8 +54123,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.19202,
-      "lng": 48.24854
+      "lat": 32.189934,
+      "lng": 48.253537
     },
     "featureType": "City",
     "altNames": [
@@ -54221,8 +54178,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 24.066181,
-      "lng": 32.895862
+      "lat": 24.088575,
+      "lng": 32.901491
     },
     "featureType": "City",
     "altNames": [
@@ -54244,8 +54201,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 37.05963,
-      "lng": 15.29382
+      "lat": 37.06823248,
+      "lng": 15.29482388
     },
     "featureType": "City",
     "altNames": [
@@ -54582,8 +54539,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 37.5,
-      "lng": 37.5
+      "lat": 33.519299,
+      "lng": 36.31344999999999
     },
     "featureType": "Region",
     "featureSubType": "Country",
@@ -54606,8 +54563,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.5,
-      "lng": 18
+      "lat": 31.474808,
+      "lng": 17.827475
     },
     "featureType": "Water",
     "altNames": [
@@ -54659,8 +54616,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.52193,
-      "lng": 35.2195
+      "lat": 32.520555,
+      "lng": 35.220671
     },
     "featureType": "City",
     "altNames": [
@@ -54774,8 +54731,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.687114,
-      "lng": 35.390383
+      "lat": 32.68711,
+      "lng": 35.389618
     },
     "featureType": "Mountain",
     "altNames": [
@@ -54910,8 +54867,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 30.860556,
-      "lng": 32.171389
+      "lat": 30.860022,
+      "lng": 32.173485
     },
     "altNames": [
       "Tahpanhes"
@@ -55193,8 +55150,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 36.91242,
-      "lng": 34.89592
+      "lat": 36.914043,
+      "lng": 34.896467
     },
     "featureType": "City",
     "altNames": [
@@ -55215,8 +55172,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 30.860556,
-      "lng": 32.171389
+      "lat": 30.860022,
+      "lng": 32.173485
     },
     "altNames": [
       "Tehaphnehes"
@@ -55445,8 +55402,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 27.633172,
-      "lng": 38.554125
+      "lat": 27.6219,
+      "lng": 38.55
     },
     "altNames": [
       "Tema"
@@ -55657,8 +55614,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 40.630282,
-      "lng": 22.949569
+      "lat": 40.628342,
+      "lng": 22.952885
     },
     "featureType": "City",
     "altNames": [
@@ -55680,8 +55637,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 41.59132,
-      "lng": 12.828636
+      "lat": 41.561675,
+      "lng": 12.874282
     },
     "featureType": "Landmark",
     "altNames": [
@@ -55740,8 +55697,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 38.922933,
-      "lng": 27.840523
+      "lat": 38.919999,
+      "lng": 27.836209
     },
     "featureType": "City",
     "altNames": [
@@ -55872,8 +55829,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.784368,
-      "lng": 34.90968
+      "lat": 31.785337,
+      "lng": 34.911583
     },
     "featureType": "City",
     "altNames": [
@@ -56072,8 +56029,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.2713687,
-      "lng": 35.29430387
+      "lat": 32.287196,
+      "lng": 35.337892
     },
     "featureType": "City",
     "altNames": [
@@ -56415,8 +56372,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 39.75135,
-      "lng": 26.15765
+      "lat": 39.751699,
+      "lng": 26.157557
     },
     "featureType": "City",
     "altNames": [
@@ -56758,8 +56715,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 33.268071,
-      "lng": 35.209358
+      "lat": 33.269335,
+      "lng": 35.201829
     },
     "featureType": "City",
     "altNames": [
@@ -56933,8 +56890,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 30.9625,
-      "lng": 46.103056
+      "lat": 30.96205205,
+      "lng": 46.10374196
     },
     "featureType": "City",
     "altNames": [
@@ -57269,8 +57226,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.3912911,
-      "lng": 34.56057016
+      "lat": 31.38186,
+      "lng": 34.60643
     },
     "featureType": "Valley",
     "altNames": [
@@ -57292,8 +57249,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.84684772753698,
-      "lng": 35.18491237777512
+      "lat": 31.849056,
+      "lng": 35.184362
     },
     "featureType": "Valley",
     "altNames": [
@@ -58404,8 +58361,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 33.4333,
-      "lng": 35.3
+      "lat": 33.463062,
+      "lng": 35.294952
     },
     "altNames": [
       "Zarephath"
@@ -58832,8 +58789,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 32.267821,
-      "lng": 35.576613
+      "lat": 32.23293813761263,
+      "lng": 35.27304180036391
     },
     "altNames": [
       "Zeredah"
@@ -58974,8 +58931,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.38256,
-      "lng": 34.86676
+      "lat": 31.3776,
+      "lng": 34.873562
     },
     "featureType": "City",
     "altNames": [
@@ -59793,8 +59750,8 @@
     ],
     "kind": "place",
     "coordinates": {
-      "lat": 31.776667,
-      "lng": 35.234167
+      "lat": 31.777444,
+      "lng": 35.234935
     },
     "featureType": "Mountain",
     "altNames": [

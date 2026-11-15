@@ -2724,9 +2724,63 @@
     "source": "theographic"
   },
   {
+    "from": "ahasuerus-feasts-and-vashti-is-deposed",
+    "to": "susa_1118",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "ahasuerus-honors-mordecai",
+    "to": "susa_1118",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "ahasuerus_117",
+    "to": "ahasuerus-feasts-and-vashti-is-deposed",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "ahasuerus_117",
+    "to": "ahasuerus-honors-mordecai",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
     "from": "ahasuerus_117",
     "to": "darius_980",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ahasuerus_117",
+    "to": "esther-is-made-queen",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "ahasuerus_117",
+    "to": "haman-is-hanged",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "ahasuerus_117",
+    "to": "haman-plots-to-destroy-the-jews",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "ahasuerus_117",
+    "to": "reign-of-darius-ahasuerus",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "ahasuerus_117",
+    "to": "the-jews-defeat-their-enemies",
+    "type": "participated-in",
     "source": "theographic"
   },
   {
@@ -5898,6 +5952,12 @@
     "source": "theographic"
   },
   {
+    "from": "arioch_304",
+    "to": "daniel-interprets-nebuchadnezzar-s-dream",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
     "from": "arisai_305",
     "to": "aspatha_347",
     "type": "sibling-of",
@@ -6402,6 +6462,42 @@
     "source": "theographic"
   },
   {
+    "from": "artaxerxes-sends-nehemiah-to-jerusalem",
+    "to": "susa_1118",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "artaxerxes_313",
+    "to": "temple-work-is-stopped",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "artaxerxes_314",
+    "to": "artaxerxes-sends-nehemiah-to-jerusalem",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "artaxerxes_314",
+    "to": "ezra-leads-exiles-to-jerusalem",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "artaxerxes_314",
+    "to": "nehemiah-goes-back-to-artaxerxes",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "artaxerxes_314",
+    "to": "reign-of-artaxerxes",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
     "from": "arvadite_316",
     "to": "arvad_99",
     "type": "visited",
@@ -6849,6 +6945,12 @@
     "from": "ashnah_105",
     "to": "judah_1280",
     "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "ashpenaz_339",
+    "to": "first-deportation-to-babylon",
+    "type": "participated-in",
     "source": "theographic"
   },
   {
@@ -7557,6 +7659,18 @@
     "from": "azariah_539",
     "to": "joel_1657",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "azariah_545",
+    "to": "daniel-interprets-nebuchadnezzar-s-dream",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "azariah_545",
+    "to": "first-deportation-to-babylon",
+    "type": "participated-in",
     "source": "theographic"
   },
   {
@@ -8889,6 +9003,12 @@
     "from": "believers-share-all-things",
     "to": "jerusalem_636",
     "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "belshazzar_437",
+    "to": "fall-of-babylon",
+    "type": "participated-in",
     "source": "theographic"
   },
   {
@@ -11196,6 +11316,30 @@
     "source": "theographic"
   },
   {
+    "from": "chaldean-raiders-take-captives-from-judah",
+    "to": "babylon_151",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "chaldean-raiders-take-captives-from-judah",
+    "to": "judah-southern_1281",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "chaldeans-withdraw-from-jerusalem",
+    "to": "egypt_362",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "chaldeans-withdraw-from-jerusalem",
+    "to": "jerusalem_636",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
     "from": "chelub_929",
     "to": "mehir_1982",
     "type": "parent-of",
@@ -11496,6 +11640,12 @@
     "source": "theographic"
   },
   {
+    "from": "construction-of-the-second-temple",
+    "to": "jerusalem_636",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
     "from": "conversion-of-ethiopian-eunuch",
     "to": "gaza_446",
     "type": "occurred-at",
@@ -11730,6 +11880,18 @@
     "source": "theographic"
   },
   {
+    "from": "cyrus-decrees-the-rebuilding-of-the-temple",
+    "to": "babylon_151",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "cyrus_968",
+    "to": "cyrus-decrees-the-rebuilding-of-the-temple",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
     "from": "dabbesheth_318",
     "to": "zebulun_1289",
     "type": "part-of",
@@ -11934,6 +12096,12 @@
     "source": "theographic"
   },
   {
+    "from": "daniel-interprets-nebuchadnezzar-s-dream",
+    "to": "babylon_151",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
     "from": "daniel_939",
     "to": "eliada_1078",
     "type": "sibling-of",
@@ -12043,6 +12211,24 @@
   },
   {
     "from": "daniel_975",
+    "to": "daniel-interprets-nebuchadnezzar-s-dream",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "daniel_975",
+    "to": "fall-of-babylon",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "daniel_975",
+    "to": "first-deportation-to-babylon",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "daniel_975",
     "to": "prophecies-of-daniel",
     "type": "participated-in",
     "source": "theographic"
@@ -12087,6 +12273,30 @@
     "from": "darda_977",
     "to": "heman_1488",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "darius_978",
+    "to": "reign-of-darius-ahasuerus",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "darius_978",
+    "to": "second-temple-dedicated",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "darius_978",
+    "to": "temple-work-resumes",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "darius_980",
+    "to": "fall-of-babylon",
+    "type": "participated-in",
     "source": "theographic"
   },
   {
@@ -12486,13 +12696,13 @@
     "source": "theographic"
   },
   {
-    "from": "death-of-jehoahash",
+    "from": "death-of-jehoahaz",
     "to": "samaria_1022",
     "type": "occurred-at",
     "source": "theographic"
   },
   {
-    "from": "death-of-jehoahaz",
+    "from": "death-of-jehoash",
     "to": "samaria_1022",
     "type": "occurred-at",
     "source": "theographic"
@@ -12918,7 +13128,7 @@
     "source": "theographic"
   },
   {
-    "from": "discourse-with-pharisees-and-saducees",
+    "from": "discourse-with-pharisees-and-sadducees",
     "to": "dalmanutha_320",
     "type": "occurred-at",
     "source": "theographic"
@@ -14244,6 +14454,12 @@
     "source": "theographic"
   },
   {
+    "from": "eliashib_1099",
+    "to": "nehemiah-rebuilds-the-wall-of-jerusalem",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
     "from": "eliashib_1100",
     "to": "joiada_1680",
     "type": "parent-of",
@@ -14253,6 +14469,12 @@
     "from": "eliashib_1100",
     "to": "tribe-of-levi",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "eliashib_1101",
+    "to": "nehemiah-goes-back-to-artaxerxes",
+    "type": "participated-in",
     "source": "theographic"
   },
   {
@@ -14599,7 +14821,7 @@
   },
   {
     "from": "elijah_1131",
-    "to": "the-transfiguation",
+    "to": "the-transfiguration",
     "type": "participated-in",
     "source": "theographic"
   },
@@ -16302,6 +16524,36 @@
     "source": "theographic"
   },
   {
+    "from": "esther-is-made-queen",
+    "to": "susa_1118",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "esther_1343",
+    "to": "esther-is-made-queen",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "esther_1343",
+    "to": "haman-is-hanged",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "esther_1343",
+    "to": "haman-plots-to-destroy-the-jews",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "esther_1343",
+    "to": "the-jews-defeat-their-enemies",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
     "from": "eth-kazin_420",
     "to": "zebulun_1289",
     "type": "part-of",
@@ -16500,6 +16752,30 @@
     "source": "theographic"
   },
   {
+    "from": "evil-merodach_1233",
+    "to": "jeconiah-released-from-prison",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "exiles-put-away-their-foreign-wives",
+    "to": "jerusalem_636",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "exiles-return-with-zerubbabel",
+    "to": "babylon_151",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "exiles-return-with-zerubbabel",
+    "to": "jerusalem_636",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
     "from": "exodus-from-egypt",
     "to": "egypt_362",
     "type": "occurred-at",
@@ -16556,6 +16832,12 @@
   {
     "from": "ezekiel_1237",
     "to": "prophecies-of-ezekiel",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "ezekiel_1237",
+    "to": "the-glory-of-the-lord-leaves-the-temple",
     "type": "participated-in",
     "source": "theographic"
   },
@@ -16686,6 +16968,24 @@
     "source": "theographic"
   },
   {
+    "from": "ezra-leads-exiles-to-jerusalem",
+    "to": "ahava_34",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "ezra-leads-exiles-to-jerusalem",
+    "to": "babylon_151",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "ezra-leads-exiles-to-jerusalem",
+    "to": "jerusalem_636",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
     "from": "ezra_1244",
     "to": "epher_1202",
     "type": "parent-of",
@@ -16711,6 +17011,18 @@
   },
   {
     "from": "ezra_1245",
+    "to": "exiles-put-away-their-foreign-wives",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "ezra_1245",
+    "to": "ezra-leads-exiles-to-jerusalem",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "ezra_1245",
     "to": "josedech_815",
     "type": "sibling-of",
     "source": "theographic"
@@ -16719,6 +17031,24 @@
     "from": "ezra_1245",
     "to": "tribe-of-levi",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "fall-of-babylon",
+    "to": "babylon_151",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "fall-of-jerusalem",
+    "to": "jerusalem_636",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "fall-of-jerusalem",
+    "to": "riblah_1001",
+    "type": "occurred-at",
     "source": "theographic"
   },
   {
@@ -16777,7 +17107,19 @@
   },
   {
     "from": "fig-tree-cursed",
-    "to": "olivet_907",
+    "to": "mount_of_olives_861",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "first-deportation-to-babylon",
+    "to": "babylon_151",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "first-deportation-to-babylon",
+    "to": "jerusalem_636",
     "type": "occurred-at",
     "source": "theographic"
   },
@@ -17172,14 +17514,14 @@
     "source": "theographic"
   },
   {
-    "from": "gamaliel-advises-the-counsel-and-apostles-freed",
+    "from": "gamaliel-advises-the-council-and-apostles-freed",
     "to": "jerusalem_636",
     "type": "occurred-at",
     "source": "theographic"
   },
   {
     "from": "gamaliel_1277",
-    "to": "gamaliel-advises-the-counsel-and-apostles-freed",
+    "to": "gamaliel-advises-the-council-and-apostles-freed",
     "type": "participated-in",
     "source": "theographic"
   },
@@ -17742,6 +18084,18 @@
     "source": "theographic"
   },
   {
+    "from": "geshem_1307",
+    "to": "nehemiah-arrives-at-jerusalem",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "geshem_1307",
+    "to": "nehemiah-rebuilds-the-wall-of-jerusalem",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
     "from": "gether_1308",
     "to": "hul_1566",
     "type": "sibling-of",
@@ -18133,6 +18487,12 @@
   },
   {
     "from": "god_1324",
+    "to": "cyrus-decrees-the-rebuilding-of-the-temple",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "god_1324",
     "to": "eve_1231",
     "type": "parent-of",
     "source": "theographic"
@@ -18188,6 +18548,12 @@
   {
     "from": "god_1324",
     "to": "the-fall",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "god_1324",
+    "to": "the-glory-of-the-lord-leaves-the-temple",
     "type": "participated-in",
     "source": "theographic"
   },
@@ -18582,6 +18948,18 @@
     "source": "theographic"
   },
   {
+    "from": "haggai_1349",
+    "to": "second-temple-dedicated",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "haggai_1349",
+    "to": "temple-work-resumes",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
     "from": "haggeri_1350",
     "to": "mibhar_2045",
     "type": "parent-of",
@@ -18738,9 +19116,27 @@
     "source": "theographic"
   },
   {
+    "from": "haman-is-hanged",
+    "to": "susa_1118",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "haman-plots-to-destroy-the-jews",
+    "to": "susa_1118",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
     "from": "haman_1360",
     "to": "adalia_77",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "haman_1360",
+    "to": "ahasuerus-honors-mordecai",
+    "type": "participated-in",
     "source": "theographic"
   },
   {
@@ -18771,6 +19167,18 @@
     "from": "haman_1360",
     "to": "dalphon_971",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "haman_1360",
+    "to": "haman-is-hanged",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "haman_1360",
+    "to": "haman-plots-to-destroy-the-jews",
+    "type": "participated-in",
     "source": "theographic"
   },
   {
@@ -19095,6 +19503,12 @@
     "from": "hanani_1380",
     "to": "uzziel_2932",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "hanani_1382",
+    "to": "nehemiah-mourns-for-jerusalem",
+    "type": "participated-in",
     "source": "theographic"
   },
   {
@@ -19503,6 +19917,12 @@
     "from": "haran_1409",
     "to": "shelomith_2607",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "harbonah_1411",
+    "to": "haman-is-hanged",
+    "type": "participated-in",
     "source": "theographic"
   },
   {
@@ -20421,6 +20841,12 @@
     "from": "hebron_551",
     "to": "judah_1280",
     "type": "part-of",
+    "source": "theographic"
+  },
+  {
+    "from": "hegai_1477",
+    "to": "esther-is-made-queen",
+    "type": "participated-in",
     "source": "theographic"
   },
   {
@@ -24271,7 +24697,7 @@
   },
   {
     "from": "james_717",
-    "to": "the-transfiguation",
+    "to": "the-transfiguration",
     "type": "participated-in",
     "source": "theographic"
   },
@@ -24984,6 +25410,12 @@
     "source": "theographic"
   },
   {
+    "from": "jeconiah-released-from-prison",
+    "to": "babylon_151",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
     "from": "jedaiah_751",
     "to": "allon_190",
     "type": "parent-of",
@@ -25243,7 +25675,7 @@
   },
   {
     "from": "jehoahaz_2516",
-    "to": "reign-of-johoahaz-shallum",
+    "to": "reign-of-jehoahaz-shallum",
     "type": "participated-in",
     "source": "theographic"
   },
@@ -25321,6 +25753,12 @@
   },
   {
     "from": "jehoiachin_791",
+    "to": "jeconiah-released-from-prison",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "jehoiachin_791",
     "to": "malchiram_1915",
     "type": "parent-of",
     "source": "theographic"
@@ -25340,6 +25778,12 @@
   {
     "from": "jehoiachin_791",
     "to": "reign-of-jeconiah",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "jehoiachin_791",
+    "to": "second-deportation-to-babylon",
     "type": "participated-in",
     "source": "theographic"
   },
@@ -25386,6 +25830,18 @@
     "source": "theographic"
   },
   {
+    "from": "jehoiakim-becomes-nebuchadnezzar-s-servant",
+    "to": "jerusalem_636",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "jehoiakim_1085",
+    "to": "chaldean-raiders-take-captives-from-judah",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
     "from": "jehoiakim_1085",
     "to": "genealogy-of-jesus",
     "type": "member-of",
@@ -25395,6 +25851,12 @@
     "from": "jehoiakim_1085",
     "to": "jehoiachin_791",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "jehoiakim_1085",
+    "to": "jehoiakim-becomes-nebuchadnezzar-s-servant",
+    "type": "participated-in",
     "source": "theographic"
   },
   {
@@ -25885,7 +26347,19 @@
   },
   {
     "from": "jeremiah_853",
+    "to": "chaldeans-withdraw-from-jerusalem",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "jeremiah_853",
     "to": "prophecies-of-jeremiah",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "jeremiah_853",
+    "to": "zedekiah-goes-to-babylon",
     "type": "participated-in",
     "source": "theographic"
   },
@@ -26557,7 +27031,7 @@
   },
   {
     "from": "jesus-ascends-to-heaven",
-    "to": "olivet_907",
+    "to": "mount_of_olives_861",
     "type": "occurred-at",
     "source": "theographic"
   },
@@ -26737,7 +27211,7 @@
   },
   {
     "from": "jesus_905",
-    "to": "discourse-with-pharisees-and-saducees",
+    "to": "discourse-with-pharisees-and-sadducees",
     "type": "participated-in",
     "source": "theographic"
   },
@@ -26935,7 +27409,7 @@
   },
   {
     "from": "jesus_905",
-    "to": "jesus-circumsized",
+    "to": "jesus-circumcised",
     "type": "participated-in",
     "source": "theographic"
   },
@@ -27043,7 +27517,7 @@
   },
   {
     "from": "jesus_905",
-    "to": "lazarus-raised-form-the-dead",
+    "to": "lazarus-raised-from-the-dead",
     "type": "participated-in",
     "source": "theographic"
   },
@@ -27073,6 +27547,12 @@
   },
   {
     "from": "jesus_905",
+    "to": "mount_of_olives_861",
+    "type": "visited",
+    "source": "theographic"
+  },
+  {
+    "from": "jesus_905",
     "to": "mustard-seed-and-leaven-teaching",
     "type": "participated-in",
     "source": "theographic"
@@ -27081,12 +27561,6 @@
     "from": "jesus_905",
     "to": "olivet-discourse",
     "type": "participated-in",
-    "source": "theographic"
-  },
-  {
-    "from": "jesus_905",
-    "to": "olivet_907",
-    "type": "visited",
     "source": "theographic"
   },
   {
@@ -27229,7 +27703,7 @@
   },
   {
     "from": "jesus_905",
-    "to": "the-transfiguation",
+    "to": "the-transfiguration",
     "type": "participated-in",
     "source": "theographic"
   },
@@ -27289,7 +27763,7 @@
   },
   {
     "from": "jesus_905",
-    "to": "zaccheus-converted-and-parable-of-the-pounds",
+    "to": "zacchaeus-converted-and-parable-of-the-pounds",
     "type": "participated-in",
     "source": "theographic"
   },
@@ -27871,7 +28345,7 @@
   },
   {
     "from": "joash_1633",
-    "to": "death-of-jehoahash",
+    "to": "death-of-jehoash",
     "type": "participated-in",
     "source": "theographic"
   },
@@ -28405,7 +28879,7 @@
   },
   {
     "from": "john_1677",
-    "to": "the-transfiguation",
+    "to": "the-transfiguration",
     "type": "participated-in",
     "source": "theographic"
   },
@@ -29305,8 +29779,26 @@
   },
   {
     "from": "joshua_893",
+    "to": "construction-of-the-second-temple",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "joshua_893",
+    "to": "exiles-return-with-zerubbabel",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "joshua_893",
     "to": "joiakim_1681",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "joshua_893",
+    "to": "temple-work-resumes",
+    "type": "participated-in",
     "source": "theographic"
   },
   {
@@ -30900,14 +31392,14 @@
     "source": "theographic"
   },
   {
-    "from": "lazarus-raised-form-the-dead",
+    "from": "lazarus-raised-from-the-dead",
     "to": "bethany_186",
     "type": "occurred-at",
     "source": "theographic"
   },
   {
     "from": "lazarus_1812",
-    "to": "lazarus-raised-form-the-dead",
+    "to": "lazarus-raised-from-the-dead",
     "type": "participated-in",
     "source": "theographic"
   },
@@ -32677,7 +33169,7 @@
   },
   {
     "from": "mary_1938",
-    "to": "the-annuciation",
+    "to": "the-annunciation",
     "type": "participated-in",
     "source": "theographic"
   },
@@ -32695,7 +33187,7 @@
   },
   {
     "from": "mary_1939",
-    "to": "lazarus-raised-form-the-dead",
+    "to": "lazarus-raised-from-the-dead",
     "type": "participated-in",
     "source": "theographic"
   },
@@ -33168,6 +33660,12 @@
     "source": "theographic"
   },
   {
+    "from": "memucan_1995",
+    "to": "ahasuerus-feasts-and-vashti-is-deposed",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
     "from": "menahem_1996",
     "to": "death-of-menahem",
     "type": "participated-in",
@@ -33387,6 +33885,18 @@
     "from": "mesha_2011",
     "to": "zibia_3063",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "meshach_2092",
+    "to": "daniel-interprets-nebuchadnezzar-s-dream",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "meshach_2092",
+    "to": "first-deportation-to-babylon",
+    "type": "participated-in",
     "source": "theographic"
   },
   {
@@ -34063,6 +34573,12 @@
   },
   {
     "from": "miriam_2087",
+    "to": "kadesh_661",
+    "type": "died-at",
+    "source": "theographic"
+  },
+  {
+    "from": "miriam_2087",
     "to": "moses_2108",
     "type": "sibling-of",
     "source": "theographic"
@@ -34494,6 +35010,36 @@
     "source": "theographic"
   },
   {
+    "from": "mordecai_2107",
+    "to": "ahasuerus-honors-mordecai",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "mordecai_2107",
+    "to": "esther-is-made-queen",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "mordecai_2107",
+    "to": "haman-is-hanged",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "mordecai_2107",
+    "to": "haman-plots-to-destroy-the-jews",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "mordecai_2107",
+    "to": "the-jews-defeat-their-enemies",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
     "from": "moreh_817",
     "to": "shechem_1069",
     "type": "near",
@@ -34753,7 +35299,7 @@
   },
   {
     "from": "moses_2108",
-    "to": "the-transfiguation",
+    "to": "the-transfiguration",
     "type": "participated-in",
     "source": "theographic"
   },
@@ -34851,12 +35397,6 @@
     "from": "mount_lebanon_846",
     "to": "lebanon_720",
     "type": "part-of",
-    "source": "theographic"
-  },
-  {
-    "from": "mount_of_olives_828",
-    "to": "mount_of_olives_861",
-    "type": "alias-of",
     "source": "theographic"
   },
   {
@@ -35646,9 +36186,123 @@
     "source": "theographic"
   },
   {
+    "from": "nebuchadnezzar-besieges-jerusalem",
+    "to": "jerusalem_636",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "nebuchadnezzar-defeats-pharaoh-nechoh-at-carchemish",
+    "to": "carchemish_277",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "nebuchadnezzar-defeats-pharaoh-nechoh-at-carchemish",
+    "to": "euphrates_421",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
     "from": "nebuchadnezzar_2167",
     "to": "belshazzar_437",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "nebuchadnezzar_2167",
+    "to": "chaldean-raiders-take-captives-from-judah",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "nebuchadnezzar_2167",
+    "to": "daniel-interprets-nebuchadnezzar-s-dream",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "nebuchadnezzar_2167",
+    "to": "fall-of-jerusalem",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "nebuchadnezzar_2167",
+    "to": "first-deportation-to-babylon",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "nebuchadnezzar_2167",
+    "to": "jehoiakim-becomes-nebuchadnezzar-s-servant",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "nebuchadnezzar_2167",
+    "to": "nebuchadnezzar-besieges-jerusalem",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "nebuchadnezzar_2167",
+    "to": "nebuchadnezzar-defeats-pharaoh-nechoh-at-carchemish",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "nebuchadnezzar_2167",
+    "to": "nebuzar-adan-carries-away-745-jews",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "nebuchadnezzar_2167",
+    "to": "reign-of-nebuchadnezzar",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "nebuchadnezzar_2167",
+    "to": "second-deportation-to-babylon",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "nebuchadnezzar_2167",
+    "to": "third-deportation-to-babylon",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "nebuchadnezzar_2167",
+    "to": "zedekiah-rebels-against-nebuchadnezzar",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "nebuzar-adan-carries-away-745-jews",
+    "to": "babylon_151",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "nebuzar-adan_2169",
+    "to": "fall-of-jerusalem",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "nebuzar-adan_2169",
+    "to": "nebuzar-adan-carries-away-745-jews",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "nebuzar-adan_2169",
+    "to": "third-deportation-to-babylon",
+    "type": "participated-in",
     "source": "theographic"
   },
   {
@@ -35682,6 +36336,66 @@
     "source": "theographic"
   },
   {
+    "from": "nehemiah-arrives-at-jerusalem",
+    "to": "jerusalem_636",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "nehemiah-goes-back-to-artaxerxes",
+    "to": "babylon_151",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "nehemiah-goes-back-to-artaxerxes",
+    "to": "jerusalem_636",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "nehemiah-mourns-for-jerusalem",
+    "to": "susa_1118",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "nehemiah-rebuilds-the-wall-of-jerusalem",
+    "to": "jerusalem_636",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "nehemiah_2172",
+    "to": "artaxerxes-sends-nehemiah-to-jerusalem",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "nehemiah_2172",
+    "to": "nehemiah-arrives-at-jerusalem",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "nehemiah_2172",
+    "to": "nehemiah-goes-back-to-artaxerxes",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "nehemiah_2172",
+    "to": "nehemiah-mourns-for-jerusalem",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "nehemiah_2172",
+    "to": "nehemiah-rebuilds-the-wall-of-jerusalem",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
     "from": "nehushta_2174",
     "to": "genealogy-of-jesus",
     "type": "member-of",
@@ -35691,6 +36405,12 @@
     "from": "nehushta_2174",
     "to": "jehoiachin_791",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "nehushta_2174",
+    "to": "second-deportation-to-babylon",
+    "type": "participated-in",
     "source": "theographic"
   },
   {
@@ -36433,14 +37153,8 @@
   },
   {
     "from": "olivet-discourse",
-    "to": "mount_of_olives_828",
-    "type": "occurred-at",
-    "source": "theographic"
-  },
-  {
-    "from": "olivet_907",
     "to": "mount_of_olives_861",
-    "type": "alias-of",
+    "type": "occurred-at",
     "source": "theographic"
   },
   {
@@ -38587,7 +39301,7 @@
   },
   {
     "from": "peter_2745",
-    "to": "the-transfiguation",
+    "to": "the-transfiguration",
     "type": "participated-in",
     "source": "theographic"
   },
@@ -38630,6 +39344,12 @@
   {
     "from": "pharaoh-nechoh_2337",
     "to": "death-of-josiah",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "pharaoh-nechoh_2337",
+    "to": "nebuchadnezzar-defeats-pharaoh-nechoh-at-carchemish",
     "type": "participated-in",
     "source": "theographic"
   },
@@ -38679,6 +39399,12 @@
     "from": "pharaoh_2334",
     "to": "bithiah_516",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "pharaoh_2336",
+    "to": "chaldeans-withdraw-from-jerusalem",
+    "type": "participated-in",
     "source": "theographic"
   },
   {
@@ -39672,6 +40398,12 @@
     "source": "theographic"
   },
   {
+    "from": "rehum_2414",
+    "to": "temple-work-is-stopped",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
     "from": "reign-of-abijam",
     "to": "jerusalem_636",
     "type": "occurred-at",
@@ -39714,6 +40446,12 @@
     "source": "theographic"
   },
   {
+    "from": "reign-of-artaxerxes",
+    "to": "susa_1118",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
     "from": "reign-of-asa",
     "to": "jerusalem_636",
     "type": "occurred-at",
@@ -39728,6 +40466,12 @@
   {
     "from": "reign-of-baasha",
     "to": "samaria_1022",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "reign-of-darius-ahasuerus",
+    "to": "susa_1118",
     "type": "occurred-at",
     "source": "theographic"
   },
@@ -39770,6 +40514,12 @@
   {
     "from": "reign-of-jehoahaz",
     "to": "samaria_1022",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "reign-of-jehoahaz-shallum",
+    "to": "jerusalem_636",
     "type": "occurred-at",
     "source": "theographic"
   },
@@ -39822,12 +40572,6 @@
     "source": "theographic"
   },
   {
-    "from": "reign-of-johoahaz-shallum",
-    "to": "jerusalem_636",
-    "type": "occurred-at",
-    "source": "theographic"
-  },
-  {
     "from": "reign-of-joram",
     "to": "samaria_1022",
     "type": "occurred-at",
@@ -39860,6 +40604,12 @@
   {
     "from": "reign-of-nadab",
     "to": "samaria_1022",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "reign-of-nebuchadnezzar",
+    "to": "babylon_151",
     "type": "occurred-at",
     "source": "theographic"
   },
@@ -40069,7 +40819,7 @@
   },
   {
     "from": "resurrection-and-ascension",
-    "to": "mount_of_olives_828",
+    "to": "mount_of_olives_861",
     "type": "occurred-at",
     "source": "theographic"
   },
@@ -40735,7 +41485,7 @@
   },
   {
     "from": "samson_2468",
-    "to": "sampson-destroys-temple-of-dagon",
+    "to": "samson-destroys-temple-of-dagon",
     "type": "participated-in",
     "source": "theographic"
   },
@@ -40755,6 +41505,18 @@
     "from": "samuel_2469",
     "to": "tribe-of-levi",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "sanballat_2470",
+    "to": "nehemiah-arrives-at-jerusalem",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "sanballat_2470",
+    "to": "nehemiah-rebuilds-the-wall-of-jerusalem",
+    "type": "participated-in",
     "source": "theographic"
   },
   {
@@ -41046,6 +41808,18 @@
     "source": "theographic"
   },
   {
+    "from": "second-deportation-to-babylon",
+    "to": "babylon_151",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "second-deportation-to-babylon",
+    "to": "jerusalem_636",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
     "from": "second-foretelling-of-death-and-resurrection",
     "to": "galilee_433",
     "type": "occurred-at",
@@ -41066,6 +41840,12 @@
   {
     "from": "second-missionary-journey-begins",
     "to": "syria_1122",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "second-temple-dedicated",
+    "to": "jerusalem_636",
     "type": "occurred-at",
     "source": "theographic"
   },
@@ -41251,6 +42031,12 @@
   },
   {
     "from": "seraiah_2494",
+    "to": "third-deportation-to-babylon",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "seraiah_2494",
     "to": "tribe-of-levi",
     "type": "member-of",
     "source": "theographic"
@@ -41265,6 +42051,12 @@
     "from": "seraiah_2497",
     "to": "josibiah_1732",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "seraiah_2500",
+    "to": "zedekiah-goes-to-babylon",
+    "type": "participated-in",
     "source": "theographic"
   },
   {
@@ -41457,6 +42249,18 @@
     "from": "shachia_2512",
     "to": "zibia_3063",
     "type": "sibling-of",
+    "source": "theographic"
+  },
+  {
+    "from": "shadrach_1398",
+    "to": "daniel-interprets-nebuchadnezzar-s-dream",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "shadrach_1398",
+    "to": "first-deportation-to-babylon",
+    "type": "participated-in",
     "source": "theographic"
   },
   {
@@ -42057,6 +42861,12 @@
     "from": "shechaniah_2583",
     "to": "tribe-of-judah",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "shechaniah_2586",
+    "to": "exiles-put-away-their-foreign-wives",
+    "type": "participated-in",
     "source": "theographic"
   },
   {
@@ -43053,6 +43863,12 @@
     "from": "shimron_2706",
     "to": "tribe-of-issachar",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "shimshai_2707",
+    "to": "temple-work-is-stopped",
+    "type": "participated-in",
     "source": "theographic"
   },
   {
@@ -44280,6 +45096,12 @@
     "source": "theographic"
   },
   {
+    "from": "tatnai_2831",
+    "to": "temple-work-resumes",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
     "from": "tax-coin-in-a-fish-s-mouth",
     "to": "capernaum_274",
     "type": "occurred-at",
@@ -44293,7 +45115,7 @@
   },
   {
     "from": "teaching-by-the-fig-tree",
-    "to": "olivet_907",
+    "to": "mount_of_olives_861",
     "type": "occurred-at",
     "source": "theographic"
   },
@@ -44371,6 +45193,18 @@
   },
   {
     "from": "temple-presentation-of-jesus",
+    "to": "jerusalem_636",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "temple-work-is-stopped",
+    "to": "jerusalem_636",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "temple-work-resumes",
     "to": "jerusalem_636",
     "type": "occurred-at",
     "source": "theographic"
@@ -44490,7 +45324,7 @@
     "source": "theographic"
   },
   {
-    "from": "the-annuciation",
+    "from": "the-annunciation",
     "to": "nazareth_878",
     "type": "occurred-at",
     "source": "theographic"
@@ -44526,6 +45360,18 @@
     "source": "theographic"
   },
   {
+    "from": "the-glory-of-the-lord-leaves-the-temple",
+    "to": "jerusalem_636",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "the-glory-of-the-lord-leaves-the-temple",
+    "to": "mount_of_olives_861",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
     "from": "the-good-shepherd-teaching",
     "to": "jerusalem_636",
     "type": "occurred-at",
@@ -44545,7 +45391,13 @@
   },
   {
     "from": "the-holy-spirit-is-promised",
-    "to": "olivet_907",
+    "to": "mount_of_olives_861",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "the-jews-defeat-their-enemies",
+    "to": "susa_1118",
     "type": "occurred-at",
     "source": "theographic"
   },
@@ -44562,7 +45414,7 @@
     "source": "theographic"
   },
   {
-    "from": "the-transfiguation",
+    "from": "the-transfiguration",
     "to": "mount_hermon_841",
     "type": "occurred-at",
     "source": "theographic"
@@ -44595,6 +45447,24 @@
     "from": "the_giant_in_gath_2848",
     "to": "sippai_2471",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "third-deportation-to-babylon",
+    "to": "babylon_151",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "third-deportation-to-babylon",
+    "to": "jerusalem_636",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "third-deportation-to-babylon",
+    "to": "riblah_1001",
+    "type": "occurred-at",
     "source": "theographic"
   },
   {
@@ -44943,6 +45813,24 @@
     "from": "tobiah_2872",
     "to": "johanan_1675",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "tobiah_2872",
+    "to": "nehemiah-arrives-at-jerusalem",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "tobiah_2872",
+    "to": "nehemiah-goes-back-to-artaxerxes",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "tobiah_2872",
+    "to": "nehemiah-rebuilds-the-wall-of-jerusalem",
+    "type": "participated-in",
     "source": "theographic"
   },
   {
@@ -45504,6 +46392,12 @@
     "source": "theographic"
   },
   {
+    "from": "vashti_2937",
+    "to": "ahasuerus-feasts-and-vashti-is-deposed",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
     "from": "visiting-capernaum",
     "to": "capernaum_274",
     "type": "occurred-at",
@@ -45840,15 +46734,15 @@
     "source": "theographic"
   },
   {
-    "from": "zacchaeus_2961",
-    "to": "zaccheus-converted-and-parable-of-the-pounds",
-    "type": "participated-in",
+    "from": "zacchaeus-converted-and-parable-of-the-pounds",
+    "to": "jericho_634",
+    "type": "occurred-at",
     "source": "theographic"
   },
   {
-    "from": "zaccheus-converted-and-parable-of-the-pounds",
-    "to": "jericho_634",
-    "type": "occurred-at",
+    "from": "zacchaeus_2961",
+    "to": "zacchaeus-converted-and-parable-of-the-pounds",
+    "type": "participated-in",
     "source": "theographic"
   },
   {
@@ -46158,6 +47052,18 @@
     "source": "theographic"
   },
   {
+    "from": "zechariah_3016",
+    "to": "second-temple-dedicated",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "zechariah_3016",
+    "to": "temple-work-resumes",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
     "from": "zechariah_3022",
     "to": "uzziah_2928",
     "type": "parent-of",
@@ -46176,9 +47082,39 @@
     "source": "theographic"
   },
   {
+    "from": "zedekiah-goes-to-babylon",
+    "to": "babylon_151",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
+    "from": "zedekiah-rebels-against-nebuchadnezzar",
+    "to": "jerusalem_636",
+    "type": "occurred-at",
+    "source": "theographic"
+  },
+  {
     "from": "zedekiah_1950",
     "to": "babylon_151",
     "type": "died-at",
+    "source": "theographic"
+  },
+  {
+    "from": "zedekiah_1950",
+    "to": "chaldeans-withdraw-from-jerusalem",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "zedekiah_1950",
+    "to": "fall-of-jerusalem",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "zedekiah_1950",
+    "to": "nebuchadnezzar-besieges-jerusalem",
+    "type": "participated-in",
     "source": "theographic"
   },
   {
@@ -46191,6 +47127,18 @@
     "from": "zedekiah_1950",
     "to": "tribe-of-judah",
     "type": "member-of",
+    "source": "theographic"
+  },
+  {
+    "from": "zedekiah_1950",
+    "to": "zedekiah-goes-to-babylon",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "zedekiah_1950",
+    "to": "zedekiah-rebels-against-nebuchadnezzar",
+    "type": "participated-in",
     "source": "theographic"
   },
   {
@@ -46423,6 +47371,18 @@
   },
   {
     "from": "zerubbabel_3054",
+    "to": "construction-of-the-second-temple",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "zerubbabel_3054",
+    "to": "exiles-return-with-zerubbabel",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "zerubbabel_3054",
     "to": "genealogy-of-jesus",
     "type": "member-of",
     "source": "theographic"
@@ -46467,6 +47427,18 @@
     "from": "zerubbabel_3054",
     "to": "shelomith_2606",
     "type": "parent-of",
+    "source": "theographic"
+  },
+  {
+    "from": "zerubbabel_3054",
+    "to": "temple-work-is-stopped",
+    "type": "participated-in",
+    "source": "theographic"
+  },
+  {
+    "from": "zerubbabel_3054",
+    "to": "temple-work-resumes",
+    "type": "participated-in",
     "source": "theographic"
   },
   {

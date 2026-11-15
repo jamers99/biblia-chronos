@@ -170,7 +170,7 @@
       "name": "From Bethlehem to Jerusalem",
       "places": ["bethlehem_218", "nazareth_878", "capernaum_274", "jericho_634", "bethany_186", "jerusalem_636"]
     },
-    "moments": ["birth-of-jesus", "john-baptizes-jesus", "sermon-on-the-mount", "the-transfiguation", "triumphal-entry", "crucifixion-and-burial", "resurrection-and-ascension"],
+    "moments": ["birth-of-jesus", "john-baptizes-jesus", "sermon-on-the-mount", "the-transfiguration", "triumphal-entry", "crucifixion-and-burial", "resurrection-and-ascension"],
     "people": ["jesus_905", "mary_1938", "john_1676", "peter_2745", "john_1677", "mary_1943", "judas_1760"]
   },
   {
