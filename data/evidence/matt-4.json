@@ -70,7 +70,6 @@
     "participated-in:james_717>the-transfiguration@e9dc2c": {"refs":["matt.17.1","matt.17.7"],"note":"James, brother of John, is one of the three taken up the mountain (17.1) and touched by Jesus (17.7)."},
     "participated-in:jesus_905>healing-a-boy-with-a-demon@a52e6b": {"refs":["matt.17.17","matt.17.18"],"note":"Jesus rebukes the devil, and the child is cured from that very hour (17.18)."},
     "participated-in:jesus_905>healing-blind-bartimaeus@3a2ddf": {"refs":["matt.20.32","matt.20.34"],"note":"Jesus stands still, calls the blind men, and touches their eyes; they receive sight (20.32, 20.34)."},
-    "participated-in:jesus_905>judas-suicide@793077": {"refs":["matt.27.3","matt.27.5","matt.27.9"],"note":"Judas acts alone: he returns the silver and hangs himself (27.3, 27.5). Jesus is absent; only his price is named (27.9).","kind":"wrong","severity":"high"},
     "participated-in:jesus_905>resurrection-and-ascension@5778b6": {"refs":["matt.28.6","matt.28.9"],"note":"Jesus is risen (28.6) and meets the women (28.9). Matthew has no ascension."},
     "participated-in:jesus_905>tax-coin-in-a-fish-s-mouth@1dd435": {"refs":["matt.17.25","matt.17.27"],"note":"Jesus asks Peter about the tribute (17.25), then tells him to take the coin from the fish (17.27)."},
     "participated-in:jesus_905>teachings-on-humility-temptation-reconciliation@0f6bcd": {"refs":["matt.18.2","matt.18.3"],"note":"Jesus sets a little child in the midst and teaches humility (18.2, 18.3)."},
@@ -84,6 +83,7 @@
     "participated-in:peter_2745>jewish-trials@970dd4": {"refs":["matt.26.58","matt.26.69","matt.26.70"],"note":"Peter is in the high priest's palace (26.58) and denies Jesus there (26.69, 26.70), but the trial itself does not involve him.","kind":"reading"},
     "participated-in:peter_2745>prayer-and-betrayal-in-gethsemane@f00c6c": {"refs":["matt.26.37","matt.26.40"],"note":"Jesus takes Peter to Gethsemane (26.37) and speaks to him about watching (26.40)."},
     "participated-in:peter_2745>tax-coin-in-a-fish-s-mouth@72f6c4": {"refs":["matt.17.24","matt.17.27"],"note":"The tribute collectors come to Peter (17.24), and Jesus tells him to take the coin from the fish (17.27)."},
-    "participated-in:peter_2745>the-transfiguration@efd0f5": {"refs":["matt.17.1","matt.17.4"],"note":"Peter is taken up with Jesus (17.1) and answers him, offering three tabernacles (17.4)."}
+    "participated-in:peter_2745>the-transfiguration@efd0f5": {"refs":["matt.17.1","matt.17.4"],"note":"Peter is taken up with Jesus (17.1) and answers him, offering three tabernacles (17.4)."},
+    "participated-in:jesus_905>judas-suicide@793077": {"refs":["matt.27.3","matt.27.5"],"note":"Judas acts alone: he returns the silver and hangs himself (27:3-5). Jesus is not in the scene; only his price is named (27:9).","kind":"wrong","severity":"medium"}
   }
 }

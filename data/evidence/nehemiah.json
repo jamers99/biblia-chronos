@@ -107,6 +107,6 @@
     "participated-in:artaxerxes_314>nehemiah-s-second-term@63abf9": {"refs":["neh.13.6"],"note":"He only grants Nehemiah leave to return (13:6), before the events of 13:7-31, where the king is not mentioned. A reading at best.","kind":"reading"},
     "participated-in:ezra_1245>ezra-reads-the-law@cb89de": {"refs":["neh.8.2","neh.8.3","neh.8.5"],"note":"Ezra brings the law (8:2), reads it aloud (8:3) and opens the book (8:5)."},
     "participated-in:nehemiah_2172>nehemiah-s-second-term@863deb": {"refs":["neh.13.7","neh.13.8"],"note":"He comes to Jerusalem (13:7) and acts there: he casts out Tobiah's goods and reforms the chambers (13:8-9)."},
-    "participated-in:tobiah_2872>nehemiah-s-second-term@77fd8e": {"refs":["neh.13.4","neh.13.8"],"note":"Text: Tobiah acts nowhere in 13:4-9. Eliashib gives him a chamber (13:4-5) and Nehemiah casts out his goods (13:8).","kind":"wrong","severity":"low"}
+    "participated-in:tobiah_2872>nehemiah-s-second-term@77fd8e": {"refs":["neh.13.7","neh.13.8"],"note":"Eliashib prepares a chamber for Tobiah (13:7), and Nehemiah casts all Tobiah's household stuff out of it (13:8), both inside the event's range.","kind":"verse"}
   }
 }

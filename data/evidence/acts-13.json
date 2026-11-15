@@ -29,8 +29,6 @@
     "participated-in:luke_1836>paul-is-shipwrecked-by-a-storm@642279": {"refs":["acts.27.15","acts.27.37"],"note":"'We' let the ship drive (27.15) and were aboard in the storm (27.37). The name Luke is from outside the passage.","kind":"reading"},
     "participated-in:luke_1836>paul-s-journey-to-rome@3a7923": {"refs":["acts.27.1","acts.28.16"],"note":"'We' sailed into Italy and came to Rome (27.1; 28.16). The name Luke is from outside the passage.","kind":"reading"},
     "participated-in:luke_1836>paul-stays-at-malta@03e873": {"refs":["acts.28.2","acts.28.10"],"note":"'Us' were shown kindness on the island (28.2) and honoured there (28.10). The name Luke is from outside the passage.","kind":"reading"},
-    "participated-in:paul_2479>agrippa-and-bernice-meet-festus@65cfec": {"refs":["acts.25.14","acts.25.23"],"note":"Festus spoke of Paul in his absence (25.14). Paul was only brought in the next day (25.23).","kind":"wrong","severity":"medium"},
-    "participated-in:portius_2367>paul-sent-to-felix@e884cd": {"refs":["acts.23.24","acts.24.27"],"note":"Claudius Lysias sent Paul to Felix (23.24). Festus only succeeded Felix two years later (24.27).","kind":"wrong","severity":"medium"},
     "visited:aristarchus_306>cilicia_300@0edee1": {"refs":["acts.27.2","acts.27.5"],"note":"On board ('with us', 27.2); the ship sailed over the sea of Cilicia (27.5). Passing, not a stated visit.","kind":"reading"},
     "visited:aristarchus_306>cyprus_316@12f57b": {"refs":["acts.27.2","acts.27.4"],"note":"On board ('with us', 27.2); the ship sailed under Cyprus (27.4). Passing, not a stated visit.","kind":"reading"},
     "visited:aristarchus_306>lasea_717@13a885": {"refs":["acts.27.2","acts.27.8"],"note":"On board ('with us', 27.2); the ship came near Lasea (27.8). Passing, not a stated visit.","kind":"reading"},
@@ -58,6 +56,8 @@
     "visited:paul_2479>salmone_1020@148e11": {"refs":["acts.27.7"],"note":"They sailed under Crete, over against Salmone (27.7). Near, not a stated visit.","kind":"reading"},
     "visited:paul_2479>sidon_1093@a045fd": {"refs":["acts.27.3"],"note":"They touched at Sidon the next day (27.3)."},
     "visited:paul_2479>syracuse_1121@8422d2": {"refs":["acts.28.12"],"note":"They landed at Syracuse and tarried three days (28.12)."},
-    "visited:paul_2479>three_taverns_1159@79e495": {"refs":["acts.28.15"],"note":"Brethren met Paul at the Three Taverns (28.15)."}
+    "visited:paul_2479>three_taverns_1159@79e495": {"refs":["acts.28.15"],"note":"Brethren met Paul at the Three Taverns (28.15)."},
+    "participated-in:paul_2479>agrippa-and-bernice-meet-festus@65cfec": {"refs":["acts.25.14","acts.25.21"],"note":"Paul is the case Festus declares (25.14) and is kept in bonds; he himself appeals to Augustus (25.21), inside this event's range.","kind":"verse"},
+    "participated-in:portius_2367>paul-sent-to-felix@e884cd": {"refs":["acts.23.24","acts.24.27"],"note":"Festus enters the story only as Felix's successor after two years (24:27). He takes no part in sending Paul; Claudius Lysias sent him (23:24).","kind":"wrong","severity":"low"}
   }
 }

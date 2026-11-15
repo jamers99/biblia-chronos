@@ -36,12 +36,12 @@
     "parent-of:simon_2749>rufus_2448@89fa2f": {"refs":["mark.15.21"],"note":"15:21 says Simon a Cyrenian was 'the father of Alexander and Rufus'."},
     "participated-in:jesus_905>fig-tree-cursed@b69e37": {"refs":["mark.11.13","mark.11.14"],"note":"Jesus comes to the fig tree, finds only leaves, and says no man shall eat fruit of it (11:13-14)."},
     "participated-in:jesus_905>healing-a-blind-man-at-bethsaida@d49bb3": {"refs":["mark.8.23","mark.8.25"],"note":"Jesus leads the blind man out, spits on his eyes and lays hands on him (8:23); he is restored (8:25)."},
-    "participated-in:salome_2464>crucifixion-and-burial@7461cf": {"refs":["mark.15.40"],"note":"15:40 says Salome was 'looking on afar off'. She acts in neither the crucifixion nor the burial.","kind":"wrong","severity":"low"},
     "visited:bartholomew_405>jerusalem_636@e3a0d6": {"refs":["mark.3.18","mark.10.32","mark.11.11"],"note":"Bartholomew is one of the twelve (3:18). The twelve go up to Jerusalem with Jesus (10:32) and leave it with him (11:11)."},
     "visited:james_718>jerusalem_636@e510f2": {"refs":["mark.3.18","mark.10.32","mark.11.11"],"note":"James the son of Alphaeus is one of the twelve (3:18). The twelve go up to Jerusalem with Jesus (10:32) and leave it with him (11:11)."},
     "visited:lebbaeus_1815>jerusalem_636@b68e06": {"refs":["mark.3.18","mark.10.32","mark.11.11"],"note":"Mark 3:18 names Thaddaeus, one of the twelve. The twelve go up to Jerusalem with Jesus (10:32) and leave it with him (11:11)."},
     "visited:matthew_1971>jerusalem_636@29ce74": {"refs":["mark.3.18","mark.10.32","mark.11.11"],"note":"Matthew is named among the twelve (3:18). The twelve go up to Jerusalem with Jesus (10:32) and leave it with him (11:11)."},
     "visited:simon_2746>jerusalem_636@0b3b16": {"refs":["mark.3.18","mark.10.32","mark.11.11"],"note":"3:18 names 'Simon the Canaanite' among the twelve; the Zelotes name is from outside Mark. The twelve go up to Jerusalem (10:32) and leave it with him (11:11).","kind":"reading"},
-    "visited:thomas_2851>jerusalem_636@264ddc": {"refs":["mark.3.18","mark.10.32","mark.11.11"],"note":"Thomas is named among the twelve (3:18). The twelve go up to Jerusalem with Jesus (10:32) and leave it with him (11:11)."}
+    "visited:thomas_2851>jerusalem_636@264ddc": {"refs":["mark.3.18","mark.10.32","mark.11.11"],"note":"Thomas is named among the twelve (3:18). The twelve go up to Jerusalem with Jesus (10:32) and leave it with him (11:11)."},
+    "participated-in:salome_2464>crucifixion-and-burial@7461cf": {"refs":["mark.15.40","mark.15.47"],"note":"15:40 says Salome was looking on from afar. She acts in neither the crucifixion nor the burial; 15:47 names only Mary Magdalene and Mary.","kind":"wrong","severity":"low"}
   }
 }

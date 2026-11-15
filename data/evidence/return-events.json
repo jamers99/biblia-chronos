@@ -24,7 +24,11 @@
     "participated-in:zechariah_3016>temple-work-resumes@f66ce6",
     "participated-in:zerubbabel_3054>construction-of-the-second-temple@eeffe3",
     "participated-in:zerubbabel_3054>temple-work-is-stopped@f7725f",
-    "participated-in:zerubbabel_3054>temple-work-resumes@4e089a"
+    "participated-in:zerubbabel_3054>temple-work-resumes@4e089a",
+    "participated-in:geshem_1307>nehemiah-arrives-at-jerusalem@4081aa",
+    "participated-in:haggai_1349>second-temple-dedicated@c65c81",
+    "participated-in:tatnai_2831>temple-work-resumes@bfe19c",
+    "participated-in:zechariah_3016>second-temple-dedicated@09730c"
   ],
   "facts": {
     "date:artaxerxes-sends-nehemiah-to-jerusalem@7a4e9e": {"refs":["neh.2.1"],"note":"Neh 2:1 gives only Artaxerxes' twentieth year, in Nisan. The BC year depends on dating outside Scripture.","kind":"reading"},
@@ -58,23 +62,19 @@
     "participated-in:artaxerxes_314>artaxerxes-sends-nehemiah-to-jerusalem@ae10f7": {"refs":["neh.2.6"],"note":"The king sends Nehemiah: 'So it pleased the king to send me' (2:6). The matched 2:1 only sets the date."},
     "participated-in:artaxerxes_314>ezra-leads-exiles-to-jerusalem@9be5e1": {"refs":["ezra.7.6","ezra.7.13"],"note":"The king grants Ezra all his request (7:6) and decrees that the willing people go up with him (7:13)."},
     "participated-in:darius_978>reign-of-darius-ahasuerus@99d4b5": {"refs":["ezra.4.24"],"note":"Ezra 4:24 names Darius's reign, so he takes part. The label 'Ahasuerus' is an outside identification; Ezra 4:6 lists Ahasuerus after Darius.","kind":"reading"},
-    "participated-in:darius_978>second-temple-dedicated@868eb5": {"refs":["ezra.6.12","ezra.6.16"],"note":"Darius's decree (6:12) enabled the work and 6:15 dates its finish to his reign. The dedication (6:16-22) does not name him.","kind":"wrong","severity":"low"},
-    "participated-in:darius_978>temple-work-resumes@cbaffc": {"refs":["ezra.5.2","ezra.5.5"],"note":"The work resumed (5:2) before Darius was involved; the matter only reached him afterward (5:5), and his decree came later (6:1-12).","kind":"wrong","severity":"medium"},
     "participated-in:eliashib_1101>nehemiah-goes-back-to-artaxerxes@496290": {"refs":["neh.13.4","neh.13.5","neh.13.7"],"note":"In the event's own verses (13:4-7), Eliashib gives Tobiah a temple chamber while Nehemiah is away. He acts in the episode, not in the trip to the king.","kind":"reading"},
     "participated-in:ezra_1245>ezra-leads-exiles-to-jerusalem@574b11": {"refs":["ezra.7.6"],"note":"Ezra 7:6: 'This Ezra went up from Babylon', leading the company. The matched 7:1 only gives his genealogy."},
-    "participated-in:geshem_1307>nehemiah-arrives-at-jerusalem@4081aa": {"refs":["neh.2.10","neh.2.19"],"note":"Geshem first appears after the arrival, mocking the building plan (2:19). The arrival (2:10-11) names only Sanballat and Tobiah reacting.","kind":"wrong","severity":"medium"},
     "participated-in:geshem_1307>nehemiah-rebuilds-the-wall-of-jerusalem@beb022": {"refs":["neh.6.2"],"note":"Geshem joins Sanballat in sending for Nehemiah to a meeting meant as mischief (6:2). The matched 6:1 only says he heard of the wall."},
-    "participated-in:haggai_1349>second-temple-dedicated@c65c81": {"refs":["ezra.6.14","ezra.6.16"],"note":"Haggai's prophesying helped the building and finishing (6:14). The dedication (6:16-22) does not name him.","kind":"wrong","severity":"low"},
     "participated-in:nehemiah_2172>artaxerxes-sends-nehemiah-to-jerusalem@d98ad0": {"refs":["neh.2.5","neh.2.6"],"note":"Nehemiah asks the king to send him to Judah (2:5), and the king sends him (2:6)."},
     "participated-in:nehemiah_2172>nehemiah-arrives-at-jerusalem@4d9bdf": {"refs":["neh.2.11"],"note":"'So I came to Jerusalem, and was there three days' (2:11), in Nehemiah's own account."},
     "participated-in:nehemiah_2172>nehemiah-goes-back-to-artaxerxes@52474d": {"refs":["neh.13.6"],"note":"'I came unto the king' (13:6): Nehemiah makes the return visit to Artaxerxes."},
     "participated-in:nehemiah_2172>nehemiah-mourns-for-jerusalem@ec5c00": {"refs":["neh.1.4"],"note":"'I sat down and wept, and mourned certain days, and fasted, and prayed' (1:4). The matched 1:1 only gives his name."},
     "participated-in:nehemiah_2172>nehemiah-rebuilds-the-wall-of-jerusalem@2a5e9e": {"refs":["neh.2.17","neh.2.18"],"note":"Nehemiah son of Hachaliah leads the rebuilding (2:17-18). The matched 3:16 is Nehemiah son of Azbuk, another man repairing part of Bethzur."},
-    "participated-in:sanballat_2470>nehemiah-arrives-at-jerusalem@5ba8b0": {"refs":["neh.2.10","neh.2.11"],"note":"Sanballat hears of Nehemiah's coming and is grieved (2:10), but takes no part in the arrival at Jerusalem (2:11).","kind":"wrong","severity":"low"},
-    "participated-in:tatnai_2831>temple-work-resumes@bfe19c": {"refs":["ezra.5.2","ezra.5.3"],"note":"Tatnai arrives at the same time (5:3) to question a building that had already resumed (5:2). He does not take part in the restart.","kind":"wrong","severity":"low"},
-    "participated-in:tobiah_2872>nehemiah-arrives-at-jerusalem@410bd7": {"refs":["neh.2.10","neh.2.11"],"note":"Tobiah hears of Nehemiah's coming and is grieved (2:10), but takes no part in the arrival at Jerusalem (2:11).","kind":"wrong","severity":"low"},
     "participated-in:tobiah_2872>nehemiah-goes-back-to-artaxerxes@7e38f7": {"refs":["neh.13.4","neh.13.5","neh.13.7"],"note":"In the event's own verses (13:4-7), Tobiah is given a temple chamber while Nehemiah is away. He is the one it's done for, not part of the trip to the king.","kind":"reading"},
-    "participated-in:zechariah_3016>second-temple-dedicated@09730c": {"refs":["ezra.6.14","ezra.6.16"],"note":"Zechariah's prophesying helped the building and finishing (6:14). The dedication (6:16-22) does not name him.","kind":"wrong","severity":"low"},
-    "participated-in:zerubbabel_3054>exiles-return-with-zerubbabel@03c42d": {"refs":["ezra.2.2"],"note":"Ezra 2:2: the people came 'with Zerubbabel', who leads the return. The matched 1:8 names Sheshbazzar; linking him to Zerubbabel is outside identification."}
+    "participated-in:zerubbabel_3054>exiles-return-with-zerubbabel@03c42d": {"refs":["ezra.2.2"],"note":"Ezra 2:2: the people came 'with Zerubbabel', who leads the return. The matched 1:8 names Sheshbazzar; linking him to Zerubbabel is outside identification."},
+    "participated-in:darius_978>second-temple-dedicated@868eb5": {"refs":["ezra.6.12","ezra.6.14","ezra.6.16"],"note":"Darius's decree (6:12) is earlier and he is only named as an authority in 6:14. The dedication (6:16-22) does not show him acting.","kind":"wrong","severity":"low"},
+    "participated-in:darius_978>temple-work-resumes@cbaffc": {"refs":["ezra.6.1","ezra.6.12"],"note":"Darius makes the decree and orders the records searched (6:1). That falls inside this event's range (5:1-6:12).","kind":"verse"},
+    "participated-in:sanballat_2470>nehemiah-arrives-at-jerusalem@5ba8b0": {"refs":["neh.2.19"],"note":"Sanballat laughs at the building plan and despises the builders (2:19), inside this event's range (2:9-20).","kind":"verse"},
+    "participated-in:tobiah_2872>nehemiah-arrives-at-jerusalem@410bd7": {"refs":["neh.2.19"],"note":"Tobiah laughs at the plan and despises the builders (2:19), inside this event's range (2:9-20). Verse 2:10 shows only his grief.","kind":"verse"}
   }
 }

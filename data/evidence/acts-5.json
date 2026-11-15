@@ -47,7 +47,9 @@
     "visited:barnabas_1722>derbe_330@c20cb3",
     "visited:paul_2479>pamphylia_918@6dd2ae",
     "visited:paul_2479>paphos_919@63799b",
-    "visited:paul_2479>perga_936@face6b"
+    "visited:paul_2479>perga_936@face6b",
+    "participated-in:barnabas_1722>second-missionary-journey@f30748",
+    "participated-in:mark_1679>mission-to-antioch-in-pisidia@d94f96"
   ],
   "facts": {
     "date:barnabas-and-saul-go-to-cyprus@d50e3d": {"refs":["acts.13.4"],"note":"No year in the text. It gives only the timing: sent out by the Holy Ghost, they sailed to Cyprus. AD 45 depends on outside chronology.","kind":"reading"},
@@ -84,10 +86,7 @@
     "participated-in:barnabas_1722>mission-to-iconium@e6265f": {"refs":["acts.14.1"],"note":"14:1: Paul and Barnabas went both together into the synagogue at Iconium and spoke."},
     "participated-in:barnabas_1722>paul-and-barnabas-part-ways@f47c74": {"refs":["acts.15.37","acts.15.39"],"note":"15:37-39: Barnabas wanted to take John Mark, the contention was between them, and they departed asunder."},
     "participated-in:barnabas_1722>return-to-antioch-in-syria@1e48f5": {"refs":["acts.14.20","acts.14.21"],"note":"14:20-21: Barnabas went with Paul to Derbe, then 'they returned' to Lystra, Iconium and Antioch."},
-    "participated-in:barnabas_1722>second-missionary-journey@f30748": {"refs":["acts.15.39","acts.15.40"],"note":"15:39: Barnabas took Mark and sailed to Cyprus. 15:40: Paul chose Silas for his own journey. Barnabas is not on Paul's second journey.","kind":"wrong","severity":"medium"},
-    "participated-in:mark_1679>mission-to-antioch-in-pisidia@d94f96": {"refs":["acts.13.13","acts.13.14"],"note":"13:13: John left them at Perga and returned to Jerusalem. He is not named in the Antioch in Pisidia mission from 13:14 on.","kind":"wrong","severity":"medium"},
     "participated-in:mark_1679>paul-and-barnabas-part-ways@ac3d29": {"refs":["acts.15.37","acts.15.39"],"note":"The dispute was over taking John Mark (15:37-38), but he does not act in the parting itself. He went with Barnabas to Cyprus (15:39).","kind":"reading"},
-    "participated-in:mark_1679>second-missionary-journey@f27556": {"refs":["acts.15.39","acts.15.40"],"note":"Mark went with Barnabas to Cyprus (15:39). Paul's journey with Silas (15:40) does not include him.","kind":"wrong","severity":"medium"},
     "participated-in:paul_2479>mission-to-antioch-in-pisidia@0064d8": {"refs":["acts.13.14","acts.13.16"],"note":"13:14-16: Paul and his company come to Antioch in Pisidia, and Paul stands up to speak in the synagogue."},
     "participated-in:paul_2479>mission-to-iconium@23708b": {"refs":["acts.14.1"],"note":"14:1: Paul and Barnabas went both together into the synagogue at Iconium and spoke."},
     "participated-in:paul_2479>paul-and-barnabas-part-ways@6d78af": {"refs":["acts.15.37","acts.15.39"],"note":"15:37-39: Paul thought it not good to take John Mark (15:38), and the two departed asunder."},
@@ -109,6 +108,7 @@
     "visited:silas_2740>cilicia_300@e3220c": {"refs":["acts.15.40","acts.15.41"],"note":"Silas is with Paul from 15:40. 15:41 says Paul went through Cilicia. Silas is not named in 15:41.","kind":"reading"},
     "visited:silas_2740>jerusalem_636@3f4cc9": {"refs":["acts.15.4","acts.15.22"],"note":"15:22: the apostles and elders send Judas and Silas from their own company. Jerusalem is not named in 15:22.","kind":"reading"},
     "visited:silas_2740>syria_1122@25b9d5": {"refs":["acts.15.40","acts.15.41"],"note":"Silas is with Paul from 15:40. 15:41 says Paul went through Syria. Silas is not named in 15:41.","kind":"reading"},
-    "visited:simeon_2744>antioch_68@9fddfd": {"refs":["acts.13.1"],"note":"13:1: Simeon that was called Niger was among the prophets and teachers in the church at Antioch."}
+    "visited:simeon_2744>antioch_68@9fddfd": {"refs":["acts.13.1"],"note":"13:1: Simeon that was called Niger was among the prophets and teachers in the church at Antioch."},
+    "participated-in:mark_1679>second-missionary-journey@f27556": {"refs":["acts.15.37","acts.15.39"],"note":"Barnabas takes Mark and sails with him to Cyprus (15:37-39), inside this event's range. Mark does not go with Paul (15:40).","kind":"verse"}
   }
 }
