@@ -10,6 +10,10 @@
 and says plainly how that was checked: by an automatic text match, by an AI, or by a
 person. The app must not add to or drop from what the data says.
 
+**What the site is:** Theographic's data, shown faithfully, with a thin
+overlay of our own (`data/overrides/`). Errors we find go back to Theographic
+rather than into the overlay, so it shrinks with each re-import.
+
 **Principle: layered checks, each one transparent.** Each layer adds its own
 mark to a fact, says why, and is shown distinctly. A reader can see each one
 and decide what to trust.
@@ -176,12 +180,13 @@ containing its first supporting verse.
   - `sources`: for anything from outside the Bible.
   - `note`: a short note.
   - `kind`: *verse* (the default, the text says it), *reading* (an
-    interpretation, explained in the note), or *wrong* (an error, fixed in
-    overrides).
+    interpretation, explained in the note), *wrong* (an error, for an
+    editor to confirm and report upstream), or *unsupported* (no verse
+    found).
 - **Missing facts:** when the AI finds something absent from the data, like
-  the Ahasuerus–Esther marriage, it goes straight into `data/overrides/` in
-  the same PR, with a written entry here. There's no separate list of
-  proposals.
+  the Ahasuerus–Esther marriage, check the whole dataset first (most are
+  there, filed in another batch), then report it upstream. Add it to
+  `data/overrides/` only as a stopgap.
 - **The editor's mark is honest about what it covers.** The editor reads
   every written entry and samples the `agreed` list at the rate recorded in
   `sampled`. Only facts the editor actually read show as "read by an
@@ -265,16 +270,31 @@ Batch by batch, by passage.
    text. For each fact, it agrees or writes an entry. For each namesake, it
    decides which person is meant. It also reports what's missing: events,
    links, and lifetime facts the text states, never a guessed lifespan.
-2. **Editor pass.** In the app's review mode (`/review/`), reviewers go
-   through the queue, most severe first (each flag and "no verse found" carries
+2. **Editor pass.** Editors don't read every fact. They settle what the AI
+   flagged ("wrong" and "no verse found"). In the app's review mode
+   (`/review/`), reviewers go through the queue, most severe first (each flag and "no verse found" carries
    the AI's `severity`; the 344 from the first pass were rated afterwards, by
    Haiku with the same scale), and submit their verdicts as a GitHub issue. Labeling it
    `apply` turns it into a pull request against `data/reviews.json` (see
    [data/evidence/README.md](../data/evidence/README.md)). A batch can merge
-   with only the AI layer. The site then says exactly that.
-3. **Fixes.** Corrections and missing facts go in `data/overrides/`. Mark
-   errors that come from Theographic with `"upstream": true`, so they can be
-   listed if you want to send them. We don't file anything.
+   with only the AI layer. The site then says exactly that. Each verdict
+   settles a flag one of two ways:
+   - **Not an issue** (verdict "right"): the AI was wrong. Applying the
+     verdict also deletes the AI's entry from its batch file, so the page
+     shows the editor's verdict and note, not a flag with a correction
+     under it. *(To build: today the AI's note stays, shown as "The AI
+     said: …".)*
+   - **A real issue** (verdict "wrong"): it goes to Theographic. Review mode
+     gives a report ready to paste into their data-correction form (the fact,
+     the verses, the note), for their data-quality ledger
+     (`data-quality/issues.yaml` upstream). The fact stays flagged until their
+     export fixes it; the data then changes, the review goes stale, and the
+     fact comes back for a fresh look. *(To build: the report.)*
+3. **Fixes.** Theographic fixes errors in its own data. `data/overrides/`
+   holds what upstream can't or won't take (our editorial events and
+   descriptions, the era notes) and, when it's worth it, a stopgap while a
+   report is pending. After each re-import, `check:data` warns about any
+   override that now says what the seed says, so it can go.
 
 ---
 

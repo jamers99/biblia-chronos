@@ -40,6 +40,10 @@ to be listed twice, and a `place` to be a known place.
   an existing one. To delete a wrong seed edge, add it with `"remove": true` (a
   tombstone). The checker warns when a tombstone no longer matches a seed edge,
   e.g. after upstream fixes it, so it can be cleaned up.
+- **Keep it thin.** Errors in Theographic's data are reported upstream (see
+  docs/data-audit-plan.md); an override is for what upstream won't take, or a
+  stopgap. After a re-import, the checker warns about any override field or
+  edge that now matches the seed, so it can go.
 
 Because the merge is shallow, overriding a nested object replaces the whole
 object. To change one sub-field, include the others you want to keep.

@@ -26,7 +26,7 @@ import {
   type EdgeType,
   type DateEstimate,
 } from "../src/lib/data/schema.ts"
-import { staleRemovals } from "../src/lib/data/merge.ts"
+import { redundantEdges, redundantFields, staleRemovals } from "../src/lib/data/merge.ts"
 import { enumerateFacts, factId, type MatchEvidence } from "../src/lib/evidence.ts"
 import { parseVerse } from "../src/lib/scripture.ts"
 import { loadData, readJson, readOverride, readSeed, root } from "./data.ts"
@@ -206,6 +206,18 @@ for (const k of kingdoms) {
 
 for (const e of staleRemovals(readSeed("edges.json"), readOverride("edges.json")))
   warn(`override removes ${e.from} -${e.type}-> ${e.to}, but seed has no such edge: the tombstone can go`)
+
+// Overrides that now match upstream (warning only): after a re-import, these
+// say which of our fixes Theographic has made too, so the overlay can shrink.
+for (const name of ["people.json", "places.json", "events.json", "peopleGroups.json", "books.json"])
+  for (const r of redundantFields(readSeed(name), readOverride(name)))
+    warn(
+      r.all
+        ? `overrides/${name}: ${r.id} says only what the seed says: the override can go`
+        : `overrides/${name}: ${r.id}'s ${r.fields.join(", ")} now match${r.fields.length === 1 ? "es" : ""} the seed: drop ${r.fields.length === 1 ? "it" : "them"} from the override`,
+    )
+for (const e of redundantEdges(readSeed("edges.json"), readOverride("edges.json")))
+  warn(`overrides/edges.json: ${e.from} -${e.type}-> ${e.to} is in the seed as it is: the override can go`)
 
 // --- 7. Evidence (data/evidence/) --------------------------------------------
 //
