@@ -17,6 +17,9 @@ import { parseArgs } from "node:util"
 import { Reviews, type Review } from "../src/lib/data/schema.ts"
 import { enumerateFacts, factId } from "../src/lib/evidence.ts"
 import { parseSubmission } from "../src/lib/review.ts"
+import { citedVerses } from "../src/lib/citations.ts"
+import { verse } from "../src/lib/scripture.ts"
+import { upstreamReportUrl } from "../src/lib/upstream.ts"
 import { loadData, readJson, root } from "./data.ts"
 
 const { values } = parseArgs({
@@ -35,7 +38,11 @@ if (issue !== undefined && !(Number.isInteger(issue) && issue > 0)) fail(`--issu
 const body = values["body-file"] ? readFileSync(values["body-file"], "utf8") : readFileSync(0, "utf8")
 
 const data = loadData()
-const current = new Map(enumerateFacts(data).map((f) => [f.id, f.key]))
+const facts = enumerateFacts(data)
+const current = new Map(facts.map((f) => [f.id, f.key]))
+const factOf = new Map(facts.map((f) => [f.key, f]))
+const records = new Map<string, any>([...data.people, ...data.places, ...data.events, ...data.peopleGroups].map((r) => [r.id, r]))
+const reports: string[] = []
 const reviews = Reviews.parse(readJson("data/reviews.json"))
 
 const { reviews: submitted, errors } = parseSubmission(body)
@@ -49,8 +56,18 @@ for (const { key, verdict, note } of submitted) {
   }
   // One verdict per fact: an earlier one on an older hash of it goes too.
   for (const old of Object.keys(reviews)) if (factId(old) === factId(key)) delete reviews[old]
-  const review: Review = { verdict, by, on, ...(issue ? { issue } : {}), ...(note ? { note } : {}) }
+  // The verses the note cites ("Hezron is his father, 1 Chr 2:18") are the
+  // editor's own support for the verdict, shown in place of the AI's.
+  const refs = note ? citedVerses(note, data.books) : []
+  const review: Review = { verdict, by, on, ...(issue ? { issue } : {}), ...(note ? { note } : {}), ...(refs.length ? { refs } : {}) }
   reviews[key] = review
+  if (verdict === "wrong") {
+    const f = factOf.get(key)!
+    const r = records.get(f.records[0])
+    const year = (f.kind === "birth" ? r?.birth : f.kind === "death" ? r?.death : r?.date)?.earliest
+    const url = upstreamReportUrl({ id: f.id, kind: f.kind, records: f.records, value: year === undefined ? undefined : String(year) }, (id) => records.get(id), review, (ref) => verse(ref, data.books)?.short ?? ref)
+    reports.push(url ? `[Report \`${f.id}\` to Theographic](${url})` : `\`${f.id}\`: one of our own records, so fix it in \`data/overrides/\``)
+  }
   applied.push(`${verdict} \`${key}\`${note ? `: ${note}` : ""}`)
 }
 
@@ -67,8 +84,12 @@ console.log(
     ...(applied.length ? ["", "**Applied**", ...list(applied)] : []),
     ...(skipped.length ? ["", "**Skipped** (not a fact as the data has it now: review these again)", ...list(skipped)] : []),
     ...(errors.length ? ["", "**Unreadable lines**", ...list(errors)] : []),
-    ...(applied.some((s) => s.startsWith("wrong"))
-      ? ["", "Facts judged wrong still show until they're fixed in `data/overrides/`; `npm run check:data` lists them."]
+    ...(reports.length
+      ? [
+          "",
+          "**To report upstream.** Facts judged wrong are Theographic's to fix. Each link opens its data-correction form, filled in. Once it's sent, add `\"upstream\": \"<issue URL>\"` to the verdict in `data/reviews.json`.",
+          ...list(reports),
+        ]
       : []),
   ].join("\n"),
 )

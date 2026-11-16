@@ -8,7 +8,9 @@
 import type { Book } from "./data/schema.ts"
 import { chapterUrl, passageUrl } from "./scripture.ts"
 
-export type Segment = { text: string; url?: string }
+// A citation: the book, chapter, and verses it names (none: the whole chapter).
+export type Cite = { book: string; chapter: number; start?: number; end?: number }
+export type Segment = { text: string; url?: string; cite?: Cite }
 
 // Easton's abbreviations, and spellings it slips into, beyond each book's own
 // name and OSIS code (see bookIndex). Keys are lowercased, without the period.
@@ -60,22 +62,22 @@ export function linkCitations(paragraphs: string[], books: Book[]): Segment[][] 
   return paragraphs.map((text) => {
     const out: Segment[] = []
     let at = 0
-    const emit = (from: number, to: number, url?: string) => {
+    const emit = (from: number, to: number, link?: { url: string; cite: Cite }) => {
       if (from > at) out.push({ text: text.slice(at, from) })
-      out.push(url ? { text: text.slice(from, to), url } : { text: text.slice(from, to) })
+      out.push(link ? { text: text.slice(from, to), ...link } : { text: text.slice(from, to) })
       at = to
     }
     const inBook = (b: Book | undefined, chapter: number) => b && chapter >= 1 && chapter <= b.chapterCount
     const verses = (b: Book, chapter: number, start: number, end?: string) => {
       const last = end ? Math.max(start, Number(end)) : start
-      return passageUrl(b, { chapter, start, end: last, label: "" })
+      return { url: passageUrl(b, { chapter, start, end: last, label: "" }), cite: { book: b.id, chapter, start, end: last } }
     }
 
     CITE.lastIndex = 0
     for (let m = CITE.exec(text); m; m = CITE.exec(text)) {
       const [whole, name, ch, v, vEnd, bareCh, bareV, bareEnd] = m
       let chapter: number
-      let url: string
+      let link: { url: string; cite: Cite }
       let verse: boolean
       if (name !== undefined) {
         const named = index.get(key(name))
@@ -87,7 +89,7 @@ export function linkCitations(paragraphs: string[], books: Book[]): Segment[][] 
         }
         book = named
         verse = v !== undefined
-        url = verse ? verses(book, chapter, Number(v), vEnd) : chapterUrl(book, chapter)
+        link = verse ? verses(book, chapter, Number(v), vEnd) : { url: chapterUrl(book, chapter), cite: { book: book.id, chapter } }
       } else {
         chapter = Number(bareCh)
         // "the prophet Jeremiah (32:12)": a book named in the prose just before.
@@ -96,9 +98,9 @@ export function linkCitations(paragraphs: string[], books: Book[]): Segment[][] 
         if (prose && inBook(prose, chapter)) book = prose
         if (!book || !inBook(book, chapter)) continue
         verse = true
-        url = verses(book, chapter, Number(bareV), bareEnd)
+        link = verses(book, chapter, Number(bareV), bareEnd)
       }
-      emit(m.index, m.index + whole.length, url)
+      emit(m.index, m.index + whole.length, link)
 
       // ", 4, 27-30": each further run of verses links on its own.
       if (!verse) continue
@@ -112,4 +114,14 @@ export function linkCitations(paragraphs: string[], books: Book[]): Segment[][] 
     if (at < text.length) out.push({ text: text.slice(at) })
     return out
   })
+}
+
+// The verse keys ("gen.25.19") a short text cites, in order, each once: the
+// verses an editor names in a review note. A whole chapter ("Gen. 25") names
+// no verse, so it's left out.
+export function citedVerses(text: string, books: Book[]): string[] {
+  const keys = linkCitations([text], books)[0].flatMap(({ cite }) =>
+    cite?.start === undefined ? [] : Array.from({ length: cite.end! - cite.start + 1 }, (_, i) => `${cite.book}.${cite.chapter}.${cite.start! + i}`),
+  )
+  return [...new Set(keys)]
 }

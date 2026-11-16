@@ -280,16 +280,21 @@ Batch by batch, by passage.
    with only the AI layer. The site then says exactly that. Each verdict
    settles a flag one of two ways:
    - **Not an issue** (verdict "right"): the AI was wrong. Applying the
-     verdict also deletes the AI's entry from its batch file, so the page
-     shows the editor's verdict and note, not a flag with a correction
-     under it. *(To build: today the AI's note stays, shown as "The AI
-     said: …".)*
+     verdict shows the editor's note and the verses it cites in place of the
+     AI's. `audit:batch -- <name> --disputed` then gives the AI the fact
+     again with the editor's reasoning, so it corrects its own entry (or
+     says why not); until then the page shows "The AI said: …" under the
+     verdict. A settled fact is left out of later batches, so the AI can't
+     flag it again.
    - **A real issue** (verdict "wrong"): it goes to Theographic. Review mode
      gives a report ready to paste into their data-correction form (the fact,
      the verses, the note), for their data-quality ledger
-     (`data-quality/issues.yaml` upstream). The fact stays flagged until their
-     export fixes it; the data then changes, the review goes stale, and the
-     fact comes back for a fresh look. *(To build: the report.)*
+     (`data-quality/issues.yaml` upstream): "Report to Theographic" in the
+     fact's How we know, in review mode, and one per verdict in
+     `review:apply`'s summary. Once sent, the verdict's `upstream` records
+     where, and the page says "reported to Theographic". The fact stays
+     flagged until their export fixes it; the data then changes, the review
+     goes stale, and the fact comes back for a fresh look.
 3. **Fixes.** Theographic fixes errors in its own data. `data/overrides/`
    holds what upstream can't or won't take (our editorial events and
    descriptions, the era notes) and, when it's worth it, a stopgap while a

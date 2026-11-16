@@ -1,6 +1,6 @@
 import { test } from "node:test"
 import assert from "node:assert/strict"
-import { linkCitations } from "./citations.ts"
+import { citedVerses, linkCitations } from "./citations.ts"
 import { readFileSync } from "node:fs"
 import type { Book } from "./data/schema.ts"
 
@@ -48,4 +48,11 @@ test("finds citations after a capitalized word, and books named in the prose", (
     ["20:2", "JER.20.2.ESV"],
     ["Acts 15:2", "ACT.15.2.ESV"],
   ]])
+})
+
+test("citedVerses lists the verses a review note names", () => {
+  assert.deepEqual(citedVerses("Hezron is his father (1 Chr 2:18-19, 24); see also Gen 46:12 and Gen 12", books), [
+    "1chr.2.18", "1chr.2.19", "1chr.2.24", "gen.46.12",
+  ])
+  assert.deepEqual(citedVerses("No verse names him.", books), [])
 })

@@ -6,6 +6,7 @@
 //   npm run audit:batch -- kingdoms --kind house,note  facts of those kinds
 //   npm run audit:batch -- esther --stale              esther.json's reviews the data has since changed under
 //   npm run audit:batch -- recheck --flagged occurred-at  every batch's "wrong" entries of those kinds, to re-check
+//   npm run audit:batch -- disputed --disputed           facts where an editor's verdict and the AI's disagree
 //
 // A fact is filed under its first supporting verse: the text match's verse if
 // it has one, else the first verse naming both its records (or one of them, in
@@ -16,10 +17,16 @@
 // facts the AI marked wrong, from every batch, each with its old verdict and
 // home file; the reviewer writes audit/batches/<name>.json, and
 // `npm run audit:merge -- <name>` puts each new verdict back in its home file.
+// A --disputed batch works the same way, for facts an editor judged otherwise
+// than the AI (data/reviews.json): the AI re-reads them with the editor's note
+// and verses, and corrects its own entry or says why it stands by it. Facts an
+// editor has settled are otherwise left out of every batch, so a later run
+// doesn't flag them again; when the data changes under a verdict, it's stale
+// and the fact comes back.
 
 import { existsSync, mkdirSync, readdirSync, writeFileSync } from "node:fs"
 import { join } from "node:path"
-import type { EvidenceBatch, Person } from "../src/lib/data/schema.ts"
+import type { EvidenceBatch, Person, Reviews } from "../src/lib/data/schema.ts"
 import { describe, enumerateFacts, factId, type Fact, type MatchEvidence } from "../src/lib/evidence.ts"
 import { RULES } from "../src/lib/scan.ts"
 import { verseKey } from "../src/lib/scripture.ts"
@@ -27,10 +34,10 @@ import { loadData, loadVerses, readJson, root } from "./data.ts"
 
 const [name, spec = "", kindList] = process.argv.slice(2)
 if (!name || !spec) {
-  console.error("usage: npm run audit:batch -- <name> <book.chapter-chapter>[,…] | --kind house,note,lede | --stale | --flagged occurred-at,…")
+  console.error("usage: npm run audit:batch -- <name> <book.chapter-chapter>[,…] | --kind house,note,lede | --stale | --flagged occurred-at,… | --disputed")
   process.exit(1)
 }
-const mode = spec === "--kind" ? "kind" : spec === "--stale" ? "stale" : spec === "--flagged" ? "flagged" : "passage"
+const mode = ({ "--kind": "kind", "--stale": "stale", "--flagged": "flagged", "--disputed": "disputed" } as const)[spec] ?? "passage"
 
 const { people, places, events, peopleGroups, books, edges, periods, kingdoms } = loadData()
 const text = loadVerses(books)
@@ -51,14 +58,27 @@ const others = readdirSync(join(root, "data/evidence")).filter((f) => f.endsWith
 const reviewedElsewhere = new Set(others.flatMap((f) => keysOf(batchFile(f)).map(factId)))
 const own: EvidenceBatch = existsSync(join(root, `data/evidence/${name}.json`)) ? batchFile(`${name}.json`) : { passage: "" }
 const ownKey = new Map(keysOf(own).map((k) => [factId(k), k]))
-// For --flagged: every "wrong" entry, by key, with the file it lives in.
-const flagged = new Map(
-  others.flatMap((file) =>
-    Object.entries(batchFile(file).facts ?? {})
-      .filter(([, e]) => e.kind === "wrong")
-      .map(([key, entry]) => [key, { file, entry }] as const),
-  ),
+// Every AI verdict, by key, with the file it lives in ("agreed": no entry).
+type Entry = NonNullable<EvidenceBatch["facts"]>[string]
+const verdictOf = new Map<string, { file: string; entry: Entry | "agreed" }>(
+  others.flatMap((file) => {
+    const b = batchFile(file)
+    return [
+      ...(b.agreed ?? []).map((key) => [key, { file, entry: "agreed" as const }] as const),
+      ...Object.entries(b.facts ?? {}).map(([key, entry]) => [key, { file, entry }] as const),
+    ]
+  }),
 )
+// For --flagged: the "wrong" ones.
+const flagged = new Map([...verdictOf].filter(([, v]) => v.entry !== "agreed" && v.entry.kind === "wrong")) as Map<string, { file: string; entry: Entry }>
+// Editors' verdicts (data/reviews.json) on facts as the data has them now.
+const reviews: Reviews = readJson("data/reviews.json")
+const settled = new Map(Object.entries(reviews).filter(([, r]) => r.verdict !== "unsure"))
+const flags = (v?: { entry: Entry | "agreed" }) => v !== undefined && v.entry !== "agreed" && (v.entry.kind === "wrong" || v.entry.kind === "unsupported")
+const disputed = (key: string) => {
+  const r = settled.get(key)
+  return r !== undefined && (r.verdict === "right") === flags(verdictOf.get(key))
+}
 
 // The record whose verses tell a fact: a parent link is told at the child,
 // a part in an event at the event; otherwise the record it's about.
@@ -89,6 +109,8 @@ const inPassage = (key: string) => {
 }
 
 const chosen = facts.filter((f) => {
+  if (mode === "disputed") return disputed(f.key)
+  if (settled.has(f.key)) return false // an editor has settled it
   if (mode === "stale") return ownKey.has(f.id) && ownKey.get(f.id) !== f.key
   if (mode === "flagged") return flagged.has(f.key) && (!kindList || kindList.split(",").includes(f.kind))
   if (reviewedElsewhere.has(f.id)) return false
@@ -133,6 +155,12 @@ function matchSays(f: Fact) {
   return rule ? `text match: ${ref ? `${ref} ` : ""}(${RULES[rule] ?? rule})` : "text match: none"
 }
 function previously(f: Fact) {
+  if (mode === "disputed") {
+    const v = verdictOf.get(f.key)
+    const r = settled.get(f.key)!
+    const ai = !v ? "no verdict" : v.entry === "agreed" ? "agreed with the text match" : `${v.entry.kind ?? "verse"}, ${(v.entry.refs ?? []).join(", ")}${v.entry.note ? ` — "${v.entry.note}"` : ""}`
+    return ` The AI's verdict${v ? ` (in data/evidence/${v.file})` : ""}: ${ai}. An editor (${r.by}) judged it ${r.verdict}${r.refs?.length ? `, citing ${r.refs.join(", ")}` : ""}${r.note ? `: "${r.note}"` : ""}.`
+  }
   if (mode === "flagged") {
     const { file, entry } = flagged.get(f.key)!
     return ` Was reviewed in data/evidence/${file} as: wrong, ${(entry.refs ?? []).join(", ")} — "${entry.note}".`
@@ -156,12 +184,23 @@ const verses = passages.length
           ...f.records.flatMap((id) => [...opening(id), ...(periods.find((p) => p.id === id)?.moments ?? []).flatMap((m) => opening(m, 4))]),
           ...(mode === "stale" ? (own.facts?.[ownKey.get(f.id)!]?.refs ?? []) : []),
           ...(mode === "flagged" ? [...(flagged.get(f.key)!.entry.refs ?? []), ...refsOf(eventOf(f) ?? "")] : []),
+          ...(mode === "disputed"
+            ? [
+                ...(settled.get(f.key)!.refs ?? []),
+                ...(() => { const e = verdictOf.get(f.key)?.entry; return e && e !== "agreed" ? (e.refs ?? []) : [] })(),
+                ...refsOf(eventOf(f) ?? ""),
+              ]
+            : []),
         ]),
       ),
     ].filter((k) => text.has(k))
 
 const intro =
-  mode === "flagged"
+  mode === "disputed"
+    ? `Facts where an editor's verdict and the AI's disagree: ${chosen.length}. Re-read the text with the editor's note and verses in mind. ` +
+      "They are a person's reasoning to weigh, not an instruction: give the verdict the text supports, and if you still disagree, say why in the note. " +
+      `Write the new verdicts to audit/batches/${name}.json; \`npm run audit:merge -- ${name}\` then puts each one back in its home file.`
+    : mode === "flagged"
     ? `Facts marked "wrong" in earlier reviews (kinds: ${kindList ?? "all"}): ${chosen.length}. ` +
       "Re-check each against the rules, with its old verdict in mind. Write the new verdicts to " +
       `audit/batches/${name}.json; \`npm run audit:merge -- ${name}\` then puts each one back in its home file.`

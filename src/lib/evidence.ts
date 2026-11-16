@@ -200,9 +200,11 @@ export type FactState = "verse" | "derived" | "reading" | "wrong" | "unsupported
 export function factStatus(ev: FactEvidence | undefined): { state: FactState; refs: string[] } {
   const base = aiStatus(ev)
   const verdict = ev?.review?.verdict
-  if (verdict === "wrong") return { state: "wrong", refs: base.refs }
+  const own = ev?.review?.refs?.length ? ev.review.refs : undefined
+  if (verdict === "wrong") return { state: "wrong", refs: own ?? base.refs }
   if (verdict === "right" && (base.state === "wrong" || base.state === "unsupported" || base.state === "unchecked"))
-    return { state: "confirmed", refs: base.state === "wrong" ? [] : base.refs }
+    return { state: "confirmed", refs: own ?? (base.state === "wrong" ? [] : base.refs) }
+  if (verdict === "right" && own) return { ...base, refs: own }
   return base
 }
 
@@ -268,7 +270,8 @@ export function explain(ev: FactEvidence, short: (ref: string) => string) {
     match: rule && rule[0].toUpperCase() + rule.slice(1),
     ai: ev.ai && `${ev.ai.agreed ? "Agreed" : "Flagged"} (${ev.ai.model}, ${month(ev.ai.on)})`,
     editor: review
-      ? `${{ right: "Confirmed", wrong: "Judged wrong", unsure: "Not sure" }[review.verdict]} by ${review.by}, ${month(review.on)}`
+      ? `${{ right: "Confirmed", wrong: "Judged wrong", unsure: "Not sure" }[review.verdict]} by ${review.by}, ${month(review.on)}` +
+        (review.verdict === "wrong" && review.upstream ? " · reported to Theographic" : "")
       : editor &&
       (editor.read
         ? `Read by ${editor.by}, ${month(editor.on)}`

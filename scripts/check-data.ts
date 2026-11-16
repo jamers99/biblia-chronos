@@ -290,13 +290,14 @@ for (const file of batchFiles.sort()) {
 }
 
 // Editors' verdicts (data/reviews.json, from review mode): stale or gone like
-// any review. A "wrong" verdict is a fix waiting to be made in the overrides.
+// any review. A "wrong" verdict is a report waiting to go to Theographic.
 const reviews = Reviews.safeParse(readJson("data/reviews.json"))
 if (!reviews.success) for (const issue of reviews.error.issues.slice(0, 5)) err(`reviews.json ${issue.path.join(".")}: ${issue.message}`)
 else
   for (const [key, review] of Object.entries(reviews.data)) {
     if (!factKeys.has(key)) warn(`reviews.json: ${key} — ${staleOrGone(key)}`)
-    else if (review.verdict === "wrong") warn(`reviews.json: ${key} was judged wrong by ${review.by}${review.issue ? ` (#${review.issue})` : ""}; fix it in data/overrides/`)
+    else if (review.verdict === "wrong" && !review.upstream)
+      warn(`reviews.json: ${key} was judged wrong by ${review.by}${review.issue ? ` (#${review.issue})` : ""}; report it to Theographic (review mode's "Report to Theographic") and set "upstream"`)
   }
 
 // --- 8. Orphans (warning only) ----------------------------------------------
