@@ -65,7 +65,9 @@ function slugify(s: string): string {
 function stripMarkup(value: unknown): string | undefined {
   const parts = Array.isArray(value) ? value : value == null ? [] : [value]
   const text = parts
-    .map((p) => String(p))
+    // A handful of upstream entries carry a spreadsheet formula-escape prefix
+    // ("'=Saul (q.v.) was born…"); drop it.
+    .map((p) => String(p).replace(/^'=\s*/, ""))
     .join("\n\n")
     .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1") // [text](url) -> text
     .replace(/[ \t]+/g, " ")
