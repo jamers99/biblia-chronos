@@ -19,7 +19,7 @@ The eras run from Creation to the Flood, the Flood and the nations, the patriarc
 
 ## Dates
 
-This site is a study aid, not an authority: check Scripture and published scholarship before citing it. Dates follow a single traditional chronology (close to Ussher's) from the Theographic dataset, and are shown as the source gives them. Before Abraham they come from the ages in Genesis 5 and 11, which other textual traditions give differently. Showing scholarly alternatives side by side, each with its citation, is planned. Ideas and requests are welcome: [open an issue](https://github.com/jamers99/biblia-chronos/issues).
+This site is a study aid, not an authority: check Scripture and published scholarship before citing it. Dates come from the Theographic dataset, which follows Floyd Nolen Jones's chronology (built on Ussher's, with Acts timelines from Todd Atwood), and are shown as the source gives them. Before Abraham they come from the ages in Genesis 5 and 11, which other textual traditions give differently. Showing scholarly alternatives side by side, each with its citation, is planned. Ideas and requests are welcome: [open an issue](https://github.com/jamers99/biblia-chronos/issues).
 
 ## Data & sources
 
