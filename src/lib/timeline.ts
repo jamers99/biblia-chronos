@@ -3,7 +3,7 @@
 // props; lanes are packed on every zoom, in pixels.
 
 import type { Event, Period, Person } from "./data/schema.ts"
-import { personSpan, spanOf, periodsOverlapping, type Span } from "./chronology.ts"
+import { personSpan, spanOf, periodsOverlapping, TIMELESS, type Span } from "./chronology.ts"
 import { formatEstimate, label, summarize } from "./format.ts"
 
 export type TimelineItem = {
@@ -37,10 +37,6 @@ export function timelinePeriods(periods: Period[]): TimelinePeriod[] {
     summary: summarize(p.description),
   }))
 }
-
-// God and the Holy Spirit have pages and events, but no place on a line of
-// lifespans: placed by their dated events, they'd show as a dot at AD 30.
-const TIMELESS = new Set(["god_1324", "holy_spirit_7400"])
 
 // Everything dated within the periods' range, heaviest first (the order lanes
 // are packed in). "Lifetime of X" events are left out: they'd duplicate X's

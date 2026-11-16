@@ -238,6 +238,49 @@ a:hover {
 }
 
 /* Floating chrome over the full-screen views (the timeline and the map) */
+/* Suggestions under a search box (lib/combobox.ts); the box places the list. */
+.suggestions {
+  z-index: 5;
+  overflow-y: auto;
+  list-style: none;
+  margin: 0;
+  padding: 0.3rem;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgb(40 30 15 / 0.15);
+}
+.suggestions li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.45rem 0.65rem;
+  border-radius: 7px;
+  font-size: 0.88rem;
+  color: var(--ink);
+  cursor: pointer;
+}
+.suggestions li[aria-selected="true"] {
+  background: var(--wash);
+}
+.suggestions li.draft .name {
+  color: var(--ink-2);
+}
+.suggestions small {
+  flex: none;
+  max-width: 55%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--ink-3);
+  font-size: 0.75rem;
+}
+.suggestions .empty {
+  color: var(--ink-3);
+  cursor: default;
+}
+
 .tooltip {
   position: absolute;
   pointer-events: none;

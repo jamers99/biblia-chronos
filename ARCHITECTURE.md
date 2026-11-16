@@ -37,7 +37,7 @@ So there's no database in the browser. Shipping SQLite to the client would mean 
 
 ### Exploring connections
 
-"How do these people, places, and events connect?" is a graph question, and graphs are easy to handle in memory at this size. Each record has a stable id, and relationships are edges like `{ from, to, type }`, where type is something like `parent-of`, `reigned-over`, or `traveled-to`. At runtime we build an index once and walk the graph for things like a person's ancestors, everyone alive in a given period, or the path between two people. The [graphology](https://graphology.github.io/) library gives us traversal and shortest-path for free if we want them. So far a plain adjacency index (`src/lib/data/graph.ts`) has been enough.
+"How do these people, places, and events connect?" is a graph question, and graphs are easy to handle in memory at this size. Each record has a stable id, and relationships are edges like `{ from, to, type }`, where type is something like `parent-of`, `reigned-over`, or `traveled-to`. At runtime we build an index once and walk the graph for things like a person's ancestors, everyone alive in a given period, or the path between two people. The [graphology](https://graphology.github.io/) library gives us traversal and shortest-path for free if we want them. So far a plain adjacency index (`src/lib/data/graph.ts`) has been enough. The Connections page finds the path between any two records in the browser: the links ship as one small file (`/connections.json`, about 55 KB gzipped, each id written once) and a weighted shortest-path search (`src/lib/connections.ts`) walks them. It's weighted because the plain shortest path cheats, running nearly everything through a hub like Jerusalem or the Genealogy of Jesus: family links are cheap, passing through a busy record costs more, and groups, regions, God, and the Holy Spirit are a last resort. Places are timeless, so stepping through one also costs about a step for every generation between the dated records on either side: Abraham at Hebron doesn't lead straight to David at Hebron.
 
 If the integrity checks ever outgrow simple scripts, SQLite is a fine tool to run them at build time. It just never ships to the browser.
 
@@ -83,6 +83,7 @@ Concretely: on a desktop everything should feel smooth and immediate, with no vi
 | Site bar, menu, and settings (theme, draft records, review mode) | `src/layouts/Page.astro` |
 | Review mode: verdict buttons, the submit bar, the issue link | `src/components/ReviewMode.astro`, `src/lib/review.ts` |
 | The review queue: filters, groups, most severe first | `src/pages/review/`, `src/components/ReviewQueue.svelte`, `src/lib/review-filter.ts`, `src/lib/data/review-queue.ts` |
+| Connections: links bundle + weighted path search / `/connections.json` / page | `src/lib/connections.ts` / `src/pages/connections.json.ts` / `src/pages/connections/` |
 | Site search: index + ranking / `/search.json` / box | `src/lib/search.ts` / `src/pages/search.json.ts` / `src/components/SiteSearch.astro` |
 | Views remember where you were (on this device), and the app reopens on the last one | `src/lib/remember.ts`, `src/layouts/Page.astro` |
 | Hand-authored eras | `data/overrides/periods.json` |

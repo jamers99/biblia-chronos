@@ -17,5 +17,8 @@ export function createGraph(edges: Edge[]) {
     ...new Set([...outgoing(id, type), ...incoming(id, type)]),
   ]
 
-  return { outgoing, incoming, either }
+  // Whether a record has any link at all.
+  const has = (id: string) => out.has(id) || inc.has(id)
+
+  return { outgoing, incoming, either, has }
 }
