@@ -5,7 +5,8 @@
     "author": "Robert Rouse",
     "url": "https://github.com/robertrouse/theographic-bible-metadata/tree/3d8aa2ef3033dcfddc51019e872d4836ec0524e9/json",
     "license": "CC-BY-SA-4.0",
-    "kind": "dataset"
+    "kind": "dataset",
+    "notes": "Dates follow Floyd Nolen Jones, The Chronology of the Old Testament (Master Books); Acts events follow Todd Atwood's timelines."
   },
   {
     "id": "eastons",

@@ -58,7 +58,7 @@ The import does roughly this:
 - Normalizes the rest: dates from strings like `"-1573"` into numbers and date ranges, and dropping Airtable bookkeeping.
 - Validates the output with Zod so a bad re-sync fails the build instead of reaching the browser.
 
-Two things to plan around. Their dates follow a single chronology with no per-record citations, so the import points everything at one `theographic` source key by default, and we override individual records later when we want to cite a specific scholar or show an alternative date. And a couple of our entities aren't first-class in their data: periods may need to be derived (or pulled from their CSV folder), and kingdoms/empires we model ourselves as a layer over places, periods, and events.
+Two things to plan around. Their dates follow a single chronology (Floyd Nolen Jones's, with Todd Atwood's timelines for Acts) with no per-record citations, so the import points everything at one `theographic` source key by default, and we override individual records later when we want to cite a specific scholar or show an alternative date. And a couple of our entities aren't first-class in their data: periods may need to be derived (or pulled from their CSV folder), and kingdoms/empires we model ourselves as a layer over places, periods, and events.
 
 Because the data is CC-BY-SA, we attribute it in the `data/` directory and in the app's credits, and re-sync deliberately by re-running the importer and reviewing the diff.
 
