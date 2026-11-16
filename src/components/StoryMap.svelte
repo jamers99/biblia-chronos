@@ -34,7 +34,7 @@
   }: { places: MapPlace[]; chapters: Chapter[]; basemap: string; mapWidth: number; mapHeight: number; home: Box } =
     $props()
 
-  const NUMERALS = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"]
+  const NUMERALS = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV"]
   const MAX_LABELS = 60
   const RADIUS = [5.5, 3, 1.8] // by tier
   // The basemap's edges fade into the water, and the view can pan this far
@@ -60,6 +60,10 @@
   // (see .reveal in global.css). Marks wait for it too.
   let ready = $state(false)
   let root: HTMLDivElement
+  // The chapter picker: tapping the chapter's title lists every chapter, to
+  // jump straight to one (on phones the rail is hidden, so this is the way
+  // to get about without stepping through them one by one).
+  let picker: HTMLDialogElement
 
   const byId = $derived(new Map(places.map((p) => [p.id, p])))
   const chapter = $derived<Chapter | undefined>(chapters[at])
@@ -252,9 +256,14 @@
     return best
   }
 
+  function openPicker() {
+    picker.showModal()
+    picker.querySelector(".cur")?.scrollIntoView({ block: "center" })
+  }
+
   function onKey(e: KeyboardEvent) {
     const target = e.target as Element
-    if (target instanceof HTMLInputElement) return
+    if (target instanceof HTMLInputElement || picker?.open) return
     if (e.key === "ArrowRight" || e.key === "PageDown") go(at + 1)
     else if (e.key === "ArrowLeft" || e.key === "PageUp") go(at - 1)
     else if (e.key === "+" || e.key === "=") zoomBy(1.5)
@@ -367,9 +376,14 @@
   <section class="panel" aria-live="polite">
     {#key at}
       <div class="chapter veiled" in:fly={{ y: 10, duration: ms(350), delay: ms(150) }}>
+        <p class="kicker">{chapter ? `Chapter ${NUMERALS[at]} · ${chapter.when}` : "The story on a map"}</p>
+        <h2>
+          <button type="button" class="title" aria-haspopup="dialog" onclick={openPicker}>
+            {chapter?.name ?? "Places of Scripture"}<span class="caret" aria-hidden="true"></span>
+            <span class="sr-only">: choose a chapter</span>
+          </button>
+        </h2>
         {#if chapter}
-          <p class="kicker">Chapter {NUMERALS[at]} · {chapter.when}</p>
-          <h2>{chapter.name}</h2>
           {#if chapter.lede}<p class="lede">{chapter.lede}</p>{/if}
 
           {#if chapter.moments.length}
@@ -400,8 +414,6 @@
             {#if journey}<span class="swatch dash"></span>{journey.name}{/if}
           </p>
         {:else}
-          <p class="kicker">The story on a map</p>
-          <h2>Places of Scripture</h2>
           <p class="lede">
             {places.length.toLocaleString()} places with known locations, from Ur to Rome. Follow the story era by era, or
             explore: scroll to zoom, drag to move, and click any place.
@@ -424,6 +436,37 @@
       {/if}
     </div>
   </section>
+
+  <!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_noninteractive_element_interactions -->
+  <dialog
+    class="picker"
+    bind:this={picker}
+    aria-label="Chapters"
+    onclick={(e) => e.target === picker && picker.close()}
+  >
+    <div class="picker-head">
+      <span class="kicker">Chapters</span>
+      <button type="button" class="icon-button" aria-label="Close" onclick={() => picker.close()}>×</button>
+    </div>
+    <ol>
+      <li>
+        <button type="button" class:cur={at === -1} onclick={() => (picker.close(), go(-1))}>
+          <span class="num"></span>
+          <span class="name">All places</span>
+          <span class="dates">Overview</span>
+        </button>
+      </li>
+      {#each chapters as c, i (c.id)}
+        <li>
+          <button type="button" class:cur={i === at} aria-current={i === at} onclick={() => (picker.close(), go(i))}>
+            <span class="num">{NUMERALS[i]}</span>
+            <span class="name">{c.name}</span>
+            <span class="dates">{c.when}</span>
+          </button>
+        </li>
+      {/each}
+    </ol>
+  </dialog>
 
   <div class="zoom-buttons" role="group" aria-label="Zoom">
     <button type="button" class="icon-button" onclick={() => zoomBy(1 / 1.5)} aria-label="Zoom out">−</button>
@@ -541,10 +584,117 @@
     text-transform: uppercase;
     color: var(--gold);
   }
+  .title {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    text-align: left;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+  }
   h2 {
     margin: 0.6rem 0 0;
     font: 600 3.2rem/1.02 var(--serif);
     color: var(--ink);
+  }
+  /* a small chevron after the title's last word, saying it opens a list */
+  .caret {
+    display: inline-block;
+    width: 0.32em;
+    height: 0.32em;
+    margin: 0 0 0.16em 0.3em;
+    border: solid var(--ink-3);
+    border-width: 0 0.07em 0.07em 0;
+    transform: rotate(45deg);
+    vertical-align: middle;
+    transition: border-color 0.15s;
+  }
+  .title:hover .caret,
+  .title:focus-visible .caret {
+    border-color: var(--gold);
+  }
+
+  /* --- The chapter picker --- */
+  .picker {
+    position: fixed;
+    inset: 6rem auto auto 8rem;
+    width: min(26rem, calc(100vw - 2rem));
+    max-height: calc(100vh - 8rem);
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    background: var(--paper);
+    color: var(--ink);
+    box-shadow: 0 12px 40px rgb(40 30 15 / 0.18);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .picker[open] {
+    animation: picker-in 0.18s ease-out;
+  }
+  @keyframes picker-in {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+  }
+  .picker::backdrop {
+    background: rgb(20 15 8 / 0.25);
+  }
+  .picker-head {
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 0.75rem 0.5rem 1.25rem;
+    background: var(--paper);
+  }
+  .picker ol {
+    list-style: none;
+    margin: 0;
+    padding: 0 0.5rem 0.75rem;
+  }
+  .picker li button {
+    display: grid;
+    grid-template-columns: 2.25rem 1fr auto;
+    align-items: baseline;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.7rem 0.75rem;
+    border: 0;
+    border-radius: 8px;
+    background: none;
+    color: var(--ink);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+  .picker li button:hover,
+  .picker li button:focus-visible {
+    background: var(--surface);
+  }
+  .picker .num {
+    font: 600 0.72rem var(--sans);
+    letter-spacing: 0.1em;
+    color: var(--gold);
+  }
+  .picker .name {
+    font: 600 1.05rem/1.25 var(--serif);
+  }
+  .picker .dates {
+    font-size: 0.78rem;
+    color: var(--ink-3);
+    white-space: nowrap;
+  }
+  .picker button.cur {
+    background: color-mix(in srgb, var(--gold) 14%, transparent);
+  }
+  .picker button.cur .name {
+    color: var(--gold);
   }
   .lede {
     margin: 1.25rem 0 1.5rem;
@@ -767,6 +917,24 @@
     }
     h2 {
       font-size: 2rem;
+    }
+    /* a sheet up from the bottom, in easy reach of a thumb */
+    .picker {
+      inset: auto 0 0;
+      width: 100%;
+      max-width: none;
+      max-height: 75vh;
+      border-radius: 16px 16px 0 0;
+      border-width: 1px 0 0;
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    .picker[open] {
+      animation-name: sheet-in;
+    }
+    @keyframes sheet-in {
+      from {
+        transform: translateY(100%);
+      }
     }
     .lede {
       font-size: 1rem;
