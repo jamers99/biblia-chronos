@@ -3,9 +3,9 @@ import assert from "node:assert/strict"
 import { collectEvidence, edgeFact, enumerateFacts, explain, factStatus, hash, tally } from "./evidence.ts"
 import type { Edge, Event, Kingdom, Person } from "./data/schema.ts"
 
-const person = (id: string): Person => ({ id, name: id, kind: "person", status: "published", source: "t" })
+const person = (id: string): Person => ({ id, name: id, kind: "person", source: "t" })
 const edge = (type: Edge["type"], from: string, to: string): Edge => ({ type, from, to, source: "t" })
-const ev: Event = { id: "e", name: "E", kind: "event", status: "published", source: "t", date: { earliest: -478, latest: -478 } }
+const ev: Event = { id: "e", name: "E", kind: "event", source: "t", date: { earliest: -478, latest: -478 } }
 const kingdom: Kingdom = { id: "k", name: "K", source: "t", event: "e", reigns: [{ event: "e", house: "House of K", note: "Rival" }] }
 
 const data = {

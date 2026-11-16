@@ -61,7 +61,6 @@ import Page from "../../layouts/Page.astro"
   names.then((records) => {
     byId = new Map(records.map((e) => [e.id, e]))
     const index = prepare(records)
-    const showDrafts = () => document.documentElement.dataset.drafts !== "hidden"
     const params = new URLSearchParams(location.search)
 
     for (const el of document.querySelectorAll<HTMLElement>(".end")) {
@@ -72,7 +71,7 @@ import Page from "../../layouts/Page.astro"
         if (entry) input.value = entry.name
       }
       combobox(input, el.querySelector("ul")!, {
-        find: (query) => search(index, query, 8, (e) => showDrafts() || !e.draft),
+        find: (query) => search(index, query, 8),
         pick: (entry) => (choose(entry), show()),
       })
       // Typing again lets go of the choice.

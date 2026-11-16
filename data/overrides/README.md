@@ -36,10 +36,17 @@ to be listed twice, and a `place` to be a known place.
 - **Entities** are matched by `id`. A matching override's fields are overlaid
   onto the seed record (shallow, per top-level field), so you can correct just
   one field. An override with a new `id` adds a whole new record.
+  When an override gives a seed record a description of our own, set
+  `"descriptionSource": "editorial"` (any key in `data/sources.json`), so
+  the Sources section credits it rather than Easton's.
 - **Edges** are matched by `from|to|type`. An override adds a new edge or corrects
   an existing one. To delete a wrong seed edge, add it with `"remove": true` (a
   tombstone). The checker warns when a tombstone no longer matches a seed edge,
   e.g. after upstream fixes it, so it can be cleaned up.
+- **Keep it thin.** Errors in Theographic's data are reported upstream (see
+  docs/data-audit-plan.md); an override is for what upstream won't take, or a
+  stopgap. After a re-import, the checker warns about any override field or
+  edge that now matches the seed, so it can go.
 
 Because the merge is shallow, overriding a nested object replaces the whole
 object. To change one sub-field, include the others you want to keep.

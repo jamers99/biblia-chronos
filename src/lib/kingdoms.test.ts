@@ -4,7 +4,7 @@ import { dynasties, kingdomTrack, placeLabels, reignContext, reignNote, LONE } f
 import type { Event, Kingdom } from "./data/schema.ts"
 
 const event = (id: string, name: string, earliest: number, latest: number): Event => ({
-  id, name, kind: "event", status: "published", source: "t", date: { earliest, latest },
+  id, name, kind: "event", source: "t", date: { earliest, latest },
 })
 const events = [
   event("united", "United Kingdom", -1094, -974),

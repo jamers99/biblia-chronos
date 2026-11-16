@@ -5,15 +5,15 @@ import { timelineItems } from "./timeline.ts"
 import type { Event, Period, Person } from "./data/schema.ts"
 
 const era = (id: string, earliest: number, latest: number, extra: Partial<Period> = {}): Period => ({
-  id, name: id, kind: "period", source: "t", status: "published", date: { earliest, latest }, ...extra,
+  id, name: id, kind: "period", source: "t", date: { earliest, latest }, ...extra,
 })
 const event = (id: string, earliest?: number, refs = 1): Event => ({
-  id, name: id, kind: "event", status: "published", source: "t",
+  id, name: id, kind: "event", source: "t",
   ...(earliest === undefined ? {} : { date: { earliest, latest: earliest } }),
   scriptureRefs: Array(refs).fill({ book: "gen", chapter: 1, verse: 1 }),
 })
 const person = (id: string, birth: number, death: number): Person => ({
-  id, name: id, kind: "person", status: "published", source: "t",
+  id, name: id, kind: "person", source: "t",
   birth: { earliest: birth, latest: birth }, death: { earliest: death, latest: death },
 })
 

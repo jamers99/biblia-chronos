@@ -8,7 +8,7 @@
 // Errors block the build (structural problems we own). Warnings are reported
 // but don't block (data-quality smells, often inherited from upstream).
 
-import { existsSync, readdirSync } from "node:fs"
+import { existsSync } from "node:fs"
 import { join } from "node:path"
 import { z, ZodError } from "zod"
 import {
@@ -26,10 +26,12 @@ import {
   type EdgeType,
   type DateEstimate,
 } from "../src/lib/data/schema.ts"
-import { staleRemovals } from "../src/lib/data/merge.ts"
-import { enumerateFacts, factId, type MatchEvidence } from "../src/lib/evidence.ts"
+import { redundantEdges, redundantFields, staleRemovals } from "../src/lib/data/merge.ts"
+import { enumerateFacts, factId, isFlag, type MatchEvidence } from "../src/lib/evidence.ts"
 import { parseVerse } from "../src/lib/scripture.ts"
-import { loadData, readJson, readOverride, readSeed, root } from "./data.ts"
+import { isUpstream } from "../src/lib/upstream.ts"
+import type { Entity } from "../src/lib/data/load.ts"
+import { batchFiles, loadData, readJson, readOverride, readSeed, root } from "./data.ts"
 
 const errors: string[] = []
 const warnings: string[] = []
@@ -90,8 +92,10 @@ const bookIds = new Set(books.map((b) => b.id))
 
 const allEntities = [...people, ...places, ...events, ...peopleGroups]
 const allRecords = [...allEntities, ...periods] // periods have no edges by design
-for (const e of allRecords)
+for (const e of allRecords) {
   if (!sourceIds.has(e.source)) err(`entity "${e.id}" references unknown source "${e.source}"`)
+  if (e.descriptionSource && !sourceIds.has(e.descriptionSource)) err(`entity "${e.id}" names unknown description source "${e.descriptionSource}"`)
+}
 for (const e of edges)
   if (!sourceIds.has(e.source)) err(`edge ${e.from}->${e.to} references unknown source "${e.source}"`)
 
@@ -204,6 +208,18 @@ for (const k of kingdoms) {
 for (const e of staleRemovals(readSeed("edges.json"), readOverride("edges.json")))
   warn(`override removes ${e.from} -${e.type}-> ${e.to}, but seed has no such edge: the tombstone can go`)
 
+// Overrides that now match upstream (warning only): after a re-import, these
+// say which of our fixes Theographic has made too, so the overlay can shrink.
+for (const name of ["people.json", "places.json", "events.json", "peopleGroups.json", "books.json"])
+  for (const r of redundantFields(readSeed(name), readOverride(name)))
+    warn(
+      r.all
+        ? `overrides/${name}: ${r.id} says only what the seed says: the override can go`
+        : `overrides/${name}: ${r.id}'s ${r.fields.join(", ")} now match${r.fields.length === 1 ? "es" : ""} the seed: drop ${r.fields.length === 1 ? "it" : "them"} from the override`,
+    )
+for (const e of redundantEdges(readSeed("edges.json"), readOverride("edges.json")))
+  warn(`overrides/edges.json: ${e.from} -${e.type}-> ${e.to} is in the seed as it is: the override can go`)
+
 // --- 7. Evidence (data/evidence/) --------------------------------------------
 //
 // Every review is keyed `id@hash`. A key whose id is gone, or whose hash no
@@ -215,6 +231,8 @@ for (const e of staleRemovals(readSeed("edges.json"), readOverride("edges.json")
 const evidenceDir = join(root, "data", "evidence")
 const evidence = (file: string) => readJson(`data/evidence/${file}`)
 const facts = enumerateFacts({ people, places, events, edges, periods, kingdoms })
+const factOfKey = new Map(facts.map((f) => [f.key, f]))
+const entityById = new Map<string, Entity>(allEntities.map((e) => [e.id, e]))
 const factKeys = new Set(facts.map((f) => f.key))
 const keyOfId = new Map(facts.map((f) => [f.id, f.key]))
 const bookChapters = new Map(books.map((b) => [b.id, b.chapterCount]))
@@ -244,9 +262,8 @@ if (existsSync(join(evidenceDir, "matches.json"))) {
   for (const [key, found] of Object.entries(matches.facts)) if (found[0]) checkVerse(`matches.json ${key}`, found[0])
 } else warn("data/evidence/matches.json is missing: run `npm run audit:scan`")
 
-const batchFiles = existsSync(evidenceDir) ? readdirSync(evidenceDir).filter((f) => f.endsWith(".json") && f !== "matches.json") : []
 const reviewedIn = new Map<string, string>()
-for (const file of batchFiles.sort()) {
+for (const file of batchFiles()) {
   const where = `evidence/${file}`
   const parsed = EvidenceBatch.safeParse(evidence(file))
   if (!parsed.success) {
@@ -266,7 +283,7 @@ for (const file of batchFiles.sort()) {
     if ((entry.kind === undefined || entry.kind === "verse" || entry.kind === "reading") && !entry.refs?.length && !entry.sources?.length)
       err(`${where}: ${key} has no verse or source; a "${entry.kind ?? "verse"}" entry needs one`)
     if (entry.kind === "reading" && !entry.note) err(`${where}: ${key} is a reading, so it needs a note saying which and why`)
-    const flagged = entry.kind === "wrong" || entry.kind === "unsupported"
+    const flagged = isFlag(entry)
     if (flagged && !entry.severity) err(`${where}: ${key} is "${entry.kind}", so it needs a severity (high, medium, or low)`)
     if (!flagged && entry.severity) err(`${where}: ${key} has a severity, but only "wrong" and "unsupported" entries take one`)
     for (const ref of entry.refs ?? []) checkVerse(`${where} ${key}`, ref)
@@ -275,13 +292,22 @@ for (const file of batchFiles.sort()) {
 }
 
 // Editors' verdicts (data/reviews.json, from review mode): stale or gone like
-// any review. A "wrong" verdict is a fix waiting to be made in the overrides.
+// any review. A "wrong" verdict is a report waiting to go to Theographic, or,
+// on one of our own records, a fix waiting to be made in the overrides.
 const reviews = Reviews.safeParse(readJson("data/reviews.json"))
 if (!reviews.success) for (const issue of reviews.error.issues.slice(0, 5)) err(`reviews.json ${issue.path.join(".")}: ${issue.message}`)
 else
   for (const [key, review] of Object.entries(reviews.data)) {
+    for (const ref of review.refs ?? []) checkVerse(`reviews.json ${key}`, ref)
     if (!factKeys.has(key)) warn(`reviews.json: ${key} — ${staleOrGone(key)}`)
-    else if (review.verdict === "wrong") warn(`reviews.json: ${key} was judged wrong by ${review.by}${review.issue ? ` (#${review.issue})` : ""}; fix it in data/overrides/`)
+    else if (review.verdict === "wrong" && !review.upstream) {
+      const by = `${review.by}${review.issue ? ` (#${review.issue})` : ""}`
+      warn(
+        isUpstream(factOfKey.get(key)!, (id) => entityById.get(id))
+          ? `reviews.json: ${key} was judged wrong by ${by}; report it to Theographic (review mode's "Report to Theographic") and set "upstream"`
+          : `reviews.json: ${key} was judged wrong by ${by}; it's about our own records, so fix it in data/overrides/`,
+      )
+    }
   }
 
 // --- 8. Orphans (warning only) ----------------------------------------------

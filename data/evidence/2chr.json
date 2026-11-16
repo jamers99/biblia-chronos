@@ -2,7 +2,6 @@
   "passage": "2chr.1-36",
   "ai": {"model":"haiku","on":"2026-11-08"},
   "agreed": [
-    "participated-in:cyrus_968>cyrus-decree-and-first-return@f60cc7",
     "parent-of:abdi_7>kish_1786@f56ce0",
     "parent-of:abijah_14>hezekiah_1512@f9a923",
     "parent-of:adaiah_73>maaseiah_1850@db0be0",
@@ -48,7 +47,6 @@
     "alias-of:jabneh_615>jabneel_613@a11aa3": {"refs":["2chr.26.6"],"note":"26.6 names Jabneh. Jabneel is not named here, so the identity rests on outside identification.","kind":"reading"},
     "alias-of:soco_1104>socoh_1105@2b8c07": {"refs":["2chr.11.7","2chr.28.18"],"note":"11.7 spells 'Shoco' and 28.18 'Shocho', one name in two spellings. That these are the Soco and Socoh records is an outside identification.","kind":"reading"},
     "alias-of:zeredah_1255>zeredah_1254@d5e442": {"refs":["2chr.4.17"],"note":"4.17 names one place, 'Zeredathah'. That two Zeredah records are the same place rests on outside identification.","kind":"reading"},
-    "date:cyrus-decree-and-first-return@a642ab": {"refs":["2chr.36.22"],"note":"36.22 dates the decree only to Cyrus's first year. The year (536 BC, -535) depends on dating outside Scripture.","kind":"reading"},
     "death:azariah_381@fa8c7e": {"refs":["2chr.21.2","2chr.21.4"],"note":"21.4: Jehoram slew his brothers when he took the kingdom; 21.2 lists two sons named Azariah. No year is given; -888 depends on outside dating.","kind":"reading"},
     "death:jehiel_773@fa8c7e": {"refs":["2chr.21.2","2chr.21.4"],"note":"21.4: Jehoram slew his brothers when he took the kingdom, and 21.2 lists Jehiel among them. No year is given; -888 depends on outside dating.","kind":"reading"},
     "death:michael_2066@fa8c7e": {"refs":["2chr.21.2","2chr.21.4"],"note":"21.4: Jehoram slew his brothers when he took the kingdom, and 21.2 lists Michael among them. No year is given; -888 depends on outside dating.","kind":"reading"},
@@ -79,7 +77,6 @@
     "member-of:zaham_2980>tribe-of-judah@0a9900": {"refs":["2chr.11.19","2chr.11.17"],"note":"11.19 names him a son of Rehoboam (11.17). Tribe membership is not stated; it follows from the David line by outside genealogy.","kind":"reading"},
     "member-of:zechariah_3010>tribe-of-judah@c6272f": {"refs":["2chr.21.2","2chr.20.31"],"note":"21.2 makes him a son of Jehoshaphat, king of Judah (20.31). Tribe membership is not stated; it follows from outside genealogy.","kind":"reading"},
     "member-of:ziza_3098>tribe-of-judah@84bb87": {"refs":["2chr.11.20","2chr.11.17"],"note":"11.20 names him a child of Rehoboam (11.17). Tribe membership is not stated; it follows from the David line by outside genealogy.","kind":"reading"},
-    "occurred-at:cyrus-decree-and-first-return>jerusalem_636@91ba49": {"refs":["2chr.36.22","2chr.36.23"],"note":"36.22: the decree goes out through all Cyrus's kingdom; 36.23 sends the exiles to build in Jerusalem. The decree's place is not stated.","kind":"reading"},
     "part-of:angle_66>jerusalem_636@cb13ff": {"refs":["2chr.26.9"],"note":"26.9 places 'the turning of the wall' in Jerusalem. Identifying it with the Angle is an outside identification.","kind":"reading"},
     "part-of:fish_gate_426>jerusalem_636@abf962": {"refs":["2chr.33.14"],"note":"33.14: a wall built out to the fish gate, around the city of David in Jerusalem (33.13-15)."},
     "part-of:gate_of_the_foundation_440>jerusalem_636@8bc0a0": {"refs":["2chr.23.5"],"note":"23.5 names the gate of the foundation among the temple arrangements at Jerusalem (23.2)."},

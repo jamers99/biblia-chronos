@@ -264,9 +264,6 @@ a:hover {
 .suggestions li[aria-selected="true"] {
   background: var(--wash);
 }
-.suggestions li.draft .name {
-  color: var(--ink-2);
-}
 .suggestions small {
   flex: none;
   max-width: 55%;

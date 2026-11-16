@@ -25,6 +25,7 @@ export type Fact = {
   key: string // id@hash
   kind: FactKind
   records: string[] // the records whose pages show it
+  source?: string // a link's own source ("theographic", "editorial"); a record's facts go by the record's
 }
 
 // Siblings aren't checked on their own: they follow from shared parents.
@@ -43,11 +44,12 @@ export function hash(text: string): string {
 
 const dateText = (d: DateEstimate) => JSON.stringify([d.earliest ?? null, d.latest ?? null, d.display ?? null])
 
-const fact = (kind: FactKind, id: string, shown: string, records: string[]): Fact => ({
+const fact = (kind: FactKind, id: string, shown: string, records: string[], source?: string): Fact => ({
   id,
   key: `${id}@${hash(shown)}`,
   kind,
   records,
+  ...(source ? { source } : {}),
 })
 
 // The id of a fact about one record: "date:esther-becomes-queen", and for a
@@ -78,7 +80,7 @@ export function enumerateFacts(d: Data): Fact[] {
   for (const e of d.edges) {
     if (DERIVED.includes(e.type)) continue
     const id = edgeFact(e.type, e.from, e.to)
-    facts.push(fact(e.type as FactKind, id, id, [e.from, e.to]))
+    facts.push(fact(e.type as FactKind, id, id, [e.from, e.to], e.source))
   }
   for (const r of [...d.events, ...d.places, ...d.periods])
     if (r.date) facts.push(fact("date", recordFact("date", r.id), dateText(r.date), [r.id]))
@@ -97,6 +99,9 @@ export function enumerateFacts(d: Data): Fact[] {
 }
 
 export const factId = (key: string) => key.slice(0, key.lastIndexOf("@"))
+
+// Whether the AI flagged a fact for a person: wrong, or no verse found.
+export const isFlag = (entry: { kind?: string } | undefined) => entry?.kind === "wrong" || entry?.kind === "unsupported"
 
 // --- A fact in words ----------------------------------------------------------
 
@@ -152,6 +157,7 @@ export type FactEvidence = {
   key: string
   kind: FactKind
   records: string[] // the records whose pages show the fact
+  source?: string // a link's own source, as on Fact
   match?: { ref: string | null; rule: string }
   ai?: { model: string; on: string; agreed: boolean }
   editor?: { by: string; on: string; read: boolean; sampled?: number }
@@ -163,7 +169,7 @@ export function collectEvidence(facts: Fact[], matches: MatchEvidence | undefine
   const byId = new Map<string, FactEvidence>()
   for (const f of facts) {
     const s = matches?.facts[f.key]
-    byId.set(f.id, { key: f.key, kind: f.kind, records: f.records, ...(s && s.length ? { match: { ref: s[0], rule: s[1] } } : {}) })
+    byId.set(f.id, { key: f.key, kind: f.kind, records: f.records, ...(f.source ? { source: f.source } : {}), ...(s && s.length ? { match: { ref: s[0], rule: s[1] } } : {}) })
   }
   for (const b of batches) {
     const touch = (key: string, agreed: boolean, entry?: FactEvidence["entry"]) => {
@@ -177,7 +183,7 @@ export function collectEvidence(facts: Fact[], matches: MatchEvidence | undefine
       }
     }
     for (const key of b.agreed ?? []) touch(key, true)
-    for (const [key, entry] of Object.entries(b.facts ?? {})) touch(key, entry.kind !== "wrong" && entry.kind !== "unsupported", entry)
+    for (const [key, entry] of Object.entries(b.facts ?? {})) touch(key, !isFlag(entry), entry)
   }
   // An editor's own verdict on a fact is a read, whatever the batch says.
   for (const [key, review] of Object.entries(reviews)) {
@@ -200,9 +206,11 @@ export type FactState = "verse" | "derived" | "reading" | "wrong" | "unsupported
 export function factStatus(ev: FactEvidence | undefined): { state: FactState; refs: string[] } {
   const base = aiStatus(ev)
   const verdict = ev?.review?.verdict
-  if (verdict === "wrong") return { state: "wrong", refs: base.refs }
+  const own = ev?.review?.refs?.length ? ev.review.refs : undefined
+  if (verdict === "wrong") return { state: "wrong", refs: own ?? base.refs }
   if (verdict === "right" && (base.state === "wrong" || base.state === "unsupported" || base.state === "unchecked"))
-    return { state: "confirmed", refs: base.state === "wrong" ? [] : base.refs }
+    return { state: "confirmed", refs: own ?? (base.state === "wrong" ? [] : base.refs) }
+  if (verdict === "right" && own) return { ...base, refs: own }
   return base
 }
 
@@ -268,7 +276,8 @@ export function explain(ev: FactEvidence, short: (ref: string) => string) {
     match: rule && rule[0].toUpperCase() + rule.slice(1),
     ai: ev.ai && `${ev.ai.agreed ? "Agreed" : "Flagged"} (${ev.ai.model}, ${month(ev.ai.on)})`,
     editor: review
-      ? `${{ right: "Confirmed", wrong: "Judged wrong", unsure: "Not sure" }[review.verdict]} by ${review.by}, ${month(review.on)}`
+      ? `${{ right: "Confirmed", wrong: "Judged wrong", unsure: "Not sure" }[review.verdict]} by ${review.by}, ${month(review.on)}` +
+        (review.verdict === "wrong" && review.upstream ? " · reported to Theographic" : "")
       : editor &&
       (editor.read
         ? `Read by ${editor.by}, ${month(editor.on)}`

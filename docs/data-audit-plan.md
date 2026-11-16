@@ -1,14 +1,18 @@
 # Data Audit Plan: checking the data against Scripture
 
 > **Status (Nov 2026):** steps 1 and 2 are built. The text match supports
-> 3,455 of the 5,950 facts. Step 3's AI pass is done, and every fact has an AI
-> verdict: 233 are flagged wrong, 2,181 are readings, and 111 are marked "no
+> 3,560 of the 6,114 facts. Step 3's AI pass is done, and every fact has an AI
+> verdict: 212 are flagged wrong, 2,241 are readings, and 113 are marked "no
 > verse found". None has had an editor's review yet; see "The first full pass"
-> below for what to look at first.
+> and "The Nov 14 re-import" below for what to look at first.
 
 **Goal:** every fact the site shows points to the verse that supports it,
 and says plainly how that was checked: by an automatic text match, by an AI, or by a
 person. The app must not add to or drop from what the data says.
+
+**What the site is:** Theographic's data, shown faithfully, with a thin
+overlay of our own (`data/overrides/`). Errors we find go back to Theographic
+rather than into the overlay, so it shrinks with each re-import.
 
 **Principle: layered checks, each one transparent.** Each layer adds its own
 mark to a fact, says why, and is shown distinctly. A reader can see each one
@@ -176,16 +180,18 @@ containing its first supporting verse.
   - `sources`: for anything from outside the Bible.
   - `note`: a short note.
   - `kind`: *verse* (the default, the text says it), *reading* (an
-    interpretation, explained in the note), or *wrong* (an error, fixed in
-    overrides).
+    interpretation, explained in the note), *wrong* (an error, for an
+    editor to confirm and report upstream), or *unsupported* (no verse
+    found).
 - **Missing facts:** when the AI finds something absent from the data, like
-  the Ahasuerus–Esther marriage, it goes straight into `data/overrides/` in
-  the same PR, with a written entry here. There's no separate list of
-  proposals.
-- **The editor's mark is honest about what it covers.** The editor reads
-  every written entry and samples the `agreed` list at the rate recorded in
-  `sampled`. Only facts the editor actually read show as "read by an
-  editor". An agreed fact shows "AI agreed · batch spot-checked by an editor
+  the Ahasuerus–Esther marriage, check the whole dataset first (most are
+  there, filed in another batch), then report it upstream. Add it to
+  `data/overrides/` only as a stopgap.
+- **The editor's mark is honest about what it covers.** Only facts an
+  editor actually read show as "read by an editor": each fact given a
+  verdict in review mode, and, when an editor signs off a whole batch, the
+  entries listed in its `editor.read`, with the `agreed` list sampled at the
+  rate recorded in `sampled`. An agreed fact shows "AI agreed · batch spot-checked by an editor
   (10%)".
 - **Batch size:** a batch is capped so one Haiku run stays small. Heavy
   chapters like 1 Chr 1–9 are split.
@@ -207,7 +213,8 @@ A fact with no checks shows *unchecked*. A *reading* shows its note. Each
 record's Sources section (today it lists one source) merges with this: where
 the data came from, the text it was checked against (KJV), and a tally that
 keeps the layers apart: "14 facts: 12 supported by the text, 14 agreed by
-AI, 3 read by an editor". The tally replaces the "draft" badge.
+AI, 3 read by an editor". The tally took the place of the "draft" badge, which went when upstream
+dropped its status field (Nov 2026).
 
 ---
 
@@ -257,25 +264,43 @@ The scan, `matches.json`, the fact ids and hashes in `check:data`, the
 
 ### 3. AI and editor passes (one PR per batch)
 
-Published and editorial records first, then drafts, batch by batch. Most
-Bible-era people, including Esther, Mordecai, Ezra, and Nehemiah, are still
-drafts, so drafts are where most of this work is.
+Batch by batch, by passage.
 
 1. **AI pass.** Haiku reads the batch's passage text and every fact in it,
    including the ones the text match found. It can only cite verses from that
    text. For each fact, it agrees or writes an entry. For each namesake, it
    decides which person is meant. It also reports what's missing: events,
    links, and lifetime facts the text states, never a guessed lifespan.
-2. **Editor pass.** In the app's review mode (`/review/`), reviewers go
-   through the queue, most severe first (each flag and "no verse found" carries
+2. **Editor pass.** Editors don't read every fact. They settle what the AI
+   flagged ("wrong" and "no verse found"). In the app's review mode
+   (`/review/`), reviewers go through the queue, most severe first (each flag and "no verse found" carries
    the AI's `severity`; the 344 from the first pass were rated afterwards, by
    Haiku with the same scale), and submit their verdicts as a GitHub issue. Labeling it
    `apply` turns it into a pull request against `data/reviews.json` (see
    [data/evidence/README.md](../data/evidence/README.md)). A batch can merge
-   with only the AI layer. The site then says exactly that.
-3. **Fixes.** Corrections and missing facts go in `data/overrides/`. Mark
-   errors that come from Theographic with `"upstream": true`, so they can be
-   listed if you want to send them. We don't file anything.
+   with only the AI layer. The site then says exactly that. Each verdict
+   settles a flag one of two ways:
+   - **Not an issue** (verdict "right"): the AI was wrong. Applying the
+     verdict shows the editor's note and the verses it cites in place of the
+     AI's. `audit:batch -- <name> --disputed` then gives the AI the fact
+     again with the editor's reasoning, so it corrects its own entry (or
+     says why not); until then the page shows "The AI said: …" under the
+     verdict. A settled fact is left out of later batches, so the AI can't
+     flag it again.
+   - **A real issue** (verdict "wrong"): it goes to Theographic. Review mode
+     gives a report ready to paste into their data-correction form (the fact,
+     the verses, the note), for their data-quality ledger
+     (`data-quality/issues.yaml` upstream): "Report to Theographic" in the
+     fact's How we know, in review mode, and one per verdict in
+     `review:apply`'s summary. Once sent, the verdict's `upstream` records
+     where, and the page says "reported to Theographic". The fact stays
+     flagged until their export fixes it; the data then changes, the review
+     goes stale, and the fact comes back for a fresh look.
+3. **Fixes.** Theographic fixes errors in its own data. `data/overrides/`
+   holds what upstream can't or won't take (our editorial events and
+   descriptions, the era notes) and, when it's worth it, a stopgap while a
+   report is pending. After each re-import, `check:data` warns about any
+   override that now says what the seed says, so it can go.
 
 ---
 
@@ -322,8 +347,12 @@ What the flags found, for the editor:
 
 1. `npm run audit:batch -- <name> <passage>` writes `audit/batches/<name>.md`.
    A passage can list chapters (`gen.12-24` or `exod.12,exod.14`); aim for
-   under ~150 facts. `--kind date,lede` picks facts by kind instead, and
-   `--stale` gives a batch's reviews that the data has since changed under.
+   under ~150 facts. `--kind date,lede` picks facts by kind instead,
+   `--stale` gives a batch's reviews that the data has since changed under,
+   and `--flagged occurred-at,…` gathers every batch's "wrong" entries of
+   those kinds to re-check after a rule changes. A `--flagged` reviewer writes
+   `audit/batches/<name>.json`; `npm run audit:merge -- <name>` puts each
+   verdict back in the batch the fact lives in.
 2. Give a Haiku sub-agent the prompt in
    [audit-review-prompt.md](./audit-review-prompt.md), with the name and
    passage filled in. It writes `data/evidence/<name>.json`.
@@ -331,6 +360,39 @@ What the flags found, for the editor:
    `npm run check:data`, spot-check that the cited verses name the people
    involved, and read every "wrong" entry.
 4. Commit it. The editor's review happens in the PR.
+
+## The Nov 14 re-import
+
+Theographic was re-imported at `3d8aa2e` (Nov 14, 2026). Upstream fixed
+eleven misspelt event names and merged the two Mount of Olives records; the
+reviews moved to the new ids. It also fixed Jacob's lifetime, which the first
+pass had flagged (it now ends at 147 years, Gen 47:28), and moved five other
+dates, which were re-checked.
+
+Upstream added 40 events for the exile and return. Seven duplicated events we
+had added by hand, on another chronology: Theographic takes Esther's Ahasuerus
+to be Darius I, so Esther is queen in 515 BC (479 BC if he is Xerxes I), and
+Ezra and Nehemiah come nine years earlier than in most accounts. We adopted
+upstream's events and kept our descriptions, which give both dates, and kept
+our three events upstream lacks (Ezra reads the Law, the wall's dedication,
+Nehemiah's second term), re-dated to fit.
+
+Five batches covered the 209 new or changed facts: `exile-events`,
+`return-events`, `esther-events`, `early-periods`, and the nine stale dates in
+place. They flagged 17 as wrong, none high: mostly a journey's starting point
+or a passing name counted as an event's place or a part in it. Four of
+Haiku's "wrong" calls were changed to readings, because the person acts in
+the event's own verses.
+
+For the editor:
+
+- **Split people.** `eliashib_1099` (Neh 3:1) and `eliashib_1101` (Neh 13:4)
+  both look like the high priest `eliashib_1100`. `artaxerxes_313` (Ezra 4:7)
+  may be `artaxerxes_314`.
+- **Zerubbabel's father** is recorded as Pedaiah (1 Chr 3:19), not Shealtiel
+  (Ezra 3:2; Hag 1:1).
+- **Zedekiah** is Jehoiachin's uncle in 2 Kgs 24:17 and his brother in
+  2 Chr 36:10.
 
 Lessons from the first pass:
 
@@ -344,6 +406,15 @@ Lessons from the first pass:
 - **Spell out the kinds.** A reading is probably true but rests on something
   the text doesn't say. Wrong means the text says otherwise. Without the
   examples in the prompt, Haiku calls a contradiction a "reading".
+- **An event is its whole verse range.** After the re-import, every "wrong"
+  call that was overruled had the same cause: Haiku judged a person against
+  the event's title (Daniel takes no part in "Fall of Babylon") rather than
+  its verses (Dan 5, where he reads the writing). The prompt now says so, and
+  each event fact gives the event's verses. Re-checking the 114 earlier
+  "wrong" flags on event facts with it (`--flagged participated-in` and
+  `occurred-at`) cleared 35: 19 people who act within the event, and 16
+  places where a journey stops or the event happens. 79 stay wrong, and 2
+  became "no verse found".
 - **Its missing-fact reports are mostly already in the data,** filed in
   another batch (Adam is Seth's father at Luke 3:38). Check them against the
   whole dataset before adding any.

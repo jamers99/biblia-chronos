@@ -31,7 +31,6 @@
     "date:timothy-joins-paul-and-silas@a4e617": {"refs":["acts.16.1"],"note":"Text gives no year. The AD 47 date depends on outside chronology; the verse shows only biblical timing.","kind":"reading"},
     "occurred-at:call-to-macedonia>troas_1182@f50066": {"refs":["acts.16.8","acts.16.9","acts.16.11"],"note":"The vision comes after they reached Troas and before they sailed from there. The place of the vision is implied, not stated.","kind":"reading"},
     "occurred-at:lydia-s-conversion>philippi_942@f66131": {"refs":["acts.16.12","acts.16.13"],"note":"Lydia heard them at a riverside prayer place outside the city (16:13), in Philippi (16:12). Near Philippi; 'at Philippi' is a reading.","kind":"reading"},
-    "occurred-at:mission-to-phrygia-galatia-and-asia>asia_108@b3f7c7": {"refs":["acts.16.6"],"note":"The text says they were forbidden of the Holy Ghost to preach the word in Asia. They went through Phrygia and Galatia instead.","kind":"wrong","severity":"medium"},
     "occurred-at:paul-and-silas-imprisoned>philippi_942@697774": {"refs":["acts.16.12","acts.16.20"],"note":"The scene is in the city where they were abiding (16:12); the accusers say 'our city' (16:20). Philippi is not named in 16:19-24.","kind":"reading"},
     "occurred-at:paul-and-silas-released>philippi_942@b984e8": {"refs":["acts.16.12","acts.16.39"],"note":"The magistrates bring them out and ask them to leave the city (16:39). Philippi is not named in 16:35-40.","kind":"reading"},
     "occurred-at:paul-casts-demon-out-of-soothsayer>philippi_942@a96eab": {"refs":["acts.16.12","acts.16.16"],"note":"The scene falls in their stay at Philippi (16:12). The city is not named in 16:16-18.","kind":"reading"},
@@ -52,6 +51,7 @@
     "visited:timotheus_2863>lystra_742@06d203": {"refs":["acts.16.1","acts.16.2"],"note":"The disciple Timotheus was at Lystra when Paul came there, and the brethren at Lystra spoke well of him (16:2)."},
     "visited:timotheus_2863>mysia_865@aab0df": {"refs":["acts.16.7","acts.16.3"],"note":"'They' came to Mysia (16:7). Timothy is with Paul's company from 16:3. Reading.","kind":"reading"},
     "visited:timotheus_2863>phrygia_946@ea3967": {"refs":["acts.16.3","acts.16.6"],"note":"Timothy goes with Paul (16:3), and 'they' went throughout Phrygia (16:6). Reading.","kind":"reading"},
-    "visited:timotheus_2863>troas_1182@6e9d62": {"refs":["acts.16.3","acts.16.8"],"note":"'They' passed by Mysia and came down to Troas (16:8). Timothy is with Paul's company from 16:3. Reading.","kind":"reading"}
+    "visited:timotheus_2863>troas_1182@6e9d62": {"refs":["acts.16.3","acts.16.8"],"note":"'They' passed by Mysia and came down to Troas (16:8). Timothy is with Paul's company from 16:3. Reading.","kind":"reading"},
+    "occurred-at:mission-to-phrygia-galatia-and-asia>asia_108@b3f7c7": {"refs":["acts.16.6","acts.16.7"],"note":"They were forbidden to preach in Asia (16:6), passed through Phrygia and Galatia, and went on toward Mysia (16:7).","kind":"wrong","severity":"medium"}
   }
 }

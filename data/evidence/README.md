@@ -83,15 +83,25 @@ like everything here, one per line:
 
 ```jsonc
 {
-  "parent-of:abihail_32>heber_1428@3f9a1c": {"verdict":"wrong","by":"jamers99","on":"2026-11-12","issue":42,"note":"1 Chr 5:13 calls Heber one of their brethren"}
+  "parent-of:abihail_32>heber_1428@3f9a1c": {"verdict":"wrong","by":"jamers99","on":"2026-11-12","issue":42,"note":"1 Chr 5:13 calls Heber one of their brethren","refs":["1chr.5.13"],"upstream":"https://github.com/robertrouse/theographic-bible-metadata/issues/95"}
 }
 ```
 
 - **`verdict`**: is the fact right as the site shows it? `right`, `wrong`, or
   `unsure`. It wins over the AI's: `right` turns a flag (or "no verse found")
-  into "confirmed", and `wrong` marks the fact wrong until it's fixed in
-  `data/overrides/` (`check:data` lists each one). `unsure` changes nothing but
-  is recorded.
+  into "confirmed", and `wrong` marks the fact wrong. `unsure` changes nothing
+  but is recorded.
+- **`note`** and **`refs`**: the editor's reasoning, and the verses it cites.
+  `review:apply` reads `refs` from the note ("1 Chr 5:13"), so citing a verse
+  in the note is all it takes. The site shows them in place of the AI's.
+- **`upstream`**: on a `wrong` verdict, the Theographic issue it was reported
+  in (or its ledger id, `DQ-0072`). The data is Theographic's, so a wrong fact
+  is fixed there: review mode's "Report to Theographic" link, in the fact's
+  How we know, opens their data-correction form filled in, and
+  `review:apply`'s summary lists one per verdict. Once it's sent, add the
+  issue's URL here by hand. `check:data` lists wrong verdicts not yet
+  reported. When their export fixes it, the data changes and the verdict
+  goes stale.
 - **`by`**: the GitHub account that submitted it. **`issue`**: where.
 - A fact has one verdict. A new one replaces the old.
 
@@ -137,6 +147,18 @@ matches. Then:
   with their old verdicts and verses. Re-check each one, then swap the old key
   for the new one in the file.
 
+## When an editor and the AI disagree
+
+A fact an editor has settled (a `right` or `wrong` verdict on its current key)
+is left out of every batch, so a later AI run can't flag it again. Where the
+editor's verdict goes against the AI's (`right` on a flag, `wrong` on a fact
+the AI passed), `npm run audit:batch -- <name> --disputed` gives the AI the
+facts again with the editor's note and verses. It re-reads the text and
+corrects its own entry, or says in its note why it stands by it; it writes
+`audit/batches/<name>.json`, and `npm run audit:merge -- <name>` puts each
+verdict back in its home batch. The AI's line on the page is always its own
+words, and the editor's verdict still wins.
+
 Only the fact's own data counts. Editing an event's description doesn't make
 its date review stale, and neither does a new verse elsewhere about the
 person.
@@ -149,7 +171,8 @@ person.
 2. An AI reviewer works from that file and writes `data/evidence/<name>.json`.
    It may only cite verses whose text it has actually read: those in the file,
    or any it looks up with `npm run verse -- <keys>` (e.g. `2kgs.25.8-10`).
-3. Missing facts it finds (a marriage, someone at an event) go into
-   `data/overrides/`, then back through steps 1–2.
+3. Missing facts it finds (a marriage, someone at an event) are usually in
+   the data already, filed in another batch. Check, then report the rest to
+   Theographic; add one to `data/overrides/` only as a stopgap.
 4. An editor reviews the PR. Verdicts on single facts come in through review
    mode (see reviews.json above).

@@ -55,7 +55,7 @@ The import does roughly this:
 
 - Re-keys records to human-readable ids. Theographic provides lookup slugs like `aaron_1`; we make those canonical and keep the Airtable `rec…` ids only as a temporary mapping during import. This gives clean URLs and data that survives a future re-export.
 - Flattens their typed relationship fields (`father`, `mother`, `children`, `partners`, `memberOf`) into the generic `{ from, to, type }` edges our graph uses.
-- Normalizes the rest: dates from strings like `"-1573"` into numbers and date ranges, dropping Airtable bookkeeping, and deciding what to do with records still marked work-in-progress.
+- Normalizes the rest: dates from strings like `"-1573"` into numbers and date ranges, and dropping Airtable bookkeeping.
 - Validates the output with Zod so a bad re-sync fails the build instead of reaching the browser.
 
 Two things to plan around. Their dates follow a single chronology with no per-record citations, so the import points everything at one `theographic` source key by default, and we override individual records later when we want to cite a specific scholar or show an alternative date. And a couple of our entities aren't first-class in their data: periods may need to be derived (or pulled from their CSV folder), and kingdoms/empires we model ourselves as a layer over places, periods, and events.
@@ -80,8 +80,8 @@ Concretely: on a desktop everything should feel smooth and immediate, with no vi
 | Timeline: data + lane packing / island | `src/lib/timeline.ts` / `src/components/Timeline.svelte` |
 | Map: projection + basemap / data / island | `src/lib/geo.ts` / `src/lib/map.ts` / `src/components/PlaceMap.svelte` |
 | Pages for every person, place, event, and group | `src/pages/` |
-| Site bar, menu, and settings (theme, draft records, review mode) | `src/layouts/Page.astro` |
-| Review mode: verdict buttons, the submit bar, the issue link | `src/components/ReviewMode.astro`, `src/lib/review.ts` |
+| Site bar, menu, and settings (theme, review mode) | `src/layouts/Page.astro` |
+| Review mode: verdict buttons, the submit bar, the issue link, reports to Theographic | `src/components/ReviewMode.astro`, `src/lib/review.ts`, `src/lib/upstream.ts` |
 | The review queue: filters, groups, most severe first | `src/pages/review/`, `src/components/ReviewQueue.svelte`, `src/lib/review-filter.ts`, `src/lib/data/review-queue.ts` |
 | Connections: links bundle + weighted path search / `/connections.json` / page | `src/lib/connections.ts` / `src/pages/connections.json.ts` / `src/pages/connections/` |
 | Site search: index + ranking / `/search.json` / box | `src/lib/search.ts` / `src/pages/search.json.ts` / `src/components/SiteSearch.astro` |

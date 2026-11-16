@@ -1,5 +1,5 @@
 ---
-// Title block shared by every record page: kind, name, draft marker, the facts
+// Title block shared by every record page: kind, name, the facts
 // (a short definition list passed as [term, value] pairs), and a one-sentence
 // lede from the description.
 import type { Entity } from "../lib/data/load.ts"
@@ -26,11 +26,6 @@ const checked = t.facts - t.unchecked
   <p class="kind">{kindLabel}</p>
   <h1>
     {entity.name}
-    {
-      entity.status === "draft" && (
-        <span class="badge" title="Theographic marks this record as a work in progress">draft</span>
-      )
-    }
     {
       t.facts > 0 && (
         <a class="badge checks" href="#sources" title="How many of this record's facts have been checked against Scripture, and by whom">

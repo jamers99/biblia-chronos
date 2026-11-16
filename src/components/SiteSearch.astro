@@ -59,9 +59,8 @@
     return index
   }
 
-  const showDrafts = () => document.documentElement.dataset.drafts !== "hidden"
   const box = combobox(input, list, {
-    find: async (query) => search(await load(), query, 8, (e) => showDrafts() || !e.draft),
+    find: async (query) => search(await load(), query, 8),
     pick,
     escape: close,
   })

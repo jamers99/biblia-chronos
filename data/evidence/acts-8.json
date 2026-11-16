@@ -49,7 +49,6 @@
     "participated-in:paul_2479>riot-in-ephesus@d3a3e4": {"refs":["acts.19.30"],"note":"Paul wanted to go in to the people, but the disciples would not let him. He tried to act, but is not recorded acting in the uproar itself.","kind":"reading"},
     "participated-in:paul_2479>third-missionary-journey@4b6541": {"refs":["acts.19.1","acts.19.21"],"note":"Paul comes to Ephesus and purposes to pass through Macedonia and Achaia. The text does not name the journey."},
     "participated-in:paul_2479>voyage-to-miletus@3d016a": {"refs":["acts.20.14","acts.20.15"],"note":"Paul went on foot to Assos, where the ship took him in, and they sailed on to Miletus."},
-    "participated-in:sceva_2480>mission-to-ephesus-1-cor-written@de8e49": {"refs":["acts.19.14"],"note":"The text says the seven sons of Sceva did this exorcism. Sceva himself is not described acting.","kind":"wrong","severity":"medium"},
     "participated-in:secundus_2482>mission-to-macedonia-and-greece@18e08c": {"refs":["acts.20.4"],"note":"Named among those who accompanied Paul into Asia. His role in the Macedonia and Greece stage is not stated.","kind":"reading"},
     "participated-in:sopater_2770>mission-to-macedonia-and-greece@a1e4b2": {"refs":["acts.20.4"],"note":"Sopater of Berea accompanied Paul into Asia. The text does not say he took part in the Macedonia and Greece stage.","kind":"reading"},
     "participated-in:timotheus_2863>mission-to-ephesus-1-cor-written@bf0a24": {"refs":["acts.19.22"],"note":"Sent with Erastus into Macedonia while Paul stayed in Asia, as one who ministered to him. His role in Ephesus is not stated.","kind":"reading"},
@@ -106,6 +105,7 @@
     "visited:tychicus_2885>philippi_942@ae726b": {"refs":["acts.20.4","acts.20.6"],"note":"Paul's party sailed from Philippi (20:6), and the companions went on ahead (20:5). Tychicus at Philippi is inferred.","kind":"reading"},
     "visited:tychicus_2885>troas_1182@355e72": {"refs":["acts.20.5"],"note":"The companions who went before tarried for us at Troas (20:5)."},
     "visited:tyrannus_2886>asia_108@627545": {"refs":["acts.19.9","acts.19.10"],"note":"Paul taught daily in the school of Tyrannus (19:9), and the Ephesus work reached all Asia (19:10). The school's location is not named.","kind":"reading"},
-    "visited:tyrannus_2886>ephesus_400@1556f7": {"refs":["acts.19.1","acts.19.9"],"note":"The school of Tyrannus is where Paul taught after coming to Ephesus (19:1, 19:9). Tyrannus's own presence is inferred from his school.","kind":"reading"}
+    "visited:tyrannus_2886>ephesus_400@1556f7": {"refs":["acts.19.1","acts.19.9"],"note":"The school of Tyrannus is where Paul taught after coming to Ephesus (19:1, 19:9). Tyrannus's own presence is inferred from his school.","kind":"reading"},
+    "participated-in:sceva_2480>mission-to-ephesus-1-cor-written@de8e49": {"refs":["acts.19.14"],"note":"19:14 says the seven sons of Sceva did this exorcism. Sceva is named only as their father, and the text does not show him acting.","kind":"wrong","severity":"low"}
   }
 }

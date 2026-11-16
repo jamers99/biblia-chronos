@@ -1,14 +1,22 @@
 // Reading the data from disk, for the scripts (the site reads it through Vite,
 // in src/lib/data/load.ts). Seed and overrides are merged the same way in both.
 
-import { readFileSync, existsSync } from "node:fs"
+import { readFileSync, readdirSync, existsSync } from "node:fs"
 import { join } from "node:path"
 import { mergeEntities, mergeEdges } from "../src/lib/data/merge.ts"
-import type { Book, Edge, Event, Kingdom, PeopleGroup, Period, Person, Place } from "../src/lib/data/schema.ts"
+import type { Book, Edge, Event, EvidenceBatch, Kingdom, PeopleGroup, Period, Person, Place } from "../src/lib/data/schema.ts"
 
 export const root = join(import.meta.dirname, "..")
 
 export const readJson = (path: string) => JSON.parse(readFileSync(join(root, path), "utf8"))
+
+// The AI's batch files in data/evidence/ (everything there but the text
+// match's matches.json), and each one read, by file name.
+export const batchFiles = (): string[] =>
+  existsSync(join(root, "data/evidence"))
+    ? readdirSync(join(root, "data/evidence")).filter((f) => f.endsWith(".json") && f !== "matches.json").sort()
+    : []
+export const readBatches = (): Map<string, EvidenceBatch> => new Map(batchFiles().map((f) => [f, readJson(`data/evidence/${f}`)]))
 export const readSeed = (name: string) => readJson(`data/seed/${name}`)
 export const readOverride = (name: string): any[] =>
   existsSync(join(root, "data/overrides", name)) ? readJson(`data/overrides/${name}`) : []

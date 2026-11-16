@@ -34,7 +34,6 @@ export function combobox(input: HTMLInputElement, list: HTMLUListElement, { find
         li.innerHTML = `<span class="name"></span><small></small>`
         li.querySelector(".name")!.textContent = r.name
         li.querySelector("small")!.textContent = hintOf(r)
-        if (r.draft) li.classList.add("draft")
         // Keep focus in the box while pressing (so it doesn't blur and close
         // the list mid-tap), and pick on click, so the tap ends here rather
         // than on whatever is under the list once it's gone.

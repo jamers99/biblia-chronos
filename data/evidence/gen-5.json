@@ -40,15 +40,13 @@
     "date:abrahamic-covenant@c351f0": {"refs":["gen.12.1","gen.12.4"],"kind":"reading","note":"The call and promise come before Abram left Haran at 75 (12:1-4). The text gives no year; the BC year depends on outside dating."},
     "date:birth-of-isaac@a355cb": {"refs":["gen.21.2","gen.21.5"],"kind":"reading","note":"Sarah bare the son 'at the set time' (21:2) when Abraham was 100 (21:5). The BC year depends on outside dating."},
     "date:birth-of-ishmael@3f7521": {"refs":["gen.16.15","gen.16.16"],"kind":"reading","note":"Hagar bare Ishmael when Abram was 86 (16:16). The text gives no year; the BC year depends on outside dating."},
-    "date:lifetime-of-abraham@5bf47d": {"refs":["gen.12.4","gen.21.5","gen.25.7"],"kind":"reading","note":"Lived 175 years (25:7). His age of 86 at Ishmael's birth (16:16) points to a birth near -1995, not -1996. The BC years depend on outside dating."},
+    "date:lifetime-of-abraham@5206a1": {"refs":["gen.12.4","gen.21.5","gen.25.7"],"kind":"reading","note":"Lived 175 years (25:7); a hundred when Isaac was born (21:5). The -1995 to -1820 range depends on outside dating."},
     "date:lifetime-of-isaac@88c666": {"refs":["gen.21.5","gen.35.28"],"kind":"reading","note":"Isaac lived 180 years (35:28), born when Abraham was 100 (21:5). 35:28 is outside this passage; the BC years depend on outside dating."},
     "date:lifetime-of-ishmael@e46c31": {"refs":["gen.16.16","gen.25.17"],"kind":"reading","note":"Ishmael lived 137 years (25:17), born when Abram was 86 (16:16). 25:17 is outside this passage; the BC years depend on outside dating."},
     "date:sodom-destroyed@ae51cc": {"refs":["gen.18.10","gen.18.14","gen.19.24"],"kind":"reading","note":"The visit promises Isaac within a year (18:10, 18:14), then fire falls on Sodom (19:24). Timing fits the year before Isaac's birth; the BC year depends on outside dating."},
     "death:ishmael_630@60d5db": {"refs":["gen.25.17"],"kind":"reading","note":"Ishmael died aged 137 (25:17), which is outside this passage. The passage gives no year; the BC year depends on outside dating."},
     "near:beer-lahai-roi_167>kadesh-barnea_663@eb3abc": {"refs":["gen.16.14","gen.14.7"],"kind":"reading","note":"The well is 'between Kadesh and Bered' (16:14). Taking that Kadesh as Kadesh-barnea is a reading, supported by 14:7."},
     "near:moreh_817>shechem_1069@c9c1c8": {"refs":["gen.12.6"],"kind":"reading","note":"Abram came 'unto the place of Sichem, unto the plain of Moreh' (12:6). Reading the two as one site, Sichem being Shechem, makes 'near' a reading."},
-    "occurred-at:abraham-and-lot-separate>hebron_551@678501": {"refs":["gen.13.3","gen.13.18"],"kind":"wrong","note":"The separation comes before Abram moves to Hebron (13:18). Before it he was between Bethel and Hai (13:3-4).","severity":"medium"},
-    "occurred-at:abraham-and-lot-separate>sodom_1107@a79ad6": {"refs":["gen.13.11","gen.13.12"],"kind":"wrong","note":"Lot chose the plain (13:11), and only then pitched his tent 'toward Sodom' (13:12). The text places the separation in the plain, not at Sodom.","severity":"low"},
     "occurred-at:abraham-enters-canaan>ai_36@ead500": {"refs":["gen.12.8"],"kind":"reading","note":"Abram camped on a mountain between Bethel and 'Hai' (spelled Ai) (12:8), not in the town. Placing the event at Ai is a reading."},
     "occurred-at:abraham-enters-canaan>bethel_202@9ec57a": {"refs":["gen.12.8"],"kind":"reading","note":"The altar is on a mountain east of Bethel (12:8), not in Bethel. Placing the event at Bethel itself is a reading."},
     "occurred-at:abraham-enters-canaan>negeb_885@c3284d": {"refs":["gen.12.9"],"kind":"reading","note":"Verse says Abram journeyed 'toward the south'. Negeb is not named; identifying the south as the Negeb is a reading."},
@@ -99,6 +97,8 @@
     "participated-in:sarah_2473>birth-of-isaac@07f690": {"refs":["gen.21.2"],"note":"'Sarah conceived, and bare Abraham a son' (21:2)."},
     "partner-of:nahor_2143>reumah_2433@8e741a": {"refs":["gen.22.24"],"kind":"reading","note":"The verse calls Reumah 'his concubine', not his wife. Calling them married is a reading from that."},
     "visited:lot_1830>canaan_272@214b58": {"refs":["gen.12.5","gen.13.12"],"kind":"reading","note":"Lot went with Abram into the land of Canaan (12:5). Reading his cities of the plain (13:12) as inside the land is a reading."},
-    "visited:sarah_2473>canaan_272@593c99": {"refs":["gen.12.5","gen.16.3"],"note":"Abram took Sarai and 'they came' into the land of Canaan (12:5); she is in the household there ten years later (16:3)."}
+    "visited:sarah_2473>canaan_272@593c99": {"refs":["gen.12.5","gen.16.3"],"note":"Abram took Sarai and 'they came' into the land of Canaan (12:5); she is in the household there ten years later (16:3)."},
+    "occurred-at:abraham-and-lot-separate>hebron_551@678501": {"refs":["gen.13.3","gen.13.18"],"note":"The separation comes before Abram moves to Hebron (13:18). Before it he was between Bethel and Hai (13:3).","kind":"wrong","severity":"medium"},
+    "occurred-at:abraham-and-lot-separate>sodom_1107@a79ad6": {"refs":["gen.13.11","gen.13.12"],"note":"Lot chose the plain (13:11), and only then pitched his tent toward Sodom (13:12). Not at Sodom.","kind":"wrong","severity":"medium"}
   }
 }

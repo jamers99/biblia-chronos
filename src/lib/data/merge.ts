@@ -44,3 +44,33 @@ export const staleRemovals = (seed: Edge[], overrides: EdgeOverride[]): EdgeOver
   const keys = new Set(seed.map(edgeKey))
   return overrides.filter((o) => o.remove && !keys.has(edgeKey(o)))
 }
+
+// Override fields that now say what the seed says (upstream made the same fix,
+// or an override restated it), so the checker can say they can go. A record's
+// `all` is true when every field but its id is redundant: the whole override
+// can go.
+export function redundantFields<T extends { id: string }>(
+  seed: T[],
+  overrides: (Partial<T> & { id: string })[],
+): { id: string; fields: string[]; all: boolean }[] {
+  const byId = new Map(seed.map((r) => [r.id, r as Record<string, unknown>]))
+  const same = (a: unknown, b: unknown) => JSON.stringify(a) === JSON.stringify(b)
+  return overrides.flatMap((o) => {
+    const s = byId.get(o.id)
+    if (!s) return [] // a whole new record
+    const keys = Object.keys(o).filter((k) => k !== "id")
+    const fields = keys.filter((k) => same((o as Record<string, unknown>)[k], s[k]))
+    return fields.length ? [{ id: o.id, fields, all: fields.length === keys.length }] : []
+  })
+}
+
+// Override edges the seed now has as they are (only who's credited differs),
+// so the checker can say they can go.
+export const redundantEdges = (seed: Edge[], overrides: EdgeOverride[]): EdgeOverride[] => {
+  const byKey = new Map(seed.map((e) => [edgeKey(e), e]))
+  const rest = ({ source: _, ...e }: Edge) => JSON.stringify(Object.entries(e).sort())
+  return overrides.filter((o) => {
+    const s = byKey.get(edgeKey(o))
+    return !o.remove && s !== undefined && rest(o) === rest(s)
+  })
+}

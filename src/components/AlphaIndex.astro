@@ -21,7 +21,7 @@ const groups = Map.groupBy(sorted, (e) => label(e)[0].toUpperCase())
       <h2 id={letter}>{letter}</h2>
       <ul class="alpha">
         {items.map((e) => (
-          <li class:list={{ draft: e.status === "draft" }}>
+          <li>
             <a href={entityUrl(e)}>{label(e)}</a>
           </li>
         ))}
@@ -48,12 +48,5 @@ const groups = Map.groupBy(sorted, (e) => label(e)[0].toUpperCase())
   li {
     break-inside: avoid;
     padding: 0.08rem 0;
-  }
-  li.draft a {
-    color: var(--ink-2);
-  }
-  /* "Show draft records" off, in the site menu */
-  :global([data-drafts="hidden"]) li.draft {
-    display: none;
   }
 </style>

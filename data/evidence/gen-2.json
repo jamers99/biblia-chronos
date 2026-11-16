@@ -81,7 +81,6 @@
     "death:methuselah_2042@440af1": {"refs":["gen.5.27"],"note":"Methuselah lived 969 years and died. BC year depends on dating outside Scripture.","kind":"reading"},
     "death:seth_2504@e1e9e2": {"refs":["gen.5.8"],"note":"Seth lived 912 years and died. BC year depends on dating outside Scripture.","kind":"reading"},
     "death:shem_2613@be1d9f": {"refs":["gen.11.10","gen.11.11"],"note":"Shem was 100 two years after the flood and lived 500 more years (gen.11.11). Death year depends on outside dating of the flood.","kind":"reading"},
-    "occurred-at:lifetime-of-adam>eden_354@d470d1": {"refs":["gen.2.8","gen.3.23"],"note":"God sent Adam forth from the garden of Eden (gen.3.23), so his lifetime was not spent there.","kind":"wrong","severity":"medium"},
     "participated-in:cainan_534>birth-of-cainan@d155de": {"refs":["gen.5.9"],"note":"Cainan is the subject of his own birth; the text shows him as begotten, not acting. Reasonable reading only.","kind":"reading"},
     "participated-in:cainan_534>death-of-cainan@993872": {"refs":["gen.5.14"],"note":"Cainan is the subject of his own death ('and he died'); no action by him is shown. Reasonable reading only.","kind":"reading"},
     "participated-in:enoch_1192>birth-of-enoch@badd65": {"refs":["gen.5.18"],"note":"Enoch is the subject of his own birth; the text shows him as begotten, not acting. Reasonable reading only.","kind":"reading"},
@@ -98,6 +97,7 @@
     "participated-in:noah_2210>birth-of-noah@038b59": {"refs":["gen.5.29"],"note":"Noah is the subject of his own birth; the text shows him as named, not acting. Reasonable reading only.","kind":"reading"},
     "participated-in:seth_2504>death-of-seth@1bc78c": {"refs":["gen.5.8"],"note":"Seth is the subject of his own death ('and he died'); no action by him is shown. Reasonable reading only.","kind":"reading"},
     "participated-in:shem_2613>birth-of-shem@c2387d": {"refs":["gen.5.32"],"note":"Shem is the subject of his own birth; the text shows him as begotten, not acting. Reasonable reading only.","kind":"reading"},
-    "participated-in:adam_78>death-of-adam@13cab7": {"refs":["gen.5.5"],"note":"Adam is the subject of his own death ('and he died'); no action by him is shown. Reasonable reading only.","kind":"reading"}
+    "participated-in:adam_78>death-of-adam@13cab7": {"refs":["gen.5.5"],"note":"Adam is the subject of his own death ('and he died'); no action by him is shown. Reasonable reading only.","kind":"reading"},
+    "occurred-at:lifetime-of-adam>eden_354@d470d1": {"refs":["gen.3.23","gen.5.5"],"note":"God sent Adam forth from the garden of Eden (3:23), so his life was not spent there. Genesis 5:3-5 names no place.","kind":"wrong","severity":"low"}
   }
 }

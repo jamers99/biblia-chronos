@@ -39,9 +39,11 @@ export const ScriptureRef = z.object({
 export const Base = z.object({
   id: z.string(),
   name: z.string(),
-  status: z.enum(["published", "draft"]).default("published"),
   source: z.string(),
   description: z.string().optional(),
+  // Who wrote the description, when it isn't the record's own source: a key
+  // into sources.json, e.g. "editorial" on a Theographic event we describe.
+  descriptionSource: z.string().optional(),
   scriptureRefs: z.array(ScriptureRef).optional(),
 })
 
@@ -199,6 +201,10 @@ export const Review = z
     on: Day,
     issue: z.number().int().positive().optional(), // the GitHub issue it came from
     note: z.string().max(NOTE_MAX).optional(),
+    refs: z.array(VerseKey).optional(), // the verses the note cites ("1chr.2.18"), read from it by review:apply
+    // A "wrong" fact reported to Theographic: the issue's URL, or its
+    // data-quality ledger id (DQ-0072). Set by hand once the report is sent.
+    upstream: z.string().optional(),
   })
   .strict()
 export const Reviews = z.record(Review)
@@ -221,5 +227,6 @@ export type Source = z.infer<typeof Source>
 export type EdgeType = z.infer<typeof EdgeType>
 export type Edge = z.infer<typeof Edge>
 export type EvidenceBatch = z.infer<typeof EvidenceBatch>
+export type EvidenceEntry = NonNullable<EvidenceBatch["facts"]>[string]
 export type Review = z.infer<typeof Review>
 export type Reviews = z.infer<typeof Reviews>

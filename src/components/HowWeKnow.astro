@@ -3,10 +3,11 @@
 // opens the evidence behind it, one line per layer, so a text match, an AI's
 // check, and a person's review never look alike (docs/data-audit-plan.md). A
 // native popover: no JavaScript, and it works in panels too.
-import { books, evidenceFor, source } from "../lib/data/load.ts"
+import { books, evidenceFor, record, source } from "../lib/data/load.ts"
 import { explain, hash } from "../lib/evidence.ts"
 import { verse } from "../lib/scripture.ts"
 import { REPORT } from "../lib/review.ts"
+import { upstreamLink, upstreamReportUrl } from "../lib/upstream.ts"
 
 interface Props {
   fact: string // fact id, e.g. "parent-of:abraham_58>isaac_616"
@@ -14,10 +15,16 @@ interface Props {
 }
 const { fact, context } = Astro.props
 const ev = evidenceFor(fact)
-const how = ev && explain(ev, (ref) => verse(ref, books)?.short ?? ref)
+const short = (ref: string) => verse(ref, books)?.short ?? ref
+const how = ev && explain(ev, short)
 const cited = (how?.refs ?? []).map((r) => verse(r, books)).filter((v) => v !== undefined)
 const sources = (ev?.entry?.sources ?? []).map(source).filter((s) => s !== undefined)
 const id = `how-${context}-${hash(fact)}`
+// A fact an editor judged wrong is Theographic's to fix: once reported, link
+// the report; until then, review mode offers a pre-filled one.
+const judgedWrong = ev?.review?.verdict === "wrong" ? ev.review : undefined
+const reported = judgedWrong?.upstream && upstreamLink(judgedWrong.upstream)
+const toReport = judgedWrong && !reported && ev && upstreamReportUrl({ id: fact, ...ev }, record, judgedWrong, short)
 const layers: [string, string | undefined, string][] = how
   ? [
       ["Text match", how.match, "None found"],
@@ -61,8 +68,16 @@ const layers: [string, string | undefined, string][] = how
           ))}
         </dl>
         <review-controls data-key={ev!.key} />
+        {reported && (
+          <p class="how-note">
+            <a href={reported.url} target="_blank" rel="noopener">Reported to Theographic{reported.label ? ` (${reported.label})` : ""}</a>, whose data this is.
+          </p>
+        )}
         <p class="how-report">
           <a class="report" href={REPORT} data-fact={ev!.key} target="_blank" rel="noopener">Report a problem</a>
+          {toReport && (
+            <a class="upstream-report" href={toReport} target="_blank" rel="noopener">Report to Theographic</a>
+          )}
         </p>
       </div>
     </>
@@ -145,5 +160,13 @@ const layers: [string, string | undefined, string][] = how
   }
   .how-report a {
     color: var(--ink-3);
+  }
+  .how-report .upstream-report {
+    margin-left: 0.75rem;
+    color: var(--accent);
+  }
+  /* An editor's tool: shown only while review mode is on. */
+  :global(html:not([data-review="on"])) .upstream-report {
+    display: none;
   }
 </style>

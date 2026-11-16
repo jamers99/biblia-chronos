@@ -16,6 +16,7 @@
     "import:theographic": "tsx scripts/import-theographic.ts && tsx scripts/audit-scan.ts",
     "audit:scan": "tsx scripts/audit-scan.ts",
     "audit:batch": "tsx scripts/audit-batch.ts",
+    "audit:merge": "tsx scripts/audit-merge.ts",
     "verse": "tsx scripts/verse.ts",
     "audit:format": "tsx scripts/format-evidence.ts",
     "review:apply": "tsx scripts/review-apply.ts"

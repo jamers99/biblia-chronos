@@ -65,7 +65,7 @@
     "date:god-instructs-noah-to-build-the-ark@8d7154": {"refs":["gen.6.13"],"note":"Gen 6:13-14 gives no date and places the command before the flood. The BC year depends on outside dating.","kind":"reading"},
     "date:god-makes-a-covenant-with-noah@14ed76": {"refs":["gen.8.13","gen.9.9"],"note":"Gen 8:13 has the flood dried in year 601; Gen 9:9 gives the covenant with no date. The BC year depends on outside dating.","kind":"reading"},
     "date:leaving-the-ark@14ed76": {"refs":["gen.8.13","gen.8.14"],"note":"Gen 8:13-14: year 601, and the earth dried by the 27th day of the second month. The BC year depends on outside dating.","kind":"reading"},
-    "date:nimrod-s-kingdom-begins@921b14": {"refs":["gen.10.10"],"note":"Gen 10:10 gives no date for the beginning of Nimrod's kingdom. The BC year depends on outside dating.","kind":"reading"},
+    "date:nimrod-s-kingdom-begins@f351f2": {"refs":["gen.10.10"],"note":"Gen 10:10 names the beginning of Nimrod's kingdom (Babel, Erech, Accad, Calneh) but gives no date. The 2182 BC year depends on outside dating.","kind":"reading"},
     "date:noah-gets-drunk-and-canaan-is-cursed@5f5f58": {"refs":["gen.9.20","gen.9.28"],"note":"Gen 9:20-25 gives no date; it falls after the flood (9:28 counts 350 years after it). The BC year depends on outside dating.","kind":"reading"},
     "date:the-flood-subsides@14ed76": {"refs":["gen.8.13"],"note":"Gen 8:13: the waters were dried up in year 601, first month, first day. The BC year depends on outside dating.","kind":"reading"},
     "date:the-great-flood@84a488": {"refs":["gen.7.11","gen.8.13"],"note":"Gen 7:11 starts the flood in year 600, second month, seventeenth day; Gen 8:13 ends it in year 601. The BC year depends on outside dating.","kind":"reading"},
@@ -73,7 +73,6 @@
     "date:water-covers-the-earth@440af1": {"refs":["gen.7.11","gen.7.19"],"note":"Gen 7:11 dates the start in year 600; Gen 7:19 says the waters covered the earth. The BC year depends on outside dating.","kind":"reading"},
     "death:noah_2210@e56e02": {"refs":["gen.9.28","gen.9.29"],"note":"Gen 9:29 says Noah died at 950 years; Gen 9:28 gives 350 years after the flood. The BC year depends on outside dating.","kind":"reading"},
     "occurred-at:leaving-the-ark>ararat_86@e20428": {"refs":["gen.8.4","gen.8.18"],"note":"Gen 8:4: the ark rested on the mountains of Ararat. Gen 8:18: Noah went forth out of the ark."},
-    "occurred-at:nimrod-s-kingdom-begins>assyria_111@790381": {"refs":["gen.10.10"],"note":"Gen 10:10 places the beginning of his kingdom in Babel, Erech, Accad and Calneh, in Shinar. Assyria is not named there.","kind":"wrong","severity":"medium"},
     "parent-of:aram_285>gether_1308@412daf": {"refs":["gen.10.23"],"note":"Gen 10:23: the children of Aram; Uz, and Hul, and Gether, and Mash."},
     "parent-of:aram_285>hul_1566@6181c1": {"refs":["gen.10.23"],"note":"Gen 10:23: the children of Aram; Uz, and Hul, and Gether, and Mash."},
     "parent-of:aram_285>mash_1944@379292": {"refs":["gen.10.23"],"note":"Gen 10:23: the children of Aram; Uz, and Hul, and Gether, and Mash."},
@@ -117,6 +116,7 @@
     "visited:nimrod_2206>babel_150@408944": {"refs":["gen.10.10"],"note":"Gen 10:10: the beginning of Nimrod's kingdom was Babel, in the land of Shinar."},
     "visited:nimrod_2206>calneh_269@bde500": {"refs":["gen.10.10"],"note":"Gen 10:10: the beginning of Nimrod's kingdom was Calneh, in the land of Shinar."},
     "visited:nimrod_2206>erech_407@c7bb98": {"refs":["gen.10.10"],"note":"Gen 10:10: the beginning of Nimrod's kingdom was Erech, in the land of Shinar."},
-    "visited:nimrod_2206>shinar_1084@e74773": {"refs":["gen.10.10"],"note":"Gen 10:10: the beginning of Nimrod's kingdom was in the land of Shinar."}
+    "visited:nimrod_2206>shinar_1084@e74773": {"refs":["gen.10.10"],"note":"Gen 10:10: the beginning of Nimrod's kingdom was in the land of Shinar."},
+    "occurred-at:nimrod-s-kingdom-begins>assyria_111@790381": {"refs":["gen.10.10","gen.10.11"],"note":"The beginning of his kingdom was Babel and others in Shinar (10:10). Asshur, not Nimrod, went forth from that land (10:11).","kind":"wrong","severity":"medium"}
   }
 }

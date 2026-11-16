@@ -23,8 +23,9 @@ export const NOTE_MAX = 300
 export const URL_MAX = 7000
 
 const KEY = /^[a-z-]+:[^\s@`]+@[0-9a-f]{6}$/
-const newIssue = (params: Record<string, string>) =>
-  `${REPO}/issues/new?${new URLSearchParams(params).toString().replace(/\+/g, "%20")}`
+// A pre-filled new-issue link (spaces as %20: GitHub shows a "+" as is).
+export const newIssue = (params: Record<string, string>, repo = REPO) =>
+  `${repo}/issues/new?${new URLSearchParams(params).toString().replace(/\+/g, "%20")}`
 
 // Verdicts waiting to be submitted, kept in this browser.
 const PENDING = "review-pending"
