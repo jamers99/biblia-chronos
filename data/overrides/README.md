@@ -36,6 +36,9 @@ to be listed twice, and a `place` to be a known place.
 - **Entities** are matched by `id`. A matching override's fields are overlaid
   onto the seed record (shallow, per top-level field), so you can correct just
   one field. An override with a new `id` adds a whole new record.
+  When an override gives a seed record a description of our own, set
+  `"descriptionSource": "editorial"` (any key in `data/sources.json`), so
+  the Sources section credits it rather than Easton's.
 - **Edges** are matched by `from|to|type`. An override adds a new edge or corrects
   an existing one. To delete a wrong seed edge, add it with `"remove": true` (a
   tombstone). The checker warns when a tombstone no longer matches a seed edge,

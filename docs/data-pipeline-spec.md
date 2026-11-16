@@ -102,6 +102,7 @@ const Base = z.object({
   name: z.string(),
   source: z.string(),
   description: z.string().optional(),
+  descriptionSource: z.string().optional(), // source key, when the description isn't the record's own (overrides only)
   scriptureRefs: z.array(ScriptureRef).optional(),
 })
 
@@ -219,7 +220,7 @@ a running counter.
 
 **Person** (`people.json`): `name`←name, `displayTitle`←displayTitle,
 `isProperName`←isProperName, `gender`←lowercase gender, `description`←`dictText`
-(array → joined, markup stripped), `status`←status. Dates: `birth` from
+(array → joined, markup stripped). Dates: `birth` from
 `birthYear`, `death` from `deathYear` (parse numeric-string years; a single
 known year sets both `earliest` and `latest`). `minYear`/`maxYear` are **not**
 imported: they span the verses that mention a person, not their life.
@@ -228,8 +229,7 @@ Relationship fields (`father`, `mother`, `children`, `siblings`,
 edges (see below). `verses` → resolve to `scriptureRefs`.
 
 **Place** (`places.json`): `name`←`esvName` (fallback `kjvName`/slug),
-`featureType`, `featureSubType`, `status` (upstream dropped it for places in
-Oct 2026, so places import as `published`), `date` from `startYear`/`endYear`
+`featureType`, `featureSubType`, `date` from `startYear`/`endYear`
 (set on the kingdoms). Coordinates: prefer
 `latitude`/`longitude`, then `openBibleLat`/`openBibleLong`, then
 `recogitoLat`/`recogitoLon`; skip if none. `kjvName`/`esvName` → `altNames`.
@@ -238,15 +238,13 @@ to fill in. `verses` → `scriptureRefs`. Relationship fields `peopleDied`,
 `hasBeenHere`, `eventsHere`, `partOf`, `near`, `canonicalPlace` → edges. Their
 inverses (`parts`, `nearby`, `otherNames`) are ignored: same facts, other side.
 
-**Event** (`events.json`): `name`←`title`, `status` defaults `published` (no
-status field upstream). `date`: `earliest` from `startDate`; `latest` from
+**Event** (`events.json`): `name`←`title`. `date`: `earliest` from `startDate`; `latest` from
 `startDate` + `duration` (`"930Y"`→years, `"7D"`→days≈same year, `"1Y"`→1 year —
 parse the trailing unit). Keep `sortKey` only if the build needs it (otherwise
 drop). `participants` → `participated-in` edges, `locations` → `occurred-at`
 edges, `verses` → `scriptureRefs`.
 
-**PeopleGroup** (`peopleGroups.json`): `name`←`groupName`, `status` defaults
-`published`. `members` → `member-of` edges (person → group).
+**PeopleGroup** (`peopleGroups.json`): `name`←`groupName`. `members` → `member-of` edges (person → group).
 
 **Book** (`books.json`): `bookName`, `osisName`, `shortName`, `bookOrder`,
 `chapterCount`, `testament`, `bookDiv` → the Book fields above.

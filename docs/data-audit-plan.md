@@ -187,10 +187,11 @@ containing its first supporting verse.
   the Ahasuerus–Esther marriage, check the whole dataset first (most are
   there, filed in another batch), then report it upstream. Add it to
   `data/overrides/` only as a stopgap.
-- **The editor's mark is honest about what it covers.** The editor reads
-  every written entry and samples the `agreed` list at the rate recorded in
-  `sampled`. Only facts the editor actually read show as "read by an
-  editor". An agreed fact shows "AI agreed · batch spot-checked by an editor
+- **The editor's mark is honest about what it covers.** Only facts an
+  editor actually read show as "read by an editor": each fact given a
+  verdict in review mode, and, when an editor signs off a whole batch, the
+  entries listed in its `editor.read`, with the `agreed` list sampled at the
+  rate recorded in `sampled`. An agreed fact shows "AI agreed · batch spot-checked by an editor
   (10%)".
 - **Batch size:** a batch is capped so one Haiku run stays small. Heavy
   chapters like 1 Chr 1–9 are split.
