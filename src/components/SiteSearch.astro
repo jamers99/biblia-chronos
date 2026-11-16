@@ -18,7 +18,7 @@
       <circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4.5 4.5"></path>
     </svg>
   </button>
-  <div class="field">
+  <div class="search-field">
     <svg class="glass" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
       <circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4.5 4.5"></path>
     </svg>
@@ -114,7 +114,7 @@
     flex: 0 1 19rem;
     min-width: 11rem;
   }
-  .field {
+  .search-field {
     position: relative;
     display: flex;
     align-items: center;
@@ -187,14 +187,14 @@
     .search-open {
       display: grid;
     }
-    .field {
+    .search-field {
       display: none;
     }
     /* searching takes over the bar: the rest of it steps aside */
     :global(header.searching > :not(.site-search)) {
       visibility: hidden;
     }
-    :global(header.searching) .field {
+    :global(header.searching) .search-field {
       display: flex;
       position: absolute;
       /* the box is 2.5rem tall, centred in the bar */
