@@ -13,7 +13,7 @@ const { record } = Astro.props
 const s = source(record.source)
 // Theographic's descriptions are Easton's; one we wrote names its own source.
 const describedBy = record.descriptionSource ? source(record.descriptionSource) : undefined
-const eastons = record.description && !describedBy && record.source === "theographic" ? source("eastons") : undefined
+const eastons = record.description && !record.descriptionSource && record.source === "theographic" ? source("eastons") : undefined
 const t = tallyOf(record.id)
 const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? "" : "s"}`
 ---

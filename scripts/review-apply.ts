@@ -11,7 +11,7 @@
 // verdict on a fact replaces an earlier one. Prints a Markdown summary (the
 // workflow uses it as the pull request's body); exits 1 if nothing applied.
 
-import { readFileSync, writeFileSync } from "node:fs"
+import { existsSync, readFileSync, writeFileSync } from "node:fs"
 import { join } from "node:path"
 import { parseArgs } from "node:util"
 import { Reviews, type Review } from "../src/lib/data/schema.ts"
@@ -21,7 +21,7 @@ import { parseSubmission } from "../src/lib/review.ts"
 import { citedVerses } from "../src/lib/citations.ts"
 import { verse } from "../src/lib/scripture.ts"
 import { upstreamReportUrl } from "../src/lib/upstream.ts"
-import { loadData, readJson, root } from "./data.ts"
+import { loadData, loadVerses, readJson, root } from "./data.ts"
 
 const { values } = parseArgs({
   options: { by: { type: "string" }, on: { type: "string" }, issue: { type: "string" }, "body-file": { type: "string" } },
@@ -43,7 +43,11 @@ const facts = enumerateFacts(data)
 const current = new Map(facts.map((f) => [f.id, f.key]))
 const factOf = new Map(facts.map((f) => [f.key, f]))
 const records = new Map<string, Entity>([...data.people, ...data.places, ...data.events, ...data.peopleGroups].map((r) => [r.id, r]))
-const reports: string[] = []
+const reports: { upstream: boolean; line: string }[] = []
+// The KJV text, to keep a note's citations to real verses. The apply
+// workflow may not have fetched it; then only the chapter is checked (by
+// check:data).
+const text = existsSync(join(root, "data/vendor/theographic/verses.json")) ? loadVerses(data.books) : undefined
 const reviews = Reviews.parse(readJson("data/reviews.json"))
 
 const { reviews: submitted, errors } = parseSubmission(body)
@@ -59,13 +63,18 @@ for (const { key, verdict, note } of submitted) {
   for (const old of Object.keys(reviews)) if (factId(old) === factId(key)) delete reviews[old]
   // The verses the note cites ("Hezron is his father, 1 Chr 2:18") are the
   // editor's own support for the verdict, shown in place of the AI's.
-  const refs = note ? citedVerses(note, data.books) : []
+  // Only verses that exist: a slip like "2:18-99" names verses that don't.
+  const refs = note ? citedVerses(note, data.books).filter((r) => !text || text.has(r)) : []
   const review: Review = { verdict, by, on, ...(issue ? { issue } : {}), ...(note ? { note } : {}), ...(refs.length ? { refs } : {}) }
   reviews[key] = review
   if (verdict === "wrong") {
     const f = factOf.get(key)!
     const url = upstreamReportUrl(f, (id) => records.get(id), review, (ref) => verse(ref, data.books)?.short ?? ref)
-    reports.push(url ? `[Report \`${f.id}\` to Theographic](${url})` : `\`${f.id}\`: one of our own records, so fix it in \`data/overrides/\``)
+    reports.push(
+      url
+        ? { upstream: true, line: `[Report \`${f.id}\` to Theographic](${url})` }
+        : { upstream: false, line: `\`${f.id}\`: added or written by us, so fix it in \`data/overrides/\`` },
+    )
   }
   applied.push(`${verdict} \`${key}\`${note ? `: ${note}` : ""}`)
 }
@@ -83,12 +92,15 @@ console.log(
     ...(applied.length ? ["", "**Applied**", ...list(applied)] : []),
     ...(skipped.length ? ["", "**Skipped** (not a fact as the data has it now: review these again)", ...list(skipped)] : []),
     ...(errors.length ? ["", "**Unreadable lines**", ...list(errors)] : []),
-    ...(reports.length
+    ...(reports.some((r) => r.upstream)
       ? [
           "",
-          "**To report upstream.** Facts judged wrong are Theographic's to fix. Each link opens its data-correction form, filled in. Once it's sent, add `\"upstream\": \"<issue URL>\"` to the verdict in `data/reviews.json`.",
-          ...list(reports),
+          "**To report upstream.** These facts are Theographic's to fix. Each link opens its data-correction form, filled in. Once it's sent, add `\"upstream\": \"<issue URL>\"` to the verdict in `data/reviews.json`.",
+          ...list(reports.filter((r) => r.upstream).map((r) => r.line)),
         ]
+      : []),
+    ...(reports.some((r) => !r.upstream)
+      ? ["", "**To fix here.** These facts judged wrong are our own.", ...list(reports.filter((r) => !r.upstream).map((r) => r.line))]
       : []),
   ].join("\n"),
 )

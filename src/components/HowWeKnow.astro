@@ -24,7 +24,7 @@ const id = `how-${context}-${hash(fact)}`
 // the report; until then, review mode offers a pre-filled one.
 const judgedWrong = ev?.review?.verdict === "wrong" ? ev.review : undefined
 const reported = judgedWrong?.upstream && upstreamLink(judgedWrong.upstream)
-const toReport = judgedWrong && !reported && ev && upstreamReportUrl({ id: fact, kind: ev.kind, records: ev.records }, record, judgedWrong, short)
+const toReport = judgedWrong && !reported && ev && upstreamReportUrl({ id: fact, ...ev }, record, judgedWrong, short)
 const layers: [string, string | undefined, string][] = how
   ? [
       ["Text match", how.match, "None found"],

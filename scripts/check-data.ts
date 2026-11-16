@@ -8,7 +8,7 @@
 // Errors block the build (structural problems we own). Warnings are reported
 // but don't block (data-quality smells, often inherited from upstream).
 
-import { existsSync, readdirSync } from "node:fs"
+import { existsSync } from "node:fs"
 import { join } from "node:path"
 import { z, ZodError } from "zod"
 import {
@@ -298,6 +298,7 @@ const reviews = Reviews.safeParse(readJson("data/reviews.json"))
 if (!reviews.success) for (const issue of reviews.error.issues.slice(0, 5)) err(`reviews.json ${issue.path.join(".")}: ${issue.message}`)
 else
   for (const [key, review] of Object.entries(reviews.data)) {
+    for (const ref of review.refs ?? []) checkVerse(`reviews.json ${key}`, ref)
     if (!factKeys.has(key)) warn(`reviews.json: ${key} — ${staleOrGone(key)}`)
     else if (review.verdict === "wrong" && !review.upstream) {
       const by = `${review.by}${review.issue ? ` (#${review.issue})` : ""}`

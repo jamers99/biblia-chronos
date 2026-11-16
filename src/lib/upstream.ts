@@ -13,7 +13,7 @@ export const UPSTREAM = "https://github.com/robertrouse/theographic-bible-metada
 
 // What a report needs of a record; the site's entities fit as they are.
 type Rec = { id: string; name: string; source: string; kind: string; gender?: string; date?: DateEstimate; birth?: DateEstimate; death?: DateEstimate }
-type Fact = { id: string; kind: FactKind; records: string[] }
+type Fact = { id: string; kind: FactKind; records: string[]; source?: string }
 type Lookup = (id: string) => Rec | undefined
 
 // Which of Theographic's tables and fields holds a fact, and the record it's on.
@@ -39,9 +39,12 @@ function where(f: Fact, rec: Lookup) {
   }
 }
 
-// Whether a fact is Theographic's to fix: a field of theirs, on their records.
+// Whether a fact is Theographic's to fix: a field of theirs, on their records,
+// and for a link, a link of theirs (not one added in data/overrides/).
 export const isUpstream = (f: Fact, rec: Lookup) =>
-  where(f, rec)?.on !== undefined && f.records.every((id) => rec(id)?.source === "theographic")
+  where(f, rec)?.on !== undefined &&
+  (f.source === undefined || f.source === "theographic") &&
+  f.records.every((id) => rec(id)?.source === "theographic")
 
 export function upstreamReportUrl(
   f: Fact,

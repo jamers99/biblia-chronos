@@ -55,11 +55,10 @@ const refsOf = (id: string) => (records.get(id)?.scriptureRefs ?? []).map(verseK
 const keysOf = (b: EvidenceBatch) => [...(b.agreed ?? []), ...Object.keys(b.facts ?? {})]
 const batches = readBatches()
 const own: EvidenceBatch = batches.get(`${name}.json`) ?? { passage: "" }
-batches.delete(`${name}.json`)
-const reviewedElsewhere = new Set([...batches.values()].flatMap((b) => keysOf(b).map(factId)))
+const reviewedElsewhere = new Set([...batches].flatMap(([file, b]) => (file === `${name}.json` ? [] : keysOf(b).map(factId))))
 const ownKey = new Map(keysOf(own).map((k) => [factId(k), k]))
-// Every other batch's AI verdict, by key, with the file it lives in; an
-// "agreed" fact has no entry.
+// Every batch's AI verdict, by key, with the file it lives in (for the
+// re-checks, which gather from all of them); an "agreed" fact has no entry.
 const verdictOf = new Map<string, { file: string; entry?: EvidenceEntry }>(
   [...batches].flatMap(([file, b]) => [
     ...(b.agreed ?? []).map((key) => [key, { file }] as const),
@@ -145,8 +144,8 @@ const said = (entry?: EvidenceEntry) =>
   entry ? `${entry.kind ?? "verse"}, ${(entry.refs ?? []).join(", ")}${entry.note ? ` — "${entry.note}"` : ""}` : "agreed with the text match"
 function previously(f: Fact) {
   if (mode === "disputed" || mode === "flagged") {
-    const v = verdictOf.get(f.key)!
-    const ai = ` Was reviewed in data/evidence/${v.file} as: ${said(v.entry)}.`
+    const v = verdictOf.get(f.key)
+    const ai = v ? ` Was reviewed in data/evidence/${v.file} as: ${said(v.entry)}.` : " Not yet reviewed by the AI."
     if (mode === "flagged") return ai
     const r = settled.get(f.key)!
     return `${ai} An editor (${r.by}) judged it ${r.verdict}${r.refs?.length ? `, citing ${r.refs.join(", ")}` : ""}${r.note ? `: "${r.note}"` : ""}.`

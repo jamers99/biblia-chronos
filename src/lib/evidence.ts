@@ -25,6 +25,7 @@ export type Fact = {
   key: string // id@hash
   kind: FactKind
   records: string[] // the records whose pages show it
+  source?: string // a link's own source ("theographic", "editorial"); a record's facts go by the record's
 }
 
 // Siblings aren't checked on their own: they follow from shared parents.
@@ -43,11 +44,12 @@ export function hash(text: string): string {
 
 const dateText = (d: DateEstimate) => JSON.stringify([d.earliest ?? null, d.latest ?? null, d.display ?? null])
 
-const fact = (kind: FactKind, id: string, shown: string, records: string[]): Fact => ({
+const fact = (kind: FactKind, id: string, shown: string, records: string[], source?: string): Fact => ({
   id,
   key: `${id}@${hash(shown)}`,
   kind,
   records,
+  ...(source ? { source } : {}),
 })
 
 // The id of a fact about one record: "date:esther-becomes-queen", and for a
@@ -78,7 +80,7 @@ export function enumerateFacts(d: Data): Fact[] {
   for (const e of d.edges) {
     if (DERIVED.includes(e.type)) continue
     const id = edgeFact(e.type, e.from, e.to)
-    facts.push(fact(e.type as FactKind, id, id, [e.from, e.to]))
+    facts.push(fact(e.type as FactKind, id, id, [e.from, e.to], e.source))
   }
   for (const r of [...d.events, ...d.places, ...d.periods])
     if (r.date) facts.push(fact("date", recordFact("date", r.id), dateText(r.date), [r.id]))
@@ -155,6 +157,7 @@ export type FactEvidence = {
   key: string
   kind: FactKind
   records: string[] // the records whose pages show the fact
+  source?: string // a link's own source, as on Fact
   match?: { ref: string | null; rule: string }
   ai?: { model: string; on: string; agreed: boolean }
   editor?: { by: string; on: string; read: boolean; sampled?: number }
@@ -166,7 +169,7 @@ export function collectEvidence(facts: Fact[], matches: MatchEvidence | undefine
   const byId = new Map<string, FactEvidence>()
   for (const f of facts) {
     const s = matches?.facts[f.key]
-    byId.set(f.id, { key: f.key, kind: f.kind, records: f.records, ...(s && s.length ? { match: { ref: s[0], rule: s[1] } } : {}) })
+    byId.set(f.id, { key: f.key, kind: f.kind, records: f.records, ...(f.source ? { source: f.source } : {}), ...(s && s.length ? { match: { ref: s[0], rule: s[1] } } : {}) })
   }
   for (const b of batches) {
     const touch = (key: string, agreed: boolean, entry?: FactEvidence["entry"]) => {

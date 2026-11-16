@@ -201,7 +201,7 @@ export const Review = z
     on: Day,
     issue: z.number().int().positive().optional(), // the GitHub issue it came from
     note: z.string().max(NOTE_MAX).optional(),
-    refs: z.array(z.string()).optional(), // the verses the note cites ("1chr.2.18"), read from it by review:apply
+    refs: z.array(VerseKey).optional(), // the verses the note cites ("1chr.2.18"), read from it by review:apply
     // A "wrong" fact reported to Theographic: the issue's URL, or its
     // data-quality ledger id (DQ-0072). Set by hand once the report is sent.
     upstream: z.string().optional(),
