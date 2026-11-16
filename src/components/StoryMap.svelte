@@ -283,7 +283,7 @@
     viewBox="0 0 {width} {height}"
     role="application"
     aria-label="Map of the places in the story. Left and right arrows turn chapters, plus and minus zoom."
-    onpointermove={(e) => (hovered = nearest(e))}
+    onpointermove={(e) => (hovered = e.pointerType === "mouse" ? nearest(e) : undefined)}
     onpointerleave={() => (hovered = undefined)}
     onclick={(e) => {
       const pt = nearest(e)

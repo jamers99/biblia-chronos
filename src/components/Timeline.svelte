@@ -488,6 +488,7 @@
               pickTrack(r.id)
             }}
             onpointerenter={(e) => {
+              if (e.pointerType !== "mouse") return
               const item = byId.get(r.id)
               if (item) hovered = { item, x: e.offsetX, y: b.y + b.h, note: `${r.king} · ${r.note ?? r.house}` }
             }}
@@ -560,7 +561,9 @@
               e.stopPropagation()
               selected = item
             }}
-            onpointerenter={(e) => (hovered = { item, x: e.offsetX, y })}
+            onpointerenter={(e) => {
+              if (e.pointerType === "mouse") hovered = { item, x: e.offsetX, y }
+            }}
             onpointerleave={() => (hovered = undefined)}
           >
             {#if item.kind === "event"}
@@ -694,6 +697,7 @@
     height: 100%;
     cursor: grab;
     user-select: none;
+    touch-action: none; /* every pinch and drag is the timeline's, never the browser's */
     font-family: var(--sans);
   }
   svg:active {
