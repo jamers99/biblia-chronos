@@ -105,6 +105,7 @@ const current = (href: string) => (isCurrent(href) ? "page" : undefined)
           <nav class="menu-indexes" aria-label="Records">
             {indexes.map(([label, href]) => <a href={url(href)} aria-current={current(href)}>{label}</a>)}
           </nav>
+          <a href={url("/connections/")} aria-current={current("/connections/")}>Connections</a>
           <a href={url("/about/")} aria-current={current("/about/")}>About & sources</a>
           <a href={url("/about/#citing-sources")}>Citing sources</a>
           <a class="report" href={REPORT} target="_blank" rel="noopener">Report a problem</a>

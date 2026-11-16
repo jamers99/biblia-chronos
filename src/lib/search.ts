@@ -101,3 +101,6 @@ export const KIND_LABEL: Record<SearchEntry["kind"], string> = {
   peopleGroup: "Group",
   period: "Era",
 }
+
+// What tells a result apart in a list: "Person · 1115 BC".
+export const hintOf = (e: SearchEntry) => [KIND_LABEL[e.kind], e.hint].filter(Boolean).join(" · ")

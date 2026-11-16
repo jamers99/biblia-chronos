@@ -1,0 +1,245 @@
+---
+// Connections: pick any two people, places, or events and see the chain of
+// links between them (lib/connections.ts). Names come from the search index,
+// links from /connections.json; both are fetched when the page opens, and the
+// boxes work as soon as the names are in. The choice lives in the URL
+// (?from=…&to=…), so a chain can be shared.
+import Page from "../../layouts/Page.astro"
+---
+
+<Page title="Connections" description="Pick any two people, places, or events and see how Scripture links them.">
+  <h1>Connections</h1>
+  <p class="muted lede">Pick any two people, places, or events to see how Scripture links them.</p>
+
+  <form class="ends" autocomplete="off">
+    {
+      ["from", "to"].map((end) => (
+        <div class="end" data-end={end}>
+          <label for={`end-${end}`}>{end === "from" ? "From" : "To"}</label>
+          <input
+            id={`end-${end}`}
+            type="search"
+            placeholder={end === "from" ? "Ruth" : "David"}
+            role="combobox"
+            aria-expanded="false"
+            aria-controls={`end-${end}-results`}
+            aria-autocomplete="list"
+            spellcheck="false"
+          />
+          <ul id={`end-${end}-results`} class="suggestions" role="listbox" hidden />
+        </div>
+      ))
+    }
+  </form>
+
+  <div class="found" aria-live="polite"></div>
+</Page>
+
+<script>
+  import { prepare, search, hintOf, type SearchEntry } from "../../lib/search.ts"
+  import { createRouter, type Packed, type Route, type Step } from "../../lib/connections.ts"
+  import { combobox } from "../../lib/combobox.ts"
+  import { entityUrl, url } from "../../lib/url.ts"
+  import { REPORT } from "../../lib/review.ts"
+
+  const HEADING: Record<Route["kind"], string> = { closest: "The closest link", family: "Through family", other: "Another way" }
+  const LONG = 14 // records in a chain before its middle is folded away
+  const SHOWN = 5 // records shown at each end of a long chain
+
+  // Eras aren't in the links, so they can't be an end.
+  type Pickable = SearchEntry & { kind: Exclude<SearchEntry["kind"], "period"> }
+
+  const json = <T,>(path: string): Promise<T> => fetch(url(path)).then((r) => (r.ok ? r.json() : Promise.reject(r.statusText)))
+  const names = json<SearchEntry[]>("/search.json").then((all) => all.filter((e): e is Pickable => e.kind !== "period"))
+  const router = json<Packed>("/connections.json").then(createRouter)
+
+  const found = document.querySelector<HTMLElement>(".found")!
+  const chosen: { [end: string]: SearchEntry | undefined } = {}
+  let byId = new Map<string, Pickable>()
+  const failed = () => (found.innerHTML = `<p class="muted">Couldn't load the links. Check your connection and reload.</p>`)
+
+  names.then((records) => {
+    byId = new Map(records.map((e) => [e.id, e]))
+    const index = prepare(records)
+    const params = new URLSearchParams(location.search)
+
+    for (const el of document.querySelectorAll<HTMLElement>(".end")) {
+      const end = el.dataset.end!
+      const input = el.querySelector("input")!
+      const choose = (entry: SearchEntry | undefined) => {
+        chosen[end] = entry
+        if (entry) input.value = entry.name
+      }
+      combobox(input, el.querySelector("ul")!, {
+        find: (query) => search(index, query, 8),
+        pick: (entry) => (choose(entry), show()),
+      })
+      // Typing again lets go of the choice.
+      input.addEventListener("input", () => chosen[end] && (choose(undefined), show()))
+      choose(byId.get(params.get(end) ?? ""))
+    }
+    show()
+    if (chosen.from && !chosen.to) document.querySelector<HTMLInputElement>("#end-to")!.focus()
+  }, failed)
+  router.catch(failed)
+
+  // Put the choice in the URL, keeping the panels in the history state. Again
+  // when a panel closes, as going back restores the URL it opened over.
+  function remember() {
+    const query = new URLSearchParams(Object.entries(chosen).flatMap(([end, e]) => (e ? [[end, e.id]] : []))).toString()
+    history.replaceState(history.state, "", query ? `?${query}` : location.pathname)
+  }
+  addEventListener("popstate", remember)
+
+  async function show() {
+    remember()
+    const { from, to } = chosen
+    if (!from || !to) return found.replaceChildren()
+    if (from === to) return say("Pick two different records.")
+    const { routes, linked, linkOf } = await router
+    if (chosen.from !== from || chosen.to !== to) return // changed meanwhile
+    const unlinked = [from, to].filter((e) => !linked(e.id))
+    if (unlinked.length)
+      return say(`${unlinked.map((e) => e.name).join(" and ")} ${unlinked.length > 1 ? "have" : "has"} no recorded links yet.`, `${from.name} – ${to.name}`)
+    const chains = routes(from.id, to.id)
+    if (!chains.length) return say("No connection found.", `${from.name} – ${to.name}`)
+    found.replaceChildren(
+      ...chains.flatMap(({ kind, steps }) => [
+        Object.assign(document.createElement("h2"), {
+          textContent: `${HEADING[kind]}: ${steps.length - 1} ${steps.length === 2 ? "step" : "steps"}`,
+        }),
+        chain(steps, linkOf),
+      ]),
+    )
+  }
+
+  // A message, and for a gap in the data, a way to report it.
+  function say(text: string, gap?: string) {
+    const p = Object.assign(document.createElement("p"), { className: "muted", textContent: `${text} ` })
+    if (gap) {
+      const a = Object.assign(document.createElement("a"), { className: "report", href: REPORT, target: "_blank", rel: "noopener", textContent: "suggest one" })
+      a.dataset.title = `Missing link: ${gap}`
+      p.append("Many links are still missing from the data: ", a, ".")
+    }
+    found.replaceChildren(p)
+  }
+
+  // Each record, with how it links to the one before ("mother of"). A long
+  // chain (a family line from Adam) shows its ends, and the rest on request.
+  function chain(steps: Step[], linkOf: (steps: Step[], i: number) => string) {
+    const ol = Object.assign(document.createElement("ol"), { className: "chain" })
+    const long = steps.length > LONG
+    steps.forEach((step, i) => {
+      const li = document.createElement("li")
+      if (i) li.append(Object.assign(document.createElement("span"), { className: "via", textContent: linkOf(steps, i) }))
+      const entry = byId.get(step.id)! // every linked record is in the search index
+      li.append(
+        Object.assign(document.createElement("a"), { className: "name", href: entityUrl(entry), textContent: entry.name }),
+        " ",
+        Object.assign(document.createElement("small"), { textContent: hintOf(entry) }),
+      )
+      li.hidden = long && i >= SHOWN && i < steps.length - SHOWN
+      ol.append(li)
+    })
+    if (long) {
+      const more = Object.assign(document.createElement("button"), { type: "button", className: "more", textContent: `Show ${steps.length - 2 * SHOWN} more` })
+      const li = document.createElement("li")
+      li.append(more)
+      more.addEventListener("click", () => {
+        for (const li of ol.querySelectorAll("li")) li.hidden = false
+        li.remove()
+      })
+      ol.children[SHOWN].before(li)
+    }
+    return ol
+  }
+</script>
+
+<style>
+  .lede {
+    margin-top: -0.25rem;
+  }
+  .ends {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: 0.75rem 1rem;
+    margin: 1.5rem 0 2rem;
+  }
+  .end {
+    position: relative;
+    flex: 1 1 14rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .end label {
+    font-size: 0.75rem;
+    color: var(--ink-3);
+  }
+  .end input {
+    font: inherit;
+    padding: 0.5rem 0.8rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--rule);
+    background: var(--surface);
+    color: var(--ink);
+  }
+  .end input:focus {
+    outline: none;
+    border-color: var(--gold);
+  }
+  .end input::-webkit-search-cancel-button {
+    display: none;
+  }
+
+  .suggestions {
+    position: absolute;
+    top: calc(100% + 0.3rem);
+    left: 0;
+    right: 0;
+    max-height: min(22rem, 60dvh);
+  }
+
+  /* The chain: each record, and between them a rule with the link beside it */
+  .found :global(h2) {
+    font: 600 1rem var(--sans);
+    color: var(--ink-2);
+    margin: 2rem 0 0.75rem;
+  }
+  .found :global(h2:first-child) {
+    margin-top: 0;
+  }
+  .found :global(.chain) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .found :global(.via) {
+    display: block;
+    margin: 0.3rem 0 0.3rem 0.6rem;
+    padding: 0.35rem 0 0.35rem 1rem;
+    border-left: 2px solid var(--gold);
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--ink-2);
+  }
+  .found :global(.more) {
+    margin: 0.3rem 0 0.3rem 0.6rem;
+    padding: 0.35rem 1rem;
+    border: 0;
+    border-left: 2px dashed var(--gold);
+    background: none;
+    font: inherit;
+    font-size: 0.85rem;
+    color: var(--accent);
+    cursor: pointer;
+  }
+  .found :global(small) {
+    color: var(--ink-3);
+    font-size: 0.75rem;
+  }
+  .found :global(.name) {
+    font: 1.15rem/1.4 var(--serif);
+  }
+</style>
