@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "description": "Explore the Story of Scripture \u2014 interactive biblical timelines, maps, and genealogies.",
+  "description": "Explore the Story of Scripture — interactive biblical timelines, maps, and genealogies.",
   "license": "MIT",
   "scripts": {
     "dev": "astro dev",

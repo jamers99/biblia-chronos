@@ -98,6 +98,9 @@ export function enumerateFacts(d: Data): Fact[] {
 
 export const factId = (key: string) => key.slice(0, key.lastIndexOf("@"))
 
+// Whether the AI flagged a fact for a person: wrong, or no verse found.
+export const isFlag = (entry: { kind?: string } | undefined) => entry?.kind === "wrong" || entry?.kind === "unsupported"
+
 // --- A fact in words ----------------------------------------------------------
 
 // A fact as a sentence a reviewer can check, for the AI's batch file
@@ -177,7 +180,7 @@ export function collectEvidence(facts: Fact[], matches: MatchEvidence | undefine
       }
     }
     for (const key of b.agreed ?? []) touch(key, true)
-    for (const [key, entry] of Object.entries(b.facts ?? {})) touch(key, entry.kind !== "wrong" && entry.kind !== "unsupported", entry)
+    for (const [key, entry] of Object.entries(b.facts ?? {})) touch(key, !isFlag(entry), entry)
   }
   // An editor's own verdict on a fact is a read, whatever the batch says.
   for (const [key, review] of Object.entries(reviews)) {

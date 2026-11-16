@@ -3,15 +3,15 @@
 //
 //   npm run audit:format
 
-import { readdirSync, readFileSync, writeFileSync } from "node:fs"
+import { readFileSync, writeFileSync } from "node:fs"
 import { join } from "node:path"
-import { root } from "./data.ts"
+import { batchFiles, root } from "./data.ts"
 
 const dir = join(root, "data/evidence")
 const str = JSON.stringify
 const list = (items: string[], open: string, close: string) => `${open}\n${items.map((s) => `    ${s}`).join(",\n")}\n  ${close}`
 
-for (const file of readdirSync(dir).filter((f) => f.endsWith(".json") && f !== "matches.json")) {
+for (const file of batchFiles()) {
   const path = join(dir, file)
   const before = readFileSync(path, "utf8")
   const { agreed, facts, ...head } = JSON.parse(before)

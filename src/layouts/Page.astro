@@ -158,7 +158,7 @@ const current = (href: string) => (isCurrent(href) ? "page" : undefined)
         menu.querySelector("summary")!.focus()
       })
 
-      // The menu's settings, site-wide and remembered: review mode
+      // The menu's settings, site-wide and remembered: today just review mode
       // (ReviewMode.astro listens for "review"). Each is a checkbox, a data
       // attribute on <html>, and its two values.
       for (const [name, yes, no] of [

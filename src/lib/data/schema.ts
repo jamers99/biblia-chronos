@@ -227,5 +227,6 @@ export type Source = z.infer<typeof Source>
 export type EdgeType = z.infer<typeof EdgeType>
 export type Edge = z.infer<typeof Edge>
 export type EvidenceBatch = z.infer<typeof EvidenceBatch>
+export type EvidenceEntry = NonNullable<EvidenceBatch["facts"]>[string]
 export type Review = z.infer<typeof Review>
 export type Reviews = z.infer<typeof Reviews>

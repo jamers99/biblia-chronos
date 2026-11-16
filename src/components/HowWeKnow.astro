@@ -7,7 +7,7 @@ import { books, evidenceFor, record, source } from "../lib/data/load.ts"
 import { explain, hash } from "../lib/evidence.ts"
 import { verse } from "../lib/scripture.ts"
 import { REPORT } from "../lib/review.ts"
-import { UPSTREAM, upstreamReportUrl } from "../lib/upstream.ts"
+import { upstreamLink, upstreamReportUrl } from "../lib/upstream.ts"
 
 interface Props {
   fact: string // fact id, e.g. "parent-of:abraham_58>isaac_616"
@@ -15,32 +15,16 @@ interface Props {
 }
 const { fact, context } = Astro.props
 const ev = evidenceFor(fact)
-const how = ev && explain(ev, (ref) => verse(ref, books)?.short ?? ref)
+const short = (ref: string) => verse(ref, books)?.short ?? ref
+const how = ev && explain(ev, short)
 const cited = (how?.refs ?? []).map((r) => verse(r, books)).filter((v) => v !== undefined)
 const sources = (ev?.entry?.sources ?? []).map(source).filter((s) => s !== undefined)
 const id = `how-${context}-${hash(fact)}`
 // A fact an editor judged wrong is Theographic's to fix: once reported, link
 // the report; until then, review mode offers a pre-filled one.
 const judgedWrong = ev?.review?.verdict === "wrong" ? ev.review : undefined
-const reported = judgedWrong?.upstream
-const reportedUrl = reported && (reported.startsWith("http") ? reported : `${UPSTREAM}/blob/master/data-quality/issues.yaml`)
-const year = (id: string) => {
-  const r = record(id) as { date?: { earliest?: number }; birth?: { earliest?: number }; death?: { earliest?: number } } | undefined
-  const d = ev?.kind === "birth" ? r?.birth : ev?.kind === "death" ? r?.death : r?.date
-  return d?.earliest === undefined ? undefined : String(d.earliest)
-}
-const toReport =
-  judgedWrong && !reported && ev
-    ? upstreamReportUrl(
-        { id: fact, kind: ev.kind, records: ev.records, value: year(ev.records[0]) },
-        (rid) => {
-          const r = record(rid)
-          return r && { id: r.id, name: r.name, source: r.source, kind: r.kind, gender: "gender" in r ? r.gender : undefined }
-        },
-        judgedWrong,
-        (ref) => verse(ref, books)?.short ?? ref,
-      )
-    : undefined
+const reported = judgedWrong?.upstream && upstreamLink(judgedWrong.upstream)
+const toReport = judgedWrong && !reported && ev && upstreamReportUrl({ id: fact, kind: ev.kind, records: ev.records }, record, judgedWrong, short)
 const layers: [string, string | undefined, string][] = how
   ? [
       ["Text match", how.match, "None found"],
@@ -84,9 +68,9 @@ const layers: [string, string | undefined, string][] = how
           ))}
         </dl>
         <review-controls data-key={ev!.key} />
-        {reportedUrl && (
+        {reported && (
           <p class="how-note">
-            <a href={reportedUrl} target="_blank" rel="noopener">Reported to Theographic{reported!.startsWith("http") ? "" : ` (${reported})`}</a>, whose data this is.
+            <a href={reported.url} target="_blank" rel="noopener">Reported to Theographic{reported.label ? ` (${reported.label})` : ""}</a>, whose data this is.
           </p>
         )}
         <p class="how-report">

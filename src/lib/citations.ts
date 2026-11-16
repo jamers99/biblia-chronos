@@ -6,7 +6,7 @@
 // entry until another is named.
 
 import type { Book } from "./data/schema.ts"
-import { chapterUrl, passageUrl } from "./scripture.ts"
+import { chapterUrl, passageUrl, verseKey } from "./scripture.ts"
 
 // A citation: the book, chapter, and verses it names (none: the whole chapter).
 export type Cite = { book: string; chapter: number; start?: number; end?: number }
@@ -121,7 +121,7 @@ export function linkCitations(paragraphs: string[], books: Book[]): Segment[][] 
 // no verse, so it's left out.
 export function citedVerses(text: string, books: Book[]): string[] {
   const keys = linkCitations([text], books)[0].flatMap(({ cite }) =>
-    cite?.start === undefined ? [] : Array.from({ length: cite.end! - cite.start + 1 }, (_, i) => `${cite.book}.${cite.chapter}.${cite.start! + i}`),
+    cite?.start === undefined ? [] : Array.from({ length: cite.end! - cite.start + 1 }, (_, i) => verseKey({ ...cite, verse: cite.start! + i })),
   )
   return [...new Set(keys)]
 }

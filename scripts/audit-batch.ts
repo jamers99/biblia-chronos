@@ -24,13 +24,13 @@
 // doesn't flag them again; when the data changes under a verdict, it's stale
 // and the fact comes back.
 
-import { existsSync, mkdirSync, readdirSync, writeFileSync } from "node:fs"
+import { mkdirSync, writeFileSync } from "node:fs"
 import { join } from "node:path"
-import type { EvidenceBatch, Person, Reviews } from "../src/lib/data/schema.ts"
-import { describe, enumerateFacts, factId, type Fact, type MatchEvidence } from "../src/lib/evidence.ts"
+import type { EvidenceBatch, EvidenceEntry, Person, Reviews } from "../src/lib/data/schema.ts"
+import { describe, enumerateFacts, factId, isFlag, type Fact, type MatchEvidence } from "../src/lib/evidence.ts"
 import { RULES } from "../src/lib/scan.ts"
-import { verseKey } from "../src/lib/scripture.ts"
-import { loadData, loadVerses, readJson, root } from "./data.ts"
+import { citeRefs, verseKey } from "../src/lib/scripture.ts"
+import { loadData, loadVerses, readBatches, readJson, root } from "./data.ts"
 
 const [name, spec = "", kindList] = process.argv.slice(2)
 if (!name || !spec) {
@@ -52,32 +52,28 @@ const refsOf = (id: string) => (records.get(id)?.scriptureRefs ?? []).map(verseK
 // --- Which facts --------------------------------------------------------------
 
 // The other batches' reviews, and this batch's own (for --stale).
-const batchFile = (file: string): EvidenceBatch => readJson(`data/evidence/${file}`)
 const keysOf = (b: EvidenceBatch) => [...(b.agreed ?? []), ...Object.keys(b.facts ?? {})]
-const others = readdirSync(join(root, "data/evidence")).filter((f) => f.endsWith(".json") && f !== "matches.json" && f !== `${name}.json`)
-const reviewedElsewhere = new Set(others.flatMap((f) => keysOf(batchFile(f)).map(factId)))
-const own: EvidenceBatch = existsSync(join(root, `data/evidence/${name}.json`)) ? batchFile(`${name}.json`) : { passage: "" }
+const batches = readBatches()
+const own: EvidenceBatch = batches.get(`${name}.json`) ?? { passage: "" }
+batches.delete(`${name}.json`)
+const reviewedElsewhere = new Set([...batches.values()].flatMap((b) => keysOf(b).map(factId)))
 const ownKey = new Map(keysOf(own).map((k) => [factId(k), k]))
-// Every AI verdict, by key, with the file it lives in ("agreed": no entry).
-type Entry = NonNullable<EvidenceBatch["facts"]>[string]
-const verdictOf = new Map<string, { file: string; entry: Entry | "agreed" }>(
-  others.flatMap((file) => {
-    const b = batchFile(file)
-    return [
-      ...(b.agreed ?? []).map((key) => [key, { file, entry: "agreed" as const }] as const),
-      ...Object.entries(b.facts ?? {}).map(([key, entry]) => [key, { file, entry }] as const),
-    ]
-  }),
+// Every other batch's AI verdict, by key, with the file it lives in; an
+// "agreed" fact has no entry.
+const verdictOf = new Map<string, { file: string; entry?: EvidenceEntry }>(
+  [...batches].flatMap(([file, b]) => [
+    ...(b.agreed ?? []).map((key) => [key, { file }] as const),
+    ...Object.entries(b.facts ?? {}).map(([key, entry]) => [key, { file, entry }] as const),
+  ]),
 )
-// For --flagged: the "wrong" ones.
-const flagged = new Map([...verdictOf].filter(([, v]) => v.entry !== "agreed" && v.entry.kind === "wrong")) as Map<string, { file: string; entry: Entry }>
+const entryOf = (key: string) => verdictOf.get(key)?.entry
 // Editors' verdicts (data/reviews.json) on facts as the data has them now.
 const reviews: Reviews = readJson("data/reviews.json")
 const settled = new Map(Object.entries(reviews).filter(([, r]) => r.verdict !== "unsure"))
-const flags = (v?: { entry: Entry | "agreed" }) => v !== undefined && v.entry !== "agreed" && (v.entry.kind === "wrong" || v.entry.kind === "unsupported")
+// Disputed: "right" on a fact the AI flagged, or "wrong" on one it passed.
 const disputed = (key: string) => {
   const r = settled.get(key)
-  return r !== undefined && (r.verdict === "right") === flags(verdictOf.get(key))
+  return r !== undefined && (r.verdict === "right") === isFlag(entryOf(key))
 }
 
 // The record whose verses tell a fact: a parent link is told at the child,
@@ -112,7 +108,7 @@ const chosen = facts.filter((f) => {
   if (mode === "disputed") return disputed(f.key)
   if (settled.has(f.key)) return false // an editor has settled it
   if (mode === "stale") return ownKey.has(f.id) && ownKey.get(f.id) !== f.key
-  if (mode === "flagged") return flagged.has(f.key) && (!kindList || kindList.split(",").includes(f.kind))
+  if (mode === "flagged") return entryOf(f.key)?.kind === "wrong" && (!kindList || kindList.split(",").includes(f.kind))
   if (reviewedElsewhere.has(f.id)) return false
   if (mode === "kind") return kindList?.split(",").includes(f.kind)
   const h = home(f)
@@ -132,44 +128,31 @@ function when(id: string, kind: "date" | "birth" | "death") {
 // An event fact is judged against the event's whole verse range
 // (docs/audit-review-prompt.md), so say what that range is.
 const eventOf = (f: Fact) => (f.kind === "participated-in" ? f.records[1] : f.kind === "occurred-at" ? f.records[0] : undefined)
-function span(keys: string[]) {
-  const runs: string[][] = []
-  for (const k of keys) {
-    const last = runs.at(-1)?.at(-1)
-    const next = last && chapterOf(last) === chapterOf(k) && Number(k.split(".")[2]) === Number(last.split(".")[2]) + 1
-    if (next) runs.at(-1)!.push(k)
-    else runs.push([k])
-  }
-  return runs.map((r) => (r.length === 1 ? r[0] : `${r[0]}-${r[r.length - 1].split(".")[2]}`)).join(", ")
-}
 const sentence = (f: Fact) => {
   const text = describe(f, { kingdoms, periods }, when)
     .map((p) => (typeof p === "string" ? p : nameOf(p.id)))
     .join("")
-  const event = eventOf(f)
-  return event && refsOf(event).length ? `${text} (the event's verses: ${span(refsOf(event))})` : text
+  const cites = citeRefs(records.get(eventOf(f) ?? "")?.scriptureRefs ?? [], books)
+  return cites.length ? `${text} (the event's verses: ${cites.map((c) => `${c.book.name} ${c.text}`).join("; ")})` : text
 }
 
 function matchSays(f: Fact) {
   const [ref, rule] = matches.facts[f.key] ?? []
   return rule ? `text match: ${ref ? `${ref} ` : ""}(${RULES[rule] ?? rule})` : "text match: none"
 }
+// An AI verdict as a reviewer reads it: "wrong, gen.25.19 — note", or agreed.
+const said = (entry?: EvidenceEntry) =>
+  entry ? `${entry.kind ?? "verse"}, ${(entry.refs ?? []).join(", ")}${entry.note ? ` — "${entry.note}"` : ""}` : "agreed with the text match"
 function previously(f: Fact) {
-  if (mode === "disputed") {
-    const v = verdictOf.get(f.key)
+  if (mode === "disputed" || mode === "flagged") {
+    const v = verdictOf.get(f.key)!
+    const ai = ` Was reviewed in data/evidence/${v.file} as: ${said(v.entry)}.`
+    if (mode === "flagged") return ai
     const r = settled.get(f.key)!
-    const ai = !v ? "no verdict" : v.entry === "agreed" ? "agreed with the text match" : `${v.entry.kind ?? "verse"}, ${(v.entry.refs ?? []).join(", ")}${v.entry.note ? ` — "${v.entry.note}"` : ""}`
-    return ` The AI's verdict${v ? ` (in data/evidence/${v.file})` : ""}: ${ai}. An editor (${r.by}) judged it ${r.verdict}${r.refs?.length ? `, citing ${r.refs.join(", ")}` : ""}${r.note ? `: "${r.note}"` : ""}.`
-  }
-  if (mode === "flagged") {
-    const { file, entry } = flagged.get(f.key)!
-    return ` Was reviewed in data/evidence/${file} as: wrong, ${(entry.refs ?? []).join(", ")} — "${entry.note}".`
+    return `${ai} An editor (${r.by}) judged it ${r.verdict}${r.refs?.length ? `, citing ${r.refs.join(", ")}` : ""}${r.note ? `: "${r.note}"` : ""}.`
   }
   const old = mode === "stale" && ownKey.get(f.id)
-  if (!old) return ""
-  const entry = own.facts?.[old]
-  const verdict = entry ? `${entry.kind ?? "verse"}, ${(entry.refs ?? []).join(", ")}${entry.note ? ` — "${entry.note}"` : ""}` : "agreed with the text match"
-  return ` Was reviewed as \`${old}\`: ${verdict}.`
+  return old ? ` Was reviewed as \`${old}\`: ${said(own.facts?.[old])}.` : ""
 }
 
 // The text: the passage itself; or, for a --kind or --stale batch, the opening
@@ -183,13 +166,8 @@ const verses = passages.length
         chosen.flatMap((f) => [
           ...f.records.flatMap((id) => [...opening(id), ...(periods.find((p) => p.id === id)?.moments ?? []).flatMap((m) => opening(m, 4))]),
           ...(mode === "stale" ? (own.facts?.[ownKey.get(f.id)!]?.refs ?? []) : []),
-          ...(mode === "flagged" ? [...(flagged.get(f.key)!.entry.refs ?? []), ...refsOf(eventOf(f) ?? "")] : []),
-          ...(mode === "disputed"
-            ? [
-                ...(settled.get(f.key)!.refs ?? []),
-                ...(() => { const e = verdictOf.get(f.key)?.entry; return e && e !== "agreed" ? (e.refs ?? []) : [] })(),
-                ...refsOf(eventOf(f) ?? ""),
-              ]
+          ...(mode === "flagged" || mode === "disputed"
+            ? [...(settled.get(f.key)?.refs ?? []), ...(entryOf(f.key)?.refs ?? []), ...refsOf(eventOf(f) ?? "")]
             : []),
         ]),
       ),

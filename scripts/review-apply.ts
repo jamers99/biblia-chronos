@@ -15,6 +15,7 @@ import { readFileSync, writeFileSync } from "node:fs"
 import { join } from "node:path"
 import { parseArgs } from "node:util"
 import { Reviews, type Review } from "../src/lib/data/schema.ts"
+import type { Entity } from "../src/lib/data/load.ts"
 import { enumerateFacts, factId } from "../src/lib/evidence.ts"
 import { parseSubmission } from "../src/lib/review.ts"
 import { citedVerses } from "../src/lib/citations.ts"
@@ -41,7 +42,7 @@ const data = loadData()
 const facts = enumerateFacts(data)
 const current = new Map(facts.map((f) => [f.id, f.key]))
 const factOf = new Map(facts.map((f) => [f.key, f]))
-const records = new Map<string, any>([...data.people, ...data.places, ...data.events, ...data.peopleGroups].map((r) => [r.id, r]))
+const records = new Map<string, Entity>([...data.people, ...data.places, ...data.events, ...data.peopleGroups].map((r) => [r.id, r]))
 const reports: string[] = []
 const reviews = Reviews.parse(readJson("data/reviews.json"))
 
@@ -63,9 +64,7 @@ for (const { key, verdict, note } of submitted) {
   reviews[key] = review
   if (verdict === "wrong") {
     const f = factOf.get(key)!
-    const r = records.get(f.records[0])
-    const year = (f.kind === "birth" ? r?.birth : f.kind === "death" ? r?.death : r?.date)?.earliest
-    const url = upstreamReportUrl({ id: f.id, kind: f.kind, records: f.records, value: year === undefined ? undefined : String(year) }, (id) => records.get(id), review, (ref) => verse(ref, data.books)?.short ?? ref)
+    const url = upstreamReportUrl(f, (id) => records.get(id), review, (ref) => verse(ref, data.books)?.short ?? ref)
     reports.push(url ? `[Report \`${f.id}\` to Theographic](${url})` : `\`${f.id}\`: one of our own records, so fix it in \`data/overrides/\``)
   }
   applied.push(`${verdict} \`${key}\`${note ? `: ${note}` : ""}`)
