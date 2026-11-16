@@ -67,6 +67,10 @@
 
   const byId = $derived(new Map(places.map((p) => [p.id, p])))
   const chapter = $derived<Chapter | undefined>(chapters[at])
+  // the title split before its last word, so that word and the chevron wrap together
+  const titleText = $derived(chapter?.name ?? "Places of Scripture")
+  const titleHead = $derived(titleText.slice(0, titleText.lastIndexOf(" ") + 1))
+  const titleTail = $derived(titleText.slice(titleText.lastIndexOf(" ") + 1))
 
   // The panel covers a column on the left whose last 100px fade into the map,
   // or on phones a sheet over the bottom half. Its CSS (below) matches these
@@ -379,7 +383,7 @@
         <p class="kicker">{chapter ? `Chapter ${NUMERALS[at]} · ${chapter.when}` : "The story on a map"}</p>
         <h2>
           <button type="button" class="title" aria-haspopup="dialog" onclick={openPicker}>
-            {chapter?.name ?? "Places of Scripture"}<span class="caret" aria-hidden="true"></span>
+            {titleHead}<span class="title-end">{titleTail}<span class="caret" aria-hidden="true"></span></span>
             <span class="sr-only">: choose a chapter</span>
           </button>
         </h2>
@@ -600,6 +604,10 @@
     color: var(--ink);
   }
   /* a small chevron after the title's last word, saying it opens a list */
+  /* the last word and the chevron wrap together, so the chevron never sits alone on a line */
+  .title-end {
+    white-space: nowrap;
+  }
   .caret {
     display: inline-block;
     width: 0.32em;
