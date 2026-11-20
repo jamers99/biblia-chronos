@@ -7,7 +7,10 @@
 // does.
 //
 // The stack lives in history.state, so Back pops a layer (as in a native app)
-// and returning to the page restores it.
+// and returning to the page restores it. Only the top few panels are in the
+// page at once: the ones further down are just hrefs in that stack (and HTML in
+// the cache), rebuilt as you come back down to them. So climbing a long line of
+// ancestors costs the same as opening three.
 ---
 
 <script>
@@ -19,8 +22,13 @@
   const root = Object.assign(document.createElement("div"), { className: "layers" })
   document.body.append(root)
 
+  // Panels kept in the page: the top one and the two peeking out behind it
+  const LIVE = 3
+
   const stackOf = (state: unknown): string[] => (state as { layers?: string[] } | null)?.layers ?? []
-  const shown = () => [...root.querySelectorAll<HTMLElement>(".layer:not(.closing)")]
+  const shown = () => [...root.querySelectorAll<HTMLElement>(".layer:not(.closing, .fading)")]
+  let rendered: string[] = [] // the stack the panels show
+  const scrolls = new Map<number, number>() // where panels set aside were scrolled to, by place in the stack
 
   function load(href: string) {
     if (!pages.has(href)) {
@@ -46,11 +54,14 @@
     )
   }
 
-  // A panel. The first one's button closes it; the others' go back.
-  function layer(href: string, first: boolean) {
+  // A panel, at a place in the stack. The first one's button closes it; the
+  // others' go back. One being rebuilt returns to where it was scrolled.
+  function layer(href: string, index: number, scroll = 0) {
+    const first = index === 0
     const el = document.createElement("section")
     el.className = "layer"
     el.dataset.href = href
+    el.dataset.index = String(index)
     el.tabIndex = -1
     el.setAttribute("role", "dialog")
     el.innerHTML = `
@@ -70,6 +81,7 @@
         await adoptStyles(doc)
         el.setAttribute("aria-label", doc.title.replace(/ · Biblia Chronos$/, ""))
         body.replaceChildren(...[...doc.querySelector("main")!.childNodes].map((n) => document.importNode(n, true)))
+        body.scrollTop = scroll
       })
       .catch(() => {
         body.innerHTML = `<p class="layer-status">Couldn't load this. <a href="${href}" data-no-layer>Open the page</a> instead.</p>`
@@ -79,19 +91,46 @@
   }
 
   // Make the panels match a stack of hrefs: keep the common start, close the
-  // rest (animated), open what's new.
+  // rest (animated), open what's new. Panels that sink below the top few are set
+  // aside, and come back as the ones above them close.
   function sync(stack: string[]) {
-    const current = shown()
     let keep = 0
-    while (keep < current.length && current[keep].dataset.href === stack[keep]) keep++
-    for (const el of current.slice(keep)) {
-      el.classList.add("closing")
-      el.addEventListener("animationend", () => el.remove(), { once: true })
+    while (keep < rendered.length && rendered[keep] === stack[keep]) keep++
+    rendered = stack
+    for (const i of scrolls.keys()) if (i >= keep) scrolls.delete(i)
+
+    const floor = Math.max(0, stack.length - LIVE)
+    const live = new Map<number, HTMLElement>()
+    for (const el of shown()) {
+      const i = Number(el.dataset.index)
+      if (i >= keep) leave(el, "closing")
+      else if (i < floor) {
+        scrolls.set(i, el.querySelector(".layer-body")!.scrollTop)
+        leave(el, "fading")
+      } else live.set(i, el)
     }
-    stack.slice(keep).forEach((href, i) => root.append(layer(href, keep + i === 0)))
-    const open = shown()
-    open.forEach((el, i) => el.style.setProperty("--depth", String(open.length - 1 - i)))
-    if (stack.length > keep) open.at(-1)!.focus({ preventScroll: true })
+    for (let i = floor; i < stack.length; i++) {
+      if (live.has(i)) continue
+      const el = layer(stack[i], i, scrolls.get(i))
+      scrolls.delete(i)
+      if (i < keep) el.classList.add("restored") // back from being set aside, under the others
+      const above = [...live.entries()].find(([j]) => j > i)?.[1] ?? null
+      root.insertBefore(el, above)
+      live.set(i, el)
+    }
+    for (const el of root.querySelectorAll<HTMLElement>(".layer:not(.closing)"))
+      el.style.setProperty("--depth", String(stack.length - 1 - Number(el.dataset.index)))
+    if (stack.length > keep) live.get(stack.length - 1)!.focus({ preventScroll: true })
+  }
+
+  // Animate a panel out, then drop it.
+  function leave(el: HTMLElement, how: "closing" | "fading") {
+    el.classList.add(how)
+    el.addEventListener("animationend", function done(e) {
+      if (e.target !== el) return
+      el.removeEventListener("animationend", done)
+      el.remove()
+    })
   }
 
   function push(href: string) {
@@ -178,8 +217,21 @@
       filter 0.3s;
     animation: layer-in 0.3s cubic-bezier(0.2, 0.7, 0.3, 1);
   }
+  /* Coming back into reach, or sinking out of it (in this order, so a panel
+     that comes back and then closes or sinks again animates the new way) */
+  .layer.restored {
+    animation: layer-fade 0.2s ease-in reverse;
+  }
+  .layer.fading {
+    animation: layer-fade 0.2s ease-out forwards;
+  }
   .layer.closing {
     animation: layer-out 0.2s ease-in forwards;
+  }
+  @keyframes layer-fade {
+    to {
+      opacity: 0;
+    }
   }
   @keyframes layer-in {
     from {
