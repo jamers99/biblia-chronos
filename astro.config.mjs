@@ -3,10 +3,10 @@ import { defineConfig } from "astro/config"
 import svelte from "@astrojs/svelte"
 
 // Static output, hostable on GitHub Pages or any container (no server).
-// Deployed to GitHub Pages under the custom domain https://bibliachronos.org,
-// served from the root, so there is no base path.
+// Served from the root, so there is no base path. No `site` is set: nothing
+// builds absolute URLs, so the domain lives only in the GitHub Pages settings.
+// Set it if you add a sitemap, canonical links or social-preview tags.
 export default defineConfig({
-  site: "https://bibliachronos.org",
   base: "/",
   integrations: [svelte()],
   // Styles as files, never inlined, so a page shown in a panel over another
